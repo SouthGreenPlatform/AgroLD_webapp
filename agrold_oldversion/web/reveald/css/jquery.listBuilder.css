@@ -1,0 +1,92 @@
+/**
+* List Builder
+*
+* @fileoverview 
+* @link https://github.com/th3uiguy/jquery-listbuilder
+* @author Spencer Neese
+* @version 1.0
+* @requires jQuery UI 1.7+ and jQuery 1.3.2+
+* @license jQuery List Builder Plugin v1.0
+*
+* Copyright 2011, Spencer Neese
+* Dual licensed under the MIT or GPL Version 2 licenses.
+* <https://raw.github.com/th3uiguy/jquery-listbuilder/master/GPL-LICENSE.txt> <https://raw.github.com/th3uiguy/jquery-listbuilder/master/MIT-LICENSE.txt>
+*/
+
+.listBuilder{
+	border: 1px solid #ccc;
+	background-color: #fff;
+	padding:0.2em 0.3em;
+	cursor:text;
+}
+.listBuilder ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.listBuilder a.add{
+	float: right;
+	padding:2px 3px;
+}
+.listBuilder ul li{
+	display: inline;
+	padding: 0;
+	margin: 0;
+}
+.listBuilder ul a{
+	display: inline-block;
+	border:1px solid #aaf;
+	background:#ddf;
+	color:#333;
+	padding:0.1em 0.3em;
+	margin: 0.1em 0.2em;
+	-moz-border-radius: 10px; 
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	text-decoration: none;
+}
+.listBuilder ul a.locked{
+	background: none;
+	border: none;
+	padding-left:0.1em;
+	padding-right:0.1em;
+}
+.listBuilder .invalid{
+	background: #FCE094;
+	border-color: #DEA94F;
+}
+.listBuilder .ui-icon{
+	margin-top: 2px;
+}
+.listBuilder ul a.invalid .ui-icon-alert{
+	float: left;
+}
+.listBuilder .ui-icon-closethick{
+	float:right;
+}
+.listBuilder ul a.lb-hover{
+	border-color:#d00;
+	background: #d88;
+	color:#fff;
+}
+.listBuilder ul a.lb-hover{
+	border-color:#d00;
+	background: #d66;
+	color:#fff;
+}
+.listBuilder .active{
+	background: #66b;
+	border-color: #009;
+	color:#fff;
+}
+.listBuilder input.ui-autocomplete-input{
+	border: none;
+	color:#333;
+	background: none;
+	font-size:1em;
+	outline: none;
+	padding:0.2em 0.5em;
+	margin:0.1em 0.2em;
+	z-index: 900;
+	position: relative;
+}

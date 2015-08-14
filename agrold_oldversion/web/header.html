@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>AgroLD</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+        <link href="styles/style1.css" rel="stylesheet" type="text/css"/>
+        <!--link href="styles/style2.css" rel="stylesheet" type="text/css"/-->
+        <link href="styles/style3.css" rel="stylesheet" type="text/css"/>
+        <script src="scripts/jquery-1.11.2.min.js" type="text/javascript"></script>
+        <link href="styles/menu.css" rel="stylesheet" type="text/css"/>
+        <script type="text/javascript">
+            $(document).ready(function () {
+
+                $("ul#topnav li").hover(function () { //Hover over event on list item
+                    $(this).css({'background': '#000'}); //Add background color + image on hovered list item
+                    $(this).find("span").show(); //Show the subnav
+                }, function () { //on hover out...
+                    $(this).css({'background': 'none'}); //Ditch the background
+                    $(this).find("span").hide(); //Hide the subnav
+                });
+
+            });
+        </script>
+        <style>
+            b.caret {border-top-color:#fff;border-bottom-color:#777}
+        </style>
+    </head>
+    <body style="background-color: #666;">
+        <div class="navbar-header" style="width: 10%; float:left; padding-top: 0px;">
+            <a class="navbar-brand" href="index.jsp" title="Agronomic Linked Data"><b style="font-size: 140%; color: #fff">AgroLD</b></a>
+        </div>
+        <div class="container" style="width: 90%; float:right;">
+            <!--header class="navbar navbar-default navbar-fixed-top siteNavigation" role="navigation"-->
+            <div class="container">
+                <ul id="topnav">
+                    <!--li><a class="navbar-brand" href="home.html"  target="main" title="Agronomic Linked Data"><b>AgroLD</b></a></li-->
+                    <li><a href="home.html" target="main" title="Agronomic Linked Data">
+                            Home</a></li>
+                    <li>
+                        <a href="#">Search <b class="caret"></b></a>
+                        <span>
+                            <a href="fct.html" target="main" title="Keyword-based Search">Quick Search</a> |
+                            <a href="sparql.jsp" target="main" title="SPARQL Query">Expand</a> |
+                            <!--a href="formsearch.jsp" target="main" title="Advanced form-based search">Advanced form-based search</a-->
+                            <a href="relfinder/relfinder.jsp" target="main" title="Interactive Relationships Discovery in RDF Data">Explore</a>
+                            <!--a href="reveald" target="main" title="Query by ontology graph">Visual Query System</a-->
+                        </span>
+                    </li>
+                    <!--li>
+                        <a href="#">Help <b class="caret"></b></a>
+                        <span style="margin-left: 50px">
+                            <a href="search-tools-docs.html" target="main">AgroLD search tools</a> |
+                            <a href="agrold-docs/" target="main" title="AgroLD API documentation">AgroLD API</a> |
+                            <a href="external-services-docs.html" target="main" title="Information on the additional datasets">External services</a>
+                        </span>
+                    </li>
+                    <li>
+                        <a href="about"  target="main">Documentation</a>
+                    </li-->
+                    <li> 
+                        <a href="about.jsp"  target="main">About</a>
+                    </li>                
+                </ul>
+            </div>                
+    </body>
+</html>

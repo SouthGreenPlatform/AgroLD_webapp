@@ -1,0 +1,354 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a sample documentation of the RESTful-like API of AgroLD. ",
+        "version": "1.0.0",
+        "title": "AgroLD API Documentation",
+        "termsOfService": "http://helloreverb.com/terms/",
+        "contact": {
+            "email": "tagnyngompe@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "host": "localhost:8084/agrold/api",
+    "basePath": "/res",
+    "tags": [
+        {
+            "name": "predicate",
+            "description": "Everything about AgroLD predicates",
+            "externalDocs": {
+                "description": "Find out more",
+                "url": "http://www.agrold.org"
+            }
+        },
+        {
+            "name": "graphs",
+            "description": "General description",
+            "externalDocs": {
+                "description": "Find out more",
+                "url": "http://www.agrold.org"
+            }
+        },
+        {
+            "name": "gene",
+            "description": "Everything about AgroLD genes",
+            "externalDocs": {
+                "description": "Find out more",
+                "url": "http://www.agrold.org"
+            }
+        },
+        {
+            "name": "protein",
+            "description": "Everything about AgroLD proteins",
+            "externalDocs": {
+                "description": "Find out more",
+                "url": "http://www.agrold.org"
+            }
+        },
+        {
+            "name": "qtl",
+            "description": "Everything about AgroLD QTLs",
+            "externalDocs": {
+                "description": "Find out more",
+                "url": "http://www.agrold.org"
+            }
+        }],
+    "schemes": ["http"],
+    "paths": {
+        "/description.json": {
+            "get": {
+                "tags": ["graphs"],
+                "summary": "Retrieve complete description of a resource from AgroLD in JSON format",
+                "description": "",
+                "operationId": "getdescription",
+                "produces": ["application/json"],
+                "parameters": [{
+                        "name": "uri",
+                        "in": "query",
+                        "description": "URI of the resource",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/graphs.json": {
+            "get": {
+                "tags": ["graphs"],
+                "summary": "list all the graphs of AgroLD",
+                "description": "",
+                "operationId": "listgraphs",
+                "produces": ["application/json"],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/qtls.json": {
+            "get": {
+                "tags": ["qtl"],
+                "summary": "Retrieve complete URI and description of all QTLs from AgroLD in JSON format",
+                "description": "",
+                "operationId": "getproteins",
+                "produces": ["application/json"],
+                "parameters": [],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/proteins.json": {
+            "get": {
+                "tags": ["protein"],
+                "summary": "Retrieve complete URI and description of all proteins from AgroLD in JSON format",
+                "description": "",
+                "operationId": "getproteins",
+                "produces": ["application/json"],
+                "parameters": [],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/genes.json": {
+            "get": {
+                "tags": ["gene"],
+                "summary": "Retrieve complete URI and description of all genes from AgroLD in JSON format",
+                "description": "",
+                "operationId": "getgenes",
+                "produces": ["application/json"],
+                "parameters": [],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/predicates.xml": {
+            "get": {
+                "tags": ["predicate"],
+                "summary": "Retrieve complete URI of all predicates used in AgroLD in XML",
+                "description": "",
+                "operationId": "getpredicatesxml",
+                "produces": ["application/xml"],
+                "parameters": [],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/predicates.json": {
+            "get": {
+                "tags": ["predicate"],
+                "summary": "Retrieve complete URI of all predicates used in AgroLD in JSON",
+                "description": "",
+                "operationId": "getpredicatesjson",
+                "produces": ["application/json"],
+                "parameters": [],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        }
+
+    },
+    "securityDefinitions": {
+        "petstore_auth": {
+            "type": "oauth2",
+            "authorizationUrl": "http://petstore.swagger.io/api/oauth/dialog",
+            "flow": "implicit",
+            "scopes": {
+                "write:pets": "modify pets in your account",
+                "read:pets": "read your pets"
+            }
+        },
+        "api_key": {
+            "type": "apiKey",
+            "name": "api_key",
+            "in": "header"
+        }
+    },
+    "definitions": {
+        "Order": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "petId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "quantity": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "shipDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Order Status",
+                    "enum": ["placed", "approved", "delivered"]
+                },
+                "complete": {
+                    "type": "boolean",
+                    "default": false
+                }
+            },
+            "xml": {
+                "name": "Order"
+            }
+        },
+        "Category": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "xml": {
+                "name": "Category"
+            }
+        },
+        "User": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "username": {
+                    "type": "string"
+                },
+                "firstName": {
+                    "type": "string"
+                },
+                "lastName": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "userStatus": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "User Status"
+                }
+            },
+            "xml": {
+                "name": "User"
+            }
+        },
+        "Tag": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "xml": {
+                "name": "Tag"
+            }
+        },
+        "Pet": {
+            "type": "object",
+            "required": ["name", "photoUrls"],
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "category": {
+                    "$ref": "#/definitions/Category"
+                },
+                "name": {
+                    "type": "string",
+                    "example": "doggie"
+                },
+                "photoUrls": {
+                    "type": "array",
+                    "xml": {
+                        "name": "photoUrl",
+                        "wrapped": true
+                    },
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "tags": {
+                    "type": "array",
+                    "xml": {
+                        "name": "tag",
+                        "wrapped": true
+                    },
+                    "items": {
+                        "$ref": "#/definitions/Tag"
+                    }
+                },
+                "status": {
+                    "type": "string",
+                    "description": "pet status in the store",
+                    "enum": ["available", "pending", "sold"]
+                }
+            },
+            "xml": {
+                "name": "Pet"
+            }
+        },
+        "ApiResponse": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "externalDocs": {
+        "description": "Find out more about Swagger",
+        "url": "http://swagger.io"
+    }
+}

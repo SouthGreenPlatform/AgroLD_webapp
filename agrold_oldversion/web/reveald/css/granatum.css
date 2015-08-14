@@ -1,0 +1,454 @@
+/**
+   Licensed to the Apache Software Foundation (ASF) under one or more
+   contributor license agreements.  See the NOTICE file distributed with
+   this work for additional information regarding copyright ownership.
+   The ASF licenses this file to You under the Apache License, Version 2.0
+   (the "License"); you may not use this file except in compliance with
+   the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+*/
+body {
+    font-family: Verdana, Arial, Helvetica, sans-serif ;
+    font-size: 10pt ;
+    line-height: 18pt ;
+    color: black;
+    background: white ;
+    margin: 0 ;
+}
+.usage {
+	margin-bottom: 2px;
+}
+.error { color : red }
+
+p { margin-left: 2% ; margin-right: 2% ; }
+
+.infoTableCell a {
+color: #08C;
+text-decoration: none;
+}
+.warning { color: #FF0000 ; }
+.error   { color: #FF0000 ;  font-weight: bold; }
+
+/* Makes lists a little tighter
+li { line-height: 14pt ; }
+*/
+
+table {
+  font-family: Verdana, Arial, sans-serif ;
+  font-size: 10pt ;
+  border-collapse: collapse;
+  border: 0px solid black ;
+  background-color: #F0F0F0; 
+  cellspacing: 0 ;
+  cellpadding: 0 
+}
+
+td {
+  border: 1px solid #808080 ;
+  empty-cells: show;
+  padding: 5 ;
+  spacing: 0 ;
+  vertical-align:top;
+}
+
+
+th {
+  border: 1px solid #808080 ;
+  empty-cells: show;
+  padding: 5 ;
+  vertical-align:top;
+  text-align:center
+}
+
+.box 
+{ 
+  margin-left :     5% ;
+  margin-right :    5% ;
+  border:           solid ;
+  border-width:     thin; 
+  background-color: #F0F0F0; 
+  padding:          2mm;
+  page-break-inside: avoid ;
+}
+
+.timer
+{
+	position:absolute;
+	left : 100px;
+	top : 100px;
+	z-index: 5000;
+	background : #deb041 ;
+  margin-left :     5% ;
+  margin-right :    5% ;
+  border:           solid ;
+  border-width:     thin; 
+  padding:          2mm;
+  page-break-inside: avoid ;
+}
+
+.timer img
+{
+	display : block ;
+	margin-left : auto ;
+	margin-right : auto;
+}
+
+.noindent     { margin-left: -5% ; margin-right: -5%; }
+.moreindent   { margin-left:  5% ; margin-right:  5%; }
+
+
+/* Use this for the document title as displayed on the page at the top. */
+
+
+h1 {
+    text-align:center ;
+    font-size: 14pt;
+    line-height: 24pt ;
+    font-weight: bold;
+    color:#000;
+    background:#CADFF4;
+    padding: 0 ;
+    margin: 0 ;
+    padding-left: 1ex;
+    padding-right: 1ex;
+    text-align:center;
+}
+
+h2 {
+    font-size: 12pt;
+    line-height: 16pt ;
+    font-size: 110%;
+    font-weight: bold;
+    color: #003399;
+    background:#CADFF4;
+    margin-bottom:5px;
+    padding-left: 1ex;
+    padding-right: 1ex;
+}
+
+h3, h4, h5 {
+	 background:#CADFF4;
+    font-size: 100%;
+    font-weight: bold;
+    margin-bottom:3px;
+}
+
+.sidebar {
+	background: none;
+	color: #000000;
+}
+.inputLine {
+	 background:#CADFF4;
+}
+
+ul { list-style-type: disc }
+dt { font-weight: bold }
+
+/* No extra space between paragraphs : inherits from body */
+pre {
+    font-family: monospace;
+    font-size: 10pt ;
+    line-height: 14pt ;
+    margin-top: 1 ;
+    margin-bottom: 1 ;
+    margin-left: 5ex ;
+    }
+
+/* Some general utility definitions */
+.centered {
+    text-align: center;
+}
+
+.sampleQueryTable td {
+	border: 0px;
+	background : white;
+}
+
+.caption {
+    text-align: center;
+    font-size: smaller;
+}
+
+code {
+    font-size: 10pt;
+}
+.js-popup-info {
+	width : 800px;
+	height : 800px;
+}
+.js-tool-usage {
+	width : 800px;
+	height : 800px;
+}
+.js-sample-queries {
+	width : 800px;
+	height : 800px;
+}
+.js-saved-queries{
+	width : 800px;
+	height : 800px;
+}
+.js-about-reveald {
+	width : 800px;
+	height : 800px;
+}
+.js-reveald-demo {
+	width : 800px;
+	height : 600px;
+}
+.js-extended-ontologies {
+	width : 800px;
+}
+.js-evaluate-help {
+	width : 800px;
+}
+#additionalTabs li .ui-icon-close { float: left; margin: 0.4em 0.2em 0 0; cursor: pointer; }
+
+.searchContainer {
+       margin-left:auto;
+       margin-right:auto;
+       width:1200px;
+       height: 800px;
+       z-index:0;
+       position: relative;
+       -moz-border-radius: 15px;
+       border-radius: 15px;
+       -moz-box-shadow: 0px 0px 5px #888;
+       -webkit-box-shadow: 0px 0px 5px #888;
+       box-shadow: 0px 0px 5px #888;                                        
+}
+.splashScreen {
+		margin: auto;
+       	width:600px;
+       	height: 200px;
+       	position:absolute;
+		left : 100px;
+		top : 100px;
+		z-index: 5000;
+       	background: white;
+       	-moz-border-radius: 15px;
+       	border-radius: 15px;
+       	-moz-box-shadow: 0px 0px 5px #888;
+       	-webkit-box-shadow: 0px 0px 5px #888;
+       	box-shadow: 0px 0px 5px #888;    
+}
+.splashScreenExplorer {
+		margin: auto;
+       	width:600px;
+       	height: 200px;
+       	position: relative;
+       	top: -600px;
+		z-index:10;
+       	background: white;
+       	-moz-border-radius: 15px;
+       	border-radius: 15px;
+       	-moz-box-shadow: 0px 0px 5px #888;
+       	-webkit-box-shadow: 0px 0px 5px #888;
+       	box-shadow: 0px 0px 5px #888;    
+}
+
+#searchTool {
+	position: absolute;
+	margin: auto;
+	left: 850px;
+	top: 0px;
+	width: 350px;
+	height: 800px;
+    border-left:1px solid #ddd;
+    text-align: center;
+}
+
+#searchTool textarea{
+/*	width: 300px; */
+}
+
+.logo {
+	margin: auto;
+	position: relative;
+	margin-top: 20px;
+	width: 228px;
+}
+
+.queryBuilder {
+	margin: 0px;
+	position: relative;
+	margin-top: 20px;
+}
+#log {
+	position:relative;
+}
+#inner-details {
+	margin: auto;
+	position:relative;
+	margin-top:5px;
+}
+.infovis {
+	position: absolute;
+	left: 0px;
+    width:850px;
+    height:800px;
+    
+    overflow:hidden;
+}
+
+#infovis-canvaswidget {
+  margin:25px 0 0 25px;
+
+}
+
+#listIncrement {
+	overflow: auto;
+	height: 220px;
+}
+
+#selectConcept {
+	overflow: auto;
+	height: 270px;
+}
+
+#selectConcept input[type="text"]{
+	width: 100px;
+}
+/*TOOLTIPS*/
+.tip {
+    color: #111;
+    width: 139px;
+    background-color: white;
+    border:1px solid #ccc;
+    -moz-box-shadow:#555 2px 2px 8px;
+    -webkit-box-shadow:#555 2px 2px 8px;
+    -o-box-shadow:#555 2px 2px 8px;
+    box-shadow:#555 2px 2px 8px;
+    opacity:0.9;
+    filter:alpha(opacity=90);
+    font-size:10px;
+    font-family:Verdana, Geneva, Arial, Helvetica, sans-serif;
+    padding:7px;
+}
+
+.footnote {
+    font-size: smaller;
+    border-top: thin solid gray;
+}
+
+.link { 
+	stroke: #ccc; 
+	  font-weight: 300;
+
+	font-size: 11px; 
+	font-family: sans-serif; 
+}
+.nodetext { 
+	pointer-events: none; 
+	font-size: 11px; 
+	font-family: sans-serif; 
+}
+.main{
+	border: 1px; 
+	border-color: black
+}
+.details{
+  font-size: 16px;
+}
+.literal{
+  font-size: 11px;
+}
+text.link{
+  stroke: black;
+  pointer-events: none; 
+  font-size: 11px; 
+  font-family: sans-serif; 
+}
+arrowhead {
+  stroke: #999;
+  fill: #999;
+  stroke-width: 1;
+}
+.ui-tabs .ui-tabs-hide {
+    position: absolute;
+    left: -10000px;
+}
+
+.accordion {
+	margin: auto;
+    z-index:10;
+  	background: white;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: 0px 0px 5px #888;
+    -webkit-box-shadow: 0px 0px 5px #888;
+    box-shadow: 0px 0px 5px #888;    
+}
+
+.collapsible , .collapsibleQuery{
+	margin: auto;
+	padding: 20px;
+  	background: white;
+ 	border: 1px solid; 
+	border-color: gray;
+}
+
+.filterOptions {
+	width: 100px;
+}
+
+.queryResultsMetaData{
+	margin: auto;
+	width: 400px;
+	height: 300px;
+	position: relative;
+	top: -600px;
+	z-index: 10;
+	background: white;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	-moz-box-shadow: 0px 0px 15px #888;
+	-webkit-box-shadow: 0px 0px 15px #888;
+	box-shadow: 0px 0px 15px #888;
+}
+
+.selectQueryElems{
+	margin: auto;
+	width: 800px;
+	height: 800px;
+	position: relative;
+	top: -800px;
+	z-index: 10;
+	background: white;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	-moz-box-shadow: 0px 0px 15px #888;
+	-webkit-box-shadow: 0px 0px 15px #888;
+	box-shadow: 0px 0px 15px #888;
+}
+
+.increMetaHeader, .queryResMetaHeader, .queryElemsMetaHeader {
+	font-size: 20px;
+	letter-spacing: 2px;
+}
+
+.increText {
+	font-size: 16px;
+	letter-spacing: 2px;
+}
+
+tooltip.tooltip {   
+  position: absolute;           
+  text-align: center;           
+  width: 60px;                  
+  height: 28px;                 
+  padding: 2px;             
+  font: 12px sans-serif;        
+  background: lightsteelblue;   
+  border: 0px;      
+  border-radius: 8px;           
+  pointer-events: none;         
+  z-index: 100;
+}
