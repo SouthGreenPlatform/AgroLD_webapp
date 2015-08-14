@@ -1,0 +1,112 @@
+@base	<http://www.southgreen.fr/agrold/> .
+@prefix	rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix	rdfs:<http://www.w3.org/2000/01/rdf-schema#> .
+@prefix	agrold_vocabulary:<http://www.southgreen.fr/agrold/vocabulary/> .
+@prefix	obo:<http://purl.obolibrary.org/obo/> .
+@prefix	ensembl:<http://identifiers.org/ensembl.plant/> .
+@prefix	uniprot:<http://purl.uniprot.org/uniprot/> .
+
+ensembl:OMERI01G08890
+	rdf:type	agrold_vocabulary:Gene ;
+	rdfs:subClassOf	obo:SO_0000704 ;
+	agrold_vocabulary:has_end_position	"8042692" ;
+	agrold_vocabulary:has_start_position	"8038929" ;
+	agrold_vocabulary:has_biotype	"protein_coding" ;
+	agrold_vocabulary:chromosome	"1" .
+ensembl:OMERI01G00020
+	rdf:type	agrold_vocabulary:Gene ;
+	rdfs:subClassOf	obo:SO_0000704 ;
+	agrold_vocabulary:has_end_position	"18153" ;
+	agrold_vocabulary:has_start_position	"14773" ;
+	agrold_vocabulary:has_biotype	"protein_coding" ;
+	agrold_vocabulary:chromosome	"1" .
+ensembl:OMERI01G00030
+	rdf:type	agrold_vocabulary:Gene ;
+	rdfs:subClassOf	obo:SO_0000704 ;
+	agrold_vocabulary:has_end_position	"22696" ;
+	agrold_vocabulary:has_start_position	"18952" ;
+	agrold_vocabulary:has_biotype	"protein_coding" ;
+	obo:participates_in	obo:GO_0000304 ;
+	obo:located_in	obo:GO_0042651 ;
+	obo:has_function	obo:GO_0005515 ;
+	agrold_vocabulary:chromosome	"1" .
+ensembl:OMERI01G08910
+	rdf:type	agrold_vocabulary:Gene ;
+	rdfs:subClassOf	obo:SO_0000704 ;
+	agrold_vocabulary:has_end_position	"8056038" ;
+	agrold_vocabulary:has_start_position	"8055685" ;
+	agrold_vocabulary:has_biotype	"protein_coding" ;
+	agrold_vocabulary:chromosome	"1" .
+ensembl:OMERI06G11370
+	rdf:type	agrold_vocabulary:Gene ;
+	rdfs:subClassOf	obo:SO_0000704 ;
+	agrold_vocabulary:has_end_position	"10979848" ;
+	agrold_vocabulary:has_start_position	"10976101" ;
+	agrold_vocabulary:has_biotype	"protein_coding" ;
+	obo:participates_in	obo:GO_0010150 ;
+	obo:participates_in	obo:GO_0009693 ;
+	agrold_vocabulary:chromosome	"6" .
+ensembl:OMERI01G08200
+	rdf:type	agrold_vocabulary:Gene ;
+	rdfs:subClassOf	obo:SO_0000704 ;
+	agrold_vocabulary:has_end_position	"7291592" ;
+	rdfs:label	"RAC1" ;
+	agrold_vocabulary:has_start_position	"7289262" ;
+	agrold_vocabulary:description	"Rac1  [Source:UniProtKB/TrEMBL;Acc:S5CLE5]" ;
+	agrold_vocabulary:encodes	uniprot:S5CLE5 ;
+	agrold_vocabulary:has_biotype	"protein_coding" ;
+	obo:participates_in	obo:GO_0007264 ;
+	obo:has_function	obo:GO_0005525 ;
+	agrold_vocabulary:chromosome	"1" .
+ensembl:OMERI01G08900
+	rdf:type	agrold_vocabulary:Gene ;
+	rdfs:subClassOf	obo:SO_0000704 ;
+	agrold_vocabulary:has_end_position	"8044174" ;
+	agrold_vocabulary:has_start_position	"8043788" ;
+	agrold_vocabulary:has_biotype	"protein_coding" ;
+	agrold_vocabulary:chromosome	"1" .
+ensembl:OMERI01G04540
+	rdf:type	agrold_vocabulary:Gene ;
+	rdfs:subClassOf	obo:SO_0000704 ;
+	agrold_vocabulary:has_end_position	"3505722" ;
+	rdfs:label	"SERK1" ;
+	agrold_vocabulary:has_start_position	"3500727" ;
+	agrold_vocabulary:description	"Somatic embryogenesis receptor-like kinase 1  [Source:UniProtKB/TrEMBL;Acc:S5CKS2]" ;
+	agrold_vocabulary:encodes	uniprot:S5CKS2 ;
+	agrold_vocabulary:has_biotype	"protein_coding" ;
+	obo:participates_in	obo:GO_0016310 ;
+	obo:located_in	obo:GO_0016021 ;
+	obo:has_function	obo:GO_0016301 ;
+	agrold_vocabulary:chromosome	"1" .
+ensembl:OMERI01G05540
+	rdf:type	agrold_vocabulary:Gene ;
+	rdfs:subClassOf	obo:SO_0000704 ;
+	agrold_vocabulary:has_end_position	"4460333" ;
+	agrold_vocabulary:has_start_position	"4453732" ;
+	agrold_vocabulary:description	"Gigantea-like protein  [Source:UniProtKB/TrEMBL;Acc:A0SGN1]" ;
+	agrold_vocabulary:encodes	uniprot:A0SGN2 ;
+	agrold_vocabulary:has_biotype	"protein_coding" ;
+	obo:participates_in	obo:GO_2000028 ;
+	obo:participates_in	obo:GO_0048578 ;
+	obo:participates_in	obo:GO_0010378 ;
+	agrold_vocabulary:chromosome	"1" .
+ensembl:OMERI01G08190
+	rdf:type	agrold_vocabulary:Gene ;
+	rdfs:subClassOf	obo:SO_0000704 ;
+	agrold_vocabulary:has_end_position	"7291807" ;
+	agrold_vocabulary:has_start_position	"7282003" ;
+	agrold_vocabulary:description	"Embryonic flower 1-like protein  [Source:UniProtKB/TrEMBL;Acc:A0SH12]" ;
+	agrold_vocabulary:encodes	uniprot:A0PII0 ;
+	agrold_vocabulary:encodes	uniprot:A0SH13 ;
+	agrold_vocabulary:encodes	uniprot:A0SH12 ;
+	agrold_vocabulary:has_biotype	"protein_coding" ;
+	agrold_vocabulary:chromosome	"1" .
+ensembl:OMERI01G00010
+	rdf:type	agrold_vocabulary:Gene ;
+	rdfs:subClassOf	obo:SO_0000704 ;
+	agrold_vocabulary:has_end_position	"11879" ;
+	agrold_vocabulary:has_start_position	"10893" ;
+	agrold_vocabulary:has_biotype	"protein_coding" ;
+	obo:has_function	obo:GO_0046872 ;
+	obo:has_function	obo:GO_0003676 ;
+	agrold_vocabulary:chromosome	"1" .

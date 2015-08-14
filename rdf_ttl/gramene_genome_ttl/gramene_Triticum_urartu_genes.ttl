@@ -1,0 +1,95 @@
+@base	<http://www.southgreen.fr/agrold/> .
+@prefix	rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix	rdfs:<http://www.w3.org/2000/01/rdf-schema#> .
+@prefix	agrold_vocabulary:<http://www.southgreen.fr/agrold/vocabulary/> .
+@prefix	obo:<http://purl.obolibrary.org/obo/> .
+@prefix	ensembl:<http://identifiers.org/ensembl.plant/> .
+@prefix	uniprot:<http://purl.uniprot.org/uniprot/> .
+
+ensembl:TRIUR3_00035
+	rdf:type	agrold_vocabulary:Gene ;
+	rdfs:subClassOf	obo:SO_0000704 ;
+	agrold_vocabulary:has_end_position	"63202" ;
+	agrold_vocabulary:has_start_position	"62761" ;
+	agrold_vocabulary:encodes	uniprot:T1L6R1 ;
+	agrold_vocabulary:has_biotype	"protein_coding" ;
+	agrold_vocabulary:chromosome	"scaffold45920" .
+ensembl:TRIUR3_00034
+	rdf:type	agrold_vocabulary:Gene ;
+	rdfs:subClassOf	obo:SO_0000704 ;
+	agrold_vocabulary:has_end_position	"45151" ;
+	agrold_vocabulary:has_start_position	"43424" ;
+	agrold_vocabulary:description	"Type I inositol-1,4,5-trisphosphate 5-phosphatase 11  [Source:UniProtKB/TrEMBL;Acc:M7YPV6]" ;
+	agrold_vocabulary:encodes	uniprot:M7YPV6 ;
+	agrold_vocabulary:has_biotype	"protein_coding" ;
+	agrold_vocabulary:chromosome	"scaffold14933" .
+ensembl:TRIUR3_00001
+	rdf:type	agrold_vocabulary:Gene ;
+	rdfs:subClassOf	obo:SO_0000704 ;
+	agrold_vocabulary:has_end_position	"193" ;
+	agrold_vocabulary:has_start_position	"16" ;
+	agrold_vocabulary:encodes	uniprot:T1L6N5 ;
+	agrold_vocabulary:has_biotype	"protein_coding" ;
+	agrold_vocabulary:chromosome	"scaffold14933" .
+ensembl:TRIUR3_00002
+	rdf:type	agrold_vocabulary:Gene ;
+	rdfs:subClassOf	obo:SO_0000704 ;
+	agrold_vocabulary:has_end_position	"7311" ;
+	agrold_vocabulary:has_start_position	"6943" ;
+	agrold_vocabulary:encodes	uniprot:T1L6N6 ;
+	agrold_vocabulary:has_biotype	"protein_coding" ;
+	agrold_vocabulary:chromosome	"scaffold14933" .
+ensembl:TRIUR3_00003
+	rdf:type	agrold_vocabulary:Gene ;
+	rdfs:subClassOf	obo:SO_0000704 ;
+	agrold_vocabulary:has_end_position	"8399" ;
+	agrold_vocabulary:has_start_position	"8232" ;
+	agrold_vocabulary:description	"Uncharacterized protein  [Source:UniProtKB/TrEMBL;Acc:M7YPV1]" ;
+	agrold_vocabulary:encodes	uniprot:M7YPV1 ;
+	agrold_vocabulary:has_biotype	"protein_coding" ;
+	agrold_vocabulary:chromosome	"scaffold14933" .
+ensembl:TRIUR3_00061
+	rdf:type	agrold_vocabulary:Gene ;
+	rdfs:subClassOf	obo:SO_0000704 ;
+	agrold_vocabulary:has_end_position	"1617" ;
+	agrold_vocabulary:has_start_position	"1369" ;
+	agrold_vocabulary:description	"Cytochrome b559 subunit alpha  [Source:UniProtKB/TrEMBL;Acc:M7YVF3]" ;
+	agrold_vocabulary:encodes	uniprot:M7YVF3 ;
+	agrold_vocabulary:has_biotype	"protein_coding" ;
+	agrold_vocabulary:chromosome	"scaffold262405" .
+ensembl:TRIUR3_00065
+	rdf:type	agrold_vocabulary:Gene ;
+	rdfs:subClassOf	obo:SO_0000704 ;
+	agrold_vocabulary:has_end_position	"10431" ;
+	agrold_vocabulary:has_start_position	"9004" ;
+	agrold_vocabulary:description	"Ribulose bisphosphate carboxylase large chain  [Source:UniProtKB/TrEMBL;Acc:M8A2T1]" ;
+	agrold_vocabulary:encodes	uniprot:M8A2T1 ;
+	agrold_vocabulary:has_biotype	"protein_coding" ;
+	agrold_vocabulary:chromosome	"scaffold262405" .
+ensembl:TRIUR3_00196
+	rdf:type	agrold_vocabulary:Gene ;
+	rdfs:subClassOf	obo:SO_0000704 ;
+	agrold_vocabulary:has_end_position	"105156" ;
+	agrold_vocabulary:has_start_position	"104770" ;
+	agrold_vocabulary:description	"Cysteine proteinase inhibitor 8  [Source:UniProtKB/TrEMBL;Acc:M8A378]" ;
+	agrold_vocabulary:encodes	uniprot:M8A378 ;
+	agrold_vocabulary:has_biotype	"protein_coding" ;
+	agrold_vocabulary:chromosome	"scaffold21252" .
+ensembl:TRIUR3_00197
+	rdf:type	agrold_vocabulary:Gene ;
+	rdfs:subClassOf	obo:SO_0000704 ;
+	agrold_vocabulary:has_end_position	"116394" ;
+	agrold_vocabulary:has_start_position	"116008" ;
+	agrold_vocabulary:description	"Cysteine proteinase inhibitor 8  [Source:UniProtKB/TrEMBL;Acc:M7ZHH5]" ;
+	agrold_vocabulary:encodes	uniprot:M7ZHH5 ;
+	agrold_vocabulary:has_biotype	"protein_coding" ;
+	agrold_vocabulary:chromosome	"scaffold21252" .
+ensembl:TRIUR3_00195
+	rdf:type	agrold_vocabulary:Gene ;
+	rdfs:subClassOf	obo:SO_0000704 ;
+	agrold_vocabulary:has_end_position	"84079" ;
+	agrold_vocabulary:has_start_position	"81054" ;
+	agrold_vocabulary:description	"Soluble inorganic pyrophosphatase  [Source:UniProtKB/TrEMBL;Acc:M8AEP3]" ;
+	agrold_vocabulary:encodes	uniprot:M8AEP3 ;
+	agrold_vocabulary:has_biotype	"protein_coding" ;
+	agrold_vocabulary:chromosome	"scaffold21252" .

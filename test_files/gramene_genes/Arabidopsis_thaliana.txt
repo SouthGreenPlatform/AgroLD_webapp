@@ -1,0 +1,10 @@
+Gene stable ID	Gene name	Gene description	Chromosome/scaffold name	Gene start (bp)	Gene end (bp)	Gene biotype	TAIR locus ID	UniProtKB/SwissProt ID	UniProtKB/TrEMBL ID	PO term accession (bp)	PO domain
+AT3G18710	PUB29	plant U-box 29 [Source:TAIR;Acc:AT3G18710]	3	6434083	6435561	protein_coding	AT3G18710	Q9LSA6		PO:0001185	plant_structure_development_stage
+AT3G18710	PUB29	plant U-box 29 [Source:TAIR;Acc:AT3G18710]	3	6434083	6435561	protein_coding	AT3G18710	Q9LSA6		PO:0001054	plant_structure_development_stage
+AT3G18710	PUB29	plant U-box 29 [Source:TAIR;Acc:AT3G18710]	3	6434083	6435561	protein_coding	AT3G18710	Q9LSA6		PO:0009010	plant_anatomy
+AT4G25880	APUM6	pumilio 6 [Source:TAIR;Acc:AT4G25880]	4	13154708	13159382	protein_coding	AT4G25880			PO:0007611	plant_structure_development_stage
+AT4G25880	APUM6	pumilio 6 [Source:TAIR;Acc:AT4G25880]	4	13154708	13159382	protein_coding	AT4G25880	Q9C5E7		PO:0001185	plant_structure_development_stage
+AT1G71695	PER12	Peroxidase superfamily protein [Source:TAIR;Acc:AT1G71695]	1	26964249	26966688	protein_coding	AT1G71695	Q96520	Q570F0	PO:0001185	plant_structure_development_stage
+AT3G18310		unknown protein; Has 30 Blast hits to 30 proteins in 10 species: Archae - 0; Bacteria - 0; Metazoa - 0; Fungi - 0; Plants - 30; Viruses - 0; Other Eukaryotes - 0 (source: NCBI BLink). [Source:TAIR;Acc:AT3G18310]	3	6284356	6287144	protein_coding	AT3G18310		Q9LS59	PO:0001185	plant_structure_development_stage
+AT2G26280	CID7	CTC-interacting domain 7 [Source:TAIR;Acc:AT2G26280]	2	11187733	11191337	protein_coding	AT2G26280	O64843		PO:0025022	plant_anatomy
+AT4G32600		RING/U-box superfamily protein [Source:TAIR;Acc:AT4G32600]	4	15723434	15726109	protein_coding	AT4G32600		Q8VY23	PO:0001185	plant_structure_development_stage

@@ -1,0 +1,143 @@
+@base	<http://www.southgreen.fr/agrold/> .
+@prefix	rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix	rdfs:<http://www.w3.org/2000/01/rdf-schema#> .
+@prefix	agrold_vocabulary:<http://www.southgreen.fr/agrold/vocabulary/> .
+@prefix	obo:<http://purl.obolibrary.org/obo/> .
+@prefix	ensembl:<http://identifiers.org/ensembl.plant/> .
+@prefix	rapdb:<http://www.southgreen.fr/agrold/rapdb/> .
+@prefix	uniprot:<http://purl.uniprot.org/uniprot/> .
+
+ensembl:BGIOSGA022107
+	rdf:type	agrold_vocabulary:Gene ;
+	rdfs:subClassOf	obo:SO_0000704 ;
+	agrold_vocabulary:has_rap_identifier	rapdb:Os06g0104300 ;
+	agrold_vocabulary:has_end_position	"324281" ;
+	agrold_vocabulary:has_start_position	"320258" ;
+	agrold_vocabulary:description	"Putative uncharacterized protein  [Source:UniProtKB/TrEMBL;Acc:A2Y8A8]" ;
+	agrold_vocabulary:encodes	uniprot:A2Y8A8 ;
+	agrold_vocabulary:has_biotype	"protein_coding" ;
+	agrold_vocabulary:chromosome	"6" .
+ensembl:BGIOSGA004130
+	rdf:type	agrold_vocabulary:Gene ;
+	rdfs:subClassOf	obo:SO_0000704 ;
+	agrold_vocabulary:has_end_position	"29705645" ;
+	agrold_vocabulary:has_start_position	"29704805" ;
+	agrold_vocabulary:description	"Putative uncharacterized protein  [Source:UniProtKB/TrEMBL;Acc:A2WTC0]" ;
+	agrold_vocabulary:encodes	uniprot:A2WTC0 ;
+	agrold_vocabulary:has_biotype	"protein_coding" ;
+	agrold_vocabulary:chromosome	"1" .
+ensembl:BGIOSGA036507
+	rdf:type	agrold_vocabulary:Gene ;
+	rdfs:subClassOf	obo:SO_0000704 ;
+	agrold_vocabulary:has_end_position	"4536453" ;
+	agrold_vocabulary:has_start_position	"4532444" ;
+	agrold_vocabulary:description	"Putative uncharacterized protein  [Source:UniProtKB/TrEMBL;Acc:B8BNH9]" ;
+	agrold_vocabulary:encodes	uniprot:B8BNH9 ;
+	agrold_vocabulary:has_biotype	"protein_coding" ;
+	agrold_vocabulary:chromosome	"12" .
+ensembl:BGIOSGA013239
+	rdf:type	agrold_vocabulary:Gene ;
+	rdfs:subClassOf	obo:SO_0000704 ;
+	agrold_vocabulary:has_rap_identifier	rapdb:Os03g0655700 ;
+	agrold_vocabulary:has_end_position	"29475638" ;
+	agrold_vocabulary:has_start_position	"29471768" ;
+	agrold_vocabulary:description	"3-isopropylmalate dehydrogenase  [Source:UniProtKB/TrEMBL;Acc:A2XK82]" ;
+	agrold_vocabulary:encodes	uniprot:A2XK82 ;
+	agrold_vocabulary:has_biotype	"protein_coding" ;
+	agrold_vocabulary:chromosome	"3" .
+ensembl:BGIOSGA028679
+	rdf:type	agrold_vocabulary:Gene ;
+	rdfs:subClassOf	obo:SO_0000704 ;
+	agrold_vocabulary:has_rap_identifier	rapdb:Os08g0419500 ;
+	agrold_vocabulary:has_end_position	"21430939" ;
+	agrold_vocabulary:has_start_position	"21428919" ;
+	agrold_vocabulary:description	"Putative uncharacterized protein  [Source:UniProtKB/TrEMBL;Acc:B8BAT8]" ;
+	agrold_vocabulary:encodes	uniprot:B8BAT8 ;
+	agrold_vocabulary:has_biotype	"protein_coding" ;
+	agrold_vocabulary:chromosome	"8" .
+ensembl:BGIOSGA035117
+	rdf:type	agrold_vocabulary:Gene ;
+	rdfs:subClassOf	obo:SO_0000704 ;
+	agrold_vocabulary:has_rap_identifier	rapdb:Os11g0277700 ;
+	agrold_vocabulary:has_end_position	"8443098" ;
+	agrold_vocabulary:has_start_position	"8442733" ;
+	agrold_vocabulary:description	"Putative uncharacterized protein  [Source:UniProtKB/TrEMBL;Acc:B8BK20]" ;
+	agrold_vocabulary:encodes	uniprot:B8BK20 ;
+	agrold_vocabulary:has_biotype	"protein_coding" ;
+	agrold_vocabulary:chromosome	"11" .
+ensembl:BGIOSGA037917
+	rdf:type	agrold_vocabulary:Gene ;
+	rdfs:subClassOf	obo:SO_0000704 ;
+	agrold_vocabulary:has_rap_identifier	rapdb:Os11g0708750 ;
+	agrold_vocabulary:has_end_position	"44311" ;
+	agrold_vocabulary:has_start_position	"43862" ;
+	agrold_vocabulary:has_biotype	"protein_coding" ;
+	agrold_vocabulary:chromosome	"AAAA02035578.1" .
+ensembl:BGIOSGA038324
+	rdf:type	agrold_vocabulary:Gene ;
+	rdfs:subClassOf	obo:SO_0000704 ;
+	agrold_vocabulary:has_end_position	"5549" ;
+	agrold_vocabulary:has_start_position	"4607" ;
+	agrold_vocabulary:description	"Putative uncharacterized protein  [Source:UniProtKB/TrEMBL;Acc:B8A8W0]" ;
+	agrold_vocabulary:encodes	uniprot:B8A8W0 ;
+	agrold_vocabulary:has_biotype	"protein_coding" ;
+	agrold_vocabulary:chromosome	"AAAA02037638.1" .
+ensembl:BGIOSGA027684
+	rdf:type	agrold_vocabulary:Gene ;
+	rdfs:subClassOf	obo:SO_0000704 ;
+	agrold_vocabulary:has_end_position	"2309627" ;
+	agrold_vocabulary:has_start_position	"2309202" ;
+	agrold_vocabulary:has_biotype	"protein_coding" ;
+	agrold_vocabulary:chromosome	"8" .
+ensembl:BGIOSGA037957
+	rdf:type	agrold_vocabulary:Gene ;
+	rdfs:subClassOf	obo:SO_0000704 ;
+	agrold_vocabulary:has_end_position	"14550" ;
+	agrold_vocabulary:has_start_position	"11725" ;
+	agrold_vocabulary:has_biotype	"protein_coding" ;
+	agrold_vocabulary:chromosome	"CH398272.1" .
+ensembl:BGIOSGA016445
+	rdf:type	agrold_vocabulary:Gene ;
+	rdfs:subClassOf	obo:SO_0000704 ;
+	agrold_vocabulary:has_end_position	"19475177" ;
+	agrold_vocabulary:has_start_position	"19470169" ;
+	agrold_vocabulary:description	"Putative uncharacterized protein  [Source:UniProtKB/TrEMBL;Acc:B8AU03]" ;
+	agrold_vocabulary:encodes	uniprot:B8AU03 ;
+	agrold_vocabulary:has_biotype	"protein_coding" ;
+	agrold_vocabulary:chromosome	"4" .
+ensembl:BGIOSGA038411
+	rdf:type	agrold_vocabulary:Gene ;
+	rdfs:subClassOf	obo:SO_0000704 ;
+	agrold_vocabulary:has_end_position	"8282" ;
+	agrold_vocabulary:has_start_position	"7455" ;
+	agrold_vocabulary:has_biotype	"protein_coding" ;
+	agrold_vocabulary:chromosome	"CH398881.1" .
+ensembl:BGIOSGA032186
+	rdf:type	agrold_vocabulary:Gene ;
+	rdfs:subClassOf	obo:SO_0000704 ;
+	agrold_vocabulary:has_end_position	"5988536" ;
+	agrold_vocabulary:has_start_position	"5982228" ;
+	agrold_vocabulary:description	"Putative uncharacterized protein  [Source:UniProtKB/TrEMBL;Acc:B8BG34]" ;
+	agrold_vocabulary:encodes	uniprot:B8BG34 ;
+	agrold_vocabulary:has_biotype	"protein_coding" ;
+	agrold_vocabulary:chromosome	"10" .
+ensembl:BGIOSGA025853
+	rdf:type	agrold_vocabulary:Gene ;
+	rdfs:subClassOf	obo:SO_0000704 ;
+	agrold_vocabulary:has_rap_identifier	rapdb:Os07g0530600 ;
+	agrold_vocabulary:has_end_position	"18895456" ;
+	rdfs:label	"PDRP1" ;
+	agrold_vocabulary:has_start_position	"18891484" ;
+	agrold_vocabulary:description	"Probable pyruvate, phosphate dikinase regulatory protein, chloroplastic  [Source:UniProtKB/Swiss-Prot;Acc:A2YM35]" ;
+	agrold_vocabulary:encodes	uniprot:A2YM35 ;
+	agrold_vocabulary:has_biotype	"protein_coding" ;
+	agrold_vocabulary:chromosome	"7" .
+ensembl:BGIOSGA017372
+	rdf:type	agrold_vocabulary:Gene ;
+	rdfs:subClassOf	obo:SO_0000704 ;
+	agrold_vocabulary:has_end_position	"34008612" ;
+	agrold_vocabulary:has_start_position	"34008166" ;
+	agrold_vocabulary:description	"Putative uncharacterized protein  [Source:UniProtKB/TrEMBL;Acc:B8ARV4]" ;
+	agrold_vocabulary:encodes	uniprot:B8ARV4 ;
+	agrold_vocabulary:has_biotype	"protein_coding" ;
+	agrold_vocabulary:chromosome	"4" .

@@ -1,0 +1,11 @@
+Gene stable ID	Gene name	Gene description	Chromosome/scaffold name	Gene start (bp)	Gene end (bp)	Gene biotype	UniProtKB/SwissProt ID	UniProtKB/TrEMBL ID
+TRIUR3_00001			scaffold14933	16	193	protein_coding		T1L6N5
+TRIUR3_00002			scaffold14933	6943	7311	protein_coding		T1L6N6
+TRIUR3_00003		Uncharacterized protein  [Source:UniProtKB/TrEMBL;Acc:M7YPV1]	scaffold14933	8232	8399	protein_coding		M7YPV1
+TRIUR3_00034		Type I inositol-1,4,5-trisphosphate 5-phosphatase 11  [Source:UniProtKB/TrEMBL;Acc:M7YPV6]	scaffold14933	43424	45151	protein_coding		M7YPV6
+TRIUR3_00035			scaffold45920	62761	63202	protein_coding		T1L6R1
+TRIUR3_00061		Cytochrome b559 subunit alpha  [Source:UniProtKB/TrEMBL;Acc:M7YVF3]	scaffold262405	1369	1617	protein_coding		M7YVF3
+TRIUR3_00065		Ribulose bisphosphate carboxylase large chain  [Source:UniProtKB/TrEMBL;Acc:M8A2T1]	scaffold262405	9004	10431	protein_coding		M8A2T1
+TRIUR3_00195		Soluble inorganic pyrophosphatase  [Source:UniProtKB/TrEMBL;Acc:M8AEP3]	scaffold21252	81054	84079	protein_coding		M8AEP3
+TRIUR3_00196		Cysteine proteinase inhibitor 8  [Source:UniProtKB/TrEMBL;Acc:M8A378]	scaffold21252	104770	105156	protein_coding		M8A378
+TRIUR3_00197		Cysteine proteinase inhibitor 8  [Source:UniProtKB/TrEMBL;Acc:M7ZHH5]	scaffold21252	116008	116394	protein_coding		M7ZHH5

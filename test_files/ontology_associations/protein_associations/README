@@ -1,0 +1,8 @@
+Date	05-12-2014
+Project	AgroLD project 
+File_Type	goa
+Data_Level	protein
+Description	The data is about protein level associations to the Gene Ontology, Plant Ontology (plant anatomical entity and plant strucutre development stage), Plant Trait Ontology and Plant Environmental Conditions (EO).
+Ontologies	GO,PO,TO,EO
+Sources	UniProt-GOA,Gramene
+

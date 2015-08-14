@@ -1,0 +1,14 @@
+Gene stable ID	Gene name	Gene description	Chromosome/scaffold name	Gene start (bp)	Gene end (bp)	Gene biotype	EntrezGene ID	RAP gene ID	UniProtKB/SwissProt ID	GO term accession	GO domain
+BGIOSGA013239		3-isopropylmalate dehydrogenase  [Source:UniProtKB/TrEMBL;Acc:A2XK82]	3	29471768	29475638	protein_coding		Os03g0655700		GO:0000287	molecular_function
+BGIOSGA013239		3-isopropylmalate dehydrogenase  [Source:UniProtKB/TrEMBL;Acc:A2XK82]	3	29471768	29475638	protein_coding		Os03g0655700		GO:0003674	molecular_function
+BGIOSGA013239		3-isopropylmalate dehydrogenase  [Source:UniProtKB/TrEMBL;Acc:A2XK82]	3	29471768	29475638	protein_coding		Os03g0655700		GO:0003862	molecular_function
+BGIOSGA013239		3-isopropylmalate dehydrogenase  [Source:UniProtKB/TrEMBL;Acc:A2XK82]	3	29471768	29475638	protein_coding		Os03g0655700		GO:0005575	cellular_component
+BGIOSGA013239		3-isopropylmalate dehydrogenase  [Source:UniProtKB/TrEMBL;Acc:A2XK82]	3	29471768	29475638	protein_coding		Os03g0655700		GO:0005622	cellular_component
+BGIOSGA022107		Putative uncharacterized protein  [Source:UniProtKB/TrEMBL;Acc:A2Y8A8]	6	320258	324281	protein_coding		Os06g0104300		GO:0003674	molecular_function
+BGIOSGA022107		Putative uncharacterized protein  [Source:UniProtKB/TrEMBL;Acc:A2Y8A8]	6	320258	324281	protein_coding		Os06g0104300		GO:0005507	molecular_function
+BGIOSGA022107		Putative uncharacterized protein  [Source:UniProtKB/TrEMBL;Acc:A2Y8A8]	6	320258	324281	protein_coding		Os06g0104300		GO:0005774	cellular_component
+BGIOSGA025853	PDRP1	Probable pyruvate, phosphate dikinase regulatory protein, chloroplastic  [Source:UniProtKB/Swiss-Prot;Acc:A2YM35]	7	18891484	18895456	protein_coding		Os07g0530600	A2YM35	GO:0000166	molecular_function
+BGIOSGA025853	PDRP1	Probable pyruvate, phosphate dikinase regulatory protein, chloroplastic  [Source:UniProtKB/Swiss-Prot;Acc:A2YM35]	7	18891484	18895456	protein_coding		Os07g0530600	A2YM35	GO:0003674	molecular_function
+BGIOSGA025853	PDRP1	Probable pyruvate, phosphate dikinase regulatory protein, chloroplastic  [Source:UniProtKB/Swiss-Prot;Acc:A2YM35]	7	18891484	18895456	protein_coding		Os07g0530600	A2YM35	GO:0004672	molecular_function
+BGIOSGA025853	PDRP1	Probable pyruvate, phosphate dikinase regulatory protein, chloroplastic  [Source:UniProtKB/Swiss-Prot;Acc:A2YM35]	7	18891484	18895456	protein_coding		Os07g0530600	A2YM35	GO:0004674	molecular_function
+BGIOSGA025853	PDRP1	Probable pyruvate, phosphate dikinase regulatory protein, chloroplastic  [Source:UniProtKB/Swiss-Prot;Acc:A2YM35]	7	18891484	18895456	protein_coding		Os07g0530600	A2YM35	GO:0004721	molecular_function

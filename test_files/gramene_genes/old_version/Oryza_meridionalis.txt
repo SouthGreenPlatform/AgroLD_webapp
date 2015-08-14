@@ -1,0 +1,10 @@
+Gene stable ID	Gene name	Gene description	Chromosome/scaffold name	Gene start (bp)	Gene end (bp)	Gene biotype	EntrezGene ID	UniProtKB/TrEMBL ID	GO term accession	GO domain
+OMERI01G00010			1	10893	11879	protein_coding			GO:0004518	molecular_function
+OMERI01G00010			1	10893	11879	protein_coding			GO:0043167	molecular_function
+OMERI01G00010			1	10893	11879	protein_coding			GO:0003674	molecular_function
+OMERI01G04540	SERK1	Somatic embryogenesis receptor-like kinase 1  [Source:Uniprot/SPTREMBL;Acc:S5CKS2]	1	3500727	3505722	protein_coding		S5CKS2	GO:0006464	biological_process
+OMERI01G04540	SERK1	Somatic embryogenesis receptor-like kinase 1  [Source:Uniprot/SPTREMBL;Acc:S5CKS2]	1	3500727	3505722	protein_coding		S5CKS2	GO:0016301	molecular_function
+OMERI01G04540	SERK1	Somatic embryogenesis receptor-like kinase 1  [Source:Uniprot/SPTREMBL;Acc:S5CKS2]	1	3500727	3505722	protein_coding		S5CKS2	GO:0043167	molecular_function
+OMERI12G06450	TERT	Telomerase reverse transcriptase  [Source:Uniprot/SPTREMBL;Acc:S5CGG5]	12	7849237	7865555	protein_coding		S5CGG5	GO:0016779	molecular_function
+OMERI12G06450	TERT	Telomerase reverse transcriptase  [Source:Uniprot/SPTREMBL;Acc:S5CGG5]	12	7849237	7865555	protein_coding		S5CGG5	GO:0006259	biological_process
+

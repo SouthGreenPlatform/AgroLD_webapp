@@ -1,0 +1,5 @@
+!DB	DB_Object_ID	DB_Object_Symbol	Qualifier	GOid	DB:Reference	Evidence	With(or)From	Aspect	DB_Object_Name	DB_Object_Synonym	DB_Object_Type	Taxon	Date	Assigned_by
+GR_protein	Q6ESF8	P0605D08.14		EO:0007199	GR_REF:9520	TAS		E	Putative Cen-like protein	P0605D08.14|Putative Cen-like protein|Putative TFL1/CEN orthologBGIOSIBCE007280|LOC_Os02g32950	Protein	taxon:39947	20060831	GR
+GR_protein	Q6ESF8	P0605D08.14		EO:0007200	GR_REF:9520	TAS		E	Putative Cen-like protein	P0605D08.14|Putative Cen-like protein|Putative TFL1/CEN orthologBGIOSIBCE007280|LOC_Os02g32950	Protein	taxon:39947	20060831	GR
+GR_protein	Q5NB25	IAA3		EO:0007255	GR_REF:11066	IC		E	Auxin-responsive protein IAA3	OSIAA3|P0431F01.14|P0485D09.31|Putative aux/IAA proteinBGIOSIBCE000978|LOC_Os01g13030	Protein	taxon:39946	20060831	GR
+GR_protein	Q6K2Y8	NAAT1		EO:0007265	GR_REF:11089	IC		E	nicotianamine aminotransferase	P0543C11.29|Putative nicotianamine aminotransferase ABGIOSIBCE006635|LOC_Os02g20360	Protein	taxon:39947	20080721	GR

@@ -1,0 +1,106 @@
+@base	<http://www.southgreen.fr/agrold/> .
+@prefix	rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix	rdfs:<http://www.w3.org/2000/01/rdf-schema#> .
+@prefix	owl:<http://www.w3.org/2002/07/owl#> .
+@prefix	xsd:<http://www.w3.org/2001/XMLSchema#> .
+@prefix	agrold_vocabulary:<http://www.southgreen.fr/agrold/vocabulary/> .
+@prefix	otl:<http://identifiers.org/otl/> .
+@prefix	co:<http://www.cropontology.org/rdf/> .
+@prefix	obo:<http://purl.obolibrary.org/obo/> .
+
+otl:ACUB11
+	rdf:type	owl:Class ;
+	rdfs:subClassOf	co:CO_715:0000225 ;
+	agrold_vocabulary:description	"Seeds are round and their size is reduced (1/4 reduced comparing to the normal size)" ;
+	agrold_vocabulary:has_number_of_individuals	"11"^^xsd:integer ;
+	agrold_vocabulary:has_total_number	"56"^^xsd:integer ;
+	agrold_vocabulary:abbreviation	"rk" ;
+	agrold_vocabulary:has_mutant_type	"round kernel" ;
+	rdfs:label	"reduced endosperm" ;
+	agrold_vocabulary:observation	"not very marked reduction of size. Real phenotype?" ;
+	agrold_vocabulary:has_phynotype_class	"morphology" ;
+	agrold_vocabulary:classified_with	"reduced" ;
+	agrold_vocabulary:classified_with	"size" ;
+	agrold_vocabulary:expressed_at	obo:PO_0007029 ;
+	agrold_vocabulary:expressed_in	obo:PO_0009010 ;
+	agrold_vocabulary:has_trait	obo:TO_0000484 .
+otl:ABHE01
+	rdf:type	owl:Class ;
+	rdfs:subClassOf	co:CO_715:0000225 ;
+	agrold_vocabulary:description	"Empty seed. No visible seed development into glumes. May be unfertilized." ;
+	agrold_vocabulary:has_number_of_individuals	"13"^^xsd:integer ;
+	agrold_vocabulary:has_total_number	"62"^^xsd:integer ;
+	agrold_vocabulary:abbreviation	"abs" ;
+	agrold_vocabulary:has_mutant_type	"aborted seed" ;
+	rdfs:label	"abnormal" ;
+	agrold_vocabulary:observation	"The percentage of mutant phenotype is low." ;
+	agrold_vocabulary:has_phynotype_class	"morphology" ;
+	agrold_vocabulary:classified_with	"abnormal" ;
+	agrold_vocabulary:expressed_at	obo:PO_0007029 ;
+	agrold_vocabulary:expressed_in	obo:PO_0009010 ;
+	agrold_vocabulary:has_trait	obo:TO_0000484 .
+otl:ABHC02
+	rdf:type	owl:Class ;
+	rdfs:subClassOf	co:CO_715:0000225 ;
+	agrold_vocabulary:description	"Empty seed. No visible seed development into glumes. May be unfertilized." ;
+	agrold_vocabulary:has_number_of_individuals	"14"^^xsd:integer ;
+	agrold_vocabulary:has_total_number	"47"^^xsd:integer ;
+	agrold_vocabulary:abbreviation	"abs" ;
+	agrold_vocabulary:has_mutant_type	"aborted seed" ;
+	rdfs:label	"abnormal" ;
+	agrold_vocabulary:has_phynotype_class	"morphology" ;
+	agrold_vocabulary:classified_with	"abnormal" ;
+	agrold_vocabulary:expressed_at	obo:PO_0007029 ;
+	agrold_vocabulary:expressed_in	obo:PO_0009010 ;
+	agrold_vocabulary:has_trait	obo:TO_0000484 .
+otl:ACQF01
+	rdf:type	owl:Class ;
+	rdfs:subClassOf	co:CO_715:0000225 ;
+	agrold_vocabulary:description	"flattened seed, wrinkled endosperm, less full than a wild type seed" ;
+	agrold_vocabulary:has_number_of_individuals	"7"^^xsd:integer ;
+	agrold_vocabulary:has_total_number	"31"^^xsd:integer ;
+	agrold_vocabulary:abbreviation	"wr" ;
+	agrold_vocabulary:has_mutant_type	"wrinkled seed" ;
+	rdfs:label	"reduced endosperm" ;
+	agrold_vocabulary:observation	"no possibility to estimate the proportion of aborted seed because isolated kernels without panicule. Then no more empty seeds. brown colouration on glumes. Endosperm are either a brownish or a normal colour. Reduced and wrinkled endosperm." ;
+	agrold_vocabulary:has_phynotype_class	"morphology" ;
+	agrold_vocabulary:expressed_at	obo:PO_0007029 ;
+	agrold_vocabulary:expressed_in	obo:PO_0009010 ;
+	agrold_vocabulary:has_trait	obo:TO_0000484 .
+otl:ACXH01
+	rdf:type	owl:Class ;
+	rdfs:subClassOf	co:CO_715:0000225 ;
+	agrold_vocabulary:description	"Empty seed. No visible seed development into glumes. May be unfertilized." ;
+	agrold_vocabulary:has_number_of_individuals	"20"^^xsd:integer ;
+	agrold_vocabulary:has_total_number	"83"^^xsd:integer ;
+	agrold_vocabulary:abbreviation	"abs" ;
+	agrold_vocabulary:has_mutant_type	"aborted seed" ;
+	rdfs:label	"abnormal" ;
+	agrold_vocabulary:has_phynotype_class	"morphology" ;
+	agrold_vocabulary:classified_with	"abnormal" ;
+	agrold_vocabulary:expressed_at	obo:PO_0007029 ;
+	agrold_vocabulary:expressed_in	obo:PO_0009010 ;
+	agrold_vocabulary:has_trait	obo:TO_0000484 .
+otl:ABID12
+	rdf:type	owl:Class ;
+	rdfs:subClassOf	co:CO_715:0000225 ;
+	agrold_vocabulary:description	"Decreased number of tillers, normal to stout stems or increased width in culm" ;
+	agrold_vocabulary:has_number_of_individuals	"2"^^xsd:integer ;
+	agrold_vocabulary:has_total_number	"19"^^xsd:integer ;
+	agrold_vocabulary:abbreviation	"D till" ;
+	agrold_vocabulary:has_mutant_type	"(Size - Tillers)" ;
+	agrold_vocabulary:observation	"Smaller, low tillering (2 plants) (Photos 4, 5)." ;
+	agrold_vocabulary:has_phynotype_class	"morphology" ;
+	agrold_vocabulary:has_phynotype_subclass	"tillering" ;
+	agrold_vocabulary:has_trait	obo:TO_0000346 .
+otl:AMPD01
+	rdf:type	owl:Class ;
+	rdfs:subClassOf	co:CO_715:0000225 ;
+	agrold_vocabulary:description	"Larger seed than wild type. Seeds are often awned. Ration endosperm/embryo size seems to be normal." ;
+	agrold_vocabulary:abbreviation	"lg" ;
+	agrold_vocabulary:has_mutant_type	"larger seed" ;
+	agrold_vocabulary:has_phynotype_class	"morphology" ;
+	agrold_vocabulary:classified_with	"large" ;
+	agrold_vocabulary:expressed_at	obo:PO_0007029 ;
+	agrold_vocabulary:expressed_in	obo:PO_0009010 ;
+	agrold_vocabulary:has_trait	obo:TO_0000391 .

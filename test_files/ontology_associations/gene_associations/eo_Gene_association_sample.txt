@@ -1,0 +1,4 @@
+!DB	DB_Object_ID	DB_Object_Symbol	Qualifier	GOid	DB:Reference	Evidence	With(or)From	Aspect	DB_Object_Name	DB_Object_Synonym	DB_Object_Type	Taxon	Date	Assigned_by
+GR_gene	GR:0060842	SD1		EO:0007255	GR_REF:6269	IMP		E	SEMIDWARF 1	dee-geo-woo-gen dwarf|d49|d47|green revolution gene|sd1|semidwarf-1	Gene	taxon:4530	20100422	GR
+GR_gene	GR:0060193	D11		EO:0007409	GR_REF:5792	IMP		E	DWARF SHINKANEAIKOKU OR NOHRIN 28	shinkaneaikoku or nohrin 28 dwarf|dwf10|d8|D11/CYP724B1|OsDWARF11|d11|dwarf-11	Gene	taxon:4530	20100422	GR
+GR_gene	GR:0060226	D61		EO:0007409	GR_REF:10034	IMP		E	DWARF 61	dm-type dwarf|dwarf-61|d61*|dwf42|BRASSINOSTEROID INSENSITIVE 1|d61|dwarf-61	Gene	taxon:4530	20100422	GR

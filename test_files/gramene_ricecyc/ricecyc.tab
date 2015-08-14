@@ -1,0 +1,18 @@
+gene_name	enzyme_name	reaction_id	reaction_name	ec	pathway_id	pathway_name
+LOC_OS04G12950.1	UDP-glycosyltransferase	RXN-4737		2.4.1.-	PWY-2902	cytokinins-<i>O</i>-glucoside biosynthesis
+LOC_OS04G12950.1	UDP-glycosyltransferase	RXN-4730		2.4.1.-	PWY-2901	cytokinins 9-<i>N</i>-glucoside biosynthesis
+LOC_OS04G12950.1	UDP-glycosyltransferase	RXN-4736		2.4.1.-	PWY-2881	cytokinins 7-<i>N</i>-glucoside biosynthesis
+LOC_OS07G42970.1	UDP-glucoronosyl and UDP-glucosyl transferase domain containing protein	RXN-4722		2.4.1.-	PWY-2901	cytokinins 9-<i>N</i>-glucoside biosynthesis
+LOC_OS07G42970.1	UDP-glucoronosyl and UDP-glucosyl transferase domain containing protein	RXN-4730		2.4.1.-	PWY-2901	cytokinins 9-<i>N</i>-glucoside biosynthesis
+LOC_OS07G42970.1	UDP-glucoronosyl and UDP-glucosyl transferase domain containing protein	RXN-4721		2.4.1.-	PWY-2881	cytokinins 7-<i>N</i>-glucoside biosynthesis
+LOC_OS09G31506.1	3-beta-hydroxy-delta5-steroid dehydrogenase	RXN-710		1.1.1.145	PWY-2582	brassinosteroid biosynthesis II
+LOC_OS09G31506.1	UDP-glucose 4-epimerase	UDPGLUCEPIM-RXN	UDP-glucose 4-epimerase	5.1.3.2	GALACTMETAB-PWY	UDP-galactose biosynthesis (salvage pathway from galactose using UDP-glucose)
+LOC_OS02G35870.1	galactosyltransferase	RXN-8281		2.4.1.-	PWY-5338	galactosylcyclitol biosynthesis
+LOC_OS03G12360.1	trehalose-phosphatase	TREHALOSEPHOSPHA-RXN	Trehalose-phosphatase	3.1.3.12	TRESYN-PWY	trehalose biosynthesis I
+LOC_OS03G12360.1	alpha,alpha-trehalose-phosphate synthase (UDP-forming)	TREHALOSE6PSYN-RXN	&alpha;,&alpha;-trehalose-phosphate synthase (UDP-forming)	2.4.1.15	TRESYN-PWY	trehalose biosynthesis I
+LOC_OS05G08490.1	UDP-glycosyltransferase	RXN-4723		2.4.1.203	PWY-2902	cytokinins-<i>O</i>-glucoside biosynthesis
+LOC_OS05G08490.1	UDP-glycosyltransferase	RXN-4734		2.4.1.-	PWY-2901	cytokinins 9-<i>N</i>-glucoside biosynthesis
+LOC_OS05G08490.1	UDP-glycosyltransferase	RXN-4724		2.4.1.-	PWY-2881	cytokinins 7-<i>N</i>-glucoside biosynthesis
+LOC_OS11G05110.1	pyruvate kinase	PEPDEPHOS-RXN	Pyruvate kinase	2.7.1.40	FERMENTATION-PWY	mixed acid fermentation
+LOC_OS11G05110.1	pyruvate kinase	PEPDEPHOS-RXN	Pyruvate kinase	2.7.1.40	PWY-1042	glycolysis IV (plant cytosol)
+LOC_OS11G05110.1	pyruvate kinase	PEPDEPHOS-RXN	Pyruvate kinase	2.7.1.40	PWY-3801	sucrose degradation to ethanol and lactate (anaerobic)

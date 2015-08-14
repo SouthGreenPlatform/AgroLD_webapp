@@ -1,0 +1,8 @@
+gene_name	enzyme_name	reaction_id	reaction_name	ec	pathway_id	pathway_name
+SB03G031170.1	aspartic proteinase nepenthesin-2 precursor, putative, expressed	RXN-6601		2.3.2.2	PWY-4041	&gamma;-glutamyl cycle
+SB01G050250.1	branched-chain-amino-acid aminotransferase, putative, expressed	BRANCHED-CHAINAMINOTRANSFERILEU-RXN	Branched-chain amino acid aminotransferase	2.6.1.42	PWY-5078	isoleucine degradation II
+SB02G038560.1	UDP-glycosyltransferase	RXN-4726		2.4.1.-	PWY-2902	cytokinins-<i>O</i>-glucoside biosynthesis
+SB02G038560.1	UDP-glycosyltransferase	RXN-4721		2.4.1.-	PWY-2881	cytokinins 7-<i>N</i>-glucoside biosynthesis
+SB02G038560.1	indole-3-acetate beta-glucosyltransferase, putative	2.4.1.121-RXN	indole-3-acetate &beta;-glucosyltransferase	2.4.1.121	PWY-1782	IAA conjugate biosynthesis II
+SB01G025590.1	diterpene phytoalexin precursor biosynthetic process pathway	ALCOHOL-DEHYDROG-RXN		1.1.1.1	FERMENTATION-PWY	mixed acid fermentation
+SB01G025590.1	diterpene phytoalexin precursor biosynthetic process pathway	ALCOHOL-DEHYDROG-RXN		1.1.1.1	PWY-3801	sucrose degradation to ethanol and lactate (anaerobic)
