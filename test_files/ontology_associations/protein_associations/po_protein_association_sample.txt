@@ -1,0 +1,5 @@
+!DB	DB_Object_ID	DB_Object_Symbol	Qualifier	GOid	DB:Reference	Evidence	With(or)From	Aspect	DB_Object_Name	DB_Object_Synonym	DB_Object_Type	Taxon	Date	Assigned_by
+GR_protein	Q5NTH4	OsSK1		PO:0009049	GR_REF:9472	IEP		A	Shikimate kinase 1	OsSK1BGIOSIBCE008662|LOC_Os02g51410	Protein	taxon:39947	20060831	GR
+GR_protein	Q5NTH3	OsSK2		PO:0009049	GR_REF:9472	IEP		A	Shikimate kinase 2	OsSK2LOC_Os06g12150	Protein	taxon:39947	20060831	GR
+GR_protein	B6RRX3	SaM		PO:0001012	GR_REF:11089	IC		G	SaM	SaM-BGIOSIBSE038854	Protein	taxon:39947	20090501	GR
+GR_protein	B6RRX4	SaM		PO:0001012	GR_REF:11089	IC		G	SaM	SaM+BGIOSIBSE038854	Protein	taxon:39946	20090501	GR

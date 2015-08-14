@@ -1,0 +1,6 @@
+!gaf-version: 2.0
+UniProtKB	A9ZMI0	A9ZMI0		GO:0000719	GO_REF:0000035	IEA	EnsemblPlants:AT1G12370.2	P	Uncharacterized protein	A9ZMI0_ORYGL	protein	taxon:4538	20140510	EnsemblPlants/Gramene		
+UniProtKB	B6F2C5	ADH1		GO:0016491	GO_REF:0000002	IEA	InterPro:IPR002085|InterPro:IPR002328|InterPro:IPR013149|InterPro:IPR013154	F	Alcohol dehydrogenase family-1	B6F2C5_ORYGL|ADH1|OG_Ba066K08-2	protein	taxon:4538	20140510	InterPro
+UniProtKB	Q42968	WAXY		GO:0019252	GO_REF:0000041	IEA	UniPathway:UPA00152	P	Granule-bound starch synthase 1, chloroplastic/amyloplastic	SSG1_ORYGL|WAXY	protein	taxon:4538	20140510	UniProt
+UniProtKB	Q1MSJ1	eif(iso)4g		GO:0003743	GO_REF:0000038	IEA	UniProtKB-KW:KW-0396	F	Putative eukaryotic translation initiation factor 4 gamma	Q1MSJ1_ORYGL|eif(iso)4g	protein	taxon:4538	20140510	UniProt		
+UniProtKB	Q1MSJ1	eif(iso)4g		GO:0005634	GO_REF:0000035	IEA	EnsemblPlants:AT5G57870.1	C	Putative eukaryotic translation initiation factor 4 gamma	Q1MSJ1_ORYGL|eif(iso)4g	protein	taxon:4538	20140510	EnsemblPlants/Gramene

@@ -1,0 +1,10 @@
+Gene stable ID	Gene name	Gene description	Chromosome/scaffold name	Gene start (bp)	Gene end (bp)	Gene biotype	UniProtKB/SwissProt ID	GO term accession	GO domain
+ORGLA01G0000100		Uncharacterized protein  [Source:UniProtKB/TrEMBL;Acc:I1NJG1]	1	2	4194	protein_coding		GO:0009056	biological_process
+ORGLA01G0000100		Uncharacterized protein  [Source:UniProtKB/TrEMBL;Acc:I1NJG1]	1	2	4194	protein_coding		GO:0019748	biological_process
+ORGLA01G0000100		Uncharacterized protein  [Source:UniProtKB/TrEMBL;Acc:I1NJG1]	1	2	4194	protein_coding		GO:0016829	molecular_function
+ORGLA01G0000100		Uncharacterized protein  [Source:UniProtKB/TrEMBL;Acc:I1NJG1]	1	2	4194	protein_coding		GO:0005783	cellular_component
+ORGLA12G0207800		Uncharacterized protein  [Source:UniProtKB/TrEMBL;Acc:I1PI36]	Oglab12_unplaced187	9434	9891	protein_coding			
+ORGLA12G0207900		Uncharacterized protein  [Source:UniProtKB/TrEMBL;Acc:I1R973]	Oglab12_unplaced192	4163	5755	protein_coding			
+ORGLA08G0205700		ATP-dependent Clp protease proteolytic subunit  [Source:UniProtKB/TrEMBL;Acc:I1Q6D3]	Oglab08_unplaced092	67400	68050	protein_coding		GO:0005737	cellular_component
+ORGLA08G0205700		ATP-dependent Clp protease proteolytic subunit  [Source:UniProtKB/TrEMBL;Acc:I1Q6D3]	Oglab08_unplaced092	67400	68050	protein_coding		GO:0008233	molecular_function
+

@@ -1,0 +1,86 @@
+@base	<http://www.southgreen.fr/agrold/> .
+@prefix	rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix	rdfs:<http://www.w3.org/2000/01/rdf-schema#> .
+@prefix	agrold_vocabulary:<http://www.southgreen.fr/agrold/vocabulary/> .
+@prefix	obo:<http://purl.obolibrary.org/obo/> .
+@prefix	ensembl:<http://identifiers.org/ensembl.plant/> .
+@prefix	uniprot:<http://purl.uniprot.org/uniprot/> .
+
+ensembl:ORGLA01G0028700
+	rdf:type	agrold_vocabulary:Gene ;
+	rdfs:subClassOf	obo:SO_0000704 ;
+	agrold_vocabulary:has_end_position	"2102217" ;
+	agrold_vocabulary:has_start_position	"2097835" ;
+	agrold_vocabulary:encodes	uniprot:I1NK97 ;
+	agrold_vocabulary:has_biotype	"protein_coding" ;
+	agrold_vocabulary:chromosome	"1" .
+ensembl:ORGLA12G0134300
+	rdf:type	agrold_vocabulary:Gene ;
+	rdfs:subClassOf	obo:SO_0000704 ;
+	agrold_vocabulary:has_end_position	"15517170" ;
+	agrold_vocabulary:has_start_position	"15516846" ;
+	agrold_vocabulary:description	"Uncharacterized protein  [Source:UniProtKB/TrEMBL;Acc:I1R737]" ;
+	agrold_vocabulary:encodes	uniprot:I1R737 ;
+	agrold_vocabulary:has_biotype	"protein_coding" ;
+	agrold_vocabulary:chromosome	"12" .
+ensembl:ORGLA12G0134400
+	rdf:type	agrold_vocabulary:Gene ;
+	rdfs:subClassOf	obo:SO_0000704 ;
+	agrold_vocabulary:has_end_position	"15531255" ;
+	agrold_vocabulary:has_start_position	"15528299" ;
+	agrold_vocabulary:description	"Uncharacterized protein  [Source:UniProtKB/TrEMBL;Acc:I1R738]" ;
+	agrold_vocabulary:encodes	uniprot:I1R738 ;
+	agrold_vocabulary:has_biotype	"protein_coding" ;
+	agrold_vocabulary:chromosome	"12" .
+ensembl:ORGLA01G0000100
+	rdf:type	agrold_vocabulary:Gene ;
+	rdfs:subClassOf	obo:SO_0000704 ;
+	agrold_vocabulary:has_end_position	"4194" ;
+	agrold_vocabulary:has_start_position	"2" ;
+	agrold_vocabulary:description	"Uncharacterized protein  [Source:UniProtKB/TrEMBL;Acc:I1NJG1]" ;
+	agrold_vocabulary:encodes	uniprot:I1NJG1 ;
+	agrold_vocabulary:has_biotype	"protein_coding" ;
+	agrold_vocabulary:chromosome	"1" .
+ensembl:ORGLA12G0134500
+	rdf:type	agrold_vocabulary:Gene ;
+	rdfs:subClassOf	obo:SO_0000704 ;
+	agrold_vocabulary:has_end_position	"15534211" ;
+	agrold_vocabulary:has_start_position	"15533669" ;
+	agrold_vocabulary:description	"Uncharacterized protein  [Source:UniProtKB/TrEMBL;Acc:I1R739]" ;
+	agrold_vocabulary:has_biotype	"protein_coding" ;
+	agrold_vocabulary:chromosome	"12" .
+ensembl:ORGLA01G0000200
+	rdf:type	agrold_vocabulary:Gene ;
+	rdfs:subClassOf	obo:SO_0000704 ;
+	agrold_vocabulary:has_end_position	"9981" ;
+	agrold_vocabulary:has_start_position	"9088" ;
+	agrold_vocabulary:description	"Uncharacterized protein  [Source:UniProtKB/TrEMBL;Acc:I1NJG2]" ;
+	agrold_vocabulary:encodes	uniprot:I1NJG2 ;
+	agrold_vocabulary:has_biotype	"protein_coding" ;
+	agrold_vocabulary:chromosome	"1" .
+ensembl:ORGLA12G0206300
+	rdf:type	agrold_vocabulary:Gene ;
+	rdfs:subClassOf	obo:SO_0000704 ;
+	agrold_vocabulary:has_end_position	"68250" ;
+	agrold_vocabulary:has_start_position	"54672" ;
+	agrold_vocabulary:description	"Uncharacterized protein  [Source:UniProtKB/TrEMBL;Acc:I1R7A8]" ;
+	agrold_vocabulary:encodes	uniprot:I1R957 ;
+	agrold_vocabulary:has_biotype	"protein_coding" ;
+	agrold_vocabulary:chromosome	"Oglab12_unplaced184" .
+ensembl:ORGLA01G0000300
+	rdf:type	agrold_vocabulary:Gene ;
+	rdfs:subClassOf	obo:SO_0000704 ;
+	agrold_vocabulary:has_end_position	"13096" ;
+	agrold_vocabulary:has_start_position	"10664" ;
+	agrold_vocabulary:description	"Uncharacterized protein  [Source:UniProtKB/TrEMBL;Acc:I1NJG3]" ;
+	agrold_vocabulary:encodes	uniprot:I1NJG3 ;
+	agrold_vocabulary:has_biotype	"protein_coding" ;
+	agrold_vocabulary:chromosome	"1" .
+ensembl:ORGLA12G0134200
+	rdf:type	agrold_vocabulary:Gene ;
+	rdfs:subClassOf	obo:SO_0000704 ;
+	agrold_vocabulary:has_end_position	"15503318" ;
+	agrold_vocabulary:has_start_position	"15498857" ;
+	agrold_vocabulary:encodes	uniprot:I1R736 ;
+	agrold_vocabulary:has_biotype	"protein_coding" ;
+	agrold_vocabulary:chromosome	"12" .

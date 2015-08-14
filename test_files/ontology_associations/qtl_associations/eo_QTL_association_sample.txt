@@ -1,0 +1,6 @@
+!DB	DB_Object_ID	DB_Object_Symbol	Qualifier	GOid	DB:Reference	Evidence	With(or)From	Aspect	DB_Object_Name	DB_Object_Synonym	DB_Object_Type	Taxon	Date	Assigned_by
+GR_QTL	AQED049	GRYLDPPL		EO:0007403	GR_REF:11453	IC		E	grain yield per plant	yld2.1	QTL	taxon:4530	20100422	GR
+GR_QTL	AQFU039	SDWD		EO:0007403	GR_REF:11453	IC		E	seed width		QTL	taxon:4530	20100422	GR
+GR_QTL	AQDF024	VDSRS		EO:0007210	GR_REF:11453	IC		E	viral disease resistance	BYDV, KxO-13-b	QTL	taxon:4498	20100422	GR
+GR_QTL	CQAS113	SDSPCENT		EO:0007403	GR_REF:11453	IC		E	seed set percent		QTL	taxon:4530	20100422	GR
+GR_QTL	AQAC042	REDSUGCN		EO:0007403	GR_REF:11453	IC		E	reducing sugar content	qRS11-1	QTL	taxon:4530	20100422	GR

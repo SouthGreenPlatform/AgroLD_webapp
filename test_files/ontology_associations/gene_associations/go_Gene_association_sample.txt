@@ -1,0 +1,9 @@
+!DB	DB_Object_ID	DB_Object_Symbol	Qualifier	GOid	DB:Reference	Evidence	With(or)From	Aspect	DB_Object_Name	DB_Object_Synonym	DB_Object_Type	Taxon	Date	Assigned_by
+GR_gene	GR:0060141	CL		GO:0007275	GR_REF:1793	IMP		P	CLUSTERED SPIKELETS	Cl|Clustered spikelets	Gene	taxon:4530	20100422	GR
+GR_gene	GR:0060146	[CMS-BO]		GO:0005739	GR_REF:6006	IMP		C	CYTOPLASMIC MALE STERILITY BO	[cms-bo]|`Chinsurah boro 2' cytoplasm|[cms-bo]|'Chinsurah boro II' cytoplasm	Gene	taxon:4530	20100422	GR
+GR_gene	GR:0060146	[CMS-BO]		GO:0007275	GR_REF:6006	IMP		P	CYTOPLASMIC MALE STERILITY BO	[cms-bo]|`Chinsurah boro 2' cytoplasm|[cms-bo]|'Chinsurah boro II' cytoplasm	Gene	taxon:4530	20100422	GR
+GR_gene	GR:0060170	CNX1		GO:0016163	GR_REF:5898	IMP		F	MOLYBDEN COFACTOR 1	cnx1|molybdenum cofactor for nitrate reductase-1	Gene	taxon:4530	20100422	GR
+GR_gene	GR:0060170	CNX1		GO:0016612	GR_REF:5898	IMP		C	MOLYBDEN COFACTOR 1	cnx1|molybdenum cofactor for nitrate reductase-1	Gene	taxon:4530	20100422	GR
+GR_gene	GR:0060171	CNX2		GO:0016163	GR_REF:6084	IMP		F	MOLYBDEN COFACTOR 2	cnx2|molybdenum cofactor for nitrate reductase-2	Gene	taxon:4530	20100422	GR
+GR_gene	GR:0060733	RD		GO:0009812	GR_REF:6242	IMP		P	RED PERICARP AND SEED COAT	Rd|Red pericarp and seed coat	Gene	taxon:4530	20100422	GR
+GR_gene	GR:0060753	RFS		GO:0007275	GR_REF:5907	IMP		P	ROLLED FINE STRIPED LEAF	rfs|rolled fine striped leaf|cul7|curl leaf-7	Gene	taxon:4530	20100422	GR

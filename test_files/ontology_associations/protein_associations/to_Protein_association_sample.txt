@@ -1,0 +1,6 @@
+!DB	DB_Object_ID	DB_Object_Symbol	Qualifier	GOid	DB:Reference	Evidence	With(or)From	Aspect	DB_Object_Name	DB_Object_Synonym	DB_Object_Type	Taxon	Date	Assigned_by
+GR_protein	Q5MFV1	BIERF3		TO:0000168	GR_REF:8030	RCA	InterPro:11026	T	BTH-induced ERF transcriptional factor 3	OsBIERF3BGIOSIBCE008060|LOC_Os02g43790	Protein	taxon:39946	20060831	GR
+GR_protein	Q5MFV0	BIERF4		TO:0000168	GR_REF:11026	IC		T	BTH-induced ERF transcriptional factor 4	OsBIERF4BGIOSIBCE009915|LOC_Os03g08500	Protein	taxon:39946	20060831	GR
+GR_protein	Q6ESF8	P0605D08.14		TO:0000137	GR_REF:11089	IC		T	Putative Cen-like protein	P0605D08.14|Putative Cen-like protein|Putative TFL1/CEN orthologBGIOSIBCE007280|LOC_Os02g32950	Protein	taxon:39947	20060831	GR
+GR_protein	Q9AWX3	SaF		TO:0000053	GR_REF:11089	IC		T	SaF	P0013G02.19|Ribosomal RNA apurinic site specific lyase-likeBGIOSIBCE002454	Protein	taxon:39947	20090501	GR
+GR_protein	B6RRX2	SaF		TO:0000053	GR_REF:11089	IC		T	SaF	SaF+BGIOSIBCE002454	Protein	taxon:39946	20090501	GR

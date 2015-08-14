@@ -1,0 +1,13 @@
+gene_name	enzyme_name	reaction_id	reaction_name	ec	pathway_id	pathway_name
+GRMZM2G166940	Polygalacturonate 4-alpha-galacturonosyltransferase	2.4.1.43-RXN		EC-2.4.1.43	PWY-1061	homogalacturonan biosynthesis
+GRMZM5G875287	H(+)-transporting two-sector ATPase	ATPSYN-RXN		EC-3.6.3.14	PWY-6126	adenosine nucleotides <i>de novo</i> biosynthesis
+GRMZM5G800980	NADH dehydrogenase (ubiquinone)	NADH-DEHYDROG-A-RXN	NADH dehydrogenase (ubiquinone)	EC-1.6.5.3	PWY0-1334	NADH to cytochrome <i>bd</i> oxidase electron transfer
+GRMZM2G035282	Trans-zeatin O-beta-D-glucosyltransferase	RXN-4723		EC-2.4.1.203	PWY-2902	cytokinins-<i>O</i>-glucoside biosynthesis
+GRMZM2G035282	Trans-zeatin O-beta-D-glucosyltransferase	RXN-4735		EC-2.4.1.215	PWY-2902	cytokinins-<i>O</i>-glucoside biosynthesis
+GRMZM2G063042	Trans-zeatin O-beta-D-glucosyltransferase	RXN-4723		EC-2.4.1.203	PWY-2902	cytokinins-<i>O</i>-glucoside biosynthesis
+GRMZM2G004534	LOC100282820	PEPDEPHOS-RXN		EC-2.7.1.40	GLYCOLYSIS	glycolysis I
+GRMZM2G004534	LOC100282820	PEPDEPHOS-RXN		EC-2.7.1.40	PWY-1042	glycolysis IV (plant cytosol)
+AC203311.3_FG005	Hydroxymethylglutaryl-CoA reductase (NADPH)	1.1.1.34-RXN		EC-1.1.1.34	PWY-922	mevalonate pathway I
+AC199911.5_FG001	proton-transporting ATPase activity, rotational mechanism	ATPSYN-RXN		EC-3.6.3.14	PWY-6126	adenosine nucleotides <i>de novo</i> biosynthesis
+AC205413.4_FG002	Peroxidase	RXN-8635		EC-1.11.1.7	PWY-5461	betanidin degradation
+AC205413.4_FG003	Peroxidase	RXN-8635		EC-1.11.1.7	PWY-5461	betanidin degradation

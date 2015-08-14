@@ -1,0 +1,215 @@
+@base	<http://www.southgreen.fr/agrold/> .
+@prefix	rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix	rdfs:<http://www.w3.org/2000/01/rdf-schema#> .
+@prefix	agrold_vocabulary:<http://www.southgreen.fr/agrold/vocabulary/> .
+@prefix	sio:<http://semanticscience.org/resource/> .
+@prefix	aracyc_pathway:<http://www.southgreen.fr/agrold/aracyc.pathway/> .
+@prefix	reaction:<http://www.southgreen.fr/agrold/reaction/> .
+@prefix	aracyc_gene:<http://www.southgreen.fr/agrold/aracyc.gene/> .
+@prefix	aracyc_protein:<http://www.southgreen.fr/agrold/aracyc.protein/> .
+@prefix	tairlocus:<http://identifiers.org/tair.locus/> .
+@prefix	ec:<http://identifiers.org/ec-code/> .
+
+reaction:RXNQT-4392
+	rdf:type	agrold_vocabulary:Reaction ;
+	agrold_vocabulary:has_ec_code	ec:2.7.8.5 .
+aracyc_protein:CPLX-1506
+	rdf:type	agrold_vocabulary:Protein ;
+	rdfs:label	"CDP-1-oleoyl-2-palmitoyl-glycerol glycerol-3-phosphate 3-phosphatidyltransferase" ;
+	agrold_vocabulary:encoded_by	tairlocus:AT2G39290 .
+reaction:RXNQT-4391
+	rdf:type	agrold_vocabulary:Reaction ;
+	agrold_vocabulary:has_ec_code	ec:2.3.1.15 .
+aracyc_protein:AT1G32200-MONOMER
+	rdf:type	agrold_vocabulary:Protein ;
+	rdfs:label	"glycerol-3-phosphate O-oleoyltransferase" ;
+	agrold_vocabulary:encoded_by	tairlocus:AT1G32200 .
+aracyc_pathway:PWYQT-4482
+	rdf:type	agrold_vocabulary:Metabolic_Pathway ;
+	rdfs:subClassOf	sio:SIO_010532 ;
+	rdfs:label	"CDP-diacylglycerol biosynthesis IV" ;
+	agrold_vocabulary:has_reaction	reaction:RXNQT-4392 ;
+	agrold_vocabulary:has_agent	aracyc_protein:CPLX-1506 ;
+	agrold_vocabulary:has_reaction	reaction:RXNQT-4391 ;
+	agrold_vocabulary:has_agent	aracyc_protein:AT1G32200-MONOMER .
+reaction:RXN-2982
+	rdf:type	agrold_vocabulary:Reaction ;
+	agrold_vocabulary:has_ec_code	ec:3.5.1 .
+aracyc_protein:AT3G02875-MONOMER
+	rdf:type	agrold_vocabulary:Protein ;
+	rdfs:label	"indole-3-acetyl-leu hydrolase" ;
+	agrold_vocabulary:encoded_by	tairlocus:AT3G02875 .
+reaction:RXN-2981
+	rdf:type	agrold_vocabulary:Reaction ;
+	agrold_vocabulary:has_ec_code	ec:3.5.1 .
+aracyc_protein:AT5G56650-MONOMER
+	rdf:type	agrold_vocabulary:Protein ;
+	rdfs:label	"indole-3-acetyl-ala hydrolase" ;
+	agrold_vocabulary:encoded_by	tairlocus:AT5G56650 .
+aracyc_pathway:PWY-1822
+	rdf:type	agrold_vocabulary:Metabolic_Pathway ;
+	rdfs:subClassOf	sio:SIO_010532 ;
+	rdfs:label	"indole-3-acetate activation I" ;
+	agrold_vocabulary:has_reaction	reaction:RXN-2982 ;
+	agrold_vocabulary:has_agent	aracyc_protein:AT3G02875-MONOMER ;
+	agrold_vocabulary:has_reaction	reaction:RXN-2981 ;
+	agrold_vocabulary:has_agent	aracyc_protein:AT5G56650-MONOMER .
+reaction:RXN-3167
+	rdf:type	agrold_vocabulary:Reaction .
+reaction:RXN-3166
+	rdf:type	agrold_vocabulary:Reaction .
+aracyc_protein:AT1G73250-MONOMER
+	rdf:type	agrold_vocabulary:Protein ;
+	rdfs:label	"indole-3-acetyl-myo-inositol hydrolase" ;
+	agrold_vocabulary:encoded_by	tairlocus:AT1G73250 .
+aracyc_protein:GQT-1924-MONOMER
+	rdf:type	agrold_vocabulary:Protein ;
+	rdfs:label	"indole-3-acetyl-myo-inositol hydrolase" ;
+	agrold_vocabulary:encoded_by	tairlocus:AT1G17890 .
+aracyc_pathway:PWY-1921
+	rdf:type	agrold_vocabulary:Metabolic_Pathway ;
+	rdfs:subClassOf	sio:SIO_010532 ;
+	rdfs:label	"indole-3-acetate activation II" ;
+	agrold_vocabulary:has_reaction	reaction:RXN-3167 ;
+	agrold_vocabulary:has_reaction	reaction:RXN-3166 ;
+	agrold_vocabulary:has_agent	aracyc_protein:AT1G73250-MONOMER ;
+	agrold_vocabulary:has_agent	aracyc_protein:GQT-1924-MONOMER .
+reaction:RXN-7904
+	rdf:type	agrold_vocabulary:Reaction ;
+	agrold_vocabulary:has_ec_code	ec:6.2.1.3 .
+aracyc_protein:GQT-1621-MONOMER
+	rdf:type	agrold_vocabulary:Protein ;
+	rdfs:label	"long-chain-fatty-acid-CoA ligase" ;
+	agrold_vocabulary:encoded_by	tairlocus:AT1G51680 .
+aracyc_protein:GQT-1620-MONOMER
+	rdf:type	agrold_vocabulary:Protein ;
+	rdfs:label	"long-chain-fatty-acid-CoA ligase" ;
+	agrold_vocabulary:encoded_by	tairlocus:AT1G51680 .
+aracyc_pathway:PWY-5143
+	rdf:type	agrold_vocabulary:Metabolic_Pathway ;
+	rdfs:subClassOf	sio:SIO_010532 ;
+	rdfs:label	"fatty acid activation" ;
+	agrold_vocabulary:has_reaction	reaction:RXN-7904 ;
+	agrold_vocabulary:has_agent	aracyc_protein:GQT-1621-MONOMER ;
+	agrold_vocabulary:has_agent	aracyc_protein:GQT-1620-MONOMER .
+reaction:RXN-8136
+	rdf:type	agrold_vocabulary:Reaction .
+aracyc_protein:AT5G48180-MONOMER
+	rdf:type	agrold_vocabulary:Protein ;
+	rdfs:label	"nitrile-specifier protein" ;
+	agrold_vocabulary:encoded_by	tairlocus:AT5G48180 .
+aracyc_protein:AT3G16410-MONOMER
+	rdf:type	agrold_vocabulary:Protein ;
+	rdfs:label	"nitrile-specifier protein" ;
+	agrold_vocabulary:encoded_by	tairlocus:AT3G16410 .
+aracyc_protein:AT3G16390-MONOMER
+	rdf:type	agrold_vocabulary:Protein ;
+	rdfs:label	"nitrile-specifier protein" ;
+	agrold_vocabulary:encoded_by	tairlocus:AT3G16390 .
+aracyc_protein:AT2G33070-MONOMER
+	rdf:type	agrold_vocabulary:Protein ;
+	rdfs:label	"nitrile-specifier protein" ;
+	agrold_vocabulary:encoded_by	tairlocus:AT2G33070 .
+reaction:RXN-8135
+	rdf:type	agrold_vocabulary:Reaction .
+reaction:RXN-8134
+	rdf:type	agrold_vocabulary:Reaction ;
+	agrold_vocabulary:has_ec_code	ec:3.2.1.147 .
+aracyc_protein:AT1G51490-MONOMER
+	rdf:type	agrold_vocabulary:Protein ;
+	rdfs:label	"thioglucosidase" ;
+	agrold_vocabulary:encoded_by	tairlocus:AT1G51490 .
+aracyc_protein:AT5G48375-MONOMER
+	rdf:type	agrold_vocabulary:Protein ;
+	rdfs:label	"thioglucosidase" ;
+	agrold_vocabulary:encoded_by	tairlocus:AT5G48375 .
+aracyc_pathway:PWY-5267
+	rdf:type	agrold_vocabulary:Metabolic_Pathway ;
+	rdfs:subClassOf	sio:SIO_010532 ;
+	rdfs:label	"glucosinolate breakdown" ;
+	agrold_vocabulary:has_reaction	reaction:RXN-8136 ;
+	agrold_vocabulary:has_agent	aracyc_protein:AT5G48180-MONOMER ;
+	agrold_vocabulary:has_agent	aracyc_protein:AT3G16410-MONOMER ;
+	agrold_vocabulary:has_agent	aracyc_protein:AT3G16390-MONOMER ;
+	agrold_vocabulary:has_agent	aracyc_protein:AT2G33070-MONOMER ;
+	agrold_vocabulary:has_reaction	reaction:RXN-8135 ;
+	agrold_vocabulary:has_reaction	reaction:RXN-8134 ;
+	agrold_vocabulary:has_agent	aracyc_protein:AT1G51490-MONOMER ;
+	agrold_vocabulary:has_agent	aracyc_protein:AT5G48375-MONOMER .
+reaction:RXN-12207
+	rdf:type	agrold_vocabulary:Reaction .
+reaction:RXN-12206
+	rdf:type	agrold_vocabulary:Reaction .
+aracyc_pathway:PWYQT-4476
+	rdf:type	agrold_vocabulary:Metabolic_Pathway ;
+	rdfs:subClassOf	sio:SIO_010532 ;
+	rdfs:label	"indole glucosinolate breakdown (insect chewing induced)" ;
+	agrold_vocabulary:has_reaction	reaction:RXN-12207 ;
+	agrold_vocabulary:has_reaction	reaction:RXN-12206 .
+reaction:MALATE-DEHYDROGENASE-NADP+-RXN
+	rdf:type	agrold_vocabulary:Reaction ;
+	agrold_vocabulary:has_ec_code	ec:1.1.1.82 .
+aracyc_protein:AT5G58330-MONOMER
+	rdf:type	agrold_vocabulary:Protein ;
+	rdfs:label	"malate dehydrogenase (NADP<small><sup>+</sup></small>)" ;
+	agrold_vocabulary:encoded_by	tairlocus:AT5G58330 .
+reaction:MALATE-DEH-RXN
+	rdf:type	agrold_vocabulary:Reaction ;
+	agrold_vocabulary:has_ec_code	ec:1.1.1.37 .
+aracyc_protein:MONOMER-17398
+	rdf:type	agrold_vocabulary:Protein ;
+	rdfs:label	"malate dehydrogenase" ;
+	agrold_vocabulary:encoded_by	aracyc_gene:G-15177 .
+aracyc_pathway:PWY-7048
+	rdf:type	agrold_vocabulary:Metabolic_Pathway ;
+	rdfs:subClassOf	sio:SIO_010532 ;
+	rdfs:label	"malate-oxaloacetate shuttle II" ;
+	agrold_vocabulary:has_reaction	reaction:MALATE-DEHYDROGENASE-NADP+-RXN ;
+	agrold_vocabulary:has_agent	aracyc_protein:AT5G58330-MONOMER ;
+	agrold_vocabulary:has_reaction	reaction:MALATE-DEH-RXN ;
+	agrold_vocabulary:has_agent	aracyc_protein:MONOMER-17398 .
+reaction:ETHYL-RXN
+	rdf:type	agrold_vocabulary:Reaction ;
+	agrold_vocabulary:has_ec_code	ec:1.14.17.4 .
+aracyc_protein:GQT-217-MONOMER
+	rdf:type	agrold_vocabulary:Protein ;
+	rdfs:label	"aminocyclopropanecarboxylate oxidase" ;
+	agrold_vocabulary:encoded_by	tairlocus:AT3G50210 .
+aracyc_pathway:ETHYL-PWY
+	rdf:type	agrold_vocabulary:Metabolic_Pathway ;
+	rdfs:subClassOf	sio:SIO_010532 ;
+	rdfs:label	"ethylene biosynthesis I (plants)" ;
+	agrold_vocabulary:has_reaction	reaction:ETHYL-RXN ;
+	agrold_vocabulary:has_agent	aracyc_protein:GQT-217-MONOMER .
+reaction:RXN-7700
+	rdf:type	agrold_vocabulary:Reaction ;
+	agrold_vocabulary:has_ec_code	ec:1.1.1.1 .
+aracyc_pathway:PWY-5751
+	rdf:type	agrold_vocabulary:Metabolic_Pathway ;
+	rdfs:subClassOf	sio:SIO_010532 ;
+	rdfs:label	"phenylethanol biosynthesis" ;
+	agrold_vocabulary:has_reaction	reaction:RXN-7700 ;
+	agrold_vocabulary:has_agent	aracyc_protein:GQT-1620-MONOMER .
+aracyc_protein:GQT-2580-MONOMER
+	rdf:type	agrold_vocabulary:Protein ;
+	rdfs:label	"malate dehydrogenase" ;
+	agrold_vocabulary:encoded_by	tairlocus:AT5G58330 .
+aracyc_pathway:PWY-7047
+	rdf:type	agrold_vocabulary:Metabolic_Pathway ;
+	rdfs:subClassOf	sio:SIO_010532 ;
+	rdfs:label	"malate-oxaloacetate shuttle I" ;
+	agrold_vocabulary:has_agent	aracyc_protein:AT5G58330-MONOMER ;
+	agrold_vocabulary:has_agent	aracyc_protein:GQT-2580-MONOMER .
+reaction:3.6.3.3-RXN
+	rdf:type	agrold_vocabulary:Reaction ;
+	agrold_vocabulary:has_ec_code	ec:3.6.3.3 .
+aracyc_protein:MONOMER-14750
+	rdf:type	agrold_vocabulary:Protein ;
+	rdfs:label	"cadmium/zinc-transporting ATPase" ;
+	agrold_vocabulary:encoded_by	aracyc_gene:G-11253 .
+aracyc_pathway:PWY-6213
+	rdf:type	agrold_vocabulary:Metabolic_Pathway ;
+	rdfs:subClassOf	sio:SIO_010532 ;
+	rdfs:label	"cadmium transport I" ;
+	agrold_vocabulary:has_reaction	reaction:3.6.3.3-RXN ;
+	agrold_vocabulary:has_agent	aracyc_protein:MONOMER-14750 .
