@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rdf:RDF
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:dcterms="http://purl.org/dc/terms/"
+	xmlns:void="http://rdfs.org/ns/void#"
+	xmlns:ns4="http://bio2rdf.org/bio2rdf_vocabulary:" >
+  <rdf:Description rdf:about="http://bio2rdf.org/goa_vocabulary:GO-Annotation">
+    <rdf:type rdf:resource="http://bio2rdf.org/goa_vocabulary:Resource" />
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GO Annotation [goa_vocabulary:GO-Annotation]</rdfs:label>
+    <rdfs:label xml:lang="en">GO Annotation [goa_vocabulary:GO-Annotation]</rdfs:label>
+    <dcterms:title xml:lang="en">GO Annotation</dcterms:title>
+    <dcterms:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">goa_vocabulary:GO-Annotation</dcterms:identifier>
+    <void:inDataset rdf:resource="http://bio2rdf.org/goa_resource:bio2rdf.dataset.goa.R3" />
+    <ns4:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GO-Annotation</ns4:identifier>
+    <ns4:namespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">goa_vocabulary</ns4:namespace>
+    <ns4:uri rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://bio2rdf.org/goa_vocabulary:GO-Annotation</ns4:uri>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://bio2rdf.org/goa_vocabulary:Resource">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource" />
+    <rdfs:label>goa_vocabulary resource [goa_vocabulary:Resource]</rdfs:label>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">goa_vocabulary resource [goa_vocabulary:Resource]</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://bio2rdf.org/goa_vocabulary:article">
+    <rdf:type rdf:resource="http://bio2rdf.org/goa_vocabulary:Resource" />
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">article [goa_vocabulary:article]</rdfs:label>
+    <rdfs:label xml:lang="en">article [goa_vocabulary:article]</rdfs:label>
+    <dcterms:title xml:lang="en">article</dcterms:title>
+    <dcterms:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">goa_vocabulary:article</dcterms:identifier>
+    <void:inDataset rdf:resource="http://bio2rdf.org/goa_resource:bio2rdf.dataset.goa.R3" />
+    <ns4:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">article</ns4:identifier>
+    <ns4:namespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">goa_vocabulary</ns4:namespace>
+    <ns4:uri rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://bio2rdf.org/goa_vocabulary:article</ns4:uri>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://bio2rdf.org/goa_vocabulary:assigned-by">
+    <rdf:type rdf:resource="http://bio2rdf.org/goa_vocabulary:Resource" />
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />
+    <rdfs:label xml:lang="en">assigned by [goa_vocabulary:assigned-by]</rdfs:label>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">assigned by [goa_vocabulary:assigned-by]</rdfs:label>
+    <dcterms:title xml:lang="en">assigned by</dcterms:title>
+    <dcterms:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">goa_vocabulary:assigned-by</dcterms:identifier>
+    <void:inDataset rdf:resource="http://bio2rdf.org/goa_resource:bio2rdf.dataset.goa.R3" />
+    <ns4:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">assigned-by</ns4:identifier>
+    <ns4:namespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">goa_vocabulary</ns4:namespace>
+    <ns4:uri rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://bio2rdf.org/goa_vocabulary:assigned-by</ns4:uri>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://bio2rdf.org/goa_vocabulary:component">
+    <rdf:type rdf:resource="http://bio2rdf.org/goa_vocabulary:Resource" />
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">component [goa_vocabulary:component]</rdfs:label>
+    <rdfs:label xml:lang="en">component [goa_vocabulary:component]</rdfs:label>
+    <dcterms:title xml:lang="en">component</dcterms:title>
+    <dcterms:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">goa_vocabulary:component</dcterms:identifier>
+    <void:inDataset rdf:resource="http://bio2rdf.org/goa_resource:bio2rdf.dataset.goa.R3" />
+    <ns4:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">component</ns4:identifier>
+    <ns4:namespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">goa_vocabulary</ns4:namespace>
+    <ns4:uri rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://bio2rdf.org/goa_vocabulary:component</ns4:uri>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://bio2rdf.org/goa_vocabulary:entry-date">
+    <rdf:type rdf:resource="http://bio2rdf.org/goa_vocabulary:Resource" />
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">entry date [goa_vocabulary:entry-date]</rdfs:label>
+    <rdfs:label xml:lang="en">entry date [goa_vocabulary:entry-date]</rdfs:label>
+    <dcterms:title xml:lang="en">entry date</dcterms:title>
+    <dcterms:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">goa_vocabulary:entry-date</dcterms:identifier>
+    <void:inDataset rdf:resource="http://bio2rdf.org/goa_resource:bio2rdf.dataset.goa.R3" />
+    <ns4:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">entry-date</ns4:identifier>
+    <ns4:namespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">goa_vocabulary</ns4:namespace>
+    <ns4:uri rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://bio2rdf.org/goa_vocabulary:entry-date</ns4:uri>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://bio2rdf.org/goa_vocabulary:evidence">
+    <rdf:type rdf:resource="http://bio2rdf.org/goa_vocabulary:Resource" />
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">evidence [goa_vocabulary:evidence]</rdfs:label>
+    <rdfs:label xml:lang="en">evidence [goa_vocabulary:evidence]</rdfs:label>
+    <dcterms:title xml:lang="en">evidence</dcterms:title>
+    <dcterms:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">goa_vocabulary:evidence</dcterms:identifier>
+    <void:inDataset rdf:resource="http://bio2rdf.org/goa_resource:bio2rdf.dataset.goa.R3" />
+    <ns4:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">evidence</ns4:identifier>
+    <ns4:namespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">goa_vocabulary</ns4:namespace>
+    <ns4:uri rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://bio2rdf.org/goa_vocabulary:evidence</ns4:uri>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://bio2rdf.org/goa_vocabulary:function">
+    <rdf:type rdf:resource="http://bio2rdf.org/goa_vocabulary:Resource" />
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
+    <rdfs:label xml:lang="en">function [goa_vocabulary:function]</rdfs:label>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">function [goa_vocabulary:function]</rdfs:label>
+    <dcterms:title xml:lang="en">function</dcterms:title>
+    <dcterms:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">goa_vocabulary:function</dcterms:identifier>
+    <void:inDataset rdf:resource="http://bio2rdf.org/goa_resource:bio2rdf.dataset.goa.R3" />
+    <ns4:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">function</ns4:identifier>
+    <ns4:namespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">goa_vocabulary</ns4:namespace>
+    <ns4:uri rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://bio2rdf.org/goa_vocabulary:function</ns4:uri>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://bio2rdf.org/goa_vocabulary:go-annotation">
+    <rdf:type rdf:resource="http://bio2rdf.org/goa_vocabulary:Resource" />
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">GO annotation [goa_vocabulary:go-annotation]</rdfs:label>
+    <rdfs:label xml:lang="en">GO annotation [goa_vocabulary:go-annotation]</rdfs:label>
+    <dcterms:title xml:lang="en">GO annotation</dcterms:title>
+    <dcterms:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">goa_vocabulary:go-annotation</dcterms:identifier>
+    <void:inDataset rdf:resource="http://bio2rdf.org/goa_resource:bio2rdf.dataset.goa.R3" />
+    <ns4:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">go-annotation</ns4:identifier>
+    <ns4:namespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">goa_vocabulary</ns4:namespace>
+    <ns4:uri rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://bio2rdf.org/goa_vocabulary:go-annotation</ns4:uri>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://bio2rdf.org/goa_vocabulary:go-category">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
+    <rdf:type rdf:resource="http://bio2rdf.org/goa_vocabulary:Resource" />
+    <rdfs:label xml:lang="en">go category [goa_vocabulary:go-category]</rdfs:label>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">go category [goa_vocabulary:go-category]</rdfs:label>
+    <dcterms:title xml:lang="en">go category</dcterms:title>
+    <dcterms:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">goa_vocabulary:go-category</dcterms:identifier>
+    <void:inDataset rdf:resource="http://bio2rdf.org/goa_resource:bio2rdf.dataset.goa.R3" />
+    <ns4:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">go-category</ns4:identifier>
+    <ns4:namespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">goa_vocabulary</ns4:namespace>
+    <ns4:uri rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://bio2rdf.org/goa_vocabulary:go-category</ns4:uri>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://bio2rdf.org/goa_vocabulary:go-term">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
+    <rdf:type rdf:resource="http://bio2rdf.org/goa_vocabulary:Resource" />
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">go term [goa_vocabulary:go-term]</rdfs:label>
+    <rdfs:label xml:lang="en">go term [goa_vocabulary:go-term]</rdfs:label>
+    <dcterms:title xml:lang="en">go term</dcterms:title>
+    <dcterms:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">goa_vocabulary:go-term</dcterms:identifier>
+    <void:inDataset rdf:resource="http://bio2rdf.org/goa_resource:bio2rdf.dataset.goa.R3" />
+    <ns4:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">go-term</ns4:identifier>
+    <ns4:namespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">goa_vocabulary</ns4:namespace>
+    <ns4:uri rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://bio2rdf.org/goa_vocabulary:go-term</ns4:uri>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://bio2rdf.org/goa_vocabulary:not-has-function">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
+    <rdf:type rdf:resource="http://bio2rdf.org/goa_vocabulary:Resource" />
+    <rdfs:label xml:lang="en">not has function [goa_vocabulary:not-has-function]</rdfs:label>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">not has function [goa_vocabulary:not-has-function]</rdfs:label>
+    <dcterms:title xml:lang="en">not has function</dcterms:title>
+    <dcterms:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">goa_vocabulary:not-has-function</dcterms:identifier>
+    <void:inDataset rdf:resource="http://bio2rdf.org/goa_resource:bio2rdf.dataset.goa.R3" />
+    <ns4:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">not-has-function</ns4:identifier>
+    <ns4:namespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">goa_vocabulary</ns4:namespace>
+    <ns4:uri rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://bio2rdf.org/goa_vocabulary:not-has-function</ns4:uri>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://bio2rdf.org/goa_vocabulary:not-in-component">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
+    <rdf:type rdf:resource="http://bio2rdf.org/goa_vocabulary:Resource" />
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">not in component [goa_vocabulary:not-in-component]</rdfs:label>
+    <rdfs:label xml:lang="en">not in component [goa_vocabulary:not-in-component]</rdfs:label>
+    <dcterms:title xml:lang="en">not in component</dcterms:title>
+    <dcterms:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">goa_vocabulary:not-in-component</dcterms:identifier>
+    <void:inDataset rdf:resource="http://bio2rdf.org/goa_resource:bio2rdf.dataset.goa.R3" />
+    <ns4:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">not-in-component</ns4:identifier>
+    <ns4:namespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">goa_vocabulary</ns4:namespace>
+    <ns4:uri rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://bio2rdf.org/goa_vocabulary:not-in-component</ns4:uri>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://bio2rdf.org/goa_vocabulary:process">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
+    <rdf:type rdf:resource="http://bio2rdf.org/goa_vocabulary:Resource" />
+    <rdfs:label xml:lang="en">process [goa_vocabulary:process]</rdfs:label>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">process [goa_vocabulary:process]</rdfs:label>
+    <dcterms:title xml:lang="en">process</dcterms:title>
+    <dcterms:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">goa_vocabulary:process</dcterms:identifier>
+    <void:inDataset rdf:resource="http://bio2rdf.org/goa_resource:bio2rdf.dataset.goa.R3" />
+    <ns4:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">process</ns4:identifier>
+    <ns4:namespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">goa_vocabulary</ns4:namespace>
+    <ns4:uri rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://bio2rdf.org/goa_vocabulary:process</ns4:uri>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://bio2rdf.org/goa_vocabulary:symbol">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />
+    <rdf:type rdf:resource="http://bio2rdf.org/goa_vocabulary:Resource" />
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">symbol [goa_vocabulary:symbol]</rdfs:label>
+    <rdfs:label xml:lang="en">symbol [goa_vocabulary:symbol]</rdfs:label>
+    <dcterms:title xml:lang="en">symbol</dcterms:title>
+    <dcterms:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">goa_vocabulary:symbol</dcterms:identifier>
+    <void:inDataset rdf:resource="http://bio2rdf.org/goa_resource:bio2rdf.dataset.goa.R3" />
+    <ns4:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">symbol</ns4:identifier>
+    <ns4:namespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">goa_vocabulary</ns4:namespace>
+    <ns4:uri rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://bio2rdf.org/goa_vocabulary:symbol</ns4:uri>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://bio2rdf.org/goa_vocabulary:synonym">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty" />
+    <rdf:type rdf:resource="http://bio2rdf.org/goa_vocabulary:Resource" />
+    <rdfs:label xml:lang="en">synonym [goa_vocabulary:synonym]</rdfs:label>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">synonym [goa_vocabulary:synonym]</rdfs:label>
+    <dcterms:title xml:lang="en">synonym</dcterms:title>
+    <dcterms:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">goa_vocabulary:synonym</dcterms:identifier>
+    <void:inDataset rdf:resource="http://bio2rdf.org/goa_resource:bio2rdf.dataset.goa.R3" />
+    <ns4:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">synonym</ns4:identifier>
+    <ns4:namespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">goa_vocabulary</ns4:namespace>
+    <ns4:uri rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://bio2rdf.org/goa_vocabulary:synonym</ns4:uri>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://bio2rdf.org/goa_vocabulary:target">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
+    <rdf:type rdf:resource="http://bio2rdf.org/goa_vocabulary:Resource" />
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">target [goa_vocabulary:target]</rdfs:label>
+    <rdfs:label xml:lang="en">target [goa_vocabulary:target]</rdfs:label>
+    <dcterms:title xml:lang="en">target</dcterms:title>
+    <dcterms:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">goa_vocabulary:target</dcterms:identifier>
+    <void:inDataset rdf:resource="http://bio2rdf.org/goa_resource:bio2rdf.dataset.goa.R3" />
+    <ns4:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">target</ns4:identifier>
+    <ns4:namespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">goa_vocabulary</ns4:namespace>
+    <ns4:uri rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://bio2rdf.org/goa_vocabulary:target</ns4:uri>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://bio2rdf.org/goa_vocabulary:x-taxonomy">
+    <rdf:type rdf:resource="http://bio2rdf.org/goa_vocabulary:Resource" />
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">x taxonomy [goa_vocabulary:x-taxonomy]</rdfs:label>
+    <rdfs:label xml:lang="en">x taxonomy [goa_vocabulary:x-taxonomy]</rdfs:label>
+    <dcterms:title xml:lang="en">x taxonomy</dcterms:title>
+    <dcterms:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">goa_vocabulary:x-taxonomy</dcterms:identifier>
+    <void:inDataset rdf:resource="http://bio2rdf.org/goa_resource:bio2rdf.dataset.goa.R3" />
+    <ns4:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">x-taxonomy</ns4:identifier>
+    <ns4:namespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">goa_vocabulary</ns4:namespace>
+    <ns4:uri rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://bio2rdf.org/goa_vocabulary:x-taxonomy</ns4:uri>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://bio2rdf.org/goa_vocabulary:not-in-process">
+    <rdf:type rdf:resource="http://bio2rdf.org/goa_vocabulary:Resource" />
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">not in process [goa_vocabulary:not-in-process]</rdfs:label>
+    <rdfs:label xml:lang="en">not in process [goa_vocabulary:not-in-process]</rdfs:label>
+    <dcterms:title xml:lang="en">not in process</dcterms:title>
+    <dcterms:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">goa_vocabulary:not-in-process</dcterms:identifier>
+    <void:inDataset rdf:resource="http://bio2rdf.org/goa_resource:bio2rdf.dataset.goa.R3" />
+    <ns4:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">not-in-process</ns4:identifier>
+    <ns4:namespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">goa_vocabulary</ns4:namespace>
+    <ns4:uri rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://bio2rdf.org/goa_vocabulary:not-in-process</ns4:uri>
+  </rdf:Description>
+</rdf:RDF>

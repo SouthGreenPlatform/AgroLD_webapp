@@ -1,0 +1,1928 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:open-annotation="http://www.openannotation.org/ns/"
+    xmlns:void2="http://rdfs.org/ns/void#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl3="http://granatum.org/schema/www.w3.org/2002/07/owl#"
+    xmlns:discourse-elements="http://swan.mindinformatics.org/ontologies/1.2/discourse-elements/"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:terms="http://purl.org/dc/terms/"
+    xmlns="http://chem.deri.ie/granatum#"
+    xmlns:void="http://granatum.org/schema/http://rdfs.org/ns/void#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://chem.deri.ie/granatum">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://www.ifomis.org/bfo/1.1"/>
+  </owl:Ontology>
+  <owl:Class rdf:ID="percent_inhibition">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The percent inhibition is a function of the concentration of the compound.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Measurement"/>
+    </rdfs:subClassOf>
+    <rdfs:label>percent_inhibition</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="DPPHSC50">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="SC50"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Numbers in parentheses indicate the percentage of scavenging or inhibition at the indicated concentrations.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >1,1-diphenyl-2 picrylhydrazyl SC50</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Cyp1AIC50">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >IC50 of Cyp1A</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Cyp1AIC50</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="IC50"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="ReactiveOxygenSpecies">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Reactive oxygen species are organic or inorganic chemicals that contain an oxygen atom with an unpaired electron. This unstable electron configuration causes these chemicals to be highly reactive with other molecules.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Reactive oxygen species</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Target"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#IC50">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >IC50</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Concentration"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >half-maximal inhibitory concentration</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="chemopreventionStudy">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A Study related to Cancer Chemoprevention.</rdfs:comment>
+    <rdfs:label>chemopreventionStudy</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Study"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="toxicityStudy">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A Study related to the toxicity of e.g. a Chemopreventive Agent.</rdfs:comment>
+    <rdfs:label>toxicityStudy</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Study"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="CD">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Concentration required to double the specific activity of quinone reductase</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >CD</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Concentration"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Antioxidant">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Antioxidant</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Inhibition of the reactions brought about by dioxygen (O2) or peroxides. Usually the antioxidant is effective because it can itself be more easily oxidized than the substance protected. The term is often applied to components that can trap free radicals, thereby breaking the chain reaction that normally leads to extensive biological damage.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="biologicalMechanism"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Argument">
+    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#GenericallyDependentContinuant"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Argument</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="HL60IC50">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Inhibition of 12-O-tetradecanoylphorbol-13-acetate (TPA)-induced superoxide anion radical generation in differentiated HL-60 cells (HL-60 assay). Numbers in parentheses indicate the percentage of scavenging or inhibition at the indicated concentrations.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >HL60IC50. </rdfs:label>
+    <rdfs:subClassOf rdf:resource="#IC50"/>
+  </owl:Class>
+  <owl:Class rdf:ID="inhibitory_concentration">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Measurement"/>
+    </rdfs:subClassOf>
+    <rdfs:label>inhibitory_concentration</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Concentration of a substance that causes a defined inhibition of a given system</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="user_assay">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A user defined assay.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >user_assay</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="inVivoBioassay"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="fractionation_guided">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >An in-vivo bioassay the uses fractionation.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >fractionation_guided</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#inVivoBioassay"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="VirtualScreening">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Virtual Screening refers to the technique of performing a Biomedical experiment entirely in a computer via computer simulation.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Virtual screening</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="in_silico_assay"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="COX1IC50">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >COX1IC50</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#IC50"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Cox-1 inhibition IC50 [µM]</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Concentration">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >In chemistry, concentration is defined as the abundance of a constituent divided by the total volume of a mixture.</rdfs:comment>
+    <rdfs:label>Concentration</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Measurement"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="inVitroBioAssay">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A Bioassay is a laboratory test or analysis of the biological activity of a substance (e.g. Chemopreventive agent) performed by studying its effect on an organism or in a test tube under controlled conditions. A Bioassay is part of an experiment that includes also other bioassays.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >in vitro bio assay</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="in_vitro_assay"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Anti-metastatic_Anti-agiogenic">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Anti-metastatic Anti-agiogenic</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Metastasis is a complex series of steps in which cancer cells leave the original tumor site and migrate to other parts of the body via the bloodstream or the lymphatic system.  Malignant cells break away from the primary tumor and attach to and degrade proteins that make up the surrounding extracellular matrix (ECM). By degrading these proteins, cancer cells are able to breach the ECM and escape. The body resists metastasis by a variety of mechanisms through the actions of a class of proteins known as metastasis suppressors. One of the critical events required is the growth of new blood vessels from pre-existing vessels growth of a new network of blood vessels (Angiogenesis).</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#biologicalMechanism"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="IC">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >IC</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Maximum Inhibitory concentration</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Concentration"/>
+  </owl:Class>
+  <owl:Class rdf:ID="epigeneticsStudy">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A Study  of heritable changes in gene expression or cellular phenotype caused by mechanisms other than changes in the underlying DNA sequence.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Study"/>
+    </rdfs:subClassOf>
+    <rdfs:label>epigeneticsStudy</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="PredictiveModel">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#in_silico_assay"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >An in-silico Predictive Model</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Predictive Model</rdfs:label>
+    <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >:zeginis</dc:creator>
+  </owl:Class>
+  <owl:Class rdf:about="#inVivoBioassay">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="in_vivo_assay"/>
+    </rdfs:subClassOf>
+    <rdfs:label>Bioassay</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A Bioassay is a laboratory test or analysis of the biological activity of a substance (e.g. Chemopreventive agent) performed by studying its effect on an organism or in a test tube under controlled conditions. A Bioassay is part of an experiment that includes also other bioassays.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Study">
+    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#GenericallyDependentContinuant"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A study is a collection of bioassays sharing a protocol</rdfs:comment>
+    <rdfs:label>Study</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="ScientificWorkflow">
+    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/span#ProcessAggregate"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ScientificWorkflow</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The Scientific workflow is a pipeline of connected components (in-silico tools, models) to perform an in silico experiment.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Disease">
+    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#Disposition"/>
+    <rdfs:label>Disease</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A Disease is any abnormal condition of the body or mind that causes discomfort, dysfunction, or distress to the person affected or those in contact with the person. The term is often used broadly to include injuries, disabilities, syndromes, symptoms, deviant behaviors, and atypical variations of structure and function.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="CancerType">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Cancer has many cancer types modeled by this class</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Cancer"/>
+    </rdfs:subClassOf>
+    <rdfs:label>CancerType</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Measurement">
+    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#Quality"/>
+    <rdfs:label>Measurement</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Measured values and units.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="goURI">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >goURI</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The Gene Ontology URI</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Resources"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="iNOSIC50">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Inhibition of iNOS induction A-IC50.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#IC50"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >iNOSIC50</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#in_vitro_assay">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >in_vitro_assay</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >An in vitro (Latin for within the glass) assay refers to the technique of performing an assay in a controlled environment outside of a living organism.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Assay"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Hypothesis">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="ResearchStatement"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Hypothesis</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="chebiURI">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >chebiURI</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The URI of chebi</rdfs:comment>
+    <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >http://chebi.bio2rdf.org/sparql</rdfs:seeAlso>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Resources"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#SC50">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >SC50</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Concentration"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >half-maximal scavenging concentration</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="ORAC">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Measurement of oxygen radical absorbance capacity. One ORAC unit equals the net protection produced by 1 µM Trolox.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ORAC</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Measurement"/>
+  </owl:Class>
+  <owl:Class rdf:ID="PublishedWork">
+    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#GenericallyDependentContinuant"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >PublishedWork</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A printed or electronic work offered for distribution.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="drugbankURI">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >drugbankURI</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The URI of drug bank</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Resources"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Investigation">
+    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/span#ProcessualEntity"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Investigation</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >High-level concept to link related studies</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="pubmedURL">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >pubmedURL</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The pubmed URL</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Resources"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="ORACROO">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A measurement, subclass of ORAC.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#ORAC"/>
+    <rdfs:label>ORACROO</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="ORACOH">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A measurement, subclass of ORAC.</rdfs:comment>
+    <rdfs:label>ORACOH</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#ORAC"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ClinicalTrial">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#in_vivo_assay"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Clinical trial</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A Clinical trial is a research study that prospectively assigns human participants or groups of humans to one or more health-related interventions to evaluate the effects on health outcomes. Interventions include but are not restricted to drugs, cells and other biological products, surgical procedures, radiologic procedures, devices, behavioral treatments, process-of-care changes, and preventive care.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="max_percent_inhibition">
+    <rdfs:subClassOf rdf:resource="#percent_inhibition"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >max percent inhibition</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The max percent inhibition is a function of the maximum concentration of the compound.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Pathway">
+    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/span#ProcessualEntity"/>
+    <rdfs:label>Pathway</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A Pathways is a set or series of interactions, often forming a network, which biologists have found useful to group together for organizational, historic, biophysical, or other reasons. The Chemopreventive agent affects a Biological target in order to brake the series of interactions that leads to a Disease (i.e. cancer). Instances can come from any of the pathway databases. Instances should be indexed with those URI. </rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="mechanism_based">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >An in vivo bioassay based on mechanosms.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >mechanism_based</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#inVivoBioassay"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Sugar">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Any member of a class of edible, crystalline carbohydrates (mainly sucrose, lactose and fructose) characterised by a sweet flavour; a loose term applied to monosaccharides, disaccharides, trisaccharides and oligosaccharides, in contrast to complex carbohydrates such as polysaccharides.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Sugar</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Target"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Protocol">
+    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#GenericallyDependentContinuant"/>
+    <rdfs:label>Protocol</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A protocol is an information entity which is a set of instructions that describe how an Study is done.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="enzymeInduction">
+    <rdfs:subClassOf rdf:resource="#chemopreventionStudy"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >e.g. NAD(P)H:quinone reductase (quinone reductase, QR) activity</rdfs:comment>
+    <rdfs:label>enzymeInduction</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="ExperimentalFactor">
+    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#Object"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Experimental factor</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Experimental factors are the variable aspect of an experiment design which can be used to describe an experiment, or set of experiments, in an increasingly detailed manner.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="ChemopreventiveAgent">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Molecule"/>
+    </rdfs:subClassOf>
+    <rdfs:label>ChemopreventiveAgent</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A Chemopreventive agent is a Molecule that  has shown some evidence that it may be able to prevent or delay the development of a specific Disease (e.g. cancer) by interfering with a Biological target. For example - cancer chemopreventive agents are used to inhibit, delay, or reverse carcinogenesis. A Chemopreventive agent can be tested into an Experiment and can be contained into a Natural source or a Drug. References to a Chemopreventive agent can be found into a Publication.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="OCDIC50">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >OCDIC50</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#IC50"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Inhibition of ODC induction IC50 [µM]</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Databases">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Links Databases related to CanCO e.g. kegg, chebi, pubmed, pubchem etc.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Databases</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Resources"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#in_vivo_assay">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >in_vivo_assay</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >An In vivo (Latin for "within the living") refers to experimentation using a whole, living organism as opposed to a partial or dead organism.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Assay"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="QRIC50">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >QRIC50</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >IC50 of Quinone Reductase</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#IC50"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Organism">
+    <rdfs:subClassOf rdf:resource="#ExperimentalFactor"/>
+    <rdfs:label>Organism</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A living entity.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="max_inhibitory_concentration">
+    <rdfs:subClassOf rdf:resource="#inhibitory_concentration"/>
+    <rdfs:label>max_inhibitory_concentration</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The maximum concentration of a substance that causes a defined inhibition of a given system.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="carcinogenActivating">
+    <rdfs:subClassOf rdf:resource="#chemopreventionStudy"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >e.g. Inhibition of cytochrome P450 (Cyp) 1A activity </rdfs:comment>
+    <rdfs:label>carcinogenActivating</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="WebPage">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A Web Page</rdfs:comment>
+    <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >:zeginis</dc:creator>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Web page</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#GenericallyDependentContinuant"/>
+  </owl:Class>
+  <owl:Class rdf:ID="NucleicAcid">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Nucleic Acid are a family of macromolecules, composed of various moieties: purines, pyrimidines, phosphoric acid, and a pentose, either d-ribose or d-deoxyribose. Nucleic acids as DNA or RNA is found in the chromosomes, nucleoli, mitochondria, and cytoplasm of all cells, and in viruses. Nucleic acids are the major players in controlling cellular function and heredity.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NucleicAcid</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Target"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Protein">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A Protein is a group of complex organic macromolecules composed of one or more chains (linear polymers) of alpha-L-amino acids linked by peptide bonds and ranging in size from a few thousand to over 1 million Daltons. Proteins are fundamental genetically encoded components of living cells with specific structures and functions dictated by amino acid sequence.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Protein</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Target"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Source">
+    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#Object"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The source of a Chemopreventive agent can be either Natural (e.g. pomegranate) or Synthetic (e.g. a drug)</rdfs:comment>
+    <rdfs:label>Source</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="keggURI">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The Kegg URI</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >keggURI</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Resources"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Antiinflammatory">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Antiinflammatory</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Anti-inflammatory refers to the property of a substance or treatment that reduces inflammation.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#biologicalMechanism"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="AssayResult">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The result of an Assay.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Assay result</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/span#ProcessualEntity"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Estrogenic_Activity">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Estrogenic Activity</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Compounds having similar structure with steroid hormones, like estrogens, can bind to and activate estrogen receptors (ER) which in turn modulate the expression of many genes.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#biologicalMechanism"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Toxicity">
+    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#Quality"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Toxicity</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Toxicity is a quality of a chemical substance which indicates the capacity to cause injury to an organism in a dose dependent manner.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#biologicalMechanism">
+    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/span#ProcessualEntity"/>
+    <rdfs:label>biologicalMechanism</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The way a Chemopreventive Agent acts on a Target in order to prevent disease (e.g Cancer)</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="BioMaterial">
+    <rdfs:subClassOf rdf:resource="#ExperimentalFactor"/>
+    <rdfs:label>BioMaterial</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A biomaterial is any matter, surface, or construct that interacts with biological systems</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="dbpediaURI">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >dbpediaURI</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The URI of dppedia</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Resources"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Antiproliferative">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Antiproliferative</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Antiproliferative agents work to block the proliferative phase of acute cellular rejection.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#biologicalMechanism"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Organ">
+    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#Object"/>
+    <rdfs:label>Organ</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A unique macroscopic (gross) anatomic structure that performs specific functions. It is composed of various tissues. An organ is part of an anatomic system or a body region. Representative examples include the heart, lung, liver, spleen, and uterus.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="pubchemURI">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >pubchemURI</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The pubchem URI</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Resources"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Target">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Molecule"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Target</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A biological target is a biopolymer such as a protein or nucleic acid whose activity can be modified by an external stimulus. A Chemopreventive agent has a Biological target in order to "hit" it and change its behavior in order to prevent a disease.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Molecule">
+    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#Object"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Molecule</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The smallest particle of a substance that has all of the physical and chemical properties of that substance. Molecules are made up of one or more atoms. If they contain more than one atom, the atoms can be the same (an oxygen molecule has two oxygen atoms) or different (a water molecule has two hydrogen atoms and one oxygen atom). Biological molecules, such as proteins and DNA, can be made up of many thousands of atoms.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Apoptotic">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Apoptotic</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Apoptosis is programmed cell death, a normal component of the development and health of multicellular organisms. Cells die in response to a variety of stimuli and during apoptosis they do so in a controlled, regulated fashion. This makes apoptosis distinct from another form of cell death called necrosis in which uncontrolled cell death leads to lysis of cells, inflammatory responses and, potentially, to serious health problems. Upon receiving specific signals instructing the cells to undergo apoptosis a number of distinctive changes occur in the cell. A family of proteins known as caspases are typically activated in the early stages of apoptosis. These proteins breakdown or cleave key cellular components that are required for normal cellular function including structural proteins in the cytoskeleton and nuclear proteins such as DNA repair enzymes. The caspases can also activate other degradative enzymes such as DNases, which begin to cleave the DNA in the nucleus.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#biologicalMechanism"/>
+  </owl:Class>
+  <owl:Class rdf:ID="iNOSTIC50">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >iNOSTIC50</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#IC50"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Inhibition of iNOS induction A-IC50 [µM]a T-IC50 [µM]b</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="http://rdfs.org/ns/void#Dataset">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The URLs of SPARQL endpoints.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Resources"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Dataset</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Assay">
+    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/span#ProcessualEntity"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Test performed either on  material taken from the subject or on the whole initial subject, which produce qualitative or quantitative measurements (data).</rdfs:comment>
+    <rdfs:label>Assay</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Drug">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Synthetic"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Drug</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A Drug is any substance which when absorbed into a living organism may modify one or more of its functions. The term is generally accepted for a substance taken for a therapeutic purpose, but is also commonly used for abused substances. A Chemopreventive agent may be contained into a drug.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="XXOSC50">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Numbers in parentheses indicate the percentage of scavenging or inhibition at the indicated concentrations.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >xanthine oxidase SC50</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#SC50"/>
+  </owl:Class>
+  <owl:Class rdf:ID="DockingModel">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#in_silico_assay"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >An in-silico Docking Model</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Docking Model</rdfs:label>
+    <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >:zeginis</dc:creator>
+  </owl:Class>
+  <owl:Class rdf:ID="chemSpiderURL">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >chemSpiderURL</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The URL of chemspider</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Resources"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Natural">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A Natural Source is a substance found in nature that usually has a pharmacological or biological activity. A Chemopreventive agent may be contained into a Natural Source.</rdfs:comment>
+    <rdfs:label>Natural</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Source"/>
+  </owl:Class>
+  <owl:Class rdf:ID="pubmedURI">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The pubmed URI</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >pubmedURI</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Resources"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Lipid">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A class of hydrocarbon-containing organic compounds. Lipids are insoluble in water but soluble in nonpolar solvents and play important roles in living organisms: these roles include functioning as energy storage molecules, serving as structural components of cell membranes, and constituting important signaling molecules. Lipids can be subdivided into 2 groups: fatty acids and glycerides.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Lipid</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Target"/>
+  </owl:Class>
+  <owl:Class rdf:about="#in_silico_assay">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >An In silico assay is performed on computer or via computer simulation.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >in_silico_assay</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Assay"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Resources">
+    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#GenericallyDependentContinuant"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Links for resources related to the model.</rdfs:comment>
+    <rdfs:label>Resources</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Synthetic">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A Synthetic  Source is constructed and has a pharmacological or biological activity. A Chemopreventive agent may be contained into a Synthetic Source.</rdfs:comment>
+    <rdfs:label>Synthetic</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Source"/>
+  </owl:Class>
+  <owl:Class rdf:about="#ResearchStatement">
+    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#GenericallyDependentContinuant"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ResearchStatement</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A Research Statement is a declarative sentence supported by a specific Publication.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Cancer">
+    <rdfs:label>Cancer</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A disease characterized by abnormal and uncontrolled cell division</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Disease"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ForumPost">
+    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#GenericallyDependentContinuant"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Forum post</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A Forum Post is related to a Published Work and contains comments about this specific Publication. It allows the discussion and the exchange of ideas related to the Published Work.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Person">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Person</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#Object"/>
+    <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A person that can be the author of a published work, forum post, web page</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Cell_line">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A cell line is a cell factor which describes a population of cells cultured in vitro that are descended through one or more generations (and possible sub-cultures) from a single primary culture which was originally derived from part of an organism.  The cells of such a population share common characteristics.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Cell line</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#ExperimentalFactor"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="has_disease_location">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >has disease location</rdfs:label>
+    <rdfs:domain rdf:resource="#Disease"/>
+    <rdfs:range rdf:resource="#Organ"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Defines the organ a disease is located</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="measure">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Indicate the measurements made during a Study.</rdfs:comment>
+    <rdfs:range rdf:resource="#Measurement"/>
+    <rdfs:label>measure</rdfs:label>
+    <rdfs:domain rdf:resource="#Study"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="containMolecule">
+    <rdfs:range rdf:resource="#Molecule"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >contain molecule</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Correlates a Source (e.g. Natural or Synthetic) with the Molecules it contains</rdfs:comment>
+    <rdfs:domain rdf:resource="#Source"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="containStudy">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Indicate the Studies contained into an Investigation.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >containStudy</rdfs:label>
+    <rdfs:domain rdf:resource="#Investigation"/>
+    <rdfs:range rdf:resource="#Study"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://swan.mindinformatics.org/ontologies/1.2/discourse-elements/relatedTo">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Object property 1</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="isPreventedBy">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Correlates a Disease with the Chemopreventive Agent that can treat it.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >isTreatedBy</rdfs:label>
+    <rdfs:range rdf:resource="#ChemopreventiveAgent"/>
+    <rdfs:domain rdf:resource="#Disease"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="topic">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The topic</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:label>topic</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="useFactor">
+    <rdfs:range rdf:resource="#ExperimentalFactor"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >use factor</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Correlates an Protocol with the Experimental Factors used.</rdfs:comment>
+    <rdfs:domain rdf:resource="#Protocol"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="contains">
+    <rdfs:range rdf:resource="#Argument"/>
+    <rdfs:domain rdf:resource="#Hypothesis"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >contains</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://swan.mindinformatics.org/ontologies/1.2/discourse-elements/relatedTo"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="relatedTo">
+    <rdfs:range rdf:resource="#Hypothesis"/>
+    <rdfs:domain rdf:resource="#Argument"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >relatedTo</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://swan.mindinformatics.org/ontologies/1.2/discourse-elements/relatedTo"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasTarget">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Indicate the target of biological mechanism in order to prevent cancer.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasTarget</rdfs:label>
+    <rdfs:domain rdf:resource="#biologicalMechanism"/>
+    <rdfs:range rdf:resource="#Target"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="max_inhibitory_conc">
+    <rdfs:domain rdf:resource="#Concentration"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >concentration values in Molar</rdfs:comment>
+    <rdfs:label>max_inhibitory_conc</rdfs:label>
+    <rdfs:range rdf:resource="#max_inhibitory_concentration"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasBiologicalMechanism">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Indicate the Biological Mechanisms that has a Chemopreventive Agent.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasBiologicalMechanism</rdfs:label>
+    <rdfs:domain rdf:resource="#ChemopreventiveAgent"/>
+    <rdfs:range rdf:resource="#biologicalMechanism"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="referenceTo">
+    <rdfs:domain rdf:resource="#PublishedWork"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >referenceTo</rdfs:label>
+    <rdfs:range rdf:resource="#PublishedWork"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Correlates a Published work with other Published Work it references.</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="agreesWith">
+    <rdfs:range rdf:resource="#Hypothesis"/>
+    <rdfs:domain rdf:resource="#Argument"/>
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="http://swan.mindinformatics.org/ontologies/1.2/discourse-elements/agreesWith"/>
+    </rdfs:subPropertyOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >agrees with</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="part_of">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Indicate the Study that a Bioassay is part of.</rdfs:comment>
+    <rdfs:range>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#Study"/>
+        <owl:onProperty rdf:resource="#part_of"/>
+      </owl:Restriction>
+    </rdfs:range>
+    <rdfs:domain>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#inVivoBioassay"/>
+        <owl:onProperty rdf:resource="#part_of"/>
+      </owl:Restriction>
+    </rdfs:domain>
+    <rdfs:label>part_of</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="affectPathway">
+    <rdfs:domain rdf:resource="#ChemopreventiveAgent"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Correlates a Chemopreventive Agent with the Pathways it affects.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >affectPathway</rdfs:label>
+    <rdfs:range rdf:resource="#Pathway"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="containsOrgan">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Relates an Organism with the Organs it contains.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >containsOrgan</rdfs:label>
+    <rdfs:domain rdf:resource="#Organism"/>
+    <rdfs:range rdf:resource="#Organ"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasStatement">
+    <rdfs:range rdf:resource="#ResearchStatement"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasStatement</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Correlates a Published work with the Expressions (i.e. scientific statements) it contains.</rdfs:comment>
+    <rdfs:domain rdf:resource="#PublishedWork"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasInput">
+    <rdfs:range rdf:resource="#Molecule"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasInput</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Defines the input of an Assay.</rdfs:comment>
+    <rdfs:domain rdf:resource="#Assay"/>
+    <rdfs:range rdf:resource="#Target"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="relatedToDisese">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >related to disese</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Correlates a Pathway with the Disease it is related</rdfs:comment>
+    <rdfs:domain rdf:resource="#Pathway"/>
+    <rdfs:range rdf:resource="#Disease"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="expressedBy">
+    <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <rdfs:domain rdf:resource="#Argument"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Relates an argument with the person making it.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >expressed by</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://granatum.org/schema/www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <rdfs:range rdf:resource="#chemopreventionStudy"/>
+    <rdfs:domain rdf:resource="#Study"/>
+    <rdfs:label>type</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The type of a study</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="containAssay">
+    <rdfs:domain rdf:resource="#Study"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >containAssay</rdfs:label>
+    <rdfs:range rdf:resource="#Assay"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Correlates a Study with the Assays it contains</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://swan.mindinformatics.org/ontologies/1.2/discourse-elements/disagreesWith">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Object property 1</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="mentionMolecule">
+    <rdfs:range rdf:resource="#Molecule"/>
+    <rdfs:domain rdf:resource="#AssayResult"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >mention molecule</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasAuthor">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasAuthor</rdfs:label>
+    <rdfs:domain rdf:resource="#Study"/>
+    <rdfs:domain rdf:resource="#PublishedWork"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Correlates a Published work or a Forum Post with the Person that has written them.</rdfs:comment>
+    <rdfs:domain rdf:resource="#ForumPost"/>
+    <rdfs:range rdf:resource="#Person"/>
+    <rdfs:domain rdf:resource="#WebPage"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasResult">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Indicates the results of an Assay</rdfs:comment>
+    <rdfs:range rdf:resource="#AssayResult"/>
+    <rdfs:domain rdf:resource="#Assay"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >has result</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasSource">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasSource</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Correlates a Chemopreventive Agent with the sources where it is available or from where it originates.</rdfs:comment>
+    <rdfs:domain rdf:resource="#ChemopreventiveAgent"/>
+    <rdfs:range rdf:resource="#Source"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://granatum.org/schema/http://rdfs.org/ns/void#uriLookupEndpoint">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The URI Look up endpoint for a resource</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:domain rdf:resource="#Resources"/>
+    <rdfs:label>uriLookupEndpoint</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="disagreesWith">
+    <rdfs:subPropertyOf rdf:resource="http://swan.mindinformatics.org/ontologies/1.2/discourse-elements/disagreesWith"/>
+    <rdfs:domain rdf:resource="#Argument"/>
+    <rdfs:range rdf:resource="#Hypothesis"/>
+    <rdfs:label>disagreesWith</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasProteinTarget">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The Protein Target of a Docking Model</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasProteinTarget</rdfs:label>
+    <rdfs:range rdf:resource="#Protein"/>
+    <rdfs:domain rdf:resource="#DockingModel"/>
+    <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >:zeginis</dc:creator>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="isBasedOnPublication">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The Publication a Predictive Model is based on</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >isBasedOnPublication</rdfs:label>
+    <rdfs:range rdf:resource="#PublishedWork"/>
+    <rdfs:domain rdf:resource="#PredictiveModel"/>
+    <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >:zeginis</dc:creator>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="isBasedOn">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The Assay a Predictive Model is based on</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >isBasedOn</rdfs:label>
+    <rdfs:range rdf:resource="#Assay"/>
+    <rdfs:domain rdf:resource="#PredictiveModel"/>
+    <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >:zeginis</dc:creator>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="used_protocol">
+    <rdfs:domain rdf:resource="#Assay"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Indicate the Protocol used by a Study.</rdfs:comment>
+    <rdfs:range rdf:resource="#Protocol"/>
+    <rdfs:label>used_protocol</rdfs:label>
+    <rdfs:domain rdf:resource="#Study"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="containsTarget">
+    <rdfs:domain rdf:resource="#Pathway"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Correlates a Pathway with  the Biological Targets (e.g. protein) it contains.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >containsTarget</rdfs:label>
+    <rdfs:range rdf:resource="#Target"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="useWorkflow">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >use workflow</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Correlates an In Silico Experiment with the Scientific Workflow used.</rdfs:comment>
+    <rdfs:domain rdf:resource="#in_silico_assay"/>
+    <rdfs:range rdf:resource="#ScientificWorkflow"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="naturalVsSynthetic">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Indicate whether a Source is Natural or Synthetic.</rdfs:comment>
+    <rdfs:range rdf:resource="#Synthetic"/>
+    <rdfs:domain rdf:resource="#Source"/>
+    <rdfs:label>naturalVsSynthetic</rdfs:label>
+    <rdfs:range rdf:resource="#Natural"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasReferenceLigand">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The reference ligand of a Docking Model</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasReferenceLigand</rdfs:label>
+    <rdfs:range rdf:resource="#Molecule"/>
+    <rdfs:domain rdf:resource="#DockingModel"/>
+    <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >:zeginis</dc:creator>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="used_organism">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Indicate the Organisms used by an experimental Protocol.</rdfs:comment>
+    <rdfs:range rdf:resource="#Organism"/>
+    <rdfs:subPropertyOf rdf:resource="#useFactor"/>
+    <rdfs:label>used_organism</rdfs:label>
+    <rdfs:domain rdf:resource="#Protocol"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="induce_prevent">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >induce prevent</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Correlates a Chemopreventive Agent with the Biological Target it affects.</rdfs:comment>
+    <rdfs:domain rdf:resource="#ChemopreventiveAgent"/>
+    <rdfs:range rdf:resource="#Target"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="coreferred">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#ChemopreventiveAgent"/>
+          <owl:Class rdf:about="#Disease"/>
+          <owl:Class rdf:about="#Molecule"/>
+          <owl:Class rdf:about="#Protein"/>
+          <owl:Class rdf:about="#Pathway"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#ChemopreventiveAgent"/>
+          <owl:Class rdf:about="#Disease"/>
+          <owl:Class rdf:about="#Molecule"/>
+          <owl:Class rdf:about="#Protein"/>
+          <owl:Class rdf:about="#Pathway"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:subPropertyOf rdf:resource="http://swan.mindinformatics.org/ontologies/1.2/discourse-elements/relatedTo"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >coreferred</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="used_cma">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Indicate the Chemopreventive Agents used by an Assay.</rdfs:comment>
+    <rdfs:range>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="#used_cma"/>
+        <owl:someValuesFrom rdf:resource="#ChemopreventiveAgent"/>
+      </owl:Restriction>
+    </rdfs:range>
+    <rdfs:domain>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#inVivoBioassay"/>
+        <owl:onProperty rdf:resource="#used_cma"/>
+      </owl:Restriction>
+    </rdfs:domain>
+    <rdfs:label>used_cma</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="referredIntoPublication">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >referredIntoPublication</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Correlated a Protocol or a Chemopreventive Agent with a Published work where the Protocol/Chemopriventive agent is described</rdfs:comment>
+    <rdfs:domain rdf:resource="#ChemopreventiveAgent"/>
+    <rdfs:range rdf:resource="#PublishedWork"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasToxicity">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasToxicity</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Indicates the Toxicity of a Chemopreventive Agent.</rdfs:comment>
+    <rdfs:domain rdf:resource="#ChemopreventiveAgent"/>
+    <rdfs:range rdf:resource="#Toxicity"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="refersTo">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Argument"/>
+          <owl:Class rdf:about="#ChemopreventiveAgent"/>
+          <owl:Class rdf:about="#Disease"/>
+          <owl:Class rdf:about="#Molecule"/>
+          <owl:Class rdf:about="#Protein"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#Argument"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Connects an argument to the chemo preventive agent to which the argument is referring to.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >refersTo</rdfs:label>
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="http://swan.mindinformatics.org/ontologies/1.2/discourse-elements/refersTo"/>
+    </rdfs:subPropertyOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasToxicalConcentration">
+    <rdfs:range rdf:resource="#Concentration"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasToxicalConcentration</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Indicates the concentration that is toxical.</rdfs:comment>
+    <rdfs:domain rdf:resource="#Toxicity"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="interactWith">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >interact with</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Correlates a Drug with the biological Targets it interacts with.</rdfs:comment>
+    <rdfs:range rdf:resource="#Target"/>
+    <rdfs:domain rdf:resource="#Drug"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="target_mechanism">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The target mechanism of a study</rdfs:comment>
+    <rdfs:range rdf:resource="#biologicalMechanism"/>
+    <rdfs:subPropertyOf rdf:resource="#topic"/>
+    <rdfs:domain>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#Study"/>
+        <owl:onProperty rdf:resource="#target_mechanism"/>
+      </owl:Restriction>
+    </rdfs:domain>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Target mechanism</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://granatum.org/schema/www.w3.org/2002/07/owl#sameAs">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Defines the equivalance between two owl classes</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:label>sameAs</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="commentedIn">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >commented in</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A Published work can be commented in a Formum post as part of a discussion related to the specific Published work.</rdfs:comment>
+    <rdfs:domain rdf:resource="#PublishedWork"/>
+    <rdfs:range rdf:resource="#ForumPost"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="coOperateWith">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Correlates the Chemopreventive agents that can cooperate to prevent a cancer type.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >coOperateWith</rdfs:label>
+    <rdfs:domain rdf:resource="#ChemopreventiveAgent"/>
+    <rdfs:range rdf:resource="#ChemopreventiveAgent"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="identify">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Indicate the Chemopreventive Agents that have been identified during an Assay.</rdfs:comment>
+    <rdfs:domain rdf:resource="#Assay"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >identify</rdfs:label>
+    <rdfs:range rdf:resource="#Molecule"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="describedInPublication">
+    <rdfs:domain rdf:resource="#Investigation"/>
+    <rdfs:domain rdf:resource="#Protocol"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >describedInPublication</rdfs:label>
+    <rdfs:range rdf:resource="#PublishedWork"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Correlates an Investigation with a Published work that describes the results of the Investigation.</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="appearsIn">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#PublishedWork"/>
+          <owl:Class rdf:about="#ForumPost"/>
+          <owl:Class rdf:about="#WebPage"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#Argument"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Denotes the scientific resource in where an argument may appear</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >appearsIn</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="pubYear">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Indicates the year of a publication.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#PublishedWork"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >pub year</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="activity">
+    <rdfs:domain rdf:resource="#Molecule"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The biological activity of a compound.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label>activity</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="modelname">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The name of an in-silico model</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >model name</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#PredictiveModel"/>
+    <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >:zeginis</dc:creator>
+    <rdfs:domain rdf:resource="#DockingModel"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="HypothesisTitle">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Hypothesis"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Hypothesis Title</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasHypothesis">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The Hypothesis of a Research Statement.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasHypothesis</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#ResearchStatement"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="assayComment">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Assay"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >assay comment</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="publication">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label>publication</rdfs:label>
+    <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The publication</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="publicationNumber">
+    <rdfs:domain rdf:resource="#Molecule"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >How many times has this compound been cited in the literature?</rdfs:comment>
+    <rdfs:label>publicationNumber</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="targetOrgan">
+    <rdfs:domain rdf:resource="#ChemopreventiveAgent"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Indicate whether there is a known target orgain for this chemopreventative agent</rdfs:comment>
+    <rdfs:label>targetOrgan</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="numberOfRings">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Number of atom rings that exist in the molecule, counts aromatics and non-aromatic rings.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:domain rdf:resource="#Molecule"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >number of rings</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="MDLmolfile">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >If you  have an MDL Molfile for this component, insert it here</rdfs:comment>
+    <rdfs:label>MDLmolfile</rdfs:label>
+    <rdfs:domain rdf:resource="#Molecule"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="commonName">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >common name</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The common name of a Source, Natural or Synthetic.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Source"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasCitation">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasCitation</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The citation of the Published work (e.g. the Journal and the year of publication).</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#PublishedWork"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="structuralKey">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label>structuralKey</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A string of values that describes the chemical composition and/or structural motifs that are present in the chosen substructure and each molecule in the database</rdfs:comment>
+    <rdfs:domain rdf:resource="#Molecule"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasClaim">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The Claim of a Research Statement.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasClaim</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#ResearchStatement"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="argumentSentence">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Argument"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >argument sentence</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="source">
+    <rdfs:domain rdf:resource="#Molecule"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >If this compound is normally found in a natural substatnce, indicate which in the domain</rdfs:comment>
+    <rdfs:label>source</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="affiliation">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Defines the affiliation of a person - author</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >affiliation</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Person"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="chemopreventionMechanism">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Indicate the chemoprevention mechanism of a compound.</rdfs:comment>
+    <rdfs:label>chemopreventionMechanism</rdfs:label>
+    <rdfs:subPropertyOf>
+      <owl:DatatypeProperty rdf:ID="actionMechanism"/>
+    </rdfs:subPropertyOf>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasComment">
+    <rdfs:domain rdf:resource="#ForumPost"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasComment</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The comment of a forum post.</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="HBD">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Hydrogen Bond Donors</rdfs:label>
+    <rdfs:domain rdf:resource="#Molecule"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A hydrogen atom attached to a relatively electronegative atom is a hydrogen bond donor. Number of such hydrogen atoms in the molecule.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="level">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >level</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Indicates the level of toxicity.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Toxicity"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="setting">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The setting used by an insilico assay</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >setting</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#PredictiveModel"/>
+    <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >:zeginis</dc:creator>
+    <rdfs:domain rdf:resource="#DockingModel"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="result">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The result of a Predictive model </rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >result</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#PredictiveModel"/>
+    <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >:zeginis</dc:creator>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasCellularLocation">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasCellularLocation</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The cellular location where a Protein can be found.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Protein"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://bio2rdf.org/go:0003960">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The NAD(P)H:quinone reductase (quinone reductase, QR) activity  of a molecule.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Molecule"/>
+    <rdfs:subPropertyOf rdf:resource="#activity"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >NAD(P)H:quinone reductase (quinone reductase, QR) activity </rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="connectionTable">
+    <rdfs:domain rdf:resource="#Molecule"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >If you have a connection table for this chemical component, indicate it here.</rdfs:comment>
+    <rdfs:label>connectionTable</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="outcomeMeasure">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#AssayResult"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >outcome measure</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hashedFingerprint">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The chemical hashed fingerprint of a molecule is bit string (a sequence of "0" and "1" digits) that contains information on the structure.</rdfs:comment>
+    <rdfs:label>hashedFingerprint</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Molecule"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="outcome_method">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Assay"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >outcome method</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasSequence">
+    <rdfs:domain rdf:resource="#NucleicAcid"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasSequence</rdfs:label>
+    <rdfs:domain rdf:resource="#Protein"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The sequence of ta Nucleid acid or Protein.</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="efficacyInVivo">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >In this chemopreventative agent has been tested in vivo, what was the measured efficacy?</rdfs:comment>
+    <rdfs:label>efficacyInVivo</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#ChemopreventiveAgent"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+  <owl:DatatypeProperty rdf:ID="sdf_Identifier">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >sdf Identifier</rdfs:label>
+    <rdfs:domain rdf:resource="#Molecule"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The sdf identifier of a molecule</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="algorithm">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The algorithm used by a Predictive Model</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >algorithm</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#PredictiveModel"/>
+    <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >:zeginis</dc:creator>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="URI">
+    <rdfs:domain rdf:resource="#WebPage"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The URI of an in-silico assay (Predictive or Docking model)</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >URI</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#PredictiveModel"/>
+    <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >:zeginis</dc:creator>
+    <rdfs:domain rdf:resource="#DockingModel"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="accessRights">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The access rights of a Study.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:label>accessRights</rdfs:label>
+    <rdfs:domain rdf:resource="#Study"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="input">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Defines the input of a process</rdfs:comment>
+    <rdfs:label>input</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="sdf_file">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >sdf file</rdfs:label>
+    <rdfs:domain rdf:resource="#Molecule"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The sdf file of a molecule</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="description">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A lexical definition of a concept.</rdfs:comment>
+    <rdfs:domain rdf:resource="#DockingModel"/>
+    <rdfs:domain rdf:resource="#Disease"/>
+    <rdfs:domain rdf:resource="#Investigation"/>
+    <rdfs:domain rdf:resource="#biologicalMechanism"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Pathway"/>
+    <rdfs:domain rdf:resource="#Assay"/>
+    <rdfs:domain rdf:resource="#ScientificWorkflow"/>
+    <rdfs:domain rdf:resource="#Protocol"/>
+    <rdfs:domain rdf:resource="#ResearchStatement"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >description</rdfs:label>
+    <rdfs:domain rdf:resource="#PredictiveModel"/>
+    <rdfs:domain rdf:resource="#ExperimentalFactor"/>
+    <rdfs:domain rdf:resource="#Study"/>
+    <rdfs:domain rdf:resource="#Molecule"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://bio2rdf.org/go:0015034">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Molecule"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The cytochrome P450 (Cyp) 1A activity of a compound</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="#activity"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >cytochrome P450 (Cyp) 1A activity </rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="HBA">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:domain rdf:resource="#Molecule"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >An electronegative atom such as fluorine, oxygen, or nitrogen is a hydrogen bond acceptor, regardless of whether it is bonded to a hydrogen atom or not. Number of such atoms in the molecule.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Hydrogen Bond Acceptors</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="InChi">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The InCHi is a string of characters capable of uniquely representing a chemical substance and serving as its unique digital 'signature'</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Molecule"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >In chi</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="antiOxidantActivity">
+    <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >antiOxidantActivity</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="#activity"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Does this compound have antioxidative properties?</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="used_cellLine">
+    <rdfs:range rdf:resource="#Cell_line"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Indicate the cell lines used by an experimental Protocol.</rdfs:comment>
+    <rdfs:label>used_cellLine</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="#useFactor"/>
+    <rdfs:domain rdf:resource="#Protocol"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasFormula">
+    <rdfs:domain rdf:resource="#Molecule"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The chemical formula of the Molecule.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasFormula</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasStatus">
+    <rdfs:label>hasStatus</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Indicate the status of a Published work</rdfs:comment>
+    <rdfs:domain rdf:resource="#PublishedWork"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="outcomeType">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >result outcome</rdfs:label>
+    <rdfs:domain rdf:resource="#AssayResult"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="TPSA">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="#Molecule"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The surface sum over all polar atoms, primarily oxygen and nitrogen, also including their attached hydrogens.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Topological Polar Surface Area</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="HypothesisDescription">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Hypothesis"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Hypothesis description</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="pathwayMap">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >pathwayMap</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The map (image representation) of a Pathway.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Pathway"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasAbstract">
+    <rdfs:domain rdf:resource="#PublishedWork"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >has abstract</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The abstrac of a Published work.</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="diagram2D">
+    <rdfs:domain rdf:resource="#Molecule"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >If you have a link to an image with the 2D representation of this molecular, indicate its URL here</rdfs:comment>
+    <rdfs:label>diagram2D</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="doi">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Indicates the DOI of a publication.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#PublishedWork"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >doi</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="clogp">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="#Molecule"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The log P value is also known as a measure of lipophilicity. The following different ways of calculating ths coefficient exists: Fragment based prediction (group contribution; CLogP) and Atomic based prediction (atomic contribution; ALogP, XLogP).</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Octanol/Water Partition coefficient (LogP).</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasDate">
+    <rdfs:domain rdf:resource="#ForumPost"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasDate</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The date the Forum post has been made.</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#actionMechanism">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >What is the action mechanism of the component?</rdfs:comment>
+    <rdfs:label>actionMechanism</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="openAccess">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Indicates if the access to a publication is open or not.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="#PublishedWork"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >open access</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="pubReview">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Indicates if a publications has already a review.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="#PublishedWork"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >pub review</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="molecularMass">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The numerical value of the molecular mass expressed in unified atomic mass units is equivalent to the dimensionless relative molecular mass</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="#Molecule"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >molecular mass</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="complexityBarone">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A value describing how complex a molecule is. This is mainly used to show the synthesizability of a molecule.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="#Molecule"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >complexity barone</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="cellType">
+    <rdfs:domain rdf:resource="#Toxicity"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >cellType</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Indicate the cell type of the Toxicity</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="toxicConcentration">
+    <rdfs:domain rdf:resource="#Molecule"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >If toxic, at which concentration has it been deemed toxic? </rdfs:comment>
+    <rdfs:label>toxicConcentration</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="title">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Protocol"/>
+    <rdfs:domain rdf:resource="#ForumPost"/>
+    <rdfs:domain rdf:resource="#Pathway"/>
+    <rdfs:domain rdf:resource="#ExperimentalFactor"/>
+    <rdfs:domain rdf:resource="#Study"/>
+    <rdfs:domain rdf:resource="#Assay"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >title</rdfs:label>
+    <rdfs:domain rdf:resource="#Investigation"/>
+    <rdfs:domain rdf:resource="#PublishedWork"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The title of concept.</rdfs:comment>
+    <rdfs:domain rdf:resource="#ScientificWorkflow"/>
+    <rdfs:domain rdf:resource="#biologicalMechanism"/>
+    <rdfs:domain rdf:resource="#Disease"/>
+    <rdfs:domain rdf:resource="#Molecule"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="pathwayOrder">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >pathwayOrder</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The order of action in a Pathway.</rdfs:comment>
+    <rdfs:domain rdf:resource="#Pathway"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="PDB_id">
+    <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >If you know the PDB Id of this component, insert it here.</rdfs:comment>
+    <rdfs:label>PDB_id</rdfs:label>
+    <rdfs:domain rdf:resource="#DockingModel"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="SMILESnotation">
+    <rdfs:domain rdf:resource="#Molecule"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >If you have the SMILES notation for this agent, insert it here.</rdfs:comment>
+    <rdfs:label>SMILESnotation</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="output">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Defines the output of a process</rdfs:comment>
+    <rdfs:label>output</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="flexibilityRotBonds">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="#Molecule"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A value describing how flexible a molecule is. High flexibility means that the molecule can change position(s) very easy, low flexibility means that the molecule is rigid.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >flexibility rot bonds</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="published">
+    <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Has this been component been published before? Answer yes or no.</rdfs:comment>
+    <rdfs:label>published</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="pathwayAction">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#ChemopreventiveAgent"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Which metabolic pathways is this agent know to affect?</rdfs:comment>
+    <rdfs:label>pathwayAction</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="molecularWeight">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The weight of a molecule is the sum of the weights of the atoms of which it is made.</rdfs:comment>
+    <rdfs:domain rdf:resource="#Molecule"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >molecularWeight</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="species">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >species</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >??</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Toxicity"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="induceDifferentiation">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Indicates if a chemopreventive agents acts by inducing cell differentiation.</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >induceDifferentiation</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="#ChemopreventiveAgent"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="outcomeValue">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="#AssayResult"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >outcome value</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="size">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The size of a Molecule.</rdfs:comment>
+    <rdfs:domain rdf:resource="#Molecule"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >size</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasProcedure">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >has procedure</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The procedure defined by the Protocol.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Protocol"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="pubmedID">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Indicates the PubmedID of a publication.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#PublishedWork"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >pubmed ID</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="hasPublicationType">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >hasPublicationType</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >The type of publication, e.g. journal, paper etc.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#PublishedWork"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="toxicity">
+    <rdfs:domain rdf:resource="#Molecule"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:label>toxicity</rdfs:label>
+  </owl:DatatypeProperty>
+  <void2:Dataset rdf:about="http://www4.wiwiss.fu-berlin.de/drugbank/sparql">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >drugbank sparql endpoint</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </void2:Dataset>
+  <owl:NamedIndividual rdf:ID="enzymeModulation"/>
+  <owl:NamedIndividual rdf:ID="chebi">
+    <rdf:type rdf:resource="#Databases"/>
+  </owl:NamedIndividual>
+  <void2:Dataset rdf:about="http://linkedlifedata.com/sparql">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >linked life data sparql endpoint</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </void2:Dataset>
+  <Databases rdf:ID="drugbank">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >drugbank</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Databases>
+  <pubchemURI rdf:about="http://granatum.org/schema/http://pubchem.bio2rdf.org/sparql">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </pubchemURI>
+  <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#comment"/>
+  <Databases rdf:ID="pubchem">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Databases>
+  <Databases rdf:ID="kegg">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Databases>
+  <void2:Dataset rdf:about="http://dbpedia.org/sparql">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >dbpedia sparql endpoint</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </void2:Dataset>
+  <void2:Dataset rdf:about="http://kegg.bio2rdf.org/sparql">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >kegg spaql endpoint</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </void2:Dataset>
+  <Databases rdf:ID="pubmed">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Databases>
+  <void2:Dataset rdf:about="http://chebi.bio2rdf.org/sparql">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >chebi sparql endpoint</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </void2:Dataset>
+  <void2:Dataset rdf:about="http://go.bio2rdf.org/sparql">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >go sparql endpoint</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </void2:Dataset>
+</rdf:RDF>
+
+<!-- Created with TopBraid -->

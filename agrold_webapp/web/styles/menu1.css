@@ -1,0 +1,182 @@
+/* 
+    Created on : Jul 15, 2015, 2:21:24 PM
+    Author     : tagny
+*/
+
+/* top level
+--------------------------------------------*/
+.menuTemplate3
+{
+    margin: 0 auto; width: auto;float:none;
+    behavior: url("/horizontal/menuh/menucss.htc"); 
+    position:relative;
+    z-index:4;
+    height: 36px;
+    background: #444;
+    border: 1px solid #111;
+    font-family: Arial, Helvetica, sans-serif;
+    list-style: none;
+    padding: 0;
+}
+
+.menuTemplate3 div {
+    box-sizing:content-box;
+}  
+
+.menuTemplate3 li
+{
+    padding: 0;
+    float: left;
+    height: 36px;
+    position: relative;/*delete it if you want submenu to be positioned relative to the whole menu instead of this li element*/
+    color: #EEE;
+    z-index:5;
+}
+
+.menuTemplate3 li:hover, .menuTemplate3 li.onhover
+{
+    border-top:0;
+}
+.menuTemplate3 a
+{
+    padding: 0 30px;
+    line-height: 36px; /*Note: keep this value the same as the height of .menuTemplate3 li */
+    font-size: 12px;
+    font-weight: normal;
+    display: inline-block;
+    outline: 0;
+    text-decoration: none;
+    color: #FFF;
+    position: relative;
+}
+.menuTemplate3 li:hover a, .menuTemplate3 li.onhover a
+{
+    background-color: #222;
+    color: #FFF;
+    z-index: 9;
+}
+.menuTemplate3 a.arrow
+{
+    background: url(arrow.gif) no-repeat right center;
+}
+ 
+        
+/*Used to align a top-level item to the right*/        
+.menuTemplate3 li.menuRight
+{
+    float: right;
+    margin-right: 0px;
+}
+        
+/*for the top-level separators*/
+.menuTemplate3 li.separator
+{
+    font-size:0;
+    overflow:hidden;
+    border-left:1px solid #aaa;
+    height:20px;
+    margin-top:8px;
+    z-index:4;
+}
+               
+        
+/* sub level
+--------------------------------------------*/
+        
+.menuTemplate3 .drop
+{
+    position: absolute;
+    z-index:5;
+    left: -9999px;
+    border: 1px solid #000;
+    background: #222;           
+    text-align: left;
+    padding: 20px;  
+    top:35px;
+	color:#999;
+}
+
+.menuTemplate3 .drop a
+{
+    padding-left: 0px;
+    padding-right: 0px;
+    line-height: 26px;
+    font-size: 12px;
+    font-weight: normal;
+    display: inline;
+    text-align: left;
+    
+    position: static;
+    z-index: 0;
+}
+
+.menuTemplate3 li:hover .drop, .menuTemplate3 li.onhover .drop
+{
+    left: -1px;/*Use this property to change offset of the dropdown*/
+}
+.menuTemplate3 li:hover .dropToLeft, .menuTemplate3 li.onhover .dropToLeft
+{
+    left: auto;
+    right: -1px;
+}
+.menuTemplate3 li:hover .dropToLeft2, .menuTemplate3 li.onhover .dropToLeft2
+{
+    left: auto;
+    right: -60px;
+}
+
+/* Elements within the drop down sub-menu
+--------------------------------------------*/
+
+.menuTemplate3 div.drop div div
+{
+    padding: 6px 20px;
+}
+.menuTemplate1 li:hover .drop a, .menuTemplate1 li.onhover .drop a
+{
+    background: none;
+    background-image:none;
+    padding:0 0;
+}
+.menuTemplate3 div.drop div a
+{
+    line-height: 24px;  
+	color:white;
+    background:none;
+}
+.menuTemplate3 div.drop div a:hover
+{
+    text-decoration:underline;
+    cursor:pointer;
+    color:Red;
+}
+
+.menuTemplate3 div.left {float:left;}
+
+ 
+/* CSS3 effects
+--------------------------------------------*/
+ 
+/*for top-level*/       
+.decor3_1 
+{
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+
+    -moz-box-shadow: 1px 2px 4px 2px #999;
+    -webkit-box-shadow: 1px 2px 4px 2px #999;
+    box-shadow: 1px 2px 4px 2px #999;
+}
+
+/*for submenu.*/   
+.decor3_2 
+{
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+
+    -moz-box-shadow: 0px 8px 14px #777;
+    -webkit-box-shadow: 0px 8px 14px #777;
+    box-shadow: 0px 8px 14px #777;  
+}

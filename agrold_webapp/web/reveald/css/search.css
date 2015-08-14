@@ -1,0 +1,41 @@
+#autoComSearchBox{
+	border:1px solid gray;
+	color:#888888;
+	background:url("../img//searchBox.png") no-repeat;
+	font-family:Arial,Helvetica,sans-serif;
+	font-size:18px;
+	height:40px;
+	line-height:40px;
+	overflow: auto;
+	width: 80%;
+	margin-right:12px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	outline:medium none;
+	padding:0 0 0 40px;
+	text-shadow:1px 1px 0 white;
+}
+
+#searchSubmitBtn {
+	margin-bottom:10px;
+}
+
+.ui-autocomplete-category {
+   background-color: #cccccc;
+   border: 1px solid black;
+}
+/*
+.ui-autocomplete-loading {
+   background: white url('../loading-animation.gif') right center no-repeat;
+}
+*/
+.ui-menu-item a{
+	display: block;
+	padding: 3px 15px;
+	clear: both;
+	font-weight: normal;
+	line-height: 18px;
+	color: #333333;
+	white-space: nowrap;
+}

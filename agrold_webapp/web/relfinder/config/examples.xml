@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<data>
+	<!--example>
+		<endpoint>dbp</endpoint>
+		<object>
+			<label>Albert Einstein</label>
+			<uri>http://dbpedia.org/resource/Albert_Einstein</uri>
+		</object>
+		<object>
+			<label>Kurt Gödel</label>
+			<uri>http://dbpedia.org/resource/Kurt_G%C3%B6del</uri>
+		</object>
+	</example>
+	<example>
+		<endpoint>dbp</endpoint>
+		<object>
+			<label>Albert Einstein</label>
+			<uri>http://dbpedia.org/resource/Albert_Einstein</uri>
+		</object>
+		<object>
+			<label>Stuttgart</label>
+			<uri>http://dbpedia.org/resource/Stuttgart</uri>
+		</object>
+	</example>
+	<example>
+		<endpoint>dbp</endpoint>
+		<object>
+			<label>Leipzig</label>
+			<uri>http://dbpedia.org/resource/Leipzig</uri>
+		</object>
+		<object>
+			<label>Berlin</label>
+			<uri>http://dbpedia.org/resource/Berlin</uri>
+		</object>
+	</example>
+	<example>
+		<endpoint>dbp</endpoint>
+		<object>
+			<label>Duisburg</label>
+			<uri>http://dbpedia.org/resource/Duisburg</uri>
+		</object>
+		<object>
+			<label>Essen</label>
+			<uri>http://dbpedia.org/resource/Essen</uri>
+		</object>
+	</example>
+	<example>
+		<endpoint>dbp</endpoint>
+		<object>
+			<label>Fiat</label>
+			<uri>http://dbpedia.org/resource/Fiat</uri>
+		</object>
+		<object>
+			<label>Ferrari</label>
+			<uri>http://dbpedia.org/resource/Ferrari</uri>
+		</object>
+		<object>
+			<label>Maserati</label>
+			<uri>http://dbpedia.org/resource/Maserati</uri>
+		</object>
+	</example>
+	<example>
+		<endpoint>dbp</endpoint>
+		<object>
+			<label>BMW</label>
+			<uri>http://dbpedia.org/resource/BMW</uri>
+		</object>
+		<object>
+			<label>Porsche</label>
+			<uri>http://dbpedia.org/resource/Porsche</uri>
+		</object>
+		<object>
+			<label>Volkswagen</label>
+			<uri>http://dbpedia.org/resource/Volkswagen</uri>
+		</object>
+		<object>
+			<label>MAN SE</label>
+			<uri>http://dbpedia.org/resource/MAN_SE</uri>
+		</object>
+	</example>
+	<example>
+		<endpoint>lmdb</endpoint>
+		<object>
+			<label>Kill Bill</label>
+			<uri>http://data.linkedmdb.org/resource/film/716</uri>
+		</object>
+		<object>
+			<label>Pulp Fiction</label>
+			<uri>http://data.linkedmdb.org/resource/film/77</uri>
+		</object>
+	</example-->       
+        <example>
+		<endpoint>agrold</endpoint>
+		<object>
+			<label>head rice</label>
+			<uri>http://purl.obolibrary.org/obo/TO_0000222</uri>
+		</object>
+		<object>
+			<label>Machilus sp. van der Werff & al. 14071</label>
+			<uri>http://purl.obolibrary.org/obo/NCBITaxon_590018</uri>
+		</object>
+	</example>
+        <example>
+		<endpoint>agrold</endpoint>
+		<object>
+			<label>Streptomyces verne</label>
+			<uri>http://purl.obolibrary.org/obo/NCBITaxon_66432</uri>
+		</object>
+		<object>
+			<label>Anabaena sp. CA</label>
+			<uri>http://purl.obolibrary.org/obo/NCBITaxon_52271</uri>
+		</object>
+	</example>
+        <!--example>
+		<endpoint>agrold</endpoint>
+		<object>
+			<label>Drought resistance score</label>
+			<uri>http://www.southgreen.fr/tropgene.trait/23</uri>
+		</object>
+		<object>
+			<label>Leaf rolling score</label>
+			<uri>http://www.southgreen.fr/tropgene.trait/45</uri>
+		</object>
+	</example-->
+</data>
