@@ -167,6 +167,30 @@ embl_ns = 'ena.embl:'
 marker_uri = 'http://www.southgreen.fr/agrold/orygenesdb.marker/'
 marker_ns = 'marker:'
 
+
+
+#TROPGENE
+
+study_uri = 'http://www.southgreen.fr/agrold/tropgene.study/'
+study_ns = 'study:'
+
+population_uri = 'http://www.southgreen.fr/agrold/tropgene.population/'
+population_ns = 'population:'
+
+qtl_uri = 'http://www.southgreen.fr/agrold/tropgene.qtl/'
+qtl_ns = 'qtl:'
+
+edam_uri ='http://edamontology.org/'
+edam_ns = 'edam:'
+
+trait_uri = 'http://www.southgreen.fr/agrold/tropgene.trait/'
+trait_ns = 'trait:'
+
+mapfeature_uri = 'http://www.southgreen.fr/agrold/tropgene.mapfeature/'
+mapfeature_ns = 'mapfeature:'
+
+
+
 # Ontology terms and aspects
 sio_term = 'SIO_000897' # SIO term - association
 gene_term = 'SO_0000704' # SO term - gene
