@@ -133,6 +133,64 @@ swo_ns = 'swo:'
 otl_uri = 'http://identifiers.org/otl/'
 otl_ns = 'otl:'
 
+#Orygenesdb
+mirbase_uri = 'http://www.identifiers.org/mirbase/'
+mirbase_ns = 'mirbase:'
+
+mirbase_mature_uri = 'http://www.identifiers.org/mirbase.mature/'
+mirbase_mature_ns = 'mature:'
+
+protein_uri = 'http://www.southgreen.fr/agrold/orygenesdb.protein/'
+protein_ns = 'protein:'
+
+flanking_uri = 'http://www.southgreen.fr/agrold/orygenesdb.flankingregion/'
+flanking_ns = 'flanking:'
+
+mRNA_uri = 'http://www.southgreen.fr/agrold/orygenesdb.mrna/'
+mRNA_ns = 'mrna:'
+
+cDNA_uri = 'http://www.southgreen.fr/agrold/orygenesdb.cdna/'
+cDNA_ns = 'cdna:'
+
+otl_public_plante_uri = 'http://www.identifiers.org/otl/'
+otl_public_plante_ns = 'otl_plante:'
+
+OrygenesDB_uri = 'http://www.southgreen.fr/agrold/orygenesdb/'
+OrygenesDB_ns = 'orygenesdb:'
+
+chromosome_uri = 'http://www.southgreen.fr/agrold/chromosome/'
+chromosome_ns = 'chromosome:'
+
+embl_uri = 'http://identifiers.org/ena.embl/'
+embl_ns = 'ena.embl:'
+
+marker_uri = 'http://www.southgreen.fr/agrold/orygenesdb.marker/'
+marker_ns = 'marker:'
+
+
+
+#TROPGENE
+
+study_uri = 'http://www.southgreen.fr/agrold/tropgene.study/'
+study_ns = 'study:'
+
+population_uri = 'http://www.southgreen.fr/agrold/tropgene.population/'
+population_ns = 'population:'
+
+qtl_uri = 'http://www.southgreen.fr/agrold/tropgene.qtl/'
+qtl_ns = 'qtl:'
+
+edam_uri ='http://edamontology.org/'
+edam_ns = 'edam:'
+
+trait_uri = 'http://www.southgreen.fr/agrold/tropgene.trait/'
+trait_ns = 'trait:'
+
+mapfeature_uri = 'http://www.southgreen.fr/agrold/tropgene.mapfeature/'
+mapfeature_ns = 'mapfeature:'
+
+
+
 # Ontology terms and aspects
 sio_term = 'SIO_000897' # SIO term - association
 gene_term = 'SO_0000704' # SO term - gene

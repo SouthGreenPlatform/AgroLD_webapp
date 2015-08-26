@@ -1,0 +1,67 @@
+from struct import pack
+
+__author__ = 'elhassouni'
+
+import pprint
+from riceKB.globalVars import *
+import re
+import os
+
+
+#Read and save header of file------------------------------------------------------------------------
+def SaveHeader(tropGene_file):
+
+    #map_reader = open(tropGene_file)
+    header = tropGene_file.readline()
+    print("The header: "+ header +"\n\n")
+    header = re.sub('"', '', header)
+    header = re.sub(';;', ' ', header)
+    headerListe = header.split()
+    return headerListe
+
+
+#Parser----------------------------------------------------------------------------------------------
+def tropGeneParser(topGene_file):
+
+    map_reader = open(topGene_file, "r")
+    counter = 0;
+    headers = list()
+    headers = SaveHeader(map_reader)
+    map_ds = list()
+    print("*********************************lecture du fichier ********************************\n")
+    lines = map_reader.readlines()
+    for line in lines:
+        counter+= 1
+        line = re.sub('\n$', '', line)
+        print(line)
+        line = re.sub('"', '', line)
+
+        records = line.split(';;') #('\t')
+        map_ds.append(dict(zip(headers, records)))
+    map_reader.close()
+    print ("TropGene QTL has been parsed!\n")
+    print("*************************************\n\n")
+    CounterCasted = str(counter)
+    print("number of data parsed "+ CounterCasted +"\n\n")
+    return map_ds
+#---------------------------------------------------------------------------------------------------------
+
+# test pour le parsing generique
+#pp = pprint.PrettyPrinter(indent=4)
+#path = '/media/elhassouni/donnees/Noeud-plante-projet/code-source/qtl.csv'
+#path_output = '/media/elhassouni/donnees/Noeud-plante-projet/code-source/tropGene-Sorti-Test-pasing-generique.ttl'
+#ds = SaveHeader(path)
+#pp.pprint(ds)
+
+
+
+# test pour le parsing
+pp = pprint.PrettyPrinter(indent=4)
+path = '/media/elhassouni/donnees/Noeud-plante-projet/code-source/cocoa.csv'
+path_output = '/media/elhassouni/donnees/Noeud-plante-projet/code-source/tropGeneTEST.ttl'
+ds = tropGeneParser(path)
+#pp.pprint(ds)
+
+# test pour la transformation en RDF
+#path_outfile = '/media/elhassouni/donnees/Noeud-plante-projet/code-source/sortiRDF'
+#tropGeneToRDF(ds, path_outfile)
