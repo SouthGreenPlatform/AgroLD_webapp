@@ -18,8 +18,7 @@
         <div id="wrapper">
             <jsp:include page="header.html"></jsp:include>
                 <section>            
-                    <h2><b>The Agronomic Linked Data (AgroLD) Project</b></h2>
-                    <hr>
+                    <h2><b>The Agronomic Linked Data (AgroLD) Project</b></h2>                   
                     <p>
                         At the Institute of Computational Biology (IBC), we are involved in developing methods to aid data integration
                         and knowledge management within the plant biology domain to improve information  accessibility of 

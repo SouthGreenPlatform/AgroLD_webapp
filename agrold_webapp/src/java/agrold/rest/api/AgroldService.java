@@ -1,9 +1,13 @@
 package agrold.rest.api;
 
+import agrold.rest.api.sparqlaccess.APILib;
+import agrold.rest.api.sparqlaccess.OntologyDAO;
+import agrold.rest.api.sparqlaccess.QtlDAO;
+import agrold.rest.api.sparqlaccess.GraphDAO;
+import agrold.rest.api.sparqlaccess.ProteinDAO;
+import agrold.rest.api.sparqlaccess.GeneDAO;
 import agrold.rest.api.security.CORSResponseFilter;
 import java.net.URISyntaxException;
-import java.util.Date;
-import java.util.List;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -20,7 +24,6 @@ import org.glassfish.jersey.server.ResourceConfig;
  * @author tagny
  */
 @Path("/1.0")
-// http://stackoverflow.com/questions/9373081/how-to-set-up-jax-rs-application-using-annotations-only-no-web-xml
 public class AgroldService extends ResourceConfig {
 
     /**
@@ -29,11 +32,7 @@ public class AgroldService extends ResourceConfig {
     public AgroldService() {
         register(CORSResponseFilter.class);
    //other registrations omitted for brevity
-    }
-
-    PredicateDAO predicateDAO = new PredicateDAO();
-    GeneDAO geneDAO = new GeneDAO();
-
+    }    
     /**
      * Show the API interactive documentation
      */
@@ -50,104 +49,116 @@ public class AgroldService extends ResourceConfig {
  
     // Ontologies
     @POST
-    @Path("/ancestor/byId")
-    @Produces({"text/tsv"})
-    public String getAncestorById(@QueryParam("id") String id, @QueryParam("level") int level) {
-        return OntologyDAO.getAncestorById(id, level, APILib.TSV);
+    @Path("/ancestors/byId{_format}")
+    @Produces({MediaType.APPLICATION_JSON,MediaType.TEXT_HTML,APILib.TSV,APILib.CSV,MediaType.TEXT_XML,APILib.RDF_XML,APILib.TTL})
+    public String getAncestorById(@PathParam("_format") String format, @QueryParam("id") String id, @QueryParam("level") int level, 
+            @QueryParam("_page") int page, @QueryParam("_pageSize") int pageSize) {
+        return OntologyDAO.getAncestorById(id, level, page, pageSize, format);
     }
     
     @POST
-    @Path("/parent/byId")
-    @Produces({"text/tsv"})
-    public String getParentById(@QueryParam("id") String id) {
+    @Path("/parents/byId{_format}")
+    @Produces({MediaType.APPLICATION_JSON,MediaType.TEXT_HTML,APILib.TSV,APILib.CSV,MediaType.TEXT_XML,APILib.RDF_XML,APILib.TTL})
+    public String getParentById(@PathParam("_format") String format, @QueryParam("id") String id, 
+            @QueryParam("_page") int page, @QueryParam("_pageSize") int pageSize) {
         // The parent is the ancestor at level 1
-        return OntologyDAO.getAncestorById(id, 1, APILib.TSV);
+        return OntologyDAO.getAncestorById(id, 1, page, pageSize, format);
     }
     
     @POST
-    @Path("/descendent/byId")
-    @Produces({"text/tsv"})
-    public String getDescendentById(@QueryParam("id") String id, @QueryParam("level") int level) {
-        return OntologyDAO.getDescendentById(id, level, APILib.TSV);
+    @Path("/descendants/byId{_format}")
+    @Produces({MediaType.APPLICATION_JSON,MediaType.TEXT_HTML,APILib.TSV,APILib.CSV,MediaType.TEXT_XML,APILib.RDF_XML,APILib.TTL})
+    public String getDescendantsById(@PathParam("_format") String format, @QueryParam("id") String id, @QueryParam("level") int level, 
+            @QueryParam("_page") int page, @QueryParam("_pageSize") int pageSize) {
+        return OntologyDAO.getDescendantsById(id, level, page, pageSize, format);
     }
     
     @POST
-    @Path("/children/byId")
-    @Produces({"text/tsv"})
-    public String getChildrenById(@QueryParam("id") String id) {
+    @Path("/children/byId{_format}")
+    @Produces({MediaType.APPLICATION_JSON,MediaType.TEXT_HTML,APILib.TSV,APILib.CSV,MediaType.TEXT_XML,APILib.RDF_XML,APILib.TTL})
+    public String getChildrenById(@PathParam("_format") String format, @QueryParam("id") String id, 
+            @QueryParam("_page") int page, @QueryParam("_pageSize") int pageSize) {
         // The parent is the ancestor at level 1
-        return OntologyDAO.getDescendentById(id, 1, APILib.TSV);
+        return OntologyDAO.getDescendantsById(id, 1, page, pageSize, format);
     }
 
     @POST
-    @Path("/id/byOntoTerm")
-    @Produces({"text/tsv"})
-    public String getIdByOntoTerm(@QueryParam("ontoTerm") String ontoTerm) {
-        return OntologyDAO.getIdByOntoTerm(ontoTerm, APILib.TSV);
+    @Path("/id/byOntoTerm{_format}")
+    @Produces({MediaType.APPLICATION_JSON,MediaType.TEXT_HTML,APILib.TSV,APILib.CSV,MediaType.TEXT_XML,APILib.RDF_XML,APILib.TTL})
+    public String getIdByOntoTerm(@PathParam("_format") String format, @QueryParam("ontoTerm") String ontoTerm, 
+            @QueryParam("_page") int page, @QueryParam("_pageSize") int pageSize) {
+        return OntologyDAO.getIdByOntoTerm(ontoTerm, page, pageSize, format);
     }
     
     @POST
-    @Path("/ontoTerm/byId")
-    @Produces({"text/tsv"})
-    public String getOntoTermById(@QueryParam("id") String id) {
-        return OntologyDAO.getOntoTermById(id, APILib.TSV);
+    @Path("/ontoTerm/byId{_format}")
+    @Produces({MediaType.APPLICATION_JSON,MediaType.TEXT_HTML,APILib.TSV,APILib.CSV,MediaType.TEXT_XML,APILib.RDF_XML,APILib.TTL})
+    public String getOntoTermById(@PathParam("_format") String format, @QueryParam("id") String id, 
+            @QueryParam("_page") int page, @QueryParam("_pageSize") int pageSize) {
+        return OntologyDAO.getOntoTermById(id, page, pageSize, format);
     }
 
     // graphs
     @POST
-    @Path("/graphs.json")
-    @Produces({MediaType.APPLICATION_JSON})
-    public String listGraphs() {
-        return GraphDAO.listGraph(APILib.JSON);
+    @Path("/graphs{_format}")
+    @Produces({MediaType.APPLICATION_JSON,MediaType.TEXT_HTML,APILib.TSV,APILib.CSV,MediaType.TEXT_XML,APILib.RDF_XML,APILib.TTL})
+    public String listGraphs(@PathParam("_format") String format, 
+            @QueryParam("_page") int page, @QueryParam("_pageSize") int pageSize) {
+        return GraphDAO.listGraph( page, pageSize,format);
     }
 
     @POST
-    @Path("/description.json")
-    @Produces({MediaType.APPLICATION_JSON})
-    public String getDescription(@QueryParam("uri") String resourceURI) {
-        return GraphDAO.getResourceDescription(resourceURI, APILib.JSON);
+    @Path("/description{_format}")
+    @Produces({MediaType.APPLICATION_JSON,MediaType.TEXT_HTML,APILib.TSV,APILib.CSV,MediaType.TEXT_XML,APILib.RDF_XML,APILib.TTL})
+    public String getDescription(@PathParam("_format") String format, @QueryParam("uri") String resourceURI, 
+            @QueryParam("_page") int page, @QueryParam("_pageSize") int pageSize) {
+        return GraphDAO.getResourceDescription(resourceURI, page, pageSize, format);
     }
 
     // QTLs
     @POST
-    @Path("/qtls.json")
-    @Produces({MediaType.APPLICATION_JSON})
-    public String getQtls() {
-        return QtlDAO.getAllQtlURI(APILib.JSON);
+    @Path("/qtls{_format}")
+    @Produces({MediaType.APPLICATION_JSON,MediaType.TEXT_HTML,APILib.TSV,APILib.CSV,MediaType.TEXT_XML,APILib.RDF_XML,APILib.TTL})
+    public String getQtls(@PathParam("_format") String format, 
+            @QueryParam("_page") int page, @QueryParam("_pageSize") int pageSize) {
+        return QtlDAO.getAllQtlURI( page, pageSize, format);
+    }
+    @POST
+    @Path("/qtls/id/associatedWithOntoId{_format}")
+    @Produces({MediaType.APPLICATION_JSON,MediaType.TEXT_HTML,APILib.TSV,APILib.CSV,MediaType.TEXT_XML,APILib.RDF_XML,APILib.TTL})
+    public String getQtlsIdAssociatedWithOntoId(@PathParam("_format") String format, @QueryParam("ontoId") String ontoId, 
+            @QueryParam("_page") int page, @QueryParam("_pageSize") int pageSize) {
+        return QtlDAO.getQtlIdAssociatedWithOntoId(ontoId, page, pageSize, format);
     }
 
     // Proteins
     @POST
-    @Path("/proteins.json")
-    @Produces({MediaType.APPLICATION_JSON})
-    public String getProteins() {
-        return ProteinDAO.getAllProteinsURI(APILib.JSON);
+    @Path("/proteins{_format}")
+    @Produces({MediaType.APPLICATION_JSON,MediaType.TEXT_HTML,APILib.TSV,APILib.CSV,MediaType.TEXT_XML,APILib.RDF_XML,APILib.TTL})
+    public String getProteins(@PathParam("_format") String format, 
+            @QueryParam("_page") int page, @QueryParam("_pageSize") int pageSize) {
+        return ProteinDAO.getAllProteinsURI( page, pageSize,format);
     }
     
     @POST
-    @Path("/proteins/id/associatedWithOntoId")
-    @Produces({"text/tsv"})
-    public String getProteinsIdAssociatedWithOntoId(@QueryParam("ontoId") String ontoId, 
+    @Path("/proteins/id/associatedWithOntoId{_format}")
+    @Produces({MediaType.APPLICATION_JSON,MediaType.TEXT_HTML,APILib.TSV,APILib.CSV,MediaType.TEXT_XML,APILib.RDF_XML,APILib.TTL})
+    public String getProteinsIdAssociatedWithOntoId(@PathParam("_format") String format, @QueryParam("ontoId") String ontoId, 
             @QueryParam("_page") int page, @QueryParam("_pageSize") int pageSize) {
-        return ProteinDAO.getProteinIdAssociatedWithOntoId(ontoId, page, pageSize, APILib.TSV);
+        return ProteinDAO.getProteinsIdAssociatedWithOntoId(ontoId, page, pageSize, format);
     }
 
     // Genes
     @POST
-    @Path("/genes.json")
-    @Produces({MediaType.APPLICATION_JSON})
-    public String getGenes() {
-        return GeneDAO.getAllGenesURI(APILib.JSON);
+    @Path("/genes{_format}")
+    @Produces({MediaType.APPLICATION_JSON,MediaType.TEXT_HTML,APILib.TSV,APILib.CSV,MediaType.TEXT_XML,APILib.RDF_XML,APILib.TTL})
+    public String getGenes(@PathParam("_format") String format, 
+            @QueryParam("_page") int page, @QueryParam("_pageSize") int pageSize) {
+        return GeneDAO.getAllGenesURI( page, pageSize, format);
     }
 
-    @POST
-    @Path("/genes.xml")
-    @Produces({MediaType.APPLICATION_XML})
-    public String getGenesXML() {
-        return GeneDAO.getAllGenesURI(APILib.XML);
-    }
 
-    // Predicates
+    /*// Predicates
     @POST
     @Path("/predicates.xml")
     @Produces({MediaType.APPLICATION_XML})
@@ -173,5 +184,5 @@ public class AgroldService extends ResourceConfig {
         response.expires(expirationDate);
 
         return response.build();
-    }
+    }*/
 }

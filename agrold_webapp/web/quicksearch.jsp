@@ -13,19 +13,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="styles/style1.css" rel="stylesheet" type="text/css"/>
         <link href="styles/menu1.css" rel="stylesheet" type="text/css"/>
+        <link href="intro.js-1.0.0/introjs.css" rel="stylesheet" type="text/css"/>
+        <script src="intro.js-1.0.0/intro.js" type="text/javascript"></script>
         <style>
             #sform{
                 position:relative;
                 top:30%;
-                left:25%;
+                left:20%;
                 width:75%;                
             }
-            #sform input[type="text"]{
-                width: 60%;                
-            }
-            #sform input{
-                font-size: 110%;                
-            }
+            #sform input[type="submit"]{
+                       
+            }            
         </style>
     </head>
     <body>
@@ -37,10 +36,10 @@
                     <p>Search examples: ontological concepts - ‘plant height’ or ‘regulation of gene expression’; gene names –
                         ‘GRP2’ or ‘TCP12’.</p><br/>
                 </div>
-                <div>
-                    <form id="sform" action="http://volvestre.cirad.fr:8890/fct/facet.vsp?cmd=text&sid=86" method="post">                   
+                <div id="sform">
+                    <form  action="http://volvestre.cirad.fr:8890/fct/facet.vsp?cmd=text&sid=86" method="post">                   
                         Enter the entire/part of the name/code of a gene, QTL, protein, ... <br/><br/>
-                        Search Text <input name="q" type="text" placeholder="Type here..."/> <input type="submit" value="Search!"/>
+                        Search Text <input class="keyword" name="q" type="text" placeholder="Type here..." data-step="1" data-intro="Type your expression and then ..."/> <input class="btn" type="submit" value="Search!" data-step="2" data-intro="launch the search engine!"/>
                     </form>
                 </div>
             </section><br>

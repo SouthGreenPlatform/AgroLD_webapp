@@ -123,7 +123,8 @@
 .swagger-section .swagger-ui-wrap {
   line-height: 1;
   font-family: "Droid Sans", sans-serif;
-  max-width: 960px;
+  //max-width: 960px;
+  width: 95%;
   margin-left: auto;
   margin-right: auto;
 }

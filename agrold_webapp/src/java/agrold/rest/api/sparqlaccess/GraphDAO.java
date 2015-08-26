@@ -1,7 +1,7 @@
 /*
  * API services on graphs
  */
-package agrold.rest.api;
+package agrold.rest.api.sparqlaccess;
 
 /**
  * API services on graphs
@@ -10,7 +10,7 @@ package agrold.rest.api;
  */
 public class GraphDAO {
     // describe a resource
-    public static String getResourceDescription(String resourceURI, String resultFormat) {
+    public static String getResourceDescription(String resourceURI, int page, int pageSize, String resultFormat) {
         String resource;
 
         String sparqlQuery = "prefix	agrold_vocabulary:<http://www.southgreen.fr/agrold/vocabulary/> \n"
@@ -22,14 +22,15 @@ public class GraphDAO {
                 + "FILTER(REGEX(?g, \"http://www.southgreen.fr/agrold/*\"))\n"
                 + "}";
         //+ "GROUP BY ?property";
+        sparqlQuery = APILib.addLimitAndOffset(sparqlQuery, pageSize, page);
         System.out.println(sparqlQuery);
 
-        resource = APILib.executeSparqlQuery(sparqlQuery, APILib.speURL, resultFormat);
+        resource = APILib.executeSparqlQuery(sparqlQuery, APILib.sparqlEndpointURL, resultFormat);
         return resource;
 
     }
 
-    public static String listGraph(String resultFormat) {
+    public static String listGraph( int page, int pageSize,String resultFormat) {
         String graphs;
 
         String sparqlQuery = "SELECT distinct ?graph\n"
@@ -40,9 +41,10 @@ public class GraphDAO {
                 + " filter(REGEX(?graph, \"http://www.southgreen.fr/agrold/*\"))\n"
                 + "}";
         //+ "GROUP BY ?property";
+        sparqlQuery = APILib.addLimitAndOffset(sparqlQuery, pageSize, page);
         System.out.println(sparqlQuery);
 
-        graphs = APILib.executeSparqlQuery(sparqlQuery, APILib.speURL, resultFormat);
+        graphs = APILib.executeSparqlQuery(sparqlQuery, APILib.sparqlEndpointURL, resultFormat);
         return graphs;
     }
 }

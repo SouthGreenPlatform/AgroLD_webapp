@@ -12,14 +12,15 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="styles/style1.css" rel="stylesheet" type="text/css"/>
-        <link href="styles/menu1.css" rel="stylesheet" type="text/css"/>
+        <link href="styles/menu1.css" rel="stylesheet" type="text/css"/> 
+        <script src="swagger/lib/swagger-client.js" type="text/javascript"></script>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
         <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>        
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script> 
         <script>
             var eltTypeKeys = ["gene", "protein", "qtl"];
             var eltTypeValues = ["Gene", "Protein", "QTL"];
-            var eltTypeService = ["api/1.0/genes.json", "api/1.0/proteins.json", "/agrold/api/1.0/qtls.json"];
+            var eltTypeService = ["api/1.0/genes.json", "api/1.0/proteins.json", "api/1.0/qtls.json"];
             var sTypeElts;
             var input;
             function generateForm() {
@@ -64,18 +65,28 @@
             var availableDescription = [];
             var availableElts;
 
+            // initialize swagger, point to a resource listing
+            window.swagger = new SwaggerClient({
+                url: "http://volvestre.cirad.fr:8080/aldp/swagger/agrold.json",
+                success: function () {
+                    // upon connect, fetch a pet and set contents to element "mydata"
+                    swagger.apis.gene.getgenes({_format: "json"}, {responseContentType: 'application/json'}, function (data) {
+                        //document.getElementById("mydata").innerHTML = JSON.stringify(data.obj);
+                    });
+                }
+            });
+
             $(document).ready(function () {
                 $(".target").change(function () {
                     input.setAttribute('placeholder', "Please wait a bit...");
                     //input.setAttribute('disabled', "true");
                     document.getElementById("eltTags").value = "";
-                    $.getJSON(eltTypeService[this.selectedIndex], function (json) {
-                        //availableDescription = [];
+                    swagger.apis.protein.getproteins({}, {responseContentType: 'application/json'}, function (data) {
                         while (availableDescription.length > 0) {
                             availableDescription.pop();
                             availableUri.pop();
-                            //availableElts.pop();                            
                         }
+                        var json = data.obj;
                         availableElts = json;
                         console.log("JSON Data: " + json["head"]["vars"]);
                         nbResults = Object.keys(json.results.bindings).length;

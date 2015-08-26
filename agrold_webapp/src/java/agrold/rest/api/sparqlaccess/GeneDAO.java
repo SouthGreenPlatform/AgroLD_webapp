@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package agrold.rest.api;
+package agrold.rest.api.sparqlaccess;
 
 /**
  *
@@ -12,7 +12,7 @@ package agrold.rest.api;
 public class GeneDAO {
 
     // return URIs and agrold_vocabulary:description of all genes in Agrold
-    public static String getAllGenesURI(String resultFormat) {
+    public static String getAllGenesURI( int page, int pageSize, String resultFormat) {
         //return "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>" + "<genes> Hello Jersey" + "</genes>";
         String genes = "";
 
@@ -27,15 +27,16 @@ public class GeneDAO {
                 + "  }\n"
                 + "FILTER(REGEX(?g, \"http://www.southgreen.fr/agrold/*\"))\n"
                 + "}";
+        sparqlQuery = APILib.addLimitAndOffset(sparqlQuery, pageSize, page);
         System.out.println(sparqlQuery);
 
-        genes = APILib.executeSparqlQuery(sparqlQuery, APILib.speURL, resultFormat);
+        genes = APILib.executeSparqlQuery(sparqlQuery, APILib.sparqlEndpointURL, resultFormat);
         return genes;
     }
 
     public static void main(String[] args) {
         // URL and charset
-        //String speURL = "http://localhost:8890/sparql";
+        //String sparqlEndpointURL = "http://localhost:8890/sparql";
         String speURL = "http://volvestre.cirad.fr:8890/sparql";
         String sparqlQuery = "SELECT DISTINCT ?p\n"
                 + "WHERE {\n"
@@ -51,11 +52,12 @@ public class GeneDAO {
                 + "  }\n"
                 + "FILTER(REGEX(?property, \"http://www.southgreen.fr/agrold/*\"))\n"
                 + "}";
-        String resultFormat = APILib.JSON;
+        //String resultFormat = APILib.SPARQL_JSON;
+        String resultFormat = APILib.SPARQL_JSON;
 
-        //String result = APILib.executeSparqlQuery(sparqlQuery, speURL, resultFormat);
+        //String result = APILib.executeSparqlQuery(sparqlQuery, sparqlEndpointURL, resultFormat);
         //System.out.println(result);
-        System.out.println(getAllGenesURI(resultFormat));
+        //System.out.println(getAllGenesURI(resultFormat));
         //System.out.println(APILib.getResourceDescription("http://identifiers.org/ensembl.plant/AT3G14450", resultFormat));
     }
 }

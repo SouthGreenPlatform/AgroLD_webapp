@@ -33,7 +33,7 @@
                 if (url && url.length > 1) {
                     url = decodeURIComponent(url[1]);
                 } else {
-                    url = "../swagger/agrold.json";
+                    url = "../swagger/agrold-2.json";
                 }
                 window.swaggerUi = new SwaggerUi({
                     url: url,
@@ -47,11 +47,9 @@
                                 appName: "your-app-name"
                             });
                         }
-
                         $('pre code').each(function (i, e) {
                             hljs.highlightBlock(e)
                         });
-
                         addApiKeyAuthorization();
                     },
                     onFailure: function (data) {
@@ -60,7 +58,6 @@
                     docExpansion: "none",
                     apisSorter: "alpha"
                 });
-
                 function addApiKeyAuthorization() {
                     var key = encodeURIComponent($('#input_apiKey')[0].value);
                     if (key && key.trim() != "") {
@@ -69,17 +66,13 @@
                         log("added key " + key);
                     }
                 }
-
                 $('#input_apiKey').change(addApiKeyAuthorization);
-
                 // if you have an apiKey you would like to pre-populate on the page for demonstration purposes...
                 /*
                  var apiKey = "myApiKeyXXXX123456789";
                  $('#input_apiKey').val(apiKey);
                  */
-
                 window.swaggerUi.load();
-
                 function log() {
                     if ('console' in window) {
                         console.log.apply(console, arguments);
@@ -98,7 +91,7 @@
         <div id="wrapper"> 
             <jsp:include page="header.html"></jsp:include>
                 <section>
-                    <div id='header'>
+                    <!--div id='header'>
                         <div class="swagger-ui-wrap">
                             <a id="logo" href="http://swagger.io">swagger</a>
                             <form id='api_selector'>
@@ -109,7 +102,7 @@
                         </div>
                     </div>
 
-                    <div id="message-bar" class="swagger-ui-wrap">&nbsp;</div>
+                    <div id="message-bar" class="swagger-ui-wrap">&nbsp;</div-->
                     <div id="swagger-ui-container" class="swagger-ui-wrap"></div>
                 </section><br>
             <jsp:include page="footer.html"></jsp:include>

@@ -11,9 +11,9 @@ public class CORSResponseFilter implements ContainerResponseFilter {
  
     /**
      *
-     * @param requestContext
-     * @param responseContext
-     * @throws IOException
+     * @param requestContext the request context
+     * @param responseContext the response context
+     * @throws IOException unexpected errors
      */
     @Override
 	public void filter(ContainerRequestContext requestContext, ContainerResponseContext responseContext)

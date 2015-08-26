@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package agrold.rest.api;
+package agrold.rest.api.sparqlaccess;
 
 import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
@@ -17,8 +17,8 @@ import java.util.List;
 public class PredicateDAO {
 
     /**
-     *
-     * @return
+     *  What predicates are in AgroLD?
+     * @return the list of URIs of predicates
      */
     public List<Predicate> getAllPredicates() {
         List<Predicate> predicates;

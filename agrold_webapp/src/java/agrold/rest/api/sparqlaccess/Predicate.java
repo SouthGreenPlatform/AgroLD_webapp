@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package agrold.rest.api;
+package agrold.rest.api.sparqlaccess;
 
 import java.io.Serializable;
 import javax.xml.bind.annotation.XmlElement;
@@ -14,6 +14,9 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author tagny
  */
 @XmlRootElement(name = "predicate")
+/**
+ * Mapping Class Predicate
+ */
 public class Predicate implements Serializable{
 
     private String uri;

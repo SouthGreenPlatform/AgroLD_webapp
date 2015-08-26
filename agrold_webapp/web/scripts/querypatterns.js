@@ -5,10 +5,10 @@ var qpatterns = new Array();
 var selectedPatternIdx = 0;
 var patternlabels = ['Retrieve list of graphs', 'Search terms by label', 'List relation types in a given graph',
     'Retrieve the local neighbourhood of Oriza sativa japonica protein: IAA16 - Auxin-responsive protein (UniProt accession:P0C127)',
-    'Retrieve genes that participate in a pathway: Calvin cycle', 'Retrieve Proteins associated with a QTL: DTHD (days to heading)', 
+    'Retrieve genes that participate in a pathway: Calvin cycle', 'Retrieve Proteins associated with a QTL: DTHD (days to heading)',
     'Get the ID corresponding to the ontology term "<b>homoaconitate hydratase activity</b>"', 'Get the name of the ontological element that has the ID "<b>GO:0003824</b>"',
-    'Get the level <b>4</b> ancestor of <b>GO:0004409</b>', 'Get the level <b>2</b> descendence of <b>GO:0003824</b>', 
-    'Get protein ids associated with the ontological id <b>GO:0003824</b>', 'Get qtl ids associated with the ontological id <b>GO:0003824</b>', 
+    'Get the level <b>4</b> ancestor of <b>GO:0004409</b>', 'Get the level <b>2</b> descendence of <b>GO:0003824</b>',
+    'Get protein ids associated with the ontological id <b>GO:0003824</b>', 'Get qtl ids associated with the ontological id <b>EO:0007403</b>',
     'Describe uniprot:P0C127'];
 qpatterns['PREFIX obo:<http://purl.obolibrary.org/obo/>\n' +
         'PREFIX vocab:<vocabulary/>\n\n' +
@@ -166,16 +166,18 @@ WHERE\n\
     WHERE\n\
     {\n\
     	?ontoElt rdfs:subClassOf ?ontoEltClass.\n\
-  		FILTER REGEX(STR(?ontoElt), CONCAT(REPLACE("GO:0003824", ":", "_"), "$"))\n\
+  		FILTER REGEX(STR(?ontoElt), CONCAT(REPLACE("EO:0007403", ":", "_"), "$"))\n\
     } limit 1\n\
   }\n\
-  ?qtl ?predicate ?ontoElt .\n\
-  ?qtl rdfs:subClassOf <http://purl.obolibrary.org/obo/SO_0000771> .\n\
-  BIND(REPLACE(str(?qtl), \'^.*(#|/)\', "") AS ?qtlId) .\n\
+  GRAPH <qtl.annotations>{\n\
+    ?qtl ?predicate ?ontoElt .\n\
+    ?qtl rdfs:subClassOf <http://purl.obolibrary.org/obo/SO_0000771> .\n\
+    BIND(REPLACE(str(?qtl), \'^.*(#|/)\', "") AS ?qtlId) .\n\
+  }\n\
 }\n\
 ORDER BY ?qtl\n\
 LIMIT 5 # page size\n\
-OFFSET 1 # page number > 0'] = ["GO:0003824"];
+OFFSET 1 # page number > 0'] = ["EO:0007403"];
 
 qpatterns['PREFIX uniprot:<http://purl.uniprot.org/uniprot/>\n\nDESCRIBE uniprot:P0C127'] = ["uniprot:P0C127"];
 prefixes = "BASE <http://www.southgreen.fr/agrold/>\n" +
@@ -188,7 +190,8 @@ function patternChange() {
 }
 
 function selectPattern(patternIdx) {
-    selectedPatternIdx = patternIdx; console.log("icizzz");
+    selectedPatternIdx = patternIdx;
+    console.log("icizzz");
     var selectedpattern = Object.keys(qpatterns)[patternIdx];
     document.getElementById("query").value = prefixes + selectedpattern;
     yasqe.setValue(document.getElementById("query").value);
@@ -197,18 +200,18 @@ function selectPattern(patternIdx) {
     document.getElementById("parameters").innerHTML = "";
     document.getElementById("parameters").innerHTML = "";
     if (qpatterns[selectedpattern].length > 0) {
-        document.getElementById("parameters").innerHTML += "<b>Set values of parameters:</b><br>"
+        document.getElementById("parameters").innerHTML += "<b style=\"font-size: 15px\">Set values of parameters:</b><br>"
         for (i = 0; i < qpatterns[selectedpattern].length; i++) {
-            document.getElementById("parameters").innerHTML += "Replace \"" + qpatterns[selectedpattern][i] + '" by : <input class="aparameter" value="' + qpatterns[selectedpattern][i] + '" oninput="replaceParaValue(' + "/" + qpatterns[selectedpattern][i] + "/g" + ', this)"/><br>';
+            document.getElementById("parameters").innerHTML += "Replace \"" + qpatterns[selectedpattern][i] + '" by : <input class="aparameter" value="' + qpatterns[selectedpattern][i] + '" oninput="replaceParaValue(' + "/" + qpatterns[selectedpattern][i] + "/g" + ', this)" /><br>';
         }
     } else {
         document.getElementById("parameters").innerHTML = "";
     }
 }
 
-function replaceParaValue(apara, avalue) {
+function replaceParaValue(apara, anInput) {
     var pattern = Object.keys(qpatterns)[selectedPatternIdx];
-    var qtext = pattern.replace(apara, avalue.value);
+    var qtext = pattern.replace(apara, anInput.value);
     document.getElementById("query").value = prefixes + qtext;
     yasqe.setValue(document.getElementById("query").value);
 }
