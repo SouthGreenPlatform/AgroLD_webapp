@@ -1,7 +1,7 @@
 {
     "swagger": "2.0",
     "info": {
-        "description": "These are the documentations of the services the 1.0 version of the RESTful-like API of AgroLD reachable at http://volvestre.cirad.fr:8080/aldp/api/1.0",
+        "description": "These are the documentations of the services the 1.0 version of the RESTful-like API of AgroLD available at http://volvestre.cirad.fr:8080/aldp/api/1.0",
         "version": "1.0",
         "title": "AgroLD API 1.0 Interactive Documentations",
         "termsOfService": "http://www.agrold.org",
@@ -77,7 +77,7 @@
                 "summary": "Returns all the IDs corresponding to an ontological term",
                 "description": "&lt;n&gt; PREFIX rdfs:< http://www.w3.org/2000/01/rdf-schema# ><br>SELECT ?id <br>WHERE {<br>   ?subject rdfs:label \"homoaconitate hydratase activity\"^^xsd:string .<br>  BIND(REPLACE(str(?subject), '^.*(#|/)', \"\") AS ?localname)<br>  BIND(REPLACE(?localname, \"_\", \":\") as ?id).<br>} limit 1",
                 "operationId": "getIdByOntoTerm",
-                "produces": ["text/html", "application/sparql-results+json", "application/ld+json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
                 "parameters": [
                     {
                         "name": "ontoTerm",
@@ -89,7 +89,7 @@
                     {
                         "name": "_page",
                         "in": "query",
-                        "description": "number of the page of the result set to display (from 1 and greater than 0 or else all results will be displayed)",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
                         "required": false,
                         "type": "integer"
                     },
@@ -133,7 +133,7 @@
                 "summary": "Returns the name of an ontological element corresponding to its given ID",
                 "description": "PREFIX rdfs:< http://www.w3.org/2000/01/rdf-schema# ><br>SELECT ?id <br>WHERE {<br>   ?subject rdfs:label \"homoaconitate hydratase activity\"^^xsd:string .<br>  BIND(REPLACE(str(?subject), '^.*(#|/)', \"\") AS ?localname)<br>  BIND(REPLACE(?localname, \"_\", \":\") as ?id).<br>} limit 1",
                 "operationId": "getOntoTermById",
-                "produces": ["text/html", "application/sparql-results+json", "application/ld+json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
                 "parameters": [
                     {
                         "name": "id",
@@ -145,7 +145,7 @@
                     {
                         "name": "_page",
                         "in": "query",
-                        "description": "number of the page of the result set to display (from 1 and greater than 0 or else all results will be displayed)",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
                         "required": false,
                         "type": "integer"
                     },
@@ -189,7 +189,7 @@
                 "summary": "Returns all the IDs corresponding to an ontological term",
                 "description": "<br> SELECT ?ancestorId<br>WHERE<br>{<br>#level 4<br>{<br>SELECT ?ancestor1<br>WHERE<br>{<br>?subject rdfs:subClassOf ?ancestor1.<br>FILTER REGEX(STR(?subject), CONCAT(REPLACE(\"<b>id</b>\", \":\", \"_\"), \"$\"))<br>} limit 1}<br>?ancestor1 rdfs:subClassOf ?ancestor2.<br>?ancestor2 rdfs:subClassOf ?ancestor3.<br>?ancestor3 rdfs:subClassOf ?ancestor4.<br>BIND(REPLACE(str(?ancestor4), '^.*(#|/)', \"\") AS ?ancestorLocalname)<br>BIND(REPLACE(?ancestorLocalname, \"_\", \":\") as ?ancestorId)<br>}",
                 "operationId": "getAncestorById",
-                "produces": ["text/html", "application/sparql-results+json", "application/ld+json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
                 "parameters": [
                     {
                         "name": "id",
@@ -209,7 +209,7 @@
                     {
                         "name": "_page",
                         "in": "query",
-                        "description": "number of the page of the result set to display (from 1 and greater than 0 or else all results will be displayed)",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
                         "required": false,
                         "type": "integer"
                     },
@@ -265,7 +265,7 @@
                     {
                         "name": "_page",
                         "in": "query",
-                        "description": "number of the page of the result set to display (from 1 and greater than 0 or else all results will be displayed)",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
                         "required": false,
                         "type": "integer"
                     },
@@ -309,7 +309,7 @@
                 "summary": "Returns the descendents of an ontological element given its id",
                 "description": "<br> SELECT ?ancestorId<br>WHERE<br>{<br>{<br>SELECT ?ancestor1<br>WHERE<br>{<br>?subject rdfs:subClassOf ?ancestor1.<br>FILTER REGEX(STR(?subject), CONCAT(REPLACE(\"<b>id</b>\", \":\", \"_\"), \"$\"))<br>} limit 1}<br>?ancestor1 a owl:Class .<br>BIND(REPLACE(str(?ancestor1), '^.*(#|/)', \"\") AS ?ancestorLocalname)<br>BIND(REPLACE(?ancestorLocalname, \"_\", \":\") as ?ancestorId)<br>}",
                 "operationId": "getDescendentById",
-                "produces": ["text/html", "application/sparql-results+json", "application/ld+json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
                 "parameters": [
                     {
                         "name": "id",
@@ -328,7 +328,7 @@
                     {
                         "name": "_page",
                         "in": "query",
-                        "description": "number of the page of the result set to display (from 1 and greater than 0 or else all results will be displayed)",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
                         "required": false,
                         "type": "integer"
                     },
@@ -372,7 +372,7 @@
                 "summary": "Returns the children of an ontological element given its id",
                 "description": "<br> SELECT ?ancestorId<br>WHERE<br>{<br>{<br>SELECT ?ancestor1<br>WHERE<br>{<br>?subject rdfs:subClassOf ?ancestor1.<br>FILTER REGEX(STR(?subject), CONCAT(REPLACE(\"<b>id</b>\", \":\", \"_\"), \"$\"))<br>} limit 1}<br>?ancestor1 a owl:Class .<br>BIND(REPLACE(str(?ancestor1), '^.*(#|/)', \"\") AS ?ancestorLocalname)<br>BIND(REPLACE(?ancestorLocalname, \"_\", \":\") as ?ancestorId)<br>}",
                 "operationId": "getChildrenById",
-                "produces": ["text/html", "application/sparql-results+json", "application/ld+json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
                 "parameters": [
                     {
                         "name": "id",
@@ -384,7 +384,7 @@
                     {
                         "name": "_page",
                         "in": "query",
-                        "description": "number of the page of the result set to display (from 1 and greater than 0 or else all results will be displayed)",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
                         "required": false,
                         "type": "integer"
                     },
@@ -428,7 +428,7 @@
                 "summary": "Retrieve complete description of a resource from AgroLD in JSON format",
                 "description": "",
                 "operationId": "getdescription",
-                "produces": ["text/html", "application/sparql-results+json", "application/ld+json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
                 "parameters": [
                     {
                         "name": "uri",
@@ -440,7 +440,7 @@
                     {
                         "name": "_page",
                         "in": "query",
-                        "description": "number of the page of the result set to display (from 1 and greater than 0 or else all results will be displayed)",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
                         "required": false,
                         "type": "integer"
                     },
@@ -484,12 +484,12 @@
                 "summary": "list all the graphs of AgroLD",
                 "description": "",
                 "operationId": "listgraphs",
-                "produces": ["text/html", "application/sparql-results+json", "application/ld+json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
                 "parameters": [
                     {
                         "name": "_page",
                         "in": "query",
-                        "description": "number of the page of the result set to display (from 1 and greater than 0 or else all results will be displayed)",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
                         "required": false,
                         "type": "integer"
                     },
@@ -535,13 +535,13 @@
                 ],
                 "summary": "Retrieve complete URI and description of all QTLs from AgroLD in JSON format",
                 "description": "",
-                "operationId": "getQTL",
-                "produces": ["text/html", "application/sparql-results+json", "application/ld+json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "operationId": "getQtls",
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
                 "parameters": [
                     {
                         "name": "_page",
                         "in": "query",
-                        "description": "number of the page of the result set to display (from 1 and greater than 0 or else all results will be displayed)",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
                         "required": false,
                         "type": "integer"
                     },
@@ -585,7 +585,7 @@
                 "summary": "Get ids of QTLs associated with an ontological Id",
                 "description": "SELECT DISTINCT ?qtlI<br>WHERE<br>{<br>  { <br>    SELECT ?ontoElt<br>    WHERE<br>    {<br><br>    ?ontoElt rdfs:subClassOf ?ontoEltClass.<br> FILTER REGEX(STR(?ontoElt), CONCAT(REPLACE(\"<b>ontoId</b>\", \":\", \"_\"), \"$\"))<br>    } limit 1<br>  }<br>  GRAPH agrold:qtl.annotations{<br>    ?qtl ?predicate ?ontoElt .<br>    ?qtl rdfs:subClassOf < http://purl.obolibrary.org/obo/SO_0000771> .<br>    BIND(REPLACE(str(?qtl), '^.*(#|/)', \"\") AS ?qtlId) .<br>  }<br>}<br>ORDER BY ?qtl<br>LIMIT <b>_pageSize</b><br>OFFSET <b>_page</b>",
                 "operationId": "getQtlsIdAssociatedWithOntoId",
-                "produces": ["text/html", "application/sparql-results+json", "application/ld+json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
                 "parameters": [
                     {
                         "name": "ontoId",
@@ -597,7 +597,7 @@
                     {
                         "name": "_page",
                         "in": "query",
-                        "description": "number of the page of the result set to display (from 1 and greater than 0 or else all results will be displayed)",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
                         "required": false,
                         "type": "integer"
                     },
@@ -643,13 +643,13 @@
                 ],
                 "summary": "Retrieve complete URI and description of all proteins from AgroLD in JSON format",
                 "description": "SELECT distinct ?protein ( CONCAT(?label, \": \", ?desc) AS ?description)<br>WHERE {<br>?protein agrold_vocab:description ?desc; <br>rdfs:label ?label ;<br>rdfs:subClassOf &lt&;http://purl.obolibrary.org/obo/SO_0000104 &gt;.<br>}",
-                "operationId": "getproteins",
-                "produces": ["text/html", "application/sparql-results+json", "application/ld+json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "operationId": "getProteins",
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
                 "parameters": [
                     {
                         "name": "_page",
                         "in": "query",
-                        "description": "number of the page of the result set to display (from 1 and greater than 0 or else all results will be displayed)",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
                         "required": false,
                         "type": "integer"
                     },
@@ -693,7 +693,7 @@
                 "summary": "Get ids of proteins associated with an ontological Id",
                 "description": "SELECT DISTINCT ?proteinId<br>WHERE<br>{<br>{<br>   SELECT ?ontoElt<br>    WHERE<br>    {<br>    ?ontoElt rdfs:subClassOf ?ontoEltClass.<br> FILTER REGEX(STR(?ontoElt), CONCAT(REPLACE(\"<b>ontoId</b>\", \":\", \"_\"), \"$\"))<br>    } limit 1<br>  }<br> ?protein ?predicate ?ontoElt .<br>  ?protein rdfs:subClassOf < http://purl.obolibrary.org/obo/SO_0000104 > .<br>  BIND(REPLACE(str(?protein), '^.*(#|/)', \"\") AS ?proteinId) .<br>}<br>ORDER BY ?proteinId<br>LIMIT <b>_pageSize</b><br>OFFSET <b>_page</b>",
                 "operationId": "getProteinIdAssociatedWithOntoId",
-                "produces": ["text/html", "application/sparql-results+json", "application/ld+json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
                 "parameters": [
                     {
                         "name": "ontoId",
@@ -705,7 +705,66 @@
                     {
                         "name": "_page",
                         "in": "query",
-                        "description": "number of the page of the result set to display (from 1 and greater than 0 or else all results will be displayed)",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_pageSize",
+                        "in": "query",
+                        "description": "size of a page of the result set (> 0 or else all results will be displayed)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_format",
+                        "in": "path",
+                        "description": "format in which the results set will be return",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            ".json",
+                            ".sparql-json",
+                            ".xml",
+                            ".tsv",
+                            ".csv",
+                            ".rdf",
+                            ".html",
+                            ".ttl"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "default": {
+                        "description": "unexpected error"
+                    }
+                }
+            }
+        },
+        "/proteins/associatedWithQTL{_format}": {
+            "post": {
+                "tags": [
+                    "protein"
+                ],
+                "summary": "Get URIs, ids, and name of proteins associated with a QTL",
+                "description": "",
+                "operationId": "getProteinsAssociatedWithQtl",
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "parameters": [
+                    {
+                        "name": "qtlId",
+                        "in": "query",
+                        "description": "The id of the QTL (e.g. AQAT004)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "_page",
+                        "in": "query",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
                         "required": false,
                         "type": "integer"
                     },
@@ -751,13 +810,13 @@
                 ],
                 "summary": "Retrieve complete URI and description of all genes from AgroLD in JSON format",
                 "description": "",
-                "operationId": "getgenes",
-                "produces": ["text/html", "application/sparql-results+json", "application/ld+json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "operationId": "getGenes",
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
                 "parameters": [
                     {
                         "name": "_page",
                         "in": "query",
-                        "description": "number of the page of the result set to display (from 1 and greater than 0 or else all results will be displayed)",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
                         "required": false,
                         "type": "integer"
                     },
@@ -801,12 +860,12 @@
                 "summary": "Retrieve complete URI of all predicates used in AgroLD in JSON",
                 "description": "",
                 "operationId": "getpredicatesjson",
-                "produces": ["text/html", "application/sparql-results+json", "application/ld+json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
                 "parameters": [
                     {
                         "name": "_page",
                         "in": "query",
-                        "description": "number of the page of the result set to display (from 1 and greater than 0 or else all results will be displayed)",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
                         "required": false,
                         "type": "integer"
                     },

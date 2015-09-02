@@ -33,7 +33,7 @@
                 if (url && url.length > 1) {
                     url = decodeURIComponent(url[1]);
                 } else {
-                    url = "../swagger/agrold-2.json";
+                    url = "../swagger/agrold.json";
                 }
                 window.swaggerUi = new SwaggerUi({
                     url: url,

@@ -10,24 +10,25 @@ package agrold.rest.api.sparqlaccess;
 public class QtlDAO {
 
     // return URIs and agrold_vocabulary:description of all genes in Agrold
-    public static String getAllQtlURI( int page, int pageSize, String resultFormat) {
-        String sparqlQuery = "prefix	agrold:<http://www.southgreen.fr/agrold/vocabulary/> \n"                
+    public static String getQtls(int page, int pageSize, String resultFormat) {
+        String sparqlQuery = "prefix	agrold:<http://www.southgreen.fr/agrold/vocabulary/> \n"
                 + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
-                + "SELECT distinct ?qtl ( CONCAT(?label, \": \", ?desc) AS ?description)\n"
+                + "SELECT distinct ?qtl ?qtlId ?qtlName ?qtlDescription\n"
                 + "WHERE {\n"
-                + "    ?qtl agrold:description ?desc ;\n"
-                + "          rdfs:label ?label ;\n"
-                + "          rdfs:subClassOf <http://purl.obolibrary.org/obo/SO_0000771>.\n"                
+                + "    ?qtl rdfs:label ?qtlName;\n"
+                + "          agrold:description ?qtlDescription;          \n"
+                + "          rdfs:subClassOf <http://purl.obolibrary.org/obo/SO_0000771>.\n"
+                + "    BIND(REPLACE(str(?qtl), '^.*(#|/)', \"\") AS ?qtlId) .\n"
                 + "}";
         sparqlQuery = APILib.addLimitAndOffset(sparqlQuery, pageSize, page);
         System.out.println(sparqlQuery);
         String result = APILib.executeSparqlQuery(sparqlQuery, APILib.sparqlEndpointURL, resultFormat);
         return result;
-    }        
-    
+    }
+
     public static String getQtlIdAssociatedWithOntoId(String ontoId, int page, int pageSize, String resultFormat) {
         String sparqlQuery = "PREFIX agrold:<http://www.southgreen.fr/agrold/>\n"
-                +"PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
+                + "PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
                 + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "\n"
                 + "SELECT DISTINCT ?qtlId\n"
@@ -47,17 +48,16 @@ public class QtlDAO {
                 + "    BIND(REPLACE(str(?qtl), '^.*(#|/)', \"\") AS ?qtlId) .\n"
                 + "  }\n"
                 + "}\n";
-                
+
         sparqlQuery = APILib.addLimitAndOffset(sparqlQuery, pageSize, page);
         System.out.println(sparqlQuery);
 
         String result = APILib.executeSparqlQuery(sparqlQuery, APILib.sparqlEndpointURL, resultFormat);
         return result;
-    }
+    }    
 
     public static void main(String[] args) {
-        System.out.println(getQtlIdAssociatedWithOntoId("EO:0007403", 1, 5, APILib.TSV));
-        //System.out.println(getAllQtlURI(APILib.TSV));
-       
+        //System.out.println(getQtlIdAssociatedWithOntoId("EO:0007403", 1, 5, APILib.TSV));        
+
     }
 }

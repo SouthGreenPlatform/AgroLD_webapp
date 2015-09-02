@@ -8,6 +8,7 @@ import agrold.rest.api.sparqlaccess.ProteinDAO;
 import agrold.rest.api.sparqlaccess.GeneDAO;
 import agrold.rest.api.security.CORSResponseFilter;
 import java.net.URISyntaxException;
+import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -52,7 +53,7 @@ public class AgroldService extends ResourceConfig {
     @Path("/ancestors/byId{_format}")
     @Produces({MediaType.APPLICATION_JSON,MediaType.TEXT_HTML,APILib.TSV,APILib.CSV,MediaType.TEXT_XML,APILib.RDF_XML,APILib.TTL})
     public String getAncestorById(@PathParam("_format") String format, @QueryParam("id") String id, @QueryParam("level") int level, 
-            @QueryParam("_page") int page, @QueryParam("_pageSize") int pageSize) {
+            @DefaultValue("0") @QueryParam("_page") int page, @DefaultValue("1000") @QueryParam("_pageSize") int pageSize) {
         return OntologyDAO.getAncestorById(id, level, page, pageSize, format);
     }
     
@@ -60,7 +61,7 @@ public class AgroldService extends ResourceConfig {
     @Path("/parents/byId{_format}")
     @Produces({MediaType.APPLICATION_JSON,MediaType.TEXT_HTML,APILib.TSV,APILib.CSV,MediaType.TEXT_XML,APILib.RDF_XML,APILib.TTL})
     public String getParentById(@PathParam("_format") String format, @QueryParam("id") String id, 
-            @QueryParam("_page") int page, @QueryParam("_pageSize") int pageSize) {
+            @DefaultValue("0") @QueryParam("_page") int page, @DefaultValue("1000") @QueryParam("_pageSize") int pageSize) {
         // The parent is the ancestor at level 1
         return OntologyDAO.getAncestorById(id, 1, page, pageSize, format);
     }
@@ -69,7 +70,7 @@ public class AgroldService extends ResourceConfig {
     @Path("/descendants/byId{_format}")
     @Produces({MediaType.APPLICATION_JSON,MediaType.TEXT_HTML,APILib.TSV,APILib.CSV,MediaType.TEXT_XML,APILib.RDF_XML,APILib.TTL})
     public String getDescendantsById(@PathParam("_format") String format, @QueryParam("id") String id, @QueryParam("level") int level, 
-            @QueryParam("_page") int page, @QueryParam("_pageSize") int pageSize) {
+            @DefaultValue("0") @QueryParam("_page") int page, @DefaultValue("1000") @QueryParam("_pageSize") int pageSize) {
         return OntologyDAO.getDescendantsById(id, level, page, pageSize, format);
     }
     
@@ -77,7 +78,7 @@ public class AgroldService extends ResourceConfig {
     @Path("/children/byId{_format}")
     @Produces({MediaType.APPLICATION_JSON,MediaType.TEXT_HTML,APILib.TSV,APILib.CSV,MediaType.TEXT_XML,APILib.RDF_XML,APILib.TTL})
     public String getChildrenById(@PathParam("_format") String format, @QueryParam("id") String id, 
-            @QueryParam("_page") int page, @QueryParam("_pageSize") int pageSize) {
+            @DefaultValue("0") @QueryParam("_page") int page, @DefaultValue("1000") @QueryParam("_pageSize") int pageSize) {
         // The parent is the ancestor at level 1
         return OntologyDAO.getDescendantsById(id, 1, page, pageSize, format);
     }
@@ -86,7 +87,7 @@ public class AgroldService extends ResourceConfig {
     @Path("/id/byOntoTerm{_format}")
     @Produces({MediaType.APPLICATION_JSON,MediaType.TEXT_HTML,APILib.TSV,APILib.CSV,MediaType.TEXT_XML,APILib.RDF_XML,APILib.TTL})
     public String getIdByOntoTerm(@PathParam("_format") String format, @QueryParam("ontoTerm") String ontoTerm, 
-            @QueryParam("_page") int page, @QueryParam("_pageSize") int pageSize) {
+            @DefaultValue("0") @QueryParam("_page") int page, @DefaultValue("1000") @QueryParam("_pageSize") int pageSize) {
         return OntologyDAO.getIdByOntoTerm(ontoTerm, page, pageSize, format);
     }
     
@@ -94,7 +95,7 @@ public class AgroldService extends ResourceConfig {
     @Path("/ontoTerm/byId{_format}")
     @Produces({MediaType.APPLICATION_JSON,MediaType.TEXT_HTML,APILib.TSV,APILib.CSV,MediaType.TEXT_XML,APILib.RDF_XML,APILib.TTL})
     public String getOntoTermById(@PathParam("_format") String format, @QueryParam("id") String id, 
-            @QueryParam("_page") int page, @QueryParam("_pageSize") int pageSize) {
+            @DefaultValue("0") @QueryParam("_page") int page, @DefaultValue("1000") @QueryParam("_pageSize") int pageSize) {
         return OntologyDAO.getOntoTermById(id, page, pageSize, format);
     }
 
@@ -103,7 +104,7 @@ public class AgroldService extends ResourceConfig {
     @Path("/graphs{_format}")
     @Produces({MediaType.APPLICATION_JSON,MediaType.TEXT_HTML,APILib.TSV,APILib.CSV,MediaType.TEXT_XML,APILib.RDF_XML,APILib.TTL})
     public String listGraphs(@PathParam("_format") String format, 
-            @QueryParam("_page") int page, @QueryParam("_pageSize") int pageSize) {
+            @DefaultValue("0") @QueryParam("_page") int page, @DefaultValue("1000") @QueryParam("_pageSize") int pageSize) {
         return GraphDAO.listGraph( page, pageSize,format);
     }
 
@@ -111,7 +112,7 @@ public class AgroldService extends ResourceConfig {
     @Path("/description{_format}")
     @Produces({MediaType.APPLICATION_JSON,MediaType.TEXT_HTML,APILib.TSV,APILib.CSV,MediaType.TEXT_XML,APILib.RDF_XML,APILib.TTL})
     public String getDescription(@PathParam("_format") String format, @QueryParam("uri") String resourceURI, 
-            @QueryParam("_page") int page, @QueryParam("_pageSize") int pageSize) {
+            @DefaultValue("0") @QueryParam("_page") int page, @DefaultValue("1000") @QueryParam("_pageSize") int pageSize) {
         return GraphDAO.getResourceDescription(resourceURI, page, pageSize, format);
     }
 
@@ -120,14 +121,14 @@ public class AgroldService extends ResourceConfig {
     @Path("/qtls{_format}")
     @Produces({MediaType.APPLICATION_JSON,MediaType.TEXT_HTML,APILib.TSV,APILib.CSV,MediaType.TEXT_XML,APILib.RDF_XML,APILib.TTL})
     public String getQtls(@PathParam("_format") String format, 
-            @QueryParam("_page") int page, @QueryParam("_pageSize") int pageSize) {
-        return QtlDAO.getAllQtlURI( page, pageSize, format);
+            @DefaultValue("0") @QueryParam("_page") int page, @DefaultValue("1000") @QueryParam("_pageSize") int pageSize) {
+        return QtlDAO.getQtls( page, pageSize, format);
     }
     @POST
     @Path("/qtls/id/associatedWithOntoId{_format}")
     @Produces({MediaType.APPLICATION_JSON,MediaType.TEXT_HTML,APILib.TSV,APILib.CSV,MediaType.TEXT_XML,APILib.RDF_XML,APILib.TTL})
     public String getQtlsIdAssociatedWithOntoId(@PathParam("_format") String format, @QueryParam("ontoId") String ontoId, 
-            @QueryParam("_page") int page, @QueryParam("_pageSize") int pageSize) {
+            @DefaultValue("0") @QueryParam("_page") int page, @DefaultValue("1000") @QueryParam("_pageSize") int pageSize) {
         return QtlDAO.getQtlIdAssociatedWithOntoId(ontoId, page, pageSize, format);
     }
 
@@ -136,16 +137,24 @@ public class AgroldService extends ResourceConfig {
     @Path("/proteins{_format}")
     @Produces({MediaType.APPLICATION_JSON,MediaType.TEXT_HTML,APILib.TSV,APILib.CSV,MediaType.TEXT_XML,APILib.RDF_XML,APILib.TTL})
     public String getProteins(@PathParam("_format") String format, 
-            @QueryParam("_page") int page, @QueryParam("_pageSize") int pageSize) {
-        return ProteinDAO.getAllProteinsURI( page, pageSize,format);
+            @DefaultValue("0") @QueryParam("_page") int page, @DefaultValue("1000") @QueryParam("_pageSize") int pageSize) {
+        return ProteinDAO.getProteins(page, pageSize,format);
     }
     
     @POST
     @Path("/proteins/id/associatedWithOntoId{_format}")
     @Produces({MediaType.APPLICATION_JSON,MediaType.TEXT_HTML,APILib.TSV,APILib.CSV,MediaType.TEXT_XML,APILib.RDF_XML,APILib.TTL})
     public String getProteinsIdAssociatedWithOntoId(@PathParam("_format") String format, @QueryParam("ontoId") String ontoId, 
-            @QueryParam("_page") int page, @QueryParam("_pageSize") int pageSize) {
+            @DefaultValue("0") @QueryParam("_page") int page, @DefaultValue("1000") @QueryParam("_pageSize") int pageSize) {
         return ProteinDAO.getProteinsIdAssociatedWithOntoId(ontoId, page, pageSize, format);
+    }
+    
+    @POST
+    @Path("/proteins/associatedWithQTL{_format}")
+    @Produces({MediaType.APPLICATION_JSON,MediaType.TEXT_HTML,APILib.TSV,APILib.CSV,MediaType.TEXT_XML,APILib.RDF_XML,APILib.TTL})
+    public String getProteinsAssociatedWithQtl(@PathParam("_format") String format, @QueryParam("qtlId") String qtlId, 
+            @DefaultValue("0") @QueryParam("_page") int page, @DefaultValue("1000") @QueryParam("_pageSize") int pageSize) {
+        return ProteinDAO.getProteinsAssociatedWithQTL(qtlId, page, pageSize, format);
     }
 
     // Genes
@@ -153,8 +162,8 @@ public class AgroldService extends ResourceConfig {
     @Path("/genes{_format}")
     @Produces({MediaType.APPLICATION_JSON,MediaType.TEXT_HTML,APILib.TSV,APILib.CSV,MediaType.TEXT_XML,APILib.RDF_XML,APILib.TTL})
     public String getGenes(@PathParam("_format") String format, 
-            @QueryParam("_page") int page, @QueryParam("_pageSize") int pageSize) {
-        return GeneDAO.getAllGenesURI( page, pageSize, format);
+            @DefaultValue("0") @QueryParam("_page") int page, @DefaultValue("1000") @QueryParam("_pageSize") int pageSize) {
+        return GeneDAO.getGenes(page, pageSize, format);
     }
 
 

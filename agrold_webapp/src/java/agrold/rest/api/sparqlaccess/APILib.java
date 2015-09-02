@@ -9,6 +9,8 @@ import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -25,24 +27,34 @@ public class APILib {
     public final static String JSON = "application/json";
     public final static String SPARQL_JSON = "application/sparql-results+json";
     public final static String XML = "application/sparql-results+xml";
-    public final static String TSV = "text/tab-separated-values";         
-    public final static String CSV = "text/csv";         
-    public final static String RDF_XML = "application/rdf+xml";         
-    public final static String TTL = "text/turtle";         
-    
-    public static String getFormatFullName(String format){
-        switch(format){
-            case ".json" : return JSON;
-            case ".sparql-json" : return SPARQL_JSON;
-            case ".html" : return HTML;
-            case ".tsv" : return TSV;
-            case ".csv" : return CSV;
-            case ".rdf" : return RDF_XML;
-            case ".xml" : return XML;
-            case ".ttl" : return TTL;
-            case "": return TSV;
+    public final static String TSV = "text/tab-separated-values";
+    public final static String CSV = "text/csv";
+    public final static String RDF_XML = "application/rdf+xml";
+    public final static String TTL = "text/turtle";
+
+    public static String getFormatFullName(String format) {
+        switch (format) {
+            case ".json":
+                return JSON;
+            case ".sparql-json":
+                return SPARQL_JSON;
+            case ".html":
+                return HTML;
+            case ".tsv":
+                return TSV;
+            case ".csv":
+                return CSV;
+            case ".rdf":
+                return RDF_XML;
+            case ".xml":
+                return XML;
+            case ".ttl":
+                return TTL;
+            //case "": return TSV;
+            default:
+                return TSV;
         }
-        return "";
+        // return "";
     }
 
     public static String convertStreamToString(java.io.InputStream is) {
@@ -58,8 +70,8 @@ public class APILib {
         InputStream response = null;
         resultFormat = getFormatFullName(resultFormat);
         String format = resultFormat;
-        if(resultFormat.equals(APILib.JSON)){
-            format = APILib.CSV;
+        if (resultFormat.equals(APILib.JSON)) {
+            format = APILib.TSV;
         }
         try {
             String httpQuery = String.format("default-graph-uri=%s&query=%s&format=%s&timeout=20000",
@@ -84,49 +96,51 @@ public class APILib {
                 }
             }
         }
-        if(resultFormat.equals(APILib.JSON)){
-            result = csv2json(result);
+        if (resultFormat.equals(APILib.JSON)) {
+            result = tsv2json(result);
         }
         return result;
     }
 
-    public static String csv2json(String csv){
+    public static String tsv2json(String tsv) {
         String json = "[";
         // csv 2 line array
-        String lines[] = csv.split("\\r?\\n");
+        String lines[] = tsv.split("\\r?\\n");
         // get headers
-        String headers[] = lines[0].split(",");
-        for(int i=1; i<lines.length; i++){
+        String headers[] = lines[0].split("\t");
+        for (int i = 1; i < lines.length; i++) {
             //System.out.println(i + ":" + headers[i]);
-            String values[] = lines[i].split(",");
+            String values[] = lines[i].split("\t");
             json += "{";
-              for(int j=0; j<headers.length;j++){
-                  json+=headers[j]+":"+values[j];
-                  if(j < headers.length-1)
+            for (int j = 0; j < headers.length; j++) {
+                    json += headers[j] + ":" + values[j];                
+                if (j < headers.length - 1) {
                     json += ",";
-              }
-            json += "}";        
-            if(i < lines.length-1)
+                }
+            }
+            json += "}";
+            if (i < lines.length - 1) {
                 json += ",";
+            }
         }
         // first line == attribute of each object (each other line) in the json array        
-        json +="]";
+        json += "]";
         return json;
-    }
-    
-    public static String addLimitAndOffset(String sparqlQuery, int limit, int offset){
+    }   
+
+    public static String addLimitAndOffset(String sparqlQuery, int limit, int offset) {
         if (limit > 0) {
-            sparqlQuery += "\nLIMIT " + limit ;
-            if(offset > 0){
+            sparqlQuery += "\nLIMIT " + limit;
+            if (offset >= 0) {
                 sparqlQuery += "\nOFFSET " + offset;
-            }                                        
-        }    
+            }
+        }
         return sparqlQuery;
     }
 
     public static void main(String[] args) {
-        String csv="gene,desc\nAAAA,geneAAA\nBBB,geneBBB";
-        System.out.println(csv +"\n"+csv2json(csv));
+        String csv = "gene\tdesc\nAAAA\tgeneAAA\nBBB\tgeneBBB";
+        System.out.println(csv + "\n" + tsv2json(csv));
         //System.out.println(getAllProteinsURI(APILib.TSV));
     }
 }

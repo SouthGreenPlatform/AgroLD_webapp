@@ -12,20 +12,18 @@ package agrold.rest.api.sparqlaccess;
 public class GeneDAO {
 
     // return URIs and agrold_vocabulary:description of all genes in Agrold
-    public static String getAllGenesURI( int page, int pageSize, String resultFormat) {
+    public static String getGenes(int page, int pageSize, String resultFormat) {
         //return "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>" + "<genes> Hello Jersey" + "</genes>";
         String genes = "";
 
-        String sparqlQuery = "prefix	agrold_vocabulary:<http://www.southgreen.fr/agrold/vocabulary/> \n"
-                + "prefix	rdf:<http://www.w3.org/2000/01/rdf-schema#> \n"
-                + "SELECT distinct ?gene ( CONCAT(?label, \": \", ?desc) AS ?description)\n"
+        String sparqlQuery = "prefix	agrold:<http://www.southgreen.fr/agrold/vocabulary/> \n"
+                + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
+                + "SELECT distinct ?gene ?geneId ?geneName ?geneDescription\n"
                 + "WHERE {\n"
-                + "  GRAPH ?g {\n"
-                + "    ?gene a <http://www.southgreen.fr/agrold/vocabulary/Gene>.\n"
-                + "    ?gene agrold_vocabulary:description ?desc ;\n"
-                + "          rdf:label ?label .\n"
-                + "  }\n"
-                + "FILTER(REGEX(?g, \"http://www.southgreen.fr/agrold/*\"))\n"
+                + "    ?gene rdfs:label ?geneName;\n"
+                + "          agrold:description ?geneDescription;          \n"
+                + "          rdfs:subClassOf <http://purl.obolibrary.org/obo/SO_0000704>.\n"
+                + "    BIND(REPLACE(str(?gene), '^.*(#|/)', \"\") AS ?geneId) .\n"
                 + "}";
         sparqlQuery = APILib.addLimitAndOffset(sparqlQuery, pageSize, page);
         System.out.println(sparqlQuery);
@@ -33,31 +31,28 @@ public class GeneDAO {
         genes = APILib.executeSparqlQuery(sparqlQuery, APILib.sparqlEndpointURL, resultFormat);
         return genes;
     }
+    
+    // return pathway in which a gene participates
+    public static String getGenePathwaysByID(String geneId, int page, int pageSize, String resultFormat) {
+        String pathways = "";
+        
+        String sparqlQuery = "prefix	agrold:<http://www.southgreen.fr/agrold/vocabulary/> \n"
+                + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
+                + "SELECT distinct ?gene ?geneId ?label ?description\n"
+                + "WHERE {\n"
+                + "    ?gene rdfs:label ?label;\n"
+                + "          agrold:description ?description;          \n"
+                + "          rdfs:subClassOf <http://purl.obolibrary.org/obo/SO_0000704>.\n"
+                + "    BIND(REPLACE(str(?gene), '^.*(#|/)', \"\") AS ?geneId) .\n"
+                + "}";
+        sparqlQuery = APILib.addLimitAndOffset(sparqlQuery, pageSize, page);
+        System.out.println(sparqlQuery);
+
+        pathways = APILib.executeSparqlQuery(sparqlQuery, APILib.sparqlEndpointURL, resultFormat);
+        return pathways;
+    }
 
     public static void main(String[] args) {
-        // URL and charset
-        //String sparqlEndpointURL = "http://localhost:8890/sparql";
-        String speURL = "http://volvestre.cirad.fr:8890/sparql";
-        String sparqlQuery = "SELECT DISTINCT ?p\n"
-                + "WHERE {\n"
-                + "  GRAPH ?g {\n"
-                + "    ?s ?p ?o\n"
-                + "  }\n"
-                + "FILTER(REGEX(?p, \"http://www.southgreen.fr/agrold/*\"))\n"
-                + "}";
-        sparqlQuery = "SELECT ?property ?value\n"
-                + "WHERE {\n"
-                + "  GRAPH ?g {\n"
-                + "    <http://identifiers.org/ensembl.plant/TRIUR3_00035> ?property ?value\n"
-                + "  }\n"
-                + "FILTER(REGEX(?property, \"http://www.southgreen.fr/agrold/*\"))\n"
-                + "}";
-        //String resultFormat = APILib.SPARQL_JSON;
-        String resultFormat = APILib.SPARQL_JSON;
-
-        //String result = APILib.executeSparqlQuery(sparqlQuery, sparqlEndpointURL, resultFormat);
-        //System.out.println(result);
-        //System.out.println(getAllGenesURI(resultFormat));
-        //System.out.println(APILib.getResourceDescription("http://identifiers.org/ensembl.plant/AT3G14450", resultFormat));
+        System.out.println(getGenes(0, -1, ".json"));
     }
 }

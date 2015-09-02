@@ -156,8 +156,8 @@ WHERE\n\
   BIND(REPLACE(str(?protein), \'^.*(#|/)\', "") AS ?proteinId) .\n\
 }\n\
 ORDER BY ?protein\n\
-LIMIT 5 # page size\n\
-OFFSET 1 # page number > 0'] = ["GO:0003824"];
+LIMIT 5 # page size > 0\n\
+OFFSET 0 # page number >= 0'] = ["GO:0003824"];
 qpatterns['SELECT DISTINCT ?qtlId\n\
 WHERE\n\
 {\n\
@@ -176,8 +176,8 @@ WHERE\n\
   }\n\
 }\n\
 ORDER BY ?qtl\n\
-LIMIT 5 # page size\n\
-OFFSET 1 # page number > 0'] = ["EO:0007403"];
+LIMIT 5 # page size > 0\n\
+OFFSET 0 # page number >= 0'] = ["EO:0007403"];
 
 qpatterns['PREFIX uniprot:<http://purl.uniprot.org/uniprot/>\n\nDESCRIBE uniprot:P0C127'] = ["uniprot:P0C127"];
 prefixes = "BASE <http://www.southgreen.fr/agrold/>\n" +

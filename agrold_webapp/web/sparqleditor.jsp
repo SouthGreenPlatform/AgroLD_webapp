@@ -118,8 +118,8 @@
             }
             #patternslist{
                 overflow-y: auto;
-                width: 33%; float:right;
-                min-height: 500px;
+                width: 34%; float:right;
+                min-height: 420px;
                 border-radius: 5px;
                 //background: #ECDCCE;
                 padding: 5px;
@@ -240,12 +240,13 @@ WHERE {
             <jsp:include page="footer.html"></jsp:include>
         </div>
         <script>
+            // Display the list of patterns            
             var divpatt = document.getElementById("patternslist");
             var ol = document.createElement("ol");
             divpatt.innerHTML += "<ol>";
             for (i = 0; i < patternlabels.length; i++) {
                 var li = document.createElement("li");
-                li.innerHTML = patternlabels[i] + " (<a href=\"#\" onclick=\"selectPattern(" + i + ")\"> select </a>)";
+                li.innerHTML = patternlabels[i] + " (<a href=\"#\" onclick=\"selectPattern(" + i + ")\">select</a>)";
                 ol.appendChild(li);
                 //divpatt.innerHTML += //qpatterns[selectedpattern][i] + ': <input class="aparameter" value="' + qpatterns[selectedpattern][i] + '" oninput="replaceParaValue(' + "/" + qpatterns[selectedpattern][i] + "/g" + ', this)"/><br>';
             }

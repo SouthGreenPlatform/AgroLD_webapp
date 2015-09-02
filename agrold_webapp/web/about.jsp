@@ -37,6 +37,7 @@
                     <div>               
                         <p><b>Pierre Larmande,</b><br>
                             <i>Researcher, IBC and IRD</i><br>
+                            <i>Coordinator, Data and knowledge management workpackage, IBC</i><br>
                             <em>Pierre[dot]larmande[at]ird[dot]fr</em></p>
                     </div>           
                     <div>               
@@ -45,7 +46,7 @@
                     </div>
                     <div>               
                         <p><b>Imene chentli,</b><br>
-                            <i>Project intern, IBC</i><br>                
+                            <i>Project intern, IBC and Open Data Group at LIRMM</i><br>                
                     </div>
                     <div>               
                         <p><b>Nordine El Hassouni,</b><br>

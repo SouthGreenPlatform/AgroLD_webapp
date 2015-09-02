@@ -20,8 +20,8 @@ public class GraphDAO {
                 + "    <" + resourceURI + "> ?property ?object \n"
                 + "  }\n"
                 + "FILTER(REGEX(?g, \"http://www.southgreen.fr/agrold/*\"))\n"
-                + "}";
-        //+ "GROUP BY ?property";
+                + "}"
+                + "ORDER BY ?property";
         sparqlQuery = APILib.addLimitAndOffset(sparqlQuery, pageSize, page);
         System.out.println(sparqlQuery);
 
@@ -39,7 +39,8 @@ public class GraphDAO {
                 + "   ?subject ?predicate ?object.\n"
                 + " }\n"
                 + " filter(REGEX(?graph, \"http://www.southgreen.fr/agrold/*\"))\n"
-                + "}";
+                + "}"
+                + "ORDER BY str(?graph)";
         //+ "GROUP BY ?property";
         sparqlQuery = APILib.addLimitAndOffset(sparqlQuery, pageSize, page);
         System.out.println(sparqlQuery);
@@ -47,4 +48,8 @@ public class GraphDAO {
         graphs = APILib.executeSparqlQuery(sparqlQuery, APILib.sparqlEndpointURL, resultFormat);
         return graphs;
     }
+    
+     public static void main(String[] args) {
+         System.out.println(listGraph(0, 0, APILib.JSON));
+     }
 }
