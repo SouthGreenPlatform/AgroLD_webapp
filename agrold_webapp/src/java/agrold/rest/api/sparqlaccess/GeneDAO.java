@@ -31,11 +31,11 @@ public class GeneDAO {
         genes = APILib.executeSparqlQuery(sparqlQuery, APILib.sparqlEndpointURL, resultFormat);
         return genes;
     }
-    
+
     // return pathway in which a gene participates
     public static String getGenePathwaysByID(String geneId, int page, int pageSize, String resultFormat) {
         String pathways = "";
-        
+
         String sparqlQuery = "prefix	agrold:<http://www.southgreen.fr/agrold/vocabulary/> \n"
                 + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "SELECT distinct ?gene ?geneId ?label ?description\n"
@@ -52,7 +52,26 @@ public class GeneDAO {
         return pathways;
     }
 
+    public static String getGenesEncodingProteins(String proteinId, int page, int pageSize, String resultFormat) {
+        String sparqlQuery = "BASE <http://www.southgreen.fr/agrold/>\n"
+                + "PREFIX vocab: <vocabulary/>\n"
+                + "PREFIX protein: <http://purl.uniprot.org/uniprot/" + proteinId + ">\n"
+                + "SELECT ?Id ?Name ?Description (?gene AS ?IRI)\n"
+                + "WHERE{\n"
+                + "  ?gene vocab:encodes protein:.\n"
+                + "  OPTIONAL{?gene rdfs:label ?Name.}\n"
+                + "  ?gene vocab:description ?Description.\n"
+                + "  BIND(REPLACE(str(?gene), '^.*(#|/)', \"\") AS ?Id) .\n"
+                + "}";
+
+        sparqlQuery = APILib.addLimitAndOffset(sparqlQuery, pageSize, page);
+        System.out.println(sparqlQuery);
+
+        String result = APILib.executeSparqlQuery(sparqlQuery, APILib.sparqlEndpointURL, resultFormat);
+        return result;
+    }
+
     public static void main(String[] args) {
-        System.out.println(getGenes(0, -1, ".json"));
+        System.out.println(getGenesEncodingProteins("A2WXV8",0, -1, ".json"));
     }
 }

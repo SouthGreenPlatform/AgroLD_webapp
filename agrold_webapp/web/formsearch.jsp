@@ -40,16 +40,18 @@
                 padding: 5pt;
                 margin-left: 5pt;
             }
-            /*.border-right{
-                border-right: 1px solid black;
+            table, td, th {
+                border: 1px solid green;
             }
-            .border-right {
-                border-right: 1px solid black;
+
+            th {
+                background-color: green;//#10a54a;
+                color: white;
             }
-            #result{
-                position: relative;
-                
-            }*/
+            table {
+                width: 100%;
+                padding: 4px;
+            }
         </style>       
     </head>
     <body>

@@ -20,7 +20,7 @@ public class OntologyDAO {
      * @see getOntoTermById
      */
     public static String getIdByOntoTerm(String ontoTerm, int page, int pageSize, String resultFormat) {
-        System.out.println("format: "+resultFormat);
+        System.out.println("format: " + resultFormat);
         String sparqlQuery = "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n"
                 + "PREFIX owl: <http://www.w3.org/2002/07/owl#>\n"
@@ -65,7 +65,7 @@ public class OntologyDAO {
                 + "  WHERE\n"
                 + "  {\n"
                 + "   ?subject rdfs:subClassOf ?o.\n"
-                + "   FILTER REGEX(STR(?subject), CONCAT(REPLACE(\""+id+"\", \":\", \"_\"), \"$\"))\n"
+                + "   FILTER REGEX(STR(?subject), CONCAT(REPLACE(\"" + id + "\", \":\", \"_\"), \"$\"))\n"
                 + "  }\n"
                 + " }\n"
                 + " ?subject rdfs:label ?OntoTerm .\n"
@@ -139,11 +139,65 @@ public class OntologyDAO {
         return descendentId;
     }
 
+    public static String getOntoTermsAssociatedWithQtl(String qtlId, int page, int pageSize, String resultFormat) {
+        String sparqlQuery = "BASE <http://www.southgreen.fr/agrold/>\n"
+                + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
+                + "PREFIX qtl: <http://www.identifiers.org/gramene.qtl/"+qtlId+">\n"
+                + "SELECT DISTINCT ?ID (str(?Name) as ?Name) ?Association (?Concept AS ?TermIRI)\n"
+                + "WHERE\n"
+                + "{\n"
+                + "  GRAPH <qtl.annotations>{\n"
+                + "    qtl: ?relation ?Concept.\n"
+                + "    BIND(REPLACE(str(?relation), '^.*(#|/)', \"\") AS ?Association)\n"
+                + "    FILTER(! regex(?Association, \"Object\", \"i\"))\n"
+                + "  }\n"
+                + "  GRAPH ?G{\n"
+                + "    #?Concept ?p ?o .\n"
+                + "    ?Concept rdfs:label ?Name\n"
+                + "   BIND(REPLACE(str(?Concept), '^.*(#|/)', \"\") AS ?ConceptLocalname)\n"
+                + "   BIND(REPLACE(?ConceptLocalname, \"_\", \":\") as ?ID)\n"
+                + "  }\n"
+                + "  FILTER REGEX(str(?G), \"o$\",\"i\")\n"
+                + "}\n"
+                + "ORDER BY ?Association";
+        sparqlQuery = APILib.addLimitAndOffset(sparqlQuery, pageSize, page);
+        System.out.println(sparqlQuery);
+        String ontoTerms = APILib.executeSparqlQuery(sparqlQuery, APILib.sparqlEndpointURL, resultFormat);
+        return ontoTerms;
+    }
+    
+    public static String getOntoTermsAssociatedWithProtein(String proteinId, int page, int pageSize, String resultFormat) {
+        String sparqlQuery = "BASE <http://www.southgreen.fr/agrold/>\n"
+                + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
+                + "PREFIX protein: <http://purl.uniprot.org/uniprot/"+proteinId+">\n"
+                + "SELECT DISTINCT ?ID (str(?Name) as ?Name) ?Association (?Concept AS ?TermIRI)\n"
+                + "WHERE\n"
+                + "{\n"
+                + "  GRAPH <protein.annotations>{\n"
+                + "    protein: ?relation ?Concept.\n"
+                + "    BIND(REPLACE(str(?relation), '^.*(#|/)', \"\") AS ?Association)\n"
+                + "    FILTER(! regex(?Association, \"Object\", \"i\"))\n"
+                + "  }\n"
+                + "  GRAPH ?G{\n"
+                + "    #?Concept ?p ?o .\n"
+                + "    ?Concept rdfs:label ?Name\n"
+                + "   BIND(REPLACE(str(?Concept), '^.*(#|/)', \"\") AS ?ConceptLocalname)\n"
+                + "   BIND(REPLACE(?ConceptLocalname, \"_\", \":\") as ?ID)\n"
+                + "  }\n"
+                + "  FILTER REGEX(str(?G), \"o$\",\"i\")\n"
+                + "}\n"
+                + "ORDER BY ?Association";
+        sparqlQuery = APILib.addLimitAndOffset(sparqlQuery, pageSize, page);
+        System.out.println(sparqlQuery);
+        String ontoTerms = APILib.executeSparqlQuery(sparqlQuery, APILib.sparqlEndpointURL, resultFormat);
+        return ontoTerms;
+    }
+
     public static void main(String[] args) {
         //System.out.println(getIdByOntoTerm("homoaconitate hydratase activity", "text/tab-separated-values"));
         //System.out.println(extractIDfromURI("http://purl.obolibrary.org/obo/BFO_0000051"));
         //System.out.println(getAncestorById("GO:0004409", 3, "text/tab-separated-values"));
         //System.out.println(getDescendantsById("GO:0003824", 2, "text/tab-separated-values"));
-        //System.out.println(getOntoTermById("GO:0003824", "text/tab-separated-values"));
+        System.out.println(getOntoTermsAssociatedWithQtl("AQA001", 0, 1, ".tsv"));
     }
 }

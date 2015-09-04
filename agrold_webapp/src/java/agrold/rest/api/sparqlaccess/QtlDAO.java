@@ -56,8 +56,36 @@ public class QtlDAO {
         return result;
     }    
 
+    public static String getQtlsAssociatedWithProteinId(String proteinId, int page, int pageSize, String resultFormat) {
+        String sparqlQuery = "BASE <http://www.southgreen.fr/agrold/>\n"
+                + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
+                + "PREFIX vocab:<vocabulary/>\n"
+                + "PREFIX graph1:<protein.annotations>\n"
+                + "PREFIX graph2:<qtl.annotations>\n"
+                + "PREFIX protein: <http://purl.uniprot.org/uniprot/" + proteinId + ">\n"
+                + "\n"
+                + "SELECT distinct ?qtl ?Id ?Name \n"
+                + "WHERE {\n"
+                + " GRAPH graph1: {\n"
+                + "  protein: vocab:has_trait ?to.    \n"
+                + " }\n"
+                + " GRAPH graph2: {\n"
+                + "  ?qtl vocab:has_trait ?to.\n"
+                + "  ?qtl rdfs:label ?Name.\n"
+                + "  BIND(REPLACE(str(?qtl), '^.*(#|/)', \"\") AS ?Id) .\n"
+                + " }\n"
+                + "}\n"
+                + "ORDER BY ?Name";
+
+        sparqlQuery = APILib.addLimitAndOffset(sparqlQuery, pageSize, page);
+        System.out.println(sparqlQuery);
+
+        String result = APILib.executeSparqlQuery(sparqlQuery, APILib.sparqlEndpointURL, resultFormat);
+        return result;
+    }
+
     public static void main(String[] args) {
-        //System.out.println(getQtlIdAssociatedWithOntoId("EO:0007403", 1, 5, APILib.TSV));        
+        System.out.println(getQtlsAssociatedWithProteinId("Q9LL45", 0, 5, APILib.TSV));
 
     }
 }

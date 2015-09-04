@@ -9,8 +9,6 @@ import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -63,6 +61,7 @@ public class APILib {
     }
 
     public static String executeSparqlQuery(String sparqlQuery, String sparqlEndpoint, String resultFormat) {
+        System.out.println("BEGINNING...");
         String result = "";
 
         String charset = "UTF-8";  // Or in Java 7 and later, use the constant: java.nio.charset.StandardCharsets.UTF_8.name()
@@ -99,6 +98,7 @@ public class APILib {
         if (resultFormat.equals(APILib.JSON)) {
             result = tsv2json(result);
         }
+        System.out.println("...END");
         return result;
     }
 

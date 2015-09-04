@@ -420,6 +420,124 @@
                 }
             }
         },
+        "/Ontologies/Terms/associatedWithQtl{_format}": {
+            "post": {
+                "tags": [
+                    "ontologies"
+                ],
+                "summary": "Get the ontological terms associated with the QTL, and the association",
+                "description": "",
+                "operationId": "getOntoTermsAssociatedWithQtl",
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "parameters": [
+                    {
+                        "name": "qtlId",
+                        "in": "query",
+                        "description": "The id of the QTL (e.g. AQA001)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "_page",
+                        "in": "query",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_pageSize",
+                        "in": "query",
+                        "description": "size of a page of the result set (> 0 or else all results will be displayed)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_format",
+                        "in": "path",
+                        "description": "format in which the results set will be return",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            ".json",
+                            ".sparql-json",
+                            ".xml",
+                            ".tsv",
+                            ".csv",
+                            ".rdf",
+                            ".html",
+                            ".ttl"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "default": {
+                        "description": "unexpected error"
+                    }
+                }
+            }
+        },
+        "/Ontologies/Terms/associatedWithProtein{_format}": {
+            "post": {
+                "tags": [
+                    "ontologies"
+                ],
+                "summary": "Get the ontological terms associated with the Protein, and the association",
+                "description": "",
+                "operationId": "getOntoTermsAssociatedWithProtein",
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "parameters": [
+                    {
+                        "name": "proteinId",
+                        "in": "query",
+                        "description": "The id of the protein (e.g. A0A060D1L3)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "_page",
+                        "in": "query",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_pageSize",
+                        "in": "query",
+                        "description": "size of a page of the result set (> 0 or else all results will be displayed)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_format",
+                        "in": "path",
+                        "description": "format in which the results set will be return",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            ".json",
+                            ".sparql-json",
+                            ".xml",
+                            ".tsv",
+                            ".csv",
+                            ".rdf",
+                            ".html",
+                            ".ttl"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "default": {
+                        "description": "unexpected error"
+                    }
+                }
+            }
+        },
         "/description{_format}": {
             "post": {
                 "tags": [
@@ -636,6 +754,65 @@
                 }
             }
         },
+        "/qtls/associatedWithProteinId{_format}": {
+            "post": {
+                "tags": [
+                    "qtl"
+                ],
+                "summary": "Get the list of QTLs associated with an protein Id",
+                "description": "",
+                "operationId": "getQtlsAssociatedWithProteinId",
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "parameters": [
+                    {
+                        "name": "proteinId",
+                        "in": "query",
+                        "description": "The id of the protein (e.g. Q9LL45)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "_page",
+                        "in": "query",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_pageSize",
+                        "in": "query",
+                        "description": "size of a page of the result set (> 0 or else all results will be displayed)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_format",
+                        "in": "path",
+                        "description": "format in which the results set will be return",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            ".json",
+                            ".sparql-json",
+                            ".xml",
+                            ".tsv",
+                            ".csv",
+                            ".rdf",
+                            ".html",
+                            ".ttl"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "default": {
+                        "description": "unexpected error"
+                    }
+                }
+            }
+        },
         "/proteins{_format}": {
             "post": {
                 "tags": [
@@ -803,6 +980,65 @@
                 }
             }
         },
+        "/proteins/EncodedByGene{_format}": {
+            "post": {
+                "tags": [
+                    "protein"
+                ],
+                "summary": "Get URIs, ids, and name of proteins encoded by a gene given its ID",
+                "description": "",
+                "operationId": "getProteinsEncodedByGene",
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "parameters": [
+                    {
+                        "name": "geneId",
+                        "in": "query",
+                        "description": "The id of the gene (e.g. BGIOSGA000339)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "_page",
+                        "in": "query",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_pageSize",
+                        "in": "query",
+                        "description": "size of a page of the result set (> 0 or else all results will be displayed)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_format",
+                        "in": "path",
+                        "description": "format in which the results set will be return",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            ".json",
+                            ".sparql-json",
+                            ".xml",
+                            ".tsv",
+                            ".csv",
+                            ".rdf",
+                            ".html",
+                            ".ttl"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "default": {
+                        "description": "unexpected error"
+                    }
+                }
+            }
+        },
         "/genes{_format}": {
             "post": {
                 "tags": [
@@ -848,6 +1084,65 @@
                 "responses": {
                     "default": {
                         "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/genes/encodingProtein{_format}": {
+            "post": {
+                "tags": [
+                    "gene"
+                ],
+                "summary": "Get URIs, ids, and name of genes encodind a protein given its ID",
+                "description": "",
+                "operationId": "getGenesEncodingProteins",
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "parameters": [
+                    {
+                        "name": "proteinId",
+                        "in": "query",
+                        "description": "The id of the gene (e.g. B8A7T8)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "_page",
+                        "in": "query",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_pageSize",
+                        "in": "query",
+                        "description": "size of a page of the result set (> 0 or else all results will be displayed)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_format",
+                        "in": "path",
+                        "description": "format in which the results set will be return",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            ".json",
+                            ".sparql-json",
+                            ".xml",
+                            ".tsv",
+                            ".csv",
+                            ".rdf",
+                            ".html",
+                            ".ttl"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "default": {
+                        "description": "unexpected error"
                     }
                 }
             }
