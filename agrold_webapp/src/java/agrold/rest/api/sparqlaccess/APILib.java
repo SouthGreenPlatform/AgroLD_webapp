@@ -113,7 +113,7 @@ public class APILib {
             String values[] = lines[i].split("\t");
             json += "{";
             for (int j = 0; j < headers.length; j++) {
-                    json += headers[j] + ":" + values[j];                
+                json += headers[j] + ":" + values[j];
                 if (j < headers.length - 1) {
                     json += ",";
                 }
@@ -126,21 +126,43 @@ public class APILib {
         // first line == attribute of each object (each other line) in the json array        
         json += "]";
         return json;
-    }   
+    }
 
     public static String addLimitAndOffset(String sparqlQuery, int limit, int offset) {
         if (limit > 0) {
             sparqlQuery += "\nLIMIT " + limit;
             if (offset >= 0) {
-                sparqlQuery += "\nOFFSET " + offset;
+                sparqlQuery += "\nOFFSET " + (limit * offset); // to go after the previous result
             }
         }
         return sparqlQuery;
     }
 
+    public static String getEntitiesByKeyWord(String keyword, String typeUri, int page, int pageSize, String resultFormat) {
+        String sparqlQuery = "prefix	agrold:<http://www.southgreen.fr/agrold/vocabulary/> \n"
+                + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
+                + "SELECT  distinct ?Id ?Name ?Description  (?entity as ?URI)\n"
+                + "WHERE {\n"
+                + "  VALUES ?keyword {\n"
+                + "    \""+keyword+"\" \n"
+                + "  }  \n"
+                + "  ?entity agrold:description ?Description .\n"
+                + "  ?entity rdfs:subClassOf <"+typeUri+">.\n"
+                + "  ?entity rdfs:label ?Name .\n"
+                + "  BIND(REPLACE(str(?entity), '^.*(#|/)', \"\") AS ?Id)   \n"
+                + "  FILTER(REGEX(?Name, ?keyword,\"i\")  || REGEX(?Id, ?keyword,\"i\") || REGEX(?Description, ?keyword,\"i\"))\n"
+                + "}";
+        sparqlQuery = APILib.addLimitAndOffset(sparqlQuery, pageSize, page);
+        System.out.println(sparqlQuery);
+        String result = APILib.executeSparqlQuery(sparqlQuery, APILib.sparqlEndpointURL, resultFormat);
+        return result;
+    }
+
     public static void main(String[] args) {
-        String csv = "gene\tdesc\nAAAA\tgeneAAA\nBBB\tgeneBBB";
-        System.out.println(csv + "\n" + tsv2json(csv));
+        //String csv = "gene\tdesc\nAAAA\tgeneAAA\nBBB\tgeneBBB";
+        //System.out.println(csv + "\n" + tsv2json(csv));
         //System.out.println(getAllProteinsURI(APILib.TSV));
+        System.out.println(getEntitiesByKeyWord("A0A060D1L3", "http://purl.obolibrary.org/obo/SO_0000771", 0, 1, TSV));
+
     }
 }

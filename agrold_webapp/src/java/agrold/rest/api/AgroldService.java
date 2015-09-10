@@ -7,6 +7,7 @@ import agrold.rest.api.sparqlaccess.GraphDAO;
 import agrold.rest.api.sparqlaccess.ProteinDAO;
 import agrold.rest.api.sparqlaccess.GeneDAO;
 import agrold.rest.api.security.CORSResponseFilter;
+import agrold.rest.api.sparqlaccess.PathwayDAO;
 import java.net.URISyntaxException;
 import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
@@ -50,7 +51,14 @@ public class AgroldService extends ResourceConfig {
  
     // Ontologies
     @POST
-    @Path("/ancestors/byId{_format}")
+    @Path("/ontologies/terms/byKeyword{_format}")
+    @Produces({MediaType.APPLICATION_JSON,MediaType.TEXT_HTML,APILib.TSV,APILib.CSV,MediaType.TEXT_XML,APILib.RDF_XML,APILib.TTL})
+    public String getOntologyTermsByKeyWord(@PathParam("_format") String format, @QueryParam("keyword") String keyword,
+            @DefaultValue("0") @QueryParam("_page") int page, @DefaultValue("10") @QueryParam("_pageSize") int pageSize) {
+        return OntologyDAO.getOntologyTermsByKeyWord(keyword, page, pageSize, format);
+    }
+    @POST
+    @Path("/ontologies/terms/ancestors/byId{_format}")
     @Produces({MediaType.APPLICATION_JSON,MediaType.TEXT_HTML,APILib.TSV,APILib.CSV,MediaType.TEXT_XML,APILib.RDF_XML,APILib.TTL})
     public String getAncestorById(@PathParam("_format") String format, @QueryParam("id") String id, @QueryParam("level") int level, 
             @DefaultValue("0") @QueryParam("_page") int page, @DefaultValue("10") @QueryParam("_pageSize") int pageSize) {
@@ -58,7 +66,7 @@ public class AgroldService extends ResourceConfig {
     }
     
     @POST
-    @Path("/parents/byId{_format}")
+    @Path("/ontologies/terms/parents/byId{_format}")
     @Produces({MediaType.APPLICATION_JSON,MediaType.TEXT_HTML,APILib.TSV,APILib.CSV,MediaType.TEXT_XML,APILib.RDF_XML,APILib.TTL})
     public String getParentById(@PathParam("_format") String format, @QueryParam("id") String id, 
             @DefaultValue("0") @QueryParam("_page") int page, @DefaultValue("10") @QueryParam("_pageSize") int pageSize) {
@@ -67,7 +75,7 @@ public class AgroldService extends ResourceConfig {
     }
     
     @POST
-    @Path("/descendants/byId{_format}")
+    @Path("/ontologies/terms/descendants/byId{_format}")
     @Produces({MediaType.APPLICATION_JSON,MediaType.TEXT_HTML,APILib.TSV,APILib.CSV,MediaType.TEXT_XML,APILib.RDF_XML,APILib.TTL})
     public String getDescendantsById(@PathParam("_format") String format, @QueryParam("id") String id, @QueryParam("level") int level, 
             @DefaultValue("0") @QueryParam("_page") int page, @DefaultValue("10") @QueryParam("_pageSize") int pageSize) {
@@ -75,7 +83,7 @@ public class AgroldService extends ResourceConfig {
     }
     
     @POST
-    @Path("/children/byId{_format}")
+    @Path("/ontologies/terms/children/byId{_format}")
     @Produces({MediaType.APPLICATION_JSON,MediaType.TEXT_HTML,APILib.TSV,APILib.CSV,MediaType.TEXT_XML,APILib.RDF_XML,APILib.TTL})
     public String getChildrenById(@PathParam("_format") String format, @QueryParam("id") String id, 
             @DefaultValue("0") @QueryParam("_page") int page, @DefaultValue("10") @QueryParam("_pageSize") int pageSize) {
@@ -84,7 +92,7 @@ public class AgroldService extends ResourceConfig {
     }
 
     @POST
-    @Path("/id/byOntoTerm{_format}")
+    @Path("/ontologies/ids/byterm{_format}")
     @Produces({MediaType.APPLICATION_JSON,MediaType.TEXT_HTML,APILib.TSV,APILib.CSV,MediaType.TEXT_XML,APILib.RDF_XML,APILib.TTL})
     public String getIdByOntoTerm(@PathParam("_format") String format, @QueryParam("ontoTerm") String ontoTerm, 
             @DefaultValue("0") @QueryParam("_page") int page, @DefaultValue("10") @QueryParam("_pageSize") int pageSize) {
@@ -92,7 +100,7 @@ public class AgroldService extends ResourceConfig {
     }
     
     @POST
-    @Path("/ontoTerm/byId{_format}")
+    @Path("/ontologies/terms/byId{_format}")
     @Produces({MediaType.APPLICATION_JSON,MediaType.TEXT_HTML,APILib.TSV,APILib.CSV,MediaType.TEXT_XML,APILib.RDF_XML,APILib.TTL})
     public String getOntoTermById(@PathParam("_format") String format, @QueryParam("id") String id, 
             @DefaultValue("0") @QueryParam("_page") int page, @DefaultValue("10") @QueryParam("_pageSize") int pageSize) {
@@ -100,7 +108,7 @@ public class AgroldService extends ResourceConfig {
     }
     
     @POST
-    @Path("/Ontologies/Terms/associatedWithQtl{_format}")
+    @Path("/ontologies/terms/associatedWithQtl{_format}")
     @Produces({MediaType.APPLICATION_JSON,MediaType.TEXT_HTML,APILib.TSV,APILib.CSV,MediaType.TEXT_XML,APILib.RDF_XML,APILib.TTL})
     public String getOntoTermsAssociatedWithQtl(@PathParam("_format") String format, @QueryParam("qtlId") String qtlId, 
             @DefaultValue("0") @QueryParam("_page") int page, @DefaultValue("10") @QueryParam("_pageSize") int pageSize) {
@@ -108,7 +116,7 @@ public class AgroldService extends ResourceConfig {
     }
     
     @POST
-    @Path("/Ontologies/Terms/associatedWithProtein{_format}")
+    @Path("/ontologies/terms/associatedWithProtein{_format}")
     @Produces({MediaType.APPLICATION_JSON,MediaType.TEXT_HTML,APILib.TSV,APILib.CSV,MediaType.TEXT_XML,APILib.RDF_XML,APILib.TTL})
     public String getOntoTermsAssociatedWithProtein(@PathParam("_format") String format, @QueryParam("proteinId") String proteinId, 
             @DefaultValue("0") @QueryParam("_page") int page, @DefaultValue("10") @QueryParam("_pageSize") int pageSize) {
@@ -148,6 +156,13 @@ public class AgroldService extends ResourceConfig {
         return QtlDAO.getQtlIdAssociatedWithOntoId(ontoId, page, pageSize, format);
     }
     @POST
+    @Path("/qtls/byKeyword{_format}")
+    @Produces({MediaType.APPLICATION_JSON,MediaType.TEXT_HTML,APILib.TSV,APILib.CSV,MediaType.TEXT_XML,APILib.RDF_XML,APILib.TTL})
+    public String getQtlsByKeyWord(@PathParam("_format") String format, @QueryParam("keyword") String keyword, 
+            @DefaultValue("0") @QueryParam("_page") int page, @DefaultValue("10") @QueryParam("_pageSize") int pageSize) {        
+        return APILib.getEntitiesByKeyWord(keyword, QtlDAO.QTL_TYPE_URI, page, pageSize, format);
+    }
+    @POST
     @Path("/qtls/associatedWithProteinId{_format}")
     @Produces({MediaType.APPLICATION_JSON,MediaType.TEXT_HTML,APILib.TSV,APILib.CSV,MediaType.TEXT_XML,APILib.RDF_XML,APILib.TTL})
     public String getQtlsAssociatedWithProteinId(@PathParam("_format") String format, @QueryParam("proteinId") String proteinId, 
@@ -163,7 +178,13 @@ public class AgroldService extends ResourceConfig {
             @DefaultValue("0") @QueryParam("_page") int page, @DefaultValue("10") @QueryParam("_pageSize") int pageSize) {
         return ProteinDAO.getProteins(page, pageSize,format);
     }
-    
+    @POST
+    @Path("/proteins/byKeyword{_format}")
+    @Produces({MediaType.APPLICATION_JSON,MediaType.TEXT_HTML,APILib.TSV,APILib.CSV,MediaType.TEXT_XML,APILib.RDF_XML,APILib.TTL})
+    public String getProteinsByKeyWord(@PathParam("_format") String format, @QueryParam("keyword") String keyword, 
+            @DefaultValue("0") @QueryParam("_page") int page, @DefaultValue("10") @QueryParam("_pageSize") int pageSize) {        
+        return APILib.getEntitiesByKeyWord(keyword, ProteinDAO.PROTEIN_TYPE_URI, page, pageSize, format);
+    }
     @POST
     @Path("/proteins/id/associatedWithOntoId{_format}")
     @Produces({MediaType.APPLICATION_JSON,MediaType.TEXT_HTML,APILib.TSV,APILib.CSV,MediaType.TEXT_XML,APILib.RDF_XML,APILib.TTL})
@@ -194,7 +215,13 @@ public class AgroldService extends ResourceConfig {
             @DefaultValue("0") @QueryParam("_page") int page, @DefaultValue("10") @QueryParam("_pageSize") int pageSize) {
         return GeneDAO.getGenes(page, pageSize, format);
     }
-    
+    @POST
+    @Path("/genes/byKeyword{_format}")
+    @Produces({MediaType.APPLICATION_JSON,MediaType.TEXT_HTML,APILib.TSV,APILib.CSV,MediaType.TEXT_XML,APILib.RDF_XML,APILib.TTL})
+    public String getGenesByKeyWord(@PathParam("_format") String format, @QueryParam("keyword") String keyword, 
+            @DefaultValue("0") @QueryParam("_page") int page, @DefaultValue("10") @QueryParam("_pageSize") int pageSize) {        
+        return APILib.getEntitiesByKeyWord(keyword, GeneDAO.GENE_TYPE_URI, page, pageSize, format);
+    }
     @POST
     @Path("/genes/encodingProtein{_format}")
     @Produces({MediaType.APPLICATION_JSON,MediaType.TEXT_HTML,APILib.TSV,APILib.CSV,MediaType.TEXT_XML,APILib.RDF_XML,APILib.TTL})
@@ -202,23 +229,30 @@ public class AgroldService extends ResourceConfig {
             @DefaultValue("0") @QueryParam("_page") int page, @DefaultValue("10") @QueryParam("_pageSize") int pageSize) {
         return GeneDAO.getGenesEncodingProteins(proteinId,page, pageSize, format);
     }
-
-
-    /*// Predicates
     @POST
-    @Path("/predicates.xml")
-    @Produces({MediaType.APPLICATION_XML})
-    public List<Predicate> getPredicates() {
-        return predicateDAO.getAllPredicates();
+    @Path("/genes/participatingInPathway{_format}")
+    @Produces({MediaType.APPLICATION_JSON,MediaType.TEXT_HTML,APILib.TSV,APILib.CSV,MediaType.TEXT_XML,APILib.RDF_XML,APILib.TTL})
+    public String getGenesByPathways(@PathParam("_format") String format, @QueryParam("pathwayId") String pathwayId,
+            @DefaultValue("0") @QueryParam("_page") int page, @DefaultValue("10") @QueryParam("_pageSize") int pageSize) {
+        return GeneDAO.getGenesByPathwaysID(pathwayId,page, pageSize, format);
     }
-
+    // Pathways
     @POST
-    @Path("/predicates.json")
-    @Produces({MediaType.APPLICATION_JSON})
-    public List<Predicate> getPredicatesJson() {
-        return predicateDAO.getAllPredicates();
+    @Path("/pathways/inWhichParticipatesGene/byId{_format}")
+    @Produces({MediaType.APPLICATION_JSON,MediaType.TEXT_HTML,APILib.TSV,APILib.CSV,MediaType.TEXT_XML,APILib.RDF_XML,APILib.TTL})
+    public String getPathwaysOfGeneId(@PathParam("_format") String format, @QueryParam("geneId") String geneId,
+            @DefaultValue("0") @QueryParam("_page") int page, @DefaultValue("10") @QueryParam("_pageSize") int pageSize) {
+        return PathwayDAO.getPathwaysInWhichParticipatesGene(geneId,page, pageSize, format);
     }
-
+    @POST
+    @Path("/pathways/byKeyword{_format}")
+    @Produces({MediaType.APPLICATION_JSON,MediaType.TEXT_HTML,APILib.TSV,APILib.CSV,MediaType.TEXT_XML,APILib.RDF_XML,APILib.TTL})
+    public String getPathwaysByKeyWord(@PathParam("_format") String format, @QueryParam("keyword") String keyword, 
+            @DefaultValue("0") @QueryParam("_page") int page, @DefaultValue("10") @QueryParam("_pageSize") int pageSize) {        
+        return PathwayDAO.getPathwaysByKeyWord(keyword, page, pageSize, format);
+    }
+    
+    /*// Cache try
     @POST
     @Path("/predicates.cache")
     @Produces(MediaType.APPLICATION_XML)

@@ -179,7 +179,11 @@ ORDER BY ?qtl\n\
 LIMIT 5 # page size > 0\n\
 OFFSET 0 # page number >= 0'] = ["EO:0007403"];
 
-qpatterns['PREFIX uniprot:<http://purl.uniprot.org/uniprot/>\n\nDESCRIBE uniprot:P0C127'] = ["uniprot:P0C127"];
+qpatterns['PREFIX uniprot:<http://purl.uniprot.org/uniprot/>\n\
+SELECT *\n\
+WHERE{\n\
+ uniprot:P0C127 ?property ?object.\n\
+}'] = ["uniprot:P0C127"];
 prefixes = "BASE <http://www.southgreen.fr/agrold/>\n" +
         'PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n' +
         'PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n';

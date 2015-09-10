@@ -164,7 +164,7 @@
                     <div id="header">
                         <h3>Search > SPARQL Query Editor</h3> 
                         <p>
-                            Select a sample query and run it. The sample query could be used to modify the parameters accordingly. Alternatively, enter SPARQL code in the query box below.<a href="javascript:void(0);" onclick="javascript:introJs().setOption('showProgress', true).start();" class="btn">Watch how!</a>
+                            Select a sample query and run it. The sample query could be used to modify the parameters accordingly. Alternatively, enter SPARQL code in the query box below.<button href="javascript:void(0);" onclick="javascript:introJs().setOption('showProgress', true).start();" class="yasrbtn" style="background-color: #00B5AD!important; color: white; font-weight: bold">Watch how!</button>
                         </p>                        
                     </div>
                     <div id="main" style="overflow:auto;">
@@ -235,8 +235,9 @@ WHERE {
                 </div>               
                 <div id="yasr" data-step="4" data-intro="watch your results ... ">
                     <h4>Results</h4>
-                </div>            
-            </section><br>
+                </div>
+                <div id="push"></div> <!--add the push div here -->
+            </section>
             <jsp:include page="footer.html"></jsp:include>
         </div>
         <script>
@@ -287,11 +288,12 @@ WHERE {
                                 }
                             }
                         }
-                    });                 
+                    });
             var yasr = YASR(document.getElementById("yasr"), {
                 //this way, the URLs in the results are prettified using the defined prefixes in the query
                 getUsedPrefixes: yasqe.getPrefixesFromQuery,
                 useGoogleCharts: false,
+                //drawDownloadIcon: false,
                 persistency: {
                     prefix: false
                 }
@@ -324,14 +326,16 @@ WHERE {
                             //$("#cmd-container").insertAfter(".yasqe_buttons");
                         }
                 );
-                yasqe.options.extraKeys.F11 = function(yasqe) {
-			yasqe.setOption("fullScreen", !yasqe.getOption("fullScreen"));
+                yasqe.options.extraKeys.F11 = function (yasqe) {
+                    yasqe.setOption("fullScreen", !yasqe.getOption("fullScreen"));
+                    $("#cmd-container").toggle();
+                };
+                yasqe.options.extraKeys.Esc = function (yasqe) {
+                    if (yasqe.getOption("fullScreen")) {
+                        yasqe.setOption("fullScreen", false);
                         $("#cmd-container").toggle();
-		};
-                yasqe.options.extraKeys.Esc = function(yasqe) {
-			if (yasqe.getOption("fullScreen")){ yasqe.setOption("fullScreen", false);
-                        $("#cmd-container").toggle();}
-		};
+                    }
+                };
             });
         </script>
     </body>

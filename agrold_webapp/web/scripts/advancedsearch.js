@@ -1,63 +1,48 @@
 // You can minify to load more fastly
 
 var availableElts = [];
-var pageSize = 20;
-var currentPage = 0;
+var pageSize = 10;
+//var currentPage = 0;
+//var url= "http://volvestre.cirad.fr:8080/aldp/swagger/agrold.json";
+var url = "http://localhost:8084/aldp/swagger/agrold.json";
 
-$(document).ready(function () {
-    // initialize swagger, point to a resource listing
-    window.swagger = new SwaggerClient({
-        //url: "http://volvestre.cirad.fr:8080/aldp/swagger/agrold.json",
-        url: "http://localhost:8084/aldp/swagger/agrold.json",
-        success: function () {
-            console.log("API description well goten")
-        }
-    });
-    $("#sform").submit(function (event) {        
-        reinitAvailableElts();
-        currentPage = 0;
-        getEntities();
-        event.preventDefault();
-    });
-});
+function displayFormSearchResult(currentPages, result, title, pageLocation, typeOfResult, typeOfEntities, keyword) {
+    displayResult(pageLocation, title, processHtmlResult(result, typeOfResult));
+    nbResults = (countSubstringOccurences(result, "<tr>", 1) - 1);
+    //addNavButtons(currentPages, pageLocationId, nbResults, typeOfResult, searchFunctionStr)
+    addNavButtons(currentPages,pageLocation, nbResults, typeOfResult, 'getEntities(\'' + typeOfEntities + '\',\'' + keyword + '\', \''+typeOfResult+'\')' );
+}
 
 // get the list of the entities
-function getEntities() {
-    /*availableElts = json;
-     nbResults = Object.keys(json).length;
-     for (i = 0; i < nbResults; i++) {
-     availableDescription.push({label: json[i]["Id"] + " (" + json[i]["Name"] + " : " + json[i]["Description"] + ")", idx: i});
-     availableUri.push(json[i]["IRI"]);
-     }*/
+function getEntities(type, keyword, currentPages,  typeOfResult) {
     displayHoldMessage("result");
-    switch ($("#elements").val()) {
-        case "gene":
-            swagger.apis.gene.getGenesByKeyWord({_format: ".html", keyword: $("#input").val(), _pageSize: pageSize, _page: currentPage}, {responseContentType: 'text/html'}, function (data) {
-                result=data.data;
-                displayResult("result", "Results", processHtmlResult(result, "gene"));
-                nbResults = (countSubstringOccurences(result, "<tr>", 1) - 1);
-                addNavButtons(nbResults, currentPage);
-            });
-            break;
-        case "protein":
-            swagger.apis.protein.getProteinsByKeyWord({_format: ".html", keyword: $("#input").val(), _pageSize: pageSize, _page: currentPage}, {responseContentType: 'text/html'}, function (data) {
-                result=data.data;
-                displayResult("result", "Results", processHtmlResult(result, "protein"));
-                nbResults = (countSubstringOccurences(result, "<tr>", 1) - 1);
-                addNavButtons(nbResults, currentPage);
-            });
-            break;
-        case "qtl":
-            swagger.apis.qtl.getQtlsByKeyWord({_format: ".html", keyword: $("#input").val(), _pageSize: pageSize, _page: currentPage}, {responseContentType: 'text/html'}, function (data) {
-                result=data.data;
-                displayResult("result", "Results", processHtmlResult(result, "qtl"));
-                nbResults = (countSubstringOccurences(result, "<tr>", 1) - 1);
-                addNavButtons(nbResults, currentPage);
-            });
-            break;
-        default:
-            $("#result").html("");
-    }    
+    // initialize swagger, point to a resource listing
+    page = currentPages[typeOfResult];
+    window.swagger = new SwaggerClient({
+        url: url,
+        success: function () {
+            console.log("API definition well loaded")
+            switch (type) {
+                case "gene":
+                    swagger.apis.gene.getGenesByKeyWord({_format: ".html", keyword: keyword, _pageSize: pageSize, _page: page}, {responseContentType: 'text/html'}, function (data) {
+                        displayFormSearchResult(currentPages, data.data, "Result", "result", typeOfResult, "gene", keyword);
+                    });
+                    break;
+                case "protein":
+                    swagger.apis.protein.getProteinsByKeyWord({_format: ".html", keyword: keyword, _pageSize: pageSize, _page: page}, {responseContentType: 'text/html'}, function (data) {
+                        displayFormSearchResult(currentPages, data.data, "Result", "result", typeOfResult, "protein", keyword);
+                    });
+                    break;
+                case "qtl":
+                    swagger.apis.qtl.getQtlsByKeyWord({_format: ".html", keyword: keyword, _pageSize: pageSize, _page: page}, {responseContentType: 'text/html'}, function (data) {
+                        displayFormSearchResult(currentPages, data.data, "Result", "result", typeOfResult, "qtl", keyword);
+                    });
+                    break;
+                default:
+                    $("#result").html("");
+            }
+        }
+    });
 }
 
 function reinitAvailableElts() {
@@ -166,16 +151,29 @@ function displayHoldMessage(pageLocationId) {
 }
 function displayResult(pageLocationId, title, result) {
     $('#' + pageLocationId).html('<b style="font-size:13pt">' + title + '</b> ' + showNbResults(result, '.html'));
-    $('#' + pageLocationId).append(result);    
+    $('#' + pageLocationId).append(result);
 }
-
-function addNavButtons(nbResults, currentPage){
-    if (currentPage > 0) {
-        $("#result").append('<button class="btn" onclick="currentPage--;getEntities()"><< Previous page</button>');
+function addPreviousButton(currentPages, pageLocationId, typeOfResult, searchFunctionStr) {
+    if (currentPages[typeOfResult] > 0) {
+        $("#" + pageLocationId).append('<button class="btn" onclick="currentPages[\'' + typeOfResult + '\']--;' + searchFunctionStr + '"><< Previous</button> ');
+    } else {
+        console.log(typeOfResult + ":"+ currentPages['"'+typeOfResult+'"']);
     }
+}
+function addNextButton(pageLocationId, nbResults, typeOfResult, searchFunctionStr) {
     if (pageSize == nbResults) {
-        $("#result").append('<button class="btn" onclick="currentPage++;getEntities()" style="position: relative;right: 0px;">Next page>></button>');
+        $("#" + pageLocationId).append(' <button class="btn" onclick="currentPages[\'' + typeOfResult + '\']++;' + searchFunctionStr + '">Next >></button>');
     }
+}
+function addNavButtons(currentPages, pageLocationId, nbResults, typeOfResult, searchFunctionStr) {
+    addPreviousButton(currentPages, pageLocationId, typeOfResult, searchFunctionStr);
+    addNextButton(pageLocationId, nbResults, typeOfResult, searchFunctionStr);
+    /*if (currentPage > 0) {
+     $("#result").append('<button class="btn" onclick="currentPage--;getEntities(\'' + type + '\',\'' + keyword + '\')"><< Previous</button>');
+     }
+     if (pageSize == nbResults) {
+     $("#result").append('<button class="btn" onclick="currentPage++;getEntities(\'' + type + '\',\'' + keyword + '\')" style="position: relative;right: 0px;">Next>></button>');
+     }*/
 }
 
 function processHtmlResult(result, entitiesType) {
@@ -187,7 +185,7 @@ function processHtmlResult(result, entitiesType) {
     table = $(iDiv).children(".sparql")[0];
     table = $(table).children("tbody")[0];
     trs = $(table).children("tr");
-    tdsVars = $(trs[0]).children("th");    
+    tdsVars = $(trs[0]).children("th");
     for (i = 1; i < trs.length; i++) {
         tds = $(trs[i]).children("td");
         if (entitiesType !== "") {
@@ -196,7 +194,7 @@ function processHtmlResult(result, entitiesType) {
             for (k = 0; k < tds.length; k++) {
                 entity[$(tdsVars[k]).text()] = $(tds[k]).text();
             }
-            availableElts.push(entity);            
+            availableElts.push(entity);
             $(tds[0]).append('<a href="javascript:void(0)" onclick="displayPage(\'' + entitiesType + '\',' + (i - 1) + ')" style="text-decoration: none; color:#00B5AD; font-weight:bold"> (display) </a>');
         }
         for (j = 1; j < tds.length; j++) {

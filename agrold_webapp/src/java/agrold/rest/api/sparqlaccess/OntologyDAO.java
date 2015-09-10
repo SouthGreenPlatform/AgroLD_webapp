@@ -9,6 +9,33 @@ package agrold.rest.api.sparqlaccess;
  */
 public class OntologyDAO {
 
+    public static String getOntologyTermsByKeyWord(String keyword, int page, int pageSize, String resultFormat) {
+        String sparqlQuery = "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
+                + "PREFIX meaning:<http://purl.obolibrary.org/obo/IAO_0000115>\n"
+                + "PREFIX hasExactSynonym:<http://www.geneontology.org/formats/oboInOwl#hasExactSynonym>\n"
+                + "SELECT distinct (str(?name) AS ?Name) (str(?description) AS ?Description) (?term as ?URI)\n"
+                + "WHERE {   \n"
+                + "  GRAPH ?G{\n"
+                + "VALUES ?keyword {\n"
+                + "    \""+keyword+"\" \n"
+                + "  } \n"
+                + "    ?term meaning: ?description;\n"
+                + "          hasExactSynonym: ?synonym.\n"
+                + "    OPTIONAL{?term rdfs:label ?name.}\n"
+                + "    #BIND(CONCAT(?synonym,\";\") AS ?Synonym)\n"
+                + "    BIND(REPLACE(str(?term), '^.*(#|/)', \"\") AS ?Localname)\n"
+                + "   	BIND(REPLACE(?Localname, \"_\", \":\") as ?Id)     \n"
+                + "    #BIND ( CONCAT(?Name, ?Id) AS ?text)    \n"
+                + "    FILTER(REGEX(?Id, ?keyword,\"i\") || REGEX(?synonym, ?keyword,\"i\") || REGEX(?description, ?keyword,\"i\"))\n"
+                + "  }\n"
+                + "  FILTER(REGEX(str(?G), \"o$\",\"i\"))      \n"
+                + "}";
+        sparqlQuery = APILib.addLimitAndOffset(sparqlQuery, pageSize, page);
+        System.out.println(sparqlQuery);
+        String result = APILib.executeSparqlQuery(sparqlQuery, APILib.sparqlEndpointURL, resultFormat);
+        return result;
+    }
+
     /**
      * Returns the ID of an ontological element corresponding to its term (name)
      *
@@ -25,7 +52,7 @@ public class OntologyDAO {
                 + "PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n"
                 + "PREFIX owl: <http://www.w3.org/2002/07/owl#>\n"
                 + "\n"
-                + "SELECT ?id\n"
+                + "SELECT DISTINCT ?id (?subject AS ?URI)\n"
                 + "WHERE { \n"
                 + " {\n"
                 + "  SELECT ?subject\n"
@@ -58,7 +85,7 @@ public class OntologyDAO {
     public static String getOntoTermById(String id, int page, int pageSize, String resultFormat) {
         String sparqlQuery = "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "PREFIX owl: <http://www.w3.org/2002/07/owl#>\n"
-                + "SELECT ?OntoTerm\n"
+                + "SELECT DISTINCT ?OntoTerm  (?subject AS ?URI)\n"
                 + "WHERE { \n"
                 + " {\n"
                 + "  SELECT ?subject\n"
@@ -87,7 +114,7 @@ public class OntologyDAO {
         }
         String sparqlQuery = "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "PREFIX owl: <http://www.w3.org/2002/07/owl#>\n"
-                + "SELECT ?ancestorId\n"
+                + "SELECT DISTINCT ?ancestorId  (?ancestor" + i + " AS ?uri)\n"
                 + " WHERE \n"
                 + " {     \n"
                 + "  { \n"
@@ -117,7 +144,7 @@ public class OntologyDAO {
         }
         String sparqlQuery = "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "\n"
-                + "SELECT ?descendentId\n"
+                + "SELECT DISTINCT ?descendentId (?descendent" + i + " AS ?URI)\n"
                 + " WHERE \n"
                 + " {     \n"
                 + "  { \n"
@@ -142,8 +169,8 @@ public class OntologyDAO {
     public static String getOntoTermsAssociatedWithQtl(String qtlId, int page, int pageSize, String resultFormat) {
         String sparqlQuery = "BASE <http://www.southgreen.fr/agrold/>\n"
                 + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
-                + "PREFIX qtl: <http://www.identifiers.org/gramene.qtl/"+qtlId+">\n"
-                + "SELECT DISTINCT ?ID (str(?Name) as ?Name) ?Association (?Concept AS ?TermIRI)\n"
+                + "PREFIX qtl: <http://www.identifiers.org/gramene.qtl/" + qtlId + ">\n"
+                + "SELECT DISTINCT ?Id (str(?Name) as ?Name) ?Association (?Concept AS ?URI)\n"
                 + "WHERE\n"
                 + "{\n"
                 + "  GRAPH <qtl.annotations>{\n"
@@ -155,7 +182,7 @@ public class OntologyDAO {
                 + "    #?Concept ?p ?o .\n"
                 + "    ?Concept rdfs:label ?Name\n"
                 + "   BIND(REPLACE(str(?Concept), '^.*(#|/)', \"\") AS ?ConceptLocalname)\n"
-                + "   BIND(REPLACE(?ConceptLocalname, \"_\", \":\") as ?ID)\n"
+                + "   BIND(REPLACE(?ConceptLocalname, \"_\", \":\") as ?Id)\n"
                 + "  }\n"
                 + "  FILTER REGEX(str(?G), \"o$\",\"i\")\n"
                 + "}\n"
@@ -165,12 +192,12 @@ public class OntologyDAO {
         String ontoTerms = APILib.executeSparqlQuery(sparqlQuery, APILib.sparqlEndpointURL, resultFormat);
         return ontoTerms;
     }
-    
+
     public static String getOntoTermsAssociatedWithProtein(String proteinId, int page, int pageSize, String resultFormat) {
         String sparqlQuery = "BASE <http://www.southgreen.fr/agrold/>\n"
                 + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
-                + "PREFIX protein: <http://purl.uniprot.org/uniprot/"+proteinId+">\n"
-                + "SELECT DISTINCT ?ID (str(?Name) as ?Name) ?Association (?Concept AS ?TermIRI)\n"
+                + "PREFIX protein: <http://purl.uniprot.org/uniprot/" + proteinId + ">\n"
+                + "SELECT DISTINCT ?Id (str(?Name) as ?Name) ?Association (?Concept AS ?URI)\n"
                 + "WHERE\n"
                 + "{\n"
                 + "  GRAPH <protein.annotations>{\n"
@@ -182,7 +209,7 @@ public class OntologyDAO {
                 + "    #?Concept ?p ?o .\n"
                 + "    ?Concept rdfs:label ?Name\n"
                 + "   BIND(REPLACE(str(?Concept), '^.*(#|/)', \"\") AS ?ConceptLocalname)\n"
-                + "   BIND(REPLACE(?ConceptLocalname, \"_\", \":\") as ?ID)\n"
+                + "   BIND(REPLACE(?ConceptLocalname, \"_\", \":\") as ?Id)\n"
                 + "  }\n"
                 + "  FILTER REGEX(str(?G), \"o$\",\"i\")\n"
                 + "}\n"
@@ -198,6 +225,7 @@ public class OntologyDAO {
         //System.out.println(extractIDfromURI("http://purl.obolibrary.org/obo/BFO_0000051"));
         //System.out.println(getAncestorById("GO:0004409", 3, "text/tab-separated-values"));
         //System.out.println(getDescendantsById("GO:0003824", 2, "text/tab-separated-values"));
-        System.out.println(getOntoTermsAssociatedWithQtl("AQA001", 0, 1, ".tsv"));
+        //System.out.println(getOntoTermsAssociatedWithQtl("AQA001", 0, 1, ".tsv"));
+        System.out.println(getOntologyTermsByKeyWord("homoaconitate", 0, 1, ".tsv"));
     }
 }

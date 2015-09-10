@@ -10,6 +10,7 @@ package agrold.rest.api.sparqlaccess;
  * @author tagny
  */
 public class ProteinDAO {
+    static public String PROTEIN_TYPE_URI = "http://purl.obolibrary.org/obo/SO_0000104";
 
     // return URIs and agrold_vocabulary:description of all genes in Agrold
     public static String getProteins(int page, int pageSize, String resultFormat) {
@@ -19,7 +20,7 @@ public class ProteinDAO {
                 + "WHERE {\n"
                 + "    ?protein rdfs:label ?proteinName;\n"
                 + "          agrold:description ?proteinDescription;          \n"
-                + "          rdfs:subClassOf <http://purl.obolibrary.org/obo/SO_0000104>.\n"
+                + "          rdfs:subClassOf <"+PROTEIN_TYPE_URI+">.\n"
                 + "    BIND(REPLACE(str(?protein), '^.*(#|/)', \"\") AS ?proteinId) .\n"
                 + "}";
         sparqlQuery = APILib.addLimitAndOffset(sparqlQuery, pageSize, page);
@@ -90,7 +91,7 @@ public class ProteinDAO {
         String sparqlQuery = "BASE <http://www.southgreen.fr/agrold/>\n"
                 + "PREFIX vocab: <vocabulary/>\n"
                 + "PREFIX gene: <http://identifiers.org/ensembl.plant/"+geneId+">\n"
-                + "SELECT ?Id ?Name ?Description (?protein AS ?IRI)\n"
+                + "SELECT DISTINCT ?Id ?Name ?Description (?protein AS ?IRI)\n"
                 + "WHERE{\n"
                 + "  gene: vocab:encodes ?protein.\n"
                 + "  ?protein rdfs:label ?Name.\n"

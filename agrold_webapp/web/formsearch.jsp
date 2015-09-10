@@ -15,6 +15,7 @@
         <link href="styles/menu1.css" rel="stylesheet" type="text/css"/> 
         <script src="swagger/lib/swagger-client.js" type="text/javascript"></script>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+        <link href="styles/messages.css" rel="stylesheet" type="text/css"/>
         <script src="//code.jquery.com/jquery-1.10.2.js"></script>
         <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>         
         <style>
@@ -22,10 +23,10 @@
                 width: 50%;
             }
             .advanced-form #sform{
-                position:fixed;
+                position:absolute;
                 top:10%;
-                left:6%;
-                width:75%;                  
+                left:15px;
+                width:70%;                  
             }
             #sform input, #sform select{
                 font-size: 120%;
@@ -36,7 +37,7 @@
                 width: 15%;
             }
             #sform input[type="text"]{
-                width: 80%;
+                width: 60%;
                 padding: 5pt;
                 margin-left: 5pt;
             }
@@ -58,24 +59,26 @@
         <div id="wrapper">
             <jsp:include page="header.html"></jsp:include>
                 <section>
-                    <h3>Search > Advanced search</h3>
+                    <h3>Search > Advanced form-based search</h3>
                     <div id="advanced-form" class="border-right">
-                        <form id="sform">
-                            <select id="elements">
-                                <option value="--">--- Select an element ---</option>
-                                <option value="gene">Gene</option>
-                                <option value="protein">Protein</option>
-                                <option value="qtl">QTL</option>
-                            </select>
-                            <input id="input" type="text" style="display: none"/>
-                        </form>
+                        <center>
+                            <form id="sform">
+                                <select id="elements">
+                                    <!--option value="--">--- Select an element ---</option-->
+                                    <option value="gene" selected>Gene</option>
+                                    <option value="protein">Protein</option>
+                                    <option value="qtl">QTL</option>
+                                    <option value="pathway">Pathway</option>
+                                    <option value="ontology">Ontology</option>
+                                </select>
+                                <input id="input" type="text" autofocus style="display: inline"/>
+                                <input id="submit" class="btn" type="submit" value="Search" style="display: inline"/>
+                            </form>
+                        </center>
                     </div>
                     <div id="result">
 
-                    </div>
-                    <!--script>
-                        generateForm();
-                    </script-->  
+                    </div>                     
                 </section><br>
             <jsp:include page="footer.html"></jsp:include>
         </div>

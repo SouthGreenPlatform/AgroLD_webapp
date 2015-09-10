@@ -41,7 +41,7 @@
 {
     padding: 0 30px;
     line-height: 36px; /*Note: keep this value the same as the height of .menuTemplate3 li */
-    font-size: 12px;
+    font-size: 14px;
     font-weight: normal;
     display: inline-block;
     outline: 0;
