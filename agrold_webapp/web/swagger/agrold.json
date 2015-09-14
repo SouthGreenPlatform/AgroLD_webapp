@@ -13,20 +13,12 @@
             "url": "http://www.ibc-montpellier.fr/wp/wp5"
         }
     },
-    "host": "localhost:8084",
+    "host": "volvestre.cirad.fr:8080",
     "basePath": "/aldp/api/1.0",
     "tags": [
         {
             "name": "ontologies",
             "description": "Services over ontologies used in AgroLD",
-            "externalDocs": {
-                "description": "Find out more",
-                "url": "http://www.agrold.org"
-            }
-        },
-        {
-            "name": "predicate",
-            "description": "Services over predicates",
             "externalDocs": {
                 "description": "Find out more",
                 "url": "http://www.agrold.org"
@@ -602,7 +594,7 @@
                 }
             }
         },
-        "/description{_format}": {
+        "/graphs/description{_format}": {
             "post": {
                 "tags": [
                     "graphs"
@@ -706,6 +698,89 @@
                     },
                     "404": {
                         "description": "Invalid HTTP method"
+                    }
+                }
+            }
+        },
+        "/graphs/predicates{_format}": {
+            "post": {
+                "tags": [
+                    "graphs"
+                ],
+                "summary": "Retrieve complete URI of all predicates used in AgroLD in JSON",
+                "description": "",
+                "operationId": "getGraphPredicates",
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "parameters": [
+                    {
+                        "name": "graphLocalName",
+                        "in": "query",
+                        "description": "The local name of the graph in the namespace http://www.southgreen.fr/agrold/ of AgroLD (e.g. gramene.genes)",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            "so",
+                            "go",
+                            "eco",
+                            "eo",
+                            "pato",
+                            "po",
+                            "to",
+                            "ncbitaxon",
+                            "gramene.genes",
+                            "uniprot.plants",
+                            "protein.annotations",
+                            "orygenesdb.o.s.indica",
+                            "orygenesdb.o.s.thaliana",
+                            "orygenesdb.o.s.japonica",
+                            "topgene",
+                            "qtl.annotations",
+                            "otl",
+                            "gramene.cyc",
+                            "gramene.qtl"
+                        ]
+                    },
+                    {
+                        "name": "_page",
+                        "in": "query",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_pageSize",
+                        "in": "query",
+                        "description": "size of a page of the result set (> 0 or else all results will be displayed)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_format",
+                        "in": "path",
+                        "description": "format in which the results set will be return",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            ".json",
+                            ".sparql-json",
+                            ".xml",
+                            ".tsv",
+                            ".csv",
+                            ".rdf",
+                            ".html",
+                            ".ttl"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/errorModel"
+                        }
                     }
                 }
             }
@@ -973,6 +1048,31 @@
                             ".html",
                             ".ttl"
                         ]
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/proteins/publications/byId": {
+            "post": {
+                "tags": [
+                    "protein"
+                ],
+                "summary": "Get publications of a protein",
+                "description": "",
+                "operationId": "getPublicationsOfProteinById",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "proteinId",
+                        "in": "query",
+                        "description": "The ID of the protein (e.g. P0C127)",
+                        "required": true,
+                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -1264,6 +1364,31 @@
                 }
             }
         },
+        "/genes/publications/byId": {
+            "post": {
+                "tags": [
+                    "gene"
+                ],
+                "summary": "Get publications of a gene",
+                "description": "",
+                "operationId": "getPublicationsOfGeneById",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "geneId",
+                        "in": "query",
+                        "description": "The ID of the protein (e.g. BGIOSGA000339)",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
         "/genes/byKeyword{_format}": {
             "post": {
                 "tags": [
@@ -1437,62 +1562,7 @@
                     }
                 }
             }
-        },
-        "/predicates{_format}": {
-            "post": {
-                "tags": [
-                    "predicate"
-                ],
-                "summary": "Retrieve complete URI of all predicates used in AgroLD in JSON",
-                "description": "",
-                "operationId": "getpredicatesjson",
-                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
-                "parameters": [
-                    {
-                        "name": "_page",
-                        "in": "query",
-                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
-                        "required": false,
-                        "type": "integer"
-                    },
-                    {
-                        "name": "_pageSize",
-                        "in": "query",
-                        "description": "size of a page of the result set (> 0 or else all results will be displayed)",
-                        "required": false,
-                        "type": "integer"
-                    },
-                    {
-                        "name": "_format",
-                        "in": "path",
-                        "description": "format in which the results set will be return",
-                        "required": true,
-                        "type": "string",
-                        "enum": [
-                            ".json",
-                            ".sparql-json",
-                            ".xml",
-                            ".tsv",
-                            ".csv",
-                            ".rdf",
-                            ".html",
-                            ".ttl"
-                        ]
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "successful operation"
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/errorModel"
-                        }
-                    }
-                }
-            }
-        },
+        },        
         "/pathways/inWhichParticipatesGene/byId{_format}": {
             "post": {
                 "tags": [

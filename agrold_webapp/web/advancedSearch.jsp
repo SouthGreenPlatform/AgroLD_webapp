@@ -20,7 +20,7 @@
         <script src="//code.jquery.com/jquery-1.10.2.js"></script>
         <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script> 
         <script src="scripts/lib.js" type="text/javascript"></script>
-
+        <script src="yasr/yasr.bundled.min.js" type="text/javascript"></script>
     </head>
     <body>
         <div id="wrapper">
@@ -38,12 +38,16 @@
                         String uri = request.getParameter("uri");
                         String keyword = request.getParameter("keyword");
                         if (type != null) {
-                            if (keyword != null) {
+                    %>
+                    <script>
+                        var type = "<% out.print(type);%>";
+                    </script>
+                    <%
+                        if (keyword != null) {
                     %>  
                     <script>
                         $(document).ready(function () {
-                            type = "<% out.print(type);%>";
-                            keyword = "<% out.print(keyword);%>";
+                            var keyword = "<% out.print(keyword);%>";
                             $('#type option[value=' + type + ']').prop('selected', true);
                             $("input.keyword").val(keyword);
                         });
@@ -71,37 +75,40 @@
                             break;
                         case "protein":
                     %>                    
-                    <jsp:include page="WEB-INF/jspf/protein.jsp"></jsp:include>
-                    <%
+                    <jsp:include page="WEB-INF/jspf/protein.jsp"></jsp:include>                
+                    <script>    <%
                             break;
                         case "qtl":
-                    %>                    
-                    <jsp:include page="WEB-INF/jspf/qtl.jsp"></jsp:include>
-                    <%
-                            break;
-                        case "pathway":
-                    %>                    
-                    <jsp:include page="WEB-INF/jspf/pathway.jsp"></jsp:include>
-                    <%
-                            break;
-                        case "ontology":
-                    %>                    
-                    <jsp:include page="WEB-INF/jspf/ontology.jsp"></jsp:include>
-                    <%
-                                        break;
-                                }
-                            }
-                        }
-                    %>                                    
+                        %>
+                        <jsp:include page="WEB-INF/jspf/qtl.jsp"></jsp:include>
+                        <%
+                                              break;
+                                          case "pathway":
+                        %>
+                        <jsp:include page="WEB-INF/jspf/pathway.jsp"></jsp:include>
+                        <%
+                                              break;
+                                          case "ontology":
+                        %>
+                        <jsp:include page="WEB-INF/jspf/ontology.jsp"></jsp:include>
+                        <%
+                                                          break;
+                                                  }
+                                              }
+                                          }
+                        %>
+                    </script>
                 </div>                
             </section>
             <div id="push"></div> <!--add the push div here -->
             <jsp:include page="footer.html"></jsp:include>
         </div>          
-        <script src="yasr/yasr.bundled.min.js" type="text/javascript">
-        </script>
         <script>
+            size1 = Math.round(pageSize / 3);
+            size2 = Math.round(pageSize * 2 / 3);
+            YASR.plugins.table.defaults.datatable["pageLength"] = pageSize;
+            YASR.plugins.table.defaults.datatable["lengthMenu"] = [[size1, size2, pageSize, -1], [size1, size2, pageSize, "All"]];
             YASR.plugins.table.defaults.fetchTitlesFromPreflabel = false;
-        </script>        
+        </script>
     </body>
 </html>

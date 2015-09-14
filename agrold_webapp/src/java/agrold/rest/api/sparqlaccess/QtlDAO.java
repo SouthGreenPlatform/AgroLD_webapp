@@ -8,18 +8,18 @@ package agrold.rest.api.sparqlaccess;
  * @author tagny
  */
 public class QtlDAO {
+
     public static String QTL_TYPE_URI = "http://purl.obolibrary.org/obo/SO_0000771";
-    
-    
+
     // return URIs and agrold_vocabulary:description of all genes in Agrold
     public static String getQtls(int page, int pageSize, String resultFormat) {
         String sparqlQuery = "prefix	agrold:<http://www.southgreen.fr/agrold/vocabulary/> \n"
                 + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
-                + "SELECT distinct ?qtl ?qtlId ?qtlName ?qtlDescription\n"
+                + "SELECT distinct ?qtlId ?qtlName ?qtlDescription (?qtl AS ?URI)\n"
                 + "WHERE {\n"
                 + "    ?qtl rdfs:label ?qtlName;\n"
                 + "          agrold:description ?qtlDescription;          \n"
-                + "          rdfs:subClassOf <"+QTL_TYPE_URI+">.\n"
+                + "          rdfs:subClassOf <" + QTL_TYPE_URI + ">.\n"
                 + "    BIND(REPLACE(str(?qtl), '^.*(#|/)', \"\") AS ?qtlId) .\n"
                 + "}";
         sparqlQuery = APILib.addLimitAndOffset(sparqlQuery, pageSize, page);
@@ -27,16 +27,24 @@ public class QtlDAO {
         String result = APILib.executeSparqlQuery(sparqlQuery, APILib.sparqlEndpointURL, resultFormat);
         return result;
     }
+
     public static String getQtlIdAssociatedWithOntoId(String ontoId, int page, int pageSize, String resultFormat) {
         String sparqlQuery = "PREFIX agrold:<http://www.southgreen.fr/agrold/>\n"
                 + "PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
                 + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "\n"
-                + "SELECT DISTINCT ?qtlId\n"
+                + "SELECT DISTINCT ?qtlId (?qtl AS ?URI)\n"
                 + "WHERE\n"
                 + "{\n"
                 + "  { \n"
                 + "    SELECT ?ontoElt\n"
+                + "    FROM <http://www.southgreen.fr/agrold/so>\n"
+                + "    FROM <http://www.southgreen.fr/agrold/go>\n"
+                + "    FROM <http://www.southgreen.fr/agrold/eco>\n"
+                + "    FROM <http://www.southgreen.fr/agrold/eo>	\n"
+                + "    FROM <http://www.southgreen.fr/agrold/pato>\n"
+                + "    FROM <http://www.southgreen.fr/agrold/po>\n"
+                + "    FROM <http://www.southgreen.fr/agrold/to>"
                 + "    WHERE\n"
                 + "    {\n"
                 + "    	?ontoElt rdfs:subClassOf ?ontoEltClass.\n"
@@ -48,7 +56,7 @@ public class QtlDAO {
                 + "    ?qtl rdfs:subClassOf <http://purl.obolibrary.org/obo/SO_0000771> .\n"
                 + "    BIND(REPLACE(str(?qtl), '^.*(#|/)', \"\") AS ?qtlId) .\n"
                 + "  }\n"
-                + "}\n";
+                + "}";
 
         sparqlQuery = APILib.addLimitAndOffset(sparqlQuery, pageSize, page);
         System.out.println(sparqlQuery);
@@ -65,7 +73,7 @@ public class QtlDAO {
                 + "PREFIX graph2:<qtl.annotations>\n"
                 + "PREFIX protein: <http://purl.uniprot.org/uniprot/" + proteinId + ">\n"
                 + "\n"
-                + "SELECT distinct ?Id ?Name (?qtl AS ?IRI) \n"
+                + "SELECT distinct ?Id ?Name (?qtl AS ?URI) \n"
                 + "WHERE {\n"
                 + " GRAPH graph1: {\n"
                 + "  protein: vocab:has_trait ?to.    \n"

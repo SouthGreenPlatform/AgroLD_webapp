@@ -16,7 +16,7 @@ public class ProteinDAO {
     public static String getProteins(int page, int pageSize, String resultFormat) {
         String sparqlQuery = "prefix	agrold:<http://www.southgreen.fr/agrold/vocabulary/> \n"
                 + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
-                + "SELECT distinct ?protein ?proteinId ?proteinName ?proteinDescription\n"
+                + "SELECT distinct ?proteinId ?proteinName ?proteinDescription (?protein AS ?URI)\n"
                 + "WHERE {\n"
                 + "    ?protein rdfs:label ?proteinName;\n"
                 + "          agrold:description ?proteinDescription;          \n"
@@ -35,11 +35,18 @@ public class ProteinDAO {
                 + "PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
                 + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "\n"
-                + "SELECT DISTINCT ?proteinId\n"
+                + "SELECT DISTINCT ?proteinId (?protein AS ?URI)\n"
                 + "WHERE\n"
                 + "{\n"
                 + "  { \n"
                 + "    SELECT ?ontoElt\n"
+                + "    FROM <http://www.southgreen.fr/agrold/so>\n"
+                + "    FROM <http://www.southgreen.fr/agrold/go>\n"
+                + "    FROM <http://www.southgreen.fr/agrold/eco>\n"
+                + "    FROM <http://www.southgreen.fr/agrold/eo>	\n"
+                + "    FROM <http://www.southgreen.fr/agrold/pato>\n"
+                + "    FROM <http://www.southgreen.fr/agrold/po>\n"
+                + "    FROM <http://www.southgreen.fr/agrold/to>"
                 + "    WHERE\n"
                 + "    {\n"
                 + "    	?ontoElt rdfs:subClassOf ?ontoEltClass.\n"
@@ -49,6 +56,7 @@ public class ProteinDAO {
                 + "  GRAPH agrold:protein.annotations{"
                 + "    ?protein ?predicate ?ontoElt .\n"
                 + "    ?protein rdfs:subClassOf <http://purl.obolibrary.org/obo/SO_0000104> .\n"
+//                + "    (REPLACE(str(?predicate), '^.*(#|/)', \"\") AS ?Association) .\n"
                 + "    BIND(REPLACE(str(?protein), '^.*(#|/)', \"\") AS ?proteinId) .\n"
                 + "  }"
                 + "}\n ORDER BY ?proteinId";        
@@ -67,7 +75,7 @@ public class ProteinDAO {
                 + "PREFIX graph2:<qtl.annotations>\n"
                 + "PREFIX qtl: <http://www.identifiers.org/gramene.qtl/" + qtlId + "> # DTHD \n"
                 + "\n"
-                + "SELECT distinct ?Id ?Name (?protein AS ?IRI) \n"
+                + "SELECT distinct ?Id ?Name (?protein AS ?URI) \n"
                 + "WHERE {\n"
                 + " GRAPH graph1: {\n"
                 + "  ?protein vocab:has_trait ?to.\n"
@@ -91,7 +99,7 @@ public class ProteinDAO {
         String sparqlQuery = "BASE <http://www.southgreen.fr/agrold/>\n"
                 + "PREFIX vocab: <vocabulary/>\n"
                 + "PREFIX gene: <http://identifiers.org/ensembl.plant/"+geneId+">\n"
-                + "SELECT DISTINCT ?Id ?Name ?Description (?protein AS ?IRI)\n"
+                + "SELECT DISTINCT ?Id ?Name ?Description (?protein AS ?URI)\n"
                 + "WHERE{\n"
                 + "  gene: vocab:encodes ?protein.\n"
                 + "  ?protein rdfs:label ?Name.\n"
@@ -106,8 +114,8 @@ public class ProteinDAO {
         return result;
     }    
     public static void main(String[] args) {
-        //System.out.println(getProteinsIdAssociatedWithOntoId("GO:0003824", 1, 5, APILib.TSV));
+        System.out.println(getProteinsIdAssociatedWithOntoId("GO:0003824", 1, 5, APILib.TSV));
         //System.out.println(getProteins(0, 2, ".tsv"));
-        System.out.println(getProteinsEncodedByGene("BGIOSGA000339", 0, 1, ".html"));
+        //System.out.println(getProteinsEncodedByGene("BGIOSGA000339", 0, 1, ".html"));
     }
 }

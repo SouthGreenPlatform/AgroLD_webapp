@@ -1,26 +1,25 @@
 /* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * General definitions for the advanced search
  */
-//var url = "http://volvestre.cirad.fr:8080/aldp/swagger/agrold.json";
-var url = "http://localhost:8084/aldp/swagger/agrold.json";
-var pageSize = 5; // limit number of results per page
+var url = "http://volvestre.cirad.fr:8080/aldp/swagger/agrold.json";
+//var url = "http://localhost:8084/aldp/swagger/agrold.json";
+var pageSize = 30; // limit number of results per page
 var sparqlEndpoint = "http://volvestre.cirad.fr:8890/sparql";
 
 var holdMessage = '<center id="holdMessage"><img src="images/wait_animated.gif" alt="Please Wait!"/></center>';
 
 function displayHoldMessage(targetId) {
     $("#" + targetId).html(holdMessage);
-    $("#overlay").show();
+    //$("#overlay").show();
 }
 function removeHoldMessage(targetId) {
-    $("#overlay").hide();
+    //$("#overlay").hide();
     $("#" + targetId).html("");
 }
+
 function displayResult(targetId, sparqljsonResult) {
     removeHoldMessage(targetId);
-    var yasr = YASR(document.getElementById(targetId), {
+    yasr = YASR(document.getElementById(targetId), {
         //this way, the URLs in the results are prettified using the defined prefixes in the query
         //getUsedPrefixes: yasqe.getPrefixesFromQuery,
         useGoogleCharts: false,
@@ -34,6 +33,25 @@ function displayResult(targetId, sparqljsonResult) {
     yasr.setResponse(sparqljsonResult);
 }
 
+function displayPublications(pubjson, targetId) {
+    if (json.length > 0) {
+        $("#"+targetId).append("<ol></ol>");
+        for (i = 0; i < json.length; i++) {
+            url = json[i]["URL"];
+            authors = json[i]["Authors"];
+            maxAuthorsLength = 100;
+            if (authors.length > maxAuthorsLength) {
+                authors = authors.substring(1, maxAuthorsLength) + ' ...';
+            }
+            $("#"+targetId+" ol").append('<li id="paper' + i + '"><span>' + authors + ', " <b>' + json[i]["Title"] + '</b> ", <i>' + json[i]["Journal"] + '</i>, ' + json[i]["Year"] + '</span></li>');
+            $("#"+targetId+" ol li#paper" + i).append('<br><span>More at: <a href="' + url + '" target="_blank">' + url + '</a></span>');
+            //$("#publicationResult ol").append('<li><a href="' + url + '" target="_blank">' + url + "</a></li>");
+        }
+    } else {
+        $("#"+targetId).append("No publication found.")
+    }
+}
+
 // first information
 function dispalyHeader(eltType, json, divId) {
     elt = typeof json["results"]["bindings"][0] !== 'undefined' ? json["results"]["bindings"][0] : "";
@@ -43,8 +61,10 @@ function dispalyHeader(eltType, json, divId) {
     div = $("#" + divId);
     name = typeof elt["Name"] !== 'undefined' ? " / " + elt["Name"]["value"] : "";
     description = typeof elt["Description"] !== 'undefined' ? elt["Description"]["value"] : "";
-    div.html('<b style="font-size:16pt;text-transform: uppercase" id="id">' + eltType + ' : ' + elt["Id"]["value"] + name + "</b>");
-    if(description!== ""){div.append('<br><big>' + description + '</big>');}
+    div.html('<span style="font-size:16pt;" id="id"><b style="text-transform: uppercase" id="id">' + eltType + ' :</b><b> ' + elt["Id"]["value"] + name + "</b></span>");
+    if (description !== "") {
+        div.append('<br><big>' + description + '</big>');
+    }
     div.append('<br><br> <b> URI: </b>  <a href="' + elt["Uri"]["value"] + '" target="_blank"><i>' + elt["Uri"]["value"] + '</i></a><br>');
     div.attr("class", "set");
     return true;
@@ -78,19 +98,12 @@ function processHtmlResult(entitiesType) {
             div = $(tds[j]).children("div")[0];
             a = $(div).children("a.uri")[0];
             $(a).attr("target", "_blank");
-            $(a).after('<a href="sparqleditor.jsp?query=SELECT * WHERE{<' + $(a).text() + '> ?property ?object.}" target="_blank" style="text-decoration: none; color:#00B5AD; font-weight:bold"> (in Sparql) </a>');
+            sparqlLink = 'sparqleditor.jsp?query=SELECT * \nWHERE{\n\tGRAPH ?graph{\n\t\t<' + $(a).text() + '> ?property ?object.\n\t}\n}'
+            $(a).after('<a href="' + encodeURI(sparqlLink) + '" target="_blank" style="text-decoration: none; color:#00B5AD; font-weight:bold"> (in Sparql) </a>');
         }
         $(tds[1]).append('<a href="advancedSearch.jsp?type=' + entitiesType + '&uri=' + encodeURIComponent($(a).text()) + '" style="text-decoration: none; color:#00B5AD; font-weight:bold"> (display) </a>');
     }
     $(currentTable).addClass("complete");
-    /*jQuery("a").click(function () {
-        var href = $(this).attr('href');
-        //alert(href);
-        $.post('/', {link: href}).then(function () {
-            document.location = href;
-        });
-        return false;
-    });*/
 }
 
 function addNavButtons(nbResults, currentPage, divId, previousBtnId, nextBtnId) {

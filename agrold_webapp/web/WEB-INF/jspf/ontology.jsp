@@ -14,6 +14,14 @@
         <span id="childrenPageBtns"><a href="javascript:void(0)" id="children"> + </a></span>
         <div id="childrenResult"></div>            
     </div>
+    <br><div id="proteinContainer"><b style="font-size:13pt">Proteins associated</b>
+        <span id="proteinPageBtns"><a href="javascript:void(0)" id="protein"> + </a></span>
+        <div id="proteinResult"></div>            
+    </div>
+    <br><div id="qtlContainer"><b style="font-size:13pt">QTL associated</b>
+        <span id="qtlPageBtns"><a href="javascript:void(0)" id="qtl"> + </a></span>
+        <div id="qtlResult"></div>
+    </div>
 </div>
 <script type="text/javascript">
     var ontologyUri = <% out.println("'" + request.getParameter("uri") + "'");%>;    
@@ -34,10 +42,7 @@ BIND(REPLACE(?localname, \"_\", \":\") as ?Id).\
 }';
         query = sparqlEndpoint + "?query=" + encodeURIComponent(sparql) + "&format=application/json";
         $.get(query, function (json) {
-            if(!dispalyHeader("ontology", json, "header")){
-                //$("#ontologyPage").html('" <b>'+uri+'</b> " not found');
-                //return;
-            }
+            dispalyHeader("ontology", json, "header");
             ontologyId = json["results"]["bindings"][0]["Id"]["value"];
             //console.log(geneId);        
             addEvents(ontologyId);
@@ -49,6 +54,8 @@ BIND(REPLACE(?localname, \"_\", \":\") as ?Id).\
     function  addEvents(ontologyId) {        
         $("#parent").attr("onclick", 'searchParentById(\'' + ontologyId + '\', ' + currentParentPage + ')');
         $("#children").attr("onclick", 'searchChildrenById(\'' + ontologyId + '\', ' + currentChildrenPage+ ')');        
+        $("#protein").attr("onclick", 'searchProteinIdAssociatedWithOntoId(\'' + ontologyId + '\', ' + currentChildrenPage+ ')');        
+        $("#qtl").attr("onclick", 'searchQtlsIdAssociatedWithOntoId(\'' + ontologyId + '\', ' + currentChildrenPage+ ')');        
     }
     
     window.swagger = new SwaggerClient({
@@ -59,6 +66,8 @@ BIND(REPLACE(?localname, \"_\", \":\") as ?Id).\
     });
     var currentParentPage = 0;
     var currentChildrenPage = 0;
+    var currentProteinPage = 0;
+    var currentQtlPage = 0;
     function searchParentById(ontologyId, page) {
         currentParentPage = page;
         type = "parent";
@@ -90,6 +99,40 @@ BIND(REPLACE(?localname, \"_\", \":\") as ?Id).\
                 pageBtnsId = type + "PageBtns";
                 displayInformation(data, page, containerId, pageBtnsId, "searchChildrenById");
                 processHtmlResult("ontology");
+            });
+        });
+    }    
+    function searchQtlsIdAssociatedWithOntoId(ontologyId, page) {
+        currentChildrenPage = page;
+        type = "qtl";
+        containerId = type+"Container";
+        displayHoldMessage(type + "Result");        
+        swagger.apis.qtl.getQtlsIdAssociatedWithOntoId({_format: ".sparql-json", ontoId: ontologyId, _pageSize: pageSize, _page: page},
+        {responseContentType: 'application/json'}, function (data) {
+            sparqljson = data.data;
+            resultId = type + "Result";
+            displayResult(resultId, sparqljson);
+            $("tr.odd").ready(function () {
+                pageBtnsId = type + "PageBtns";
+                displayInformation(data, page, containerId, pageBtnsId, "searchQtlsIdAssociatedWithOntoId");
+                processHtmlResult(type);
+            });
+        });
+    }
+    function searchProteinIdAssociatedWithOntoId(ontologyId, page) {
+        currentChildrenPage = page;
+        type = "protein";
+        containerId = type+"Container";
+        displayHoldMessage(type + "Result");        
+        swagger.apis.protein.getProteinIdAssociatedWithOntoId({_format: ".sparql-json", ontoId: ontologyId, _pageSize: pageSize, _page: page},
+        {responseContentType: 'application/json'}, function (data) {
+            sparqljson = data.data;
+            resultId = type + "Result";
+            displayResult(resultId, sparqljson);
+            $("tr.odd").ready(function () {
+                pageBtnsId = type + "PageBtns";
+                displayInformation(data, page, containerId, pageBtnsId, "searchProteinIdAssociatedWithOntoId");
+                processHtmlResult(type);
             });
         });
     }

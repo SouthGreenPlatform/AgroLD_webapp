@@ -20,6 +20,10 @@
         <span id="pathwayPageBtns"><a href="javascript:void(0)" id="pathways"> + </a></span>
         <div id="pathwayResult"></div>
     </div>
+    <br><div id="publicationContainer"><b style="font-size:13pt">Publication</b>
+        <span id="publicationPageBtns"><a href="javascript:void(0)" id="publication"> + </a></span>
+        <div id="publicationResult"></div>            
+    </div>
 </div>
 <script type="text/javascript">
     var geneUri = <% out.println("'" + request.getParameter("uri") + "'");%>;    
@@ -52,6 +56,7 @@ BIND(REPLACE(str(?entity), \'^.*(#|/)\', "") AS ?Id) \
         //$("#chromosome").attr("onclick", '');
         $("#proteins").attr("onclick", 'searchProteinsEncodedByGene(\'' + geneId + '\', ' + currentProteinPage + ')');
         $("#pathways").attr("onclick", 'searchPathwayInWhichParticipatesGene(\'' + geneId + '\',' + currentPathwayPage + ')');
+        $("#publication").attr("onclick", 'searchPublications(\'' + geneId + '\')');
     }
     ;
 
@@ -101,6 +106,34 @@ BIND(REPLACE(str(?entity), \'^.*(#|/)\', "") AS ?Id) \
                 displayInformation(data, page, containerId, pageBtnsId, "searchPathwayInWhichParticipatesGene");
                 processHtmlResult(tableClass, type);
             });
+        });
+    }
+    function searchPublications(geneId) {
+        displayHoldMessage("publicationResult");
+        // get PubMed Id from G-link web service
+        swagger.apis.gene.getPublicationsOfGeneById({geneId: geneId},
+        {responseContentType: 'application/json'}, function (data) {
+            //console.log(data.data);
+            removeHoldMessage("publicationResult");
+            json = data.obj;
+            //console.log(json);
+            displayPublications(json, "publicationResult");
+            /*if (json.length > 0) {
+                $("#publicationResult").append("<ol></ol>");
+                for (i = 0; i < json.length; i++) {
+                    url = json[i]["URL"];
+                    authors  = json[i]["Authors"];
+                    maxAuthorsLength = 100;
+                    if(authors.length > maxAuthorsLength){
+                        authors = authors.substring(1, maxAuthorsLength) + ' ...';
+                    }
+                    $("#publicationResult ol").append('<li id="paper'+i+'"><span>'+authors+', " <b>'+json[i]["Title"]+'</b> ", <i>'+json[i]["Journal"]+'</i>, '+json[i]["Year"]+'</span></li>');
+                    $("#publicationResult ol li#paper"+i).append('<br><span>More at: <a href="' + url + '" target="_blank">' + url + '</a></span>');
+                    //$("#publicationResult ol").append('<li><a href="' + url + '" target="_blank">' + url + "</a></li>");
+                }
+            } else {                
+                $("#publicationResult").append("No publication found.")
+            }*/
         });
     }
     function displayInformation(data, page, containerId, pageBtnsId, functionName) {

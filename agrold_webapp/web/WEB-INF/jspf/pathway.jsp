@@ -59,6 +59,11 @@ BIND(REPLACE(str(?entity), \'^.*(#|/)\', \"\") AS ?Id)\
         displayHoldMessage(type + "Result");        
         swagger.apis.gene.getGenesByPathways({_format: ".sparql-json", pathwayId: pathwayId, _pageSize: pageSize, _page: page},
         {responseContentType: 'application/json'}, function (data) {
+            
+            /*
+            resultId = type + "Result";
+            displayResult2(type, resultId, processHtmlResult2(data.data,type));
+            */
             sparqljson = data.data;
             resultId = type + "Result";
             displayResult(resultId, sparqljson);

@@ -13,9 +13,16 @@ public class OntologyDAO {
         String sparqlQuery = "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "PREFIX meaning:<http://purl.obolibrary.org/obo/IAO_0000115>\n"
                 + "PREFIX hasExactSynonym:<http://www.geneontology.org/formats/oboInOwl#hasExactSynonym>\n"
-                + "SELECT distinct (str(?name) AS ?Name) (str(?description) AS ?Description) (?term as ?URI)\n"
+                + "SELECT distinct ?Id (str(?name) AS ?Name) (str(?description) AS ?Description) (?term as ?URI)\n"
+                + "    FROM <http://www.southgreen.fr/agrold/so>\n"
+                + "    FROM <http://www.southgreen.fr/agrold/go>\n"
+                + "    FROM <http://www.southgreen.fr/agrold/eco>\n"
+                + "    FROM <http://www.southgreen.fr/agrold/eo>	\n"
+                + "    FROM <http://www.southgreen.fr/agrold/pato>\n"
+                + "    FROM <http://www.southgreen.fr/agrold/po>\n"
+                + "    FROM <http://www.southgreen.fr/agrold/to>"
                 + "WHERE {   \n"
-                + "  GRAPH ?G{\n"
+//                + "  GRAPH ?G{\n"
                 + "VALUES ?keyword {\n"
                 + "    \""+keyword+"\" \n"
                 + "  } \n"
@@ -27,8 +34,8 @@ public class OntologyDAO {
                 + "   	BIND(REPLACE(?Localname, \"_\", \":\") as ?Id)     \n"
                 + "    #BIND ( CONCAT(?Name, ?Id) AS ?text)    \n"
                 + "    FILTER(REGEX(?Id, ?keyword,\"i\") || REGEX(?synonym, ?keyword,\"i\") || REGEX(?description, ?keyword,\"i\"))\n"
-                + "  }\n"
-                + "  FILTER(REGEX(str(?G), \"o$\",\"i\"))      \n"
+//                + "  }\n"
+//                + "  FILTER(REGEX(str(?G), \"o$\",\"i\"))      \n"
                 + "}";
         sparqlQuery = APILib.addLimitAndOffset(sparqlQuery, pageSize, page);
         System.out.println(sparqlQuery);
@@ -171,20 +178,22 @@ public class OntologyDAO {
                 + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "PREFIX qtl: <http://www.identifiers.org/gramene.qtl/" + qtlId + ">\n"
                 + "SELECT DISTINCT ?Id (str(?Name) as ?Name) ?Association (?Concept AS ?URI)\n"
+                + "    FROM <http://www.southgreen.fr/agrold/so>\n"
+                + "    FROM <http://www.southgreen.fr/agrold/go>\n"
+                + "    FROM <http://www.southgreen.fr/agrold/eco>\n"
+                + "    FROM <http://www.southgreen.fr/agrold/eo>	\n"
+                + "    FROM <http://www.southgreen.fr/agrold/pato>\n"
+                + "    FROM <http://www.southgreen.fr/agrold/po>\n"
+                + "    FROM <http://www.southgreen.fr/agrold/to>\n"
+                + "    FROM <qtl.annotations>\n"
                 + "WHERE\n"
                 + "{\n"
-                + "  GRAPH <qtl.annotations>{\n"
-                + "    qtl: ?relation ?Concept.\n"
-                + "    BIND(REPLACE(str(?relation), '^.*(#|/)', \"\") AS ?Association)\n"
-                + "    FILTER(! regex(?Association, \"Object\", \"i\"))\n"
-                + "  }\n"
-                + "  GRAPH ?G{\n"
-                + "    #?Concept ?p ?o .\n"
-                + "    ?Concept rdfs:label ?Name\n"
+                + "   qtl: ?relation ?Concept.\n"
+                + "   BIND(REPLACE(str(?relation), '^.*(#|/)', \"\") AS ?Association)\n"
+                + "   FILTER(! regex(?Association, \"Object\", \"i\"))\n"
+                + "   ?Concept rdfs:label ?Name\n"
                 + "   BIND(REPLACE(str(?Concept), '^.*(#|/)', \"\") AS ?ConceptLocalname)\n"
                 + "   BIND(REPLACE(?ConceptLocalname, \"_\", \":\") as ?Id)\n"
-                + "  }\n"
-                + "  FILTER REGEX(str(?G), \"o$\",\"i\")\n"
                 + "}\n"
                 + "ORDER BY ?Association";
         sparqlQuery = APILib.addLimitAndOffset(sparqlQuery, pageSize, page);
@@ -198,20 +207,22 @@ public class OntologyDAO {
                 + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "PREFIX protein: <http://purl.uniprot.org/uniprot/" + proteinId + ">\n"
                 + "SELECT DISTINCT ?Id (str(?Name) as ?Name) ?Association (?Concept AS ?URI)\n"
+                + "    FROM <http://www.southgreen.fr/agrold/so>\n"
+                + "    FROM <http://www.southgreen.fr/agrold/go>\n"
+                + "    FROM <http://www.southgreen.fr/agrold/eco>\n"
+                + "    FROM <http://www.southgreen.fr/agrold/eo>	\n"
+                + "    FROM <http://www.southgreen.fr/agrold/pato>\n"
+                + "    FROM <http://www.southgreen.fr/agrold/po>\n"
+                + "    FROM <http://www.southgreen.fr/agrold/to>\n"
+                + "    FROM <protein.annotations>\n"
                 + "WHERE\n"
                 + "{\n"
-                + "  GRAPH <protein.annotations>{\n"
-                + "    protein: ?relation ?Concept.\n"
-                + "    BIND(REPLACE(str(?relation), '^.*(#|/)', \"\") AS ?Association)\n"
-                + "    FILTER(! regex(?Association, \"Object\", \"i\"))\n"
-                + "  }\n"
-                + "  GRAPH ?G{\n"
-                + "    #?Concept ?p ?o .\n"
-                + "    ?Concept rdfs:label ?Name\n"
+                + "   protein: ?relation ?Concept.\n"
+                + "   BIND(REPLACE(str(?relation), '^.*(#|/)', \"\") AS ?Association)\n"
+                + "   FILTER(! regex(?Association, \"Object\", \"i\"))\n"
+                + "   ?Concept rdfs:label ?Name\n"
                 + "   BIND(REPLACE(str(?Concept), '^.*(#|/)', \"\") AS ?ConceptLocalname)\n"
                 + "   BIND(REPLACE(?ConceptLocalname, \"_\", \":\") as ?Id)\n"
-                + "  }\n"
-                + "  FILTER REGEX(str(?G), \"o$\",\"i\")\n"
                 + "}\n"
                 + "ORDER BY ?Association";
         sparqlQuery = APILib.addLimitAndOffset(sparqlQuery, pageSize, page);
@@ -225,7 +236,7 @@ public class OntologyDAO {
         //System.out.println(extractIDfromURI("http://purl.obolibrary.org/obo/BFO_0000051"));
         //System.out.println(getAncestorById("GO:0004409", 3, "text/tab-separated-values"));
         //System.out.println(getDescendantsById("GO:0003824", 2, "text/tab-separated-values"));
-        //System.out.println(getOntoTermsAssociatedWithQtl("AQA001", 0, 1, ".tsv"));
-        System.out.println(getOntologyTermsByKeyWord("homoaconitate", 0, 1, ".tsv"));
+        System.out.println(getOntoTermsAssociatedWithQtl("AQA001", 0, -11, ".tsv"));
+        //System.out.println(getOntologyTermsByKeyWord("homoaconitate", 0, 1, ".tsv"));
     }
 }

@@ -91,7 +91,7 @@
         <div id="wrapper"> 
             <jsp:include page="header.html"></jsp:include>
                 <section>
-                    <!--div id='header'>
+                    <div id='header' style="display: none">
                         <div class="swagger-ui-wrap">
                             <a id="logo" href="http://swagger.io">swagger</a>
                             <form id='api_selector'>
@@ -102,7 +102,7 @@
                         </div>
                     </div>
 
-                    <div id="message-bar" class="swagger-ui-wrap">&nbsp;</div-->
+                    <div id="message-bar" class="swagger-ui-wrap"  style="display: none">&nbsp;</div>
                     <div id="swagger-ui-container" class="swagger-ui-wrap"></div>
                 </section><br>
             <jsp:include page="footer.html"></jsp:include>

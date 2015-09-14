@@ -185,6 +185,7 @@ function processHtmlResult(result, entitiesType) {
     $(iDiv).html(result);
     $(iDiv).addClass("resultTemp");
     table = $(iDiv).children(".sparql")[0];
+    $(table).attr("id",entitiesType);
     table = $(table).children("tbody")[0];
     trs = $(table).children("tr");
     tdsVars = $(trs[0]).children("th");    
