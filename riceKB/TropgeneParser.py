@@ -1,9 +1,7 @@
-from struct import pack
-
-__author__ = 'elhassouni'
-
+import sys
+print sys.path
+from globalVars import *
 import pprint
-from riceKB.globalVars import *
 import re
 import os
 
@@ -54,7 +52,7 @@ def tropGeneParser(topGene_file):
 #pp.pprint(ds)
 
 
-
+'''
 # test pour le parsing
 pp = pprint.PrettyPrinter(indent=4)
 path = '/media/elhassouni/donnees/Noeud-plante-projet/code-source/cocoa.csv'
@@ -65,3 +63,4 @@ ds = tropGeneParser(path)
 # test pour la transformation en RDF
 #path_outfile = '/media/elhassouni/donnees/Noeud-plante-projet/code-source/sortiRDF'
 #tropGeneToRDF(ds, path_outfile)
+'''
