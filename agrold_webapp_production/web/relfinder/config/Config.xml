@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+	
+	explanation of config entries
+	
+	proxy:
+		The flash player needs a crossdomain.xml policy file if it trys to load data from an external resource (see http://go.adobe.com/kb/ts_tn_14213_en-us).
+		Since SPARQL endpoints do not provide such a crossdomain.xml, you can define a proxy server - this server must have a crossdomain.xml - which will forward the SPARQL queries.
+
+	endpoints:
+		List of SPARQL endpoint configurations.
+		The first endpoint in the list will be loaded by default.
+
+	endpoint:
+		Configuration for SPARQL endpoint.
+		The configuration consists of:
+		
+			name:
+				Name of the SPARQL endpoint which will be displayed in the settings menu.
+				
+			abbreviation:
+				An abbreviation or ID for the endpoint configuration. This can be used to load RelFinder with this configuration as default (e.g. http://www.visualdataweb.org/relfinder/demo.swf?id=lmdb to load RelFinder with the 'Linked Movie Data Base' configuration as default).
+				
+			description:
+				A description of the SPARQL endpoint which will be displayed in the settings menu.
+				
+			endpointURI:
+				The URL of the SPARQL endpoint. RelFinder will use this URL + '/sparql?' + a Query to request this endpoint. Please keep this in mind, when you define this value. You can prevent RelFinder from appending '/sparql?' to the endpoint URI by defining 'dontAppendSPARQL' as true. In this case, RelFinder will use URL + '?' + a Query to request this endpoint.
+			
+			dontAppendSPARQL:
+				Prevents RelFinder from appending '/sparql?' to the defined endpointURI. Default value is false.
+				
+			defaultGraphURI:
+				The default graph which should be used for the search (normally not necessary).
+				
+			isVirtuoso:
+				If the SPARQL server is a "Virtuoso" server, you can set this value = true. RelFinder will then use Virtuoso specific commands for an improved autocompletion. If you are not sure, set it to false. This should always work.
+				
+			useProxy:
+				If the SPARQL server has NO crossdomain.xml, set this value = true to forward all queries to the defined proxy server.
+			
+			method:
+				HTTP method for SPARQL requests. Possible values are POST and GET. POST is the default value.
+			
+			autocompleteURIs:
+				A list of properties which will be use for autocomplete search and input disambiguation process.
+				
+					autocompleteURI:
+						URI of this property. In most cases you can find the resources by their label (http://www.w3.org/2000/01/rdf-schema#label)
+						
+			autocompleteLanguage:
+				The language code, the auto complete feature will use for filtering (e.g., 'en' for English or 'de' for German). This feature is not supported by all endpoints. If you are not sure, leave it blank (default value).
+				
+			ignoredProperties:
+				Properties which should not be contained in the result graph.
+				
+					ignoredProperty:
+						URI of the property.
+				
+			abstractURIs:
+				A list of property URIs of abstracts or discriptions of the resource, which should be displayed in the info boxes, if available.  If no value for the 1st entry is found, RelFinder will try to find a value for the 2nd entry etc.
+				
+					abstractURI:
+						URI of this property.
+				
+			imageURIs:
+				A list of property URI of images which should be displayed in the info boxes, if available. If no value for the 1st entry is found, RelFinder will try to find a value for the 2nd entry etc.
+				
+					imageURI:
+						URI of this property.
+						
+			linkURIs:
+				A list of property URI of web links which should be displayed in the info boxes, if available. All will be displayed.
+				
+					linkURI:
+						URI of this property.
+						
+			maxRelationLength:
+				The maximum length of relationships RelFinder will search for.
+
+	Example:
+	<endpoint>
+	      <name>DBpedia</name>
+	      <abbreviation>dbp</abbreviation>
+	      <description>Linked Data version of Wikipedia.</description>
+	      <endpointURI>http://dbpedia.org</endpointURI>
+		  <dontAppendSPARQL>false</dontAppendSPARQL>
+	      <defaultGraphURI>http://dbpedia.org</defaultGraphURI>
+	      <isVirtuoso>true</isVirtuoso>
+	      <useProxy>false</useProxy>
+		  <method>POST</method>
+	      <autocompleteURIs>
+	        <autocompleteURI>http://www.w3.org/2000/01/rdf-schema#label</autocompleteURI>
+	      </autocompleteURIs>
+		  <autocompleteLanguage>en</autocompleteLanguage>
+	      <ignoredProperties>
+	        <ignoredProperty>http://www.w3.org/1999/02/22-rdf-syntax-ns#type</ignoredProperty>
+	        <ignoredProperty>http://www.w3.org/2004/02/skos/core#subject</ignoredProperty>
+	        <ignoredProperty>http://dbpedia.org/property/wikiPageUsesTemplate</ignoredProperty>
+	        <ignoredProperty>http://dbpedia.org/property/wordnet_type</ignoredProperty>
+	        <ignoredProperty>http://dbpedia.org/property/wikilink</ignoredProperty>
+	      </ignoredProperties>
+	      <abstractURIs>
+	        <abstractURI>http://dbpedia.org/property/abstract</abstractURI>
+	      </abstractURIs>
+	      <imageURIs>
+	        <imageURI>http://dbpedia.org/ontology/thumbnail</imageURI>
+	        <imageURI>http://xmlns.com/foaf/0.1/depiction</imageURI>
+	      </imageURIs>
+	      <linkURIs>
+	        <linkURI>http://purl.org/ontology/mo/wikipedia</linkURI>
+	        <linkURI>http://xmlns.com/foaf/0.1/homepage</linkURI>
+	        <linkURI>http://xmlns.com/foaf/0.1/page</linkURI>
+	      </linkURIs>
+	      <maxRelationLength>2</maxRelationLength>
+	    </endpoint>
+	
+-->
+
+<data>
+    <proxy>
+        <url>http://www.visualdataweb.org/relfinder/proxy.php</url>
+    </proxy>
+    <endpoints>      
+        <endpoint>
+            <name>Agronomic Linked Data (AgroLD)</name>
+            <abbreviation>agrold</abbreviation>
+            <description>The Agronomic Linked Data KB</description>
+            <endpointURI>http://volvestre.cirad.fr:8890/sparql</endpointURI>
+            <!--endpointURI>http://localhost:8890/sparql</endpointURI-->
+            <dontAppendSPARQL>true</dontAppendSPARQL>
+            <defaultGraphURI/>
+            <isVirtuoso>true</isVirtuoso>
+            <useProxy>false</useProxy>
+            <method>GET</method>
+            <autocompleteURIs>               
+                <autocompleteURI>http://www.w3.org/2000/01/rdf-schema#label</autocompleteURI>                                
+                <!--autocompleteURI>http://www.southgreen.fr/tropgene.study/</autocompleteURI-->
+            </autocompleteURIs>
+            <autocompleteLanguage/>
+            <abstractURIs>
+	        <abstractURI>http://www.southgreen.fr/agrold/vocabulary/description</abstractURI>
+	      </abstractURIs>
+            <imageURIs>
+                <imageURI>http://xmlns.com/foaf/0.1/depiction</imageURI>
+            </imageURIs>
+            <linkURIs>
+                <linkURI>http://xmlns.com/foaf/0.1/page</linkURI>
+            </linkURIs>
+            <maxRelationLength>2</maxRelationLength>
+        </endpoint>
+    </endpoints>
+</data>
