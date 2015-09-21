@@ -5,9 +5,8 @@ import urllib
 import pprint
 import re
 import os
-from riceKB.globalVars import *
-
-from riceKB.globalVars import base_vocab_ns
+from globalVars import *
+from globalVars import base_vocab_ns
 
 __author__  = "el hassouni"
 

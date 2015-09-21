@@ -1,9 +1,8 @@
 import pprint
-from riceKB.globalVars import *
-from riceKB.TropgeneParser import *
 import re
 import os
-
+from globalVars import base_vocab_ns
+from TropgeneParser import *
 __author__ = 'elhassouni'
 
 
@@ -114,8 +113,8 @@ def tropGeneToRDF(tropGene_map, output_file):
             tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
             tropGene_buffer += "\t" + rdfs_ns + "subClassOf" + "\t" + edam_ns + "data_1865" + " ;\n"
             tropGene_buffer += "\t" + base_vocab_ns + "is_located_on" + "\t" + " \"" + records['chromosome'] + "\" ;\n"
-            tropGene_buffer += "\t" + base_vocab_ns + "has_start_position" + "\t" + " \"" + records['start_position'] + "\"^^xsd:float ;\n"
-            tropGene_buffer += "\t" + base_vocab_ns + "has_end_position" + "\t" + " \"" + records['stop_position'] + "\"^^xsd:float .\n"
+            tropGene_buffer += "\t" + base_vocab_ns + "has_start_position" + "\t" + " \"" + records['start_position'] + "\"^^xsd:integer ;\n"
+            tropGene_buffer += "\t" + base_vocab_ns + "has_end_position" + "\t" + " \"" + records['stop_position'] + "\"^^xsd:integer .\n"
     rdf_writer.write(tropGene_buffer)
     print(tropGene_buffer)
 
@@ -165,8 +164,8 @@ def tropGeneToRDF(tropGene_map, output_file):
 # ---------------------------------------------------------------------------------------------------------
 pp = pprint.PrettyPrinter(indent=4)
 #
-path = '/media/elhassouni/donnees/Noeud-plante-projet/code-source/rice.csv'     # The input
-path_output = '/home/elhassouni/Bureau/RiceTropgene.ttl' # The output
+path = '/media/elhassouni/donnees/Noeud-plante-projet/code-source/test_files/tropgene/rice.csv'     # The input
+path_output = '/home/elhassouni/Bureau/Tropgene.ttl' # The output
 ds = tropGeneParser(path)   # The parsing file withe tropGeneParser()
 pp.pprint(ds)    # For to see in teminal the parsing
 
