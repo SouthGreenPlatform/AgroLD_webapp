@@ -1,16 +1,16 @@
 {
     "swagger": "2.0",
     "info": {
-        "description": "These are the documentations of the services the 1.0 version of the RESTful-like API of AgroLD available at http://volvestre.cirad.fr:8080/aldp/api/1.0",
+        "description": "This page provides information about the RESTful API (version 1.0) of AgroLD.",
         "version": "1.0",
-        "title": "AgroLD API 1.0 Interactive Documentations",
+        "title": "AgroLD API 1.0 Interactive Documentation",
         "termsOfService": "http://www.agrold.org",
         "contact": {
             "email": "tagnyngompe@gmail.com"
         },
         "license": {
             "name": "IBC Montpellier",
-            "url": "http://www.ibc-montpellier.fr/wp/wp5"
+            "url": "http://volvestre.cirad.fr:8080/agrold/about.jsp"
         }
     },
     "host": "volvestre.cirad.fr:8080",

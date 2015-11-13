@@ -76,7 +76,7 @@
                                 <ul>
                                     <li>Oryza barthii (NCBI Taxon ID: 65489)</li>
                                     <li>Oryza brachyantha (NCBI Taxon ID: 4533)</li>
-                                    <li>Oryza glaberimma (NCBI Taxon ID: 4538)</li>
+                                    <li>Oryza glaberrima (NCBI Taxon ID: 4538)</li>
                                     <li>Oryza meridionalis (NCBI Taxon ID: 40149)</li>
                                     <li>Oryza sativa (NCBI Taxon ID: 4530)
                                         <ul>

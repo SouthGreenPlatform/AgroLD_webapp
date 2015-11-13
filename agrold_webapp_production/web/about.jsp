@@ -51,7 +51,7 @@
                     </div>
                     <div>               
                         <p><b>Nordine El Hassouni,</b><br>
-                            <i>Engineer, CIRAD</i><br>
+                            <i>Engineer, INRA</i><br>
                             <em>nordine[dot]el_hassouni[at]cirad[dot]fr</em></p>
                     </div>
                     <div>               
