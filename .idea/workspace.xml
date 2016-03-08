@@ -34,13 +34,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="riceKBpipeline.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="riceKBpipeline.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AgroLD_ETL/riceKBpipeline.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.79310346">
+            <state vertical-scroll-proportion="0.0">
               <caret line="234" column="37" selection-start-line="234" selection-start-column="37" selection-end-line="234" selection-end-column="37" />
               <folding />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.7758621">
+              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
+            <state />
           </provider>
         </entry>
       </file>
@@ -135,6 +148,7 @@
         <option value="$PROJECT_DIR$/AgroLD_ETL/riceKB/os_indicaModel.py" />
         <option value="$PROJECT_DIR$/AgroLD_ETL/riceKB/sniplayPaserModel.py" />
         <option value="$PROJECT_DIR$/AgroLD_ETL/riceKBpipeline.py" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -819,10 +833,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AgroLD_ETL/riceKBpipeline.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.79310346">
+        <state vertical-scroll-proportion="0.0">
           <caret line="234" column="37" selection-start-line="234" selection-start-column="37" selection-end-line="234" selection-end-column="37" />
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7758621">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
+        <state />
       </provider>
     </entry>
   </component>
