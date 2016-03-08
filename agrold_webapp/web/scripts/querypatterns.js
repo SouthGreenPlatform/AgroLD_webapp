@@ -4,12 +4,14 @@
 var qpatterns = new Array();
 var selectedPatternIdx = 0;
 var patternlabels = ['Retrieve list of graphs', 'Search terms by label', 'List relation types in a given graph',
-    'Retrieve the local neighbourhood of Oriza sativa japonica protein: IAA16 - Auxin-responsive protein (UniProt accession:P0C127)',
-    'Retrieve genes that participate in a pathway: Calvin cycle', 'Retrieve Proteins associated with a QTL: DTHD (days to heading)',
+    'Retrieve the local neighbourhood of Oryza sativa japonica protein: <b>IAA16</b> - Auxin-responsive protein (UniProt accession:P0C127)',
+    'Identify Wheat proteins that are involved in root development.',
+    'Retrieve genes that participate in a given pathway: <b>Calvin cycle</b>', 'Retrieve Proteins associated with a given QTL: <b>DTHD</b> (days to heading)',
     'Get the ID corresponding to the ontology term "<b>homoaconitate hydratase activity</b>"', 'Get the name of the ontological element that has the ID "<b>GO:0003824</b>"',
     'Get the level <b>4</b> ancestor of <b>GO:0004409</b>', 'Get the level <b>2</b> descendence of <b>GO:0003824</b>',
-    'Get protein ids associated with the ontological id <b>GO:0003824</b>', 'Get qtl ids associated with the ontological id <b>EO:0007403</b>',
-    'Describe uniprot:P0C127'];
+    'Get protein ids associated with the ontological id <b>GO:0003824</b>', 'Get QTL ids associated with the ontological id <b>EO:0007403</b>',
+    'Describe <b>uniprot:P0C127</b>', 'Give me the genes on <b>chromosome 1</b> whose <b>start position</b> is on <b>2983</b>',
+    'Give me the genes on <b>chromosome 1</b> whose <b>start position</b> is between <b>1000 and 3000</b>'];
 qpatterns['PREFIX obo:<http://purl.obolibrary.org/obo/>\n' +
         'PREFIX vocab:<vocabulary/>\n\n' +
         'SELECT distinct ?graph\n' +
@@ -48,6 +50,58 @@ WHERE {\n\
   }\n\
  }\n\
 }'] = ["uniprot:P0C127"];
+qpatterns['PREFIX obo:<http://purl.obolibrary.org/obo/>\n\
+PREFIX taxon:<http://purl.obolibrary.org/obo/NCBITaxon_>\n\
+PREFIX uniprot:<http://purl.uniprot.org/uniprot/>\n\
+PREFIX vocab:<vocabulary/>\n\
+PREFIX graph:<protein.annotations>\n\
+\n\
+SELECT distinct ?protein ?name ?evidence ?evidence_label ?evidence_code\n\
+WHERE {\n\
+ GRAPH graph: {\n\
+    {\n\
+     ?protein vocab:taxon taxon:4565.\n\
+     ?protein rdfs:label ?name.\n\
+      {     \n\
+       ?protein ?p obo:GO_0048364.\n\
+       ?protein vocab:has_annotation ?bp.\n\
+       ?bp rdf:subject ?protein.\n\
+       ?bp rdf:object obo:GO_0048364.\n\
+       ?bp vocab:evidence_code ?evidence_code.\n\
+       ?bp vocab:evidence ?evidence.       \n\
+      } UNION {\n\
+       ?protein ?p obo:GO_2000280.\n\
+       ?bp rdf:subject ?protein.\n\
+       ?protein vocab:has_annotation ?bp. \n\
+       ?bp rdf:object obo:GO_2000280.\n\
+       ?bp vocab:evidence_code ?evidence_code.\n\
+       ?bp vocab:evidence ?evidence.\n\
+      }\n\
+    } UNION {\n\
+     ?protein vocab:taxon taxon:4572.\n\
+     ?protein rdfs:label ?name.\n\
+      {     \n\
+       ?protein ?p obo:GO_0048364.\n\
+       ?protein vocab:has_annotation ?bp.\n\
+       ?bp rdf:subject ?protein.\n\
+       ?bp rdf:object obo:GO_0048364.\n\
+       ?bp vocab:evidence_code ?evidence_code.\n\
+       ?bp vocab:evidence ?evidence.       \n\
+      } UNION {\n\
+       ?protein ?p obo:GO_2000280.\n\
+       ?protein vocab:has_annotation ?bp. \n\
+       ?bp rdf:subject ?protein.\n\
+       ?bp rdf:object obo:GO_2000280.\n\
+       ?bp vocab:evidence_code ?evidence_code.\n\
+       ?bp vocab:evidence ?evidence.               \n\
+      }    \n\
+    }\n\
+ }\n\
+    GRAPH ?g {\n\
+    ?evidence rdfs:label ?evidence_label.\n\
+\n\
+    }\n\
+}'] = [];
 qpatterns["PREFIX obo:<http://purl.obolibrary.org/obo/>\n\
 PREFIX uniprot:<http://purl.uniprot.org/uniprot/>\n\
 PREFIX vocab:<vocabulary/>\n\
@@ -182,8 +236,38 @@ OFFSET 0 # page number >= 0'] = ["EO:0007403"];
 qpatterns['PREFIX uniprot:<http://purl.uniprot.org/uniprot/>\n\
 SELECT *\n\
 WHERE{\n\
+ GRAPH ?graph{\n\
  uniprot:P0C127 ?property ?object.\n\
+ }\n\
 }'] = ["uniprot:P0C127"];
+
+qpatterns['PREFIX vocab: <vocabulary/>\n\
+PREFIX obo:<http://purl.obolibrary.org/obo/> \n\
+PREFIX chrom: <chromosome/>\n\
+SELECT DISTINCT ?genes ?taxon_name\n\
+WHERE{\n\
+?genes rdfs:subClassOf <http://purl.obolibrary.org/obo/SO_0000704>.{\n\
+?genes vocab:is_located_on chrom:01 .\n\
+?genes vocab:taxon ?taxon_name .\n\
+?genes  vocab:has_start_position  2983 .\n\
+ }\n\
+}'] = ["2983", "01"];
+
+
+qpatterns['PREFIX vocab: <vocabulary/>\n\
+PREFIX obo:<http://purl.obolibrary.org/obo/> \n\
+PREFIX chrom: <chromosome/>\n\
+SELECT DISTINCT ?genes ?start_position ?taxon_name \n\
+WHERE{\n\
+?genes rdfs:subClassOf <http://purl.obolibrary.org/obo/SO_0000704>.\n\
+?genes vocab:is_located_on chrom:01 .\n\
+?genes vocab:taxon ?taxon_name .\n\
+?genes vocab:has_start_position ?start_position .\n\
+bind(xsd:int(?start_position) as ?start)\n\
+FILTER(?start >= 1000 && ?start <= 3000)\n\
+}'] = ["01", "1000", "3000"];
+
+
 prefixes = "BASE <http://www.southgreen.fr/agrold/>\n" +
         'PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n' +
         'PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n';
@@ -195,7 +279,7 @@ function patternChange() {
 
 function selectPattern(patternIdx) {
     selectedPatternIdx = patternIdx;
-    console.log("icizzz");
+    //console.log("icizzz");
     var selectedpattern = Object.keys(qpatterns)[patternIdx];
     document.getElementById("query").value = prefixes + selectedpattern;
     yasqe.setValue(document.getElementById("query").value);
@@ -204,21 +288,38 @@ function selectPattern(patternIdx) {
     document.getElementById("parameters").innerHTML = "";
     document.getElementById("parameters").innerHTML = "";
     if (qpatterns[selectedpattern].length > 0) {
-        document.getElementById("parameters").innerHTML += "<b style=\"font-size: 15px\">Set values of parameters:</b><br>"
+        document.getElementById("parameters").innerHTML += "<b style=\"font-size: 15px\">Set values of parameters:</b> <button class=\"yasrbtn\" onclick=\"applyReplacements("+patternIdx+");\">APPLY</button><br>"
         for (i = 0; i < qpatterns[selectedpattern].length; i++) {
-            document.getElementById("parameters").innerHTML += "Replace \"" + qpatterns[selectedpattern][i] + '" by : <input class="aparameter" value="' + qpatterns[selectedpattern][i] + '" oninput="replaceParaValue(' + "/" + qpatterns[selectedpattern][i] + "/g" + ', this)" /><br>';
+            document.getElementById("parameters").innerHTML += "Replace \"" + qpatterns[selectedpattern][i] + '" by : <input class="aparameter" value="' + qpatterns[selectedpattern][i] + '" /><br>';
         }
     } else {
         document.getElementById("parameters").innerHTML = "";
     }
 }
 
-function replaceParaValue(apara, anInput) {
-    var pattern = Object.keys(qpatterns)[selectedPatternIdx];
-    var qtext = pattern.replace(apara, anInput.value);
+function applyReplacements(patternIdx){	
+    var paraInputs = document.getElementsByClassName("aparameter");
+    console.log(patternIdx);
+    var selectedpattern = Object.keys(qpatterns)[patternIdx];
+    //var qtext = prefixes + selectedpattern;
+    var qtext = selectedpattern;
+    var oldValue = "";
+    var oldValue = "";
+    var q = "";
+    var regex = "";
+    console.log(selectedpattern);
+    for (i = 0; i < paraInputs.length; i++) {
+            console.log(paraInputs[i].value);		
+            oldValue = new RegExp(qpatterns[selectedpattern][i], 'g');
+            newValue = paraInputs[i].value;
+            q = qtext.replace(oldValue, newValue);		
+            qtext = q;
+    }
+    //document.getElementById("query").value =  qtext;
     document.getElementById("query").value = prefixes + qtext;
     yasqe.setValue(document.getElementById("query").value);
 }
+
 function resetForm() {
     //var x = document.getElementById("patterns").children[0];
     //x.setAttribute("selected", "selected");

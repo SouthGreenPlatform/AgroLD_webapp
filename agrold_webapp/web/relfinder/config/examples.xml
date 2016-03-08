@@ -89,7 +89,33 @@
 			<label>Pulp Fiction</label>
 			<uri>http://data.linkedmdb.org/resource/film/77</uri>
 		</object>
-	</example-->       
+	</example-->  
+        <example>
+		<endpoint>agrold</endpoint>
+		<object>
+			<label>AT3G25570</label>
+			<uri>http://identifiers.org/ensembl.plant/AT3G25570</uri>
+		</object>
+		<object>
+			<label>spermine biosynthesis</label>
+			<uri>http://www.southgreen.fr/agrold/biocyc.pathway/ARGSPECAT-PWY</uri>
+		</object>
+		<object>
+			<label>spermidine biosynthesis</label>
+			<uri>http://www.southgreen.fr/agrold/biocyc.pathway/BSUBPOLYAMSYN-PWY</uri>
+		</object>
+	</example>
+        <example>
+		<endpoint>agrold</endpoint>
+		<object>
+			<label>RTLG</label>
+			<uri>http://purl.obolibrary.org/obo/TO_0000222</uri>
+		</object>
+		<object>
+			<label>BLE3</label>
+			<uri>http://purl.obolibrary.org/obo/NCBITaxon_590018</uri>
+		</object>
+	</example>     
         <example>
 		<endpoint>agrold</endpoint>
 		<object>

@@ -9,6 +9,19 @@ package agrold.rest.api.sparqlaccess;
  */
 public class OntologyDAO {
 
+    /**
+     * Search the ID, name, description (meaning) and URI of ontological
+     * concepts (classes) for which the keyword is found in its name, or its
+     * synonym, its description or its ID
+     *
+     * @param keyword one or several keywords (e.g. the ID EO:0007403, the term
+     * QTL or locus
+     * @param resultFormat the format in which the result will be returned (e.g.
+     * "text/tab-separated-values")
+     * @return ID, name, description (meaning) and URI of found ontological
+     * concepts
+     * @see ontologies.getOntologyTermsByKeyWord
+     */
     public static String getOntologyTermsByKeyWord(String keyword, int page, int pageSize, String resultFormat) {
         String sparqlQuery = "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "PREFIX meaning:<http://purl.obolibrary.org/obo/IAO_0000115>\n"
@@ -20,22 +33,20 @@ public class OntologyDAO {
                 + "    FROM <http://www.southgreen.fr/agrold/eo>	\n"
                 + "    FROM <http://www.southgreen.fr/agrold/pato>\n"
                 + "    FROM <http://www.southgreen.fr/agrold/po>\n"
-                + "    FROM <http://www.southgreen.fr/agrold/to>"
+                + "    FROM <http://www.southgreen.fr/agrold/to>\n"
                 + "WHERE {   \n"
-//                + "  GRAPH ?G{\n"
                 + "VALUES ?keyword {\n"
-                + "    \""+keyword+"\" \n"
+                + "    \"" + keyword + "\" \n"
                 + "  } \n"
-                + "    ?term meaning: ?description;\n"
-                + "          hasExactSynonym: ?synonym.\n"
-                + "    OPTIONAL{?term rdfs:label ?name.}\n"
+                + "    {?term meaning: ?description} UNION {BIND(\"\" AS ?description)}  \n"
+                + "    #?term hasExactSynonym: ?synonym.\n"
+                + "  {?term rdfs:label ?name.} UNION  {?term hasExactSynonym: ?name.}\n"
                 + "    #BIND(CONCAT(?synonym,\";\") AS ?Synonym)\n"
                 + "    BIND(REPLACE(str(?term), '^.*(#|/)', \"\") AS ?Localname)\n"
                 + "   	BIND(REPLACE(?Localname, \"_\", \":\") as ?Id)     \n"
-                + "    #BIND ( CONCAT(?Name, ?Id) AS ?text)    \n"
-                + "    FILTER(REGEX(?Id, ?keyword,\"i\") || REGEX(?synonym, ?keyword,\"i\") || REGEX(?description, ?keyword,\"i\"))\n"
-//                + "  }\n"
-//                + "  FILTER(REGEX(str(?G), \"o$\",\"i\"))      \n"
+                + "    BIND ( CONCAT(?description, ?name, ?Id) AS ?text)   \n"
+                + "  FILTER(REGEX(?text, ?keyword,\"i\"))\n"
+                + "    #FILTER(REGEX(?Id, ?keyword,\"i\") || REGEX(?name, ?keyword,\"i\") || REGEX(?description, ?keyword,\"i\"))\n"
                 + "}";
         sparqlQuery = APILib.addLimitAndOffset(sparqlQuery, pageSize, page);
         System.out.println(sparqlQuery);
@@ -60,6 +71,13 @@ public class OntologyDAO {
                 + "PREFIX owl: <http://www.w3.org/2002/07/owl#>\n"
                 + "\n"
                 + "SELECT DISTINCT ?id (?subject AS ?URI)\n"
+                + "FROM <http://www.southgreen.fr/agrold/so>\n"
+                + "FROM <http://www.southgreen.fr/agrold/go>\n"
+                + "FROM <http://www.southgreen.fr/agrold/eco>\n"
+                + "FROM <http://www.southgreen.fr/agrold/eo>	\n"
+                + "FROM <http://www.southgreen.fr/agrold/pato>\n"
+                + "FROM <http://www.southgreen.fr/agrold/po>\n"
+                + "FROM <http://www.southgreen.fr/agrold/to>"
                 + "WHERE { \n"
                 + " {\n"
                 + "  SELECT ?subject\n"
@@ -93,6 +111,13 @@ public class OntologyDAO {
         String sparqlQuery = "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "PREFIX owl: <http://www.w3.org/2002/07/owl#>\n"
                 + "SELECT DISTINCT ?OntoTerm  (?subject AS ?URI)\n"
+                + "FROM <http://www.southgreen.fr/agrold/so>\n"
+                + "FROM <http://www.southgreen.fr/agrold/go>\n"
+                + "FROM <http://www.southgreen.fr/agrold/eco>\n"
+                + "FROM <http://www.southgreen.fr/agrold/eo>	\n"
+                + "FROM <http://www.southgreen.fr/agrold/pato>\n"
+                + "FROM <http://www.southgreen.fr/agrold/po>\n"
+                + "FROM <http://www.southgreen.fr/agrold/to>"
                 + "WHERE { \n"
                 + " {\n"
                 + "  SELECT ?subject\n"
@@ -103,7 +128,6 @@ public class OntologyDAO {
                 + "  }\n"
                 + " }\n"
                 + " ?subject rdfs:label ?OntoTerm .\n"
-                + " ?subject a owl:Class .\n"
                 + "}  ";
         sparqlQuery = APILib.addLimitAndOffset(sparqlQuery, pageSize, page);
         System.out.println(sparqlQuery);
@@ -122,6 +146,13 @@ public class OntologyDAO {
         String sparqlQuery = "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "PREFIX owl: <http://www.w3.org/2002/07/owl#>\n"
                 + "SELECT DISTINCT ?ancestorId  (?ancestor" + i + " AS ?uri)\n"
+                + "FROM <http://www.southgreen.fr/agrold/so>\n"
+                + "FROM <http://www.southgreen.fr/agrold/go>\n"
+                + "FROM <http://www.southgreen.fr/agrold/eco>\n"
+                + "FROM <http://www.southgreen.fr/agrold/eo>	\n"
+                + "FROM <http://www.southgreen.fr/agrold/pato>\n"
+                + "FROM <http://www.southgreen.fr/agrold/po>\n"
+                + "FROM <http://www.southgreen.fr/agrold/to>"
                 + " WHERE \n"
                 + " {     \n"
                 + "  { \n"
@@ -133,7 +164,6 @@ public class OntologyDAO {
                 + "    }   \n"
                 + "  }\n"
                 + pattern
-                + "  ?ancestor" + i + " a owl:Class .\n"
                 + "   BIND(REPLACE(str(?ancestor" + i + "), '^.*(#|/)', \"\") AS ?ancestorLocalname)\n"
                 + "   BIND(REPLACE(?ancestorLocalname, \"_\", \":\") as ?ancestorId)\n"
                 + "}";
@@ -150,8 +180,14 @@ public class OntologyDAO {
             pattern += "    ?descendent" + (i + 1) + " rdfs:subClassOf ?descendent" + i + ".\n";
         }
         String sparqlQuery = "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
-                + "\n"
                 + "SELECT DISTINCT ?descendentId (?descendent" + i + " AS ?URI)\n"
+                + "    FROM <http://www.southgreen.fr/agrold/so>\n"
+                + "    FROM <http://www.southgreen.fr/agrold/go>\n"
+                + "    FROM <http://www.southgreen.fr/agrold/eco>\n"
+                + "    FROM <http://www.southgreen.fr/agrold/eo>	\n"
+                + "    FROM <http://www.southgreen.fr/agrold/pato>\n"
+                + "    FROM <http://www.southgreen.fr/agrold/po>\n"
+                + "    FROM <http://www.southgreen.fr/agrold/to>\n"
                 + " WHERE \n"
                 + " {     \n"
                 + "  { \n"
@@ -207,14 +243,13 @@ public class OntologyDAO {
                 + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "PREFIX protein: <http://purl.uniprot.org/uniprot/" + proteinId + ">\n"
                 + "SELECT DISTINCT ?Id (str(?Name) as ?Name) ?Association (?Concept AS ?URI)\n"
-                + "    FROM <http://www.southgreen.fr/agrold/so>\n"
-                + "    FROM <http://www.southgreen.fr/agrold/go>\n"
-                + "    FROM <http://www.southgreen.fr/agrold/eco>\n"
-                + "    FROM <http://www.southgreen.fr/agrold/eo>	\n"
-                + "    FROM <http://www.southgreen.fr/agrold/pato>\n"
-                + "    FROM <http://www.southgreen.fr/agrold/po>\n"
-                + "    FROM <http://www.southgreen.fr/agrold/to>\n"
-                + "    FROM <protein.annotations>\n"
+                + "FROM <http://www.southgreen.fr/agrold/so>\n"
+                + "FROM <http://www.southgreen.fr/agrold/go>\n"
+                + "FROM <http://www.southgreen.fr/agrold/eco>\n"
+                + "FROM <http://www.southgreen.fr/agrold/eo>	\n"
+                + "FROM <http://www.southgreen.fr/agrold/pato>\n"
+                + "FROM <http://www.southgreen.fr/agrold/po>\n"
+                + "FROM <http://www.southgreen.fr/agrold/to>\n"
                 + "WHERE\n"
                 + "{\n"
                 + "   protein: ?relation ?Concept.\n"
@@ -236,7 +271,7 @@ public class OntologyDAO {
         //System.out.println(extractIDfromURI("http://purl.obolibrary.org/obo/BFO_0000051"));
         //System.out.println(getAncestorById("GO:0004409", 3, "text/tab-separated-values"));
         //System.out.println(getDescendantsById("GO:0003824", 2, "text/tab-separated-values"));
-        System.out.println(getOntoTermsAssociatedWithQtl("AQA001", 0, -11, ".tsv"));
+        System.out.println(getOntoTermsAssociatedWithProtein("I1PQW3", 0, 1, ".tsv"));
         //System.out.println(getOntologyTermsByKeyWord("homoaconitate", 0, 1, ".tsv"));
     }
 }

@@ -7,21 +7,21 @@
 <div id="proteinPage">
     <div id="header"></div>
     <br><div id="geneContainer"><b style="font-size:13pt">is encoded by</b>
-        <span id="genePageBtns"><a href="javascript:void(0)" id="gene"> + </a></span>
+        <span id="genePageBtns" class="pageNavBtns"><a href="javascript:void(0)" id="gene"> + </a></span>
         <div id="geneResult"></div>            
     </div>    
     <br><div id="qtlContainer"><b style="font-size:13pt">QTL associations</b>
-        <span id="qtlPageBtns"><a href="javascript:void(0)" id="qtl"> + </a></span>
+        <span id="qtlPageBtns" class="pageNavBtns"><a href="javascript:void(0)" id="qtl"> + </a></span>
         <div id="qtlResult"></div>
     </div>
     <br><div id="ontologyContainer"><b style="font-size:13pt">Ontology associations</b>
-        <span id="ontologyPageBtns"><a href="javascript:void(0)" id="ontology"> + </a></span>
+        <span id="ontologyPageBtns" class="pageNavBtns"><a href="javascript:void(0)" id="ontology"> + </a></span>
         <div id="ontologyResult"></div>
     </div>
-    <br><div id="publicationContainer"><b style="font-size:13pt">Publication</b>
-        <span id="publicationPageBtns"><a href="javascript:void(0)" id="publication"> + </a></span>
+    <!--br><div id="publicationContainer"><b style="font-size:13pt">Publication</b>
+        <span id="publicationPageBtns" class="pageNavBtns"><a href="javascript:void(0)" id="publication"> + </a></span>
         <div id="publicationResult"></div>            
-    </div>
+    </div-->
 </div>
 <script type="text/javascript">
     var proteinUri = <% out.println("'" + request.getParameter("uri") + "'");%>;
@@ -130,8 +130,7 @@ BIND(REPLACE(str(?entity), \'^.*(#|/)\', "") AS ?Id) \
         // get PubMed Id from G-link web service
         swagger.apis.protein.getPublicationsOfProteinById({proteinId: proteinId},
         {responseContentType: 'application/json'}, function (data) {
-            //console.log(data.data);
-            removeHoldMessage("publicationResult");
+            //console.log(data.data);            
             json = data.obj;
             displayPublications(json, "publicationResult");
             /*console.log(json);

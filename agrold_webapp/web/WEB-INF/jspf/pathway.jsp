@@ -7,7 +7,7 @@
 <div id="pathwayPage">
     <div id="header"></div>
     <br><div id="geneContainer"><b style="font-size:13pt">Participating genes</b>
-        <span id="genePageBtns"><a href="javascript:void(0)" id="gene"> + </a></span>
+        <span id="genePageBtns" class="pageNavBtns"><a href="javascript:void(0)" id="gene"> + </a></span>
         <div id="geneResult"></div>            
     </div>    
 </div>

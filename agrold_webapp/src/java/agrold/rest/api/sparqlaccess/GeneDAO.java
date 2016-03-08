@@ -17,7 +17,6 @@ public class GeneDAO {
     public static String getGenes(int page, int pageSize, String resultFormat) {
         //return "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>" + "<genes> Hello Jersey" + "</genes>";
         String genes = "";
-
         String sparqlQuery = "prefix	agrold:<http://www.southgreen.fr/agrold/vocabulary/> \n"
                 + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "SELECT distinct ?gene ?geneId ?geneName ?geneDescription\n"
@@ -32,6 +31,7 @@ public class GeneDAO {
 
         genes = APILib.executeSparqlQuery(sparqlQuery, APILib.sparqlEndpointURL, resultFormat);
         return genes;
+        
     }
 
     // return genes participating in a pathway given its local name (Id)
@@ -81,6 +81,39 @@ public class GeneDAO {
 
         String result = APILib.executeSparqlQuery(sparqlQuery, APILib.sparqlEndpointURL, resultFormat);
         return result;
+    }
+    
+    public static String getCDSGene(int page, int pageSize, String resultFormat){
+        //return "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>" + "<genes> Hello Jersey" + "</genes>";
+        
+        String sparqlQuery = "BASE <http://www.southgreen.fr/agrold/>\n"            
+               + "PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
+               + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
+               + "PREFIX obo:<http://purl.obolibrary.org/obo/>\n"
+               + "PREFIX uniprot:<http://purl.uniprot.org/uniprot/>\n"
+               + "PREFIX vocab:<vocabulary/>\n"
+               + "PREFIX graph:<protein.annotations>\n"
+               + "PREFIX id:<http://identifiers.org/ensembl.plant/BGIOSGA000040>\n"
+               + "SELECT COUNT distinct  ?cds #?st ?end ?chrm \n"
+               + "WHERE {\n"
+               + "GRAPH ?g {\n"
+               + "#id: rdfs:subClassOf obo:SO_0000704 .\n"
+               + "?mrna rdfs:subClassOf obo:SO_0000234 .\n"
+               + "?mrna ?p id: .\n"
+               + "?cds ?p2 ?mrna.\n"
+               + "?cds rdfs:subClassOf obo:SO_0000316 .\n"
+               + "?cds vocab:has_start_position ?st .\n"
+               + "?cds vocab:has_end_position ?end .\n"
+               + "?cds vocab:is_located_on ?chrm.\n"
+               + "} \n"
+               + "}";
+        
+        sparqlQuery = APILib.addLimitAndOffset(sparqlQuery, pageSize, page);
+        System.out.println(sparqlQuery);
+
+        String result = APILib.executeSparqlQuery(sparqlQuery, APILib.sparqlEndpointURL, resultFormat);
+        return result;
+              
     }
 
     public static void main(String[] args) {

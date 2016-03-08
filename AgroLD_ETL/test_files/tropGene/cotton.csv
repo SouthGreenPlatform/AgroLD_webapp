@@ -1,0 +1,647 @@
+"qtl_name";;"qtl_id";;"start_position";;"stop_position";;"chromosome";;"mapfeature_id";;"study_name";;"study_id";;"trait_name";;"trait_ontology_name";;"trait_ontology_id";;"trait_description";;"trait_id_of_tropgene";;"population_name";;"population_id"
+"LD_BC2_c1";;"1";;"214.10";;"215.10";;"c1";;"938";;"Lacape and Nguyen (2005)";;"8";;"hairiness trichome density";;NULL;;NULL;;NULL;;"1";;NULL;;NULL
+"UHML_BC2_c1";;"2";;"215.20";;"216.20";;"c1";;"939";;"Lacape et al (2005)";;"9";;"fiber upper half mean length";;NULL;;NULL;;NULL;;"2";;NULL;;NULL
+"ELO_BC1_c15";;"3";;"115.40";;"116.40";;"c15";;"1151";;"Lacape et al (2005)";;"9";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"MR_BC2_c2";;"4";;"162.80";;"163.80";;"c2";;"1330";;"Lacape et al (2005)";;"9";;"fiber maturity ratio";;NULL;;NULL;;NULL;;"4";;NULL;;NULL
+"ML_BC2S1_c14";;"5";;"37.50";;"52.50";;"c14";;"1101";;"Lacape et al (2005)";;"9";;"fiber mean length";;NULL;;NULL;;NULL;;"5";;NULL;;NULL
+"UI_BC2S1_c14";;"6";;"81.80";;"82.80";;"c14";;"1102";;"Lacape et al (2005)";;"9";;"fiber length uniformity";;NULL;;NULL;;NULL;;"6";;NULL;;NULL
+"ML_BC1_c3";;"7";;"127.50";;"128.50";;"c3";;"1627";;"Lacape et al (2005)";;"9";;"fiber mean length";;NULL;;NULL;;NULL;;"5";;NULL;;NULL
+"UHML_BC1_c3";;"8";;"120.00";;"132.00";;"c3";;"1628";;"Lacape et al (2005)";;"9";;"fiber upper half mean length";;NULL;;NULL;;NULL;;"2";;NULL;;NULL
+"STR_BC1_c3";;"9";;"80.50";;"100.50";;"c3";;"1629";;"Lacape et al (2005)";;"9";;"fiber strength";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"Hs_BC1_c3";;"10";;"127.50";;"128.50";;"c3";;"1630";;"Lacape et al (2005)";;"9";;"fiber standard fineness";;NULL;;NULL;;NULL;;"8";;NULL;;NULL
+"IM_BC2_c3";;"11";;"31.40";;"38.40";;"c3";;"1631";;"Lacape et al (2005)";;"9";;"fiber micronaire reading";;NULL;;NULL;;NULL;;"9";;NULL;;NULL
+"MR_BC2_c3";;"12";;"28.70";;"36.70";;"c3";;"1632";;"Lacape et al (2005)";;"9";;"fiber maturity ratio";;NULL;;NULL;;NULL;;"4";;NULL;;NULL
+"ML_BC2S1_c3";;"13";;"54.60";;"55.60";;"c3";;"1633";;"Lacape et al (2005)";;"9";;"fiber mean length";;NULL;;NULL;;NULL;;"5";;NULL;;NULL
+"UHML_BC2S1_c3";;"14";;"53.10";;"67.10";;"c3";;"1634";;"Lacape et al (2005)";;"9";;"fiber upper half mean length";;NULL;;NULL;;NULL;;"2";;NULL;;NULL
+"IM_BC2S1_c3";;"15";;"46.10";;"71.10";;"c3";;"1635";;"Lacape et al (2005)";;"9";;"fiber micronaire reading";;NULL;;NULL;;NULL;;"9";;NULL;;NULL
+"H_BC2S1_c3";;"16";;"48.10";;"75.10";;"c3";;"1636";;"Lacape et al (2005)";;"9";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"b_BC2S1_c3";;"17";;"-0.50";;"0.50";;"c3";;"1637";;"Lacape et al (2005)";;"9";;"fiber yellowness index";;NULL;;NULL;;NULL;;"11";;NULL;;NULL
+"ELO_BC1_c17_1";;"18";;"28.90";;"31.90";;"c17";;"1219";;"Lacape et al (2005)";;"9";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"ELO_BC1_c17_2";;"19";;"43.90";;"48.90";;"c17";;"1220";;"Lacape et al (2005)";;"9";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"LS_BC1_c17";;"20";;"22.50";;"23.50";;"c17";;"1221";;"Lacape and Nguyen (2005)";;"8";;"hairiness leaf score";;NULL;;NULL;;NULL;;"12";;NULL;;NULL
+"Rd_BC2_c17";;"21";;"43.30";;"46.30";;"c17";;"1222";;"Lacape et al (2005)";;"9";;"fiber reflectance";;NULL;;NULL;;NULL;;"13";;NULL;;NULL
+"Hs_BC2_c4";;"22";;"113.40";;"114.40";;"c4";;"1676";;"Lacape et al (2005)";;"9";;"fiber standard fineness";;NULL;;NULL;;NULL;;"8";;NULL;;NULL
+"ELO_BC1_c22";;"23";;"12.40";;"34.40";;"c22";;"1417";;"Lacape et al (2005)";;"9";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"IM_BC2_c22";;"24";;"130.30";;"131.30";;"c22";;"1418";;"Lacape et al (2005)";;"9";;"fiber micronaire reading";;NULL;;NULL;;NULL;;"9";;NULL;;NULL
+"MR_BC2_c22";;"25";;"130.30";;"131.30";;"c22";;"1419";;"Lacape et al (2005)";;"9";;"fiber maturity ratio";;NULL;;NULL;;NULL;;"4";;NULL;;NULL
+"ML_BC1_c5";;"26";;"28.00";;"29.00";;"c5";;"1738";;"Lacape et al (2005)";;"9";;"fiber mean length";;NULL;;NULL;;NULL;;"5";;NULL;;NULL
+"UHML_BC1_c5_1";;"27";;"26.30";;"43.30";;"c5";;"1739";;"Lacape et al (2005)";;"9";;"fiber upper half mean length";;NULL;;NULL;;NULL;;"2";;NULL;;NULL
+"UHML_BC1_c5_2";;"28";;"258.00";;"259.00";;"c5";;"1740";;"Lacape et al (2005)";;"9";;"fiber upper half mean length";;NULL;;NULL;;NULL;;"2";;NULL;;NULL
+"STR_BC1_c5";;"29";;"83.30";;"108.30";;"c5";;"1741";;"Lacape et al (2005)";;"9";;"fiber strength";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"Hs_BC1_c5";;"30";;"18.50";;"37.50";;"c5";;"1742";;"Lacape et al (2005)";;"9";;"fiber standard fineness";;NULL;;NULL;;NULL;;"8";;NULL;;NULL
+"STR_BC2S1_c5";;"31";;"255.30";;"256.30";;"c5";;"1743";;"Lacape et al (2005)";;"9";;"fiber strength";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"MR_BC2S1_c5";;"32";;"176.90";;"177.90";;"c5";;"1744";;"Lacape et al (2005)";;"9";;"fiber maturity ratio";;NULL;;NULL;;NULL;;"4";;NULL;;NULL
+"Hs_BC2S1_c5";;"33";;"325.80";;"347.80";;"c5";;"1745";;"Lacape et al (2005)";;"9";;"fiber standard fineness";;NULL;;NULL;;NULL;;"8";;NULL;;NULL
+"IM_BC1_D08";;"34";;"114.00";;"115.00";;"D08";;"2091";;"Lacape et al (2005)";;"9";;"fiber micronaire reading";;NULL;;NULL;;NULL;;"9";;NULL;;NULL
+"Hs_BC1_D08";;"35";;"47.10";;"48.10";;"D08";;"2092";;"Lacape et al (2005)";;"9";;"fiber standard fineness";;NULL;;NULL;;NULL;;"8";;NULL;;NULL
+"UI_BC2_D08";;"36";;"118.00";;"119.00";;"D08";;"2093";;"Lacape et al (2005)";;"9";;"fiber length uniformity";;NULL;;NULL;;NULL;;"6";;NULL;;NULL
+"ELO_BC2_D08";;"37";;"195.80";;"198.80";;"D08";;"2094";;"Lacape et al (2005)";;"9";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"Rd_BC2_D08";;"38";;"90.70";;"91.70";;"D08";;"2095";;"Lacape et al (2005)";;"9";;"fiber reflectance";;NULL;;NULL;;NULL;;"13";;NULL;;NULL
+"ELO_BC2S1_D08";;"39";;"192.70";;"194.70";;"D08";;"2096";;"Lacape et al (2005)";;"9";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"IM_BC2S1_D08";;"40";;"16.80";;"17.80";;"D08";;"2097";;"Lacape et al (2005)";;"9";;"fiber micronaire reading";;NULL;;NULL;;NULL;;"9";;NULL;;NULL
+"H_BC2S1_D08";;"41";;"21.50";;"33.50";;"D08";;"2098";;"Lacape et al (2005)";;"9";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"Hs_BC2S1_D08";;"42";;"196.30";;"197.30";;"D08";;"2099";;"Lacape et al (2005)";;"9";;"fiber standard fineness";;NULL;;NULL;;NULL;;"8";;NULL;;NULL
+"Rd_BC2S1_D08";;"43";;"194.80";;"197.80";;"D08";;"2100";;"Lacape et al (2005)";;"9";;"fiber reflectance";;NULL;;NULL;;NULL;;"13";;NULL;;NULL
+"IM_BC1_c6";;"44";;"0.00";;"4.00";;"c6";;"1793";;"Lacape et al (2005)";;"9";;"fiber micronaire reading";;NULL;;NULL;;NULL;;"9";;NULL;;NULL
+"MR_BC1_c6";;"45";;"0.00";;"6.00";;"c6";;"1794";;"Lacape et al (2005)";;"9";;"fiber maturity ratio";;NULL;;NULL;;NULL;;"4";;NULL;;NULL
+"H_BC1_c6_1";;"46";;"140.10";;"143.10";;"c6";;"1795";;"Lacape et al (2005)";;"9";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"H_BC1_c6_2";;"47";;"274.10";;"289.10";;"c6";;"1796";;"Lacape et al (2005)";;"9";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"Rd_BC1_c6";;"48";;"125.30";;"126.30";;"c6";;"1797";;"Lacape et al (2005)";;"9";;"fiber reflectance";;NULL;;NULL;;NULL;;"13";;NULL;;NULL
+"b_BC1_c6";;"49";;"117.80";;"128.80";;"c6";;"1798";;"Lacape et al (2005)";;"9";;"fiber yellowness index";;NULL;;NULL;;NULL;;"11";;NULL;;NULL
+"LS_BC1_c6";;"50";;"144.00";;"149.00";;"c6";;"1799";;"Lacape and Nguyen (2005)";;"8";;"hairiness leaf score";;NULL;;NULL;;NULL;;"12";;NULL;;NULL
+"SS_BC1_c6";;"51";;"138.10";;"139.10";;"c6";;"1800";;"Lacape and Nguyen (2005)";;"8";;"hairiness stem score";;NULL;;NULL;;NULL;;"14";;NULL;;NULL
+"LD_BC1_c6";;"52";;"139.00";;"154.00";;"c6";;"1801";;"Lacape and Nguyen (2005)";;"8";;"hairiness trichome density";;NULL;;NULL;;NULL;;"1";;NULL;;NULL
+"LD_BC2_c6";;"53";;"136.60";;"149.60";;"c6";;"1802";;"Lacape and Nguyen (2005)";;"8";;"hairiness trichome density";;NULL;;NULL;;NULL;;"1";;NULL;;NULL
+"UHML_BC2_c6";;"54";;"138.10";;"139.10";;"c6";;"1803";;"Lacape et al (2005)";;"9";;"fiber upper half mean length";;NULL;;NULL;;NULL;;"2";;NULL;;NULL
+"UI_BC2_c6";;"55";;"10.60";;"11.60";;"c6";;"1804";;"Lacape et al (2005)";;"9";;"fiber length uniformity";;NULL;;NULL;;NULL;;"6";;NULL;;NULL
+"b_BC2_c6";;"56";;"10.60";;"11.60";;"c6";;"1805";;"Lacape et al (2005)";;"9";;"fiber yellowness index";;NULL;;NULL;;NULL;;"11";;NULL;;NULL
+"H_BC2S1_c6";;"57";;"154.40";;"155.40";;"c6";;"1806";;"Lacape et al (2005)";;"9";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"Hs_BC2S1_c6";;"58";;"132.90";;"176.90";;"c6";;"1807";;"Lacape et al (2005)";;"9";;"fiber standard fineness";;NULL;;NULL;;NULL;;"8";;NULL;;NULL
+"Rd_BC1_c25";;"59";;"64.30";;"75.30";;"c25";;"1523";;"Lacape et al (2005)";;"9";;"fiber reflectance";;NULL;;NULL;;NULL;;"13";;NULL;;NULL
+"b_BC1_c25";;"60";;"62.30";;"75.30";;"c25";;"1524";;"Lacape et al (2005)";;"9";;"fiber yellowness index";;NULL;;NULL;;NULL;;"11";;NULL;;NULL
+"ML_BC2_c25";;"61";;"39.40";;"63.40";;"c25";;"1525";;"Lacape et al (2005)";;"9";;"fiber mean length";;NULL;;NULL;;NULL;;"5";;NULL;;NULL
+"STR_BC2_c25";;"62";;"46.90";;"47.90";;"c25";;"1526";;"Lacape et al (2005)";;"9";;"fiber strength";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"Hs_BC2_c25";;"63";;"-0.50";;"0.50";;"c25";;"1527";;"Lacape et al (2005)";;"9";;"fiber standard fineness";;NULL;;NULL;;NULL;;"8";;NULL;;NULL
+"b_BC2_c25";;"64";;"62.20";;"63.20";;"c25";;"1528";;"Lacape et al (2005)";;"9";;"fiber yellowness index";;NULL;;NULL;;NULL;;"11";;NULL;;NULL
+"UHML_BC2S1_c25";;"65";;"-0.50";;"0.50";;"c25";;"1529";;"Lacape et al (2005)";;"9";;"fiber upper half mean length";;NULL;;NULL;;NULL;;"2";;NULL;;NULL
+"Rd_BC2S1_c25";;"66";;"48.70";;"71.70";;"c25";;"1530";;"Lacape et al (2005)";;"9";;"fiber reflectance";;NULL;;NULL;;NULL;;"13";;NULL;;NULL
+"b_BC2S1_c25";;"67";;"55.70";;"72.70";;"c25";;"1531";;"Lacape et al (2005)";;"9";;"fiber yellowness index";;NULL;;NULL;;NULL;;"11";;NULL;;NULL
+"Rd_BC2S1_c7";;"68";;"131.40";;"132.40";;"c7";;"1862";;"Lacape et al (2005)";;"9";;"fiber reflectance";;NULL;;NULL;;NULL;;"13";;NULL;;NULL
+"ELO_BC1_c16";;"69";;"22.20";;"29.20";;"c16";;"1181";;"Lacape et al (2005)";;"9";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"Rd_BC2_c16";;"70";;"118.90";;"119.90";;"c16";;"1182";;"Lacape et al (2005)";;"9";;"fiber reflectance";;NULL;;NULL;;NULL;;"13";;NULL;;NULL
+"STR_BC2S1_c16";;"71";;"122.00";;"145.00";;"c16";;"1183";;"Lacape et al (2005)";;"9";;"fiber strength";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"H_BC2S1_c16";;"72";;"126.90";;"167.90";;"c16";;"1184";;"Lacape et al (2005)";;"9";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"Hs_BC2S1_c16";;"73";;"147.40";;"148.40";;"c16";;"1185";;"Lacape et al (2005)";;"9";;"fiber standard fineness";;NULL;;NULL;;NULL;;"8";;NULL;;NULL
+"Rd_BC1_c9";;"74";;"311.70";;"312.70";;"c9";;"1913";;"Lacape et al (2005)";;"9";;"fiber reflectance";;NULL;;NULL;;NULL;;"13";;NULL;;NULL
+"b_BC1_c9";;"75";;"308.20";;"314.20";;"c9";;"1914";;"Lacape et al (2005)";;"9";;"fiber yellowness index";;NULL;;NULL;;NULL;;"11";;NULL;;NULL
+"Hs_BC2_c9";;"76";;"256.90";;"257.90";;"c9";;"1915";;"Lacape et al (2005)";;"9";;"fiber standard fineness";;NULL;;NULL;;NULL;;"8";;NULL;;NULL
+"b_BC2_c9";;"77";;"256.90";;"257.90";;"c9";;"1916";;"Lacape et al (2005)";;"9";;"fiber yellowness index";;NULL;;NULL;;NULL;;"11";;NULL;;NULL
+"ELO_BC2S1_c9";;"78";;"215.00";;"216.00";;"c9";;"1917";;"Lacape et al (2005)";;"9";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"Rd_BC2S1_c9";;"79";;"229.40";;"259.40";;"c9";;"1918";;"Lacape et al (2005)";;"9";;"fiber reflectance";;NULL;;NULL;;NULL;;"13";;NULL;;NULL
+"STR_BC1_c23";;"80";;"172.60";;"173.60";;"c23";;"1467";;"Lacape et al (2005)";;"9";;"fiber strength";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"ML_BC2_c23";;"81";;"173.90";;"174.90";;"c23";;"1468";;"Lacape et al (2005)";;"9";;"fiber mean length";;NULL;;NULL;;NULL;;"5";;NULL;;NULL
+"STR_BC2_c23_1";;"82";;"106.30";;"107.30";;"c23";;"1469";;"Lacape et al (2005)";;"9";;"fiber strength";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"STR_BC2_c23_2";;"83";;"163.40";;"182.40";;"c23";;"1470";;"Lacape et al (2005)";;"9";;"fiber strength";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"ELO_BC2_c23";;"84";;"71.50";;"78.50";;"c23";;"1471";;"Lacape et al (2005)";;"9";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"IM_BC2_c23";;"85";;"173.90";;"174.90";;"c23";;"1472";;"Lacape et al (2005)";;"9";;"fiber micronaire reading";;NULL;;NULL;;NULL;;"9";;NULL;;NULL
+"STR_BC2S1_c23";;"86";;"152.30";;"168.30";;"c23";;"1473";;"Lacape et al (2005)";;"9";;"fiber strength";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"Rd_BC2S1_c23";;"87";;"94.80";;"110.80";;"c23";;"1474";;"Lacape et al (2005)";;"9";;"fiber reflectance";;NULL;;NULL;;NULL;;"13";;NULL;;NULL
+"b_BC2S1_c23";;"88";;"106.30";;"107.30";;"c23";;"1475";;"Lacape et al (2005)";;"9";;"fiber yellowness index";;NULL;;NULL;;NULL;;"11";;NULL;;NULL
+"IM_BC1_c10";;"89";;"-0.10";;"19.90";;"c10";;"987";;"Lacape et al (2005)";;"9";;"fiber micronaire reading";;NULL;;NULL;;NULL;;"9";;NULL;;NULL
+"ML_BC2_c10";;"90";;"112.30";;"113.30";;"c10";;"988";;"Lacape et al (2005)";;"9";;"fiber mean length";;NULL;;NULL;;NULL;;"5";;NULL;;NULL
+"ELO_BC2_c10";;"91";;"109.80";;"118.80";;"c10";;"989";;"Lacape et al (2005)";;"9";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"Hs_BC2S1_c10";;"92";;"89.20";;"90.20";;"c10";;"990";;"Lacape et al (2005)";;"9";;"fiber standard fineness";;NULL;;NULL;;NULL;;"8";;NULL;;NULL
+"b_BC2S1_c10";;"93";;"84.70";;"95.70";;"c10";;"991";;"Lacape et al (2005)";;"9";;"fiber yellowness index";;NULL;;NULL;;NULL;;"11";;NULL;;NULL
+"ML_BC2_c20";;"94";;"263.10";;"264.10";;"c20";;"1378";;"Lacape et al (2005)";;"9";;"fiber mean length";;NULL;;NULL;;NULL;;"5";;NULL;;NULL
+"UHML_BC2_c20";;"95";;"263.10";;"264.10";;"c20";;"1379";;"Lacape et al (2005)";;"9";;"fiber upper half mean length";;NULL;;NULL;;NULL;;"2";;NULL;;NULL
+"UI_BC2_c20";;"96";;"119.60";;"120.60";;"c20";;"1380";;"Lacape et al (2005)";;"9";;"fiber length uniformity";;NULL;;NULL;;NULL;;"6";;NULL;;NULL
+"ELO_BC2_c20";;"97";;"116.10";;"123.10";;"c20";;"1381";;"Lacape et al (2005)";;"9";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"UI_BC2S1_c20";;"98";;"119.60";;"120.60";;"c20";;"1382";;"Lacape et al (2005)";;"9";;"fiber length uniformity";;NULL;;NULL;;NULL;;"6";;NULL;;NULL
+"ELO_BC2S1_c20";;"99";;"89.50";;"108.50";;"c20";;"1383";;"Lacape et al (2005)";;"9";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"H_BC2S1_c20_1";;"100";;"134.70";;"135.70";;"c20";;"1384";;"Lacape et al (2005)";;"9";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"H_BC2S1_c20_2";;"101";;"139.00";;"157.00";;"c20";;"1385";;"Lacape et al (2005)";;"9";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"UHML_BC2_c26";;"102";;"56.70";;"98.70";;"c26";;"1572";;"Lacape et al (2005)";;"9";;"fiber upper half mean length";;NULL;;NULL;;NULL;;"2";;NULL;;NULL
+"b_BC2_c26";;"103";;"86.20";;"87.20";;"c26";;"1573";;"Lacape et al (2005)";;"9";;"fiber yellowness index";;NULL;;NULL;;NULL;;"11";;NULL;;NULL
+"ML_BC2S1_c26_1";;"104";;"66.60";;"67.60";;"c26";;"1574";;"Lacape et al (2005)";;"9";;"fiber mean length";;NULL;;NULL;;NULL;;"5";;NULL;;NULL
+"ML_BC2S1_c26_2";;"105";;"86.20";;"87.20";;"c26";;"1575";;"Lacape et al (2005)";;"9";;"fiber mean length";;NULL;;NULL;;NULL;;"5";;NULL;;NULL
+"UHML_BC2S1_c26";;"106";;"133.30";;"138.30";;"c26";;"1576";;"Lacape et al (2005)";;"9";;"fiber upper half mean length";;NULL;;NULL;;NULL;;"2";;NULL;;NULL
+"b_BC2S1_c26";;"107";;"66.60";;"67.60";;"c26";;"1577";;"Lacape et al (2005)";;"9";;"fiber yellowness index";;NULL;;NULL;;NULL;;"11";;NULL;;NULL
+"LD_BC1_A01";;"108";;"132.90";;"149.90";;"A01";;"751";;"Lacape and Nguyen (2005)";;"8";;"hairiness trichome density";;NULL;;NULL;;NULL;;"1";;NULL;;NULL
+"LD_BC2_A01";;"109";;"139.30";;"146.30";;"A01";;"752";;"Lacape and Nguyen (2005)";;"8";;"hairiness trichome density";;NULL;;NULL;;NULL;;"1";;NULL;;NULL
+"ML_BC2_A01";;"110";;"40.70";;"46.70";;"A01";;"753";;"Lacape et al (2005)";;"9";;"fiber mean length";;NULL;;NULL;;NULL;;"5";;NULL;;NULL
+"UHML_BC2_A01";;"111";;"40.70";;"48.70";;"A01";;"754";;"Lacape et al (2005)";;"9";;"fiber upper half mean length";;NULL;;NULL;;NULL;;"2";;NULL;;NULL
+"Rd_BC2_A01";;"112";;"146.50";;"147.50";;"A01";;"755";;"Lacape et al (2005)";;"9";;"fiber reflectance";;NULL;;NULL;;NULL;;"13";;NULL;;NULL
+"ML_BC2S1_A01";;"113";;"40.20";;"41.20";;"A01";;"756";;"Lacape et al (2005)";;"9";;"fiber mean length";;NULL;;NULL;;NULL;;"5";;NULL;;NULL
+"UHML_BC2S1_A01";;"114";;"37.60";;"63.60";;"A01";;"757";;"Lacape et al (2005)";;"9";;"fiber upper half mean length";;NULL;;NULL;;NULL;;"2";;NULL;;NULL
+"STR_BC2S1_A01";;"115";;"175.50";;"176.50";;"A01";;"758";;"Lacape et al (2005)";;"9";;"fiber strength";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"MR_BC1_c18";;"116";;"23.70";;"35.70";;"c18";;"1269";;"Lacape et al (2005)";;"9";;"fiber maturity ratio";;NULL;;NULL;;NULL;;"4";;NULL;;NULL
+"Hs_BC1_c18";;"117";;"43.10";;"44.10";;"c18";;"1270";;"Lacape et al (2005)";;"9";;"fiber standard fineness";;NULL;;NULL;;NULL;;"8";;NULL;;NULL
+"ML_BC2_c18";;"118";;"143.30";;"148.30";;"c18";;"1271";;"Lacape et al (2005)";;"9";;"fiber mean length";;NULL;;NULL;;NULL;;"5";;NULL;;NULL
+"UI_BC2_c18_1";;"119";;"98.70";;"104.70";;"c18";;"1272";;"Lacape et al (2005)";;"9";;"fiber length uniformity";;NULL;;NULL;;NULL;;"6";;NULL;;NULL
+"UI_BC2_c18_2";;"120";;"79.70";;"131.70";;"c18";;"1273";;"Lacape et al (2005)";;"9";;"fiber length uniformity";;NULL;;NULL;;NULL;;"6";;NULL;;NULL
+"STR_BC2_c18";;"121";;"109.20";;"110.20";;"c18";;"1274";;"Lacape et al (2005)";;"9";;"fiber strength";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"Rd_BC2_c18";;"122";;"142.80";;"143.80";;"c18";;"1275";;"Lacape et al (2005)";;"9";;"fiber reflectance";;NULL;;NULL;;NULL;;"13";;NULL;;NULL
+"b_BC2_c18";;"123";;"109.20";;"110.20";;"c18";;"1276";;"Lacape et al (2005)";;"9";;"fiber yellowness index";;NULL;;NULL;;NULL;;"11";;NULL;;NULL
+"UI_BC2S1_c18";;"124";;"57.70";;"71.70";;"c18";;"1277";;"Lacape et al (2005)";;"9";;"fiber length uniformity";;NULL;;NULL;;NULL;;"6";;NULL;;NULL
+"STR_BC2S1_c18";;"125";;"47.20";;"59.20";;"c18";;"1278";;"Lacape et al (2005)";;"9";;"fiber strength";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"MR_BC2S1_c18";;"126";;"25.20";;"26.20";;"c18";;"1279";;"Lacape et al (2005)";;"9";;"fiber maturity ratio";;NULL;;NULL;;NULL;;"4";;NULL;;NULL
+"Rd_BC2S1_c18";;"127";;"142.80";;"143.80";;"c18";;"1280";;"Lacape et al (2005)";;"9";;"fiber reflectance";;NULL;;NULL;;NULL;;"13";;NULL;;NULL
+"IM_BC1_A02";;"128";;"171.60";;"175.60";;"A02";;"824";;"Lacape et al (2005)";;"9";;"fiber micronaire reading";;NULL;;NULL;;NULL;;"9";;NULL;;NULL
+"MR_BC1_A02";;"129";;"168.60";;"179.60";;"A02";;"825";;"Lacape et al (2005)";;"9";;"fiber maturity ratio";;NULL;;NULL;;NULL;;"4";;NULL;;NULL
+"Rd_BC2S1_A02";;"130";;"176.60";;"179.60";;"A02";;"826";;"Lacape et al (2005)";;"9";;"fiber reflectance";;NULL;;NULL;;NULL;;"13";;NULL;;NULL
+"b_BC2S1_A02";;"131";;"178.90";;"191.90";;"A02";;"827";;"Lacape et al (2005)";;"9";;"fiber yellowness index";;NULL;;NULL;;NULL;;"11";;NULL;;NULL
+"Rd_BC1_D03";;"132";;"41.30";;"58.30";;"D03";;"2021";;"Lacape et al (2005)";;"9";;"fiber reflectance";;NULL;;NULL;;NULL;;"13";;NULL;;NULL
+"b_BC1_D03";;"133";;"39.00";;"47.00";;"D03";;"2022";;"Lacape et al (2005)";;"9";;"fiber yellowness index";;NULL;;NULL;;NULL;;"11";;NULL;;NULL
+"LS_BC1_D03";;"134";;"130.80";;"151.80";;"D03";;"2023";;"Lacape and Nguyen (2005)";;"8";;"hairiness leaf score";;NULL;;NULL;;NULL;;"12";;NULL;;NULL
+"SS_BC1_D03";;"135";;"136.80";;"149.80";;"D03";;"2024";;"Lacape and Nguyen (2005)";;"8";;"hairiness stem score";;NULL;;NULL;;NULL;;"14";;NULL;;NULL
+"IM_BC2S1_D03";;"136";;"29.00";;"49.00";;"D03";;"2025";;"Lacape et al (2005)";;"9";;"fiber micronaire reading";;NULL;;NULL;;NULL;;"9";;NULL;;NULL
+"H_BC2S1_D03";;"137";;"27.00";;"44.00";;"D03";;"2026";;"Lacape et al (2005)";;"9";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"Hs_BC2S1_D03";;"138";;"51.50";;"67.50";;"D03";;"2027";;"Lacape et al (2005)";;"9";;"fiber standard fineness";;NULL;;NULL;;NULL;;"8";;NULL;;NULL
+"UI_BC1_A03";;"139";;"216.50";;"217.50";;"A03";;"899";;"Lacape et al (2005)";;"9";;"fiber length uniformity";;NULL;;NULL;;NULL;;"6";;NULL;;NULL
+"STR_BC2_A03";;"140";;"216.50";;"217.50";;"A03";;"900";;"Lacape et al (2005)";;"9";;"fiber strength";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"b_BC2_A03";;"141";;"69.20";;"70.20";;"A03";;"901";;"Lacape et al (2005)";;"9";;"fiber yellowness index";;NULL;;NULL;;NULL;;"11";;NULL;;NULL
+"LS_BC1_D02_1";;"142";;"30.80";;"31.80";;"D02";;"1969";;"Lacape and Nguyen (2005)";;"8";;"hairiness leaf score";;NULL;;NULL;;NULL;;"12";;NULL;;NULL
+"LS_BC1_D02_2";;"143";;"277.00";;"278.00";;"D02";;"1970";;"Lacape and Nguyen (2005)";;"8";;"hairiness leaf score";;NULL;;NULL;;NULL;;"12";;NULL;;NULL
+"LD_BC2_D02";;"144";;"189.30";;"201.30";;"D02";;"1971";;"Lacape and Nguyen (2005)";;"8";;"hairiness trichome density";;NULL;;NULL;;NULL;;"1";;NULL;;NULL
+"ML_BC2_D02";;"145";;"194.80";;"195.80";;"D02";;"1972";;"Lacape et al (2005)";;"9";;"fiber mean length";;NULL;;NULL;;NULL;;"5";;NULL;;NULL
+"UHML_BC2_D02";;"146";;"194.80";;"195.80";;"D02";;"1973";;"Lacape et al (2005)";;"9";;"fiber upper half mean length";;NULL;;NULL;;NULL;;"2";;NULL;;NULL
+"STR_BC2_D02";;"147";;"187.30";;"203.30";;"D02";;"1974";;"Lacape et al (2005)";;"9";;"fiber strength";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"IM_BC2_D02";;"148";;"122.50";;"123.50";;"D02";;"1975";;"Lacape et al (2005)";;"9";;"fiber micronaire reading";;NULL;;NULL;;NULL;;"9";;NULL;;NULL
+"UI_BC1_NL5";;"149";;"37.20";;"49.20";;"NL5";;"2106";;"Lacape et al (2005)";;"9";;"fiber length uniformity";;NULL;;NULL;;NULL;;"6";;NULL;;NULL
+"EL01.1";;"150";;"116.20";;"147.20";;"c1";;"14323";;"Rong et al (2007)";;"10";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"EL01.2";;"151";;"87.00";;"102.00";;"c1";;"14324";;"Rong et al (2007)";;"10";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"FF01.1";;"152";;"125.80";;"147.20";;"c1";;"14325";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FF01.2";;"153";;"74.50";;"116.20";;"c1";;"14326";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FF01.3";;"154";;"19.70";;"55.90";;"c1";;"14327";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FL01.1(HVsl2.5,HVuhm)";;"155";;"55.90";;"126.00";;"c1";;"14328";;"Rong et al (2007)";;"10";;"fiber length";;NULL;;NULL;;NULL;;"15";;NULL;;NULL
+"FL01.2(HVsl2.5)";;"156";;"147.20";;"147.30";;"c1";;"14329";;"Rong et al (2007)";;"10";;"fiber length";;NULL;;NULL;;NULL;;"15";;NULL;;NULL
+"FS01.1";;"157";;"95.20";;"102.00";;"c1";;"14330";;"Rong et al (2007)";;"10";;"fiber strength";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"FS01.2";;"158";;"113.70";;"138.40";;"c1";;"14331";;"Rong et al (2007)";;"10";;"fiber strength";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"FU01.1(HVlnCV)";;"159";;"125.80";;"146.50";;"c1";;"14332";;"Rong et al (2007)";;"10";;"fiber length uniformity";;NULL;;NULL;;NULL;;"6";;NULL;;NULL
+"MIC01.1";;"160";;"128.50";;"130.90";;"c1";;"14351";;"Rong et al (2007)";;"10";;"fiber micronaire reading";;NULL;;NULL;;NULL;;"9";;NULL;;NULL
+"MLTD01.1";;"161";;"120.90";;"123.60";;"c1";;"14352";;"Rong et al (2007)";;"10";;"leaf morphology";;NULL;;NULL;;NULL;;"16";;NULL;;NULL
+"OP01.1(B)";;"162";;"119.40";;"132.40";;"c1";;"14353";;"Rong et al (2007)";;"10";;"physiology";;NULL;;NULL;;NULL;;"17";;NULL;;NULL
+"BW02.1(BT)";;"163";;"56.00";;"74.80";;"c2";;"15154";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"BW02.2(BT)";;"164";;"88.70";;"113.40";;"c2";;"15155";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"DM02.1(RV)";;"165";;"51.40";;"60.30";;"c2";;"15162";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"EL02.1";;"166";;"59.20";;"103.80";;"c2";;"15163";;"Rong et al (2007)";;"10";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"FF02.1";;"167";;"59.20";;"103.80";;"c2";;"15164";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FF02.2";;"168";;"80.20";;"88.40";;"c2";;"15165";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FL02.1(HVsl2.5,HVuhm,Lw)";;"169";;"59.20";;"103.80";;"c2";;"15166";;"Rong et al (2007)";;"10";;"fiber length";;NULL;;NULL;;NULL;;"15";;NULL;;NULL
+"FL02.2(HVuhm)";;"170";;"76.30";;"85.90";;"c2";;"15167";;"Rong et al (2007)";;"10";;"fiber length";;NULL;;NULL;;NULL;;"15";;NULL;;NULL
+"FS02.1";;"171";;"86.00";;"93.00";;"c2";;"15168";;"Rong et al (2007)";;"10";;"fiber strength";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"FS02.2";;"172";;"86.50";;"102.80";;"c2";;"15169";;"Rong et al (2007)";;"10";;"fiber strength";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"FU02.1(HVui)";;"173";;"61.50";;"65.30";;"c2";;"15170";;"Rong et al (2007)";;"10";;"fiber length uniformity";;NULL;;NULL;;NULL;;"6";;NULL;;NULL
+"HI02.1(WW)";;"174";;"59.10";;"74.80";;"c2";;"15192";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"MIC02.1";;"175";;"62.80";;"94.00";;"c2";;"15194";;"Rong et al (2007)";;"10";;"fiber micronaire reading";;NULL;;NULL;;NULL;;"9";;NULL;;NULL
+"SC02.1(WW)";;"176";;"59.10";;"67.00";;"c2";;"15218";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"W302.1";;"177";;"95.40";;"96.90";;"c2";;"15227";;"Rong et al (2007)";;"10";;"leaf morphology";;NULL;;NULL;;NULL;;"16";;NULL;;NULL
+"BW03.1(BT)";;"178";;"92.70";;"108.10";;"c3";;"15724";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"EL03.1";;"179";;"12.50";;"27.70";;"c3";;"15734";;"Rong et al (2007)";;"10";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"FF03.1";;"180";;"73.50";;"99.30";;"c3";;"15735";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FL03.1(HVuhm,HVsl2.5)";;"181";;"62.00";;"76.80";;"c3";;"15736";;"Rong et al (2007)";;"10";;"fiber length";;NULL;;NULL;;NULL;;"15";;NULL;;NULL
+"FU03.1(HVur)";;"182";;"62.00";;"76.80";;"c3";;"15737";;"Rong et al (2007)";;"10";;"fiber length uniformity";;NULL;;NULL;;NULL;;"6";;NULL;;NULL
+"SF03.1(SFCn)";;"183";;"62.00";;"76.80";;"c3";;"15800";;"Rong et al (2007)";;"10";;"fiber short fiber content";;NULL;;NULL;;NULL;;"19";;NULL;;NULL
+"W203.1";;"184";;"75.70";;"88.50";;"c3";;"15816";;"Rong et al (2007)";;"10";;"leaf morphology";;NULL;;NULL;;NULL;;"16";;NULL;;NULL
+"BN04.1(WW)";;"185";;"75.30";;"95.10";;"c4";;"15829";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"D204.1";;"186";;"119.30";;"146.70";;"c4";;"15838";;"Rong et al (2007)";;"10";;"leaf morphology";;NULL;;NULL;;NULL;;"16";;NULL;;NULL
+"FF04.1";;"187";;"28.00";;"81.30";;"c4";;"15839";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FL04.1(HVuhm,HVsl2.5)";;"188";;"112.60";;"147.30";;"c4";;"15840";;"Rong et al (2007)";;"10";;"fiber length";;NULL;;NULL;;NULL;;"15";;NULL;;NULL
+"FS04.1";;"189";;"99.90";;"109.70";;"c4";;"15841";;"Rong et al (2007)";;"10";;"fiber strength";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"FU04.1(FLU)";;"190";;"107.00";;"120.00";;"c4";;"15842";;"Rong et al (2007)";;"10";;"fiber length uniformity";;NULL;;NULL;;NULL;;"6";;NULL;;NULL
+"SC04.1(BT)";;"191";;"98.50";;"110.50";;"c4";;"15903";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"BW05.1(BT)";;"192";;"99.10";;"110.60";;"c5";;"15942";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"EL05.05(FE)";;"193";;"114.90";;"118.20";;"c5";;"15956";;"Rong et al (2007)";;"10";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"EL05.1";;"194";;"142.90";;"161.50";;"c5";;"15957";;"Rong et al (2007)";;"10";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"FF05.15";;"195";;"65.30";;"77.30";;"c5";;"15960";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FF05.1";;"196";;"7.50";;"9.30";;"c5";;"15959";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FF05.2";;"197";;"77.70";;"92.90";;"c5";;"15961";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FF05.3";;"198";;"115.60";;"117.40";;"c5";;"15962";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FL05.1(HVsl2.5)";;"199";;"7.50";;"9.30";;"c5";;"15963";;"Rong et al (2007)";;"10";;"fiber length";;NULL;;NULL;;NULL;;"15";;NULL;;NULL
+"FL05.2(HVsl2.5,Lw)";;"200";;"34.30";;"63.40";;"c5";;"15964";;"Rong et al (2007)";;"10";;"fiber length";;NULL;;NULL;;NULL;;"15";;NULL;;NULL
+"FS05.1";;"201";;"104.80";;"105.20";;"c5";;"15965";;"Rong et al (2007)";;"10";;"fiber strength";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"MIC05.1";;"202";;"71.30";;"100.10";;"c5";;"16010";;"Rong et al (2007)";;"10";;"fiber micronaire reading";;NULL;;NULL;;NULL;;"9";;NULL;;NULL
+"Qb6b05.1";;"203";;"74.80";;"83.50";;"c5";;"16071";;"Rong et al (2007)";;"10";;"bacterial blight";;NULL;;NULL;;NULL;;"20";;NULL;;NULL
+"A206.1";;"204";;"55.30";;"59.80";;"c6";;"16109";;"Rong et al (2007)";;"10";;"leaf morphology";;NULL;;NULL;;NULL;;"16";;NULL;;NULL
+"CT06.1(RV)";;"205";;"60.20";;"78.00";;"c6";;"16120";;"Rong et al (2007)";;"10";;"physiology";;NULL;;NULL;;NULL;;"17";;NULL;;NULL
+"DTL06.1";;"206";;"52.90";;"56.50";;"c6";;"16121";;"Rong et al (2007)";;"10";;"leaf morphology";;NULL;;NULL;;NULL;;"16";;NULL;;NULL
+"EL06.1";;"207";;"6.50";;"16.00";;"c6";;"16122";;"Rong et al (2007)";;"10";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"EL06.2";;"208";;"44.60";;"59.40";;"c6";;"16123";;"Rong et al (2007)";;"10";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"FC06.1";;"209";;"31.20";;"46.60";;"c6";;"16124";;"Rong et al (2007)";;"10";;"fiber color";;NULL;;NULL;;NULL;;"21";;NULL;;NULL
+"FF06.15";;"210";;"60.20";;"80.30";;"c6";;"16126";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FF06.1";;"211";;"44.60";;"59.40";;"c6";;"16125";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FF06.2";;"212";;"89.10";;"126.70";;"c6";;"16127";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FL06.1(HVsl2.5)";;"213";;"44.60";;"59.40";;"c6";;"16128";;"Rong et al (2007)";;"10";;"fiber length";;NULL;;NULL;;NULL;;"15";;NULL;;NULL
+"FU06.1";;"214";;"126.70";;"126.80";;"c6";;"16129";;"Rong et al (2007)";;"10";;"fiber length uniformity";;NULL;;NULL;;NULL;;"6";;NULL;;NULL
+"HI06.1(WL)";;"215";;"60.40";;"102.10";;"c6";;"16145";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"MLTD06.1";;"216";;"65.40";;"82.60";;"c6";;"16147";;"Rong et al (2007)";;"10";;"leaf morphology";;NULL;;NULL;;NULL;;"16";;NULL;;NULL
+"OP06.1(BT)";;"217";;"60.20";;"74.30";;"c6";;"16148";;"Rong et al (2007)";;"10";;"physiology";;NULL;;NULL;;NULL;;"17";;NULL;;NULL
+"SC06.1(BT)";;"218";;"32.10";;"42.60";;"c6";;"16179";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"SC06.2(WL)";;"219";;"60.20";;"75.50";;"c6";;"16180";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"SF06.1";;"220";;"126.70";;"126.80";;"c6";;"16181";;"Rong et al (2007)";;"10";;"fiber short fiber content";;NULL;;NULL;;NULL;;"19";;NULL;;NULL
+"W206.1";;"221";;"55.30";;"59.80";;"c6";;"16188";;"Rong et al (2007)";;"10";;"leaf morphology";;NULL;;NULL;;NULL;;"16";;NULL;;NULL
+"W306.1";;"222";;"64.50";;"75.60";;"c6";;"16189";;"Rong et al (2007)";;"10";;"leaf morphology";;NULL;;NULL;;NULL;;"16";;NULL;;NULL
+"YLTD06.1";;"223";;"53.50";;"97.90";;"c6";;"16190";;"Rong et al (2007)";;"10";;"leaf morphology";;NULL;;NULL;;NULL;;"16";;NULL;;NULL
+"BN07.1(BT)";;"224";;"165.30";;"184.00";;"c7";;"16201";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"FC07.1";;"225";;"24.80";;"54.30";;"c7";;"16211";;"Rong et al (2007)";;"10";;"fiber color";;NULL;;NULL;;NULL;;"21";;NULL;;NULL
+"FF07.1";;"226";;"169.20";;"196.90";;"c7";;"16212";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FL07.1(HVsl2.5,HVuhm)";;"227";;"175.20";;"175.30";;"c7";;"16213";;"Rong et al (2007)";;"10";;"fiber length";;NULL;;NULL;;NULL;;"15";;NULL;;NULL
+"FS07.1";;"228";;"18.60";;"54.30";;"c7";;"16214";;"Rong et al (2007)";;"10";;"fiber strength";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"FS07.2";;"229";;"136.50";;"147.50";;"c7";;"16215";;"Rong et al (2007)";;"10";;"fiber strength";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"FU07.1(FLU)";;"230";;"36.30";;"54.30";;"c7";;"16216";;"Rong et al (2007)";;"10";;"fiber length uniformity";;NULL;;NULL;;NULL;;"6";;NULL;;NULL
+"OP07.1(BT)";;"231";;"26.50";;"54.30";;"c7";;"16247";;"Rong et al (2007)";;"10";;"physiology";;NULL;;NULL;;NULL;;"17";;NULL;;NULL
+"SC07.1(BT)";;"232";;"165.30";;"186.00";;"c7";;"16293";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"YLTD07.1";;"233";;"169.20";;"183.00";;"c7";;"16306";;"Rong et al (2007)";;"10";;"leaf morphology";;NULL;;NULL;;NULL;;"16";;NULL;;NULL
+"BW09.1(WW)";;"234";;"0.10";;"14.20";;"c9";;"16325";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"DM09.1(WL)";;"235";;"0.00";;"4.50";;"c9";;"16337";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"FC09.1";;"236";;"4.80";;"58.90";;"c9";;"16338";;"Rong et al (2007)";;"10";;"fiber color";;NULL;;NULL;;NULL;;"21";;NULL;;NULL
+"FF09.1";;"237";;"102.50";;"126.60";;"c9";;"16339";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FL09.1";;"238";;"129.60";;"148.50";;"c9";;"16340";;"Rong et al (2007)";;"10";;"fiber length";;NULL;;NULL;;NULL;;"15";;NULL;;NULL
+"HI09.1(BT)";;"239";;"6.10";;"27.60";;"c9";;"16361";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"W109.1";;"240";;"43.50";;"44.60";;"c9";;"16408";;"Rong et al (2007)";;"10";;"leaf morphology";;NULL;;NULL;;NULL;;"16";;NULL;;NULL
+"W209.1";;"241";;"43.50";;"44.60";;"c9";;"16409";;"Rong et al (2007)";;"10";;"leaf morphology";;NULL;;NULL;;NULL;;"16";;NULL;;NULL
+"DM10.1(RV)";;"242";;"113.20";;"125.20";;"c10";;"14402";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"EL10.1(FE)";;"243";;"72.00";;"104.00";;"c10";;"14403";;"Rong et al (2007)";;"10";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"FF10.1";;"244";;"62.00";;"94.90";;"c10";;"14404";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"Lbno10.1";;"245";;"170.00";;"180.00";;"c10";;"14451";;"Rong et al (2007)";;"10";;"leaf morphology";;NULL;;NULL;;NULL;;"16";;NULL;;NULL
+"Chl-b12.1(BT)";;"246";;"9.00";;"26.40";;"c12";;"14503";;"Rong et al (2007)";;"10";;"physiology";;NULL;;NULL;;NULL;;"17";;NULL;;NULL
+"EL12.1";;"247";;"36.40";;"52.80";;"c12";;"14512";;"Rong et al (2007)";;"10";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"EL12.2";;"248";;"142.00";;"180.00";;"c12";;"14513";;"Rong et al (2007)";;"10";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"FF12.15";;"249";;"9.00";;"32.50";;"c12";;"14517";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FF12.1";;"250";;"6.70";;"36.40";;"c12";;"14516";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FF12.2";;"251";;"36.40";;"52.80";;"c12";;"14518";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FL12.1(HVsl2.5,HVuhm)";;"252";;"17.60";;"52.80";;"c12";;"14519";;"Rong et al (2007)";;"10";;"fiber length";;NULL;;NULL;;NULL;;"15";;NULL;;NULL
+"FU12.1(HVlnCV)";;"253";;"0.00";;"4.50";;"c12";;"14520";;"Rong et al (2007)";;"10";;"fiber length uniformity";;NULL;;NULL;;NULL;;"6";;NULL;;NULL
+"FU12.2(HVlnCV,HVur)";;"254";;"17.60";;"52.80";;"c12";;"14521";;"Rong et al (2007)";;"10";;"fiber length uniformity";;NULL;;NULL;;NULL;;"6";;NULL;;NULL
+"FU12.3(HVui)";;"255";;"80.30";;"89.90";;"c12";;"14522";;"Rong et al (2007)";;"10";;"fiber length uniformity";;NULL;;NULL;;NULL;;"6";;NULL;;NULL
+"MIC12.1";;"256";;"150.00";;"169.00";;"c12";;"14558";;"Rong et al (2007)";;"10";;"fiber micronaire reading";;NULL;;NULL;;NULL;;"9";;NULL;;NULL
+"SF12.1(HVsfc)";;"257";;"0.00";;"4.50";;"c12";;"14601";;"Rong et al (2007)";;"10";;"fiber short fiber content";;NULL;;NULL;;NULL;;"19";;NULL;;NULL
+"BWA01.1(BT)";;"258";;"99.80";;"128.90";;"A01";;"13944";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"ELA01.1";;"259";;"92.80";;"95.00";;"A01";;"13956";;"Rong et al (2007)";;"10";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"FCA01.1";;"260";;"7.50";;"24.40";;"A01";;"13957";;"Rong et al (2007)";;"10";;"fiber color";;NULL;;NULL;;NULL;;"21";;NULL;;NULL
+"FCA01.2";;"261";;"85.80";;"96.30";;"A01";;"13958";;"Rong et al (2007)";;"10";;"fiber color";;NULL;;NULL;;NULL;;"21";;NULL;;NULL
+"FFA01.1";;"262";;"56.90";;"58.20";;"A01";;"13959";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FFA01.2";;"263";;"84.20";;"93.00";;"A01";;"13960";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FLA01.05";;"264";;"56.90";;"58.40";;"A01";;"13961";;"Rong et al (2007)";;"10";;"fiber length";;NULL;;NULL;;NULL;;"15";;NULL;;NULL
+"FLA01.1(HVsl2.5)";;"265";;"86.50";;"95.00";;"A01";;"13962";;"Rong et al (2007)";;"10";;"fiber length";;NULL;;NULL;;NULL;;"15";;NULL;;NULL
+"FSA01.1";;"266";;"24.00";;"44.00";;"A01";;"13963";;"Rong et al (2007)";;"10";;"fiber strength";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"OPA01.1(BT)";;"267";;"102.50";;"118.30";;"A01";;"13997";;"Rong et al (2007)";;"10";;"physiology";;NULL;;NULL;;NULL;;"17";;NULL;;NULL
+"W3A01.1";;"268";;"7.50";;"32.70";;"A01";;"14052";;"Rong et al (2007)";;"10";;"leaf morphology";;NULL;;NULL;;NULL;;"16";;NULL;;NULL
+"BNA02.1(WW)";;"269";;"43.20";;"58.00";;"A02";;"14067";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"Chl-aA02.1(WW)";;"270";;"27.20";;"50.50";;"A02";;"14073";;"Rong et al (2007)";;"10";;"physiology";;NULL;;NULL;;NULL;;"17";;NULL;;NULL
+"Chl-aA02.2(RV)";;"271";;"48.00";;"79.10";;"A02";;"14074";;"Rong et al (2007)";;"10";;"physiology";;NULL;;NULL;;NULL;;"17";;NULL;;NULL
+"Chl-bA02.1(WW)";;"272";;"27.20";;"47.60";;"A02";;"14075";;"Rong et al (2007)";;"10";;"physiology";;NULL;;NULL;;NULL;;"17";;NULL;;NULL
+"ELA02.1(FE)";;"273";;"25.40";;"45.20";;"A02";;"14083";;"Rong et al (2007)";;"10";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"ELA02.2";;"274";;"32.00";;"46.40";;"A02";;"14084";;"Rong et al (2007)";;"10";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"ELA02.3(ELONG)";;"275";;"57.30";;"84.10";;"A02";;"14085";;"Rong et al (2007)";;"10";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"FCA02.1";;"276";;"65.70";;"77.80";;"A02";;"14086";;"Rong et al (2007)";;"10";;"fiber color";;NULL;;NULL;;NULL;;"21";;NULL;;NULL
+"FLA02.1(HVsl2.5,HVuhm)";;"277";;"15.00";;"46.30";;"A02";;"14087";;"Rong et al (2007)";;"10";;"fiber length";;NULL;;NULL;;NULL;;"15";;NULL;;NULL
+"FLA02.15(HVuhm)";;"278";;"26.30";;"52.30";;"A02";;"14088";;"Rong et al (2007)";;"10";;"fiber length";;NULL;;NULL;;NULL;;"15";;NULL;;NULL
+"FLA02.2";;"279";;"76.30";;"87.50";;"A02";;"14089";;"Rong et al (2007)";;"10";;"fiber length";;NULL;;NULL;;NULL;;"15";;NULL;;NULL
+"FSA02.1";;"280";;"99.10";;"167.30";;"A02";;"14090";;"Rong et al (2007)";;"10";;"fiber strength";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"FSA02.2";;"281";;"119.00";;"137.20";;"A02";;"14091";;"Rong et al (2007)";;"10";;"fiber strength";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"HIA02.1(BT)";;"282";;"43.20";;"59.30";;"A02";;"14123";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"OPA02.1(BT)";;"283";;"31.10";;"50.50";;"A02";;"14126";;"Rong et al (2007)";;"10";;"physiology";;NULL;;NULL;;NULL;;"17";;NULL;;NULL
+"SCA02.1(BT)";;"284";;"43.20";;"58.60";;"A02";;"14160";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"A2A03.1";;"285";;"188.60";;"198.00";;"A03";;"14178";;"Rong et al (2007)";;"10";;"leaf morphology";;NULL;;NULL;;NULL;;"16";;NULL;;NULL
+"BWA03.1(BT)";;"286";;"3.00";;"15.00";;"A03";;"14188";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"BWA03.2(BT)";;"287";;"111.80";;"181.20";;"A03";;"14189";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"ELA03.05(FE)";;"288";;"0.00";;"1.00";;"A03";;"14199";;"Rong et al (2007)";;"10";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"ELA03.1";;"289";;"12.30";;"113.30";;"A03";;"14200";;"Rong et al (2007)";;"10";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"ELA03.2";;"290";;"169.80";;"188.60";;"A03";;"14201";;"Rong et al (2007)";;"10";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"FCA03.1";;"291";;"180.00";;"198.00";;"A03";;"14202";;"Rong et al (2007)";;"10";;"fiber color";;NULL;;NULL;;NULL;;"21";;NULL;;NULL
+"FFA03.1";;"292";;"28.30";;"70.50";;"A03";;"14203";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FFA03.2";;"293";;"70.50";;"113.30";;"A03";;"14204";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FLA03.1(HVsl2.5,HVuhm,Lw)";;"294";;"12.30";;"113.30";;"A03";;"14205";;"Rong et al (2007)";;"10";;"fiber length";;NULL;;NULL;;NULL;;"15";;NULL;;NULL
+"FLA03.2";;"295";;"101.20";;"183.50";;"A03";;"14206";;"Rong et al (2007)";;"10";;"fiber length";;NULL;;NULL;;NULL;;"15";;NULL;;NULL
+"FSA03.1";;"296";;"93.90";;"171.80";;"A03";;"14207";;"Rong et al (2007)";;"10";;"fiber strength";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"FUA03.1(HVui)";;"297";;"12.30";;"70.50";;"A03";;"14208";;"Rong et al (2007)";;"10";;"fiber length uniformity";;NULL;;NULL;;NULL;;"6";;NULL;;NULL
+"FUA03.2(FLU)";;"298";;"115.60";;"192.70";;"A03";;"14209";;"Rong et al (2007)";;"10";;"fiber length uniformity";;NULL;;NULL;;NULL;;"6";;NULL;;NULL
+"FUA03.3(HVui)";;"299";;"174.00";;"179.10";;"A03";;"14210";;"Rong et al (2007)";;"10";;"fiber length uniformity";;NULL;;NULL;;NULL;;"6";;NULL;;NULL
+"HIA03.1(WL)";;"300";;"0.00";;"25.00";;"A03";;"14246";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"HIA03.2(BT)";;"301";;"120.90";;"198.00";;"A03";;"14247";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"SCA03.1(BT)";;"302";;"92.40";;"163.70";;"A03";;"14281";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"W3A03.1";;"303";;"6.90";;"38.90";;"A03";;"14294";;"Rong et al (2007)";;"10";;"leaf morphology";;NULL;;NULL;;NULL;;"16";;NULL;;NULL
+"B1214.1";;"304";;"42.90";;"51.20";;"c14";;"14628";;"Rong et al (2007)";;"10";;"bacterial blight";;NULL;;NULL;;NULL;;"20";;NULL;;NULL
+"BW14.1(BT)";;"305";;"41.00";;"59.10";;"c14";;"14637";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"BW14.2(WL)";;"306";;"76.90";;"102.30";;"c14";;"14638";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"Chl-b14.1(WW)";;"307";;"73.80";;"88.50";;"c14";;"14640";;"Rong et al (2007)";;"10";;"physiology";;NULL;;NULL;;NULL;;"17";;NULL;;NULL
+"FC14.1";;"308";;"32.00";;"42.90";;"c14";;"14650";;"Rong et al (2007)";;"10";;"fiber color";;NULL;;NULL;;NULL;;"21";;NULL;;NULL
+"FF14.05";;"309";;"75.40";;"106.00";;"c14";;"14651";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FF14.1";;"310";;"97.60";;"164.80";;"c14";;"14652";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FF14.2";;"311";;"21.40";;"35.10";;"c14";;"14653";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FL14.1(HVuhm)";;"312";;"97.60";;"109.50";;"c14";;"14654";;"Rong et al (2007)";;"10";;"fiber length";;NULL;;NULL;;NULL;;"15";;NULL;;NULL
+"FL14.2(HVuhm)";;"313";;"29.70";;"34.20";;"c14";;"14655";;"Rong et al (2007)";;"10";;"fiber length";;NULL;;NULL;;NULL;;"15";;NULL;;NULL
+"FS14.1";;"314";;"97.80";;"105.70";;"c14";;"14656";;"Rong et al (2007)";;"10";;"fiber strength";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"FU14.1(HVur)";;"315";;"29.70";;"34.20";;"c14";;"14657";;"Rong et al (2007)";;"10";;"fiber length uniformity";;NULL;;NULL;;NULL;;"6";;NULL;;NULL
+"FU14.2(FLU)";;"316";;"97.10";;"106.60";;"c14";;"14658";;"Rong et al (2007)";;"10";;"fiber length uniformity";;NULL;;NULL;;NULL;;"6";;NULL;;NULL
+"HI14.1(WL)";;"317";;"90.80";;"104.40";;"c14";;"14695";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"MIC14.1";;"318";;"138.60";;"164.80";;"c14";;"14698";;"Rong et al (2007)";;"10";;"fiber micronaire reading";;NULL;;NULL;;NULL;;"9";;NULL;;NULL
+"MIC14.2";;"319";;"97.60";;"109.50";;"c14";;"14699";;"Rong et al (2007)";;"10";;"fiber micronaire reading";;NULL;;NULL;;NULL;;"9";;NULL;;NULL
+"OP14.1(BT)";;"320";;"141.30";;"163.30";;"c14";;"14700";;"Rong et al (2007)";;"10";;"physiology";;NULL;;NULL;;NULL;;"17";;NULL;;NULL
+"Qb6d14.1";;"321";;"23.30";;"46.50";;"c14";;"14740";;"Rong et al (2007)";;"10";;"bacterial blight";;NULL;;NULL;;NULL;;"20";;NULL;;NULL
+"SC14.1(WL)";;"322";;"81.20";;"99.70";;"c14";;"14741";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"A215.1";;"323";;"73.60";;"77.40";;"c15";;"14762";;"Rong et al (2007)";;"10";;"leaf morphology";;NULL;;NULL;;NULL;;"16";;NULL;;NULL
+"EL15.1(FE)";;"324";;"148.00";;"170.00";;"c15";;"14772";;"Rong et al (2007)";;"10";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"FF15.01";;"325";;"72.70";;"79.80";;"c15";;"14773";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FF15.05";;"326";;"95.50";;"123.20";;"c15";;"14774";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FF15.1";;"327";;"96.70";;"110.00";;"c15";;"14775";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FL15.1(HVsl2.5)";;"328";;"96.70";;"110.00";;"c15";;"14776";;"Rong et al (2007)";;"10";;"fiber length";;NULL;;NULL;;NULL;;"15";;NULL;;NULL
+"FU15.1(FLU)";;"329";;"54.00";;"63.60";;"c15";;"14777";;"Rong et al (2007)";;"10";;"fiber length uniformity";;NULL;;NULL;;NULL;;"6";;NULL;;NULL
+"MIC15.1";;"330";;"166.00";;"176.00";;"c15";;"14800";;"Rong et al (2007)";;"10";;"fiber micronaire reading";;NULL;;NULL;;NULL;;"9";;NULL;;NULL
+"SC15.1(BT)";;"331";;"4.90";;"22.80";;"c15";;"14842";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"W115.1";;"332";;"14.60";;"30.10";;"c15";;"14857";;"Rong et al (2007)";;"10";;"leaf morphology";;NULL;;NULL;;NULL;;"16";;NULL;;NULL
+"W215.1";;"333";;"18.30";;"30.10";;"c15";;"14858";;"Rong et al (2007)";;"10";;"leaf morphology";;NULL;;NULL;;NULL;;"16";;NULL;;NULL
+"W215.2";;"334";;"96.50";;"102.20";;"c15";;"14859";;"Rong et al (2007)";;"10";;"leaf morphology";;NULL;;NULL;;NULL;;"16";;NULL;;NULL
+"W315.1";;"335";;"5.40";;"30.10";;"c15";;"14860";;"Rong et al (2007)";;"10";;"leaf morphology";;NULL;;NULL;;NULL;;"16";;NULL;;NULL
+"CT16.1(BT)";;"336";;"52.80";;"52.90";;"c16";;"14877";;"Rong et al (2007)";;"10";;"physiology";;NULL;;NULL;;NULL;;"17";;NULL;;NULL
+"CT16.2(BT)";;"337";;"24.10";;"57.40";;"c16";;"14878";;"Rong et al (2007)";;"10";;"physiology";;NULL;;NULL;;NULL;;"17";;NULL;;NULL
+"FF16.1";;"338";;"49.30";;"55.50";;"c16";;"14881";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FL16.1";;"339";;"45.00";;"49.30";;"c16";;"14882";;"Rong et al (2007)";;"10";;"fiber length";;NULL;;NULL;;NULL;;"15";;NULL;;NULL
+"FS16.1";;"340";;"34.90";;"45.70";;"c16";;"14883";;"Rong et al (2007)";;"10";;"fiber strength";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"FU16.1(FLU)";;"341";;"34.90";;"49.90";;"c16";;"14884";;"Rong et al (2007)";;"10";;"fiber length uniformity";;NULL;;NULL;;NULL;;"6";;NULL;;NULL
+"MIC16.1";;"342";;"49.90";;"68.50";;"c16";;"14903";;"Rong et al (2007)";;"10";;"fiber micronaire reading";;NULL;;NULL;;NULL;;"9";;NULL;;NULL
+"OP16.1(BT)";;"343";;"52.80";;"52.90";;"c16";;"14904";;"Rong et al (2007)";;"10";;"physiology";;NULL;;NULL;;NULL;;"17";;NULL;;NULL
+"A317.1";;"344";;"0.90";;"15.50";;"c17";;"14964";;"Rong et al (2007)";;"10";;"leaf morphology";;NULL;;NULL;;NULL;;"16";;NULL;;NULL
+"EL17.1";;"345";;"49.00";;"54.40";;"c17";;"14973";;"Rong et al (2007)";;"10";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"FC17.1";;"346";;"2.10";;"3.80";;"c17";;"14974";;"Rong et al (2007)";;"10";;"fiber color";;NULL;;NULL;;NULL;;"21";;NULL;;NULL
+"FF17.1";;"347";;"49.00";;"54.40";;"c17";;"14975";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FF17.2";;"348";;"56.00";;"66.00";;"c17";;"14976";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FL17.1(HVsl2.5,HVuhm)";;"349";;"0.00";;"22.70";;"c17";;"14977";;"Rong et al (2007)";;"10";;"fiber length";;NULL;;NULL;;NULL;;"15";;NULL;;NULL
+"FS17.1";;"350";;"0.90";;"3.80";;"c17";;"14978";;"Rong et al (2007)";;"10";;"fiber strength";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"FU17.1(HVur)";;"351";;"0.00";;"22.70";;"c17";;"14979";;"Rong et al (2007)";;"10";;"fiber length uniformity";;NULL;;NULL;;NULL;;"6";;NULL;;NULL
+"FU17.2(HVui)";;"352";;"40.80";;"40.90";;"c17";;"14980";;"Rong et al (2007)";;"10";;"fiber length uniformity";;NULL;;NULL;;NULL;;"6";;NULL;;NULL
+"MIC17.1";;"353";;"0.00";;"22.70";;"c17";;"14998";;"Rong et al (2007)";;"10";;"fiber micronaire reading";;NULL;;NULL;;NULL;;"9";;NULL;;NULL
+"MIC17.2";;"354";;"49.00";;"60.30";;"c17";;"14999";;"Rong et al (2007)";;"10";;"fiber micronaire reading";;NULL;;NULL;;NULL;;"9";;NULL;;NULL
+"EL18.05";;"355";;"99.60";;"155.90";;"c18";;"15055";;"Rong et al (2007)";;"10";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"EL18.1";;"356";;"135.10";;"157.50";;"c18";;"15056";;"Rong et al (2007)";;"10";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"FF18.1";;"357";;"26.60";;"42.50";;"c18";;"15057";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FF18.2";;"358";;"135.10";;"157.50";;"c18";;"15058";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FS18.1";;"359";;"41.00";;"44.80";;"c18";;"15059";;"Rong et al (2007)";;"10";;"fiber strength";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"FS18.2";;"360";;"75.00";;"81.00";;"c18";;"15060";;"Rong et al (2007)";;"10";;"fiber strength";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"HI18.1(WL)";;"361";;"41.60";;"46.20";;"c18";;"15092";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"HI18.2(BT)";;"362";;"73.00";;"81.00";;"c18";;"15093";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"Lbno18.1";;"363";;"1.60";;"4.80";;"c18";;"15094";;"Rong et al (2007)";;"10";;"leaf morphology";;NULL;;NULL;;NULL;;"16";;NULL;;NULL
+"SC18.1(WL)";;"364";;"41.60";;"48.70";;"c18";;"15127";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"SC18.2(BT)";;"365";;"75.00";;"83.00";;"c18";;"15128";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"SF18.1(HVsfc)";;"366";;"135.10";;"157.50";;"c18";;"15129";;"Rong et al (2007)";;"10";;"fiber short fiber content";;NULL;;NULL;;NULL;;"19";;NULL;;NULL
+"EL20.1";;"367";;"25.10";;"37.10";;"c20";;"15248";;"Rong et al (2007)";;"10";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"FF20.1";;"368";;"37.10";;"49.90";;"c20";;"15249";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FF20.25";;"369";;"96.10";;"102.50";;"c20";;"15251";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FF20.2";;"370";;"66.70";;"82.60";;"c20";;"15250";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FF20.3";;"371";;"120.10";;"146.00";;"c20";;"15252";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FL20.1(HVsl2.5,Lw)";;"372";;"25.10";;"37.10";;"c20";;"15253";;"Rong et al (2007)";;"10";;"fiber length";;NULL;;NULL;;NULL;;"15";;NULL;;NULL
+"FL20.2(HVsl2.5)";;"373";;"120.10";;"146.00";;"c20";;"15254";;"Rong et al (2007)";;"10";;"fiber length";;NULL;;NULL;;NULL;;"15";;NULL;;NULL
+"FS20.1";;"374";;"70.20";;"83.40";;"c20";;"15255";;"Rong et al (2007)";;"10";;"fiber strength";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"Lbno20.1";;"375";;"30.10";;"44.40";;"c20";;"15288";;"Rong et al (2007)";;"10";;"leaf morphology";;NULL;;NULL;;NULL;;"16";;NULL;;NULL
+"OP20.1(BT)";;"376";;"83.80";;"96.30";;"c20";;"15289";;"Rong et al (2007)";;"10";;"physiology";;NULL;;NULL;;NULL;;"17";;NULL;;NULL
+"Qb6c20.1";;"377";;"98.80";;"102.50";;"c20";;"15320";;"Rong et al (2007)";;"10";;"bacterial blight";;NULL;;NULL;;NULL;;"20";;NULL;;NULL
+"SF20.1(SFCn)";;"378";;"25.10";;"37.10";;"c20";;"15321";;"Rong et al (2007)";;"10";;"fiber short fiber content";;NULL;;NULL;;NULL;;"19";;NULL;;NULL
+"BW22.1(BT)";;"379";;"4.60";;"14.40";;"c22";;"15343";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"DM22.1(WW)";;"380";;"42.60";;"45.50";;"c22";;"15345";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"EL22.1";;"381";;"13.60";;"19.10";;"c22";;"15346";;"Rong et al (2007)";;"10";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"EL22.2(FE)";;"382";;"34.40";;"44.90";;"c22";;"15347";;"Rong et al (2007)";;"10";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"EL22.3(FE)";;"383";;"47.00";;"55.00";;"c22";;"15348";;"Rong et al (2007)";;"10";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"FF22.1";;"384";;"25.80";;"38.10";;"c22";;"15349";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FF22.2";;"385";;"75.00";;"85.00";;"c22";;"15350";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FL22.1(HVuhm)";;"386";;"48.00";;"59.00";;"c22";;"15351";;"Rong et al (2007)";;"10";;"fiber length";;NULL;;NULL;;NULL;;"15";;NULL;;NULL
+"FS22.1";;"387";;"4.60";;"13.40";;"c22";;"15352";;"Rong et al (2007)";;"10";;"fiber strength";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"HI22.1(WL)";;"388";;"4.60";;"14.40";;"c22";;"15375";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"SC22.1(WL)";;"389";;"4.60";;"17.80";;"c22";;"15401";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"EL23.01(FE)";;"390";;"70.00";;"86.20";;"c23";;"15431";;"Rong et al (2007)";;"10";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"EL23.03";;"391";;"92.40";;"120.70";;"c23";;"15432";;"Rong et al (2007)";;"10";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"EL23.05(FE)";;"392";;"108.50";;"128.60";;"c23";;"15433";;"Rong et al (2007)";;"10";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"EL23.1";;"393";;"122.00";;"137.40";;"c23";;"15434";;"Rong et al (2007)";;"10";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"FF23.1";;"394";;"105.60";;"152.90";;"c23";;"15435";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FL23.1(HVsl2.5,HVuhm,Lw)";;"395";;"57.80";;"65.50";;"c23";;"15436";;"Rong et al (2007)";;"10";;"fiber length";;NULL;;NULL;;NULL;;"15";;NULL;;NULL
+"FS23.2";;"396";;"126.30";;"155.40";;"c23";;"15437";;"Rong et al (2007)";;"10";;"fiber strength";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"FU23.1(HVui)";;"397";;"122.00";;"137.40";;"c23";;"15438";;"Rong et al (2007)";;"10";;"fiber length uniformity";;NULL;;NULL;;NULL;;"6";;NULL;;NULL
+"GS23.1";;"398";;"111.60";;"111.90";;"c23";;"15473";;"Rong et al (2007)";;"10";;"leaf morphology";;NULL;;NULL;;NULL;;"16";;NULL;;NULL
+"A225.1";;"399";;"84.10";;"101.10";;"c25";;"15516";;"Rong et al (2007)";;"10";;"leaf morphology";;NULL;;NULL;;NULL;;"16";;NULL;;NULL
+"BW25.1(BT)";;"400";;"6.40";;"12.00";;"c25";;"15522";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"FC25.1";;"401";;"89.50";;"100.00";;"c25";;"15531";;"Rong et al (2007)";;"10";;"fiber color";;NULL;;NULL;;NULL;;"21";;NULL;;NULL
+"FF25.1";;"402";;"62.70";;"94.70";;"c25";;"15532";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FF25.2";;"403";;"113.30";;"116.20";;"c25";;"15533";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FS25.1";;"404";;"71.30";;"93.80";;"c25";;"15534";;"Rong et al (2007)";;"10";;"fiber strength";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"FU25.1(HVui)";;"405";;"9.00";;"31.60";;"c25";;"15535";;"Rong et al (2007)";;"10";;"fiber length uniformity";;NULL;;NULL;;NULL;;"6";;NULL;;NULL
+"MLTD25.1";;"406";;"77.50";;"81.10";;"c25";;"15555";;"Rong et al (2007)";;"10";;"leaf morphology";;NULL;;NULL;;NULL;;"16";;NULL;;NULL
+"OP25.1(WL)";;"407";;"71.00";;"80.70";;"c25";;"15556";;"Rong et al (2007)";;"10";;"physiology";;NULL;;NULL;;NULL;;"17";;NULL;;NULL
+"SC25.1(BT)";;"408";;"78.50";;"87.00";;"c25";;"15595";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"YLTD25.1";;"409";;"77.50";;"80.90";;"c25";;"15608";;"Rong et al (2007)";;"10";;"leaf morphology";;NULL;;NULL;;NULL;;"16";;NULL;;NULL
+"BW26.1(BT)";;"410";;"37.40";;"38.90";;"c26";;"15623";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"Chl-a26.1(WL)";;"411";;"49.10";;"59.70";;"c26";;"15624";;"Rong et al (2007)";;"10";;"physiology";;NULL;;NULL;;NULL;;"17";;NULL;;NULL
+"Chl-b26.1(BT)";;"412";;"48.40";;"59.70";;"c26";;"15625";;"Rong et al (2007)";;"10";;"physiology";;NULL;;NULL;;NULL;;"17";;NULL;;NULL
+"EL26.1";;"413";;"20.00";;"36.80";;"c26";;"15631";;"Rong et al (2007)";;"10";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"FF26.1";;"414";;"20.00";;"41.70";;"c26";;"15632";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FL26.1(HVsl2.5,HVuhm,Lw)";;"415";;"0.00";;"36.80";;"c26";;"15633";;"Rong et al (2007)";;"10";;"fiber length";;NULL;;NULL;;NULL;;"15";;NULL;;NULL
+"FS26.1";;"416";;"44.90";;"55.60";;"c26";;"15634";;"Rong et al (2007)";;"10";;"fiber strength";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"FS26.2(STR)";;"417";;"67.20";;"97.00";;"c26";;"15635";;"Rong et al (2007)";;"10";;"fiber strength";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"FS26.3";;"418";;"72.10";;"92.00";;"c26";;"15636";;"Rong et al (2007)";;"10";;"fiber strength";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"FU26.1(FLU)";;"419";;"44.90";;"59.70";;"c26";;"15637";;"Rong et al (2007)";;"10";;"fiber length uniformity";;NULL;;NULL;;NULL;;"6";;NULL;;NULL
+"FU26.2(HVui)";;"420";;"90.30";;"109.40";;"c26";;"15638";;"Rong et al (2007)";;"10";;"fiber length uniformity";;NULL;;NULL;;NULL;;"6";;NULL;;NULL
+"HI26.1(BT)";;"421";;"36.70";;"37.80";;"c26";;"15664";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"MIC26.1";;"422";;"20.00";;"36.80";;"c26";;"15666";;"Rong et al (2007)";;"10";;"fiber micronaire reading";;NULL;;NULL;;NULL;;"9";;NULL;;NULL
+"SF26.1(HVsfc)";;"423";;"0.00";;"20.00";;"c26";;"15705";;"Rong et al (2007)";;"10";;"fiber short fiber content";;NULL;;NULL;;NULL;;"19";;NULL;;NULL
+"SF26.2";;"424";;"72.10";;"94.40";;"c26";;"15706";;"Rong et al (2007)";;"10";;"fiber short fiber content";;NULL;;NULL;;NULL;;"19";;NULL;;NULL
+"BND02.1(BT)";;"425";;"81.50";;"90.50";;"D02";;"16422";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"BWD02.1(BT)";;"426";;"74.50";;"113.80";;"D02";;"16427";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"ELD02.1";;"427";;"86.00";;"97.90";;"D02";;"16439";;"Rong et al (2007)";;"10";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"ELD02.2";;"428";;"154.60";;"172.30";;"D02";;"16440";;"Rong et al (2007)";;"10";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"FCD02.1";;"429";;"80.00";;"90.50";;"D02";;"16441";;"Rong et al (2007)";;"10";;"fiber color";;NULL;;NULL;;NULL;;"21";;NULL;;NULL
+"FFD02.15";;"430";;"104.30";;"119.70";;"D02";;"16443";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FFD02.1";;"431";;"40.20";;"86.00";;"D02";;"16442";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FFD02.2";;"432";;"115.80";;"134.10";;"D02";;"16444";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FLD02.1(HVuhm)";;"433";;"115.80";;"172.30";;"D02";;"16445";;"Rong et al (2007)";;"10";;"fiber length";;NULL;;NULL;;NULL;;"15";;NULL;;NULL
+"FLD02.2(HVsl2.5)";;"434";;"40.20";;"86.00";;"D02";;"16446";;"Rong et al (2007)";;"10";;"fiber length";;NULL;;NULL;;NULL;;"15";;NULL;;NULL
+"FSD02.1";;"435";;"65.10";;"90.50";;"D02";;"16447";;"Rong et al (2007)";;"10";;"fiber strength";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"FSD02.2(STR)";;"436";;"71.90";;"105.30";;"D02";;"16448";;"Rong et al (2007)";;"10";;"fiber strength";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"FUD02.1(HVui)";;"437";;"0.00";;"5.00";;"D02";;"16449";;"Rong et al (2007)";;"10";;"fiber length uniformity";;NULL;;NULL;;NULL;;"6";;NULL;;NULL
+"OPD02.1(BT)";;"438";;"176.10";;"187.50";;"D02";;"16482";;"Rong et al (2007)";;"10";;"physiology";;NULL;;NULL;;NULL;;"17";;NULL;;NULL
+"Qb6aD02.1";;"439";;"14.60";;"18.80";;"D02";;"16539";;"Rong et al (2007)";;"10";;"bacterial blight";;NULL;;NULL;;NULL;;"20";;NULL;;NULL
+"BWD03.1(BT)";;"440";;"122.90";;"146.40";;"D03";;"16571";;"Rong et al (2007)";;"10";;"yield component";;NULL;;NULL;;NULL;;"18";;NULL;;NULL
+"CTD03.1(WL)";;"441";;"36.90";;"44.50";;"D03";;"16578";;"Rong et al (2007)";;"10";;"physiology";;NULL;;NULL;;NULL;;"17";;NULL;;NULL
+"ELD03.1(ELONG)";;"442";;"54.00";;"94.50";;"D03";;"16579";;"Rong et al (2007)";;"10";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"FFD03.05";;"443";;"24.60";;"47.50";;"D03";;"16580";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FFD03.1";;"444";;"43.70";;"63.00";;"D03";;"16581";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FFD03.2";;"445";;"116.90";;"143.40";;"D03";;"16582";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FLD03.1(HVsl2.5,HVuhm,Lw)";;"446";;"43.70";;"63.00";;"D03";;"16583";;"Rong et al (2007)";;"10";;"fiber length";;NULL;;NULL;;NULL;;"15";;NULL;;NULL
+"FLD03.2(SFCw)";;"447";;"105.60";;"146.40";;"D03";;"16584";;"Rong et al (2007)";;"10";;"fiber length";;NULL;;NULL;;NULL;;"15";;NULL;;NULL
+"FSD03.1";;"448";;"15.90";;"22.00";;"D03";;"16585";;"Rong et al (2007)";;"10";;"fiber strength";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"FSD03.2";;"449";;"114.00";;"137.50";;"D03";;"16586";;"Rong et al (2007)";;"10";;"fiber strength";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"FUD03.1(HVui)";;"450";;"43.70";;"63.00";;"D03";;"16587";;"Rong et al (2007)";;"10";;"fiber length uniformity";;NULL;;NULL;;NULL;;"6";;NULL;;NULL
+"W1D03.1";;"451";;"52.90";;"67.10";;"D03";;"16663";;"Rong et al (2007)";;"10";;"leaf morphology";;NULL;;NULL;;NULL;;"16";;NULL;;NULL
+"W2D03.1";;"452";;"52.90";;"67.10";;"D03";;"16664";;"Rong et al (2007)";;"10";;"leaf morphology";;NULL;;NULL;;NULL;;"16";;NULL;;NULL
+"W3D03.1";;"453";;"52.90";;"67.10";;"D03";;"16665";;"Rong et al (2007)";;"10";;"leaf morphology";;NULL;;NULL;;NULL;;"16";;NULL;;NULL
+"B2D08.1";;"454";;"109.00";;"128.10";;"D08";;"16679";;"Rong et al (2007)";;"10";;"bacterial blight";;NULL;;NULL;;NULL;;"20";;NULL;;NULL
+"B3D08.1";;"455";;"220.90";;"227.50";;"D08";;"16680";;"Rong et al (2007)";;"10";;"bacterial blight";;NULL;;NULL;;NULL;;"20";;NULL;;NULL
+"ELD08.1";;"456";;"21.40";;"40.30";;"D08";;"16698";;"Rong et al (2007)";;"10";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"ELD08.2";;"457";;"40.30";;"52.10";;"D08";;"16699";;"Rong et al (2007)";;"10";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"ELD08.3";;"458";;"114.00";;"167.90";;"D08";;"16700";;"Rong et al (2007)";;"10";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"ELD08.4";;"459";;"114.00";;"167.90";;"D08";;"16701";;"Rong et al (2007)";;"10";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"FFD08.05";;"460";;"12.90";;"14.90";;"D08";;"16702";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FFD08.1(HVsl2.5,HVuhm,Lw)";;"461";;"21.40";;"40.30";;"D08";;"16703";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FFD08.2";;"462";;"52.10";;"59.50";;"D08";;"16704";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FFD08.3";;"463";;"82.80";;"114.00";;"D08";;"16705";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FFD08.4";;"464";;"167.90";;"212.80";;"D08";;"16706";;"Rong et al (2007)";;"10";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;NULL;;NULL
+"FLD08.1(HVsl2.5,HVuhm,Lw)";;"465";;"40.30";;"52.10";;"D08";;"16707";;"Rong et al (2007)";;"10";;"fiber length";;NULL;;NULL;;NULL;;"15";;NULL;;NULL
+"FLD08.15";;"466";;"197.00";;"207.80";;"D08";;"16708";;"Rong et al (2007)";;"10";;"fiber length";;NULL;;NULL;;NULL;;"15";;NULL;;NULL
+"FLD08.2(HVsl2.5,HVuhm,Lw)";;"467";;"114.00";;"167.90";;"D08";;"16709";;"Rong et al (2007)";;"10";;"fiber length";;NULL;;NULL;;NULL;;"15";;NULL;;NULL
+"FSD08.1";;"468";;"12.90";;"15.10";;"D08";;"16710";;"Rong et al (2007)";;"10";;"fiber strength";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"FSD08.2(STR)";;"469";;"47.70";;"59.30";;"D08";;"16711";;"Rong et al (2007)";;"10";;"fiber strength";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"FUD08.1(HVui)";;"470";;"40.30";;"52.10";;"D08";;"16712";;"Rong et al (2007)";;"10";;"fiber length uniformity";;NULL;;NULL;;NULL;;"6";;NULL;;NULL
+"FUD08.2(HVui)";;"471";;"114.00";;"167.90";;"D08";;"16713";;"Rong et al (2007)";;"10";;"fiber length uniformity";;NULL;;NULL;;NULL;;"6";;NULL;;NULL
+"MICD08.1";;"472";;"21.40";;"40.30";;"D08";;"16748";;"Rong et al (2007)";;"10";;"fiber micronaire reading";;NULL;;NULL;;NULL;;"9";;NULL;;NULL
+"MICD08.2";;"473";;"82.80";;"114.00";;"D08";;"16749";;"Rong et al (2007)";;"10";;"fiber micronaire reading";;NULL;;NULL;;NULL;;"9";;NULL;;NULL
+"MICD08.3";;"474";;"167.90";;"212.80";;"D08";;"16750";;"Rong et al (2007)";;"10";;"fiber micronaire reading";;NULL;;NULL;;NULL;;"9";;NULL;;NULL
+"OPD08.1(BT)";;"475";;"190.00";;"207.80";;"D08";;"16753";;"Rong et al (2007)";;"10";;"physiology";;NULL;;NULL;;NULL;;"17";;NULL;;NULL
+"SFD08.1(HVsfc,SFCn)";;"476";;"40.30";;"52.10";;"D08";;"16827";;"Rong et al (2007)";;"10";;"fiber short fiber content";;NULL;;NULL;;NULL;;"19";;NULL;;NULL
+"SFD08.2(HVsfc)";;"477";;"114.00";;"167.90";;"D08";;"16828";;"Rong et al (2007)";;"10";;"fiber short fiber content";;NULL;;NULL;;NULL;;"19";;NULL;;NULL
+"SFD08.25(HVscf)";;"478";;"144.00";;"154.00";;"D08";;"16829";;"Rong et al (2007)";;"10";;"fiber short fiber content";;NULL;;NULL;;NULL;;"19";;NULL;;NULL
+"QTLClust_LEN_5_2";;"749";;"104.00";;"108.10";;"5";;"50664";;"Fiber metaQTL ";;"33";;"fiber length";;NULL;;NULL;;NULL;;"15";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_10_1";;"750";;"149.50";;"156.50";;"10";;"50665";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_COL_6_1";;"751";;"66.90";;"69.90";;"6";;"50666";;"Fiber metaQTL ";;"33";;"fiber color";;NULL;;NULL;;NULL;;"21";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_COL_6_2";;"752";;"56.30";;"59.80";;"6";;"50667";;"Fiber metaQTL ";;"33";;"fiber color";;NULL;;NULL;;NULL;;"21";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_LEN_5_4";;"753";;"30.60";;"31.60";;"5";;"50668";;"Fiber metaQTL ";;"33";;"fiber length";;NULL;;NULL;;NULL;;"15";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_STR_3_2";;"754";;"46.20";;"52.90";;"3";;"50669";;"Fiber metaQTL ";;"33";;"fiber strength";;NULL;;NULL;;NULL;;"7";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_LEN_19_2";;"755";;"134.20";;"138.40";;"19";;"50670";;"Fiber metaQTL ";;"33";;"fiber length";;NULL;;NULL;;NULL;;"15";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_9_1";;"756";;"17.30";;"22.60";;"9";;"50671";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_21_1";;"757";;"139.00";;"142.70";;"21";;"50672";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_STR_21_1";;"758";;"135.00";;"148.40";;"21";;"50673";;"Fiber metaQTL ";;"33";;"fiber strength";;NULL;;NULL;;NULL;;"7";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_COL_25_4";;"759";;"74.70";;"76.70";;"25";;"50674";;"Fiber metaQTL ";;"33";;"fiber color";;NULL;;NULL;;NULL;;"21";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_LEN_26_4";;"760";;"59.70";;"60.80";;"26";;"50675";;"Fiber metaQTL ";;"33";;"fiber length";;NULL;;NULL;;NULL;;"15";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_9_5";;"761";;"80.20";;"82.20";;"9";;"50676";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_ELO_15_3";;"762";;"70.30";;"74.30";;"15";;"50677";;"Fiber metaQTL ";;"33";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_15_4";;"763";;"72.00";;"74.80";;"15";;"50678";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_COL_6_3";;"764";;"51.70";;"52.70";;"6";;"50679";;"Fiber metaQTL ";;"33";;"fiber color";;NULL;;NULL;;NULL;;"21";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_25_4";;"765";;"82.90";;"86.70";;"25";;"50680";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_16_1";;"766";;"38.20";;"43.80";;"16";;"50681";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_16_2";;"767";;"48.50";;"50.50";;"16";;"50682";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_12_4";;"768";;"77.30";;"80.20";;"12";;"50683";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_12_5";;"769";;"61.50";;"65.70";;"12";;"50684";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_12_6";;"770";;"52.30";;"53.30";;"12";;"50685";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_18_5";;"771";;"53.40";;"54.40";;"18";;"50686";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_17_1";;"772";;"62.20";;"65.40";;"17";;"50687";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_STR_3_1";;"773";;"69.30";;"96.00";;"3";;"50688";;"Fiber metaQTL ";;"33";;"fiber strength";;NULL;;NULL;;NULL;;"7";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_19_5";;"774";;"96.30";;"99.10";;"19";;"50689";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_9_6";;"775";;"94.10";;"95.30";;"9";;"50690";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_COL_8_5";;"776";;"82.70";;"84.50";;"8";;"50691";;"Fiber metaQTL ";;"33";;"fiber color";;NULL;;NULL;;NULL;;"21";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_COL_8_6";;"777";;"86.30";;"89.70";;"8";;"50692";;"Fiber metaQTL ";;"33";;"fiber color";;NULL;;NULL;;NULL;;"21";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_9_3";;"778";;"47.00";;"54.00";;"9";;"50693";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_ELO_15_4";;"779";;"84.20";;"87.50";;"15";;"50694";;"Fiber metaQTL ";;"33";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_15_5";;"780";;"82.20";;"85.20";;"15";;"50695";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_21_6";;"781";;"58.70";;"63.40";;"21";;"50696";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_LEN_23_3";;"782";;"116.80";;"117.80";;"23";;"50697";;"Fiber metaQTL ";;"33";;"fiber length";;NULL;;NULL;;NULL;;"15";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_18_1";;"783";;"120.70";;"130.60";;"18";;"50698";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_STR_23_1";;"784";;"20.30";;"36.10";;"23";;"50699";;"Fiber metaQTL ";;"33";;"fiber strength";;NULL;;NULL;;NULL;;"7";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_LEN_3_1";;"785";;"102.50";;"107.20";;"3";;"50700";;"Fiber metaQTL ";;"33";;"fiber length";;NULL;;NULL;;NULL;;"15";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_25_1";;"786";;"121.90";;"130.60";;"25";;"50701";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_LEN_3_2";;"787";;"80.30";;"81.30";;"3";;"50702";;"Fiber metaQTL ";;"33";;"fiber length";;NULL;;NULL;;NULL;;"15";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_LEN_19_1";;"788";;"167.90";;"180.40";;"19";;"50703";;"Fiber metaQTL ";;"33";;"fiber length";;NULL;;NULL;;NULL;;"15";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_10_6";;"789";;"32.30";;"55.60";;"10";;"50704";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_9_4";;"790";;"68.60";;"71.50";;"9";;"50705";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_21_2";;"791";;"123.10";;"126.80";;"21";;"50706";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_COL_8_8";;"792";;"120.70";;"121.70";;"8";;"50707";;"Fiber metaQTL ";;"33";;"fiber color";;NULL;;NULL;;NULL;;"21";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_COL_25_2";;"793";;"97.50";;"100.20";;"25";;"50708";;"Fiber metaQTL ";;"33";;"fiber color";;NULL;;NULL;;NULL;;"21";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_25_3";;"794";;"93.40";;"97.90";;"25";;"50709";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_LEN_19_4";;"795";;"97.70";;"99.30";;"19";;"50710";;"Fiber metaQTL ";;"33";;"fiber length";;NULL;;NULL;;NULL;;"15";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_ELO_2_1";;"796";;"61.20";;"62.20";;"2";;"50711";;"Fiber metaQTL ";;"33";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_5_3";;"797";;"86.90";;"90.10";;"5";;"50712";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_LEN_5_3";;"798";;"87.80";;"91.40";;"5";;"50713";;"Fiber metaQTL ";;"33";;"fiber length";;NULL;;NULL;;NULL;;"15";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_12_2";;"799";;"118.80";;"123.10";;"12";;"50714";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_19_3";;"800";;"124.00";;"127.20";;"19";;"50715";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_LEN_26_2";;"801";;"106.30";;"111.90";;"26";;"50716";;"Fiber metaQTL ";;"33";;"fiber length";;NULL;;NULL;;NULL;;"15";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_5_2";;"802";;"93.10";;"94.60";;"5";;"50717";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_STR_21_2";;"803";;"113.50";;"116.60";;"21";;"50718";;"Fiber metaQTL ";;"33";;"fiber strength";;NULL;;NULL;;NULL;;"7";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_5_1";;"804";;"109.80";;"116.00";;"5";;"50719";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_LEN_24_2";;"805";;"74.10";;"75.10";;"24";;"50720";;"Fiber metaQTL ";;"33";;"fiber length";;NULL;;NULL;;NULL;;"15";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_LEN_26_3";;"806";;"90.40";;"96.10";;"26";;"50721";;"Fiber metaQTL ";;"33";;"fiber length";;NULL;;NULL;;NULL;;"15";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_COL_8_4";;"807";;"52.60";;"55.10";;"8";;"50722";;"Fiber metaQTL ";;"33";;"fiber color";;NULL;;NULL;;NULL;;"21";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_STR_3_4";;"808";;"5.60";;"6.60";;"3";;"50723";;"Fiber metaQTL ";;"33";;"fiber strength";;NULL;;NULL;;NULL;;"7";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_15_2";;"809";;"60.70";;"62.70";;"15";;"50724";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_COL_25_5";;"810";;"69.90";;"72.40";;"25";;"50725";;"Fiber metaQTL ";;"33";;"fiber color";;NULL;;NULL;;NULL;;"21";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_21_8";;"811";;"26.60";;"28.50";;"21";;"50726";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_ELO_19_4";;"812";;"62.60";;"66.20";;"19";;"50727";;"Fiber metaQTL ";;"33";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_10_4";;"813";;"86.30";;"89.90";;"10";;"50728";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_ELO_19_5";;"814";;"50.60";;"52.50";;"19";;"50729";;"Fiber metaQTL ";;"33";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_LEN_23_1";;"815";;"-0.30";;"10.30";;"23";;"50730";;"Fiber metaQTL ";;"33";;"fiber length";;NULL;;NULL;;NULL;;"15";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_STR_23_3";;"816";;"85.00";;"86.90";;"23";;"50731";;"Fiber metaQTL ";;"33";;"fiber strength";;NULL;;NULL;;NULL;;"7";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_LEN_5_1";;"817";;"113.70";;"118.70";;"5";;"50732";;"Fiber metaQTL ";;"33";;"fiber length";;NULL;;NULL;;NULL;;"15";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_LEN_26_5";;"818";;"45.00";;"46.30";;"26";;"50733";;"Fiber metaQTL ";;"33";;"fiber length";;NULL;;NULL;;NULL;;"15";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_ELO_19_3";;"819";;"96.30";;"99.30";;"19";;"50734";;"Fiber metaQTL ";;"33";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_LEN_4_1";;"820";;"24.20";;"25.20";;"4";;"50735";;"Fiber metaQTL ";;"33";;"fiber length";;NULL;;NULL;;NULL;;"15";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_5_4";;"821";;"13.60";;"14.60";;"5";;"50736";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_STR_21_4";;"822";;"3.80";;"18.50";;"21";;"50737";;"Fiber metaQTL ";;"33";;"fiber strength";;NULL;;NULL;;NULL;;"7";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_18_3";;"823";;"85.90";;"87.30";;"18";;"50738";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_25_2";;"824";;"106.80";;"108.40";;"25";;"50739";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_10_3";;"825";;"98.40";;"102.50";;"10";;"50740";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_COL_25_6";;"826";;"66.10";;"67.10";;"25";;"50741";;"Fiber metaQTL ";;"33";;"fiber color";;NULL;;NULL;;NULL;;"21";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_25_5";;"827";;"66.00";;"67.20";;"25";;"50742";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_19_7";;"828";;"-0.50";;"0.50";;"19";;"50743";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_10_2";;"829";;"139.30";;"143.90";;"10";;"50744";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_21_3";;"830";;"115.20";;"118.50";;"21";;"50745";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_21_4";;"831";;"108.10";;"110.50";;"21";;"50746";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_STR_21_3";;"832";;"107.00";;"112.40";;"21";;"50747";;"Fiber metaQTL ";;"33";;"fiber strength";;NULL;;NULL;;NULL;;"7";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_19_1";;"833";;"194.50";;"199.80";;"19";;"50748";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_16_6";;"834";;"115.10";;"116.30";;"16";;"50749";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_LEN_3_4";;"835";;"35.00";;"36.70";;"3";;"50750";;"Fiber metaQTL ";;"33";;"fiber length";;NULL;;NULL;;NULL;;"15";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_STR_3_3";;"836";;"32.10";;"35.60";;"3";;"50751";;"Fiber metaQTL ";;"33";;"fiber strength";;NULL;;NULL;;NULL;;"7";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_17_2";;"837";;"53.90";;"54.90";;"17";;"50752";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_COL_8_2";;"838";;"45.40";;"46.70";;"8";;"50753";;"Fiber metaQTL ";;"33";;"fiber color";;NULL;;NULL;;NULL;;"21";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_COL_8_3";;"839";;"49.80";;"52.30";;"8";;"50754";;"Fiber metaQTL ";;"33";;"fiber color";;NULL;;NULL;;NULL;;"21";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_2_3";;"840";;"63.80";;"65.60";;"2";;"50755";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_15_3";;"841";;"66.80";;"67.80";;"15";;"50756";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_LEN_23_2";;"842";;"95.40";;"100.60";;"23";;"50757";;"Fiber metaQTL ";;"33";;"fiber length";;NULL;;NULL;;NULL;;"15";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_STR_23_4";;"843";;"101.60";;"102.90";;"23";;"50758";;"Fiber metaQTL ";;"33";;"fiber strength";;NULL;;NULL;;NULL;;"7";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_ELO_15_1";;"844";;"24.40";;"43.10";;"15";;"50759";;"Fiber metaQTL ";;"33";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_2_2";;"845";;"71.00";;"73.40";;"2";;"50760";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_18_2";;"846";;"106.10";;"110.20";;"18";;"50761";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_COL_25_3";;"847";;"88.40";;"90.40";;"25";;"50762";;"Fiber metaQTL ";;"33";;"fiber color";;NULL;;NULL;;NULL;;"21";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_16_3";;"848";;"60.60";;"66.90";;"16";;"50763";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_ELO_19_1";;"849";;"114.30";;"118.90";;"19";;"50764";;"Fiber metaQTL ";;"33";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_19_4";;"850";;"114.00";;"118.80";;"19";;"50765";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_LEN_19_3";;"851";;"115.30";;"117.50";;"19";;"50766";;"Fiber metaQTL ";;"33";;"fiber length";;NULL;;NULL;;NULL;;"15";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_3_3";;"852";;"15.00";;"16.40";;"3";;"50767";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_COL_8_1";;"853";;"25.80";;"30.60";;"8";;"50768";;"Fiber metaQTL ";;"33";;"fiber color";;NULL;;NULL;;NULL;;"21";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_12_1";;"854";;"130.70";;"132.10";;"12";;"50769";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_9_7";;"855";;"101.00";;"102.00";;"9";;"50770";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_16_5";;"856";;"86.70";;"92.50";;"16";;"50771";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_LEN_19_5";;"857";;"50.10";;"51.10";;"19";;"50772";;"Fiber metaQTL ";;"33";;"fiber length";;NULL;;NULL;;NULL;;"15";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_ELO_15_2";;"858";;"65.60";;"67.80";;"15";;"50773";;"Fiber metaQTL ";;"33";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_STR_23_2";;"859";;"42.00";;"51.20";;"23";;"50774";;"Fiber metaQTL ";;"33";;"fiber strength";;NULL;;NULL;;NULL;;"7";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_9_2";;"860";;"40.90";;"41.90";;"9";;"50775";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_LEN_9_3";;"861";;"38.80";;"39.80";;"9";;"50776";;"Fiber metaQTL ";;"33";;"fiber length";;NULL;;NULL;;NULL;;"15";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_18_4";;"862";;"59.70";;"69.70";;"18";;"50777";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_LEN_24_1";;"863";;"64.20";;"69.80";;"24";;"50778";;"Fiber metaQTL ";;"33";;"fiber length";;NULL;;NULL;;NULL;;"15";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_3_2";;"864";;"68.00";;"70.50";;"3";;"50779";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_LEN_3_3";;"865";;"68.20";;"70.10";;"3";;"50780";;"Fiber metaQTL ";;"33";;"fiber length";;NULL;;NULL;;NULL;;"15";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_12_3";;"866";;"92.90";;"96.40";;"12";;"50781";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_COL_8_7";;"867";;"107.00";;"110.70";;"8";;"50782";;"Fiber metaQTL ";;"33";;"fiber color";;NULL;;NULL;;NULL;;"21";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_16_4";;"868";;"79.70";;"85.80";;"16";;"50783";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_19_6";;"869";;"8.40";;"13.20";;"19";;"50784";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_15_6";;"870";;"108.00";;"109.60";;"15";;"50785";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_21_5";;"871";;"95.40";;"99.00";;"21";;"50786";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_LEN_9_2";;"872";;"34.50";;"37.00";;"9";;"50787";;"Fiber metaQTL ";;"33";;"fiber length";;NULL;;NULL;;NULL;;"15";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_LEN_26_1";;"873";;"128.90";;"135.80";;"26";;"50788";;"Fiber metaQTL ";;"33";;"fiber length";;NULL;;NULL;;NULL;;"15";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_ELO_19_2";;"874";;"106.20";;"110.50";;"19";;"50789";;"Fiber metaQTL ";;"33";;"fiber elongation";;NULL;;NULL;;NULL;;"3";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_2_4";;"875";;"21.00";;"33.90";;"2";;"50790";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_15_1";;"876";;"44.50";;"52.20";;"15";;"50791";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_10_5";;"877";;"73.20";;"80.90";;"10";;"50792";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_LEN_9_1";;"878";;"13.10";;"23.00";;"9";;"50793";;"Fiber metaQTL ";;"33";;"fiber length";;NULL;;NULL;;NULL;;"15";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_21_7";;"879";;"39.30";;"42.80";;"21";;"50794";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_19_2";;"880";;"145.50";;"151.30";;"19";;"50795";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_COL_25_1";;"881";;"108.30";;"110.80";;"25";;"50796";;"Fiber metaQTL ";;"33";;"fiber color";;NULL;;NULL;;NULL;;"21";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_3_1";;"882";;"114.90";;"117.90";;"3";;"50797";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"QTLClust_FIN_2_1";;"883";;"84.00";;"86.50";;"2";;"50798";;"Fiber metaQTL ";;"33";;"fiber fineness";;NULL;;NULL;;NULL;;"10";;"(Gh Guazuncho 2 x Gb VH8-4602)-cons BC1+RIL";;"10"
+"eQTL_22_dpa_c24";;"884";;"47.00";;"73.00";;"c24";;"50631";;"eQTL hotspot";;"34";;"fiber gene expression";;NULL;;NULL;;NULL;;"24";;"Guazuncho 2 x VH8_RIL";;"11"
+"eQTL_10_dpa_c9A";;"885";;"1.00";;"5.00";;"c9";;"50632";;"eQTL hotspot";;"34";;"fiber gene expression";;NULL;;NULL;;NULL;;"24";;"Guazuncho 2 x VH8_RIL";;"11"
+"eQTL_22_dpa_c16";;"886";;"15.00";;"19.00";;"c16";;"50633";;"eQTL hotspot";;"34";;"fiber gene expression";;NULL;;NULL;;NULL;;"24";;"Guazuncho 2 x VH8_RIL";;"11"
+"eQTL_10_dpa_c12";;"887";;"23.00";;"37.00";;"c12";;"50634";;"eQTL hotspot";;"34";;"fiber gene expression";;NULL;;NULL;;NULL;;"24";;"Guazuncho 2 x VH8_RIL";;"11"
+"eQTL_10_dpa_c6B";;"888";;"35.00";;"37.00";;"c6";;"50635";;"eQTL hotspot";;"34";;"fiber gene expression";;NULL;;NULL;;NULL;;"24";;"Guazuncho 2 x VH8_RIL";;"11"
+"eQTL_22_dpa_c5";;"889";;"21.00";;"23.00";;"c5";;"50636";;"eQTL hotspot";;"34";;"fiber gene expression";;NULL;;NULL;;NULL;;"24";;"Guazuncho 2 x VH8_RIL";;"11"
+"eQTL_10_dpa_c20";;"890";;"57.00";;"67.00";;"c20";;"50637";;"eQTL hotspot";;"34";;"fiber gene expression";;NULL;;NULL;;NULL;;"24";;"Guazuncho 2 x VH8_RIL";;"11"
+"eQTL_10_dpa_c3";;"891";;"65.00";;"69.00";;"c3";;"50638";;"eQTL hotspot";;"34";;"fiber gene expression";;NULL;;NULL;;NULL;;"24";;"Guazuncho 2 x VH8_RIL";;"11"
+"eQTL_22_dpa_c21A";;"892";;"29.00";;"37.00";;"c21";;"50639";;"eQTL hotspot";;"34";;"fiber gene expression";;NULL;;NULL;;NULL;;"24";;"Guazuncho 2 x VH8_RIL";;"11"
+"eQTL_10_dpa_c19";;"893";;"3.00";;"15.00";;"c19";;"50640";;"eQTL hotspot";;"34";;"fiber gene expression";;NULL;;NULL;;NULL;;"24";;"Guazuncho 2 x VH8_RIL";;"11"
+"eQTL_10_dpa_c9B";;"894";;"51.00";;"59.00";;"c9";;"50641";;"eQTL hotspot";;"34";;"fiber gene expression";;NULL;;NULL;;NULL;;"24";;"Guazuncho 2 x VH8_RIL";;"11"
+"eQTL_10_dpa_c11";;"895";;"1.00";;"7.00";;"c11";;"50642";;"eQTL hotspot";;"34";;"fiber gene expression";;NULL;;NULL;;NULL;;"24";;"Guazuncho 2 x VH8_RIL";;"11"
+"eQTL_10_dpa_c21B";;"896";;"149.00";;"157.00";;"c21";;"50643";;"eQTL hotspot";;"34";;"fiber gene expression";;NULL;;NULL;;NULL;;"24";;"Guazuncho 2 x VH8_RIL";;"11"
+"eQTL_10_dpa_c21A";;"897";;"63.00";;"95.00";;"c21";;"50644";;"eQTL hotspot";;"34";;"fiber gene expression";;NULL;;NULL;;NULL;;"24";;"Guazuncho 2 x VH8_RIL";;"11"
+"eQTL_10_dpa_c16A";;"898";;"33.00";;"39.00";;"c16";;"50645";;"eQTL hotspot";;"34";;"fiber gene expression";;NULL;;NULL;;NULL;;"24";;"Guazuncho 2 x VH8_RIL";;"11"
+"eQTL_10_dpa_c16B";;"899";;"51.00";;"53.00";;"c16";;"50646";;"eQTL hotspot";;"34";;"fiber gene expression";;NULL;;NULL;;NULL;;"24";;"Guazuncho 2 x VH8_RIL";;"11"
+"eQTL_22_dpa_c19";;"900";;"43.00";;"59.00";;"c19";;"50647";;"eQTL hotspot";;"34";;"fiber gene expression";;NULL;;NULL;;NULL;;"24";;"Guazuncho 2 x VH8_RIL";;"11"
+"eQTL_10_dpa_c6A";;"901";;"1.00";;"5.00";;"c6";;"50648";;"eQTL hotspot";;"34";;"fiber gene expression";;NULL;;NULL;;NULL;;"24";;"Guazuncho 2 x VH8_RIL";;"11"
+"eQTL_10_dpa_c14";;"902";;"59.00";;"63.00";;"c14";;"50649";;"eQTL hotspot";;"34";;"fiber gene expression";;NULL;;NULL;;NULL;;"24";;"Guazuncho 2 x VH8_RIL";;"11"
+"eQTL_22_dpa_c14";;"903";;"7.00";;"9.00";;"c14";;"50650";;"eQTL hotspot";;"34";;"fiber gene expression";;NULL;;NULL;;NULL;;"24";;"Guazuncho 2 x VH8_RIL";;"11"
+"eQTL_22_dpa_c23";;"904";;"1.00";;"7.00";;"c23";;"50651";;"eQTL hotspot";;"34";;"fiber gene expression";;NULL;;NULL;;NULL;;"24";;"Guazuncho 2 x VH8_RIL";;"11"
+"eQTL_10_dpa_c4A";;"905";;"35.00";;"39.00";;"c4";;"50652";;"eQTL hotspot";;"34";;"fiber gene expression";;NULL;;NULL;;NULL;;"24";;"Guazuncho 2 x VH8_RIL";;"11"
+"eQTL_10_dpa_c7";;"906";;"23.00";;"27.00";;"c7";;"50653";;"eQTL hotspot";;"34";;"fiber gene expression";;NULL;;NULL;;NULL;;"24";;"Guazuncho 2 x VH8_RIL";;"11"
+"eQTL_10_dpa_c2B";;"907";;"67.00";;"77.00";;"c2";;"50654";;"eQTL hotspot";;"34";;"fiber gene expression";;NULL;;NULL;;NULL;;"24";;"Guazuncho 2 x VH8_RIL";;"11"
+"eQTL_22_dpa_c25";;"908";;"43.00";;"45.00";;"c25";;"50655";;"eQTL hotspot";;"34";;"fiber gene expression";;NULL;;NULL;;NULL;;"24";;"Guazuncho 2 x VH8_RIL";;"11"
+"eQTL_22_dpa_c2";;"909";;"39.00";;"43.00";;"c2";;"50656";;"eQTL hotspot";;"34";;"fiber gene expression";;NULL;;NULL;;NULL;;"24";;"Guazuncho 2 x VH8_RIL";;"11"
+"eQTL_22_dpa_c17";;"910";;"29.00";;"31.00";;"c17";;"50657";;"eQTL hotspot";;"34";;"fiber gene expression";;NULL;;NULL;;NULL;;"24";;"Guazuncho 2 x VH8_RIL";;"11"
+"eQTL_22_dpa_c9";;"911";;"53.00";;"57.00";;"c9";;"50658";;"eQTL hotspot";;"34";;"fiber gene expression";;NULL;;NULL;;NULL;;"24";;"Guazuncho 2 x VH8_RIL";;"11"
+"eQTL_10_dpa_c2A";;"912";;"35.00";;"39.00";;"c2";;"50659";;"eQTL hotspot";;"34";;"fiber gene expression";;NULL;;NULL;;NULL;;"24";;"Guazuncho 2 x VH8_RIL";;"11"
+"eQTL_22_dpa_c21B";;"913";;"149.00";;"155.00";;"c21";;"50660";;"eQTL hotspot";;"34";;"fiber gene expression";;NULL;;NULL;;NULL;;"24";;"Guazuncho 2 x VH8_RIL";;"11"
+"eQTL_10_dpa_c15";;"914";;"5.00";;"25.00";;"c15";;"50661";;"eQTL hotspot";;"34";;"fiber gene expression";;NULL;;NULL;;NULL;;"24";;"Guazuncho 2 x VH8_RIL";;"11"
+"eQTL_10_dpa_c5";;"915";;"21.00";;"29.00";;"c5";;"50662";;"eQTL hotspot";;"34";;"fiber gene expression";;NULL;;NULL;;NULL;;"24";;"Guazuncho 2 x VH8_RIL";;"11"
+"eQTL_10_dpa_c4B";;"916";;"45.00";;"53.00";;"c4";;"50663";;"eQTL hotspot";;"34";;"fiber gene expression";;NULL;;NULL;;NULL;;"24";;"Guazuncho 2 x VH8_RIL";;"11"

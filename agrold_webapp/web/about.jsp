@@ -18,7 +18,7 @@
         <div id="wrapper"> 
             <jsp:include page="header.html"></jsp:include>
                 <section>
-                    <h3>About:</h3>
+                    <div class="info_title">About</div>
                     <p>
                         The Agronomic Linked Data project has been developed by Institut de Biologie Computationnelle (IBC, 
 
@@ -28,7 +28,7 @@
 
                         développement (IRD).
                     </p>
-                    <h3>Team:</h3>
+                    <h4>Team:</h4>
                     <div>               
                         <p><b>Aravind Venkatesan,</b><br>
                             <i>Post-doctoral researcher, IBC</i><br>
@@ -42,7 +42,8 @@
                     </div>           
                     <div>               
                         <p><b>Gildas Tagny,</b><br>
-                            <i>Project intern, IBC</i><br></p>
+                            <i>Project intern, IBC</i><br>
+                            <em>tagnyngompe[at]gmail[dot]com</em></p>
                     </div>
                     <div>               
                         <p><b>Imene chentli,</b><br>
@@ -50,7 +51,7 @@
                     </div>
                     <div>               
                         <p><b>Nordine El Hassouni,</b><br>
-                            <i>Engineer, CIRAD</i><br>
+                            <i>Engineer, INRA</i><br>
                             <em>nordine[dot]el_hassouni[at]cirad[dot]fr</em></p>
                     </div>
                     <div>               

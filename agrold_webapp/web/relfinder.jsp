@@ -18,7 +18,7 @@
         <div id="wrapper">
             <jsp:include page="header.html"></jsp:include>
                 <section>
-                    <h3>Search > Explore</h3>
+                    <div class="info_title">Search > Explore</div>
                     <OBJECT CLASSID="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="100%" 
                             CODEBASE="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,040,0" >
                         <PARAM name="movie" VALUE="RelFinder.swf">

@@ -1,8 +1,8 @@
 /* 
  * General definitions for the advanced search
  */
-var url = "http://volvestre.cirad.fr:8080/aldp/swagger/agrold.json";
-//var url = "http://localhost:8084/aldp/swagger/agrold.json";
+var url = "http://volvestre.cirad.fr:8080/agrold/swagger/agrold.json";
+//var url = "http://localhost:8084/agrold/swagger/agrold.json";
 var pageSize = 30; // limit number of results per page
 var sparqlEndpoint = "http://volvestre.cirad.fr:8890/sparql";
 
@@ -10,10 +10,12 @@ var holdMessage = '<center id="holdMessage"><img src="images/wait_animated.gif" 
 
 function displayHoldMessage(targetId) {
     $("#" + targetId).html(holdMessage);
+    $(".pageNavBtns").hide();
     //$("#overlay").show();
 }
 function removeHoldMessage(targetId) {
     //$("#overlay").hide();
+    $(".pageNavBtns").show();
     $("#" + targetId).html("");
 }
 
@@ -34,8 +36,10 @@ function displayResult(targetId, sparqljsonResult) {
 }
 
 function displayPublications(pubjson, targetId) {
+    removeHoldMessage("publicationResult");
+    $("#publicationPageBtns").remove();
     if (json.length > 0) {
-        $("#"+targetId).append("<ol></ol>");
+        $("#" + targetId).html("<ol></ol>");
         for (i = 0; i < json.length; i++) {
             url = json[i]["URL"];
             authors = json[i]["Authors"];
@@ -43,12 +47,12 @@ function displayPublications(pubjson, targetId) {
             if (authors.length > maxAuthorsLength) {
                 authors = authors.substring(1, maxAuthorsLength) + ' ...';
             }
-            $("#"+targetId+" ol").append('<li id="paper' + i + '"><span>' + authors + ', " <b>' + json[i]["Title"] + '</b> ", <i>' + json[i]["Journal"] + '</i>, ' + json[i]["Year"] + '</span></li>');
-            $("#"+targetId+" ol li#paper" + i).append('<br><span>More at: <a href="' + url + '" target="_blank">' + url + '</a></span>');
+            $("#" + targetId + " ol").append('<li id="paper' + i + '"><span>' + authors + ', " <b>' + json[i]["Title"] + '</b> ", <i>' + json[i]["Journal"] + '</i>, ' + json[i]["Year"] + '</span></li>');
+            $("#" + targetId + " ol li#paper" + i).append('<br><span>More at: <a href="' + url + '" target="_blank">' + url + '</a></span>');
             //$("#publicationResult ol").append('<li><a href="' + url + '" target="_blank">' + url + "</a></li>");
         }
     } else {
-        $("#"+targetId).append("No publication found.")
+        $("#" + targetId).html("No publication found.")
     }
 }
 
@@ -98,7 +102,7 @@ function processHtmlResult(entitiesType) {
             div = $(tds[j]).children("div")[0];
             a = $(div).children("a.uri")[0];
             $(a).attr("target", "_blank");
-            sparqlLink = 'sparqleditor.jsp?query=SELECT * \nWHERE{\n\tGRAPH ?graph{\n\t\t<' + $(a).text() + '> ?property ?object.\n\t}\n}'
+            sparqlLink = 'sparqleditor.jsp?query=SELECT * \nWHERE{\n\tGRAPH ?graph{\n\t\t<' + $(a).text() + '> ?property ?object.\n\t}\n}';
             $(a).after('<a href="' + encodeURI(sparqlLink) + '" target="_blank" style="text-decoration: none; color:#00B5AD; font-weight:bold"> (in Sparql) </a>');
         }
         $(tds[1]).append('<a href="advancedSearch.jsp?type=' + entitiesType + '&uri=' + encodeURIComponent($(a).text()) + '" style="text-decoration: none; color:#00B5AD; font-weight:bold"> (display) </a>');

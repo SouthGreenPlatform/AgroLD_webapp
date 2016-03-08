@@ -4,11 +4,9 @@
 */
 body {
     font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-    //font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 14px;
-    /*font-family: Arial, sans-serif;*/
     line-height:1.428571429;
-    margin: 0 20px;
+    margin: 0 40px;
     padding:0;
     height:100%;    
 }
@@ -46,7 +44,7 @@ section
     /*margin-top:5px;*/
     height: 100%;
     min-height: 350px;
-    padding-bottom:100px; /* Height of the footer element */
+    padding-bottom:50px; /* Height of the footer element */
 }
 
 footer
@@ -72,7 +70,11 @@ a {
 h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{font-family:"Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;font-weight: normal;line-height:1.1;color:inherit}
 h1,.h1{font-size:39px}h2,.h2{font-size:32px}h3,.h3{font-size:26px}h4,.h4{font-size:19px}h5,.h5{font-size:15px}h6,.h6{font-size:13px}
 header h1{margin: 10px;}
-
+.info_title {
+  padding-bottom: 10px;
+  font-weight: bold;
+  font-size: 25px;
+}
 .btn {
     background: black; //#00B5AD!important;
     background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
@@ -121,6 +123,10 @@ header h1{margin: 10px;}
     -webkit-appearance: button;
     overflow: visible;
     box-sizing: border-box;
+}
+input[type="submit"].yasrbtn, input[type="button"].yasrbtn, button.yasrbtn{
+    background-color: #2671A2;
+    color: #ffffff;
 }
 
 select.arrow

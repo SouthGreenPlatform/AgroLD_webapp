@@ -7,11 +7,11 @@
 <div id="qtlPage">
     <div id="header"></div>
     <br><div id="proteinContainer"><b style="font-size:13pt">Protein associations</b>
-        <span id="proteinPageBtns"><a href="javascript:void(0)" id="protein"> + </a></span>
+        <span id="proteinPageBtns" class="pageNavBtns"><a href="javascript:void(0)" id="protein"> + </a></span>
         <div id="proteinResult"></div>            
     </div>
     <br><div id="ontologyContainer"><b style="font-size:13pt">Ontology associations</b>
-        <span id="ontologyPageBtns"><a href="javascript:void(0)" id="ontology"> + </a></span>
+        <span id="ontologyPageBtns" class="pageNavBtns"><a href="javascript:void(0)" id="ontology"> + </a></span>
         <div id="ontologyResult"></div>            
     </div>
 </div>

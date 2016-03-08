@@ -10,9 +10,11 @@ package agrold.rest.api.sparqlaccess;
  * @author tagny
  */
 public class ProteinDAO {
+
     static public String PROTEIN_TYPE_URI = "http://purl.obolibrary.org/obo/SO_0000104";
 
     // return URIs and agrold_vocabulary:description of all genes in Agrold
+    
     public static String getProteins(int page, int pageSize, String resultFormat) {
         String sparqlQuery = "prefix	agrold:<http://www.southgreen.fr/agrold/vocabulary/> \n"
                 + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
@@ -20,7 +22,7 @@ public class ProteinDAO {
                 + "WHERE {\n"
                 + "    ?protein rdfs:label ?proteinName;\n"
                 + "          agrold:description ?proteinDescription;          \n"
-                + "          rdfs:subClassOf <"+PROTEIN_TYPE_URI+">.\n"
+                + "          rdfs:subClassOf <" + PROTEIN_TYPE_URI + ">.\n"
                 + "    BIND(REPLACE(str(?protein), '^.*(#|/)', \"\") AS ?proteinId) .\n"
                 + "}";
         sparqlQuery = APILib.addLimitAndOffset(sparqlQuery, pageSize, page);
@@ -31,35 +33,25 @@ public class ProteinDAO {
     }
 
     public static String getProteinsIdAssociatedWithOntoId(String ontoId, int page, int pageSize, String resultFormat) {
-        String sparqlQuery = "PREFIX agrold:<http://www.southgreen.fr/agrold/>\n"
+        String sparqlQuery = "BASE <http://www.southgreen.fr/agrold/>\n"
                 + "PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
                 + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
-                + "\n"
-                + "SELECT DISTINCT ?proteinId (?protein AS ?URI)\n"
+                + "SELECT DISTINCT ?proteinId (REPLACE(str(?predicate), '^.*(#|/)', \"\") AS ?Association) (?protein AS ?URI)\n"
                 + "WHERE\n"
                 + "{\n"
                 + "  { \n"
                 + "    SELECT ?ontoElt\n"
-                + "    FROM <http://www.southgreen.fr/agrold/so>\n"
-                + "    FROM <http://www.southgreen.fr/agrold/go>\n"
-                + "    FROM <http://www.southgreen.fr/agrold/eco>\n"
-                + "    FROM <http://www.southgreen.fr/agrold/eo>	\n"
-                + "    FROM <http://www.southgreen.fr/agrold/pato>\n"
-                + "    FROM <http://www.southgreen.fr/agrold/po>\n"
-                + "    FROM <http://www.southgreen.fr/agrold/to>"
                 + "    WHERE\n"
                 + "    {\n"
                 + "    	?ontoElt rdfs:subClassOf ?ontoEltClass.\n"
                 + "  		FILTER REGEX(STR(?ontoElt), CONCAT(REPLACE(\"" + ontoId + "\", \":\", \"_\"), \"$\"))\n"
                 + "    } limit 1\n"
-                + "  }\n"
-                + "  GRAPH agrold:protein.annotations{"
-                + "    ?protein ?predicate ?ontoElt .\n"
-                + "    ?protein rdfs:subClassOf <http://purl.obolibrary.org/obo/SO_0000104> .\n"
-//                + "    (REPLACE(str(?predicate), '^.*(#|/)', \"\") AS ?Association) .\n"
-                + "    BIND(REPLACE(str(?protein), '^.*(#|/)', \"\") AS ?proteinId) .\n"
-                + "  }"
-                + "}\n ORDER BY ?proteinId";        
+                + "  }  \n"
+                + " "
+                + "  ?protein ?predicate ?ontoElt .\n"
+                + "  ?protein rdfs:subClassOf <http://purl.obolibrary.org/obo/SO_0000104> .\n"
+                + "  BIND(REPLACE(str(?protein), '^.*(#|/)', \"\") AS ?proteinId) .\n"
+                + "}";
         sparqlQuery = APILib.addLimitAndOffset(sparqlQuery, pageSize, page);
         System.out.println(sparqlQuery);
 
@@ -98,7 +90,7 @@ public class ProteinDAO {
     public static String getProteinsEncodedByGene(String geneId, int page, int pageSize, String resultFormat) {
         String sparqlQuery = "BASE <http://www.southgreen.fr/agrold/>\n"
                 + "PREFIX vocab: <vocabulary/>\n"
-                + "PREFIX gene: <http://identifiers.org/ensembl.plant/"+geneId+">\n"
+                + "PREFIX gene: <http://identifiers.org/ensembl.plant/" + geneId + ">\n"
                 + "SELECT DISTINCT ?Id ?Name ?Description (?protein AS ?URI)\n"
                 + "WHERE{\n"
                 + "  gene: vocab:encodes ?protein.\n"
@@ -112,7 +104,8 @@ public class ProteinDAO {
 
         String result = APILib.executeSparqlQuery(sparqlQuery, APILib.sparqlEndpointURL, resultFormat);
         return result;
-    }    
+    }
+
     public static void main(String[] args) {
         System.out.println(getProteinsIdAssociatedWithOntoId("GO:0003824", 1, 5, APILib.TSV));
         //System.out.println(getProteins(0, 2, ".tsv"));

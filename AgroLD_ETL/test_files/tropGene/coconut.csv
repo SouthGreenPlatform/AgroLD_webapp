@@ -1,0 +1,64 @@
+"qtl_name";;"qtl_id";;"start_position";;"stop_position";;"chromosome";;"mapfeature_id";;"study_name";;"study_id";;"trait_name";;"trait_ontology_name";;"trait_ontology_id";;"trait_description";;"trait_id_of_tropgene";;"population_name";;"population_id"
+"QMa";;"631";;"3.10";;"3.10";;"1";;"1355";;"QTL mapping on CDR x RIT";;"3";;"Meat weight";;NULL;;NULL;;"Fresh albumen weight";;"10";;NULL;;NULL
+"QFa";;"632";;"78.30";;"78.30";;"1";;"1346";;"QTL mapping on CDR x RIT";;"3";;"Fruit weight";;NULL;;NULL;;NULL;;"8";;NULL;;NULL
+"QNa";;"633";;"78.30";;"78.30";;"1";;"1361";;"QTL mapping on CDR x RIT";;"3";;"Nut weight";;NULL;;NULL;;NULL;;"13";;NULL;;NULL
+"QWa";;"634";;"78.30";;"78.30";;"1";;"1375";;"QTL mapping on CDR x RIT";;"3";;"Water weight";;NULL;;NULL;;NULL;;"15";;NULL;;NULL
+"Q%Wa";;"635";;"78.30";;"78.30";;"1";;"1332";;"QTL mapping on CDR x RIT";;"3";;"%water";;NULL;;NULL;;"Water weight/fruit weightx100";;"5";;NULL;;NULL
+"QFb";;"636";;"1.80";;"1.80";;"1";;"1347";;"QTL mapping on CDR x RIT";;"3";;"Fruit weight";;NULL;;NULL;;NULL;;"8";;NULL;;NULL
+"QNb";;"637";;"1.80";;"1.80";;"1";;"1362";;"QTL mapping on CDR x RIT";;"3";;"Nut weight";;NULL;;NULL;;NULL;;"13";;NULL;;NULL
+"QSa";;"638";;"1.80";;"1.80";;"1";;"1368";;"QTL mapping on CDR x RIT";;"3";;"Shell weight";;NULL;;NULL;;NULL;;"14";;NULL;;NULL
+"Q%Ma";;"639";;"6.20";;"6.20";;"1";;"1316";;"QTL mapping on CDR x RIT";;"3";;"%meat";;NULL;;NULL;;"Fresh albumen weight/Fruit weightx100";;"2";;NULL;;NULL
+"Q3a";;"640";;"28.50";;"28.50";;"2";;"1342";;"QTL mapping on CDR x RIT";;"3";;"Nut number (early)";;NULL;;NULL;;NULL;;"12";;NULL;;NULL
+"QFc";;"641";;"28.80";;"28.80";;"2";;"1348";;"QTL mapping on CDR x RIT";;"3";;"Fruit weight";;NULL;;NULL;;NULL;;"8";;NULL;;NULL
+"QNc";;"642";;"29.80";;"29.80";;"2";;"1363";;"QTL mapping on CDR x RIT";;"3";;"Nut weight";;NULL;;NULL;;NULL;;"13";;NULL;;NULL
+"QSb";;"643";;"31.90";;"31.90";;"2";;"1369";;"QTL mapping on CDR x RIT";;"3";;"Shell weight";;NULL;;NULL;;NULL;;"14";;NULL;;NULL
+"QMb";;"644";;"28.50";;"28.50";;"2";;"1356";;"QTL mapping on CDR x RIT";;"3";;"Meat weight";;NULL;;NULL;;"Fresh albumen weight";;"10";;NULL;;NULL
+"Q2a";;"645";;"46.30";;"46.30";;"2";;"1339";;"QTL mapping on CDR x RIT";;"3";;"Bunch number (adult)";;NULL;;NULL;;NULL;;"6";;NULL;;NULL
+"Q4a";;"646";;"46.30";;"46.30";;"2";;"1343";;"QTL mapping on CDR x RIT";;"3";;"Nut number (adult)";;NULL;;NULL;;NULL;;"11";;NULL;;NULL
+"Q%Ua";;"647";;"78.50";;"78.50";;"2";;"1328";;"QTL mapping on CDR x RIT";;"3";;"%endosperm humidity";;NULL;;NULL;;NULL;;"1";;NULL;;NULL
+"QNd";;"648";;"42.50";;"42.50";;"3";;"1364";;"QTL mapping on CDR x RIT";;"3";;"Nut weight";;NULL;;NULL;;NULL;;"13";;NULL;;NULL
+"QWb";;"649";;"42.50";;"42.50";;"3";;"1376";;"QTL mapping on CDR x RIT";;"3";;"Water weight";;NULL;;NULL;;NULL;;"15";;NULL;;NULL
+"QSc";;"650";;"50.50";;"50.50";;"3";;"1370";;"QTL mapping on CDR x RIT";;"3";;"Shell weight";;NULL;;NULL;;NULL;;"14";;NULL;;NULL
+"QNe";;"651";;"72.80";;"72.80";;"3";;"1365";;"QTL mapping on CDR x RIT";;"3";;"Nut weight";;NULL;;NULL;;NULL;;"13";;NULL;;NULL
+"QSd";;"652";;"71.20";;"71.20";;"3";;"1371";;"QTL mapping on CDR x RIT";;"3";;"Shell weight";;NULL;;NULL;;NULL;;"14";;NULL;;NULL
+"Q%Sa";;"653";;"65.00";;"65.00";;"4";;"1322";;"QTL mapping on CDR x RIT";;"3";;"%shell";;NULL;;NULL;;"Shell weight/fruit weightx100";;"4";;NULL;;NULL
+"Q%Wb";;"654";;"100.90";;"100.90";;"4";;"1333";;"QTL mapping on CDR x RIT";;"3";;"%water";;NULL;;NULL;;"Water weight/fruit weightx100";;"5";;NULL;;NULL
+"Q%Ub";;"655";;"34.20";;"34.20";;"5";;"1329";;"QTL mapping on CDR x RIT";;"3";;"%endosperm humidity";;NULL;;NULL;;NULL;;"1";;NULL;;NULL
+"Q%Wc";;"656";;"42.00";;"42.00";;"5";;"1334";;"QTL mapping on CDR x RIT";;"3";;"%water";;NULL;;NULL;;"Water weight/fruit weightx100";;"5";;NULL;;NULL
+"QWc";;"657";;"42.20";;"42.20";;"5";;"1377";;"QTL mapping on CDR x RIT";;"3";;"Water weight";;NULL;;NULL;;NULL;;"15";;NULL;;NULL
+"Q%Mb";;"658";;"43.60";;"43.60";;"5";;"1317";;"QTL mapping on CDR x RIT";;"3";;"%meat";;NULL;;NULL;;"Fresh albumen weight/Fruit weightx100";;"2";;NULL;;NULL
+"QFd";;"659";;"44.30";;"44.30";;"5";;"1349";;"QTL mapping on CDR x RIT";;"3";;"Fruit weight";;NULL;;NULL;;NULL;;"8";;NULL;;NULL
+"QSe";;"660";;"45.10";;"45.10";;"5";;"1372";;"QTL mapping on CDR x RIT";;"3";;"Shell weight";;NULL;;NULL;;NULL;;"14";;NULL;;NULL
+"QHa";;"661";;"46.70";;"46.70";;"5";;"1352";;"QTL mapping on CDR x RIT";;"3";;"Husk weight";;NULL;;NULL;;NULL;;"9";;NULL;;NULL
+"Q%Mc";;"662";;"3.80";;"3.80";;"7";;"1318";;"QTL mapping on CDR x RIT";;"3";;"%meat";;NULL;;NULL;;"Fresh albumen weight/Fruit weightx100";;"2";;NULL;;NULL
+"Q%Uc";;"663";;"31.20";;"31.20";;"7";;"1330";;"QTL mapping on CDR x RIT";;"3";;"%endosperm humidity";;NULL;;NULL;;NULL;;"1";;NULL;;NULL
+"QMc";;"664";;"63.20";;"63.20";;"7";;"1357";;"QTL mapping on CDR x RIT";;"3";;"Meat weight";;NULL;;NULL;;"Fresh albumen weight";;"10";;NULL;;NULL
+"Q4b";;"665";;"76.40";;"76.40";;"8";;"1344";;"QTL mapping on CDR x RIT";;"3";;"Nut number (adult)";;NULL;;NULL;;NULL;;"11";;NULL;;NULL
+"Q1b";;"666";;"0.00";;"0.00";;"9";;"1337";;"QTL mapping on CDR x RIT";;"3";;"Bunch number (early)";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"QHb";;"667";;"3.40";;"3.40";;"10";;"1353";;"QTL mapping on CDR x RIT";;"3";;"Husk weight";;NULL;;NULL;;NULL;;"9";;NULL;;NULL
+"QNf";;"668";;"10.90";;"10.90";;"10";;"1366";;"QTL mapping on CDR x RIT";;"3";;"Nut weight";;NULL;;NULL;;NULL;;"13";;NULL;;NULL
+"QMd";;"669";;"11.00";;"11.00";;"10";;"1358";;"QTL mapping on CDR x RIT";;"3";;"Meat weight";;NULL;;NULL;;"Fresh albumen weight";;"10";;NULL;;NULL
+"QFe";;"670";;"12.30";;"12.30";;"10";;"1350";;"QTL mapping on CDR x RIT";;"3";;"Fruit weight";;NULL;;NULL;;NULL;;"8";;NULL;;NULL
+"QSf";;"671";;"24.70";;"24.70";;"10";;"1373";;"QTL mapping on CDR x RIT";;"3";;"Shell weight";;NULL;;NULL;;NULL;;"14";;NULL;;NULL
+"Q2c";;"672";;"24.70";;"24.70";;"10";;"1341";;"QTL mapping on CDR x RIT";;"3";;"Bunch number (adult)";;NULL;;NULL;;NULL;;"6";;NULL;;NULL
+"Q%Na";;"673";;"116.50";;"116.50";;"10";;"1320";;"QTL mapping on CDR x RIT";;"3";;"%nut";;NULL;;NULL;;"Nut weight/fruit weightx100";;"3";;NULL;;NULL
+"QMe";;"674";;"127.90";;"127.90";;"10";;"1359";;"QTL mapping on CDR x RIT";;"3";;"Meat weight";;NULL;;NULL;;"Fresh albumen weight";;"10";;NULL;;NULL
+"Q%Sb";;"675";;"134.70";;"134.70";;"10";;"1323";;"QTL mapping on CDR x RIT";;"3";;"%shell";;NULL;;NULL;;"Shell weight/fruit weightx100";;"4";;NULL;;NULL
+"Q2b";;"676";;"141.30";;"141.30";;"10";;"1340";;"QTL mapping on CDR x RIT";;"3";;"Bunch number (adult)";;NULL;;NULL;;NULL;;"6";;NULL;;NULL
+"Q4c";;"677";;"146.40";;"146.40";;"10";;"1345";;"QTL mapping on CDR x RIT";;"3";;"Nut number (adult)";;NULL;;NULL;;NULL;;"11";;NULL;;NULL
+"Q%Sc";;"678";;"105.30";;"105.30";;"11";;"1324";;"QTL mapping on CDR x RIT";;"3";;"%shell";;NULL;;NULL;;"Shell weight/fruit weightx100";;"4";;NULL;;NULL
+"Q%Ud";;"679";;"61.10";;"61.10";;"12";;"1331";;"QTL mapping on CDR x RIT";;"3";;"%endosperm humidity";;NULL;;NULL;;NULL;;"1";;NULL;;NULL
+"Q1c";;"680";;"26.60";;"26.60";;"12";;"1338";;"QTL mapping on CDR x RIT";;"3";;"Bunch number (early)";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"QSg";;"681";;"0.00";;"0.00";;"13";;"1374";;"QTL mapping on CDR x RIT";;"3";;"Shell weight";;NULL;;NULL;;NULL;;"14";;NULL;;NULL
+"QMf";;"682";;"0.60";;"0.60";;"13";;"1360";;"QTL mapping on CDR x RIT";;"3";;"Meat weight";;NULL;;NULL;;"Fresh albumen weight";;"10";;NULL;;NULL
+"QNg";;"683";;"1.50";;"1.50";;"13";;"1367";;"QTL mapping on CDR x RIT";;"3";;"Nut weight";;NULL;;NULL;;NULL;;"13";;NULL;;NULL
+"Q%Sd";;"684";;"7.70";;"7.70";;"13";;"1325";;"QTL mapping on CDR x RIT";;"3";;"%shell";;NULL;;NULL;;"Shell weight/fruit weightx100";;"4";;NULL;;NULL
+"QFf";;"685";;"8.10";;"8.10";;"13";;"1351";;"QTL mapping on CDR x RIT";;"3";;"Fruit weight";;NULL;;NULL;;NULL;;"8";;NULL;;NULL
+"QHc";;"686";;"8.10";;"8.10";;"13";;"1354";;"QTL mapping on CDR x RIT";;"3";;"Husk weight";;NULL;;NULL;;NULL;;"9";;NULL;;NULL
+"QWd";;"687";;"8.10";;"8.10";;"13";;"1378";;"QTL mapping on CDR x RIT";;"3";;"Water weight";;NULL;;NULL;;NULL;;"15";;NULL;;NULL
+"Q%Md";;"688";;"8.10";;"8.10";;"13";;"1319";;"QTL mapping on CDR x RIT";;"3";;"%meat";;NULL;;NULL;;"Fresh albumen weight/Fruit weightx100";;"2";;NULL;;NULL
+"Q%Wd";;"689";;"8.10";;"8.10";;"13";;"1335";;"QTL mapping on CDR x RIT";;"3";;"%water";;NULL;;NULL;;"Water weight/fruit weightx100";;"5";;NULL;;NULL
+"Q%Nb";;"690";;"0.00";;"0.00";;"14";;"1321";;"QTL mapping on CDR x RIT";;"3";;"%nut";;NULL;;NULL;;"Nut weight/fruit weightx100";;"3";;NULL;;NULL
+"Q%Se";;"691";;"0.00";;"0.00";;"14";;"1326";;"QTL mapping on CDR x RIT";;"3";;"%shell";;NULL;;NULL;;"Shell weight/fruit weightx100";;"4";;NULL;;NULL
+"Q1a";;"692";;"43.70";;"43.70";;"14";;"1336";;"QTL mapping on CDR x RIT";;"3";;"Bunch number (early)";;NULL;;NULL;;NULL;;"7";;NULL;;NULL
+"Q%Sf";;"693";;"69.90";;"69.90";;"15";;"1327";;"QTL mapping on CDR x RIT";;"3";;"%shell";;NULL;;NULL;;"Shell weight/fruit weightx100";;"4";;NULL;;NULL

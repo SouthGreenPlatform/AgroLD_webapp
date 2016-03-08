@@ -1,20 +1,20 @@
 {
     "swagger": "2.0",
     "info": {
-        "description": "These are the documentations of the services the 1.0 version of the RESTful-like API of AgroLD available at http://volvestre.cirad.fr:8080/aldp/api/1.0",
+        "description": "This page provides information about the RESTful API (version 1.0) of AgroLD.",
         "version": "1.0",
-        "title": "AgroLD API 1.0 Interactive Documentations",
+        "title": "AgroLD API 1.0 Interactive Documentation",
         "termsOfService": "http://www.agrold.org",
         "contact": {
             "email": "tagnyngompe@gmail.com"
         },
         "license": {
             "name": "IBC Montpellier",
-            "url": "http://www.ibc-montpellier.fr/wp/wp5"
+            "url": "http://volvestre.cirad.fr:8080/agrold/about.jsp"
         }
     },
     "host": "volvestre.cirad.fr:8080",
-    "basePath": "/aldp/api/1.0",
+    "basePath": "/agrold/api/1.0",
     "tags": [
         {
             "name": "ontologies",
@@ -733,6 +733,7 @@
                             "orygenesdb.o.s.indica",
                             "orygenesdb.o.s.thaliana",
                             "orygenesdb.o.s.japonica",
+                            "greenphyldb",
                             "topgene",
                             "qtl.annotations",
                             "otl",
@@ -1511,7 +1512,7 @@
                 ],
                 "summary": "Get URIs, ids, and name of genes participating in a pathway given its ID",
                 "description": "",
-                "operationId": "getGenesByPathways",
+                "operationId": "getCDSGene",
                 "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
                 "parameters": [
                     {
@@ -1562,7 +1563,69 @@
                     }
                 }
             }
-        },        
+        },    
+        
+        
+        
+        
+        
+        
+        
+        "/genes/NumberOfCDS{_format}": {
+            "post": {
+                "tags": [
+                    "gene"
+                ],
+                "summary": "Retrieve complete URI and description of all genes from AgroLD in JSON format",
+                "description": "",
+                "operationId": "getCDSGene",
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "parameters": [
+                    {
+                        "name": "_page",
+                        "in": "query",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_pageSize",
+                        "in": "query",
+                        "description": "size of a page of the result set (> 0 or else all results will be displayed)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_format",
+                        "in": "path",
+                        "description": "format in which the results set will be return",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            ".json",
+                            ".sparql-json",
+                            ".xml",
+                            ".tsv",
+                            ".csv",
+                            ".rdf",
+                            ".html",
+                            ".ttl"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+            
+            
+            
+            
+            
+            
         "/pathways/inWhichParticipatesGene/byId{_format}": {
             "post": {
                 "tags": [

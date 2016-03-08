@@ -1,18 +1,13 @@
 package agrold.rest.api.sparqlaccess;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.xml.parsers.ParserConfigurationException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.w3c.dom.CharacterData;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
-import org.xml.sax.SAXException;
 
 /**
  *
@@ -22,54 +17,11 @@ public class ExternalServices {
 
     public static String G_LINKS_SERVICE = "http://link.g-language.org/";
     public static String EUROPEPMC_SERVICE = "http://www.ebi.ac.uk/europepmc/webservices/rest/search/";
-
-    /*public static String getPublicationsOfGeneOrProteinById(String proteinId) {
-     String source = "PubMed";
-     String format = "json";
-     String glinkJsonStr = APILib.executeHttpQuery(G_LINKS_SERVICE + proteinId + "/extract=" + source + "/format=" + format);
-     String result = "";
-     JSONArray resultJsonArray = new JSONArray();
-     // extract pubmed row from the json result
-     try {
-     JSONArray jsonArray = new JSONArray(glinkJsonStr);
-     //System.out.println("\n\njsonArray: " + jsonArray);
-     int count = jsonArray.length(); // get totalCount of all jsonObjects
-     for (int i = 0; i < count; i++) {   // iterate through jsonArray 
-     JSONObject jsonObject = jsonArray.getJSONObject(i);  // get jsonObject @ i position 
-     //System.out.println("jsonObject " + i + ": " + jsonObject);
-     JSONObject tempObj = jsonObject.getJSONObject(proteinId);
-     //System.out.println("tempObject : " + tempObj);
-     Iterator<String> keys = tempObj.keys();
-     while (keys.hasNext()) {
-     String key = keys.next();
-     JSONArray tempArray = tempObj.getJSONArray(key);
-     //System.out.println("ARRAY : " + tempArray);
-     //System.out.println(key + " : " + tempArray.getJSONObject(3));
-     //System.out.println(key + " : " + tempArray.getJSONObject(4));
-     int nb = tempArray.length();
-     for (int j = 0; j < nb; j++) {
-     try {
-     JSONObject paperObj = tempArray.getJSONObject(j);
-     String database = paperObj.getString("Database");
-     if (database.equals(source)) {
-     //System.out.println(j + " : " + paperObj);
-     resultJsonArray.put(paperObj);
-     }
-     } catch (JSONException e) {
-
-     }
-     }
-     }
-     }
-     } catch (JSONException e) {
-     e.printStackTrace();
-     }
-     return resultJsonArray.toString();
-     }*/
-    public static String getPublicationsOfGeneOrProteinById(String proteinId) {
+    
+    public static String getPublicationsOfGeneOrProteinById(String entityId) {
         String source = "PubMed";
         String format = "json";
-        String glinkJsonStr = APILib.executeHttpQuery(G_LINKS_SERVICE + proteinId + "/extract=" + source + "/format=" + format);
+        String glinkJsonStr = APILib.executeHttpQuery(G_LINKS_SERVICE + entityId + "/extract=" + source + "/format=" + format);
         String result = "";
         JSONArray resultJsonArray = new JSONArray();
         // extract pubmed row from the json result
@@ -78,7 +30,7 @@ public class ExternalServices {
             int count = jsonArray.length(); // get totalCount of all jsonObjects
             for (int i = 0; i < count; i++) {   // iterate through jsonArray 
                 JSONObject jsonObject = jsonArray.getJSONObject(i);  // get jsonObject @ i position 
-                JSONObject tempObj = jsonObject.getJSONObject(proteinId);
+                JSONObject tempObj = jsonObject.getJSONObject(entityId);
                 Iterator<String> keys = tempObj.keys();
                 ArrayList<String> ids = new ArrayList<>();
                 while (keys.hasNext()) {

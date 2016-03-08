@@ -21,7 +21,7 @@
         <div id="wrapper">
             <jsp:include page="header.html"></jsp:include>
                 <section>
-                    <h3>Search > Quick Search</h3>
+                    <div class="info_title">Search > Quick Search</div>
                     <div style="text-align: center">
                         <h4><b>Search and browse AgroLD</b></h4>
                         <p>Search examples: ontological concepts - 'plant height' or 'regulation of gene expression'; gene names -
@@ -29,10 +29,10 @@
                     </div>
                     <div id="sform">
                         <center>
-                            <form  action="http://volvestre.cirad.fr:8890/fct/facet.vsp?cmd=text&sid=86" method="post">                   
-                                Enter the entire/part of the name/code of a gene, QTL, protein, ... <br/><br/>
+                            <form  action="http://volvestre.cirad.fr:8890/fct/facet.vsp?cmd=text&sid=94" method="post">                   
+                                <!--Enter the entire/part of the name/code of a gene, QTL, protein, ... --><br/><br/>
                                 Search Text <input class="keyword" name="q" type="text" placeholder="Type here..." data-step="1" data-intro="Type your expression and then ..."/> 
-                                <input class="yasrbtn" type="submit" value="Search!" data-step="2" data-intro="launch the search engine!"/>
+                                <input class="yasrbtn" type="submit" value="Search" data-step="2" data-intro="launch the search engine!"/>
                             </form>
                         </center>
                     </div>

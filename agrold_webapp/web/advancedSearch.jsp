@@ -26,7 +26,7 @@
         <div id="wrapper">
             <jsp:include page="header.html"></jsp:include>
                 <section>
-                    <h3>Search > Advanced form-based search</h3>
+                    <div class="info_title">Search > Advanced form-based search</div>
                     <div id="advanced-form" class="border-right">
                     <jsp:include page="WEB-INF/jspf/advancedForm.jsp"></jsp:include>
                     </div>

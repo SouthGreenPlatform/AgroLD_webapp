@@ -12,18 +12,18 @@
     </div-->
 
     <br><div id="proteinContainer"><b style="font-size:13pt">encodes proteins</b>
-        <span id="proteinPageBtns"><a href="javascript:void(0)" id="proteins"> + </a></span>
+        <span id="proteinPageBtns" class="pageNavBtns"><a href="javascript:void(0)" id="proteins"> + </a></span>
         <div id="proteinResult"></div>            
     </div>
 
     <br><div id="pathwayContainer"><b style="font-size:13pt">Pathways</b>
-        <span id="pathwayPageBtns"><a href="javascript:void(0)" id="pathways"> + </a></span>
+        <span id="pathwayPageBtns" class="pageNavBtns"><a href="javascript:void(0)" id="pathways"> + </a></span>
         <div id="pathwayResult"></div>
     </div>
-    <br><div id="publicationContainer"><b style="font-size:13pt">Publication</b>
-        <span id="publicationPageBtns"><a href="javascript:void(0)" id="publication"> + </a></span>
+    <!--br><div id="publicationContainer"><b style="font-size:13pt">Publication</b>
+        <span id="publicationPageBtns" class="pageNavBtns"><a href="javascript:void(0)" id="publication"> + </a></span>
         <div id="publicationResult"></div>            
-    </div>
+    </div-->
 </div>
 <script type="text/javascript">
     var geneUri = <% out.println("'" + request.getParameter("uri") + "'");%>;    
@@ -36,7 +36,7 @@ WHERE { \
   VALUES ?entity{ \
     <' + uri + '> \
   } \
-?entity agrold:description ?Description .  \
+{?entity agrold:description ?Description}UNION{BIND("" as ?Description)}   \
 OPTIONAL{?entity rdfs:label ?Name .} \
 BIND(REPLACE(str(?entity), \'^.*(#|/)\', "") AS ?Id) \
 }';
@@ -112,28 +112,10 @@ BIND(REPLACE(str(?entity), \'^.*(#|/)\', "") AS ?Id) \
         displayHoldMessage("publicationResult");
         // get PubMed Id from G-link web service
         swagger.apis.gene.getPublicationsOfGeneById({geneId: geneId},
-        {responseContentType: 'application/json'}, function (data) {
-            //console.log(data.data);
-            removeHoldMessage("publicationResult");
+        {responseContentType: 'application/json'}, function (data) {            
+            //$("#publicationPageBtns").remove();
             json = data.obj;
-            //console.log(json);
-            displayPublications(json, "publicationResult");
-            /*if (json.length > 0) {
-                $("#publicationResult").append("<ol></ol>");
-                for (i = 0; i < json.length; i++) {
-                    url = json[i]["URL"];
-                    authors  = json[i]["Authors"];
-                    maxAuthorsLength = 100;
-                    if(authors.length > maxAuthorsLength){
-                        authors = authors.substring(1, maxAuthorsLength) + ' ...';
-                    }
-                    $("#publicationResult ol").append('<li id="paper'+i+'"><span>'+authors+', " <b>'+json[i]["Title"]+'</b> ", <i>'+json[i]["Journal"]+'</i>, '+json[i]["Year"]+'</span></li>');
-                    $("#publicationResult ol li#paper"+i).append('<br><span>More at: <a href="' + url + '" target="_blank">' + url + '</a></span>');
-                    //$("#publicationResult ol").append('<li><a href="' + url + '" target="_blank">' + url + "</a></li>");
-                }
-            } else {                
-                $("#publicationResult").append("No publication found.")
-            }*/
+            displayPublications(json, "publicationResult");            
         });
     }
     function displayInformation(data, page, containerId, pageBtnsId, functionName) {

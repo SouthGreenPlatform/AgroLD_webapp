@@ -299,7 +299,16 @@ public class AgroldService extends ResourceConfig {
             @DefaultValue(DEFAULT_PAGE) @QueryParam("_page") int page, @DefaultValue(DEFAULT_PAGE_SIZE) @QueryParam("_pageSize") int pageSize) {
         return GeneDAO.getGenesByPathwaysID(pathwayId, page, pageSize, format);
     }
+    
+    @POST
+    @Path("/genes/NumberOfCDS{_format}")
+    @Produces({MediaType.APPLICATION_JSON, MediaType.TEXT_HTML, APILib.TSV, APILib.CSV, MediaType.TEXT_XML, APILib.RDF_XML, APILib.TTL})
+    public String getCDSGene(@PathParam("_format") String format,
+            @DefaultValue(DEFAULT_PAGE) @QueryParam("_page") int page, @DefaultValue(DEFAULT_PAGE_SIZE) @QueryParam("_pageSize") int pageSize) {
+        return GeneDAO.getCDSGene(page, pageSize, format);
+    }
 
+    
     // External services : publications
 
     @POST

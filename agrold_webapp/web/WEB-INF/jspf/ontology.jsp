@@ -7,19 +7,19 @@
 <div id="ontologyPage">
     <div id="header"></div>
     <br><div id="parentContainer"><b style="font-size:13pt">Parents</b>
-        <span id="parentPageBtns"><a href="javascript:void(0)" id="parent"> + </a></span>
+        <span id="parentPageBtns" class="pageNavBtns"><a href="javascript:void(0)" id="parent"> + </a></span>
         <div id="parentResult"></div>            
     </div>
     <br><div id="childrenContainer"><b style="font-size:13pt">Children</b>
-        <span id="childrenPageBtns"><a href="javascript:void(0)" id="children"> + </a></span>
+        <span id="childrenPageBtns" class="pageNavBtns"><a href="javascript:void(0)" id="children"> + </a></span>
         <div id="childrenResult"></div>            
     </div>
     <br><div id="proteinContainer"><b style="font-size:13pt">Proteins associated</b>
-        <span id="proteinPageBtns"><a href="javascript:void(0)" id="protein"> + </a></span>
+        <span id="proteinPageBtns" class="pageNavBtns"><a href="javascript:void(0)" id="protein"> + </a></span>
         <div id="proteinResult"></div>            
     </div>
     <br><div id="qtlContainer"><b style="font-size:13pt">QTL associated</b>
-        <span id="qtlPageBtns"><a href="javascript:void(0)" id="qtl"> + </a></span>
+        <span id="qtlPageBtns" class="pageNavBtns"><a href="javascript:void(0)" id="qtl"> + </a></span>
         <div id="qtlResult"></div>
     </div>
 </div>
@@ -35,8 +35,8 @@ WHERE { \
   VALUES ?entity{ \
     <' + uri + '> \
   } \
-?entity meaning: ?Description .  \
-OPTIONAL{?entity rdfs:label ?Name .} \
+{?entity meaning: ?Description}UNION{BIND("" as ?Description)} .  \
+{?entity rdfs:label ?Name}UNION{BIND("" as ?Name)} \
 BIND(REPLACE(str(?entity), \'^.*(#|/)\', \"\") AS ?localname)\
 BIND(REPLACE(?localname, \"_\", \":\") as ?Id).\
 }';

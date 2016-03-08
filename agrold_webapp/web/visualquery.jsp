@@ -67,7 +67,7 @@
         <div id="wrapper">
             <jsp:include page="header.html"></jsp:include>
                 <section>
-                    <h3>Search > Visual Query</h3>
+                    <div class="info_title">Search > Visual Query<div>
                     <div class="recline-app">
                         <div class="navbar">
                             <div class="navbar-inner">

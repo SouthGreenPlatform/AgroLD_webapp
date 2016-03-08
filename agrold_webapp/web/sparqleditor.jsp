@@ -130,6 +130,7 @@
             }
             form{
                 //background-color: #f4f4f4;
+                font-size: 95%;
                 width: 98%;
                 padding: 5px
             }
@@ -162,10 +163,8 @@
             <jsp:include page="header.html"></jsp:include>
                 <section>
                     <div id="header">
-                        <h3>Search > SPARQL Query Editor</h3> 
-                        <p>
-                            Select a sample query and run it. The sample query could be used to modify the parameters accordingly. Alternatively, enter SPARQL code in the query box below.<button href="javascript:void(0);" onclick="javascript:introJs().setOption('showProgress', true).start();" class="yasrbtn" style="background-color: #00B5AD!important; color: white; font-weight: bold">Watch how!</button>
-                        </p>                        
+                        <div class="info_title">Search > SPARQL Query Editor</div>                        
+                        Select a sample query and run it. The sample query could be used to modify the parameters accordingly. Alternatively, enter SPARQL code in the query box below.<button href="javascript:void(0);" onclick="javascript:introJs().setOption('showProgress', true).start();" class="yasrbtn" style="background-color: #00B5AD!important; color: white; font-weight: bold">Watch how!</button>                        
                     </div>
                     <div id="main" style="overflow:auto;">
                         <div id="sparql">
@@ -194,149 +193,221 @@
                                 <%
                                     if (request.getParameter("query") == null) {
                                 %>
+PREFIX agrold:<http://www.southgreen.fr/agrold/>
 SELECT * 
-WHERE {
-   ?sub ?pred ?obj .
+WHERE{
+	GRAPH ?graph{
+		?subject ?property ?object.
+	}
+  filter(REGEX(?graph, CONCAT("^", str(agrold:))))
 } LIMIT 10
-                                <%
-                                    } else {
-                                        out.println(request.getParameter("query"));
-                                    }
-                                %>
-                            </textarea>
-                            <div id="showcase"></div><br />
-                            <label for="timeout" class="n">Execution timeout</label>
-                            <input name="timeout" id="timeout" type="text" value="20000" onchange="//setTimeout(this)" style="width:170px"/> milliseconds
-                            <span class="info"><i>(values less than 1000 are ignored)</i></span>		<br />
-                            <!--label class="n" for="options">Options</label-->                            
-                            <br />
-                            <label for="format" class="n">Results Format</label>
-                            <select name="format" id="format" onchange="format_change(this)">
-                                <option value="auto" >Auto</option>
-                                <option value="text/html">HTML</option>
-                                <option value="application/vnd.ms-excel" >Spreadsheet</option>
-                                <option value="application/sparql-results+xml" >XML</option>
-                                <option value="application/sparql-results+json" >JSON</option>
-                                <option value="application/javascript" >Javascript</option>
-                                <option value="text/turtle" >Turtle</option>
-                                <option value="application/rdf+xml" selected="selected">RDF/XML</option>
-                                <option value="text/plain" >N-Triples</option>
-                                <option value="text/csv" >CSV</option>
-                                <option value="text/tab-separated-values" >TSV</option>
-                            </select>                                    
-                            <input type="submit" value="Download Results" data-step="5" data-intro="or download directly your results in the format of your choice"/>
-                            <input type="button" value="Reset" onclick="resetForm()"  style="float: right;margin-right: 10px; " data-step="4" data-intro="Reset the editor with the initial selected query pattern"/> &nbsp;&nbsp;
-
-                        </form> 
+                                    <%
+                                        } else {
+                                            out.println(request.getParameter("query"));
+                                        }
+                                    %>
+                        </textarea>
+                        <div id="showcase"></div>
+                        <table width="100%"><tr>
+                                <td style="background-color: #d1d1d1">
+                                    <label for="timeout" class="n">Execution timeout</label>
+                                    <input name="timeout" class="yasrbtn" id="timeout" type="text" value="20000" onchange="//setTimeout(this)" style="width:70px"/> milliseconds
+                                    <span class="info"><i>(values less than 1000 are ignored)</i></span>
+                                </td>
+                                <td align="right" style="background-color: #f7f7f7"  data-step="5" data-intro="or download directly your results in the format of your choice">
+                                        <label for="format" class="n">Results Format</label>
+                                        <select name="format" id="format"  onchange="format_change(this)">
+                                            <option value="auto" >Auto</option>
+                                            <option value="text/html">HTML</option>
+                                            <option value="application/vnd.ms-excel" >Spreadsheet</option>
+                                            <option value="application/sparql-results+xml" >XML</option>
+                                            <option value="application/sparql-results+json" >JSON</option>
+                                            <option value="application/javascript" >Javascript</option>
+                                            <option value="text/turtle" >Turtle</option>
+                                            <option value="application/rdf+xml" selected="selected">RDF/XML</option>
+                                            <option value="text/plain" >N-Triples</option>
+                                            <option value="text/csv" >CSV</option>
+                                            <option value="text/tab-separated-values" >TSV</option>
+                                        </select>                                    
+                                        <input type="submit" class="yasrbtn" value="Download Results"/>
+                                </td>
+                            </tr></table>
+                    </form>    
+                    <div>
+                        <table width="100%">            
+                            <tr>
+                                <td align="left" data-step="7" data-intro="You can save your query in a file and then ... " style="background-color: #f7f7f7">Filename to Save As:
+                                    <input id="inputFileNameToSaveAs" value="query.sparql"></input>
+                                    <button class="yasrbtn" onclick="saveTextAsFile(document.getElementById('inputFileNameToSaveAs').value);">Save Query</button></td>                                
+                                <td align="right" data-step="8" data-intro=" Load it (or any other text file containing a sparql query) later"  style="background-color: #d1d1d1">
+                                    <input  type="file" id="fileToLoad" class="yasrbtn">
+                                    <button class="yasrbtn" onclick="loadFileAsText(document.getElementById('fileToLoad').files[0]);">Load Selected Query File</button><td>
+                            </tr>
+                        </table>
                     </div>
-                    <div id="patternslist"  data-step="1" data-intro="Select a <b>question</b> here and then ...">
-                        <b style="font-size: 15px">Query Patterns</b>
-                    </div>                 
-                </div>               
-                <div id="yasr" data-step="4" data-intro="watch your results ... ">
-                    <h4>Results</h4>
                 </div>
-                <div id="push"></div> <!--add the push div here -->
-            </section>
-            <jsp:include page="footer.html"></jsp:include>
-        </div>
-        <script>
-            // Display the list of patterns            
-            var divpatt = document.getElementById("patternslist");
-            var ol = document.createElement("ol");
-            divpatt.innerHTML += "<ol>";
-            for (i = 0; i < patternlabels.length; i++) {
-                var li = document.createElement("li");
-                li.innerHTML = patternlabels[i] + " (<a href=\"#\" onclick=\"selectPattern(" + i + ")\">select</a>)";
-                ol.appendChild(li);
-                //divpatt.innerHTML += //qpatterns[selectedpattern][i] + ': <input class="aparameter" value="' + qpatterns[selectedpattern][i] + '" oninput="replaceParaValue(' + "/" + qpatterns[selectedpattern][i] + "/g" + ', this)"/><br>';
-            }
-            divpatt.appendChild(ol);
-        </script>      
-        <script src='yasr/yasr.bundled.min.js'></script>
-        <script src="yasqe/dist/yasqe.bundled.min.js"></script>
-        <script src="yasqe/doc/doc.min.js"></script>
-        <script type="text/javascript">
-            //var yasqe = YASQE(document.getElementById("showcase"), 
-            $.fn.scrollView = function () {
-                return this.each(function () {
-                    $('html, body').animate({
-                        scrollTop: $(this).offset().top
-                    }, 1000);
-                });
-            };
-            var yasqe = YASQE.fromTextArea(document.getElementById('query'),
-                    {
-                        sparql: {
-                            showQueryButton: true,
-                            endpoint: "http://volvestre.cirad.fr:8890/sparql",
-                            //endpoint: "http://localhost:8890/sparql",
-                            collapsePrefixesOnLoad: false,
-                            //persistent: true,
-                            args: [{name: 'timeout', value: document.getElementById('timeout').value}],
-                            callbacks: {
-                                beforeSend: function (data) {
-                                    yasqe.options.sparql.args[0].value = document.getElementById('timeout').value;
-                                    console.log(yasqe.options.sparql.args[0].value);
-                                },
-                                success: function (data) {
-                                    //console.log("success", data);
-                                    $('#yasr').scrollView();
-                                }, //, headers: {"Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "GET, POST, DELETE, PUT", "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, X-Codingpedia"}
-                                error: function (data) {
-                                    $('#yasr').scrollView();
-                                }
+                <div id="patternslist"  data-step="1" data-intro="Select a <b>question</b> here and then ...">
+                    <b style="font-size: 15px">Query Patterns</b>
+                </div>                 
+            </div>               
+            <div id="yasr" data-step="4" data-intro="watch your results ... ">
+                <div class="info_title" style="font-size: 19px">Results</div>
+            </div>
+            <div id="push"></div> <!--add the push div here -->
+        </section>
+        <jsp:include page="footer.html"></jsp:include>
+    </div>
+    <script>
+        // label of the choose file button
+        //$(document).ready(function(){
+        //$('#fileToLoad').text('Select a query file to load:');
+        document.getElementById("fileToLoad").onchange = function () {
+            document.getElementById("uploadFile").value = this.value;
+        };
+        // Display the list of patterns            
+        var divpatt = document.getElementById("patternslist");
+        var ol = document.createElement("ol");
+        divpatt.innerHTML += "<ol>";
+        for (i = 0; i < patternlabels.length; i++) {
+            var li = document.createElement("li");
+            li.innerHTML = patternlabels[i] + " (<a href=\"#\" onclick=\"selectPattern(" + i + ")\">select</a>)";
+            ol.appendChild(li);
+            //divpatt.innerHTML += //qpatterns[selectedpattern][i] + ': <input class="aparameter" value="' + qpatterns[selectedpattern][i] + '" oninput="replaceParaValue(' + "/" + qpatterns[selectedpattern][i] + "/g" + ', this)"/><br><br>';
+        }
+        divpatt.appendChild(ol);
+    </script>      
+    <script src='yasr/yasr.bundled.min.js'></script>
+    <script src="yasqe/dist/yasqe.bundled.min.js"></script>
+    <script src="yasqe/doc/doc.min.js"></script>
+    <script type="text/javascript">
+        //var yasqe = YASQE(document.getElementById("showcase"), 
+        $.fn.scrollView = function () {
+            return this.each(function () {
+                $('html, body').animate({
+                    scrollTop: $(this).offset().top
+                }, 1000);
+            });
+        };
+        var yasqe = YASQE.fromTextArea(document.getElementById('query'),
+                {
+                    sparql: {
+                        showQueryButton: true,
+                        endpoint: "http://volvestre.cirad.fr:8890/sparql",
+                        //endpoint: "http://localhost:8890/sparql",
+                        collapsePrefixesOnLoad: false,
+                        //persistent: true,
+                        args: [{name: 'timeout', value: document.getElementById('timeout').value}],
+                        callbacks: {
+                            beforeSend: function (data) {
+                                yasqe.options.sparql.args[0].value = document.getElementById('timeout').value;
+                                //console.log(yasqe.options.sparql.args[0].value);
+                            },
+                            success: function (data) {
+                                //console.log("success", data);
+                                $('#yasr').scrollView();
+                            }, //, headers: {"Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "GET, POST, DELETE, PUT", "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, X-Codingpedia"}
+                            error: function (data) {
+                                $('#yasr').scrollView();
                             }
                         }
-                    });
-            var yasr = YASR(document.getElementById("yasr"), {
-                //this way, the URLs in the results are prettified using the defined prefixes in the query
-                getUsedPrefixes: yasqe.getPrefixesFromQuery,
-                useGoogleCharts: false,
-                //drawDownloadIcon: false,
-                persistency: {
-                    prefix: false
-                }
-            });
-            //link both together (YasQUE and YASR)
-            yasqe.options.sparql.callbacks.complete = yasr.setResponse;
-            $(document).ready(function () {
-                // Handler for .ready() called.
-                // add introJs attribute
-                // data-step="2" data-intro="Edit it here!"
-                //$("#cmd-container").insertAfter(".yasqe");
-                //$("#cmd-container").insertAfter(".yasqe_buttons");
-                $(".yasqe_queryButton").attr('data-step', '3');
-                $(".yasqe_queryButton").attr('data-intro', 'Run and then ...');
-                // show keyboard commands
-                $("#cmd-container").hover(
-                        function () {
-                            $("ul#cmds").css("display", "");
-                            $(this).css("width", "55%");
-                        }, function () {
-                    $("ul#cmds").css("display", "none");
-                    $(this).css("width", "22%");
-                });
-                $(".fullscreenToggleBtns").click(
-                        function () {
-                            /*if($(".CodeMirror").hasClass("CodeMirror-fullscreen")){
-                             $("#cmd-container").
-                             }*/
-                            $("#cmd-container").toggle();
-                            //$("#cmd-container").insertAfter(".yasqe_buttons");
-                        }
-                );
-                yasqe.options.extraKeys.F11 = function (yasqe) {
-                    yasqe.setOption("fullScreen", !yasqe.getOption("fullScreen"));
-                    $("#cmd-container").toggle();
-                };
-                yasqe.options.extraKeys.Esc = function (yasqe) {
-                    if (yasqe.getOption("fullScreen")) {
-                        yasqe.setOption("fullScreen", false);
-                        $("#cmd-container").toggle();
                     }
-                };
+                });
+        var yasr = YASR(document.getElementById("yasr"), {
+            //this way, the URLs in the results are prettified using the defined prefixes in the query
+            getUsedPrefixes: yasqe.getPrefixesFromQuery,
+            useGoogleCharts: false,
+            //drawDownloadIcon: false,
+            persistency: {
+                prefix: false
+            }
+        });
+        //link both together (YasQUE and YASR)
+        yasqe.options.sparql.callbacks.complete = yasr.setResponse;
+        $(document).ready(function () {
+            // Handler for .ready() called.
+            // add introJs attribute
+            // data-step="2" data-intro="Edit it here!"
+            //$("#cmd-container").insertAfter(".yasqe");
+            //$("#cmd-container").insertAfter(".yasqe_buttons");
+            $(".yasqe_queryButton").attr('data-step', '3');
+            $(".yasqe_queryButton").attr('data-intro', 'Run and then ...');
+            // show keyboard commands
+            $("#cmd-container").hover(
+                    function () {
+                        $("ul#cmds").css("display", "");
+                        $(this).css("width", "55%");
+                    }, function () {
+                $("ul#cmds").css("display", "none");
+                $(this).css("width", "22%");
             });
-        </script>
-    </body>
+            $(".fullscreenToggleBtns").click(
+                    function () {
+                        /*if($(".CodeMirror").hasClass("CodeMirror-fullscreen")){
+                         $("#cmd-container").
+                         }*/
+                        $("#cmd-container").toggle();
+                        //$("#cmd-container").insertAfter(".yasqe_buttons");
+                    }
+            );
+            yasqe.options.extraKeys.F11 = function (yasqe) {
+                yasqe.setOption("fullScreen", !yasqe.getOption("fullScreen"));
+                $("#cmd-container").toggle();
+            };
+            yasqe.options.extraKeys.Esc = function (yasqe) {
+                if (yasqe.getOption("fullScreen")) {
+                    yasqe.setOption("fullScreen", false);
+                    $("#cmd-container").toggle();
+                }
+            };
+        });
+        //console.log(yasqe.getValue());
+
+        function saveTextAsFile(fileNameToSaveAs)
+        {
+            var textToWrite = yasqe.getValue();
+            var textFileAsBlob = new Blob([textToWrite], {type: 'text/plain'});
+
+            var downloadLink = document.createElement("a");
+            downloadLink.download = fileNameToSaveAs;
+            downloadLink.innerHTML = "Download File";
+            if (window.webkitURL != null)
+            {
+                // Chrome allows the link to be clicked
+                // without actually adding it to the DOM.
+                downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
+            }
+            else
+            {
+                // Firefox requires the link to be added to the DOM
+                // before it can be clicked.
+                downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+                downloadLink.onclick = destroyClickedElement;
+                downloadLink.style.display = "none";
+                document.body.appendChild(downloadLink);
+            }
+
+            downloadLink.click();
+        }
+
+        function destroyClickedElement(event)
+        {
+            document.body.removeChild(event.target);
+        }
+
+        function loadFileAsText(fileToLoad)
+        {
+            //var fileToLoad = document.getElementById("fileToLoad").files[0];
+
+            var fileReader = new FileReader();
+            fileReader.onload = function (fileLoadedEvent)
+            {
+                var textFromFileLoaded = fileLoadedEvent.target.result;
+                //textarea = document.getElementById("inputTextToSave");
+                yasqe.setValue(textFromFileLoaded);
+            };
+            fileReader.readAsText(fileToLoad, "UTF-8");
+        }
+
+    </script>
+</body>
 </html>

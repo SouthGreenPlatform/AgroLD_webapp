@@ -1,0 +1,475 @@
+@base	<http://www.southgreen.fr/agrold/> .
+@prefix	rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix	rdfs:<http://www.w3.org/2000/01/rdf-schema#> .
+@prefix	xsd:<http://www.w3.org/2001/XMLSchema#> .
+@prefix	owl:<http://www.w3.org/2002/07/owl#> .
+@prefix	agrold_vocabulary:<http://www.southgreen.fr/agrold/vocabulary/> .
+@prefix	marker:<http://www.southgreen.fr/agrold/orygenesdb.marker/> .
+@prefix	obo:<http://purl.obolibrary.org/obo/> .
+@prefix	cdna:<http://www.southgreen.fr/agrold/orygenesdb.cdna/> .
+@prefix	ensembl:<http://identifiers.org/ensembl.plant/> .
+@prefix	mrna:<http://www.southgreen.fr/agrold/orygenesdb.mrna/> .
+@prefix	protein:<http://www.southgreen.fr/agrold/orygenesdb.protein/> .
+@prefix	orygenesdb:<http://www.southgreen.fr/agrold/orygenesdb/> .
+@prefix	chromosome:<http://www.southgreen.fr/agrold/chromosome/> .
+chromosome:01
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	rdf:type	owl:Class ;
+	rdfs:subClassOf		obo:SO_0000430 .
+ensembl:BGIOSGA000001
+	agrold_vocabulary:source_project	 "glean" ;
+	rdf:type	owl:Class ;
+	rdfs:label	 "BGIOSGA000001" ;
+	rdfs:subClassOf		obo:SO_0000704 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	agrold_vocabulary:has_start_position	 "47275570"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "47278635"^^xsd:integer ;
+	agrold_vocabulary:is_located_on		chromosome:01 .
+mrna:BGIOSGA000001-TA
+	agrold_vocabulary:source_project	 "glean" ;
+	rdf:type	owl:Class ;
+	rdfs:label	 "BGIOSGA000001-TA" ;
+	rdfs:subClassOf		obo:SO_0000234 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	agrold_vocabulary:has_start_position	 "47275570"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "47278635"^^xsd:integer ;
+	agrold_vocabulary:develops_from		ensembl:BGIOSGA000001 ;
+	agrold_vocabulary:is_located_on		chromosome:01 .
+protein:BGIOSGA000001-TA_protein
+	rdf:type	owl:Class ;
+	rdfs:label	 "BGIOSGA000001-TA" ;
+	rdfs:subClassOf		obo:SO_0000104 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	agrold_vocabulary:has_start_position	 "47275570"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "47278635"^^xsd:integer ;
+	agrold_vocabulary:derives_from		mrna:BGIOSGA000001-TA ; 
+	agrold_vocabulary:is_located_on		chromosome:01 .
+orygenesdb:BGIOSGA000001-TA_CDS_1
+	rdf:type	owl:Class ;
+	rdfs:subClassOf		obo:SO_0000316 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	agrold_vocabulary:has_start_position	 "47275570"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "47275662"^^xsd:integer ;
+	agrold_vocabulary:part_of		mrna:BGIOSGA000001-TA ;
+	agrold_vocabulary:is_located_on		chromosome:01 .
+orygenesdb:BGIOSGA000001-TA_exon_1
+	rdf:type	owl:Class ;
+	rdfs:subClassOf		obo:SO_0000147 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	agrold_vocabulary:has_start_position	 "47278477"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "47275662"^^xsd:integer ;
+	agrold_vocabulary:part_of		mrna:BGIOSGA000001-TA ;
+	agrold_vocabulary:is_located_on		 chromosome:01 .
+orygenesdb:BGIOSGA000001-TA_CDS_2
+	rdf:type	owl:Class ;
+	rdfs:subClassOf		obo:SO_0000316 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	agrold_vocabulary:has_start_position	 "47275842"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "47275922"^^xsd:integer ;
+	agrold_vocabulary:part_of		mrna:BGIOSGA000001-TA ;
+	agrold_vocabulary:is_located_on		chromosome:01 .
+orygenesdb:BGIOSGA000001-TA_exon_2
+	rdf:type	owl:Class ;
+	rdfs:subClassOf		obo:SO_0000147 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	agrold_vocabulary:has_start_position	 "47275842"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "47275922"^^xsd:integer ;
+	agrold_vocabulary:part_of		mrna:BGIOSGA000001-TA ;
+	agrold_vocabulary:is_located_on		 chromosome:01 .
+orygenesdb:BGIOSGA000001-TA_CDS_3
+	rdf:type	owl:Class ;
+	rdfs:subClassOf		obo:SO_0000316 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	agrold_vocabulary:has_start_position	 "47276528"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "47276587"^^xsd:integer ;
+	agrold_vocabulary:part_of		mrna:BGIOSGA000001-TA ;
+	agrold_vocabulary:is_located_on		chromosome:01 .
+orygenesdb:BGIOSGA000001-TA_exon_3
+	rdf:type	owl:Class ;
+	rdfs:subClassOf		obo:SO_0000147 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	agrold_vocabulary:has_start_position	 "47276528"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "47276587"^^xsd:integer ;
+	agrold_vocabulary:part_of		mrna:BGIOSGA000001-TA ;
+	agrold_vocabulary:is_located_on		 chromosome:01 .
+chromosome:11
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	rdf:type	owl:Class ;
+	rdfs:subClassOf		obo:SO_0000430 .
+cdna:cDNA_indica_CT830828
+	agrold_vocabulary:source_project	 "cDNA_indica" ;
+	rdf:type	owl:Class ;
+	rdfs:label	 "CT830828" ;
+	rdfs:subClassOf		obo:SO_0000668 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	agrold_vocabulary:has_start_position	 "1203797"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "1205750"^^xsd:integer ;
+	agrold_vocabulary:is_located_on		chromosome:11 .
+cdna:cDNA_indica_CT830828_match_part_1
+	agrold_vocabulary:source_project	 "cDNA_indica" ;
+	rdf:type	owl:Class ;
+	rdfs:subClassOf		obo:SO_0000039 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	agrold_vocabulary:has_start_position	 "1205694"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "1205750"^^xsd:integer ;
+	agrold_vocabulary:part_of	cdna:cDNA_indica_CT830828 ;
+	agrold_vocabulary:is_located_on		 chromosome:11 .
+cdna:cDNA_indica_CT830828_match_part_2
+	agrold_vocabulary:source_project	 "cDNA_indica" ;
+	rdf:type	owl:Class ;
+	rdfs:subClassOf		obo:SO_0000039 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	agrold_vocabulary:has_start_position	 "1205566"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "1205621"^^xsd:integer ;
+	agrold_vocabulary:part_of	cdna:cDNA_indica_CT830828 ;
+	agrold_vocabulary:is_located_on		 chromosome:11 .
+cdna:cDNA_indica_CT830828_match_part_3
+	agrold_vocabulary:source_project	 "cDNA_indica" ;
+	rdf:type	owl:Class ;
+	rdfs:subClassOf		obo:SO_0000039 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	agrold_vocabulary:has_start_position	 "1205281"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "1205445"^^xsd:integer ;
+	agrold_vocabulary:part_of	cdna:cDNA_indica_CT830828 ;
+	agrold_vocabulary:is_located_on		 chromosome:11 .
+cdna:cDNA_indica_CT830828_match_part_4
+	agrold_vocabulary:source_project	 "cDNA_indica" ;
+	rdf:type	owl:Class ;
+	rdfs:subClassOf		obo:SO_0000039 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	agrold_vocabulary:has_start_position	 "1204969"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "1205083"^^xsd:integer ;
+	agrold_vocabulary:part_of	cdna:cDNA_indica_CT830828 ;
+	agrold_vocabulary:is_located_on		 chromosome:11 .
+cdna:cDNA_indica_CT830828_match_part_5
+	agrold_vocabulary:source_project	 "cDNA_indica" ;
+	rdf:type	owl:Class ;
+	rdfs:subClassOf		obo:SO_0000039 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	agrold_vocabulary:has_start_position	 "1204710"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "1204809"^^xsd:integer ;
+	agrold_vocabulary:part_of	cdna:cDNA_indica_CT830828 ;
+	agrold_vocabulary:is_located_on		 chromosome:11 .
+cdna:cDNA_indica_CT830828_match_part_6
+	agrold_vocabulary:source_project	 "cDNA_indica" ;
+	rdf:type	owl:Class ;
+	rdfs:subClassOf		obo:SO_0000039 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	agrold_vocabulary:has_start_position	 "1204388"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "1204570"^^xsd:integer ;
+	agrold_vocabulary:part_of	cdna:cDNA_indica_CT830828 ;
+	agrold_vocabulary:is_located_on		 chromosome:11 .
+cdna:cDNA_indica_CT830828_match_part_7
+	agrold_vocabulary:source_project	 "cDNA_indica" ;
+	rdf:type	owl:Class ;
+	rdfs:subClassOf		obo:SO_0000039 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	agrold_vocabulary:has_start_position	 "1204160"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "1204218"^^xsd:integer ;
+	agrold_vocabulary:part_of	cdna:cDNA_indica_CT830828 ;
+	agrold_vocabulary:is_located_on		 chromosome:11 .
+cdna:cDNA_indica_CT830828_match_part_8
+	agrold_vocabulary:source_project	 "cDNA_indica" ;
+	rdf:type	owl:Class ;
+	rdfs:subClassOf		obo:SO_0000039 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	agrold_vocabulary:has_start_position	 "1203797"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "1204072"^^xsd:integer ;
+	agrold_vocabulary:part_of	cdna:cDNA_indica_CT830828 ;
+	agrold_vocabulary:is_located_on		 chromosome:11 .
+chromosome:05
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	rdf:type	owl:Class ;
+	rdfs:subClassOf		obo:SO_0000430 .
+cdna:cDNA_indica_CT830827
+	agrold_vocabulary:source_project	 "cDNA_indica" ;
+	rdf:type	owl:Class ;
+	rdfs:label	 "CT830827" ;
+	rdfs:subClassOf		obo:SO_0000668 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	agrold_vocabulary:has_start_position	 "26239329"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "26241941"^^xsd:integer ;
+	agrold_vocabulary:is_located_on		chromosome:05 .
+cdna:cDNA_indica_CT830827_match_part_9
+	agrold_vocabulary:source_project	 "cDNA_indica" ;
+	rdf:type	owl:Class ;
+	rdfs:subClassOf		obo:SO_0000039 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	agrold_vocabulary:has_start_position	 "26241887"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "26241941"^^xsd:integer ;
+	agrold_vocabulary:part_of	cdna:cDNA_indica_CT830827 ;
+	agrold_vocabulary:is_located_on		 chromosome:05 .
+cdna:cDNA_indica_CT830827_match_part_10
+	agrold_vocabulary:source_project	 "cDNA_indica" ;
+	rdf:type	owl:Class ;
+	rdfs:subClassOf		obo:SO_0000039 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	agrold_vocabulary:has_start_position	 "26241182"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "26241379"^^xsd:integer ;
+	agrold_vocabulary:part_of	cdna:cDNA_indica_CT830827 ;
+	agrold_vocabulary:is_located_on		 chromosome:05 .
+cdna:cDNA_indica_CT830827_match_part_11
+	agrold_vocabulary:source_project	 "cDNA_indica" ;
+	rdf:type	owl:Class ;
+	rdfs:subClassOf		obo:SO_0000039 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	agrold_vocabulary:has_start_position	 "26240739"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "26240873"^^xsd:integer ;
+	agrold_vocabulary:part_of	cdna:cDNA_indica_CT830827 ;
+	agrold_vocabulary:is_located_on		 chromosome:05 .
+cdna:cDNA_indica_CT830827_match_part_12
+	agrold_vocabulary:source_project	 "cDNA_indica" ;
+	rdf:type	owl:Class ;
+	rdfs:subClassOf		obo:SO_0000039 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	agrold_vocabulary:has_start_position	 "26240538"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "26240654"^^xsd:integer ;
+	agrold_vocabulary:part_of	cdna:cDNA_indica_CT830827 ;
+	agrold_vocabulary:is_located_on		 chromosome:05 .
+cdna:cDNA_indica_CT830827_match_part_13
+	agrold_vocabulary:source_project	 "cDNA_indica" ;
+	rdf:type	owl:Class ;
+	rdfs:subClassOf		obo:SO_0000039 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	agrold_vocabulary:has_start_position	 "26240254"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "26240412"^^xsd:integer ;
+	agrold_vocabulary:part_of	cdna:cDNA_indica_CT830827 ;
+	agrold_vocabulary:is_located_on		 chromosome:05 .
+cdna:cDNA_indica_CT830827_match_part_14
+	agrold_vocabulary:source_project	 "cDNA_indica" ;
+	rdf:type	owl:Class ;
+	rdfs:subClassOf		obo:SO_0000039 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	agrold_vocabulary:has_start_position	 "26239329"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "26239671"^^xsd:integer ;
+	agrold_vocabulary:part_of	cdna:cDNA_indica_CT830827 ;
+	agrold_vocabulary:is_located_on		 chromosome:05 .
+cdna:cDNA_indica_CT830826
+	agrold_vocabulary:source_project	 "cDNA_indica" ;
+	rdf:type	owl:Class ;
+	rdfs:label	 "CT830826" ;
+	rdfs:subClassOf		obo:SO_0000668 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	agrold_vocabulary:has_start_position	 "28953760"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "28958450"^^xsd:integer ;
+	agrold_vocabulary:is_located_on		chromosome:01 .
+cdna:cDNA_indica_CT830826_match_part_15
+	agrold_vocabulary:source_project	 "cDNA_indica" ;
+	rdf:type	owl:Class ;
+	rdfs:subClassOf		obo:SO_0000039 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	agrold_vocabulary:has_start_position	 "28958231"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "28958450"^^xsd:integer ;
+	agrold_vocabulary:part_of	cdna:cDNA_indica_CT830826 ;
+	agrold_vocabulary:is_located_on		 chromosome:01 .
+marker:R687
+	agrold_vocabulary:source_project	 "Marker" ;
+	rdf:type	owl:Class ;
+	rdfs:subClassOf		obo:SO_0000343 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	agrold_vocabulary:has_start_position	 "163300"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "163400"^^xsd:integer ;
+	agrold_vocabulary:is_located_on		chromosome:01 .
+marker:C161
+	agrold_vocabulary:source_project	 "Marker" ;
+	rdf:type	owl:Class ;
+	rdfs:subClassOf		obo:SO_0000343 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	agrold_vocabulary:has_start_position	 "231380"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "231480"^^xsd:integer ;
+	agrold_vocabulary:is_located_on		chromosome:01 .
+marker:C50102
+	agrold_vocabulary:source_project	 "Marker" ;
+	rdf:type	owl:Class ;
+	rdfs:subClassOf		obo:SO_0000343 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	agrold_vocabulary:has_start_position	 "715680"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "715780"^^xsd:integer ;
+	agrold_vocabulary:is_located_on		chromosome:01 .
+marker:S1442
+	agrold_vocabulary:source_project	 "Marker" ;
+	rdf:type	owl:Class ;
+	rdfs:subClassOf		obo:SO_0000343 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	agrold_vocabulary:has_start_position	 "758562"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "758662"^^xsd:integer ;
+	agrold_vocabulary:is_located_on		chromosome:01 .
+marker:C53447S
+	agrold_vocabulary:source_project	 "Marker" ;
+	rdf:type	owl:Class ;
+	rdfs:subClassOf		obo:SO_0000343 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	agrold_vocabulary:has_start_position	 "768805"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "768905"^^xsd:integer ;
+	agrold_vocabulary:is_located_on		chromosome:01 .
+marker:C970
+	agrold_vocabulary:source_project	 "Marker" ;
+	rdf:type	owl:Class ;
+	rdfs:subClassOf		obo:SO_0000343 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	agrold_vocabulary:has_start_position	 "784209"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "784309"^^xsd:integer ;
+	agrold_vocabulary:is_located_on		chromosome:01 .
+marker:C51033
+	agrold_vocabulary:source_project	 "Marker" ;
+	rdf:type	owl:Class ;
+	rdfs:subClassOf		obo:SO_0000343 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	agrold_vocabulary:has_start_position	 "907321"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "907421"^^xsd:integer ;
+	agrold_vocabulary:is_located_on		chromosome:01 .
+marker:S13157S
+	agrold_vocabulary:source_project	 "Marker" ;
+	rdf:type	owl:Class ;
+	rdfs:subClassOf		obo:SO_0000343 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	agrold_vocabulary:has_start_position	 "1047801"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "1047901"^^xsd:integer ;
+	agrold_vocabulary:is_located_on		chromosome:01 .
+marker:S1543
+	agrold_vocabulary:source_project	 "Marker" ;
+	rdf:type	owl:Class ;
+	rdfs:subClassOf		obo:SO_0000343 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	agrold_vocabulary:has_start_position	 "1082176"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "1082276"^^xsd:integer ;
+	agrold_vocabulary:is_located_on		chromosome:01 .
+marker:S10623
+	agrold_vocabulary:source_project	 "Marker" ;
+	rdf:type	owl:Class ;
+	rdfs:subClassOf		obo:SO_0000343 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	agrold_vocabulary:has_start_position	 "1411325"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "1411425"^^xsd:integer ;
+	agrold_vocabulary:is_located_on		chromosome:01 .
+marker:R87
+	agrold_vocabulary:source_project	 "Marker" ;
+	rdf:type	owl:Class ;
+	rdfs:subClassOf		obo:SO_0000343 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	agrold_vocabulary:has_start_position	 "1650298"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "1650398"^^xsd:integer ;
+	agrold_vocabulary:is_located_on		chromosome:01 .
+marker:G107
+	agrold_vocabulary:source_project	 "Marker" ;
+	rdf:type	owl:Class ;
+	rdfs:subClassOf		obo:SO_0000343 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	agrold_vocabulary:has_start_position	 "1720557"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "1720657"^^xsd:integer ;
+	agrold_vocabulary:is_located_on		chromosome:01 .
+chromosome:02
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	rdf:type	owl:Class ;
+	rdfs:subClassOf		obo:SO_0000430 .
+orygenesdb:OA_ABa_CW652074
+	agrold_vocabulary:source_project	 "OA_ABa" ;
+	rdf:type	owl:Class ;
+	rdfs:label	 "CW652074" ;
+	rdfs:subClassOf		obo:SO_0000343 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon__39946 ;
+	agrold_vocabulary:has_start_position	 "10139259"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "10139746"^^xsd:integer ;
+	agrold_vocabulary:is_located_on		 chromosome:02 .
+orygenesdb:OA_ABa_CW652074_match_part_1
+	agrold_vocabulary:source_project	 "OA_ABa" ;
+	rdf:type	owl:Class ;
+	rdfs:subClassOf		obo:SO_0000039 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	agrold_vocabulary:has_start_position	 "10139259"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "10139746"^^xsd:integer ;
+	agrold_vocabulary:part_of	orygenesdb:OA_ABa_CW652074 ;
+	agrold_vocabulary:is_located_on		 chromosome:02 .
+orygenesdb:OA_ABa_CW652073
+	agrold_vocabulary:source_project	 "OA_ABa" ;
+	rdf:type	owl:Class ;
+	rdfs:label	 "CW652073" ;
+	rdfs:subClassOf		obo:SO_0000343 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon__39946 ;
+	agrold_vocabulary:has_start_position	 "16936463"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "16937147"^^xsd:integer ;
+	agrold_vocabulary:is_located_on		 chromosome:02 .
+orygenesdb:OA_ABa_CW652073_match_part_2
+	agrold_vocabulary:source_project	 "OA_ABa" ;
+	rdf:type	owl:Class ;
+	rdfs:subClassOf		obo:SO_0000039 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	agrold_vocabulary:has_start_position	 "16936463"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "16937147"^^xsd:integer ;
+	agrold_vocabulary:part_of	orygenesdb:OA_ABa_CW652073 ;
+	agrold_vocabulary:is_located_on		 chromosome:02 .
+chromosome:09
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	rdf:type	owl:Class ;
+	rdfs:subClassOf		obo:SO_0000430 .
+orygenesdb:OA_ABa_CW652072
+	agrold_vocabulary:source_project	 "OA_ABa" ;
+	rdf:type	owl:Class ;
+	rdfs:label	 "CW652072" ;
+	rdfs:subClassOf		obo:SO_0000343 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon__39946 ;
+	agrold_vocabulary:has_start_position	 "12479770"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "12480348"^^xsd:integer ;
+	agrold_vocabulary:is_located_on		 chromosome:09 .
+orygenesdb:OA_ABa_CW652072_match_part_3
+	agrold_vocabulary:source_project	 "OA_ABa" ;
+	rdf:type	owl:Class ;
+	rdfs:subClassOf		obo:SO_0000039 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	agrold_vocabulary:has_start_position	 "12479770"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "12480348"^^xsd:integer ;
+	agrold_vocabulary:part_of	orygenesdb:OA_ABa_CW652072 ;
+	agrold_vocabulary:is_located_on		 chromosome:09 .
+chromosome:12
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	rdf:type	owl:Class ;
+	rdfs:subClassOf		obo:SO_0000430 .
+orygenesdb:OA_ABa_CW652071
+	agrold_vocabulary:source_project	 "OA_ABa" ;
+	rdf:type	owl:Class ;
+	rdfs:label	 "CW652071" ;
+	rdfs:subClassOf		obo:SO_0000343 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon__39946 ;
+	agrold_vocabulary:has_start_position	 "3501514"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "3501869"^^xsd:integer ;
+	agrold_vocabulary:is_located_on		 chromosome:12 .
+orygenesdb:OA_ABa_CW652071_match_part_4
+	agrold_vocabulary:source_project	 "OA_ABa" ;
+	rdf:type	owl:Class ;
+	rdfs:subClassOf		obo:SO_0000039 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	agrold_vocabulary:has_start_position	 "3501514"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "3501869"^^xsd:integer ;
+	agrold_vocabulary:part_of	orygenesdb:OA_ABa_CW652071 ;
+	agrold_vocabulary:is_located_on		 chromosome:12 .
+orygenesdb:OA_ABa_CW652063
+	agrold_vocabulary:source_project	 "OA_ABa" ;
+	rdf:type	owl:Class ;
+	rdfs:label	 "CW652063" ;
+	rdfs:subClassOf		obo:SO_0000343 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon__39946 ;
+	agrold_vocabulary:has_start_position	 "26280406"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "26281037"^^xsd:integer ;
+	agrold_vocabulary:is_located_on		 chromosome:01 .
+orygenesdb:OA_ABa_CW652063_match_part_5
+	agrold_vocabulary:source_project	 "OA_ABa" ;
+	rdf:type	owl:Class ;
+	rdfs:subClassOf		obo:SO_0000039 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	agrold_vocabulary:has_start_position	 "26280406"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "26281037"^^xsd:integer ;
+	agrold_vocabulary:part_of	orygenesdb:OA_ABa_CW652063 ;
+	agrold_vocabulary:is_located_on		 chromosome:01 .
+chromosome:06
+	agrold_vocabulary:taxon		obo:NCBITaxon_39946 ;
+	rdf:type	owl:Class ;
+	rdfs:subClassOf		obo:SO_0000430 .
+orygenesdb:OA_ABa_CW652060
+	agrold_vocabulary:source_project	 "OA_ABa" ;
+	rdf:type	owl:Class ;
+	rdfs:label	 "CW652060" ;
+	rdfs:subClassOf		obo:SO_0000343 ;
+	agrold_vocabulary:taxon		obo:NCBITaxon__39946 ;
+	agrold_vocabulary:has_start_position	 "25093321"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "25094162"^^xsd:integer ;
+	agrold_vocabulary:is_located_on		 chromosome:06 .

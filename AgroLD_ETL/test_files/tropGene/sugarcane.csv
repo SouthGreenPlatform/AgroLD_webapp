@@ -1,0 +1,82 @@
+"qtl_name";;"qtl_id";;"start_position";;"stop_position";;"chromosome";;"mapfeature_id";;"study_name";;"study_id";;"trait_name";;"trait_ontology_name";;"trait_ontology_id";;"trait_description";;"trait_id_of_tropgene";;"population_name";;"population_id"
+"stalk_diameter_1995_JYH_1a";;"1";;"34.60";;"35.60";;NULL;;"3514";;"R570AF_Hoarau_2001";;"4";;"stalk diameter";;NULL;;NULL;;NULL;;"1";;NULL;;NULL
+"stalk_diameter_1996_JYH_1a";;"2";;"34.60";;"35.60";;NULL;;"3515";;"R570AF_Hoarau_2001";;"4";;"stalk diameter";;NULL;;NULL;;NULL;;"1";;NULL;;NULL
+"stalk_diameter_1996_JYH_111a";;"3";;"22.10";;"30.80";;NULL;;"3516";;"R570AF_Hoarau_2001";;"4";;"stalk diameter";;NULL;;NULL;;NULL;;"1";;NULL;;NULL
+"stalk_length_1995_JYH_116a";;"4";;"-0.50";;"0.50";;NULL;;"3517";;"R570AF_Hoarau_2001";;"4";;"stalk length";;NULL;;NULL;;NULL;;"2";;NULL;;NULL
+"stalk_length_1996_JYH_116a";;"5";;"-0.50";;"0.50";;NULL;;"3518";;"R570AF_Hoarau_2001";;"4";;"stalk length";;NULL;;NULL;;NULL;;"2";;NULL;;NULL
+"stalk_length_1996_JYH_14a";;"6";;"81.60";;"118.20";;NULL;;"3519";;"R570AF_Hoarau_2001";;"4";;"stalk length";;NULL;;NULL;;NULL;;"2";;NULL;;NULL
+"stalk_length_1995_JYH_15a";;"7";;"13.20";;"31.50";;NULL;;"3520";;"R570AF_Hoarau_2001";;"4";;"stalk length";;NULL;;NULL;;NULL;;"2";;NULL;;NULL
+"stalk_length_1995_JYH_15b";;"8";;"39.80";;"48.00";;NULL;;"3521";;"R570AF_Hoarau_2001";;"4";;"stalk length";;NULL;;NULL;;NULL;;"2";;NULL;;NULL
+"stalk_length_1995_JYH_15c";;"9";;"75.90";;"95.50";;NULL;;"3522";;"R570AF_Hoarau_2001";;"4";;"stalk length";;NULL;;NULL;;NULL;;"2";;NULL;;NULL
+"stalk_length_1996_JYH_15a";;"10";;"11.80";;"31.50";;NULL;;"3523";;"R570AF_Hoarau_2001";;"4";;"stalk length";;NULL;;NULL;;NULL;;"2";;NULL;;NULL
+"stalk_length_1996_JYH_15b";;"11";;"39.80";;"48.00";;NULL;;"3524";;"R570AF_Hoarau_2001";;"4";;"stalk length";;NULL;;NULL;;NULL;;"2";;NULL;;NULL
+"stalk_length_1996_JYH_15c";;"12";;"75.90";;"95.50";;NULL;;"3525";;"R570AF_Hoarau_2001";;"4";;"stalk length";;NULL;;NULL;;NULL;;"2";;NULL;;NULL
+"stalk_number_1995_JYH_15a";;"13";;"17.30";;"40.80";;NULL;;"3526";;"R570AF_Hoarau_2001";;"4";;"stalk number";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"stalk_number_1996_JYH_15a";;"14";;"15.60";;"48.00";;NULL;;"3527";;"R570AF_Hoarau_2001";;"4";;"stalk number";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"stalk_diameter_1995_JYH_2a";;"15";;"6.20";;"16.10";;NULL;;"3528";;"R570AF_Hoarau_2001";;"4";;"stalk diameter";;NULL;;NULL;;NULL;;"1";;NULL;;NULL
+"stalk_diameter_1996_JYH_2a";;"16";;"6.50";;"7.50";;NULL;;"3529";;"R570AF_Hoarau_2001";;"4";;"stalk diameter";;NULL;;NULL;;NULL;;"1";;NULL;;NULL
+"stalk_length_1995_JYH_2a";;"17";;"57.30";;"58.30";;NULL;;"3530";;"R570AF_Hoarau_2001";;"4";;"stalk length";;NULL;;NULL;;NULL;;"2";;NULL;;NULL
+"stalk_length_1996_JYH_2a";;"18";;"57.30";;"58.30";;NULL;;"3531";;"R570AF_Hoarau_2001";;"4";;"stalk length";;NULL;;NULL;;NULL;;"2";;NULL;;NULL
+"stalk_number_1995_JYH_22a";;"19";;"64.00";;"65.00";;NULL;;"3532";;"R570AF_Hoarau_2001";;"4";;"stalk number";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"stalk_number_1996_JYH_22a";;"20";;"64.00";;"65.00";;NULL;;"3533";;"R570AF_Hoarau_2001";;"4";;"stalk number";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"stalk_length_1995_JYH_28a";;"21";;"132.00";;"133.00";;NULL;;"3534";;"R570AF_Hoarau_2001";;"4";;"stalk length";;NULL;;NULL;;NULL;;"2";;NULL;;NULL
+"stalk_length_1996_JYH_28a";;"22";;"132.00";;"133.00";;NULL;;"3535";;"R570AF_Hoarau_2001";;"4";;"stalk length";;NULL;;NULL;;NULL;;"2";;NULL;;NULL
+"stalk_number_1995_JYH_28a";;"23";;"140.50";;"141.50";;NULL;;"3536";;"R570AF_Hoarau_2001";;"4";;"stalk number";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"stalk_number_1996_JYH_28a";;"24";;"132.00";;"141.50";;NULL;;"3537";;"R570AF_Hoarau_2001";;"4";;"stalk number";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"stalk_diameter_1995_JYH_29a";;"25";;"53.40";;"68.10";;NULL;;"3540";;"R570AF_Hoarau_2001";;"4";;"stalk diameter";;NULL;;NULL;;NULL;;"1";;NULL;;NULL
+"stalk_diameter_1995_JYH_29b";;"26";;"70.60";;"98.80";;NULL;;"3541";;"R570AF_Hoarau_2001";;"4";;"stalk diameter";;NULL;;NULL;;NULL;;"1";;NULL;;NULL
+"stalk_diameter_1996_JYH_29a";;"27";;"53.40";;"68.10";;NULL;;"3542";;"R570AF_Hoarau_2001";;"4";;"stalk diameter";;NULL;;NULL;;NULL;;"1";;NULL;;NULL
+"stalk_diameter_1996_JYH_29b";;"28";;"70.60";;"98.80";;NULL;;"3543";;"R570AF_Hoarau_2001";;"4";;"stalk diameter";;NULL;;NULL;;NULL;;"1";;NULL;;NULL
+"stalk_number_1995_JYH_29a";;"29";;"53.40";;"62.10";;NULL;;"3544";;"R570AF_Hoarau_2001";;"4";;"stalk number";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"stalk_number_1996_JYH_29a";;"30";;"53.40";;"62.10";;NULL;;"3545";;"R570AF_Hoarau_2001";;"4";;"stalk number";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"brix_1995_JYH_29a";;"31";;"3.80";;"4.80";;NULL;;"3538";;"R570AF_Hoarau_2001";;"4";;"brix";;NULL;;NULL;;NULL;;"5";;NULL;;NULL
+"brix_1996_JYH_29a";;"32";;"3.80";;"4.80";;NULL;;"3539";;"R570AF_Hoarau_2001";;"4";;"brix";;NULL;;NULL;;NULL;;"5";;NULL;;NULL
+"stalk_length_1995_JYH_30a";;"33";;"23.70";;"28.80";;NULL;;"3546";;"R570AF_Hoarau_2001";;"4";;"stalk length";;NULL;;NULL;;NULL;;"2";;NULL;;NULL
+"stalk_length_1996_JYH_30a";;"34";;"23.70";;"34.50";;NULL;;"3547";;"R570AF_Hoarau_2001";;"4";;"stalk length";;NULL;;NULL;;NULL;;"2";;NULL;;NULL
+"stalk_number_1995_JYH_31a";;"35";;"-0.50";;"0.50";;NULL;;"3548";;"R570AF_Hoarau_2001";;"4";;"stalk number";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"brix_1995_JYH_35a";;"36";;"-0.50";;"0.50";;NULL;;"3549";;"R570AF_Hoarau_2001";;"4";;"brix";;NULL;;NULL;;NULL;;"5";;NULL;;NULL
+"brix_1996_JYH_35a";;"37";;"-0.50";;"0.50";;NULL;;"3550";;"R570AF_Hoarau_2001";;"4";;"brix";;NULL;;NULL;;NULL;;"5";;NULL;;NULL
+"stalk_length_1996_JYH_36a";;"38";;"3.50";;"4.50";;NULL;;"3551";;"R570AF_Hoarau_2001";;"4";;"stalk length";;NULL;;NULL;;NULL;;"2";;NULL;;NULL
+"brix_1995_JYH_37a";;"39";;"-0.50";;"0.50";;NULL;;"3552";;"R570AF_Hoarau_2001";;"4";;"brix";;NULL;;NULL;;NULL;;"5";;NULL;;NULL
+"brix_1996_JYH_37a";;"40";;"-0.50";;"0.50";;NULL;;"3553";;"R570AF_Hoarau_2001";;"4";;"brix";;NULL;;NULL;;NULL;;"5";;NULL;;NULL
+"stalk_number_1995_JYH_4a";;"41";;"103.40";;"140.90";;NULL;;"3556";;"R570AF_Hoarau_2001";;"4";;"stalk number";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"stalk_number_1995_JYH_4b";;"42";;"149.20";;"155.70";;NULL;;"3557";;"R570AF_Hoarau_2001";;"4";;"stalk number";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"stalk_number_1996_JYH_4a";;"43";;"103.40";;"140.90";;NULL;;"3558";;"R570AF_Hoarau_2001";;"4";;"stalk number";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"stalk_number_1996_JYH_4b";;"44";;"149.20";;"155.70";;NULL;;"3559";;"R570AF_Hoarau_2001";;"4";;"stalk number";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"brix_1995_JYH_4a";;"45";;"149.20";;"155.70";;NULL;;"3554";;"R570AF_Hoarau_2001";;"4";;"brix";;NULL;;NULL;;NULL;;"5";;NULL;;NULL
+"brix_1996_JYH_4a";;"46";;"149.20";;"155.70";;NULL;;"3555";;"R570AF_Hoarau_2001";;"4";;"brix";;NULL;;NULL;;NULL;;"5";;NULL;;NULL
+"stalk_number_1995_JYH_48a";;"47";;"17.10";;"18.10";;NULL;;"3560";;"R570AF_Hoarau_2001";;"4";;"stalk number";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"stalk_number_1996_JYH_48a";;"48";;"17.10";;"18.10";;NULL;;"3561";;"R570AF_Hoarau_2001";;"4";;"stalk number";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"stalk_length_1995_JYH_51a";;"49";;"16.20";;"17.20";;NULL;;"3562";;"R570AF_Hoarau_2001";;"4";;"stalk length";;NULL;;NULL;;NULL;;"2";;NULL;;NULL
+"stalk_length_1996_JYH_51a";;"50";;"16.20";;"17.20";;NULL;;"3563";;"R570AF_Hoarau_2001";;"4";;"stalk length";;NULL;;NULL;;NULL;;"2";;NULL;;NULL
+"stalk_diameter_1995_JYH_61a";;"51";;"-0.50";;"0.50";;NULL;;"3564";;"R570AF_Hoarau_2001";;"4";;"stalk diameter";;NULL;;NULL;;NULL;;"1";;NULL;;NULL
+"stalk_number_1995_JYH_61a";;"52";;"-0.50";;"0.50";;NULL;;"3565";;"R570AF_Hoarau_2001";;"4";;"stalk number";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"stalk_diameter_1995_JYH_63a";;"53";;"43.30";;"44.30";;NULL;;"3566";;"R570AF_Hoarau_2001";;"4";;"stalk diameter";;NULL;;NULL;;NULL;;"1";;NULL;;NULL
+"stalk_diameter_1996_JYH_63a";;"54";;"8.20";;"9.20";;NULL;;"3567";;"R570AF_Hoarau_2001";;"4";;"stalk diameter";;NULL;;NULL;;NULL;;"1";;NULL;;NULL
+"stalk_diameter_1996_JYH_63b";;"55";;"42.40";;"44.30";;NULL;;"3568";;"R570AF_Hoarau_2001";;"4";;"stalk diameter";;NULL;;NULL;;NULL;;"1";;NULL;;NULL
+"stalk_number_1995_JYH_63a";;"56";;"43.30";;"44.30";;NULL;;"3569";;"R570AF_Hoarau_2001";;"4";;"stalk number";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"stalk_number_1995_JYH_63b";;"57";;"70.50";;"71.50";;NULL;;"3570";;"R570AF_Hoarau_2001";;"4";;"stalk number";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"stalk_number_1996_JYH_63a";;"58";;"42.40";;"44.30";;NULL;;"3571";;"R570AF_Hoarau_2001";;"4";;"stalk number";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"stalk_number_1996_JYH_63b";;"59";;"59.60";;"71.50";;NULL;;"3572";;"R570AF_Hoarau_2001";;"4";;"stalk number";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"brix_1996_JYH_67a";;"60";;"4.40";;"7.60";;NULL;;"3573";;"R570AF_Hoarau_2001";;"4";;"brix";;NULL;;NULL;;NULL;;"5";;NULL;;NULL
+"stalk_length_1995_JYH_7a";;"61";;"23.90";;"24.90";;NULL;;"3574";;"R570AF_Hoarau_2001";;"4";;"stalk length";;NULL;;NULL;;NULL;;"2";;NULL;;NULL
+"stalk_length_1996_JYH_7a";;"62";;"23.90";;"24.90";;NULL;;"3575";;"R570AF_Hoarau_2001";;"4";;"stalk length";;NULL;;NULL;;NULL;;"2";;NULL;;NULL
+"brix_1996_JYH_70a";;"63";;"-0.50";;"0.50";;NULL;;"3576";;"R570AF_Hoarau_2001";;"4";;"brix";;NULL;;NULL;;NULL;;"5";;NULL;;NULL
+"stalk_diameter_1995_JYH_74a";;"64";;"31.30";;"50.10";;NULL;;"3577";;"R570AF_Hoarau_2001";;"4";;"stalk diameter";;NULL;;NULL;;NULL;;"1";;NULL;;NULL
+"stalk_diameter_1996_JYH_74a";;"65";;"31.30";;"50.10";;NULL;;"3578";;"R570AF_Hoarau_2001";;"4";;"stalk diameter";;NULL;;NULL;;NULL;;"1";;NULL;;NULL
+"stalk_length_1995_JYH_74a";;"66";;"31.30";;"32.30";;NULL;;"3579";;"R570AF_Hoarau_2001";;"4";;"stalk length";;NULL;;NULL;;NULL;;"2";;NULL;;NULL
+"brix_1995_JYH_77a";;"67";;"-0.50";;"0.50";;NULL;;"3580";;"R570AF_Hoarau_2001";;"4";;"brix";;NULL;;NULL;;NULL;;"5";;NULL;;NULL
+"brix_1996_JYH_77a";;"68";;"-0.50";;"0.50";;NULL;;"3581";;"R570AF_Hoarau_2001";;"4";;"brix";;NULL;;NULL;;NULL;;"5";;NULL;;NULL
+"stalk_diameter_1995_JYH_8a";;"69";;"7.20";;"22.90";;NULL;;"3582";;"R570AF_Hoarau_2001";;"4";;"stalk diameter";;NULL;;NULL;;NULL;;"1";;NULL;;NULL
+"stalk_diameter_1996_JYH_8a";;"70";;"4.20";;"32.70";;NULL;;"3583";;"R570AF_Hoarau_2001";;"4";;"stalk diameter";;NULL;;NULL;;NULL;;"1";;NULL;;NULL
+"stalk_diameter_1995_JYH_82a";;"71";;"-0.50";;"23.50";;NULL;;"3584";;"R570AF_Hoarau_2001";;"4";;"stalk diameter";;NULL;;NULL;;NULL;;"1";;NULL;;NULL
+"stalk_diameter_1996_JYH_82a";;"72";;"-0.50";;"0.50";;NULL;;"3585";;"R570AF_Hoarau_2001";;"4";;"stalk diameter";;NULL;;NULL;;NULL;;"1";;NULL;;NULL
+"stalk_number_1995_JYH_86a";;"73";;"22.10";;"23.10";;NULL;;"3586";;"R570AF_Hoarau_2001";;"4";;"stalk number";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"stalk_number_1996_JYH_86a";;"74";;"22.10";;"23.10";;NULL;;"3587";;"R570AF_Hoarau_2001";;"4";;"stalk number";;NULL;;NULL;;NULL;;"3";;NULL;;NULL
+"stalk_length_1995_JYH_a";;"75";;NULL;;NULL;;NULL;;NULL;;"R570AF_Hoarau_2001";;"4";;"stalk length";;NULL;;NULL;;NULL;;"2";;NULL;;NULL
+"stalk_length_1996_JYH_a";;"76";;NULL;;NULL;;NULL;;NULL;;"R570AF_Hoarau_2001";;"4";;"stalk length";;NULL;;NULL;;NULL;;"2";;NULL;;NULL
+"brix_1995_JYH_b";;"77";;NULL;;NULL;;NULL;;NULL;;"R570AF_Hoarau_2001";;"4";;"brix";;NULL;;NULL;;NULL;;"5";;NULL;;NULL
+"brix_1996_JYH_b";;"78";;NULL;;NULL;;NULL;;NULL;;"R570AF_Hoarau_2001";;"4";;"brix";;NULL;;NULL;;NULL;;"5";;NULL;;NULL
+"stalk_length_1995_JYH_b";;"79";;NULL;;NULL;;NULL;;NULL;;"R570AF_Hoarau_2001";;"4";;"stalk length";;NULL;;NULL;;NULL;;"2";;NULL;;NULL
+"brix_1995_JYH_a";;"80";;NULL;;NULL;;NULL;;NULL;;"R570AF_Hoarau_2001";;"4";;"brix";;NULL;;NULL;;NULL;;"5";;NULL;;NULL
+"brix_1996_JYH_a";;"81";;NULL;;NULL;;NULL;;NULL;;"R570AF_Hoarau_2001";;"4";;"brix";;NULL;;NULL;;NULL;;"5";;NULL;;NULL
