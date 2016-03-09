@@ -32,12 +32,6 @@ Scripts used for website UI, contains scripts for AgroLD API feature and all SPA
 The front office (is any tools that has a direct relation to customers) of AgroLD web application are writed with JavaScript and the back office (interne fonctionnalities) are writed with JAVA.
 
 
-```
-For execute the projet in your local host:
-/agrold_webapp/dist/agrold.war
-load the war in your tomcat and go in localhost:8080/agrold
-```
-
 
 ![graphique](img/Screenshot_webApp.png "Agrold_application")
 
@@ -57,3 +51,16 @@ The Advanced Search query form is based on the REST API suite, developed under t
 The SPARQL Query Editor provides an interactive environment to formulate SPARQL queries.
 
 
+# How to use AgroLD
+
+###agrold_webapp
+
+```
+For execute the projet in your local host:
+/agrold_webapp/dist/agrold.war
+load the war in your tomcat and go in localhost:8080/agrold
+```
+
+###AgroLD_ETL
+
+to do
