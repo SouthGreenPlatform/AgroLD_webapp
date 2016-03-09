@@ -29,6 +29,31 @@ Contains parsers and model used to convert data considered for AgroLD to RDF.
 ###agrold_webapp
 
 Scripts used for website UI, contains scripts for AgroLD API feature and all SPARQL query.
+The front office (is any tools that has a direct relation to customers) of AgroLD web application are writed with JavaScript and the back office (interne fonctionnalities) are writed with JAVA.
+
+
+```
+For execute the projet in your local host:
+/agrold_webapp/dist/agrold.war
+load the war in your tomcat and go in localhost:8080/agrold
+```
+
 
 ![graphique](img/Screenshot_webApp.png "Agrold_application")
+
+####[Quick search](http://volvestre.cirad.fr:8080/agrold/quicksearch.jsp)
+
+Quick search is based on keyword search and aids in
+understanding the underlying knowledge
+
+####[Explore Relationships]( http://volvestre.cirad.fr:8080/agrold/relfinder.jsp)
+The Explore Relationships tool aids in exploring relationships between existing entities.
+
+####[Advanced Search](http://volvestre.cirad.fr:8080/agrold/advancedSearch.jsp)
+The Advanced Search query form is based on the REST API suite, developed under the AgroLD project. The aim of this effort is to provide non-technical users with a tool to query the knowledge base.
+
+
+####[SPARQL Query](http://volvestre.cirad.fr:8080/agrold/sparqleditor.jsp)
+The SPARQL Query Editor provides an interactive environment to formulate SPARQL queries.
+
 
