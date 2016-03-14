@@ -4,7 +4,7 @@ Created on Sep 18, 2014
 @author: venkatesan
 '''
 import pprint
-from riceKB.globalVars import *
+from globalVars import *
 import re
 import os 
 
@@ -198,6 +198,14 @@ def otlRDF(otl_ds, output_file):
     rdf_writer.close()
     print "Number of line IDs: %s\n" % (str(germplasm_counter))
     print "*************OryzaTagLine RDF completed***********\n\n"
-        
+
+
+#otl_test_input = '/media/elhassouni/donnees/Noeud-plante-projet/workspace/AgroLD/AgroLD_ETL/test_files/oryzaTagLine/OTL_export_pheno+trait.csv'
+otl_test_input = '/media/elhassouni/donnees/Noeud-plante-projet/argoLD_project_all_data/data/southgreen/oryzatagline/OTL_export_pheno-trait-csv.tsv'
+otl_output = '/media/elhassouni/donnees/Noeud-plante-projet/workspace/AgroLD/AgroLD_ETL/rdf_ttl/otl_coorection_bug.ttl'
+
+sortie_ds = otlParser(otl_test_input) #otl_test_inputfile otl_inputfile
+print(sortie_ds)
+otlRDF(sortie_ds, otl_output)#otl_test_output otl_output
         
         

@@ -54,7 +54,7 @@ def parseGFF3(filename):
             #yield GFFRecord(**normalizedInfo)
         return map_ds
 
-'''
+
 pp = pprint.PrettyPrinter(indent=4)
 
 
@@ -63,6 +63,6 @@ path = '/opt/TOS_DI-20141207_1530-V5.6.1/workspace/gff_data_orygeneDB/os_indica_
 #path_output = '/opt/TOS_DI-20141207_1530-V5.6.1/workspace/gff_data_orygeneDB/os_indica_gff3/indica.ttl' # The output
 
 ds = parseGFF3(path)   # The parsing file
+
 pp.pprint(ds)    # For to see in teminal the parsing
 
-'''

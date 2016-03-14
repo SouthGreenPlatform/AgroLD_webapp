@@ -63,4 +63,66 @@ load the war in your tomcat and go in localhost:8080/agrold
 
 ###AgroLD_ETL
 
-to do
+For example if you want to execute a gff3 parser for to build a dictionary.
+define a input file
+
+```
+AgroLD/AgroLD_ETL/riceKB/gffParser.py
+
+path = '/os_file_gff3/file.gff3'     # The input
+
+ds = parseGFF3(path)   # The parsing file
+
+```
+
+> **The dictionary :** The GFF3 Parser is a generic fonction who build a dictionary, it easy to browse this dictionary for build RDF data 
+
+
+```
+{   'attributes': {   'Dbxref': 'InterPro:IPR005333,InterPro:IPR017887',
+                          'ID': 'BGIOSGA000770-TA',
+                          'Name': 'BGIOSGA000770-TA',
+                          'Parent': 'BGIOSGA000770'},
+        'end': 35414873,
+        'phase': None,
+        'score': None,
+        'seqid': 'Osi01',
+        'source': 'glean',
+        'start': 35413950,
+        'strand': '-',
+        'type': 'mRNA'},
+    {   'attributes': {   'Derives_from': 'BGIOSGA000770-TA',
+                          'ID': 'BGIOSGA000770-TA_protein',
+                          'Name': 'BGIOSGA000770-TA'},
+        'end': 35414873,
+        'phase': None,
+        'score': None,
+        'seqid': 'Osi01',
+        'source': 'glean',
+        'start': 35413950,
+        'strand': '-',
+        'type': 'polypeptide'},
+    {   'attributes': {   'Parent': 'BGIOSGA000770-TA'},
+        'end': 35414873,
+        'phase': '0',
+        'score': None,
+        'seqid': 'Osi01',
+        'source': 'glean',
+        'start': 35413950,
+        'strand': '-',
+        'type': 'CDS'},
+    {   'attributes': {   'Parent': 'BGIOSGA000770-TA'},
+        'end': 35414873,
+        'phase': None,
+        'score': None,
+        'seqid': 'Osi01',
+        'source': 'glean',
+        'start': 35413950,
+        'strand': '-',
+        'type': 'exon'},
+
+```
+
+
+
+

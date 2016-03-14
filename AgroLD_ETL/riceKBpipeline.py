@@ -232,5 +232,5 @@ pp = pprint.PrettyPrinter(indent=4)
 ##print "************ Sniplay datasniplay_db **************\n"
 #path = '/media/elhassouni/donnees/Noeud-plante-projet/workspace/AgroLD/AgroLD_ETL/test_files/sniplay_db/sniplay_test.txt'
 #path_output = '/media/elhassouni/donnees/Noeud-plante-projet/workspace/AgroLD/AgroLD_ETL/rdf_ttl/sniplay_db_ttl/sniplay.ttl' # The output
-sniplayPaserModel.sniplayPaserModel()
+#sniplayPaserModel.sniplayPaserModel()
 
