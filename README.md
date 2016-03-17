@@ -73,7 +73,7 @@ because is easy to browse a dictionary and create the RDF
 ### agrold_webapp
 
 Scripts used for website UI, contains scripts for AgroLD API feature and all SPARQL query.
-The front office (is any tools that has a direct relation to customers) of AgroLD web application are writed with JavaScript and the back office (interne fonctionnalities) are writed with JAVA.
+The front office (is any tools that has a direct relation to customers) of AgroLD web application are written in JavaScript and the back office (interne fonctionnalities) is written in JAVA.
 
 
 
