@@ -6,17 +6,54 @@ AgroLD is a RDF knowledge base that consists of data integrated from a variety o
 ![graphique](img/Graphique1v2.png "Agrold_UI")
 
 
+# Contact
+
+For bug tracking purpose you can use the GitHub or questions about AgroLG, you can contact the mainteners using the following email addresses:
+
+* nordine.elhassouni_at_cirad.fr
+* pierre.larmande_at_ird.fr
+
+
+# Valorization
+
+* [https://tel.archives-ouvertes.fr/IBC/hal-01176903v1](https://tel.archives-ouvertes.fr/IBC/hal-01176903v1) 
+* [http://ceur-ws.org/Vol-1546/poster_55.pdf](http://ceur-ws.org/Vol-1546/poster_55.pdf)
+
+
+
+# Contributing
+
+* Intellectual property belongs to IRD, CIRAD, IBC, INRA, IFB, ELIXIR, and SouthGreen development platform.
+* Written by Aravind Venkatesan, Pierre Larmande, Gildas Tagny, Imene chentli, Nordine El Hassouni, Manuel Ruiz and Patrick Valduriez.
+* Copyright 2014-2016
+
+
 # The Architecture of project
 
-- AgroLD_ETL
-	- model
-	- rdf_ttl
-	- riceKB
-	- test_files
-	- riceKBpipeline.py
-- agrold_webapp
+
+AgroLD project is composed of two component: [AgroLD_ETL](/AgroLD_ETL)  and  [agrold_webapp](/agrold_webapp)
+
+
+* The first component is a set of Parser and wrapper for translate a dataset. Follow this link for to know what data have been translated in RDF: [Documentation](http://volvestre.cirad.fr:8080/agrold/documentation.jsp)  
+
+* The second component is the web application who is connected at the triple store for to make queries.
+ 
+***
+
+```
+ AgroLD_ETL
+	-> model
+	-> rdf_ttl
+	-> riceKB
+	-> test_files
+	-> riceKBpipeline.py
+ agrold_webapp
+```
+***
+
 
 ### AgroLD_ETL
+
 
 Contains parsers and model used to convert data considered for AgroLD to RDF.
 
@@ -26,7 +63,14 @@ Contains parsers and model used to convert data considered for AgroLD to RDF.
 * [test_files](/AgroLD_ETL/test_files): All test files in input ( heterogeneous format: csv, tabbed files, gff3 )
 * [riceKBpipeline.py](/AgroLD_ETL/riceKBpipeline.py): Script file where we have centralised all execution
 
-###agrold_webapp
+
+The type of each dataset is different, GFF, HapMap, CSV and VCF. In first time we have developed parser for build a dictonary, 
+because is easy to browse a dictionary and create the RDF 
+
+
+
+
+### agrold_webapp
 
 Scripts used for website UI, contains scripts for AgroLD API feature and all SPARQL query.
 The front office (is any tools that has a direct relation to customers) of AgroLD web application are writed with JavaScript and the back office (interne fonctionnalities) are writed with JAVA.
