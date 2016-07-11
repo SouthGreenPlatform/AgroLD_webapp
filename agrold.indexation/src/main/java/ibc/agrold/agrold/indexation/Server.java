@@ -24,12 +24,12 @@ import org.elasticsearch.common.transport.InetSocketTransportAddress;
 /**
  * Server
  * @author Stella Zevio
- * Communication with an ElasticSearch server. Used to automatically index data.
+ * Communication with an ElasticSearch cluster. Used to automatically index data.
  *
  */
 public class Server implements Indexation{
 	
-	private Client client; // used to communicate with the ElasticSearch server
+	private Client client; // used to communicate with the ElasticSearch cluster
 	
 	/**
 	 * Constructor
@@ -54,8 +54,8 @@ public class Server implements Indexation{
 	 * @return cluster - name of the ElasticSearch cluster
 	 */
 	public String getClusterName(){
-		ResourceBundle bundle = ResourceBundle.getBundle("indexation.properties.config");
-		String cluster = bundle.getString("cluster.name");
+		ResourceBundle bundle = ResourceBundle.getBundle("indexation.properties.config"); // get configuration file
+		String cluster = bundle.getString("cluster.name"); // get cluster name from configuration file
 		return cluster;
 	}
 	
@@ -64,8 +64,8 @@ public class Server implements Indexation{
 	 * @return host - host of the ElasticSearch server
 	 */
 	public String getHost(){
-		ResourceBundle bundle = ResourceBundle.getBundle("indexation.properties.config");
-		String host = bundle.getString("server.host");
+		ResourceBundle bundle = ResourceBundle.getBundle("indexation.properties.config"); // get configuration file
+		String host = bundle.getString("server.host"); // get server host from configuration file
 		return host;
 	}
 	
@@ -74,8 +74,8 @@ public class Server implements Indexation{
 	 * @return port - port number of the ElasticSearch server (String)
 	 */
 	public String getPort(){
-		ResourceBundle bundle = ResourceBundle.getBundle("indexation.properties.config");
-		String port = bundle.getString("server.port");
+		ResourceBundle bundle = ResourceBundle.getBundle("indexation.properties.config"); // get configuration file
+		String port = bundle.getString("server.port"); // get server port from configuration file
 		return port;
 	}
 	
@@ -85,7 +85,7 @@ public class Server implements Indexation{
 	 * @return nport - port number of the ElasticSearch server (int)
 	 */
 	public int readPort(String port){
-		int nport = Integer.parseInt(port);
+		int nport = Integer.parseInt(port); // parsing
 		return nport;
 	}
 	
@@ -114,7 +114,7 @@ public class Server implements Indexation{
 	public Client initializeClient(Settings settings, String host, int nport) throws UnknownHostException{
 		Client client = TransportClient.builder()
 				.settings(settings).build()
-				.addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName(host), nport)); // Transport client
+				.addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName(host), nport)); // transport client
 		return client;	
 	}
 	
@@ -126,15 +126,15 @@ public class Server implements Indexation{
 		return client;
 	}
 	
+	
 	/* (non-Javadoc)
-	 * @see ibc.agrold.agrold.indexation.Indexation#Index(org.elasticsearch.client.Client, ibc.agrold.agrold.indexation.Data)
+	 * @see ibc.agrold.agrold.indexation.Indexation#Index(org.elasticsearch.client.Client, ibc.agrold.agrold.indexation.Data, java.lang.String, java.lang.String)
 	 */
 	public void Index(Client client, Data data, String index, String type) throws IOException {
-		// TODO Auto-generated method stub
 		Map<String,Object> source = new HashMap<String,Object>(); // source of indexation
-		source.putAll(data.getContent());
+		source.putAll(data.getContent()); // source is content of data
 		System.out.println("Source: "+source);
-		IndexResponse response = client.prepareIndex(index, type).setSource(source).get();
+		IndexResponse response = client.prepareIndex(index, type).setSource(source).get(); // indexation
     	System.out.println("------------------------------");
 		System.out.println("Id: "+response.getId());
 		System.out.println("Version: "+response.getVersion());
@@ -144,9 +144,12 @@ public class Server implements Indexation{
 		
 	}
 
-	public Map<String, Object> getDocument(String name, String type, String id) {
-		GetResponse response = client.prepareGet(name, type, id).get();
-    	Map<String, Object> document = response.getSource();
+	/* (non-Javadoc)
+	 * @see ibc.agrold.agrold.indexation.Indexation#getDocument(java.lang.String, java.lang.String, java.lang.String)
+	 */
+	public Map<String, Object> getDocument(String index, String type, String id) {
+		GetResponse response = client.prepareGet(index, type, id).get(); // get document
+    	Map<String, Object> document = response.getSource(); 
     	System.out.println("------------------------------");
     	System.out.println("Index: " + response.getIndex());
     	System.out.println("Type: " + response.getType());
@@ -157,17 +160,23 @@ public class Server implements Indexation{
     	return document;
 	}
 
+	/* (non-Javadoc)
+	 * @see ibc.agrold.agrold.indexation.Indexation#updateDocument(org.elasticsearch.client.Client, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)
+	 */
 	public void updateDocument(Client client, String index, String type, String id, String field, String newValue) throws InterruptedException, ExecutionException {
-		Map<String,Object> update = new HashMap<String,Object>();
-    	update.put(field, newValue);
-    	IndexRequest indexRequest = new IndexRequest(index, type, id).source(update);
-    	UpdateRequest updateRequest = new UpdateRequest(index, type, id).doc(update).upsert(indexRequest);              
-    	client.update(updateRequest).get();
+		Map<String,Object> update = new HashMap<String,Object>(); 
+    	update.put(field, newValue); // new version of the source
+    	IndexRequest indexRequest = new IndexRequest(index, type, id).source(update); // index request
+    	UpdateRequest updateRequest = new UpdateRequest(index, type, id).doc(update).upsert(indexRequest); // update request       
+    	client.update(updateRequest).get(); // update
 		
 	}
 
+	/* (non-Javadoc)
+	 * @see ibc.agrold.agrold.indexation.Indexation#deleteDocument(org.elasticsearch.client.Client, java.lang.String, java.lang.String, java.lang.String)
+	 */
 	public void deleteDocument(Client client, String index, String type, String id) {
-		DeleteResponse response = client.prepareDelete(index, type, id).get();
+		DeleteResponse response = client.prepareDelete(index, type, id).get(); // deletion
         System.out.println("Information on the deleted document: ");
         System.out.println("Index: " + response.getIndex());
         System.out.println("Type: " + response.getType());
@@ -175,22 +184,51 @@ public class Server implements Indexation{
         System.out.println("Version: " + response.getVersion());
 	}
 
+	/**
+	 * @param args
+	 * @throws IOException
+	 * @throws InterruptedException
+	 * @throws ExecutionException
+	 */
 	public static void main(String[] args) throws IOException, InterruptedException, ExecutionException {
 		
-		Server server = new Server();
+		Server server = new Server(); // server
 		
-		switch(args[0]) {
-			case "indexation":
-				Data d = new Data(args[1]);
-				server.Index(server.client, d, args[2], args[3]);
-				break;
-			case "update":
-				server.updateDocument(server.client, args[1], args[2], args[3], args[4], args[5]);
-				break;
-			case "deletion":
-				server.deleteDocument(server.client, args[1], args[2], args[3]);
-				break;
+		if(args.length == 0){
+			System.out.println("Please, enter a correct number of arguments. See documentation.");
 		}
-		server.client.close();
+		else {
+			switch(args[0]) {
+			case "indexation": // indexation of a file
+				if(args.length == 4){
+					Data d = new Data(args[1]);
+					server.Index(server.client, d, args[2], args[3]);
+				}
+				else {
+					System.out.println("Please, enter a correct number of arguments for indexation. See documentation.");
+				}
+				break;
+			case "update": // update of an index
+				if(args.length == 6){
+					server.updateDocument(server.client, args[1], args[2], args[3], args[4], args[5]);
+				}
+				else {
+					System.out.println("Please, enter a correct number of arguments for updating an index. See documentation.");	
+				}
+				break;
+			case "deletion": // deletion of an index
+				if(args.length == 4) {
+					server.deleteDocument(server.client, args[1], args[2], args[3]);
+				}
+				else {
+					System.out.println("Please, enter a correct number of arguments for deleting an index. See documentation.");
+				}
+				break;
+			default:
+				System.out.println("Please, enter correct arguments. See documentation.");
+				break;
+			}
+		}
+		server.client.close(); // close connection between cluster and application
 	}
 }
