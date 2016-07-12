@@ -14,7 +14,7 @@
         }
     },
     "host": "localhost:8084",
-    "basePath": "/aldp/api/1.0",
+    "basePath": "/agrold/api/1.0",
     "tags": [
         {
             "name": "ontologies",

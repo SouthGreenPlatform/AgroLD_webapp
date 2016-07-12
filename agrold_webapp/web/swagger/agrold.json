@@ -13,7 +13,7 @@
             "url": "http://volvestre.cirad.fr:8080/agrold/about.jsp"
         }
     },
-    "host": "volvestre.cirad.fr:8080",
+    "host": "localhost:8084",
     "basePath": "/agrold/api/1.0",
     "tags": [
         {
@@ -594,6 +594,71 @@
                 }
             }
         },
+        
+        
+        
+        
+        "/ontologies/terms/byKeywordTEST{_format}": {
+            "post": {
+                "tags": [
+                    "ontologies"
+                ],
+                "summary": "Returns all the IDs corresponding to an ontological term",
+                "description": "",
+                "operationId": "getCountInstancesAssociatedWithOntologyId",
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "parameters": [
+                    {
+                        "name": "keyword",
+                        "in": "query",
+                        "description": "The keyword (e.g. homoaconitate)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "_page",
+                        "in": "query",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_pageSize",
+                        "in": "query",
+                        "description": "size of a page of the result set (> 0 or else all results will be displayed)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_format",
+                        "in": "path",
+                        "description": "format in which the results set will be return",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            ".json",
+                            ".sparql-json",
+                            ".xml",
+                            ".tsv",
+                            ".csv",
+                            ".rdf",
+                            ".html",
+                            ".ttl"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        
+        
+        
+        
+        
         "/graphs/description{_format}": {
             "post": {
                 "tags": [

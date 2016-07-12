@@ -1,0 +1,9 @@
+##gff-version 3
+##genome-build IGGP Vitis vinifera 12X.0  PN40024 (grapevine)
+##species http://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=29760
+##source RepeatMasker
+##analysis-author Florian Maumus URGI
+##date Nov 10 2014
+##PubMed References PMID: 25381880 doi: 10.1038/ncomms6269 http://www.ncbi.nlm.nih.gov/pubmed/25381880
+chr1	RepeatMasker	dispersed_repeat	176786	177162	1514	+	.	Target=VvinAV_sc3
+chr1	RepeatMasker	dispersed_repeat	180755	181202	1786	+	.	Target=VvinAV_sc3

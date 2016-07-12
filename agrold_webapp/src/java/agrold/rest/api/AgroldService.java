@@ -335,6 +335,14 @@ public class AgroldService extends ResourceConfig {
             @DefaultValue(DEFAULT_PAGE) @QueryParam("_page") int page, @DefaultValue(DEFAULT_PAGE_SIZE) @QueryParam("_pageSize") int pageSize) {
         return PathwayDAO.getPathwaysByKeyWord(keyword, page, pageSize, format);
     }
+    
+    @POST
+    @Path("/ontologies/terms/byKeywordTEST{_format}")
+    @Produces({MediaType.APPLICATION_JSON, MediaType.TEXT_HTML, APILib.TSV, APILib.CSV, MediaType.TEXT_XML, APILib.RDF_XML, APILib.TTL})
+    public String getCountInstancesAssociatedWithOntologyId(@PathParam("_format") String format, @QueryParam("keyword") String keyword,
+            @DefaultValue(DEFAULT_PAGE) @QueryParam("_page") int page, @DefaultValue(DEFAULT_PAGE_SIZE) @QueryParam("_pageSize") int pageSize) {
+        return OntologyDAO.getCountInstancesAssociatedWithOntologyId(keyword, page, pageSize, format);
+    }
 
     /*// Cache try
      @POST

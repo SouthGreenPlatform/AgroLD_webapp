@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+    <title> deusofnull's blog </title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}" />
+
+  </head>
+
+  <body>
+
+    <h1 id="hero_text"> DEUSOFNULL </h1>
+
+    {% if blogs %}
+      {% for blog in blogs %}
+        <div class="blog_box">
+          <h1 class="blog_title"> {{ blog.title }} </h1>
+          <p class="blog_text"> {{  blog.text}} </p>
+          <p class="blog_footer"> Posted at {{ blog.pub_date }} by {{ blog.author }} </p>
+        </div>
+      {% endfor %}
+    {% endif %}
+
+    <!-- author = forms.CharField(label="Author", max_length=25)
+      title = forms.CharField(label="Title", max_length=140)
+      text = forms.CharField(label="Text",
+          widget=forms.Textarea(
+              attrs={'placeholder': 'Write blog here'}
+          )
+      ) -->
+
+    <form action='/blog/' method="post">
+      {% csrf_token %}
+      {{ blog_form.as_p }}
+      <input type="submit" value="Submit" />
+    </form>
+
+  </body>
+
+</html>

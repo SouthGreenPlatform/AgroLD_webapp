@@ -37,14 +37,14 @@ header = re.sub(';;', ' ', header)
 headerListe = header.split()
 #print(headerListe)
 dictionnaireAllele = {}
-print(headerListe)
+#print(headerListe)
 headerListe.remove("rs#")
 headerListe.remove("alleles")
 headerListe.remove("chrom")
 headerListe.remove("pos")
 headerListe.remove("gene")
 
-print(headerListe)
+#print(headerListe)
 
 for item in headerListe:
 

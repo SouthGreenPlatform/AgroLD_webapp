@@ -112,7 +112,8 @@
                                         <div>
                                             <h4><a href="sparqleditor.jsp">SPARQL Query Editor</a></h4>
                                             <p>Edit and submit your SPARQL Queries to the sparql endpoint of AgroLD located 
-                                                at <a href="http://volvestre.cirad.fr:8890/sparql" target="_blank">http://volvestre.cirad.fr:8890/sparql</a></p>                                        
+                                                at <a href="http://volvestre.cirad.fr:8890/sparql" target="_blank">http://volvestre.cirad.fr:8890/sparql</a></p>                                         
+                                                <!--at <a href="http://volvestre.cirad.fr:3128/sparql" target="_blank">http://volvestre.cirad.fr:3128/sparql</a></p>                                        -->
                                         </div>
                                     </td>                                
                                 </tr>

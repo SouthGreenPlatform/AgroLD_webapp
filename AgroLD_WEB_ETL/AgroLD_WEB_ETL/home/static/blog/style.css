@@ -1,0 +1,50 @@
+#hero_text{
+  text-align: center;
+  font-family: monospace;
+  font-size: 65px;
+  /*animation-name: hero_grow_shrink;*/
+  animation-name: hero_pulse;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: 2;
+}
+
+#hero_text:hover {
+  animation-name: hero_pulse;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.blog_box {
+  border: solid;
+  border-width: thin;
+  margin: 5px;
+}
+
+.blog_title {
+  padding-left: 5px;
+}
+
+.blog_text {
+  padding-left: 15px;
+}
+
+.blog_footer{
+  font-size: 10px;
+  font-style: italic;
+  text-align: right;
+}
+
+
+@keyframes hero_grow_shrink {
+  0% {font-size:65px;}
+  50% {font-size: 70px;}
+  100% {font-size: 65px;}
+}
+
+@keyframes hero_pulse {
+  0% {color:rgb(0,0,0);}
+  50% {color: rgb(100, 100, 100);}
+  100% {color:rgb(0,0,0;)}
+}

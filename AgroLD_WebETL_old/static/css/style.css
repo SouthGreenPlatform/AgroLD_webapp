@@ -1,0 +1,180 @@
+﻿/*=============================================================
+    Authour URI: www.binarytheme.com
+    License: Commons Attribution 3.0
+
+    http://creativecommons.org/licenses/by/3.0/
+
+    100% To use For Personal And Commercial Use.
+    IN EXCHANGE JUST GIVE US CREDITS AND TELL YOUR FRIENDS ABOUT US
+   
+    ========================================================  */
+
+
+
+/*=======================================
+    GENERAL STYLES
+==================================================*/
+body {
+           font-family: 'Ruluko', sans-serif;
+    font-size:14px;
+}
+
+.nav a {
+    color:#ffffff !important;
+}
+.navbar-header a {
+    color:#ffffff !important;
+    padding-right:100px;
+}
+
+.text-center {
+    text-align:center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+   font-family: 'Ruluko', sans-serif;
+}
+
+h1 {
+    line-height:120px;
+    text-transform:uppercase;
+     color: #00A9DF;
+     font-size:50px ;
+    font-weight:900!important;
+}
+h3 {
+    line-height:30px;
+    padding-bottom:20px;
+}
+h4 {
+    line-height:40px;
+    padding-bottom:40px;
+}
+
+p {
+    font-weight:300;
+    line-height:30px;
+    padding-bottom:20px;
+}
+
+.space-pad {
+    padding-bottom:50px;
+}
+
+
+.for-full-back {
+     /* IE 8 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
+
+  /* IE 5-7 */
+  filter: alpha(opacity=90);
+
+  /* Netscape */
+  -moz-opacity: 0.9;
+
+  /* Safari 1.x */
+  -khtml-opacity: 0.9;
+
+  /* Good browsers */
+  opacity: 0.9;
+}
+
+section {
+    padding-top:30px;
+    padding-bottom:40px;
+}
+
+
+/*=======================================
+    COLOR CODES
+==================================================*/
+.color-white {
+   background-color:#fff!important;
+}
+
+.color-light {
+   background-color:#F8F8F8!important;
+}
+.color-blue {
+    color: #00A9DF;
+}
+/*=======================================
+    HEADER STYLES
+==================================================*/
+#home {
+    padding:20px 40px 130px 40px;
+}
+.head-main {
+    font-size:120px !important;
+    font-weight:900!important;
+    color:#585858!important;
+    padding:200px 20px 20px 20px;
+}
+
+/*=======================================
+    NAVIGATION STYLES
+==================================================*/
+
+
+nav {
+	position: absolute;
+	width: 100%;
+    background: #fff;
+    z-index:99;
+}
+.fixed {
+	position: fixed; 
+	top: 0; 
+	min-height: 50px; 
+	z-index: 99;
+}
+
+.navbar-inverse {
+background-color: #525252;
+border-color: #4B4A4A;
+}
+
+/*=======================================
+    ABOUT STYLES
+==================================================*/
+
+.about-div {
+	width: 100%;
+min-height: 100px;
+background-color: rgba(209, 209, 209, 0.24);
+box-shadow: none;
+border: 0;
+padding: 50px 20px 30px 20px;
+margin-bottom:20px;
+}
+/*=======================================
+    FREE TEXT STYLES
+==================================================*/
+.free-div {
+    width: 100%;
+min-height: 100px;
+background-color: rgba(209, 209, 209, 0.24);
+box-shadow: none;
+border: 0;
+padding: 50px 20px 30px 20px;
+margin-bottom:20px;
+}
+
+/*=======================================
+    CONTACT STYLES
+==================================================*/
+.contact-cls {
+    font-size:20px;
+    line-height:40px;
+}
+/*=======================================
+    FOOTER STYLES
+==================================================*/
+
+#footer {
+    background-color:#000;
+    color:#fff;
+    padding:20px 50px 20px 50px;
+    text-align:right;
+}
+
