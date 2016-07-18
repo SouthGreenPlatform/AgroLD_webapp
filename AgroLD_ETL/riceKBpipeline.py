@@ -10,8 +10,9 @@ import os
 import re
 from riceKB import gafToRDF, grameneParsers, oryzaBaseParser, TairParser,\
     southGreenParsers, uniprotToRDF, TropgeneParser, TropgeneModel, gffParser, os_japonicaModel, \
-    os_indicaModel, a_thalianaModel, sniplayPaserModel
+    os_indicaModel, a_thalianaModel, sniplayPaserModel, wineModel
 #from riceKB.oryzaBaseParser import oryzaBaseParser
+
 
 
 
@@ -234,3 +235,7 @@ pp = pprint.PrettyPrinter(indent=4)
 #path_output = '/media/elhassouni/donnees/Noeud-plante-projet/workspace/AgroLD/AgroLD_ETL/rdf_ttl/sniplay_db_ttl/sniplay.ttl' # The output
 #sniplayPaserModel.sniplayPaserModel()
 
+
+
+
+##print "************ A.thaliana data orygene_db **************\n"

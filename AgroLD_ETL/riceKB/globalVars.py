@@ -268,3 +268,26 @@ sniplay_pos_ns = 'sniplay_pos:'
 
 sniplay_consequence_uri =  'http://www.southgreen.fr/agrold/sniplay.consequence/'
 sniplay_consequence_ns = 'consequence:'
+
+
+#Brapi urgi phenotype
+observationUnitDbId_uri = 'http://www.southgreen.fr/agrold/phenotype.observationUnitDbId/'
+observationUnitDbId_ns = 'observationUnitDbId:'
+
+studyDbId_uri = 'http://www.southgreen.fr/agrold/phenotype.studyDbId/'
+studyDbId_ns = 'studyDbId:'
+
+treatment_uri = 'http://www.southgreen.fr/agrold/phenotype.treatment/'
+treatment_ns = 'treatment:'
+
+observationUnitLevelLabel_uri = 'http://www.southgreen.fr/agrold/phenotype.observationLabel/'
+observationUnitLevelLabel_ns = 'observation_level_label:'
+
+observationVariableDbId_uri = 'http://www.southgreen.fr/agrold/phenotype.observationData/'
+observationVariableDbId_ns = 'observation_data:'
+
+
+#Wine dataset file name :
+
+repeatmasker_uri = 'http://www.southgreen.fr/agrold/winedb.repeatmasker/'
+repeatmasker_ns = 'repeatmasker:'

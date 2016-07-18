@@ -41,8 +41,10 @@ TODO: 1) Reification needs fixing - additional rdf statement required to link as
 
 import re
 from Bio.UniProt import GOA
-from riceKB.globalVars import *
+from globalVars import *
 import pprint
+import glob
+import os
 
 '''
 def goaRDF(files, output_file, flag):
@@ -139,7 +141,10 @@ def goaRDF(files, output_file, flag):
         rdf_buffer = re.sub(' ;$', ' .', rdf_buffer) 
         output_file.write(rdf_buffer)
     handle.close()
-'''    
+'''
+pp = pprint.PrettyPrinter(indent=4)
+
+
 def allGafRDF(files, map_ds, output_file, flag):
     flag.lower()
     assoc_line = 0
@@ -173,11 +178,15 @@ def allGafRDF(files, map_ds, output_file, flag):
     
     # Slurping all the gaf records into gaf_objs list  
     for infile in files:
+
         opener = open(infile, "r")
         gaf_objs = GOA.gafiterator(opener)
+
         for record in gaf_objs:
             list_records.append(record) #append(record) extend(record)
         opener.close()
+    #pp(list_records)
+    pp.pprint(list_records)
     list_records.sort(key=lambda x: x['DB_Object_ID'])
 #    pp.pprint(list_records)
     # Accessing individual associations
@@ -308,9 +317,10 @@ def ProteinGafRDF(files, map_ds, output_file):
     outputWriter.write(pr + "\t" + gr_assoc_ns + "<" + gr_assoc + "> .\n")
     outputWriter.write(pr + "\t" + goa_ns + "<" + goa_uri + "> .\n")
     outputWriter.write(pr + "\t" + up_ns + "<" + uniprot + "> .\n\n")
-    
+    #opener = open(files, "r")
     # Slurping all the gaf records into gaf_objs list  
     for infile in files:
+        print(infile)
         opener = open(infile, "r")
         gaf_objs = GOA.gafiterator(opener)
         for record in gaf_objs:
@@ -415,4 +425,48 @@ def gafEcoMap(map_file):
             if evidence_code in map_ds:
                 map_ds[evidence_code].update({evidences[1]: evidences[2]}) 
     
-    return map_ds 
+    return map_ds
+
+
+
+eco_map_file = '/media/elhassouni/donnees/Noeud-plante-projet/workspace/AgroLD/AgroLD_ETL/test_files/ontology_associations/gaf-eco-mapping.txt'
+prot_assoc_test_dir = '/media/elhassouni/donnees/Noeud-plante-projet/workspace/AgroLD/AgroLD_ETL/test_files/ontology_associations/protein_associations/*.*'
+gene_assoc_test_dir = '/media/elhassouni/donnees/Noeud-plante-projet/workspace/AgroLD/AgroLD_ETL/test_files/ontology_associations/gene_associations/*.*'
+qtl_assoc_test_dir = '/media/elhassouni/donnees/Noeud-plante-projet/workspace/AgroLD/AgroLD_ETL/test_files/ontology_associations/qtl_associations/*.*'
+
+
+prot_test_output = '/media/elhassouni/donnees/Noeud-plante-projet/workspace/AgroLD/AgroLD_ETL/rdf_ttl/Verification_GAF/protein_associations.ttl'
+gene_test_output = '/media/elhassouni/donnees/Noeud-plante-projet/workspace/AgroLD/AgroLD_ETL/rdf_ttl/Verification_GAF/gene_associations.ttl'
+qtl_test_output = '/media/elhassouni/donnees/Noeud-plante-projet/workspace/AgroLD/AgroLD_ETL/rdf_ttl/Verification_GAF/qtl_associations.ttl'
+
+
+prot_gaf_files = glob.glob(prot_assoc_test_dir) #gene_assoc_dir stores file names(with the full path) as a list
+
+#print "************** Protein-ontology associations *************\n"
+mapping = gafEcoMap(eco_map_file)
+allGafRDF(prot_gaf_files, mapping, prot_test_output, 'protein') #
+ProteinGafRDF(prot_gaf_files, mapping, prot_test_output) # allGafRDF(prot_gaf_files, protein_assoc_ttl, 'protein')
+print "************** Protein-ontology associations RDF converted *************\n\n"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,69 @@
+{
+    "metadata": {
+        "pagination": {
+            "pageSize": 10,
+            "currentPage": 1,
+            "totalCount": 10,
+            "totalPages": 1
+        },
+        "status": []
+    },
+
+    "result" : {
+        "observationUnitDbId": 20,
+        "observationUnitPUI": "http://phenome-fppn.fr/maugio/bloc/12/2345",
+        "studyId": "RIGW1",
+        "studyDbId": 25,
+        "studyLocation": "Bergheim",
+        "studyPUI": "http://phenome-fppn.fr/phenoarch/2014/1",
+        "studyProject": "Inovine",
+        "studySet": ["National Network", "Frost suceptibility network"],
+        "studyPlatform": "Phenome",
+        "observationUnitLevelTypes" : [ "plant","plot", "bloc"],
+        "observationUnitLevelLabels": [ "1","26123", "1"],
+        "germplasmPUI": "http://inra.fr/vassal/41207Col0001E",
+        "germplasmDbId": 3425,
+        "germplasmName": "charger",
+        "treatments":
+        [
+            {
+                "factor" : "water regimen" ,
+                "modality":"water deficit"
+            }
+        ],
+        "attributes":
+        [
+            {"att1" :"value"},
+        {"numPot" :"23"}
+        ],
+        "X" : "",
+        "Y" : "",
+        "XLabel" : "",
+        "YLabel" : "",
+        "data": [
+                {
+                    "instanceNumber" : 1,
+                    "observationVariableId": "CO_321:0000045",
+                    "observationVariableDbId": 35,
+                    "season": "2005",
+                    "observationValue" : "red",
+                    "observationTimeStamp": null,
+                    "quality": "reliability of the observation",
+                    "collectionFacilityLabel":  "phenodyne",
+                    "collector" : "John Doe and team"
+                },
+                {
+                    "instanceNumber" : 1,
+                    "observationVariableId": "http://www.cropontology.org/rdf/CO_321:0000025",
+                    "observationVariableDbId": 35,
+                    "season": null,
+                    "observationValue" :  32,
+                    "observationTimeStamp": "2006-07-03::10:00",
+                    "quality": "8",
+                    "collectionFacilityLabel": null,
+                    "collector" : "userURIOrName"
+                }
+            ]
+        }
+    
+}

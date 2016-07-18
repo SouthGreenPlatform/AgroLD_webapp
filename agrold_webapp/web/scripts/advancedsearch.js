@@ -3,8 +3,9 @@
 var availableElts = [];
 var pageSize = 10;
 //var currentPage = 0;
-//var url= "http://volvestre.cirad.fr:8080/aldp/swagger/agrold.json";
-var url = "http://localhost:8084/aldp/swagger/agrold.json";
+var url= "http://volvestre.cirad.fr:8080/agrold/swagger/agrold.json";
+//var url = "http://localhost:8084/agrold/swagger/agrold.json";
+//var url = "swagger/agrold.json";
 
 function displayFormSearchResult(currentPages, result, title, pageLocation, typeOfResult, typeOfEntities, keyword) {
     displayResult(pageLocation, title, processHtmlResult(result, typeOfResult));

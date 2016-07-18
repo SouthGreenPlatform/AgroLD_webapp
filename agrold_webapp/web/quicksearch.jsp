@@ -29,7 +29,9 @@
                     </div>
                     <div id="sform">
                         <center>
-                            <form  action="http://volvestre.cirad.fr:8890/fct/facet.vsp?cmd=text&sid=94" method="post">                   
+                        <%--<form  action="http://volvestre.cirad.fr:8890/fct/facet.vsp?cmd=text&sid=94" method="post">--%>
+                            <form  action="http://volvestre.cirad.fr:8890/fct/" method="post">                   
+                           <%--  <form  action="http://volvestre.cirad.fr:3128/fct/" method="post"> --%>                  
                                 <!--Enter the entire/part of the name/code of a gene, QTL, protein, ... --><br/><br/>
                                 Search Text <input class="keyword" name="q" type="text" placeholder="Type here..." data-step="1" data-intro="Type your expression and then ..."/> 
                                 <input class="yasrbtn" type="submit" value="Search" data-step="2" data-intro="launch the search engine!"/>

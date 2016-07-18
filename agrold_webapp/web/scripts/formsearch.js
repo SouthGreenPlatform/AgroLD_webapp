@@ -8,7 +8,7 @@ $(document).ready(function () {
     // initialize swagger, point to a resource listing
     window.swagger = new SwaggerClient({
         //url: "http://volvestre.cirad.fr:8080/aldp/swagger/agrold.json",
-        url: "http://localhost:8084/aldp/swagger/agrold.json",
+        url: "http://localhost:8084/agrold/swagger/agrold.json",
         success: function () {
             console.log("API description well goten")
         }

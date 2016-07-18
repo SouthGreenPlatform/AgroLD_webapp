@@ -25,9 +25,9 @@ qpatterns['PREFIX vocab:<vocabulary/>\n\n' +
         'WHERE { \n' +
         ' GRAPH ?graph { \n' +
         '  ?term_id rdfs:label ?term_name . \n' +
-        " FILTER regex(str(?term_name), 'plant height') \n" +
+        " FILTER regex(str(?term_name), 'plant growth') \n" +
         ' } \n' +
-        '}'] = ["plant height"];
+        '}'] = ["plant growth"];
 qpatterns['PREFIX graph:<gramene.genes>\n\n' +
         'SELECT distinct ?relation\n' +
         'WHERE { \n' +
