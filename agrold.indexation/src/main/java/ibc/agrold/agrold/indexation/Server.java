@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.concurrent.ExecutionException;
+import org.apache.log4j.BasicConfigurator;
 import org.elasticsearch.action.delete.DeleteResponse;
 import org.elasticsearch.action.get.GetResponse;
 import org.elasticsearch.action.index.IndexRequest;
@@ -133,14 +134,15 @@ public class Server implements Indexation{
 	public void Index(Client client, Data data, String index, String type) throws IOException {
 		Map<String,Object> source = new HashMap<String,Object>(); // source of indexation
 		source.putAll(data.getContent()); // source is content of data
-		System.out.println("Source: "+source);
+		System.out.println("\nSource: "+source+"\n");
 		IndexResponse response = client.prepareIndex(index, type).setSource(source).get(); // indexation
+		System.out.println("\nIndex: ");
     	System.out.println("------------------------------");
 		System.out.println("Id: "+response.getId());
 		System.out.println("Version: "+response.getVersion());
 		System.out.println("Index: "+response.getIndex());
 		System.out.println("Type: "+response.getType());
-    	System.out.println("------------------------------");
+    	System.out.println("------------------------------\n");
 		
 	}
 
@@ -150,13 +152,13 @@ public class Server implements Indexation{
 	public Map<String, Object> getDocument(String index, String type, String id) {
 		GetResponse response = client.prepareGet(index, type, id).get(); // get document
     	Map<String, Object> document = response.getSource(); 
-    	System.out.println("------------------------------");
+    	System.out.println("\n------------------------------");
     	System.out.println("Index: " + response.getIndex());
     	System.out.println("Type: " + response.getType());
     	System.out.println("Id: " + response.getId());
     	System.out.println("Version: " + response.getVersion());
     	System.out.println(document);
-    	System.out.println("------------------------------");
+    	System.out.println("------------------------------\n");
     	return document;
 	}
 
@@ -177,11 +179,11 @@ public class Server implements Indexation{
 	 */
 	public void deleteDocument(Client client, String index, String type, String id) {
 		DeleteResponse response = client.prepareDelete(index, type, id).get(); // deletion
-        System.out.println("Information on the deleted document: ");
+        System.out.println("\nDeleted: ");
         System.out.println("Index: " + response.getIndex());
         System.out.println("Type: " + response.getType());
         System.out.println("Id: " + response.getId());
-        System.out.println("Version: " + response.getVersion());
+        System.out.println("Version: " + response.getVersion()+"\n");
 	}
 
 	/**
@@ -191,44 +193,49 @@ public class Server implements Indexation{
 	 * @throws ExecutionException
 	 */
 	public static void main(String[] args) throws IOException, InterruptedException, ExecutionException {
-		
+		BasicConfigurator.configure(); // configuration for ElasticSearch (log4j)
 		Server server = new Server(); // server
 		
 		if(args.length == 0){
-			System.out.println("Please, enter a correct number of arguments. See documentation.");
+			System.err.println("Please, enter a correct number of arguments. See documentation.");
 		}
 		else {
+			System.out.println("\n------------------------------ BEGINNING ------------------------------");
 			switch(args[0]) {
 			case "indexation": // indexation of a file
+				System.out.println("\n------------------------------ Indexation ------------------------------");
 				if(args.length == 4){
 					Data d = new Data(args[1]);
 					server.Index(server.client, d, args[2], args[3]);
 				}
 				else {
-					System.out.println("Please, enter a correct number of arguments for indexation. See documentation.");
+					System.err.println("Please, enter a correct number of arguments for indexation. See documentation.");
 				}
 				break;
 			case "update": // update of an index
+				System.out.println("\n------------------------------ Update of an index ------------------------------");
 				if(args.length == 6){
 					server.updateDocument(server.client, args[1], args[2], args[3], args[4], args[5]);
 				}
 				else {
-					System.out.println("Please, enter a correct number of arguments for updating an index. See documentation.");	
+					System.err.println("Please, enter a correct number of arguments for updating an index. See documentation.");	
 				}
 				break;
 			case "deletion": // deletion of an index
+				System.out.println("\n------------------------------ Deletion of an index ------------------------------");
 				if(args.length == 4) {
 					server.deleteDocument(server.client, args[1], args[2], args[3]);
 				}
 				else {
-					System.out.println("Please, enter a correct number of arguments for deleting an index. See documentation.");
+					System.err.println("Please, enter a correct number of arguments for deleting an index. See documentation.");
 				}
 				break;
 			default:
-				System.out.println("Please, enter correct arguments. See documentation.");
+				System.err.println("Please, enter correct arguments. See documentation.");
 				break;
 			}
 		}
+		System.out.println("------------------------------ END ------------------------------\n");
 		server.client.close(); // close connection between cluster and application
 	}
 }
