@@ -13,17 +13,30 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
+  
+  <repositories>
+  	<repository>
+    	<id>elasticsearch-releases</id>
+        <url>http://maven.elasticsearch.org/releases</url>
+        <releases>
+        	<enabled>true</enabled>
+        </releases>
+        <snapshots>
+        	<enabled>false</enabled>
+        </snapshots>
+  	</repository>
+  </repositories>
 
   <dependencies>
   	   <dependency>
-    	<groupId>junit</groupId>
-    	<artifactId>junit</artifactId>
-    	<version>4.12</version>
+    		<groupId>junit</groupId>
+    		<artifactId>junit</artifactId>
+    		<version>4.12</version>
 	   </dependency>
 	   <dependency>
-	    <groupId>org.elasticsearch</groupId>
-	    <artifactId>elasticsearch</artifactId>
-	    <version>2.3.3</version>
+	   		<groupId>org.elasticsearch</groupId>
+	   		<artifactId>elasticsearch</artifactId>
+	    	<version>2.2.1</version>
 	   </dependency>
 	   <dependency>
 		    <groupId>org.apache.jena</groupId>
@@ -41,24 +54,19 @@
     		<version>2.6.2</version>
 		</dependency>
         <dependency>
-	        <groupId>net.sourceforge.owlapi</groupId>
-	        <artifactId>owlapi-distribution</artifactId>
-	        <version>4.2.3</version>
-        </dependency>
-        <dependency>
     		<groupId>org.slf4j</groupId>
 		    <artifactId>slf4j-nop</artifactId>
 		    <version>1.7.21</version>
-		</dependency>
-		<dependency>
-		    <groupId>net.sourceforge.owlapi</groupId>
-		    <artifactId>owlapi-distribution</artifactId>
-		    <version>5.0.2</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.apache.clerezza.ext</groupId>
 		    <artifactId>org.apache.jena.jena-core</artifactId>
 		    <version>2.11.1_1</version>
 		</dependency>
+		<dependency>
+        	<groupId>org.elasticsearch</groupId>
+        	<artifactId>elasticsearch-shield</artifactId>
+        	<version>1.2.0</version>
+        </dependency>
    </dependencies>
 </project>

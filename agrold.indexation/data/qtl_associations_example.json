@@ -1,7 +1,7 @@
 {
 	"name": "qtl associations",
 	"species": "Oryza",
-	"genes": [{
+	"gene": [{
 		"name": "OS05G0341600",
 		"@id": "http://identifiers.org/ensembl.plant/OS05G0341600",
 		"participates in": [{
