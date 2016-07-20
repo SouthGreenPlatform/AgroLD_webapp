@@ -1,0 +1,44 @@
+{
+	"name": "qtl associations",
+	"species": "Oryza",
+	"genes": [{
+		"name": "OS05G0341600",
+		"@id": "http://identifiers.org/ensembl.plant/OS05G0341600",
+		"participates in": [{
+			"name": "GO_0015031",
+			"@id": "http://purl.obolibrary.org/obo/GO_0015031"
+		}, {
+			"name": "GO_0007264",
+			"@id": "http://purl.obolibrary.org/obo/GO_0007264"
+		}],
+		"has function": [{
+			"name": "GO_0000166",
+			"@id": "http://purl.obolibrary.org/obo/GO_0000166"
+		}, {
+			"name": "GO_0005525",
+			"@id": "http://purl.obolibrary.org/obo/GO_0005525"
+		}],
+		"chromosome": "5",
+		"description": "Os05g0341600 protein; Putative uncharacterized protein OJ1116_F05.1; cDNA clone:002-182-B11, full insert sequence  [Source:UniProtKB/TrEMBL;Acc:Q5WMU2]",
+		"has biotype": "protein coding",
+		"has end position": "16023701",
+		"has ncbi gene identifier": {
+			"name": "4338469",
+			"@id": "http://identifiers.org/ncbigene/4338469"
+		},
+		"has start position": "16019207",
+		"has tigr identifier": [{
+			"name": "LOC_Os05g27530.2",
+			"@id": "http://www.southgreen.fr/agrold/tigr.locus/LOC_Os05g27530.2"
+		}, {
+			"name": "LOC_Os05g27530.1",
+			"@id": "http://www.southgreen.fr/agrold/tigr.locus/LOC_Os05g27530.1"
+		}],
+		"subclass of": {
+			"name": "SO_0000704",
+			"@id": "http://purl.obolibrary.org/obo/SO_0000704"
+		}
+
+	},{}],
+	"statement": [{}]
+}
