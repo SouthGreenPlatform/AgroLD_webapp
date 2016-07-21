@@ -20,6 +20,7 @@ import org.elasticsearch.client.Client;
 import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.common.transport.InetSocketTransportAddress;
+import org.elasticsearch.shield.ShieldPlugin;
 
 
 /**
@@ -39,12 +40,13 @@ public class Server implements Indexation{
 	public Server() throws IOException{
 		// Get configuration properties
 		String cluster = getClusterName(); // get cluster name
+		String user = getUser(); // get Shield (security plugin for ElasticSearch) user
 		String host = getHost(); // get server host
 		String port = getPort(); // get server port
 		int nport = readPort(port); // cast server port (string -> int) 
 			
 		// Settings for the client
-		Settings settings = setSettings(cluster); 
+		Settings settings = setSettings(cluster, user); 
 			
 		// Contact the ElasticSearch server
 		this.client = initializeClient(settings, host, nport);
@@ -58,6 +60,16 @@ public class Server implements Indexation{
 		ResourceBundle bundle = ResourceBundle.getBundle("indexation.properties.config"); // get configuration file
 		String cluster = bundle.getString("cluster.name"); // get cluster name from configuration file
 		return cluster;
+	}
+	
+	/**
+	 * Get the Shield (security plugin for ElasticSearch) user from configuration file (config.properties)
+	 * @return user - Shield user
+	 */
+	public String getUser(){
+		ResourceBundle bundle = ResourceBundle.getBundle("indexation.properties.config"); // get configuration file
+		String user = bundle.getString("shield.user"); // get Shield (security plugin for ElasticSearch) user from configuration file
+		return user;
 	}
 	
 	/**
@@ -91,15 +103,120 @@ public class Server implements Indexation{
 	}
 	
 	/**
-	 * Settings for the ElasticSearch client
+	 * Get the path to client.jks keystore from configuration file (config.properties)
+	 * The client.jks keystore needs to contain the client’s signed CA certificate and the CA certificate
+	 * @return keystore_path - the path to client.jks keystore (Shield plugin, SSL, client authentification)
+	 */
+	public String getKeystorePath(){
+		ResourceBundle bundle = ResourceBundle.getBundle("indexation.properties.config"); // get configuration file
+		String keystore_path = bundle.getString("shield.ssl.keystore.path"); // get keystore path from configuration file
+		return keystore_path;
+	}
+	
+	/**
+	 * Get the password to client.jks keystore from configuration file (config.properties)
+	 * @return keystor_password - the password to client.jks keystore (Shield plugin, SSL, client authentification)
+	 */
+	public String getKeystorePassword(){
+		ResourceBundle bundle = ResourceBundle.getBundle("indexation.properties.config"); // get configuration file
+		String keystore_password = bundle.getString("shield.ssl.keystore.password"); // get keystore password from configuration file
+		return keystore_password;
+	}
+	
+
+	/**
+	 * Get the path to truststore.jks from configuration file (config.properties)
+	 * The truststore.jks truststore needs to contain the certificate of the CA that has signed the Elasticsearch nodes' certificates.
+	 * @return truststore_path - the path to truststore.jks (Shield plugin, SSL, without client authentification)
+	 */
+	public String getTruststorePath(){
+		ResourceBundle bundle = ResourceBundle.getBundle("indexation.properties.config"); // get configuration file
+		String truststore_path = bundle.getString("shield.ssl.truststore.path"); // get truststore path from configuration file
+		return truststore_path;
+	}
+	
+	
+	/**
+	 * Get the password to truststore.jks from configuration file (config.properties)
+	 * @return truststore_password - the password to truststore.jks (Shield plugin, SSL, without client authentification)
+	 */
+	public String getTruststorePassword(){
+		ResourceBundle bundle = ResourceBundle.getBundle("indexation.properties.config"); // get configuration file
+		String truststore_password = bundle.getString("shield.ssl.truststore.password"); // get truststore password from configuration file
+		return truststore_password;
+	}
+	
+	/**
+	 * Settings for the ElasticSearch client when using Shield plugin
 	 * @param cluster - name of the cluster to contact
+	 * @param user - user (Shield plugin)
 	 * @return settings - settings for the client (used to contact the ElasticSearch server)
 	 */
-	public Settings setSettings(String cluster){
-		Settings settings = Settings.settingsBuilder()
-				.put("client.transport.sniff", true) // sniffing feature (allows to dynamically add new hosts and remove old ones)
-				.put("cluster.name", cluster) // cluster name
-				.build(); 
+	public Settings setSettingsForShield(String cluster, String user){
+		Settings settings;
+		String keystore_path = getKeystorePath(); // SSL informations for TransportClient : with client authentification (Shield)
+		String truststore_path = getTruststorePath(); // SSL informations for TransportClient : without client authentification (Shield)
+		/* SSL with client authentification */
+		if(!keystore_path.isEmpty() && truststore_path.isEmpty()){
+			String keystore_password = getKeystorePassword();
+			settings = Settings.settingsBuilder()
+					.put("client.transport.sniff", true) // sniffing feature (allows to dynamically add new hosts and remove old ones)
+					.put("cluster.name", cluster) // cluster name
+					.put("shield.user", user) // user for a secured connexion (Shield plugin)
+					// client authentication for secured transport communication (Shield)
+					.put("shield.ssl.keystore.path", keystore_path) // path to client (jks) : the client.jks keystore needs to contain the client’s signed CA certificate and the CA certificate
+				    .put("shield.ssl.keystore.password", keystore_password) // password 
+				    .put("shield.transport.ssl", "true")
+					.build();
+		}
+		/* SSL without client authentification */
+		else if(keystore_path.isEmpty() && !truststore_path.isEmpty()){
+			String truststore_password = getTruststorePassword();
+			settings = Settings.settingsBuilder()
+					.put("client.transport.sniff", true) // sniffing feature (allows to dynamically add new hosts and remove old ones)
+					.put("cluster.name", cluster) // cluster name
+					.put("shield.user", user) // user for a secured connexion (Shield plugin)
+					// without client authentication (Shield)
+					.put("shield.ssl.truststore.path", truststore_path) // path
+				    .put("shield.ssl.truststore.password", truststore_password) // password 
+				    .put("shield.transport.ssl", "true")
+					.build();
+		}
+		/* Shield without SSL */
+		else {
+			/* If information for SSL with and without client authentification are given in config.properties, we choose to ignore both and trying to contact the cluster with Shield settings (without SSL) */
+			if(keystore_path.isEmpty() && truststore_path.isEmpty()){
+				System.err.println("Please, set config.properties properly. If your ElasticSearch cluster uses Shield plugin, please enter a Shield user.\n"
+						+ "If Shield is configured with SSL, please give also information about keystore (for SSL with client authentification) or about truststore (for SSL without client authentification).\n"
+						+ "You should not enter information for both.\n"
+						+ "The application is actually trying to contact the ElasticSearch cluster without SSL configuration.");
+			}
+			settings = Settings.settingsBuilder()
+					.put("client.transport.sniff", true) // sniffing feature (allows to dynamically add new hosts and remove old ones)
+					.put("cluster.name", cluster) // cluster name
+					.put("shield.user", user) // user for a secured connexion (Shield plugin)
+					.build();
+		}
+		return settings;
+	}
+	
+	/**
+	 * Settings for the ElasticSearch client
+	 * @param cluster - name of the cluster to contact
+	 * @param user - user (Shield plugin) 
+	 * @return settings - settings for the client (used to contact the ElasticSearch server)
+	 */
+	public Settings setSettings(String cluster, String user){
+		Settings settings;
+		if(user.isEmpty()){ // if we don't use the Shield plugin
+			settings = Settings.settingsBuilder()
+					.put("client.transport.sniff", true) // sniffing feature (allows to dynamically add new hosts and remove old ones)
+					.put("cluster.name", cluster) // cluster name
+					.build();
+		}
+		else { // if we use the Shield plugin
+			settings = setSettingsForShield(cluster, user); // settings when using Shield plugin
+		} 
 		return settings;
 	}
 	
@@ -114,11 +231,12 @@ public class Server implements Indexation{
 	 */
 	public Client initializeClient(Settings settings, String host, int nport) throws UnknownHostException{
 		Client client = TransportClient.builder()
+				.addPlugin(ShieldPlugin.class) // necessary if the ElasticSearch cluster uses Shield plugin
 				.settings(settings).build()
 				.addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName(host), nport)); // transport client
 		return client;	
 	}
-	
+
 	/**
 	 * Getter (client)
 	 * @return client
@@ -126,7 +244,6 @@ public class Server implements Indexation{
 	public Client getClient() {
 		return client;
 	}
-	
 	
 	/* (non-Javadoc)
 	 * @see ibc.agrold.agrold.indexation.Indexation#Index(org.elasticsearch.client.Client, ibc.agrold.agrold.indexation.Data, java.lang.String, java.lang.String)
