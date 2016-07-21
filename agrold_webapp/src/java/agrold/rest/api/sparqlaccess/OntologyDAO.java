@@ -265,13 +265,49 @@ public class OntologyDAO {
         String ontoTerms = APILib.executeSparqlQuery(sparqlQuery, APILib.sparqlEndpointURL, resultFormat);
         return ontoTerms;
     }
+    
+    
+    
+    public static String getCountInstancesAssociatedWithOntologyId(String ontologyId, int page, int pageSize, String resultFormat) {
+        String sparqlQuery ="BASE <http://www.southgreen.fr/agrold/>\n"      
+                + "PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
+                + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
+                + "PREFIX obo:<http://purl.obolibrary.org/obo/>\n"
+                + "PREFIX vocab:<vocabulary/>\n"
+                + "SELECT (COUNT(DISTINCT ?subject) AS ?count)\n" 
+                + "FROM <sniplaydb>\n"
+                + "FROM <gramene.genes>\n"
+                + "FROM <uniprot.plants>\n"
+                + "FROM <protein.annotations>\n"
+                + "FROM <orygenesdb.o.s.indica>\n"
+                + "FROM <orygenesdb.o.s.japonica>\n"
+                + "FROM <orygenesdb.a.thaliana>\n"
+                + "FROM <greenphyldb>\n"
+                + "FROM <tropgenedb>\n"
+                + "FROM <qtl.annotations>\n"
+                + "FROM <otl>\n"
+                + "FROM <gramene.cyc>\n"
+                + "FROM <gramene.qtl>\n"
+                + "WHERE {\n"
+                + "?subject ?predicate <http://purl.obolibrary.org/obo/GO_0015031>\n "
+                + "}\n";
+        sparqlQuery = APILib.addLimitAndOffset(sparqlQuery, pageSize, page);
+        System.out.println(sparqlQuery);
+        String instancesCount = APILib.executeSparqlQuery(sparqlQuery, APILib.sparqlEndpointURL, resultFormat);
+        //System.out.println(instancesCount.getClass());
+        
+        return instancesCount;
+    }
+    
+    
 
     public static void main(String[] args) {
         //System.out.println(getIdByOntoTerm("homoaconitate hydratase activity", "text/tab-separated-values"));
         //System.out.println(extractIDfromURI("http://purl.obolibrary.org/obo/BFO_0000051"));
         //System.out.println(getAncestorById("GO:0004409", 3, "text/tab-separated-values"));
         //System.out.println(getDescendantsById("GO:0003824", 2, "text/tab-separated-values"));
-        System.out.println(getOntoTermsAssociatedWithProtein("I1PQW3", 0, 1, ".tsv"));
+        //System.out.println(getOntoTermsAssociatedWithProtein("I1PQW3", 0, 1, ".tsv"));
+        System.out.println(getCountInstancesAssociatedWithOntologyId("tototo", 0, 1, ".tsv"));
         //System.out.println(getOntologyTermsByKeyWord("homoaconitate", 0, 1, ".tsv"));
     }
 }

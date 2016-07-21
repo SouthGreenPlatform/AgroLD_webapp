@@ -188,6 +188,7 @@
                             <div id="parameters">
                             </div>
                             <form action="http://volvestre.cirad.fr:8890/sparql" method="get" data-step="2" data-intro="watch & edit its query here!">                                                                
+                            <!--<form action="http://volvestre.cirad.fr:3128/sparql" method="get" data-step="2" data-intro="watch & edit its query here!">                                                            -->    
                                 <label for="query"><b style="font-size: 15px">Query Text</b></label><br />
                                 <textarea rows="15" cols="76" name="query" id="query" onchange="format_select(this)" onkeyup="format_select(this)">
                                 <%
@@ -292,6 +293,7 @@ WHERE{
                 {
                     sparql: {
                         showQueryButton: true,
+                        //endpoint: "http://volvestre.cirad.fr:3128/sparql",
                         endpoint: "http://volvestre.cirad.fr:8890/sparql",
                         //endpoint: "http://localhost:8890/sparql",
                         collapsePrefixesOnLoad: false,

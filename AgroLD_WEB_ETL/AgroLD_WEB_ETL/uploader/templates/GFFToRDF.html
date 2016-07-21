@@ -1,0 +1,74 @@
+
+
+{% extends "base.html" %}
+{% block title %}Ma page d'accueil{% endblock %}
+{% block content %}
+{% load static %}
+
+
+  <div class="row text-center">
+                <div class="col-md-8 col-md-offset-2">
+                    <h1>GFF To RDF </h1>
+                    <h4>
+                        <strong>
+                            Transformation all gff data in RDF turtle format
+                        </strong>
+                    </h4>
+
+                         <label class="control-label">Select File</label>
+
+                </div>
+
+  </div>
+
+ <!-- List of uploaded documents -->
+        {% if documents %}
+            <ul>
+                {% for document in documents %}
+                    <li>
+                      <p>
+                        <!--  use a custom template filter to
+                        get the basename of each file path -->
+
+                          {{ document.docfile.name}}
+                      </p>
+                      <!--   Dont display a link to a static file on the server...-->
+
+                      <!-- <img class="list_image" src="{{document.docfile.url}}"> -->
+
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No documents.</p>
+        {% endif %}
+
+    <!-- Upload form. Note enctype attribute! -->
+        <form action="{% url 'gff' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <p>{{ form.non_field_errors }}</p>
+
+            <p>{{ form.docfile.label_tag }} {{ form.docfile.help_text }}</p>
+
+            <p>
+                {{ form.docfile.errors }}
+                {{ form.docfile }}
+            </p>
+
+            <p><input type="submit" value="Upload"/></p>
+        </form>
+
+
+
+
+<h1>{{ question.question_text }}</h1>
+<ul>
+{% for choice in question.choice_set.all %}
+    <li>{{ choice.choice_text }}</li>
+{% endfor %}
+</ul>
+
+
+<a href="{% url 'detail' test %}">transformer</a>
+
+{% endblock %}

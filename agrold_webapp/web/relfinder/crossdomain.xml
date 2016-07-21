@@ -2,6 +2,7 @@
 <!DOCTYPE cross-domain-policy SYSTEM "http://www.macromedia.com/xml/dtds/cross-domain-policy.dtd">
 <cross-domain-policy>
 <allow-access-from domain="*.volvestre.cirad.fr:8890"/> 
+<!--<allow-access-from domain="*.volvestre.cirad.fr:3128"/> -->
 <allow-access-from domain="*.dbpedia.org" />
 <allow-access-from domain="*"/> 
 </cross-domain-policy>

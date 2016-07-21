@@ -33,6 +33,7 @@ public class APILib {
 
     //public static String sparqlEndpointURL = "http://localhost:8890/sparql";
     public static String sparqlEndpointURL = "http://volvestre.cirad.fr:8890/sparql";
+    //public static String sparqlEndpointURL = "http://volvestre.cirad.fr:3128/sparql";
 
     public final static String HTML = "text/html";
     public final static String JSON = "application/json";
@@ -235,7 +236,7 @@ public class APILib {
         //System.out.println(csv + "\n" + tsv2json(csv));
         //System.out.println(getAllProteinsURI(APILib.TSV));
         //System.out.println(getEntitiesByKeyWord("A0A060D1L3", "http://purl.obolibrary.org/obo/SO_0000771", 0, 1, TSV));
-        System.out.println(executeHttpQuery("http://link.g-language.org/A6MCY9/extract=PubMed/format=json"));
+        //System.out.println(executeHttpQuery("http://link.g-language.org/A6MCY9/extract=PubMed/format=json"));
 
     }
 }

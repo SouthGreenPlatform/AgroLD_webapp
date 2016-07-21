@@ -58,11 +58,6 @@ def parseGFF3(filename):
 pp = pprint.PrettyPrinter(indent=4)
 
 
-# path of the file gff
-path = '/opt/TOS_DI-20141207_1530-V5.6.1/workspace/gff_data_orygeneDB/os_indica_gff3/indicaCant.gff3'     # The input
-#path_output = '/opt/TOS_DI-20141207_1530-V5.6.1/workspace/gff_data_orygeneDB/os_indica_gff3/indica.ttl' # The output
+path = '/opt/TOS_DI-20141207_1530-V5.6.1/workspace/gff_data_orygeneDB/File_test/indicaCantTest.gff3'
 
-ds = parseGFF3(path)   # The parsing file
-
-pp.pprint(ds)    # For to see in teminal the parsing
-
+print(parseGFF3(path))

@@ -1,0 +1,70 @@
+##gff-version 3
+##genome-build IGGP Vitis vinifera 12X.0  PN40024 (grapevine)
+##species http://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=29760
+##source RepeatMasker
+##analysis-author Florian Maumus URGI
+##date Nov 10 2014
+##PubMed References PMID: 25381880 doi: 10.1038/ncomms6269 http://www.ncbi.nlm.nih.gov/pubmed/25381880
+chr1	RepeatMasker	dispersed_repeat	176786	177162	1514	+	.	Target=VvinAV_sc3
+chr1	RepeatMasker	dispersed_repeat	180755	181202	1786	+	.	Target=VvinAV_sc3
+chr1	RepeatMasker	dispersed_repeat	2098962	2099203	1497	-	.	Target=VvinCV_sc1
+chr1	RepeatMasker	dispersed_repeat	2099191	2099454	1420	-	.	Target=VvinCV_sc1
+chr1	RepeatMasker	dispersed_repeat	2099505	2099763	1340	-	.	Target=VvinCV_sc1
+chr1	RepeatMasker	dispersed_repeat	2333455	2333601	389	+	.	Target=VvinAV_sc3
+chr1	RepeatMasker	dispersed_repeat	2459061	2459433	1570	+	.	Target=VvinAV_sc3
+chr1	RepeatMasker	dispersed_repeat	2798847	2801460	16874	-	.	Target=VvinDV_compAsc1
+chr1	RepeatMasker	dispersed_repeat	2914086	2914444	1680	-	.	Target=VvinAV_sc3
+chr1	RepeatMasker	dispersed_repeat	3073739	3073892	444	+	.	Target=VvinDV_compAsc2
+chr1	RepeatMasker	dispersed_repeat	3073739	3073865	452	+	.	Target=VvinDV_compAsc1
+chr1	RepeatMasker	dispersed_repeat	3073882	3074133	1271	+	.	Target=VvinDV_compAsc2
+chr1	RepeatMasker	dispersed_repeat	3074277	3074395	474	+	.	Target=VvinDV_compAsc1
+chr10	RepeatMasker	dispersed_repeat	10429842	10430063	1388	+	.	Target=VvinAV_sc1
+chr10	RepeatMasker	dispersed_repeat	10431277	10431426	1063	+	.	Target=VvinAV_sc2
+chr10	RepeatMasker	dispersed_repeat	10551295	10551574	1597	-	.	Target=VvinAV_sc1
+chr10	RepeatMasker	dispersed_repeat	10559379	10559519	516	+	.	Target=VvinAV_sc3
+chr10	RepeatMasker	dispersed_repeat	10666708	10667951	6255	-	.	Target=VvinDV_compBsc2
+chr10	RepeatMasker	dispersed_repeat	10667909	10669974	13445	-	.	Target=VvinDV_compBsc1
+chr10	RepeatMasker	dispersed_repeat	10670039	10670989	4814	+	.	Target=VvinDV_compAsc1
+chr10	RepeatMasker	dispersed_repeat	10670508	10673486	22045	+	.	Target=VvinDV_compAsc2
+chr10	RepeatMasker	dispersed_repeat	10885864	10886040	833	-	.	Target=VvinAV_sc3
+chr10	RepeatMasker	dispersed_repeat	11119179	11119612	2038	+	.	Target=VvinAV_sc3
+chr10	RepeatMasker	dispersed_repeat	11120930	11121286	1867	-	.	Target=VvinAV_sc3
+chr10	RepeatMasker	dispersed_repeat	11145711	11147563	15250	-	.	Target=VvinBV_compBsc2
+chr10	RepeatMasker	dispersed_repeat	11156443	11159327	23420	-	.	Target=VvinBV_compBsc2
+chr10	RepeatMasker	dispersed_repeat	11159326	11159633	2527	-	.	Target=VvinBV_compBsc1
+chr10	RepeatMasker	dispersed_repeat	11159635	11159794	1164	-	.	Target=VvinBV_compBsc2
+chr10	RepeatMasker	dispersed_repeat	11159804	11160134	1112	+	.	Target=VvinBV_compBsc2
+chr10	RepeatMasker	dispersed_repeat	11160131	11163242	24052	+	.	Target=VvinBV_compAsc2
+chr10	RepeatMasker	dispersed_repeat	11340458	11340825	1884	+	.	Target=VvinAV_sc3
+chr10	RepeatMasker	dispersed_repeat	11848840	11849218	1965	+	.	Target=VvinAV_sc3
+chr10	RepeatMasker	dispersed_repeat	11850061	11851346	5469	-	.	Target=VvinDV_compAsc2
+chr10	RepeatMasker	dispersed_repeat	11851347	11851853	1778	-	.	Target=VvinDV_compAsc2
+chr10	RepeatMasker	dispersed_repeat	12766817	12767205	1843	+	.	Target=VvinAV_sc3
+chr10	RepeatMasker	dispersed_repeat	12773819	12774113	1455	+	.	Target=VvinAV_sc3
+chr10	RepeatMasker	dispersed_repeat	12862721	12862852	1026	-	.	Target=VvinAV_sc1
+chr10	RepeatMasker	dispersed_repeat	12862851	12863118	1801	-	.	Target=VvinAV_sc1
+chr10	RepeatMasker	dispersed_repeat	12923268	12923473	946	-	.	Target=VvinDV_compBsc2
+chr10	RepeatMasker	dispersed_repeat	12923844	12926062	14755	-	.	Target=VvinDV_compAsc2
+chr10	RepeatMasker	dispersed_repeat	12926029	12926156	777	-	.	Target=VvinDV_compAsc1
+chr10	RepeatMasker	dispersed_repeat	12944876	12945422	2799	+	.	Target=VvinDV_compBsc1
+chr10	RepeatMasker	dispersed_repeat	13009625	13010071	1850	-	.	Target=VvinAV_sc3
+chr10	RepeatMasker	dispersed_repeat	13018040	13018416	1438	-	.	Target=VvinAV_sc3
+chr10	RepeatMasker	dispersed_repeat	13213546	13213992	2171	+	.	Target=VvinAV_sc3
+chr10	RepeatMasker	dispersed_repeat	13296220	13299143	15983	+	.	Target=VvinCV_sc1
+chr10	RepeatMasker	dispersed_repeat	13300002	13300386	1524	-	.	Target=VvinAV_sc3
+chr10	RepeatMasker	dispersed_repeat	13300384	13301208	4386	+	.	Target=VvinCV_sc1
+chr10	RepeatMasker	dispersed_repeat	13301208	13301409	1148	-	.	Target=VvinCV_sc1
+chr10	RepeatMasker	dispersed_repeat	13301410	13301727	1538	-	.	Target=VvinCV_sc2
+chr10	RepeatMasker	dispersed_repeat	13500209	13500578	1717	+	.	Target=VvinAV_sc3
+chr11	RepeatMasker	dispersed_repeat	4585927	4586086	413	-	.	Target=CclemV_scCc5
+chr11	RepeatMasker	dispersed_repeat	5082901	5083272	1868	-	.	Target=VvinAV_sc3
+chr11	RepeatMasker	dispersed_repeat	5160876	5161033	541	+	.	Target=VvinAV_sc3
+chr11	RepeatMasker	dispersed_repeat	5175433	5175813	1622	-	.	Target=VvinAV_sc3
+chr11	RepeatMasker	dispersed_repeat	5337352	5337733	1533	-	.	Target=VvinAV_sc3
+chr11	RepeatMasker	dispersed_repeat	5831991	5836202	33760	+	.	Target=VvinDV_compBsc1
+chr11	RepeatMasker	dispersed_repeat	5836318	5836450	628	+	.	Target=VvinDV_compAsc1
+chr11	RepeatMasker	dispersed_repeat	5836427	5841088	35299	+	.	Target=VvinDV_compAsc1
+chr11	RepeatMasker	dispersed_repeat	5997679	5998114	3053	-	.	Target=VvinDV_compAsc2
+chr11	RepeatMasker	dispersed_repeat	6243275	6243642	1629	-	.	Target=VvinAV_sc3
+chr11	RepeatMasker	dispersed_repeat	6249421	6249653	1158	+	.	Target=VvinDV_compBsc1
+chr11	RepeatMasker	dispersed_repeat	6251408	6253456	9424	-	.	Target=VvinDV_compBsc1
