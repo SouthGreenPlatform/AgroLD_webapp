@@ -1,6 +1,6 @@
 # Indexation (ElasticSearch) for AgroLD
 
-agrold_indexation is an application that enables to communicate easily with an ElasticSearch cluster, index files, update and delete indexes without using cURL. We use this application to automate the indexation task. This application is intended to index JSON files on an ElasticSearch cluster and manage indexes. We personnaly use this application as our indexation's workflow management tool.
+agrold_indexation is an application that enables to communicate easily with an ElasticSearch cluster, index files, update and delete indexes without using cURL. We use this application to automate the indexation task.
 
 # Contact
 
