@@ -8,7 +8,6 @@ For bug tracking purpose you can use the GitHub or questions about AgroLD, you c
 
 * nordine.elhassouni_at_cirad.fr
 * pierre.larmande_at_ird.fr
-* stella.zevio_at_etu.umontpellier.fr
 
 # Contributing
 
