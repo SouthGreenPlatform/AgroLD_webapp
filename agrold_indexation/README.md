@@ -4,10 +4,11 @@ agrold_indexation is an application that enables to communicate easily with an E
 
 # Contact
 
-For bug tracking purpose you can use the GitHub or questions about AgroLG, you can contact the mainteners using the following email addresses:
+For bug tracking purpose you can use the GitHub or questions about AgroLD, you can contact the maintainers using the following email addresses:
 
 * nordine.elhassouni_at_cirad.fr
 * pierre.larmande_at_ird.fr
+* stella.zevio_at_etu.umontpellier.fr
 
 # Contributing
 
