@@ -23,10 +23,10 @@ Our application works with [ElasticSearch 2.2.1](https://www.elastic.co/fr/blog/
 If your cluster works with another version of ElasticSearch and you still want to test agrold_indexation : 
   * change ElasticSearch version in Maven dependencies (code/pom.xml) according to your cluster's version
   * recompile a jar file
+  
 Please be advised that we can't guarantee that our application will work with latest versions of ElasticSearch.
-Check that your ElasticSearch cluster's version and your agrold_indexation's are the same.
 
-agrold_indexation is compatible with Shield security plugin for ElasticSearch.
+agrold_indexation is compatible with [Shield](https://www.elastic.co/fr/products/shield) security plugin for ElasticSearch.
 
 ### agrold_indexation
 
