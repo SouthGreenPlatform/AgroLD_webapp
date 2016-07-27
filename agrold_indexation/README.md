@@ -17,7 +17,7 @@ For bug tracking purpose you can use the GitHub or you can contact the maintaine
 
 ### Prerequisites
 
-* You will need a running ElasticSearch cluster (locally or not).
+You will need a running ElasticSearch cluster (locally or not).
 Our application works with [ElasticSearch 2.2.1](https://www.elastic.co/fr/blog/elasticsearch-2-2-1-released).
 
   If your cluster works with another version of ElasticSearch and you still want to test agrold_indexation : 
