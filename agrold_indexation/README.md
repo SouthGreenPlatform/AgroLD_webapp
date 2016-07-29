@@ -21,12 +21,20 @@ You will need a running ElasticSearch cluster (locally or not).
 Our application works with [ElasticSearch 2.2.1](https://www.elastic.co/fr/blog/elasticsearch-2-2-1-released).
 
 If your cluster works with another version of ElasticSearch and you still want to test agrold_indexation : 
-  * change ElasticSearch version in Maven dependencies (code/pom.xml) according to your cluster's version
+  * change ElasticSearch version in Maven dependencies (code/pom.xml) **according to your cluster's version**
   * recompile a jar file
   
 Please be advised that we can't guarantee that our application will work with latest versions of ElasticSearch.
 
 agrold_indexation is compatible with [Shield](https://www.elastic.co/fr/products/shield) security plugin for ElasticSearch.
+
+### Configuration for Shield
+
+If you use Shield, be sure that your config.properties file contains :
+ * shield user (**id:password**)
+ * informations about SSL with client authentification (keystore) **or** without client authentification (truststore) only if you are using SSL
+ 
+Also, be sure that port number is 9300. Your ElasticSearch cluster should normally run on port 9200 (default configuration), and the application will automatically contact the cluster on port 9300.
 
 ### agrold_indexation
 
