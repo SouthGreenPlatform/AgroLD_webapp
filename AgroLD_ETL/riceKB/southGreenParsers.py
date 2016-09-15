@@ -129,11 +129,11 @@ def otlRDF(otl_ds, output_file):
                 
         if 'PhynotypeClass' in record.keys():
             if record['PhynotypeClass']:
-                otl_buffer += "\t" + base_vocab_ns + "has_phynotype_class" + "\t" + '"%s"' % (record['PhynotypeClass']) + " ;\n"
+                otl_buffer += "\t" + base_vocab_ns + "has_phenotype_class" + "\t" + '"%s"' % (record['PhynotypeClass']) + " ;\n"
         
         if 'PhynotypeSubClass' in record.keys():
             if record['PhynotypeSubClass']:
-                otl_buffer += "\t" + base_vocab_ns + "has_phynotype_subclass" + "\t" + '"%s"' % (record['PhynotypeSubClass']) + " ;\n"
+                otl_buffer += "\t" + base_vocab_ns + "has_phenotype_subclass" + "\t" + '"%s"' % (record['PhynotypeSubClass']) + " ;\n"
 
         if 'Keywords' in record.keys():                    
             if record['Keywords']:
