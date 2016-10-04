@@ -29,6 +29,7 @@
     var geneUri = <% out.println("'" + request.getParameter("uri") + "'");%>;    
     
     function getGeneDescription(uri) {
+        //err.println("uri="+ uri);
         sparql = 'PREFIX agrold:<http://www.southgreen.fr/agrold/vocabulary/> \
 PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> \
 SELECT distinct  ?Id ?Name ?Description (?entity AS ?Uri) \
@@ -59,7 +60,7 @@ BIND(REPLACE(str(?entity), \'^.*(#|/)\', "") AS ?Id) \
         $("#publication").attr("onclick", 'searchPublications(\'' + geneId + '\')');
     }
     ;
-
+    //alert(geneUri)
     console.log(geneUri);
     window.swagger = new SwaggerClient({
         url: url,

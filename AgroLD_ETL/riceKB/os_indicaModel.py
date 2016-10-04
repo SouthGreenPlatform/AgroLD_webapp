@@ -38,6 +38,8 @@ def os_indicaModeleRDF(indica_ds, output_file):
     rdf_writer.write(pr + "\t" + protein_ns + "<" + protein_uri + "> .\n")
     rdf_writer.write(pr + "\t" + OrygenesDB_ns + "<" + OrygenesDB_uri + "> .\n")
     rdf_writer.write(pr + "\t" + chromosome_ns + "<" + chromosome_uri + "> .\n")
+    #Ajout du prefix pour la realese des donnees
+    rdf_writer.write(pr + "\t" + res_ns + "<" + resource + "> .\n\n")
 
  # In here we buil the modele and writer in file with ttl format
 
@@ -49,8 +51,9 @@ def os_indicaModeleRDF(indica_ds, output_file):
             chromosome_list.append(records['seqid'])
             tropGene_buffer += chromosome_ns + re.sub('Osi', '', records['seqid']) + "\n"
             tropGene_buffer += "\t" + base_vocab_ns + "taxon" + "\t\t" + obo_ns + "NCBITaxon_" + "39946" + " ;\n"
-            tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
-            tropGene_buffer += "\t" + rdfs_ns + "subClassOf" + "\t\t" + obo_ns + "SO_0000430" + " .\n"
+            tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + res_ns + "Chromosome" + " .\n"
+            #tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
+            #tropGene_buffer += "\t" + rdfs_ns + "subClassOf" + "\t\t" + obo_ns + "SO_0000430" + " .\n"
             print(tropGene_buffer)
             rdf_writer.write(tropGene_buffer)
 
@@ -58,8 +61,9 @@ def os_indicaModeleRDF(indica_ds, output_file):
             tropGene_buffer = ''
             tropGene_buffer += marker_ns + records['attributes']['ID'] + "\n"
             tropGene_buffer += "\t" + base_vocab_ns + "source_project" + "\t" + " \"" + records['source'] + "\" ;\n"
-            tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
-            tropGene_buffer += "\t" + rdfs_ns + "subClassOf" + "\t\t" + obo_ns + "SO_0000343" + " ;\n"
+            tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + res_ns + "Match" + " ;\n"
+            #tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
+            #tropGene_buffer += "\t" + rdfs_ns + "subClassOf" + "\t\t" + obo_ns + "SO_0000343" + " ;\n"
             tropGene_buffer += "\t" + base_vocab_ns + "taxon" + "\t\t" + obo_ns + "NCBITaxon_" + "39946" + " ;\n"
             tropGene_buffer += "\t" + base_vocab_ns + "has_start_position" + "\t" + " \"" + str(records['start']) + "\"^^xsd:integer ;\n"
             tropGene_buffer += "\t" + base_vocab_ns + "has_end_position" + "\t" + " \"" + str(records['end']) + "\"^^xsd:integer ;\n"
@@ -73,9 +77,10 @@ def os_indicaModeleRDF(indica_ds, output_file):
                 tropGene_buffer = ''
                 tropGene_buffer += OrygenesDB_ns + records['attributes']['ID'] + "\n"
                 tropGene_buffer += "\t" + base_vocab_ns + "source_project" + "\t" + " \"" + records['source'] + "\" ;\n"
-                tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
+                tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Match" + " ;\n"
+                #tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
                 tropGene_buffer += "\t" + rdfs_ns + "label" + "\t" + " \"" + records['attributes']['Name'] + "\" ;\n"
-                tropGene_buffer += "\t" + rdfs_ns + "subClassOf" + "\t\t" + obo_ns + "SO_0000343" + " ;\n"
+                #tropGene_buffer += "\t" + rdfs_ns + "subClassOf" + "\t\t" + obo_ns + "SO_0000343" + " ;\n"
                 tropGene_buffer += "\t" + base_vocab_ns + "taxon" + "\t\t" + obo_ns + "NCBITaxon__" + "39946" + " ;\n"
                 tropGene_buffer += "\t" + base_vocab_ns + "has_start_position" + "\t" + " \"" + str(records['start']) + "\"^^xsd:integer ;\n"
                 tropGene_buffer += "\t" + base_vocab_ns + "has_end_position" + "\t" + " \"" + str(records['end']) + "\"^^xsd:integer ;\n"
@@ -88,8 +93,9 @@ def os_indicaModeleRDF(indica_ds, output_file):
                 number_match_part += 1
                 tropGene_buffer += OrygenesDB_ns + records['attributes']['Parent'] + "_match_part_" + str(number_match_part) + "\n"
                 tropGene_buffer += "\t" + base_vocab_ns + "source_project" + "\t" + " \"" + records['source'] + "\" ;\n"
-                tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
-                tropGene_buffer += "\t" + rdfs_ns + "subClassOf" + "\t\t" + obo_ns + "SO_0000039" + " ;\n"
+                tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + res_ns + "Match_part" + " ;\n"
+                #tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
+                #tropGene_buffer += "\t" + rdfs_ns + "subClassOf" + "\t\t" + obo_ns + "SO_0000039" + " ;\n"
                 tropGene_buffer += "\t" + base_vocab_ns + "taxon" + "\t\t" + obo_ns + "NCBITaxon_" + "39946" + " ;\n"
                 tropGene_buffer += "\t" + base_vocab_ns + "has_start_position" + "\t" + " \"" + str(records['start']) + "\"^^xsd:integer ;\n"
                 tropGene_buffer += "\t" + base_vocab_ns + "has_end_position" + "\t" + " \"" + str(records['end']) + "\"^^xsd:integer ;\n"
@@ -104,9 +110,10 @@ def os_indicaModeleRDF(indica_ds, output_file):
                 tropGene_buffer = ''
                 tropGene_buffer += cDNA_ns + records['attributes']['ID'] + "\n"
                 tropGene_buffer += "\t" + base_vocab_ns + "source_project" + "\t" + " \"" + records['source'] + "\" ;\n"
-                tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
+                tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + res_ns + "EST_match" + " ;\n"
+                #tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
                 tropGene_buffer += "\t" + rdfs_ns + "label" + "\t" + " \"" + records['attributes']['Name'] + "\" ;\n"
-                tropGene_buffer += "\t" + rdfs_ns + "subClassOf" + "\t\t" + obo_ns + "SO_0000668" + " ;\n"
+                #tropGene_buffer += "\t" + rdfs_ns + "subClassOf" + "\t\t" + obo_ns + "SO_0000668" + " ;\n"
                 tropGene_buffer += "\t" + base_vocab_ns + "taxon" + "\t\t" + obo_ns + "NCBITaxon_" + "39946" + " ;\n"
                 tropGene_buffer += "\t" + base_vocab_ns + "has_start_position" + "\t" + " \"" + str(records['start']) + "\"^^xsd:integer ;\n"
                 tropGene_buffer += "\t" + base_vocab_ns + "has_end_position" + "\t" + " \"" + str(records['end']) + "\"^^xsd:integer ;\n"
@@ -120,8 +127,9 @@ def os_indicaModeleRDF(indica_ds, output_file):
                 number_match_part_cdna += 1
                 tropGene_buffer += cDNA_ns + records['attributes']['Parent'] + "_match_part_" + str(number_match_part_cdna) + "\n"
                 tropGene_buffer += "\t" + base_vocab_ns + "source_project" + "\t" + " \"" + records['source'] + "\" ;\n"
-                tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
-                tropGene_buffer += "\t" + rdfs_ns + "subClassOf" + "\t\t" + obo_ns + "SO_0000039" + " ;\n"
+                tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + res_ns + "Match_part" + " ;\n"
+                #tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
+                #tropGene_buffer += "\t" + rdfs_ns + "subClassOf" + "\t\t" + obo_ns + "SO_0000039" + " ;\n"
                 tropGene_buffer += "\t" + base_vocab_ns + "taxon" + "\t\t" + obo_ns + "NCBITaxon_" + "39946" + " ;\n"
                 tropGene_buffer += "\t" + base_vocab_ns + "has_start_position" + "\t" + " \"" + str(records['start']) + "\"^^xsd:integer ;\n"
                 tropGene_buffer += "\t" + base_vocab_ns + "has_end_position" + "\t" + " \"" + str(records['end']) + "\"^^xsd:integer ;\n"
@@ -136,9 +144,10 @@ def os_indicaModeleRDF(indica_ds, output_file):
                 tropGene_buffer = ''
                 tropGene_buffer += ensembl_ns + records['attributes']['ID'] + "\n"
                 tropGene_buffer += "\t" + base_vocab_ns + "source_project" + "\t" + " \"" + records['source'] + "\" ;\n"
-                tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
+                tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + res_ns + "Gene" + " ;\n"
+                #tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
                 tropGene_buffer += "\t" + rdfs_ns + "label" + "\t" + " \"" + records['attributes']['Name'] + "\" ;\n"
-                tropGene_buffer += "\t" + rdfs_ns + "subClassOf" + "\t\t" + obo_ns + "SO_0000704" + " ;\n"
+                #tropGene_buffer += "\t" + rdfs_ns + "subClassOf" + "\t\t" + obo_ns + "SO_0000704" + " ;\n"
                 tropGene_buffer += "\t" + base_vocab_ns + "taxon" + "\t\t" + obo_ns + "NCBITaxon_" + "39946" + " ;\n"
                 tropGene_buffer += "\t" + base_vocab_ns + "has_start_position" + "\t" + " \"" + str(records['start']) + "\"^^xsd:integer ;\n"
                 tropGene_buffer += "\t" + base_vocab_ns + "has_end_position" + "\t" + " \"" + str(records['end']) + "\"^^xsd:integer ;\n"
@@ -151,9 +160,10 @@ def os_indicaModeleRDF(indica_ds, output_file):
                 tropGene_buffer = ''
                 tropGene_buffer += mRNA_ns + records['attributes']['ID'] + "\n"
                 tropGene_buffer += "\t" + base_vocab_ns + "source_project" + "\t" + " \"" + records['source'] + "\" ;\n"
-                tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
+                tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + res_ns + "mRNA" + " ;\n"
+                #tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
                 tropGene_buffer += "\t" + rdfs_ns + "label" + "\t" + " \"" + records['attributes']['Name'] + "\" ;\n"
-                tropGene_buffer += "\t" + rdfs_ns + "subClassOf" + "\t\t" + obo_ns + "SO_0000234" + " ;\n"
+                #tropGene_buffer += "\t" + rdfs_ns + "subClassOf" + "\t\t" + obo_ns + "SO_0000234" + " ;\n"
                 tropGene_buffer += "\t" + base_vocab_ns + "taxon" + "\t\t" + obo_ns + "NCBITaxon_" + "39946" + " ;\n"
                 tropGene_buffer += "\t" + base_vocab_ns + "has_start_position" + "\t" + " \"" + str(records['start']) + "\"^^xsd:integer ;\n"
                 tropGene_buffer += "\t" + base_vocab_ns + "has_end_position" + "\t" + " \"" + str(records['end']) + "\"^^xsd:integer ;\n"
@@ -165,9 +175,10 @@ def os_indicaModeleRDF(indica_ds, output_file):
             if records['type'] == "polypeptide":
                 tropGene_buffer = ''
                 tropGene_buffer += protein_ns + records['attributes']['ID'] + "\n"
-                tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
+                tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + res_ns + "Protein" + " ;\n"
+                #tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
                 tropGene_buffer += "\t" + rdfs_ns + "label" + "\t" + " \"" + records['attributes']['Name'] + "\" ;\n"
-                tropGene_buffer += "\t" + rdfs_ns + "subClassOf" + "\t\t" + obo_ns + "SO_0000104" + " ;\n"
+                #tropGene_buffer += "\t" + rdfs_ns + "subClassOf" + "\t\t" + obo_ns + "SO_0000104" + " ;\n"
                 tropGene_buffer += "\t" + base_vocab_ns + "taxon" + "\t\t" + obo_ns + "NCBITaxon_" + "39946" + " ;\n"
                 tropGene_buffer += "\t" + base_vocab_ns + "has_start_position" + "\t" + " \"" + str(records['start']) + "\"^^xsd:integer ;\n"
                 tropGene_buffer += "\t" + base_vocab_ns + "has_end_position" + "\t" + " \"" + str(records['end']) + "\"^^xsd:integer ;\n"
@@ -180,8 +191,9 @@ def os_indicaModeleRDF(indica_ds, output_file):
                 tropGene_buffer = ''
                 number_match_part_cds += 1
                 tropGene_buffer += OrygenesDB_ns + records['attributes']['Parent'] + "_CDS_" + str(number_match_part_cds) + "\n"
-                tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
-                tropGene_buffer += "\t" + rdfs_ns + "subClassOf" + "\t\t" + obo_ns + "SO_0000316" + " ;\n"
+                tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + res_ns + "CDS" + " ;\n"
+                #tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
+                #tropGene_buffer += "\t" + rdfs_ns + "subClassOf" + "\t\t" + obo_ns + "SO_0000316" + " ;\n"
                 tropGene_buffer += "\t" + base_vocab_ns + "taxon" + "\t\t" + obo_ns + "NCBITaxon_" + "39946" + " ;\n"
                 tropGene_buffer += "\t" + base_vocab_ns + "has_start_position" + "\t" + " \"" + str(records['start']) + "\"^^xsd:integer ;\n"
                 tropGene_buffer += "\t" + base_vocab_ns + "has_end_position" + "\t" + " \"" + str(records['end']) + "\"^^xsd:integer ;\n"
@@ -194,8 +206,9 @@ def os_indicaModeleRDF(indica_ds, output_file):
                 tropGene_buffer = ''
                 number_match_part_exon += 1
                 tropGene_buffer += OrygenesDB_ns + records['attributes']['Parent'] + "_exon_" + str(number_match_part_exon) + "\n"
-                tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
-                tropGene_buffer += "\t" + rdfs_ns + "subClassOf" + "\t\t" + obo_ns + "SO_0000147" + " ;\n"
+                tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + res_ns + "Exon" + " ;\n"
+                #tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
+                #tropGene_buffer += "\t" + rdfs_ns + "subClassOf" + "\t\t" + obo_ns + "SO_0000147" + " ;\n"
                 tropGene_buffer += "\t" + base_vocab_ns + "taxon" + "\t\t" + obo_ns + "NCBITaxon_" + "39946" + " ;\n"
                 tropGene_buffer += "\t" + base_vocab_ns + "has_start_position" + "\t" + " \"" + str(records['start']) + "\"^^xsd:integer ;\n"
                 tropGene_buffer += "\t" + base_vocab_ns + "has_end_position" + "\t" + " \"" + str(records['end']) + "\"^^xsd:integer ;\n"

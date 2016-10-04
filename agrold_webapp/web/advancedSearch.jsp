@@ -35,8 +35,13 @@
                     <%
                         String type = request.getParameter("type");
                         //String id = request.getParameter("id");
+                        System.out.print("type="+ type);
+                        
                         String uri = request.getParameter("uri");
+                        //out.println("uri="+ uri);
+                        
                         String keyword = request.getParameter("keyword");
+                        
                         if (type != null) {
                     %>
                     <script>
@@ -72,31 +77,31 @@
                     %>                    
                     <jsp:include page="WEB-INF/jspf/gene.jsp"></jsp:include>
                     <%
-                            break;
-                        case "protein":
+                                break;
+                            case "protein":
                     %>                    
                     <jsp:include page="WEB-INF/jspf/protein.jsp"></jsp:include>                
                     <script>    <%
+                                break;
+                            case "qtl":
+                    %>
+                    <jsp:include page="WEB-INF/jspf/qtl.jsp"></jsp:include>
+                    <%
                             break;
-                        case "qtl":
-                        %>
-                        <jsp:include page="WEB-INF/jspf/qtl.jsp"></jsp:include>
-                        <%
-                                              break;
-                                          case "pathway":
-                        %>
-                        <jsp:include page="WEB-INF/jspf/pathway.jsp"></jsp:include>
-                        <%
-                                              break;
-                                          case "ontology":
-                        %>
-                        <jsp:include page="WEB-INF/jspf/ontology.jsp"></jsp:include>
-                        <%
-                                                          break;
-                                                  }
+                        case "pathway":
+                    %>
+                    <jsp:include page="WEB-INF/jspf/pathway.jsp"></jsp:include>
+                    <%
+                            break;
+                        case "ontology":
+                    %>
+                    <jsp:include page="WEB-INF/jspf/ontology.jsp"></jsp:include>
+                    <%
+                            break;
                                               }
                                           }
-                        %>
+                                      }
+                    %>
                     </script>
                 </div>                
             </section>

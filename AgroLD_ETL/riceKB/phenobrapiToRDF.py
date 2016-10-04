@@ -130,8 +130,14 @@ def phenoToRDF(file,  output_file):
 
 
 
-#path = '/media/elhassouni/donnees/Noeud-plante-projet/workspace/AgroLD/AgroLD_ETL/test_files/plant_breeding_db/observationUnit-2758890.json'    # The input
+path = '/media/elhassouni/donnees/Noeud-plante-projet/workspace/AgroLD/AgroLD_ETL/test_files/plant_breeding_db/wheat_db/observationUnit-2758890.json'    # The input
+
 #path_output = '/media/elhassouni/donnees/Noeud-plante-projet/workspace/AgroLD/AgroLD_ETL/rdf_ttl/plant_breeding_ttl/pheno_wheat.ttl' # The output
 
-#phenoToRDF(path, path_output)
+#----------------------------------------------------------------
+# lien vers le fichier de données a transformé validé par l'urgi
+#----------------------------------------------------------------
+#path = '/media/elhassouni/donnees/Noeud-plante-projet/workspace/AgroLD/AgroLD_ETL/test_files/plant_breeding_db/wheat_db/phenotypes_wheat_urgi.json'
+path_output = '/home/elhassouni/Bureau/test_URGI.ttl'
+phenoToRDF(path, path_output)
 

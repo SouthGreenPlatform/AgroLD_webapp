@@ -11,8 +11,10 @@ package agrold.rest.api.sparqlaccess;
  */
 public class PathwayDAO {
 
-    public static String METABOLIC_PATHWAY = "http://edamontology.org/data_1157";
-    public static String PATHWAY_IDENTIFIER = "http://semanticscience.org/resource/SIO_010532";
+    //public static String METABOLIC_PATHWAY = "http://edamontology.org/data_1157";
+    public static String METABOLIC_PATHWAY = "http://www.southgreen.fr/agrold/resource/Pathway_Identifier";
+    //public static String PATHWAY_IDENTIFIER = "http://semanticscience.org/resource/SIO_010532";
+    public static String PATHWAY_IDENTIFIER = "http://www.southgreen.fr/agrold/resource/Metabolic_Pathway";
     public static String GRAMECYC_GRAPH = "http://www.southgreen.fr/agrold/gramene.cyc";
 
     public static String getPathwaysByKeyWord(String keyword, int page, int pageSize, String resultFormat) {
@@ -24,11 +26,13 @@ public class PathwayDAO {
                 + "  }\n"
                 + "  graph <"+GRAMECYC_GRAPH+">{\n"
                 + "    {\n"
-                + "      ?entity rdfs:subClassOf <"+METABOLIC_PATHWAY+">.\n"
+                + "#     ?entity rdfs:subClassOf <"+METABOLIC_PATHWAY+">.\n"
+                + "      ?entity rdf:type <"+METABOLIC_PATHWAY+">.\n"
                 + "    }\n"
                 + "    UNION\n"
                 + "    {\n"
-                + "      ?entity rdfs:subClassOf <"+PATHWAY_IDENTIFIER+"> .\n"
+                + "#     ?entity rdfs:subClassOf <"+PATHWAY_IDENTIFIER+"> .\n"
+                + "      ?entity rdf:type <"+PATHWAY_IDENTIFIER+"> .\n"
                 + "    }\n"
                 + "    OPTIONAL{\n"
                 + "    ?entity rdfs:label ?Name .\n"

@@ -22,24 +22,51 @@ from riceKB import gafToRDF, grameneParsers, oryzaBaseParser, TairParser,\
 '''
  Ontology association directory/files
 '''
-eco_map_file = '/home/venkatesan/workspace/explore/test_files/ontology_associations/gaf-eco-mapping.txt'
+#eco_map_file = '/home/venkatesan/workspace/explore/test_files/ontology_associations/gaf-eco-mapping.txt'
 prot_assoc_test_dir = '/home/venkatesan/workspace/explore/test_files/ontology_associations/protein_associations/*.*'
 gene_assoc_test_dir = '/home/venkatesan/workspace/explore/test_files/ontology_associations/gene_associations/*.*'
 qtl_assoc_test_dir = '/home/venkatesan/workspace/explore/test_files/ontology_associations/qtl_associations/*.*'
 #aracyc_file = '/home/venkatesan/workspace/explore/test_files/tair/aracyc/aracyc_pathways.20130709.txt'
 
-protein_assoc_dir = '/media/sf_F_DRIVE/IBC/argoLD_project/data/ontology_associations/protein/*.*' # /home/venkatesan/workspace/argoLD_project/data/ontology_associations/protein
-gene_assoc_dir = '/home/venkatesan/workspace/argoLD_project/data/ontology_associations/gene/*.*'
-qtl_assoc_dir = '/media/sf_F_DRIVE/IBC/argoLD_project/data/ontology_associations/qtl/*.*'
+#protein_assoc_dir = '/media/sf_F_DRIVE/IBC/argoLD_project/data/ontology_associations/protein/*.*' # /home/venkatesan/workspace/argoLD_project/data/ontology_associations/protein
+#gene_assoc_dir = '/home/venkatesan/workspace/argoLD_project/data/ontology_associations/gene/*.*'
+#qtl_assoc_dir = '/media/sf_F_DRIVE/IBC/argoLD_project/data/ontology_associations/qtl/*.*'
+
+'''
+Nouveau path pour reexecuter les fichier avc la nouvelle demande de Aravind et Pierre
+
+INPUT FILE
+'''
+eco_map_file = '/media/elhassouni/donnees/Noeud-plante-projet/workspace/AgroLD/AgroLD_ETL/test_files/ontology_associations/gaf-eco-mapping.txt'
+protein_assoc_dir = '/media/elhassouni/donnees/Noeud-plante-projet/argoLD_project_all_data/data/ontology_associations/protein/*.*' # /home/venkatesan/workspace/argoLD_project/data/ontology_associations/protein
+gene_assoc_dir = '/media/elhassouni/donnees/Noeud-plante-projet/argoLD_project_all_data/data/ontology_associations/gene/*.*'
+qtl_assoc_dir = '/media/elhassouni/donnees/Noeud-plante-projet/argoLD_project_all_data/data/ontology_associations/qtl/*.*'
+
+
+
 
 '''
 Gramene genes and QTL directory/files
 '''
-gramene_g_test_dir = '/home/venkatesan/workspace/explore/test_files/gramene_genes/*.txt' #*.txt Oryza_sativa_japonica.txt' #meridionalis barthii sativa_indica sativa_japonica
+##gramene_g_test_dir = '/home/venkatesan/workspace/explore/test_files/gramene_genes/*.txt' #*.txt Oryza_sativa_japonica.txt' #meridionalis barthii sativa_indica sativa_japonica
 gramene_qtl_test_file = '/home/venkatesan/workspace/explore/test_files/gramene_qtl/Rice_QTL.dat'
 
-gramene_genes_files = '/media/sf_F_DRIVE/IBC/argoLD_project/data/gramene_genes/*.txt' 
-gramene_qtl_file = '/media/sf_F_DRIVE/IBC/argoLD_project/data/gramene_qtl/Rice_QTL.dat'
+##gramene_genes_files = '/media/sf_F_DRIVE/IBC/argoLD_project/data/gramene_genes/*.txt'
+#gramene_qtl_file = '/media/sf_F_DRIVE/IBC/argoLD_project/data/gramene_qtl/Rice_QTL.dat'
+
+
+'''
+Nouveau path pour reexecuter les fichier avc la nouvelle demande de Aravind et Pierre
+
+INPUT FILE
+'''
+gramene_genes_files = '/media/elhassouni/donnees/Noeud-plante-projet/argoLD_project_all_data/data/gramene_genes/*.txt' #*.txt Oryza_sativa_japonica.txt' #meridionalis barthii sativa_indica sativa_japonica
+gramene_qtl_file = '/media/elhassouni/donnees/Noeud-plante-projet/argoLD_project_all_data/data/gramene_qtl/Rice_QTL.dat'
+
+
+
+
+
 '''
 OryzaBaseDB
 ''' 
@@ -60,7 +87,16 @@ RiceCyc
 '''
 ricecyc_test_dir = '/home/venkatesan/workspace/explore/test_files/gramene_ricecyc/*.tab'
 
-ricecyc_file = '/media/sf_F_DRIVE/IBC/argoLD_project/data/ricecyc/*.tab'
+#ricecyc_file = '/media/sf_F_DRIVE/IBC/argoLD_project/data/ricecyc/*.tab'
+'''
+Nouveau path pour reexecuter les fichier avc la nouvelle demande de Aravind et Pierre
+
+INPUT FILE
+'''
+ricecyc_file = '/media/elhassouni/donnees/Noeud-plante-projet/argoLD_project_all_data/data/ricecyc/*.tab'
+
+
+
 
 '''
 OryzaTagLine input
@@ -86,9 +122,21 @@ prot_test_output = '/home/venkatesan/workspace/explore/rdf_ttl/associations_ttl/
 gene_test_output = '/home/venkatesan/workspace/explore/rdf_ttl/associations_ttl/gene_associations.ttl'
 qtl_test_output = '/home/venkatesan/workspace/explore/rdf_ttl/associations_ttl/qtl_associations.ttl'
 
-protein_assoc_ttl = '/media/sf_F_DRIVE/IBC/argoLD_project/rdf/ontology_associations_ttl/protein_ttl/protein_associations.ttl'
+#protein_assoc_ttl = '/media/sf_F_DRIVE/IBC/argoLD_project/rdf/ontology_associations_ttl/protein_ttl/protein_associations.ttl'
 gene_assoc_ttl = '/home/venkatesan/workspace/argoLD_project/rdf/ontology_associations_ttl/gene_ttl/gene_associations.ttl'
-qtl_assoc_ttl = '/media/sf_F_DRIVE/IBC/argoLD_project/rdf/ontology_associations_ttl/qtl_ttl/qtl_associations.ttl' 
+#qtl_assoc_ttl = '/media/sf_F_DRIVE/IBC/argoLD_project/rdf/ontology_associations_ttl/qtl_ttl/qtl_associations.ttl'
+'''
+Nouveau path pour reexecuter les fichier avc la nouvelle demande de Aravind et Pierre
+
+INPUT FILE
+'''
+protein_assoc_ttl = '/home/elhassouni/Bureau/RDF_DATA_REALEASE/rdf/ontology_associations_ttl/protein_ttl/protein_associations.ttl'
+qtl_assoc_ttl = '/home/elhassouni/Bureau/RDF_DATA_REALEASE/rdf/ontology_associations_ttl/qtl_ttl/qtl_associations.ttl'
+
+
+
+
+
 
 '''
 Gramene genes/QTL files
@@ -96,8 +144,19 @@ Gramene genes/QTL files
 genomes_rdf_test_out = '/home/venkatesan/workspace/explore/rdf_ttl/gramene_genome_ttl/'
 gramene_qtl_test_out = '/home/venkatesan/workspace/explore/rdf_ttl/gramene_qtl_ttl/'
 
-gramene_genes_out = '/media/sf_F_DRIVE/IBC/argoLD_project/rdf/gramene_genes_ttl/'
-gramene_qtl_out = '/media/sf_F_DRIVE/IBC/argoLD_project/rdf/gramene_qtl_ttl/'
+##gramene_genes_out = '/media/sf_F_DRIVE/IBC/argoLD_project/rdf/gramene_genes_ttl/'
+#gramene_qtl_out = '/media/sf_F_DRIVE/IBC/argoLD_project/rdf/gramene_qtl_ttl/'
+
+
+
+'''
+Nouveau path pour reexecuter les fichier avc la nouvelle demande de Aravind et Pierre
+'''
+
+gramene_genes_out = '/home/elhassouni/Bureau/RDF_DATA_REALEASE/'
+gramene_qtl_out = '/home/elhassouni/Bureau/RDF_DATA_REALEASE/'
+
+
 '''
 OryzaBaseDB file
 ''' 
@@ -118,7 +177,16 @@ RiceCyc
 '''
 ricecyc_test_output = '/home/venkatesan/workspace/explore/rdf_ttl/gramene_ricecyc_ttl/'
 
-ricecyc_output = '/media/sf_F_DRIVE/IBC/argoLD_project/rdf/cyc_ttl/'
+#ricecyc_output = '/media/sf_F_DRIVE/IBC/argoLD_project/rdf/cyc_ttl/'
+
+
+
+'''
+Nouveau path pour reexecuter les fichier avc la nouvelle demande de Aravind et Pierre
+'''
+
+ricecyc_output = '/home/elhassouni/Bureau/RDF_DATA_REALEASE/rdf/cyc_ttl/'
+
 
 '''
 OryzaTagLine 
@@ -161,15 +229,20 @@ pp = pprint.PrettyPrinter(indent=4)
 #ds = goa.gafEcoMap(gaf_eco_file)
 #pp.pprint(mapping)
 
+
+
 #gramene_genomes = glob.glob(gramene_genes_files) #gramene_genes_files
 #g_parse = grameneParsers#oryzaBaseParser
 #print "***************** Gramene Genes data ********************\n"
 #g_parse = grameneParsers
+#input_f = '/media/elhassouni/donnees/Noeud-plante-projet/argoLD_project_all_data/data/gramene_genes/Oryza brachyantha.txt' #Oryza_barthii.txt' Oryza_sativa_japonica
 #input_f = '/home/venkatesan/workspace/explore/test_files/gramene_genes/Oryza_brachyantha.txt' #Oryza_barthii.txt' Oryza_sativa_japonica
 #geneHash = g_parse.geneParser(gramene_genomes)#grameneQTLRDF(gramene_qtl_dir, gramene_qtl_out) oryzaBaseRDF(oryzabase_file, oryzaBase_output) grameneGeneRDF(gramene_genomes, gramene_genes_out)
 #pp.pprint(geneHash)
 #g_parse.grameneGeneRDF(gramene_genomes, gramene_genes_out)
 #print "********************************************************\n\n"
+
+
 
 #print "*************** Gramene QTL data ***************\n"
 #g_parse.grameneQTLRDF(gramene_qtl_file, gramene_qtl_out) #gramene_qtl_file, gramene_qtl_out  gramene_qtl_test_file, gramene_qtl_test_out
@@ -197,34 +270,37 @@ pp = pprint.PrettyPrinter(indent=4)
 #up_converter.upToRDF(up_files, up_output)#up_output up_test_output
 #print "********************************************\n\n"
 
+'''
+print "************ TropGene data **************\n"
+path = '/media/elhassouni/donnees/Noeud-plante-projet/workspace/AgroLD/AgroLD_ETL/test_files/tropGene/rice.csv'     # The input
+path_output = '/home/elhassouni/Bureau/RDF_DATA_REALEASE/rdf/southgreen/tropgene.rice.ttl' # The output
+ds = TropgeneModel.tropGeneParser(path)# The parsing file withe tropGeneParser()
+pp.pprint(ds)    # For to see in teminal the parsing
+TropgeneModel.tropGeneToRDF(ds, path_output)  # The tranformation fonction tropGeneToRdf(input, output)
+'''
 
-##print "************ TropGene data **************\n"
-#path = '/media/elhassouni/donnees/Noeud-plante-projet/workspace/AgroLD/AgroLD_ETL/test_files/tropGene/rice.csv'     # The input
-#path_output = '/media/elhassouni/donnees/Noeud-plante-projet/workspace/AgroLD/AgroLD_ETL/rdf_ttl/tropGene_ttl/tropgene.rice.ttl' # The output
-#ds = TropgeneModel.tropGeneParser(path)# The parsing file withe tropGeneParser()
-#pp.pprint(ds)    # For to see in teminal the parsing
-#TropgeneModel.tropGeneToRDF(ds, path_output)  # The tranformation fonction tropGeneToRdf(input, output)
-
-
-##print "************ OS.Japonica data orygene_db **************\n"
+#print "************ OS.Japonica data orygene_db **************\n"
 #path = '/media/elhassouni/donnees/Noeud-plante-projet/workspace/AgroLD/AgroLD_ETL/test_files/orygenes_db/os.japonicaCancat_test.gff3'    # The input
-#path_output = '/media/elhassouni/donnees/Noeud-plante-projet/workspace/AgroLD/AgroLD_ETL/rdf_ttl/orygene_db_ttl/os.japonica.ttl' # The output
+#path = '/media/elhassouni/donnees/Noeud-plante-projet/orygeneDB_model_data/gff_data_orygeneDB/os_japonica/os_indicaCancat.gff3'
+#path_output = '/home/elhassouni/Bureau/RDF_DATA_REALEASE/rdf/southgreen/os.japonica.ttl' # The output
 #ds = gffParser.parseGFF3(path)   # The parsing file withe tropGeneParser()
 #pp.pprint(ds)    # For to see in teminal the parsing
 #os_japonicaModel.os_indicaModeleRDF(ds, path_output)
 
 
-##print "************ OS.Indica data orygene_db **************\n"
+#print "************ OS.Indica data orygene_db **************\n"
 #path = '/media/elhassouni/donnees/Noeud-plante-projet/workspace/AgroLD/AgroLD_ETL/test_files/orygenes_db/os.indicaCancat_Test.gff3'    # The input
-#path_output = '/media/elhassouni/donnees/Noeud-plante-projet/workspace/AgroLD/AgroLD_ETL/rdf_ttl/orygene_db_ttl/os.indica.ttl' # The output
+#path = '/media/elhassouni/donnees/Noeud-plante-projet/orygeneDB_model_data/gff_data_orygeneDB/os_indica_gff3/indicaCant.gff3'
+#path_output = '/home/elhassouni/Bureau/RDF_DATA_REALEASE/rdf/southgreen/os.indica.ttl' # The output
 #ds = gffParser.parseGFF3(path)   # The parsing file withe tropGeneParser()
 #pp.pprint(ds)    # For to see in teminal the parsing
 #os_indicaModel.os_indicaModeleRDF(ds, path_output)
 
 
-##print "************ A.thaliana data orygene_db **************\n"
+#print "************ A.thaliana data orygene_db **************\n"
 #path = '/media/elhassouni/donnees/Noeud-plante-projet/workspace/AgroLD/AgroLD_ETL/test_files/orygenes_db/a.thalianaCancat_test.gff3'    # The input
-#path_output = '/media/elhassouni/donnees/Noeud-plante-projet/workspace/AgroLD/AgroLD_ETL/rdf_ttl/orygene_db_ttl/a.thaliana.ttl' # The output
+#path = '/media/elhassouni/donnees/Noeud-plante-projet/orygeneDB_model_data/gff_data_orygeneDB/a.thaliana/a.thalianaCat.gff3'    # The input
+#path_output = '/home/elhassouni/Bureau/RDF_DATA_REALEASE/rdf/southgreen/a.thaliana.ttl' # The output
 #ds = gffParser.parseGFF3(path)
 #pp.pprint(ds)    # For to see in teminal the parsing
 #a_thalianaModel.a_thalianaModeleRDF(ds, path_output)

@@ -33,7 +33,7 @@ public class APILib {
 
     //public static String sparqlEndpointURL = "http://localhost:8890/sparql";
     public static String sparqlEndpointURL = "http://volvestre.cirad.fr:8890/sparql";
-    //public static String sparqlEndpointURL = "http://volvestre.cirad.fr:3128/sparql";
+    
 
     public final static String HTML = "text/html";
     public final static String JSON = "application/json";
@@ -181,13 +181,15 @@ public class APILib {
     public static String getEntitiesByKeyWord(String keyword, String typeUri, int page, int pageSize, String resultFormat) {
         String sparqlQuery = "prefix	agrold:<http://www.southgreen.fr/agrold/vocabulary/> \n"
                 + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
+                + "PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
                 + "SELECT  distinct ?Id ?Name ?Description  (?entity as ?URI)\n"
                 + "WHERE {\n"
                 + "  VALUES ?keyword {\n"
                 + "    \"" + keyword + "\" \n"
                 + "  }  \n"
                 + "  ?entity agrold:description ?Description .\n"
-                + "  ?entity rdfs:subClassOf <" + typeUri + ">.\n"
+                + "# ?entity rdfs:subClassOf <" + typeUri + ">.\n"
+                + "  ?entity rdf:type <" + typeUri + ">.\n"
                 + "  ?entity rdfs:label ?Name .\n"
                 + "  BIND(REPLACE(str(?entity), '^.*(#|/)', \"\") AS ?Id)   \n"
                 + "  FILTER(REGEX(?Name, ?keyword,\"i\")  || REGEX(?Id, ?keyword,\"i\") || REGEX(?Description, ?keyword,\"i\"))\n"

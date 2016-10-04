@@ -9,7 +9,8 @@ package agrold.rest.api.sparqlaccess;
  */
 public class QtlDAO {
 
-    public static String QTL_TYPE_URI = "http://purl.obolibrary.org/obo/SO_0000771";
+    //public static String QTL_TYPE_URI = "http://purl.obolibrary.org/obo/SO_0000771";
+    public static String QTL_TYPE_URI = "http://www.southgreen.fr/agrold/resource/QTL";
 
     // return URIs and agrold_vocabulary:description of all genes in Agrold
     public static String getQtls(int page, int pageSize, String resultFormat) {
@@ -20,7 +21,8 @@ public class QtlDAO {
                 + "WHERE {\n"
                 + "    ?qtl rdfs:label ?qtlName;\n"
                 + "          agrold:description ?qtlDescription;          \n"
-                + "          rdfs:subClassOf <" + QTL_TYPE_URI + ">.\n"
+                + "#          rdfs:subClassOf <" + QTL_TYPE_URI + ">.\n"
+                + "          rdf:type <" + QTL_TYPE_URI + ">.\n"
                 + "    BIND(REPLACE(str(?qtl), '^.*(#|/)', \"\") AS ?qtlId) .\n"
                 + "}";
         sparqlQuery = APILib.addLimitAndOffset(sparqlQuery, pageSize, page);
@@ -47,7 +49,8 @@ public class QtlDAO {
                 + "  }\n"
                 + "  GRAPH <qtl.annotations>{\n"
                 + "    ?qtl ?predicate ?ontoElt .\n"
-                + "    ?qtl rdfs:subClassOf <http://purl.obolibrary.org/obo/SO_0000771> .\n"
+                + "#    ?qtl rdfs:subClassOf <http://purl.obolibrary.org/obo/SO_0000771> .\n"
+                + "    ?qtl rdf:type <http://www.southgreen.fr/agrold/resource/QTL> .\n"
                 + "    BIND(REPLACE(str(?qtl), '^.*(#|/)', \"\") AS ?qtlId) .\n"
                 + "  }\n"
                 + "}";

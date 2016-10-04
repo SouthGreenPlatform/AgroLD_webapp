@@ -40,6 +40,8 @@ def a_thalianaModeleRDF(indica_ds, output_file):
     rdf_writer.write(pr + "\t" + chromosome_ns + "<" + chromosome_uri + "> .\n")
     rdf_writer.write(pr + "\t" + embl_ns + "<" + embl_uri + "> .\n")
     rdf_writer.write(pr + "\t" + protein_ns + "<" + protein_uri + "> .\n")
+    #Ajout du prefix pour la realese des donnees
+    rdf_writer.write(pr + "\t" + res_ns + "<" + resource + "> .\n\n")
 
  # In here we buil the modele and writer in file with ttl format
 
@@ -51,8 +53,9 @@ def a_thalianaModeleRDF(indica_ds, output_file):
             chromosome_list.append(records['seqid'])
             a_thaliana_buffer += chromosome_ns + re.sub('At', '', records['seqid']) + "\n"
             a_thaliana_buffer += "\t" + base_vocab_ns + "taxon" + "\t\t" + obo_ns + "NCBITaxon_" + "3702" + " ;\n"
-            a_thaliana_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
-            a_thaliana_buffer += "\t" + rdfs_ns + "subClassOf" + "\t\t" + obo_ns + "SO_0000430" + " .\n"
+            a_thaliana_buffer += "\t" + rdf_ns + "type" + "\t" + res_ns + "Chromosome" + " .\n"
+            #a_thaliana_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
+            #a_thaliana_buffer += "\t" + rdfs_ns + "subClassOf" + "\t\t" + obo_ns + "SO_0000430" + " .\n"
             print(a_thaliana_buffer)
             rdf_writer.write(a_thaliana_buffer)
 
@@ -64,8 +67,9 @@ def a_thalianaModeleRDF(indica_ds, output_file):
             a_thaliana_buffer += embl_ns + records['attributes']['ID'] + "\n"
             a_thaliana_buffer += "\t" + base_vocab_ns + "source_project" + "\t" + " \"" + records['source'] + "\" ;\n"
             a_thaliana_buffer += "\t" + rdfs_ns + "label" + "\t" + " \"" + records['attributes']['Name'] + "\" ;\n"
-            a_thaliana_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
-            a_thaliana_buffer += "\t" + rdfs_ns + "subClassOf" + "\t\t" + obo_ns + "SO_0000239" + " ;\n"
+            a_thaliana_buffer += "\t" + rdf_ns + "type" + "\t" + res_ns + "flanking_region" + " ;\n"
+            #a_thaliana_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
+            #a_thaliana_buffer += "\t" + rdfs_ns + "subClassOf" + "\t\t" + obo_ns + "SO_0000239" + " ;\n"
             a_thaliana_buffer += "\t" + base_vocab_ns + "has_evalue" + "\t\t" + " \""+ records['attributes']['evalue'] + "\"" + "; \n"
             a_thaliana_buffer += "\t" + base_vocab_ns + "taxon" + "\t\t" + obo_ns + "NCBITaxon_" + "3702" + " ;\n"
             a_thaliana_buffer += "\t" + base_vocab_ns + "has_start_position" + "\t" + " \"" + str(records['start']) + "\"^^xsd:integer ;\n"
@@ -82,8 +86,9 @@ def a_thalianaModeleRDF(indica_ds, output_file):
                 a_thaliana_buffer += ensembl_ns + records['attributes']['ID'] + "\n"
                 a_thaliana_buffer += "\t" + rdfs_ns + "label" + "\t" + " \"" + records['attributes']['Name'] + "\" ;\n"
                 a_thaliana_buffer += "\t" + base_vocab_ns + "source_project" + "\t" + " \"" + records['source'] + "\" ;\n"
-                a_thaliana_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
-                a_thaliana_buffer += "\t" + rdfs_ns + "subClassOf" + "\t\t" + obo_ns + "SO_0000704" + " ;\n"
+                a_thaliana_buffer += "\t" + rdf_ns + "type" + "\t" + res_ns + "Gene" + " ;\n"
+                #a_thaliana_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
+                #a_thaliana_buffer += "\t" + rdfs_ns + "subClassOf" + "\t\t" + obo_ns + "SO_0000704" + " ;\n"
                 a_thaliana_buffer += "\t" + base_vocab_ns + "taxon" + "\t\t" + obo_ns + "NCBITaxon_" + "3702" + " ;\n"
                 a_thaliana_buffer += "\t" + base_vocab_ns + "has_start_position" + "\t" + " \"" + str(records['start']) + "\"^^xsd:integer ;\n"
                 a_thaliana_buffer += "\t" + base_vocab_ns + "has_end_position" + "\t" + " \"" + str(records['end']) + "\"^^xsd:integer ;\n"
@@ -97,8 +102,9 @@ def a_thalianaModeleRDF(indica_ds, output_file):
                 a_thaliana_buffer += mRNA_ns + records['attributes']['ID'] + "\n"
                 a_thaliana_buffer += "\t" + rdfs_ns + "label" + "\t" + " \"" + records['attributes']['Name'] + "\" ;\n"
                 a_thaliana_buffer += "\t" + base_vocab_ns + "source_project" + "\t" + " \"" + records['source'] + "\" ;\n"
-                a_thaliana_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
-                a_thaliana_buffer += "\t" + rdfs_ns + "subClassOf" + "\t\t" + obo_ns + "SO_0000234" + " ;\n"
+                a_thaliana_buffer += "\t" + rdf_ns + "type" + "\t" + res_ns + "mRNA" + " ;\n"
+                #a_thaliana_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
+                #a_thaliana_buffer += "\t" + rdfs_ns + "subClassOf" + "\t\t" + obo_ns + "SO_0000234" + " ;\n"
                 a_thaliana_buffer += "\t" + base_vocab_ns + "taxon" + "\t\t" + obo_ns + "NCBITaxon_" + "3702" + " ;\n"
                 a_thaliana_buffer += "\t" + base_vocab_ns + "has_start_position" + "\t" + " \"" + str(records['start']) + "\"^^xsd:integer ;\n"
                 a_thaliana_buffer += "\t" + base_vocab_ns + "has_end_position" + "\t" + " \"" + str(records['end']) + "\"^^xsd:integer ;\n"
@@ -110,9 +116,10 @@ def a_thalianaModeleRDF(indica_ds, output_file):
             if records['type'] == "polypeptide":
                 a_thaliana_buffer = ''
                 a_thaliana_buffer += protein_ns + records['attributes']['ID'] + "\n"
-                a_thaliana_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
+                a_thaliana_buffer += "\t" + rdf_ns + "type" + "\t" + res_ns + "Protein" + " ;\n"
+                #a_thaliana_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
                 a_thaliana_buffer += "\t" + rdfs_ns + "label" + "\t" + " \"" + records['attributes']['Name'] + "\" ;\n"
-                a_thaliana_buffer += "\t" + rdfs_ns + "subClassOf" + "\t\t" + obo_ns + "SO_0000104" + " ;\n"
+                #a_thaliana_buffer += "\t" + rdfs_ns + "subClassOf" + "\t\t" + obo_ns + "SO_0000104" + " ;\n"
                 a_thaliana_buffer += "\t" + base_vocab_ns + "taxon" + "\t\t" + obo_ns + "NCBITaxon_" + "3702" + " ;\n"
                 a_thaliana_buffer += "\t" + base_vocab_ns + "has_start_position" + "\t" + " \"" + str(records['start']) + "\"^^xsd:integer ;\n"
                 a_thaliana_buffer += "\t" + base_vocab_ns + "has_end_position" + "\t" + " \"" + str(records['end']) + "\"^^xsd:integer ;\n"
@@ -126,8 +133,9 @@ def a_thalianaModeleRDF(indica_ds, output_file):
                 number_cds += 1
                 id_cds = re.split(',', records['attributes']['Parent'])
                 a_thaliana_buffer += OrygenesDB_ns + id_cds[1] + "_CDS_" + str(number_cds) + "\n"
-                a_thaliana_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
-                a_thaliana_buffer += "\t" + rdfs_ns + "subClassOf" + "\t\t" + obo_ns + "SO_0000316" + " ;\n"
+                a_thaliana_buffer += "\t" + rdf_ns + "type" + "\t" + res_ns + "CDS" + " ;\n"
+                #a_thaliana_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
+                #a_thaliana_buffer += "\t" + rdfs_ns + "subClassOf" + "\t\t" + obo_ns + "SO_0000316" + " ;\n"
                 a_thaliana_buffer += "\t" + base_vocab_ns + "taxon" + "\t\t" + obo_ns + "NCBITaxon_" + "3702" + " ;\n"
                 a_thaliana_buffer += "\t" + base_vocab_ns + "has_start_position" + "\t" + " \"" + str(records['start']) + "\"^^xsd:integer ;\n"
                 a_thaliana_buffer += "\t" + base_vocab_ns + "has_end_position" + "\t" + " \"" + str(records['end']) + "\"^^xsd:integer ;\n"
@@ -140,8 +148,9 @@ def a_thalianaModeleRDF(indica_ds, output_file):
                 a_thaliana_buffer = ''
                 number_exon += 1
                 a_thaliana_buffer += OrygenesDB_ns + records['attributes']['Parent'] + "_EXON_" + str(number_exon) + "\n"
-                a_thaliana_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
-                a_thaliana_buffer += "\t" + rdfs_ns + "subClassOf" + "\t\t" + obo_ns + "SO_0000147" + " ;\n"
+                a_thaliana_buffer += "\t" + rdf_ns + "type" + "\t" + res_ns + "Exon" + " ;\n"
+                #a_thaliana_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
+                #a_thaliana_buffer += "\t" + rdfs_ns + "subClassOf" + "\t\t" + obo_ns + "SO_0000147" + " ;\n"
                 a_thaliana_buffer += "\t" + base_vocab_ns + "taxon" + "\t\t" + obo_ns + "NCBITaxon_" + "3702" + " ;\n"
                 a_thaliana_buffer += "\t" + base_vocab_ns + "has_start_position" + "\t" + " \"" + str(records['start']) + "\"^^xsd:integer ;\n"
                 a_thaliana_buffer += "\t" + base_vocab_ns + "has_end_position" + "\t" + " \"" + str(records['end']) + "\"^^xsd:integer ;\n"
@@ -154,8 +163,9 @@ def a_thalianaModeleRDF(indica_ds, output_file):
                 a_thaliana_buffer = ''
                 number_three_prime_UTR += 1
                 a_thaliana_buffer += OrygenesDB_ns + records['attributes']['Parent'] + "_three_prime_UTR_" + str(number_three_prime_UTR) + "\n"
-                a_thaliana_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
-                a_thaliana_buffer += "\t" + rdfs_ns + "subClassOf" + "\t\t" + obo_ns + "SO_0000205" + " ;\n"
+                a_thaliana_buffer += "\t" + rdf_ns + "type" + "\t" + res_ns + "Threee_prime_UTR" + " ;\n"
+                #a_thaliana_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
+                #a_thaliana_buffer += "\t" + rdfs_ns + "subClassOf" + "\t\t" + obo_ns + "SO_0000205" + " ;\n"
                 a_thaliana_buffer += "\t" + base_vocab_ns + "taxon" + "\t\t" + obo_ns + "NCBITaxon_" + "3702" + " ;\n"
                 a_thaliana_buffer += "\t" + base_vocab_ns + "has_start_position" + "\t" + " \"" + str(records['start']) + "\"^^xsd:integer ;\n"
                 a_thaliana_buffer += "\t" + base_vocab_ns + "has_end_position" + "\t" + " \"" + str(records['end']) + "\"^^xsd:integer ;\n"
@@ -168,8 +178,9 @@ def a_thalianaModeleRDF(indica_ds, output_file):
                 a_thaliana_buffer = ''
                 number_five_prime_UTR += 1
                 a_thaliana_buffer += OrygenesDB_ns + records['attributes']['Parent'] + "_five_prime_UTR_" + str(number_five_prime_UTR) + "\n"
-                a_thaliana_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
-                a_thaliana_buffer += "\t" + rdfs_ns + "subClassOf" + "\t\t" + obo_ns + "SO_0000204" + " ;\n"
+                a_thaliana_buffer += "\t" + rdf_ns + "type" + "\t" + res_ns + "Five_prime_UTR" + " ;\n"
+                #a_thaliana_buffer += "\t" + rdf_ns + "type" + "\t" + res_ns + "Five_prime_UTR" + " ;\n"
+                #a_thaliana_buffer += "\t" + rdfs_ns + "subClassOf" + "\t\t" + obo_ns + "SO_0000204" + " ;\n"
                 a_thaliana_buffer += "\t" + base_vocab_ns + "taxon" + "\t\t" + obo_ns + "NCBITaxon_" + "3702" + " ;\n"
                 a_thaliana_buffer += "\t" + base_vocab_ns + "has_start_position" + "\t" + " \"" + str(records['start']) + "\"^^xsd:integer ;\n"
                 a_thaliana_buffer += "\t" + base_vocab_ns + "has_end_position" + "\t" + " \"" + str(records['end']) + "\"^^xsd:integer ;\n"

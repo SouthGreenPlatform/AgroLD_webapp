@@ -1,0 +1,515 @@
+{
+  "metadata": {
+    "pagination": {
+      "pageSize": 10,
+      "currentPage": 0,
+      "totalCount": 130109,
+      "totalPages": 13010
+    },
+    "status": []
+  },
+  "result": {
+    "data": [
+      {
+        "observationUnitDbId": 2880513,
+        "observationUnitPUI": null,
+        "studyId": "BTH_Dijon_2014_SetA1",
+        "studyDbId": 781,
+        "studyLocation": "Dijon",
+        "studyPUI": null,
+        "studyProject": "INRA Wheat Breeding Network",
+        "studySets": [
+          "INRA Wheat Network BRC accession (A series)",
+          "INRA Small Grain Cereals Network"
+        ],
+        "studyPlatform": null,
+        "observationUnitLevels": [
+          {
+            "type": "Rep",
+            "label": "1"
+          }
+        ],
+        "germplasmPUI": null,
+        "germplasmDbId": 48613,
+        "germplasmName": "RE11116",
+        "treatments": [
+          {
+            "factor": "itk",
+            "modality": "low inputs"
+          }
+        ],
+        "attributes": null,
+        "data": [
+          {
+            "instanceNumber": null,
+            "observationVariableId": "SCNO:00000002",
+            "season": "2014",
+            "observationValue": "68,69",
+            "observationTimeStamp": null,
+            "quality": null,
+            "collectionFacilityLabel": null,
+            "collector": null
+          }
+        ],
+        "xlabel": "X",
+        "ylabel": "Y",
+        "y": null,
+        "x": null,
+        "XLabel": "X",
+        "X": null,
+        "YLabel": "Y",
+        "Y": null
+      },
+      {
+        "observationUnitDbId": 2880517,
+        "observationUnitPUI": null,
+        "studyId": "BTH_Dijon_2014_SetA1",
+        "studyDbId": 781,
+        "studyLocation": "Dijon",
+        "studyPUI": null,
+        "studyProject": "INRA Wheat Breeding Network",
+        "studySets": [
+          "INRA Wheat Network BRC accession (A series)",
+          "INRA Small Grain Cereals Network"
+        ],
+        "studyPlatform": null,
+        "observationUnitLevels": [
+          {
+            "type": "Rep",
+            "label": "1"
+          }
+        ],
+        "germplasmPUI": null,
+        "germplasmDbId": 49409,
+        "germplasmName": "EM11366",
+        "treatments": [
+          {
+            "factor": "itk",
+            "modality": "low inputs"
+          }
+        ],
+        "attributes": null,
+        "data": [
+          {
+            "instanceNumber": null,
+            "observationVariableId": "SCNO:00000002",
+            "season": "2014",
+            "observationValue": "67,61",
+            "observationTimeStamp": null,
+            "quality": null,
+            "collectionFacilityLabel": null,
+            "collector": null
+          }
+        ],
+        "xlabel": "X",
+        "ylabel": "Y",
+        "y": null,
+        "x": null,
+        "XLabel": "X",
+        "X": null,
+        "YLabel": "Y",
+        "Y": null
+      },
+      {
+        "observationUnitDbId": 2880521,
+        "observationUnitPUI": null,
+        "studyId": "BTH_Dijon_2014_SetA1",
+        "studyDbId": 781,
+        "studyLocation": "Dijon",
+        "studyPUI": null,
+        "studyProject": "INRA Wheat Breeding Network",
+        "studySets": [
+          "INRA Wheat Network BRC accession (A series)",
+          "INRA Small Grain Cereals Network"
+        ],
+        "studyPlatform": null,
+        "observationUnitLevels": [
+          {
+            "type": "Rep",
+            "label": "1"
+          }
+        ],
+        "germplasmPUI": null,
+        "germplasmDbId": 49404,
+        "germplasmName": "GOTIK",
+        "treatments": [
+          {
+            "factor": "itk",
+            "modality": "low inputs"
+          }
+        ],
+        "attributes": null,
+        "data": [
+          {
+            "instanceNumber": null,
+            "observationVariableId": "SCNO:00000002",
+            "season": "2014",
+            "observationValue": "65,01",
+            "observationTimeStamp": null,
+            "quality": null,
+            "collectionFacilityLabel": null,
+            "collector": null
+          }
+        ],
+        "xlabel": "X",
+        "ylabel": "Y",
+        "y": null,
+        "x": null,
+        "XLabel": "X",
+        "X": null,
+        "YLabel": "Y",
+        "Y": null
+      },
+      {
+        "observationUnitDbId": 2880525,
+        "observationUnitPUI": null,
+        "studyId": "BTH_Dijon_2014_SetA1",
+        "studyDbId": 781,
+        "studyLocation": "Dijon",
+        "studyPUI": null,
+        "studyProject": "INRA Wheat Breeding Network",
+        "studySets": [
+          "INRA Wheat Network BRC accession (A series)",
+          "INRA Small Grain Cereals Network"
+        ],
+        "studyPlatform": null,
+        "observationUnitLevels": [
+          {
+            "type": "Rep",
+            "label": "1"
+          }
+        ],
+        "germplasmPUI": null,
+        "germplasmDbId": 49171,
+        "germplasmName": "Gallixe",
+        "treatments": [
+          {
+            "factor": "itk",
+            "modality": "low inputs"
+          }
+        ],
+        "attributes": null,
+        "data": [
+          {
+            "instanceNumber": null,
+            "observationVariableId": "SCNO:00000002",
+            "season": "2014",
+            "observationValue": "65,98",
+            "observationTimeStamp": null,
+            "quality": null,
+            "collectionFacilityLabel": null,
+            "collector": null
+          }
+        ],
+        "xlabel": "X",
+        "ylabel": "Y",
+        "y": null,
+        "x": null,
+        "XLabel": "X",
+        "X": null,
+        "YLabel": "Y",
+        "Y": null
+      },
+      {
+        "observationUnitDbId": 2880537,
+        "observationUnitPUI": null,
+        "studyId": "BTH_Dijon_2014_SetA1",
+        "studyDbId": 781,
+        "studyLocation": "Dijon",
+        "studyPUI": null,
+        "studyProject": "INRA Wheat Breeding Network",
+        "studySets": [
+          "INRA Wheat Network BRC accession (A series)",
+          "INRA Small Grain Cereals Network"
+        ],
+        "studyPlatform": null,
+        "observationUnitLevels": [
+          {
+            "type": "Rep",
+            "label": "1"
+          }
+        ],
+        "germplasmPUI": null,
+        "germplasmDbId": 49235,
+        "germplasmName": "AO13013",
+        "treatments": [
+          {
+            "factor": "itk",
+            "modality": "low inputs"
+          }
+        ],
+        "attributes": null,
+        "data": [
+          {
+            "instanceNumber": null,
+            "observationVariableId": "SCNO:00000002",
+            "season": "2014",
+            "observationValue": "70,86",
+            "observationTimeStamp": null,
+            "quality": null,
+            "collectionFacilityLabel": null,
+            "collector": null
+          }
+        ],
+        "xlabel": "X",
+        "ylabel": "Y",
+        "y": null,
+        "x": null,
+        "XLabel": "X",
+        "X": null,
+        "YLabel": "Y",
+        "Y": null
+      },
+      {
+        "observationUnitDbId": 2880538,
+        "observationUnitPUI": null,
+        "studyId": "BTH_Dijon_2014_SetA1",
+        "studyDbId": 781,
+        "studyLocation": "Dijon",
+        "studyPUI": null,
+        "studyProject": "INRA Wheat Breeding Network",
+        "studySets": [
+          "INRA Wheat Network BRC accession (A series)",
+          "INRA Small Grain Cereals Network"
+        ],
+        "studyPlatform": null,
+        "observationUnitLevels": [
+          {
+            "type": "Rep",
+            "label": "2"
+          }
+        ],
+        "germplasmPUI": null,
+        "germplasmDbId": 49235,
+        "germplasmName": "AO13013",
+        "treatments": [
+          {
+            "factor": "itk",
+            "modality": "low inputs"
+          }
+        ],
+        "attributes": null,
+        "data": [
+          {
+            "instanceNumber": null,
+            "observationVariableId": "SCNO:00000002",
+            "season": "2014",
+            "observationValue": "70,82",
+            "observationTimeStamp": null,
+            "quality": null,
+            "collectionFacilityLabel": null,
+            "collector": null
+          }
+        ],
+        "xlabel": "X",
+        "ylabel": "Y",
+        "y": null,
+        "x": null,
+        "XLabel": "X",
+        "X": null,
+        "YLabel": "Y",
+        "Y": null
+      },
+      {
+        "observationUnitDbId": 2880545,
+        "observationUnitPUI": null,
+        "studyId": "BTH_Dijon_2014_SetA1",
+        "studyDbId": 781,
+        "studyLocation": "Dijon",
+        "studyPUI": null,
+        "studyProject": "INRA Wheat Breeding Network",
+        "studySets": [
+          "INRA Wheat Network BRC accession (A series)",
+          "INRA Small Grain Cereals Network"
+        ],
+        "studyPlatform": null,
+        "observationUnitLevels": [
+          {
+            "type": "Rep",
+            "label": "1"
+          }
+        ],
+        "germplasmPUI": null,
+        "germplasmDbId": 27744,
+        "germplasmName": "RUBISKO",
+        "treatments": [
+          {
+            "factor": "itk",
+            "modality": "low inputs"
+          }
+        ],
+        "attributes": null,
+        "data": [
+          {
+            "instanceNumber": null,
+            "observationVariableId": "SCNO:00000002",
+            "season": "2014",
+            "observationValue": "81,84",
+            "observationTimeStamp": null,
+            "quality": null,
+            "collectionFacilityLabel": null,
+            "collector": null
+          }
+        ],
+        "xlabel": "X",
+        "ylabel": "Y",
+        "y": null,
+        "x": null,
+        "XLabel": "X",
+        "X": null,
+        "YLabel": "Y",
+        "Y": null
+      },
+      {
+        "observationUnitDbId": 2880546,
+        "observationUnitPUI": null,
+        "studyId": "BTH_Dijon_2014_SetA1",
+        "studyDbId": 781,
+        "studyLocation": "Dijon",
+        "studyPUI": null,
+        "studyProject": "INRA Wheat Breeding Network",
+        "studySets": [
+          "INRA Wheat Network BRC accession (A series)",
+          "INRA Small Grain Cereals Network"
+        ],
+        "studyPlatform": null,
+        "observationUnitLevels": [
+          {
+            "type": "Rep",
+            "label": "2"
+          }
+        ],
+        "germplasmPUI": null,
+        "germplasmDbId": 27744,
+        "germplasmName": "RUBISKO",
+        "treatments": [
+          {
+            "factor": "itk",
+            "modality": "low inputs"
+          }
+        ],
+        "attributes": null,
+        "data": [
+          {
+            "instanceNumber": null,
+            "observationVariableId": "SCNO:00000002",
+            "season": "2014",
+            "observationValue": "91,76",
+            "observationTimeStamp": null,
+            "quality": null,
+            "collectionFacilityLabel": null,
+            "collector": null
+          }
+        ],
+        "xlabel": "X",
+        "ylabel": "Y",
+        "y": null,
+        "x": null,
+        "XLabel": "X",
+        "X": null,
+        "YLabel": "Y",
+        "Y": null
+      },
+      {
+        "observationUnitDbId": 2880549,
+        "observationUnitPUI": null,
+        "studyId": "BTH_Dijon_2014_SetA1",
+        "studyDbId": 781,
+        "studyLocation": "Dijon",
+        "studyPUI": null,
+        "studyProject": "INRA Wheat Breeding Network",
+        "studySets": [
+          "INRA Wheat Network BRC accession (A series)",
+          "INRA Small Grain Cereals Network"
+        ],
+        "studyPlatform": null,
+        "observationUnitLevels": [
+          {
+            "type": "Rep",
+            "label": "1"
+          }
+        ],
+        "germplasmPUI": null,
+        "germplasmDbId": 48786,
+        "germplasmName": "CF11177",
+        "treatments": [
+          {
+            "factor": "itk",
+            "modality": "low inputs"
+          }
+        ],
+        "attributes": null,
+        "data": [
+          {
+            "instanceNumber": null,
+            "observationVariableId": "SCNO:00000002",
+            "season": "2014",
+            "observationValue": "66,49",
+            "observationTimeStamp": null,
+            "quality": null,
+            "collectionFacilityLabel": null,
+            "collector": null
+          }
+        ],
+        "xlabel": "X",
+        "ylabel": "Y",
+        "y": null,
+        "x": null,
+        "XLabel": "X",
+        "X": null,
+        "YLabel": "Y",
+        "Y": null
+      },
+      {
+        "observationUnitDbId": 2880550,
+        "observationUnitPUI": null,
+        "studyId": "BTH_Dijon_2014_SetA1",
+        "studyDbId": 781,
+        "studyLocation": "Dijon",
+        "studyPUI": null,
+        "studyProject": "INRA Wheat Breeding Network",
+        "studySets": [
+          "INRA Wheat Network BRC accession (A series)",
+          "INRA Small Grain Cereals Network"
+        ],
+        "studyPlatform": null,
+        "observationUnitLevels": [
+          {
+            "type": "Rep",
+            "label": "2"
+          }
+        ],
+        "germplasmPUI": null,
+        "germplasmDbId": 48786,
+        "germplasmName": "CF11177",
+        "treatments": [
+          {
+            "factor": "itk",
+            "modality": "low inputs"
+          }
+        ],
+        "attributes": null,
+        "data": [
+          {
+            "instanceNumber": null,
+            "observationVariableId": "SCNO:00000002",
+            "season": "2014",
+            "observationValue": "76,71",
+            "observationTimeStamp": null,
+            "quality": null,
+            "collectionFacilityLabel": null,
+            "collector": null
+          }
+        ],
+        "xlabel": "X",
+        "ylabel": "Y",
+        "y": null,
+        "x": null,
+        "XLabel": "X",
+        "X": null,
+        "YLabel": "Y",
+        "Y": null
+      }
+    ]
+  }
+}

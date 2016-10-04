@@ -30,6 +30,9 @@ def tropGeneToRDF(tropGene_map, output_file):
     rdf_writer.write(pr + "\t" + edam_ns + "<" + edam_uri + "> .\n")
     rdf_writer.write(pr + "\t" + trait_ns + "<" + trait_uri + "> .\n")
     rdf_writer.write(pr + "\t" + mapfeature_ns + "<" + mapfeature_uri + "> .\n")
+    #Ajout du prefix pour la realese des donnees
+    rdf_writer.write(pr + "\t" + res_ns + "<" + resource + "> .\n\n")
+
  # Study writings: here we browsing files for write the study resources
     for records in tropGene_map:
         if not records['study_id'] in study_list:
@@ -39,8 +42,9 @@ def tropGeneToRDF(tropGene_map, output_file):
             study_id_now = records['study_id']
             tropGene_buffer += study_ns + records['study_id'] + "\n"
             tropGene_buffer += "\t" + rdfs_ns + "label" + "\t" + " \"" + records['study_name'] + "\" ;\n"
-            tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
-            tropGene_buffer += "\t" + rdfs_ns + "subClassOf" + "\t" + obo_ns + "OBI_0000073" + " ;\n"
+            tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + res_ns + "Study" + " ;\n"
+            #tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
+            #tropGene_buffer += "\t" + rdfs_ns + "subClassOf" + "\t" + obo_ns + "OBI_0000073" + " ;\n"
             for records in tropGene_map:
                 if records['study_id'] == study_id_now:
                     tropGene_buffer += "\t" + base_vocab_ns + "has_observation" + "\t" + qtl_ns + records['qtl_id'] + " ;\n"
@@ -62,8 +66,9 @@ def tropGeneToRDF(tropGene_map, output_file):
                 population_list.append(records['population_id'])
                 population_counter +=  1
                 tropGene_buffer += population_ns + records['population_id'] + " \n"
-                tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
-                tropGene_buffer += "\t" + rdfs_ns + "subClassOf" + "\t" + obo_ns + "OBI_0000181" + " ;\n"
+                tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + res_ns + "Population" + " ;\n"
+                #tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
+                #tropGene_buffer += "\t" + rdfs_ns + "subClassOf" + "\t" + obo_ns + "OBI_0000181" + " ;\n"
                 tropGene_buffer += "\t" + rdfs_ns + "label" + "\t" + " \"" + records['population_name'] + "\" .\n"
     rdf_writer.write(tropGene_buffer)
     print(tropGene_buffer)
@@ -76,8 +81,9 @@ def tropGeneToRDF(tropGene_map, output_file):
             qtl_id_now = records['qtl_id']
             tropGene_buffer += qtl_ns + records['qtl_id'] + "\n"
             tropGene_buffer += "\t" + rdfs_ns + "label" + "\t" + " \""+ records['qtl_name'] + "\" ;\n"
-            tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
-            tropGene_buffer += "\t" + rdfs_ns + "subClassOf" + "\t" + obo_ns + "SO_0000771" + " ;\n"       # a definir correctement
+            tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + res_ns + "QTL" + " ;\n"
+            #tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
+            #tropGene_buffer += "\t" + rdfs_ns + "subClassOf" + "\t" + obo_ns + "SO_0000771" + " ;\n"       # a definir correctement
             for records in tropGene_map:
                 if records['qtl_id'] == qtl_id_now:
                     if records['trait_ontology_id'] == 'NULL' or 'na':
@@ -94,8 +100,9 @@ def tropGeneToRDF(tropGene_map, output_file):
         if not records['mapfeature_id'] in tropGene_buffer and records['study_id'] in study_list:
             mapefeature_counter += 1
             tropGene_buffer += mapfeature_ns + records['mapfeature_id'] + "\n"
-            tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
-            tropGene_buffer += "\t" + rdfs_ns + "subClassOf" + "\t" + edam_ns + "data_1865" + " ;\n"
+            tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + res_ns + "Map_feature" + " ;\n"
+            #tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
+            #tropGene_buffer += "\t" + rdfs_ns + "subClassOf" + "\t" + edam_ns + "data_1865" + " ;\n"
             tropGene_buffer += "\t" + base_vocab_ns + "is_located_on" + "\t" + " \"" + records['chromosome'] + "\" ;\n"
             tropGene_buffer += "\t" + base_vocab_ns + "has_start_position" + "\t" + " \"" + records['start_position'] + "\"^^xsd:integer ;\n"
             tropGene_buffer += "\t" + base_vocab_ns + "has_end_position" + "\t" + " \"" + records['stop_position'] + "\"^^xsd:integer .\n"

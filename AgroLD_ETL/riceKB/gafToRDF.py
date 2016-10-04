@@ -167,6 +167,8 @@ def allGafRDF(files, map_ds, output_file, flag):
     outputWriter.write(pr + "\t" + sio_ns + "<" + sio_uri + "> .\n")
     outputWriter.write(pr + "\t" + ncbi_tax_ns + "<" + ncbi_tax_uri + "> .\n")
     outputWriter.write(pr + "\t" + gr_assoc_ns + "<" + gr_assoc + "> .\n")
+    #Ajout du prefix pour la realese des donnees
+    outputWriter.write(pr + "\t" + res_ns + "<" + resource + "> .\n\n")
     if flag == 'protein':
         outputWriter.write(pr + "\t" + goa_ns + "<" + goa_uri + "> .\n")
         outputWriter.write(pr + "\t" + up_ns + "<" + uniprot + "> .\n\n")
@@ -214,14 +216,16 @@ def allGafRDF(files, map_ds, output_file, flag):
         if current_obj_id not in uniq_obj_id:
             if flag == 'protein':
                 rdf_buffer += up_ns + current_obj_id + "\n"
-                rdf_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
-                rdf_buffer += "\t" + rdfs_ns + "subClassOf" + "\t" + obo_ns + protein_term + " ;\n"
+                rdf_buffer += "\t" + rdf_ns + "type" + "\t" + res_ns + "Protein" + " ;\n"
+                #rdf_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
+                #rdf_buffer += "\t" + rdfs_ns + "subClassOf" + "\t" + obo_ns + protein_term + " ;\n"
 #            if flag == 'gene':
 #                rdf_buffer += gr_g_ns + current_obj_id + "\n"
             if flag == 'qtl':
                 rdf_buffer += gr_qtl_ns + current_obj_id + "\n"
-                rdf_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
-                rdf_buffer += "\t" + rdfs_ns + "subClassOf" + "\t" + obo_ns + qtl_term + " ;\n"
+                rdf_buffer += "\t" + rdf_ns + "type" + "\t" + res_ns + "QTL" + " ;\n"
+                #rdf_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
+                #rdf_buffer += "\t" + rdfs_ns + "subClassOf" + "\t" + obo_ns + qtl_term + " ;\n"
             rdf_buffer += "\t" + rdfs_ns + "label" + "\t" + '"%s"' % (inline['DB_Object_Symbol']) + " ;\n"
             rdf_buffer += "\t" + base_vocab_ns + "description" + "\t" + '"%s"' % (inline['DB_Object_Name']) + " ;\n"
             for synonym in inline['Synonym']:
@@ -239,7 +243,7 @@ def allGafRDF(files, map_ds, output_file, flag):
             outputWriter.write(gr_assoc_ns + current_obj_id + "_" + ont_term + "\n")        
 #        outputWriter.write(base_ns + "triple_" + current_obj_id + "_" + ont_term + "_" + str(assoc_line) + "\n")
         outputWriter.write("\t" + rdf_ns + "type" + "\t" + rdf_ns +"Statement" + " ;\n")
-        outputWriter.write("\t" + rdfs_ns + "subClassOf" + "\t" + sio_ns + sio_term + " ;\n") 
+        outputWriter.write("\t" + rdfs_ns + "subClassOf" + "\t" + sio_ns + sio_term + " ;\n")
         if flag == 'protein':
             outputWriter.write("\t" + rdf_ns + "subject" + "\t" + up_ns + current_obj_id + " ;\n")
 #        if flag == 'gene':
@@ -317,6 +321,9 @@ def ProteinGafRDF(files, map_ds, output_file):
     outputWriter.write(pr + "\t" + gr_assoc_ns + "<" + gr_assoc + "> .\n")
     outputWriter.write(pr + "\t" + goa_ns + "<" + goa_uri + "> .\n")
     outputWriter.write(pr + "\t" + up_ns + "<" + uniprot + "> .\n\n")
+    #Ajout du prefix pour la realese des donnees
+    outputWriter.write(pr + "\t" + res_ns + "<" + resource + "> .\n\n")
+
     #opener = open(files, "r")
     # Slurping all the gaf records into gaf_objs list  
     for infile in files:
@@ -353,8 +360,9 @@ def ProteinGafRDF(files, map_ds, output_file):
                 
         if current_obj_id not in uniq_obj_id:
             rdf_buffer += up_ns + current_obj_id + "\n"
-            rdf_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
-            rdf_buffer += "\t" + rdfs_ns + "subClassOf" + "\t" + obo_ns + protein_term + " ;\n"
+            rdf_buffer += "\t" + rdf_ns + "type" + "\t" + res_ns + "Protein" + " ;\n"
+            #rdf_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
+            #rdf_buffer += "\t" + rdfs_ns + "subClassOf" + "\t" + obo_ns + protein_term + " ;\n"
             rdf_buffer += "\t" + rdfs_ns + "label" + "\t" + '"%s"' % (inline['DB_Object_Symbol']) + " ;\n"
             rdf_buffer += "\t" + base_vocab_ns + "description" + "\t" + '"%s"' % (inline['DB_Object_Name']) + " ;\n"
             for synonym in inline['Synonym']:

@@ -11,7 +11,8 @@ package agrold.rest.api.sparqlaccess;
  */
 public class GeneDAO {
 
-    public static String GENE_TYPE_URI = "http://purl.obolibrary.org/obo/SO_0000704";
+    //public static String GENE_TYPE_URI = "http://purl.obolibrary.org/obo/SO_0000704";
+    public static String GENE_TYPE_URI = "http://www.southgreen.fr/agrold/resource/Gene";
 
     // return URIs and agrold_vocabulary:description of all genes in Agrold
     public static String getGenes(int page, int pageSize, String resultFormat) {
@@ -23,7 +24,8 @@ public class GeneDAO {
                 + "WHERE {\n"
                 + "    ?gene rdfs:label ?geneName;\n"
                 + "          agrold:description ?geneDescription;          \n"
-                + "          rdfs:subClassOf <" + GENE_TYPE_URI + ">.\n"
+                + "#         rdfs:subClassOf <" + GENE_TYPE_URI + ">.\n"
+                + "          rdf:type <" + GENE_TYPE_URI + ">.\n"
                 + "    BIND(REPLACE(str(?gene), '^.*(#|/)', \"\") AS ?geneId) .\n"
                 + "}";
         sparqlQuery = APILib.addLimitAndOffset(sparqlQuery, pageSize, page);
@@ -64,6 +66,8 @@ public class GeneDAO {
         return pathways;
     }
 
+    // TO MEthode ne marche pas probleme
+    
     public static String getGenesEncodingProteins(String proteinId, int page, int pageSize, String resultFormat) {
         String sparqlQuery = "BASE <http://www.southgreen.fr/agrold/>\n"
                 + "PREFIX vocab: <vocabulary/>\n"
@@ -94,14 +98,16 @@ public class GeneDAO {
                + "PREFIX vocab:<vocabulary/>\n"
                + "PREFIX graph:<protein.annotations>\n"
                + "PREFIX id:<http://identifiers.org/ensembl.plant/BGIOSGA000040>\n"
+               + "PREFIX agrold_schema:<http://www.southgreen.fr/agrold/resource/>\n"
                + "SELECT COUNT distinct  ?cds #?st ?end ?chrm \n"
                + "WHERE {\n"
                + "GRAPH ?g {\n"
                + "#id: rdfs:subClassOf obo:SO_0000704 .\n"
-               + "?mrna rdfs:subClassOf obo:SO_0000234 .\n"
+               + "#?mrna rdfs:subClassOf obo:SO_0000234 .\n"
+               + "?mrna  rdf:type  agrold_schema:mRNA .\n"
                + "?mrna ?p id: .\n"
                + "?cds ?p2 ?mrna.\n"
-               + "?cds rdfs:subClassOf obo:SO_0000316 .\n"
+               + "?cds  rdf:type  agrold_schema:CDS .\n"
                + "?cds vocab:has_start_position ?st .\n"
                + "?cds vocab:has_end_position ?end .\n"
                + "?cds vocab:is_located_on ?chrm.\n"

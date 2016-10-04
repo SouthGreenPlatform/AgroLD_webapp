@@ -246,7 +246,7 @@ PREFIX obo:<http://purl.obolibrary.org/obo/> \n\
 PREFIX chrom: <chromosome/>\n\
 SELECT DISTINCT ?genes ?taxon_name\n\
 WHERE{\n\
-?genes rdfs:subClassOf <http://purl.obolibrary.org/obo/SO_0000704>.{\n\
+?genes rdf:type <http://www.southgreen.fr/agrold/resource/Gene>.{\n\
 ?genes vocab:is_located_on chrom:01 .\n\
 ?genes vocab:taxon ?taxon_name .\n\
 ?genes  vocab:has_start_position  2983 .\n\
@@ -259,7 +259,7 @@ PREFIX obo:<http://purl.obolibrary.org/obo/> \n\
 PREFIX chrom: <chromosome/>\n\
 SELECT DISTINCT ?genes ?start_position ?taxon_name \n\
 WHERE{\n\
-?genes rdfs:subClassOf <http://purl.obolibrary.org/obo/SO_0000704>.\n\
+?genes rdf:type <http://www.southgreen.fr/agrold/resource/Gene>.\n\
 ?genes vocab:is_located_on chrom:01 .\n\
 ?genes vocab:taxon ?taxon_name .\n\
 ?genes vocab:has_start_position ?start_position .\n\

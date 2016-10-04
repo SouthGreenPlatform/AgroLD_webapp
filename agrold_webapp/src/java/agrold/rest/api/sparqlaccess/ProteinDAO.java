@@ -11,18 +11,21 @@ package agrold.rest.api.sparqlaccess;
  */
 public class ProteinDAO {
 
-    static public String PROTEIN_TYPE_URI = "http://purl.obolibrary.org/obo/SO_0000104";
+    //static public String PROTEIN_TYPE_URI = "http://purl.obolibrary.org/obo/SO_0000104";
+    static public String PROTEIN_TYPE_URI = "http://www.southgreen.fr/agrold/resource/Protein";
 
     // return URIs and agrold_vocabulary:description of all genes in Agrold
     
     public static String getProteins(int page, int pageSize, String resultFormat) {
         String sparqlQuery = "prefix	agrold:<http://www.southgreen.fr/agrold/vocabulary/> \n"
                 + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
+                + "PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
                 + "SELECT distinct ?proteinId ?proteinName ?proteinDescription (?protein AS ?URI)\n"
                 + "WHERE {\n"
                 + "    ?protein rdfs:label ?proteinName;\n"
                 + "          agrold:description ?proteinDescription;          \n"
-                + "          rdfs:subClassOf <" + PROTEIN_TYPE_URI + ">.\n"
+                + "#          rdfs:subClassOf <" + PROTEIN_TYPE_URI + ">.\n"
+                + "          rdf:type <" + PROTEIN_TYPE_URI + ">.\n"
                 + "    BIND(REPLACE(str(?protein), '^.*(#|/)', \"\") AS ?proteinId) .\n"
                 + "}";
         sparqlQuery = APILib.addLimitAndOffset(sparqlQuery, pageSize, page);
@@ -49,7 +52,8 @@ public class ProteinDAO {
                 + "  }  \n"
                 + " "
                 + "  ?protein ?predicate ?ontoElt .\n"
-                + "  ?protein rdfs:subClassOf <http://purl.obolibrary.org/obo/SO_0000104> .\n"
+                + "#  ?protein rdfs:subClassOf <http://purl.obolibrary.org/obo/SO_0000104> .\n"
+                + "  ?protein rdf:type < http://www.southgreen.fr/agrold/resource/Protein> .\n"
                 + "  BIND(REPLACE(str(?protein), '^.*(#|/)', \"\") AS ?proteinId) .\n"
                 + "}";
         sparqlQuery = APILib.addLimitAndOffset(sparqlQuery, pageSize, page);

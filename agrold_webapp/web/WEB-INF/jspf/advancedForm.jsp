@@ -26,6 +26,7 @@
     $('#sform').submit(function (e) {
         // custom handling here
         var selectElt = document.getElementById("type");
+        //alert(selectElt)
         var selectedValue = selectElt.options[selectElt.selectedIndex].value;
         if (selectedValue === "") {
             $(selectElt).css("border", "2px solid #ff0000");

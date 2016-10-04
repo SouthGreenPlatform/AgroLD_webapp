@@ -86,6 +86,9 @@ up_ns = 'uniprot:'
 gramene_gene =  'http://www.identifiers.org/gramene.gene/'
 gr_g_ns = 'gramene_gene:'
 
+resource = 'http://www.southgreen.fr/agrold/resource/'
+res_ns = 'agrold_schema:'
+
 gramene_qtl = 'http://www.identifiers.org/gramene.qtl/'
 gr_qtl_ns = 'gramene_qtl:' 
 

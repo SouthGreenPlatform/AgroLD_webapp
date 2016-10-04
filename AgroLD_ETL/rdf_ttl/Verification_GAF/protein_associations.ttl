@@ -6,10 +6,11 @@
 @prefix	agrold_vocabulary:<http://www.southgreen.fr/agrold/vocabulary/> .
 @prefix	obo:<http://purl.obolibrary.org/obo/> .
 @prefix	sio:<http://semanticscience.org/resource/> .
-@prefix	taxon:<http://purl.obolibrary.org/obo/NCBITaxon_> .
 @prefix	gramene_association:<http://www.southgreen.fr/agrold/gramene.association/> .
 @prefix	goa:<http://identifiers.org/goa/> .
 @prefix	uniprot:<http://purl.uniprot.org/uniprot/> .
+
+@prefix	agrold_schema:<http://www.southgreen.fr/agrold/resource/> .
 
 goa:A0A024DBP4
 	rdf:type	rdf:Statement ;
@@ -42,14 +43,13 @@ goa:A0A024DBP4
 	agrold_vocabulary:assigned_by	"InterPro" ;
 	agrold_vocabulary:date	"2015-05-23"^^xsd:date .
 uniprot:A0A024DBP4
-	rdf:type	owl:Class ;
-	rdfs:subClassOf	obo:SO_0000104 ;
+	rdf:type	agrold_schema:Protein ;
 	rdfs:label	"HsfC1e" ;
 	agrold_vocabulary:description	"Uncharacterized protein" ;
 	agrold_vocabulary:has_synonym	"A0A024DBP4_WHEAT" ;
 	agrold_vocabulary:has_synonym	"HsfC1e" ;
 	agrold_vocabulary:has_synonym	"TRAES_3BF021000010CFD_c1" ;
-	agrold_vocabulary:taxon	taxon:4565 ;
+	agrold_vocabulary:taxon	obo:NCBITaxon_4565 ;
 	agrold_vocabulary:has_function	obo:GO_0003677 ;
 	agrold_vocabulary:has_annotation	goa:A0A024DBP4 ;
 	agrold_vocabulary:has_function	obo:GO_0003700 ;
@@ -67,14 +67,13 @@ goa:A0A060CUY1
 	agrold_vocabulary:assigned_by	"InterPro" ;
 	agrold_vocabulary:date	"2015-05-23"^^xsd:date .
 uniprot:A0A060CUY1
-	rdf:type	owl:Class ;
-	rdfs:subClassOf	obo:SO_0000104 ;
+	rdf:type	agrold_schema:Protein ;
 	rdfs:label	"bHLH86" ;
 	agrold_vocabulary:description	"BHLH transcription factor" ;
 	agrold_vocabulary:has_synonym	"A0A060CUY1_MAIZE" ;
 	agrold_vocabulary:has_synonym	"bHLH86" ;
 	agrold_vocabulary:has_synonym	"LOC100383089" ;
-	agrold_vocabulary:taxon	taxon:4577 ;
+	agrold_vocabulary:taxon	obo:NCBITaxon_4577 ;
 	agrold_vocabulary:has_function	obo:GO_0046983 ;
 	agrold_vocabulary:has_annotation	goa:A0A060CUY1 .
 goa:A0A060CV13
@@ -98,13 +97,12 @@ goa:A0A060CV13
 	agrold_vocabulary:assigned_by	"InterPro" ;
 	agrold_vocabulary:date	"2015-05-23"^^xsd:date .
 uniprot:A0A060CV13
-	rdf:type	owl:Class ;
-	rdfs:subClassOf	obo:SO_0000104 ;
+	rdf:type	agrold_schema:Protein ;
 	rdfs:label	"SBP8" ;
 	agrold_vocabulary:description	"Uncharacterized protein" ;
 	agrold_vocabulary:has_synonym	"A0A060CV13_MAIZE" ;
 	agrold_vocabulary:has_synonym	"SBP8" ;
-	agrold_vocabulary:taxon	taxon:4577 ;
+	agrold_vocabulary:taxon	obo:NCBITaxon_4577 ;
 	agrold_vocabulary:has_function	obo:GO_0003677 ;
 	agrold_vocabulary:has_annotation	goa:A0A060CV13 ;
 	agrold_vocabulary:located_in	obo:GO_0005634 ;
@@ -130,13 +128,12 @@ goa:A0A060CVL7
 	agrold_vocabulary:assigned_by	"UniProt" ;
 	agrold_vocabulary:date	"2015-05-23"^^xsd:date .
 uniprot:A0A060CVL7
-	rdf:type	owl:Class ;
-	rdfs:subClassOf	obo:SO_0000104 ;
+	rdf:type	agrold_schema:Protein ;
 	rdfs:label	"ABI34" ;
 	agrold_vocabulary:description	"Uncharacterized protein" ;
 	agrold_vocabulary:has_synonym	"A0A060CVL7_MAIZE" ;
 	agrold_vocabulary:has_synonym	"ABI34" ;
-	agrold_vocabulary:taxon	taxon:4577 ;
+	agrold_vocabulary:taxon	obo:NCBITaxon_4577 ;
 	agrold_vocabulary:has_function	obo:GO_0003677 ;
 	agrold_vocabulary:has_annotation	goa:A0A060CVL7 ;
 	agrold_vocabulary:located_in	obo:GO_0005634 ;
@@ -162,13 +159,12 @@ goa:A0A077RA85
 	agrold_vocabulary:assigned_by	"InterPro" ;
 	agrold_vocabulary:date	"2015-05-23"^^xsd:date .
 uniprot:A0A077RA85
-	rdf:type	owl:Class ;
-	rdfs:subClassOf	obo:SO_0000104 ;
+	rdf:type	agrold_schema:Protein ;
 	rdfs:label	"TRAES_3BF076100010CFD_c1" ;
 	agrold_vocabulary:description	"WGS project CBUC00000000 data, cultivar Chinese Spring, contig v443_0761" ;
 	agrold_vocabulary:has_synonym	"A0A077RA85_WHEAT" ;
 	agrold_vocabulary:has_synonym	"TRAES_3BF076100010CFD_c1" ;
-	agrold_vocabulary:taxon	taxon:4565 ;
+	agrold_vocabulary:taxon	obo:NCBITaxon_4565 ;
 	agrold_vocabulary:participates_in	obo:GO_0016049 ;
 	agrold_vocabulary:has_annotation	goa:A0A077RA85 ;
 	agrold_vocabulary:located_in	obo:GO_0031225 ;
@@ -184,14 +180,13 @@ goa:A0A077RA90
 	agrold_vocabulary:assigned_by	"InterPro" ;
 	agrold_vocabulary:date	"2015-05-23"^^xsd:date .
 uniprot:A0A077RA90
-	rdf:type	owl:Class ;
-	rdfs:subClassOf	obo:SO_0000104 ;
+	rdf:type	agrold_schema:Protein ;
 	rdfs:label	"TRAES_3BF078700170CFD_c1" ;
 	agrold_vocabulary:description	"WGS project CBUC00000000 data, cultivar Chinese Spring, contig v443_0788" ;
 	agrold_vocabulary:has_synonym	"A0A077RA90_WHEAT" ;
 	agrold_vocabulary:has_synonym	"TRAES_3BF078700170CFD_c1" ;
 	agrold_vocabulary:has_synonym	"TRAES_3BF078800050CFD_c1" ;
-	agrold_vocabulary:taxon	taxon:4565 ;
+	agrold_vocabulary:taxon	obo:NCBITaxon_4565 ;
 	agrold_vocabulary:has_function	obo:GO_0043531 ;
 	agrold_vocabulary:has_annotation	goa:A0A077RA90 .
 goa:A0AQW4
@@ -265,8 +260,7 @@ goa:A0AQW4
 	agrold_vocabulary:assigned_by	"TAIR" ;
 	agrold_vocabulary:date	"2010-08-23"^^xsd:date .
 uniprot:A0AQW4
-	rdf:type	owl:Class ;
-	rdfs:subClassOf	obo:SO_0000104 ;
+	rdf:type	agrold_schema:Protein ;
 	rdfs:label	"TCP12" ;
 	agrold_vocabulary:description	"Transcription factor TCP12" ;
 	agrold_vocabulary:has_synonym	"TCP12_ARATH" ;
@@ -274,7 +268,7 @@ uniprot:A0AQW4
 	agrold_vocabulary:has_synonym	"BRC2" ;
 	agrold_vocabulary:has_synonym	"At1g68800" ;
 	agrold_vocabulary:has_synonym	"F14K14.9" ;
-	agrold_vocabulary:taxon	taxon:3702 ;
+	agrold_vocabulary:taxon	obo:NCBITaxon_3702 ;
 	agrold_vocabulary:has_function	obo:GO_0003677 ;
 	agrold_vocabulary:has_annotation	goa:A0AQW4 ;
 	agrold_vocabulary:has_function	obo:GO_0003700 ;
@@ -390,8 +384,7 @@ goa:A0JJX5
 	agrold_vocabulary:assigned_by	"UniProt" ;
 	agrold_vocabulary:date	"2014-07-05"^^xsd:date .
 uniprot:A0JJX5
-	rdf:type	owl:Class ;
-	rdfs:subClassOf	obo:SO_0000104 ;
+	rdf:type	agrold_schema:Protein ;
 	rdfs:label	"SYT4" ;
 	agrold_vocabulary:description	"Synaptotagmin-4" ;
 	agrold_vocabulary:has_synonym	"SYT4_ARATH" ;
@@ -399,7 +392,7 @@ uniprot:A0JJX5
 	agrold_vocabulary:has_synonym	"SYTD" ;
 	agrold_vocabulary:has_synonym	"At5g11100" ;
 	agrold_vocabulary:has_synonym	"T5K6.90" ;
-	agrold_vocabulary:taxon	taxon:3702 ;
+	agrold_vocabulary:taxon	obo:NCBITaxon_3702 ;
 	agrold_vocabulary:participates_in	obo:GO_0008150 ;
 	agrold_vocabulary:has_annotation	goa:A0JJX5 ;
 	agrold_vocabulary:has_function	obo:GO_0008289 ;
@@ -431,13 +424,12 @@ goa:A0JPT9
 	agrold_vocabulary:assigned_by	"InterPro" ;
 	agrold_vocabulary:date	"2014-07-05"^^xsd:date .
 uniprot:A0JPT9
-	rdf:type	owl:Class ;
-	rdfs:subClassOf	obo:SO_0000104 ;
+	rdf:type	agrold_schema:Protein ;
 	rdfs:label	"At5g19030" ;
 	agrold_vocabulary:description	"RNA recognition motif-containing protein" ;
 	agrold_vocabulary:has_synonym	"A0JPT9_ARATH" ;
 	agrold_vocabulary:has_synonym	"At5g19030" ;
-	agrold_vocabulary:taxon	taxon:3702 ;
+	agrold_vocabulary:taxon	obo:NCBITaxon_3702 ;
 	agrold_vocabulary:has_function	obo:GO_0000166 ;
 	agrold_vocabulary:has_annotation	goa:A0JPT9 .
 goa:A1A6F0
@@ -451,14 +443,13 @@ goa:A1A6F0
 	agrold_vocabulary:assigned_by	"InterPro" ;
 	agrold_vocabulary:date	"2014-05-10"^^xsd:date .
 uniprot:A1A6F0
-	rdf:type	owl:Class ;
-	rdfs:subClassOf	obo:SO_0000104 ;
+	rdf:type	agrold_schema:Protein ;
 	rdfs:label	"OsAHL2" ;
 	agrold_vocabulary:description	"cDNA clone:001-124-A12, full insert sequence" ;
 	agrold_vocabulary:has_synonym	"A1A6F0_ORYSJ" ;
 	agrold_vocabulary:has_synonym	"OsAHL2" ;
 	agrold_vocabulary:has_synonym	"Os09g0491708" ;
-	agrold_vocabulary:taxon	taxon:39947 ;
+	agrold_vocabulary:taxon	obo:NCBITaxon_39947 ;
 	agrold_vocabulary:has_function	obo:GO_0003677 ;
 	agrold_vocabulary:has_annotation	goa:A1A6F0 .
 goa:A1E9Q2
@@ -482,14 +473,13 @@ goa:A1E9Q2
 	agrold_vocabulary:assigned_by	"InterPro" ;
 	agrold_vocabulary:date	"2015-05-23"^^xsd:date .
 uniprot:A1E9Q2
-	rdf:type	owl:Class ;
-	rdfs:subClassOf	obo:SO_0000104 ;
+	rdf:type	agrold_schema:Protein ;
 	rdfs:label	"rps12-A" ;
 	agrold_vocabulary:description	"30S ribosomal protein S12, chloroplastic" ;
 	agrold_vocabulary:has_synonym	"RR12_SORBI" ;
 	agrold_vocabulary:has_synonym	"rps12-A" ;
 	agrold_vocabulary:has_synonym	"rps12-B" ;
-	agrold_vocabulary:taxon	taxon:4558 ;
+	agrold_vocabulary:taxon	obo:NCBITaxon_4558 ;
 	agrold_vocabulary:has_function	obo:GO_0003723 ;
 	agrold_vocabulary:has_annotation	goa:A1E9Q2 ;
 	agrold_vocabulary:has_function	obo:GO_0003735 ;
@@ -515,13 +505,12 @@ goa:A1E9Q6
 	agrold_vocabulary:assigned_by	"InterPro" ;
 	agrold_vocabulary:date	"2015-05-23"^^xsd:date .
 uniprot:A1E9Q6
-	rdf:type	owl:Class ;
-	rdfs:subClassOf	obo:SO_0000104 ;
+	rdf:type	agrold_schema:Protein ;
 	rdfs:label	"rps16" ;
 	agrold_vocabulary:description	"30S ribosomal protein S16, chloroplastic" ;
 	agrold_vocabulary:has_synonym	"RR16_SORBI" ;
 	agrold_vocabulary:has_synonym	"rps16" ;
-	agrold_vocabulary:taxon	taxon:4558 ;
+	agrold_vocabulary:taxon	obo:NCBITaxon_4558 ;
 	agrold_vocabulary:located_in	obo:GO_0009507 ;
 	agrold_vocabulary:has_annotation	goa:A1E9Q6 ;
 	agrold_vocabulary:located_in	obo:GO_0009536 ;
@@ -557,14 +546,13 @@ goa:A1IGU8
 	agrold_vocabulary:assigned_by	"InterPro" ;
 	agrold_vocabulary:date	"2014-05-10"^^xsd:date .
 uniprot:A1IGU8
-	rdf:type	owl:Class ;
-	rdfs:subClassOf	obo:SO_0000104 ;
+	rdf:type	agrold_schema:Protein ;
 	rdfs:label	"OsF5HL" ;
 	agrold_vocabulary:description	"Os06g0349700 protein" ;
 	agrold_vocabulary:has_synonym	"A1IGU8_ORYSJ" ;
 	agrold_vocabulary:has_synonym	"OsF5HL" ;
 	agrold_vocabulary:has_synonym	"Os06g0349700" ;
-	agrold_vocabulary:taxon	taxon:39947 ;
+	agrold_vocabulary:taxon	obo:NCBITaxon_39947 ;
 	agrold_vocabulary:has_function	obo:GO_0020037 ;
 	agrold_vocabulary:has_annotation	goa:A1IGU8 ;
 	agrold_vocabulary:has_function	obo:GO_0046872 ;
@@ -582,13 +570,12 @@ goa:A6MCY9
 	agrold_vocabulary:assigned_by	"UniProt" ;
 	agrold_vocabulary:date	"2014-05-10"^^xsd:date .
 uniprot:A6MCY9
-	rdf:type	owl:Class ;
-	rdfs:subClassOf	obo:SO_0000104 ;
+	rdf:type	agrold_schema:Protein ;
 	rdfs:label	"OB09G23390" ;
 	agrold_vocabulary:description	"Uncharacterized protein" ;
 	agrold_vocabulary:has_synonym	"A6MCY9_ORYBR" ;
 	agrold_vocabulary:has_synonym	"OB09G23390" ;
-	agrold_vocabulary:taxon	taxon:4533 ;
+	agrold_vocabulary:taxon	obo:NCBITaxon_4533 ;
 	agrold_vocabulary:has_function	obo:GO_0000166 ;
 	agrold_vocabulary:has_annotation	goa:A6MCY9 .
 goa:A9ZMI0
@@ -602,12 +589,11 @@ goa:A9ZMI0
 	agrold_vocabulary:assigned_by	"EnsemblPlants/Gramene" ;
 	agrold_vocabulary:date	"2014-05-10"^^xsd:date .
 uniprot:A9ZMI0
-	rdf:type	owl:Class ;
-	rdfs:subClassOf	obo:SO_0000104 ;
+	rdf:type	agrold_schema:Protein ;
 	rdfs:label	"A9ZMI0" ;
 	agrold_vocabulary:description	"Uncharacterized protein" ;
 	agrold_vocabulary:has_synonym	"A9ZMI0_ORYGL" ;
-	agrold_vocabulary:taxon	taxon:4538 ;
+	agrold_vocabulary:taxon	obo:NCBITaxon_4538 ;
 	agrold_vocabulary:participates_in	obo:GO_0000719 ;
 	agrold_vocabulary:has_annotation	goa:A9ZMI0 .
 goa:B2ZGK6
@@ -631,14 +617,13 @@ goa:B2ZGK6
 	agrold_vocabulary:assigned_by	"InterPro" ;
 	agrold_vocabulary:date	"2015-05-23"^^xsd:date .
 uniprot:B2ZGK6
-	rdf:type	owl:Class ;
-	rdfs:subClassOf	obo:SO_0000104 ;
+	rdf:type	agrold_schema:Protein ;
 	rdfs:label	"Acc-1" ;
 	agrold_vocabulary:description	"Uncharacterized protein" ;
 	agrold_vocabulary:has_synonym	"B2ZGK6_TRIUA" ;
 	agrold_vocabulary:has_synonym	"Acc-1" ;
 	agrold_vocabulary:has_synonym	"TRIUR3_27374" ;
-	agrold_vocabulary:taxon	taxon:4572 ;
+	agrold_vocabulary:taxon	obo:NCBITaxon_4572 ;
 	agrold_vocabulary:has_function	obo:GO_0000166 ;
 	agrold_vocabulary:has_annotation	goa:B2ZGK6 ;
 	agrold_vocabulary:has_function	obo:GO_0003824 ;
@@ -664,8 +649,7 @@ goa:B3SZ32
 	agrold_vocabulary:assigned_by	"UniProt" ;
 	agrold_vocabulary:date	"2015-05-23"^^xsd:date .
 uniprot:B3SZ32
-	rdf:type	owl:Class ;
-	rdfs:subClassOf	obo:SO_0000104 ;
+	rdf:type	agrold_schema:Protein ;
 	rdfs:label	"rpl32" ;
 	agrold_vocabulary:description	"50S ribosomal protein L32, chloroplastic" ;
 	agrold_vocabulary:has_synonym	"B3SZ32_TRIUA" ;
@@ -673,7 +657,7 @@ uniprot:B3SZ32
 	agrold_vocabulary:has_synonym	"TRIUR3_04403" ;
 	agrold_vocabulary:has_synonym	"TRIUR3_08329" ;
 	agrold_vocabulary:has_synonym	"TRIUR3_16456" ;
-	agrold_vocabulary:taxon	taxon:4572 ;
+	agrold_vocabulary:taxon	obo:NCBITaxon_4572 ;
 	agrold_vocabulary:located_in	obo:GO_0015934 ;
 	agrold_vocabulary:has_annotation	goa:B3SZ32 ;
 	agrold_vocabulary:located_in	obo:GO_0030529 ;
@@ -689,13 +673,12 @@ goa:B4YSV8
 	agrold_vocabulary:assigned_by	"InterPro" ;
 	agrold_vocabulary:date	"2015-05-23"^^xsd:date .
 uniprot:B4YSV8
-	rdf:type	owl:Class ;
-	rdfs:subClassOf	obo:SO_0000104 ;
+	rdf:type	agrold_schema:Protein ;
 	rdfs:label	"TRIUR3_04357" ;
 	agrold_vocabulary:description	"Resistance protein RGA2" ;
 	agrold_vocabulary:has_synonym	"B4YSV8_TRIUA" ;
 	agrold_vocabulary:has_synonym	"TRIUR3_04357" ;
-	agrold_vocabulary:taxon	taxon:4572 ;
+	agrold_vocabulary:taxon	obo:NCBITaxon_4572 ;
 	agrold_vocabulary:has_function	obo:GO_0043531 ;
 	agrold_vocabulary:has_annotation	goa:B4YSV8 .
 goa:B6F2C5
@@ -709,14 +692,13 @@ goa:B6F2C5
 	agrold_vocabulary:assigned_by	"InterPro" ;
 	agrold_vocabulary:date	"2014-05-10"^^xsd:date .
 uniprot:B6F2C5
-	rdf:type	owl:Class ;
-	rdfs:subClassOf	obo:SO_0000104 ;
+	rdf:type	agrold_schema:Protein ;
 	rdfs:label	"ADH1" ;
 	agrold_vocabulary:description	"Alcohol dehydrogenase family-1" ;
 	agrold_vocabulary:has_synonym	"B6F2C5_ORYGL" ;
 	agrold_vocabulary:has_synonym	"ADH1" ;
 	agrold_vocabulary:has_synonym	"OG_Ba066K08-2" ;
-	agrold_vocabulary:taxon	taxon:4538 ;
+	agrold_vocabulary:taxon	obo:NCBITaxon_4538 ;
 	agrold_vocabulary:has_function	obo:GO_0016491 ;
 	agrold_vocabulary:has_annotation	goa:B6F2C5 .
 gramene_association:B6RRX2_TO_0000053
@@ -730,12 +712,11 @@ gramene_association:B6RRX2_TO_0000053
 	agrold_vocabulary:assigned_by	"GR" ;
 	agrold_vocabulary:date	"2009-05-01"^^xsd:date .
 uniprot:B6RRX2
-	rdf:type	owl:Class ;
-	rdfs:subClassOf	obo:SO_0000104 ;
+	rdf:type	agrold_schema:Protein ;
 	rdfs:label	"SaF" ;
 	agrold_vocabulary:description	"SaF" ;
 	agrold_vocabulary:has_synonym	"SaF+BGIOSIBCE002454" ;
-	agrold_vocabulary:taxon	taxon:39946 ;
+	agrold_vocabulary:taxon	obo:NCBITaxon_39946 ;
 	agrold_vocabulary:has_trait	obo:TO_0000053 ;
 	agrold_vocabulary:has_annotation	gramene_association:B6RRX2_TO_0000053 .
 gramene_association:B6RRX3_PO_0001012
@@ -749,12 +730,11 @@ gramene_association:B6RRX3_PO_0001012
 	agrold_vocabulary:assigned_by	"GR" ;
 	agrold_vocabulary:date	"2009-05-01"^^xsd:date .
 uniprot:B6RRX3
-	rdf:type	owl:Class ;
-	rdfs:subClassOf	obo:SO_0000104 ;
+	rdf:type	agrold_schema:Protein ;
 	rdfs:label	"SaM" ;
 	agrold_vocabulary:description	"SaM" ;
 	agrold_vocabulary:has_synonym	"SaM-BGIOSIBSE038854" ;
-	agrold_vocabulary:taxon	taxon:39947 ;
+	agrold_vocabulary:taxon	obo:NCBITaxon_39947 ;
 	agrold_vocabulary:expressed_at	obo:PO_0001012 ;
 	agrold_vocabulary:has_annotation	gramene_association:B6RRX3_PO_0001012 .
 gramene_association:B6RRX4_PO_0001012
@@ -768,12 +748,11 @@ gramene_association:B6RRX4_PO_0001012
 	agrold_vocabulary:assigned_by	"GR" ;
 	agrold_vocabulary:date	"2009-05-01"^^xsd:date .
 uniprot:B6RRX4
-	rdf:type	owl:Class ;
-	rdfs:subClassOf	obo:SO_0000104 ;
+	rdf:type	agrold_schema:Protein ;
 	rdfs:label	"SaM" ;
 	agrold_vocabulary:description	"SaM" ;
 	agrold_vocabulary:has_synonym	"SaM+BGIOSIBSE038854" ;
-	agrold_vocabulary:taxon	taxon:39946 ;
+	agrold_vocabulary:taxon	obo:NCBITaxon_39946 ;
 	agrold_vocabulary:expressed_at	obo:PO_0001012 ;
 	agrold_vocabulary:has_annotation	gramene_association:B6RRX4_PO_0001012 .
 goa:C0JAE3
@@ -787,13 +766,12 @@ goa:C0JAE3
 	agrold_vocabulary:assigned_by	"EnsemblPlants/Gramene" ;
 	agrold_vocabulary:date	"2014-05-10"^^xsd:date .
 uniprot:C0JAE3
-	rdf:type	owl:Class ;
-	rdfs:subClassOf	obo:SO_0000104 ;
+	rdf:type	agrold_schema:Protein ;
 	rdfs:label	"OB06G28630" ;
 	agrold_vocabulary:description	"Uncharacterized protein" ;
 	agrold_vocabulary:has_synonym	"C0JAE3_ORYBR" ;
 	agrold_vocabulary:has_synonym	"OB06G28630" ;
-	agrold_vocabulary:taxon	taxon:4533 ;
+	agrold_vocabulary:taxon	obo:NCBITaxon_4533 ;
 	agrold_vocabulary:located_in	obo:GO_0055028 ;
 	agrold_vocabulary:has_annotation	goa:C0JAE3 .
 goa:C0JAE6
@@ -807,13 +785,12 @@ goa:C0JAE6
 	agrold_vocabulary:assigned_by	"UniProt" ;
 	agrold_vocabulary:date	"2014-05-10"^^xsd:date .
 uniprot:C0JAE6
-	rdf:type	owl:Class ;
-	rdfs:subClassOf	obo:SO_0000104 ;
+	rdf:type	agrold_schema:Protein ;
 	rdfs:label	"OB06G28680" ;
 	agrold_vocabulary:description	"Uncharacterized protein" ;
 	agrold_vocabulary:has_synonym	"C0JAE6_ORYBR" ;
 	agrold_vocabulary:has_synonym	"OB06G28680" ;
-	agrold_vocabulary:taxon	taxon:4533 ;
+	agrold_vocabulary:taxon	obo:NCBITaxon_4533 ;
 	agrold_vocabulary:located_in	obo:GO_0005576 ;
 	agrold_vocabulary:has_annotation	goa:C0JAE6 .
 goa:J3NFF4
@@ -837,13 +814,12 @@ goa:J3NFF4
 	agrold_vocabulary:assigned_by	"InterPro" ;
 	agrold_vocabulary:date	"2014-05-10"^^xsd:date .
 uniprot:J3NFF4
-	rdf:type	owl:Class ;
-	rdfs:subClassOf	obo:SO_0000104 ;
+	rdf:type	agrold_schema:Protein ;
 	rdfs:label	"OB12G27120" ;
 	agrold_vocabulary:description	"Uncharacterized protein" ;
 	agrold_vocabulary:has_synonym	"J3NFF4_ORYBR" ;
 	agrold_vocabulary:has_synonym	"OB12G27120" ;
-	agrold_vocabulary:taxon	taxon:4533 ;
+	agrold_vocabulary:taxon	obo:NCBITaxon_4533 ;
 	agrold_vocabulary:participates_in	obo:GO_0006278 ;
 	agrold_vocabulary:has_annotation	goa:J3NFF4 ;
 	agrold_vocabulary:has_function	obo:GO_0008270 ;
@@ -869,13 +845,12 @@ goa:Q1MSJ1
 	agrold_vocabulary:assigned_by	"EnsemblPlants/Gramene" ;
 	agrold_vocabulary:date	"2014-05-10"^^xsd:date .
 uniprot:Q1MSJ1
-	rdf:type	owl:Class ;
-	rdfs:subClassOf	obo:SO_0000104 ;
+	rdf:type	agrold_schema:Protein ;
 	rdfs:label	"eif(iso)4g" ;
 	agrold_vocabulary:description	"Putative eukaryotic translation initiation factor 4 gamma" ;
 	agrold_vocabulary:has_synonym	"Q1MSJ1_ORYGL" ;
 	agrold_vocabulary:has_synonym	"eif(iso)4g" ;
-	agrold_vocabulary:taxon	taxon:4538 ;
+	agrold_vocabulary:taxon	obo:NCBITaxon_4538 ;
 	agrold_vocabulary:has_function	obo:GO_0003743 ;
 	agrold_vocabulary:has_annotation	goa:Q1MSJ1 ;
 	agrold_vocabulary:located_in	obo:GO_0005634 ;
@@ -891,13 +866,12 @@ goa:Q42968
 	agrold_vocabulary:assigned_by	"UniProt" ;
 	agrold_vocabulary:date	"2014-05-10"^^xsd:date .
 uniprot:Q42968
-	rdf:type	owl:Class ;
-	rdfs:subClassOf	obo:SO_0000104 ;
+	rdf:type	agrold_schema:Protein ;
 	rdfs:label	"WAXY" ;
 	agrold_vocabulary:description	"Granule-bound starch synthase 1, chloroplastic/amyloplastic" ;
 	agrold_vocabulary:has_synonym	"SSG1_ORYGL" ;
 	agrold_vocabulary:has_synonym	"WAXY" ;
-	agrold_vocabulary:taxon	taxon:4538 ;
+	agrold_vocabulary:taxon	obo:NCBITaxon_4538 ;
 	agrold_vocabulary:participates_in	obo:GO_0019252 ;
 	agrold_vocabulary:has_annotation	goa:Q42968 .
 gramene_association:Q5MFV0_TO_0000168
@@ -911,13 +885,12 @@ gramene_association:Q5MFV0_TO_0000168
 	agrold_vocabulary:assigned_by	"GR" ;
 	agrold_vocabulary:date	"2006-08-31"^^xsd:date .
 uniprot:Q5MFV0
-	rdf:type	owl:Class ;
-	rdfs:subClassOf	obo:SO_0000104 ;
+	rdf:type	agrold_schema:Protein ;
 	rdfs:label	"BIERF4" ;
 	agrold_vocabulary:description	"BTH-induced ERF transcriptional factor 4" ;
 	agrold_vocabulary:has_synonym	"OsBIERF4BGIOSIBCE009915" ;
 	agrold_vocabulary:has_synonym	"LOC_Os03g08500" ;
-	agrold_vocabulary:taxon	taxon:39946 ;
+	agrold_vocabulary:taxon	obo:NCBITaxon_39946 ;
 	agrold_vocabulary:has_trait	obo:TO_0000168 ;
 	agrold_vocabulary:has_annotation	gramene_association:Q5MFV0_TO_0000168 .
 gramene_association:Q5MFV1_TO_0000168
@@ -931,13 +904,12 @@ gramene_association:Q5MFV1_TO_0000168
 	agrold_vocabulary:assigned_by	"GR" ;
 	agrold_vocabulary:date	"2006-08-31"^^xsd:date .
 uniprot:Q5MFV1
-	rdf:type	owl:Class ;
-	rdfs:subClassOf	obo:SO_0000104 ;
+	rdf:type	agrold_schema:Protein ;
 	rdfs:label	"BIERF3" ;
 	agrold_vocabulary:description	"BTH-induced ERF transcriptional factor 3" ;
 	agrold_vocabulary:has_synonym	"OsBIERF3BGIOSIBCE008060" ;
 	agrold_vocabulary:has_synonym	"LOC_Os02g43790" ;
-	agrold_vocabulary:taxon	taxon:39946 ;
+	agrold_vocabulary:taxon	obo:NCBITaxon_39946 ;
 	agrold_vocabulary:has_trait	obo:TO_0000168 ;
 	agrold_vocabulary:has_annotation	gramene_association:Q5MFV1_TO_0000168 .
 gramene_association:Q5NB25_EO_0007255
@@ -951,8 +923,7 @@ gramene_association:Q5NB25_EO_0007255
 	agrold_vocabulary:assigned_by	"GR" ;
 	agrold_vocabulary:date	"2006-08-31"^^xsd:date .
 uniprot:Q5NB25
-	rdf:type	owl:Class ;
-	rdfs:subClassOf	obo:SO_0000104 ;
+	rdf:type	agrold_schema:Protein ;
 	rdfs:label	"IAA3" ;
 	agrold_vocabulary:description	"Auxin-responsive protein IAA3" ;
 	agrold_vocabulary:has_synonym	"OSIAA3" ;
@@ -960,7 +931,7 @@ uniprot:Q5NB25
 	agrold_vocabulary:has_synonym	"P0485D09.31" ;
 	agrold_vocabulary:has_synonym	"Putative aux/IAA proteinBGIOSIBCE000978" ;
 	agrold_vocabulary:has_synonym	"LOC_Os01g13030" ;
-	agrold_vocabulary:taxon	taxon:39946 ;
+	agrold_vocabulary:taxon	obo:NCBITaxon_39946 ;
 	agrold_vocabulary:observed_in	obo:EO_0007255 ;
 	agrold_vocabulary:has_annotation	gramene_association:Q5NB25_EO_0007255 .
 gramene_association:Q5NTH3_PO_0009049
@@ -974,12 +945,11 @@ gramene_association:Q5NTH3_PO_0009049
 	agrold_vocabulary:assigned_by	"GR" ;
 	agrold_vocabulary:date	"2006-08-31"^^xsd:date .
 uniprot:Q5NTH3
-	rdf:type	owl:Class ;
-	rdfs:subClassOf	obo:SO_0000104 ;
+	rdf:type	agrold_schema:Protein ;
 	rdfs:label	"OsSK2" ;
 	agrold_vocabulary:description	"Shikimate kinase 2" ;
 	agrold_vocabulary:has_synonym	"OsSK2LOC_Os06g12150" ;
-	agrold_vocabulary:taxon	taxon:39947 ;
+	agrold_vocabulary:taxon	obo:NCBITaxon_39947 ;
 	agrold_vocabulary:expressed_in	obo:PO_0009049 ;
 	agrold_vocabulary:has_annotation	gramene_association:Q5NTH3_PO_0009049 .
 gramene_association:Q5NTH4_PO_0009049
@@ -993,13 +963,12 @@ gramene_association:Q5NTH4_PO_0009049
 	agrold_vocabulary:assigned_by	"GR" ;
 	agrold_vocabulary:date	"2006-08-31"^^xsd:date .
 uniprot:Q5NTH4
-	rdf:type	owl:Class ;
-	rdfs:subClassOf	obo:SO_0000104 ;
+	rdf:type	agrold_schema:Protein ;
 	rdfs:label	"OsSK1" ;
 	agrold_vocabulary:description	"Shikimate kinase 1" ;
 	agrold_vocabulary:has_synonym	"OsSK1BGIOSIBCE008662" ;
 	agrold_vocabulary:has_synonym	"LOC_Os02g51410" ;
-	agrold_vocabulary:taxon	taxon:39947 ;
+	agrold_vocabulary:taxon	obo:NCBITaxon_39947 ;
 	agrold_vocabulary:expressed_in	obo:PO_0009049 ;
 	agrold_vocabulary:has_annotation	gramene_association:Q5NTH4_PO_0009049 .
 gramene_association:Q6ESF8_EO_0007199
@@ -1033,15 +1002,14 @@ gramene_association:Q6ESF8_TO_0000137
 	agrold_vocabulary:assigned_by	"GR" ;
 	agrold_vocabulary:date	"2006-08-31"^^xsd:date .
 uniprot:Q6ESF8
-	rdf:type	owl:Class ;
-	rdfs:subClassOf	obo:SO_0000104 ;
+	rdf:type	agrold_schema:Protein ;
 	rdfs:label	"P0605D08.14" ;
 	agrold_vocabulary:description	"Putative Cen-like protein" ;
 	agrold_vocabulary:has_synonym	"P0605D08.14" ;
 	agrold_vocabulary:has_synonym	"Putative Cen-like protein" ;
 	agrold_vocabulary:has_synonym	"Putative TFL1/CEN orthologBGIOSIBCE007280" ;
 	agrold_vocabulary:has_synonym	"LOC_Os02g32950" ;
-	agrold_vocabulary:taxon	taxon:39947 ;
+	agrold_vocabulary:taxon	obo:NCBITaxon_39947 ;
 	agrold_vocabulary:observed_in	obo:EO_0007199 ;
 	agrold_vocabulary:has_annotation	gramene_association:Q6ESF8_EO_0007199 ;
 	agrold_vocabulary:observed_in	obo:EO_0007200 ;
@@ -1059,14 +1027,13 @@ gramene_association:Q6K2Y8_EO_0007265
 	agrold_vocabulary:assigned_by	"GR" ;
 	agrold_vocabulary:date	"2008-07-21"^^xsd:date .
 uniprot:Q6K2Y8
-	rdf:type	owl:Class ;
-	rdfs:subClassOf	obo:SO_0000104 ;
+	rdf:type	agrold_schema:Protein ;
 	rdfs:label	"NAAT1" ;
 	agrold_vocabulary:description	"nicotianamine aminotransferase" ;
 	agrold_vocabulary:has_synonym	"P0543C11.29" ;
 	agrold_vocabulary:has_synonym	"Putative nicotianamine aminotransferase ABGIOSIBCE006635" ;
 	agrold_vocabulary:has_synonym	"LOC_Os02g20360" ;
-	agrold_vocabulary:taxon	taxon:39947 ;
+	agrold_vocabulary:taxon	obo:NCBITaxon_39947 ;
 	agrold_vocabulary:observed_in	obo:EO_0007265 ;
 	agrold_vocabulary:has_annotation	gramene_association:Q6K2Y8_EO_0007265 .
 gramene_association:Q9AWX3_TO_0000053
@@ -1080,13 +1047,12 @@ gramene_association:Q9AWX3_TO_0000053
 	agrold_vocabulary:assigned_by	"GR" ;
 	agrold_vocabulary:date	"2009-05-01"^^xsd:date .
 uniprot:Q9AWX3
-	rdf:type	owl:Class ;
-	rdfs:subClassOf	obo:SO_0000104 ;
+	rdf:type	agrold_schema:Protein ;
 	rdfs:label	"SaF" ;
 	agrold_vocabulary:description	"SaF" ;
 	agrold_vocabulary:has_synonym	"P0013G02.19" ;
 	agrold_vocabulary:has_synonym	"Ribosomal RNA apurinic site specific lyase-likeBGIOSIBCE002454" ;
-	agrold_vocabulary:taxon	taxon:39947 ;
+	agrold_vocabulary:taxon	obo:NCBITaxon_39947 ;
 	agrold_vocabulary:has_trait	obo:TO_0000053 ;
 	agrold_vocabulary:has_annotation	gramene_association:Q9AWX3_TO_0000053 .
 goa:Q9XGG1
@@ -1110,15 +1076,14 @@ goa:Q9XGG1
 	agrold_vocabulary:assigned_by	"InterPro" ;
 	agrold_vocabulary:date	"2015-05-23"^^xsd:date .
 uniprot:Q9XGG1
-	rdf:type	owl:Class ;
-	rdfs:subClassOf	obo:SO_0000104 ;
+	rdf:type	agrold_schema:Protein ;
 	rdfs:label	"RLK1" ;
 	agrold_vocabulary:description	"Putative uncharacterized protein Sb05g024090" ;
 	agrold_vocabulary:has_synonym	"Q9XGG1_SORBI" ;
 	agrold_vocabulary:has_synonym	"RLK1" ;
 	agrold_vocabulary:has_synonym	"Sb05g024090" ;
 	agrold_vocabulary:has_synonym	"SORBIDRAFT_05g024090" ;
-	agrold_vocabulary:taxon	taxon:4558 ;
+	agrold_vocabulary:taxon	obo:NCBITaxon_4558 ;
 	agrold_vocabulary:has_function	obo:GO_0000166 ;
 	agrold_vocabulary:has_annotation	goa:Q9XGG1 ;
 	agrold_vocabulary:has_function	obo:GO_0004672 ;
@@ -1174,8 +1139,7 @@ goa:Q9ZWT3
 	agrold_vocabulary:assigned_by	"InterPro" ;
 	agrold_vocabulary:date	"2014-07-05"^^xsd:date .
 uniprot:Q9ZWT3
-	rdf:type	owl:Class ;
-	rdfs:subClassOf	obo:SO_0000104 ;
+	rdf:type	agrold_schema:Protein ;
 	rdfs:label	"PHT1-6" ;
 	agrold_vocabulary:description	"Probable inorganic phosphate transporter 1-6" ;
 	agrold_vocabulary:has_synonym	"PHT16_ARATH" ;
@@ -1183,7 +1147,7 @@ uniprot:Q9ZWT3
 	agrold_vocabulary:has_synonym	"PHT6" ;
 	agrold_vocabulary:has_synonym	"At5g43340" ;
 	agrold_vocabulary:has_synonym	"MWF20.3" ;
-	agrold_vocabulary:taxon	taxon:3702 ;
+	agrold_vocabulary:taxon	obo:NCBITaxon_3702 ;
 	agrold_vocabulary:has_function	obo:GO_0005315 ;
 	agrold_vocabulary:has_annotation	goa:Q9ZWT3 ;
 	agrold_vocabulary:participates_in	obo:GO_0006817 ;
@@ -1205,12 +1169,11 @@ goa:T1NX41
 	agrold_vocabulary:assigned_by	"InterPro" ;
 	agrold_vocabulary:date	"2015-05-23"^^xsd:date .
 uniprot:T1NX41
-	rdf:type	owl:Class ;
-	rdfs:subClassOf	obo:SO_0000104 ;
+	rdf:type	agrold_schema:Protein ;
 	rdfs:label	"T1NX41" ;
 	agrold_vocabulary:description	"Uncharacterized protein" ;
 	agrold_vocabulary:has_synonym	"T1NX41_TRIUA" ;
-	agrold_vocabulary:taxon	taxon:4572 ;
+	agrold_vocabulary:taxon	obo:NCBITaxon_4572 ;
 	agrold_vocabulary:located_in	obo:GO_0005615 ;
 	agrold_vocabulary:has_annotation	goa:T1NX41 .
 goa:T1NX42
@@ -1224,12 +1187,11 @@ goa:T1NX42
 	agrold_vocabulary:assigned_by	"InterPro" ;
 	agrold_vocabulary:date	"2015-05-23"^^xsd:date .
 uniprot:T1NX42
-	rdf:type	owl:Class ;
-	rdfs:subClassOf	obo:SO_0000104 ;
+	rdf:type	agrold_schema:Protein ;
 	rdfs:label	"T1NX42" ;
 	agrold_vocabulary:description	"Uncharacterized protein" ;
 	agrold_vocabulary:has_synonym	"T1NX42_TRIUA" ;
-	agrold_vocabulary:taxon	taxon:4572 ;
+	agrold_vocabulary:taxon	obo:NCBITaxon_4572 ;
 	agrold_vocabulary:has_function	obo:GO_0046983 ;
 	agrold_vocabulary:has_annotation	goa:T1NX42 .
 goa:T1NX44
@@ -1243,12 +1205,11 @@ goa:T1NX44
 	agrold_vocabulary:assigned_by	"InterPro" ;
 	agrold_vocabulary:date	"2015-05-23"^^xsd:date .
 uniprot:T1NX44
-	rdf:type	owl:Class ;
-	rdfs:subClassOf	obo:SO_0000104 ;
+	rdf:type	agrold_schema:Protein ;
 	rdfs:label	"T1NX44" ;
 	agrold_vocabulary:description	"Uncharacterized protein" ;
 	agrold_vocabulary:has_synonym	"T1NX44_TRIUA" ;
-	agrold_vocabulary:taxon	taxon:4572 ;
+	agrold_vocabulary:taxon	obo:NCBITaxon_4572 ;
 	agrold_vocabulary:has_function	obo:GO_0004867 ;
 	agrold_vocabulary:has_annotation	goa:T1NX44 .
 goa:W5UB93
@@ -1282,14 +1243,13 @@ goa:W5UB93
 	agrold_vocabulary:assigned_by	"InterPro" ;
 	agrold_vocabulary:date	"2015-05-23"^^xsd:date .
 uniprot:W5UB93
-	rdf:type	owl:Class ;
-	rdfs:subClassOf	obo:SO_0000104 ;
+	rdf:type	agrold_schema:Protein ;
 	rdfs:label	"HAK21" ;
 	agrold_vocabulary:description	"Potassium transporter" ;
 	agrold_vocabulary:has_synonym	"W5UB93_MAIZE" ;
 	agrold_vocabulary:has_synonym	"HAK21" ;
 	agrold_vocabulary:has_synonym	"Zm.145300" ;
-	agrold_vocabulary:taxon	taxon:4577 ;
+	agrold_vocabulary:taxon	obo:NCBITaxon_4577 ;
 	agrold_vocabulary:participates_in	obo:GO_0006813 ;
 	agrold_vocabulary:has_annotation	goa:W5UB93 ;
 	agrold_vocabulary:has_function	obo:GO_0015079 ;

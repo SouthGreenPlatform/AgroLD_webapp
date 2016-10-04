@@ -13,7 +13,7 @@
             "url": "http://volvestre.cirad.fr:8080/agrold/about.jsp"
         }
     },
-    "host": "localhost:8084",
+    "host": "volvestre.cirad.fr:8080",
     "basePath": "/agrold/api/1.0",
     "tags": [
         {
