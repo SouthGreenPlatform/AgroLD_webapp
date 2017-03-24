@@ -66,11 +66,12 @@ public class GeneDAO {
         return pathways;
     }
 
-    // TO MEthode ne marche pas probleme
+    // TO DO Methode ne marche pas "probleme"
     
     public static String getGenesEncodingProteins(String proteinId, int page, int pageSize, String resultFormat) {
         String sparqlQuery = "BASE <http://www.southgreen.fr/agrold/>\n"
                 + "PREFIX vocab: <vocabulary/>\n"
+                + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "PREFIX protein: <http://purl.uniprot.org/uniprot/" + proteinId + ">\n"
                 + "SELECT ?Id ?Name ?Description (?gene AS ?URI)\n"
                 + "WHERE{\n"

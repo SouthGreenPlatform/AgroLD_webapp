@@ -4,8 +4,10 @@
 var url = "http://volvestre.cirad.fr:8080/agrold/swagger/agrold.json";
 //var url = "http://localhost:8084/agrold/swagger/agrold.json";
 var pageSize = 30; // limit number of results per page
-var sparqlEndpoint = "http://volvestre.cirad.fr:8890/sparql";
+//var sparqlEndpoint = "http://volvestre.cirad.fr:8890/sparql";
 //var sparqlEndpoint = "http://volvestre.cirad.fr:3128/sparql";
+//var sparqlEndpoint = "http://volvestre.cirad.fr/sparql";
+var sparqlEndpoint = "http://volvestre.cirad.fr:8890/sparql";
 
 var holdMessage = '<center id="holdMessage"><img src="images/wait_animated.gif" alt="Please Wait!"/></center>';
 

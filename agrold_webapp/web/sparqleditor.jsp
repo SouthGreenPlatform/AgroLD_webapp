@@ -7,6 +7,17 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+        <!-- Script for google analytic -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-88660031-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>AgroLD: SPARQL Query Editor</title>
@@ -187,7 +198,8 @@
                             </div>
                             <div id="parameters">
                             </div>
-                            <form action="http://volvestre.cirad.fr:8890/sparql" method="get" data-step="2" data-intro="watch & edit its query here!">                                                                
+                            <!--<form action="http://volvestre.cirad.fr/sparql/" method="get" data-step="2" data-intro="watch & edit its query here!>" -->                                                                
+                            <form action="http://volvestre.cirad.fr:8890/sparql" method="get" data-step="2" data-intro="watch & edit its query here!">                                                      
                             <!--<form action="http://volvestre.cirad.fr:3128/sparql" method="get" data-step="2" data-intro="watch & edit its query here!">                                                            -->    
                                 <label for="query"><b style="font-size: 15px">Query Text</b></label><br />
                                 <textarea rows="15" cols="76" name="query" id="query" onchange="format_select(this)" onkeyup="format_select(this)">
@@ -296,6 +308,7 @@ WHERE{
                         //endpoint: "http://volvestre.cirad.fr:3128/sparql",
                         endpoint: "http://volvestre.cirad.fr:8890/sparql",
                         //endpoint: "http://localhost:8890/sparql",
+                        //endpoint: "http://volvestre.cirad.fr/sparql/",                        
                         collapsePrefixesOnLoad: false,
                         //persistent: true,
                         args: [{name: 'timeout', value: document.getElementById('timeout').value}],

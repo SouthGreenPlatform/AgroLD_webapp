@@ -33,6 +33,7 @@ public class APILib {
 
     //public static String sparqlEndpointURL = "http://localhost:8890/sparql";
     public static String sparqlEndpointURL = "http://volvestre.cirad.fr:8890/sparql";
+    //public static String sparqlEndpointURL = "http://volvestre.cirad.fr/sparql/";
     
 
     public final static String HTML = "text/html";

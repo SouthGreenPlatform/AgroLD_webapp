@@ -58,6 +58,7 @@ def parseGFF3(filename):
 pp = pprint.PrettyPrinter(indent=4)
 
 
-path = '/opt/TOS_DI-20141207_1530-V5.6.1/workspace/gff_data_orygeneDB/File_test/indicaCantTest.gff3'
+#path = '/opt/TOS_DI-20141207_1530-V5.6.1/workspace/gff_data_orygeneDB/File_test/indicaCantTest.gff3'
+#path = '/media/elhassouni/donnees/Noeud-plante-projet/workspace/AgroLD/AgroLD_ETL/test_files/urgi/pseudomolecul_wheat.gff'
 
-print(parseGFF3(path))
+#pp.pprint(parseGFF3(path))

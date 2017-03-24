@@ -398,7 +398,7 @@
                     {
                         sparql: {
                             showQueryButton: false,
-                            endpoint: "http://volvestre.cirad.fr:8890/sparql",
+                            endpoint: "http://volvestre.cirad.fr/sparql/",
                             //endpoint: "http://localhost:8890/sparql",
                             //persistent: true,
                             args: [],

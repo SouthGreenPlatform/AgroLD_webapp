@@ -20,10 +20,10 @@
         <span id="pathwayPageBtns" class="pageNavBtns"><a href="javascript:void(0)" id="pathways"> + </a></span>
         <div id="pathwayResult"></div>
     </div>
-    <!--br><div id="publicationContainer"><b style="font-size:13pt">Publication</b>
+    <br<div id="publicationContainer"><b style="font-size:13pt">Publication</b>
         <span id="publicationPageBtns" class="pageNavBtns"><a href="javascript:void(0)" id="publication"> + </a></span>
         <div id="publicationResult"></div>            
-    </div-->
+    </div>
 </div>
 <script type="text/javascript">
     var geneUri = <% out.println("'" + request.getParameter("uri") + "'");%>;    

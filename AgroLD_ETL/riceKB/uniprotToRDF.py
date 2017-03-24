@@ -8,7 +8,7 @@ Created on Mar 23, 2015
 
 from Bio import SwissProt
 
-from riceKB.globalVars import *
+from globalVars import *
 import pprint
 import re
 import os

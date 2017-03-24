@@ -18,10 +18,10 @@
         <span id="ontologyPageBtns" class="pageNavBtns"><a href="javascript:void(0)" id="ontology"> + </a></span>
         <div id="ontologyResult"></div>
     </div>
-    <!--br><div id="publicationContainer"><b style="font-size:13pt">Publication</b>
+    <br><div id="publicationContainer"><b style="font-size:13pt">Publication</b>
         <span id="publicationPageBtns" class="pageNavBtns"><a href="javascript:void(0)" id="publication"> + </a></span>
         <div id="publicationResult"></div>            
-    </div-->
+    </div>
 </div>
 <script type="text/javascript">
     var proteinUri = <% out.println("'" + request.getParameter("uri") + "'");%>;

@@ -126,6 +126,7 @@
             <name>Agronomic Linked Data (AgroLD)</name>
             <abbreviation>agrold</abbreviation>
             <description>The Agronomic Linked Data KB</description>
+            <!--<endpointURI>http://volvestre.cirad.fr/sparql/</endpointURI>-->
             <!--<endpointURI>http://volvestre.cirad.fr:3128/sparql</endpointURI>-->
             <endpointURI>http://volvestre.cirad.fr:8890/sparql</endpointURI>
             <!--endpointURI>http://localhost:8890/sparql</endpointURI-->

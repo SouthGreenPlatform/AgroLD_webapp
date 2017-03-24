@@ -83,7 +83,7 @@ def tropGeneToRDF(tropGene_map, output_file):
             tropGene_buffer += "\t" + rdfs_ns + "label" + "\t" + " \""+ records['qtl_name'] + "\" ;\n"
             tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + res_ns + "QTL" + " ;\n"
             #tropGene_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
-            #tropGene_buffer += "\t" + rdfs_ns + "subClassOf" + "\t" + obo_ns + "SO_0000771" + " ;\n"       # a definir correctement
+            tropGene_buffer += "\t" + rdfs_ns + "subClassOf" + "\t" + obo_ns + "SO_0000771" + " ;\n"       # a definir correctement
             for records in tropGene_map:
                 if records['qtl_id'] == qtl_id_now:
                     if records['trait_ontology_id'] == 'NULL' or 'na':

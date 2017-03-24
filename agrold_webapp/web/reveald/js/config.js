@@ -10,3 +10,4 @@ var resourceURL = ''; // For ChemSpider API Calls - this is working on the publi
 //var uriStr = "http://volvestre.cirad.fr:3128/sparql"; /// put in your SPARQL Endpoint here
 var uriStr = "http://volvestre.cirad.fr:8890/sparql"; /// put in your SPARQL Endpoint here
 //var uriStr = "http://localhost:8890/sparql"; /// put in your SPARQL Endpoint here
+//var uriStr = "http://volvestre.cirad.fr/sparql/"; /// put in your SPARQL Endpoint here

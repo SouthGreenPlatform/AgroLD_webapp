@@ -1,0 +1,33 @@
+Metadata-Version: 1.1
+Name: gff2rdf-agrold-lib
+Version: 0.0.1
+Summary: translate all gff file in ttl format (RDF) 
+Home-page: http://github.com/sametmax/sm_lib
+Author: nordine el hassouni
+Author-email: nordine.el_hassouni@cirad.fr
+License: WTFPL
+Description: SM Lib - Proclame la bonne parole de sieurs Sam et Max
+        ========================================================
+        
+        Ce module proclame la bonne parole de sieurs Sam et Max. Puissent-t-ils
+        retrouver une totale liberté de pensée cosmique vers un nouvel age
+        reminiscent.
+        
+        Vous pouvez l'installer avec pip:
+        
+            pip install sm_lib
+        
+        Exemple d'usage:
+        
+            >>> from sm_lib import proclamer
+            >>> proclamer()
+        
+        Ce code est sous licence WTFPL.
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Development Status :: 1 - Planning
+Classifier: License :: OSI Approved
+Classifier: Natural Language :: French
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Communications
