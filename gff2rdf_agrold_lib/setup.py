@@ -7,8 +7,7 @@ from setuptools import setup, find_packages
 # donc assurez-vous que l'importe n'a pas d'effet de bord
 import gff2rdf_agrold_lib
 
-# Ceci n'est qu'un appel de fonction. Mais il est trèèèèèèèèèèès long
-# et il comporte beaucoup de paramètres
+# Ceci n'est qu'un appel de fonction avec beaucoup de paramtre
 setup(
 
     # le nom de votre bibliothèque, tel qu'il apparaitre sur pypi
@@ -25,11 +24,10 @@ setup(
     # on peut ainsi utiliser cette fonction facilement
     packages=find_packages(),
 
-    # votre pti nom
+    # Nom de l'auteur
     author="nordine el hassouni",
 
-    # Votre email, sachant qu'il sera publique visible, avec tous les risques
-    # que ça implique.
+    # Votre email
     author_email="nordine.el_hassouni@cirad.fr",
 
     # Une description courte
@@ -53,7 +51,7 @@ setup(
     include_package_data=True,
 
     # Une url qui pointe vers la page officielle de votre lib
-    url='http://github.com/sametmax/sm_lib',
+    url='https://github.com/SouthGreenPlatform/AgroLD/tree/master/gff2rdf_agrold_lib',
 
     # Il est d'usage de mettre quelques metadata à propos de sa lib
     # Pour que les robots puissent facilement la classer.
@@ -81,13 +79,14 @@ setup(
     # La syntaxe est "nom-de-commande-a-creer = package.module:fonction".
     entry_points = {
         'console_scripts': [
-            'proclame-sm = sm_lib.core:proclamer',
+            'gff_parser = gff2rdf_agrold_lib.core:gff_parser',
+            'gff_model2rdf= gff2rdf_agrold_lib.core:gff_model2rdf',
         ],
     },
 
     # A fournir uniquement si votre licence n'est pas listée dans "classifiers"
     # ce qui est notre cas
-    license="WTFPL",
+    license="GPL",
 
     # Il y a encore une chiée de paramètres possibles, mais avec ça vous
     # couvrez 90% des besoins

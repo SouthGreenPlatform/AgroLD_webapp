@@ -4,9 +4,10 @@ import re
 from globalVars import *
 from globalVars import base_vocab_ns
 import json
-import simplejson
+import json as simplejson
 import requests
 import uuid
+
 
 __author__ = 'elhassouni'
 
@@ -212,7 +213,7 @@ def pheno2RDF(output_file):
             phenotype_buffer += "\t" + base_vocab_ns + "has_observation_unit_y" + "\t" + " \"" + str(obj4['Y']) + "\" .\n"
             rdf_writer.write(phenotype_buffer.encode('utf8'))
             data_data_list = list()
-            #print(phenotype_buffer)
+            print(phenotype_buffer)
 
 #path = '/home/elhassouni/Bureau/JSON.json'    # The input
 #path_output = '/media/elhassouni/donnees/Noeud-plante-projet/workspace/AgroLD/AgroLD_ETL/rdf_ttl/plant_breeding_ttl/pheno_wheat.ttl' # The output

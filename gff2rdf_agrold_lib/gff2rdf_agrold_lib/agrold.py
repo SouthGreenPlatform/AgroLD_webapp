@@ -1,13 +1,28 @@
 #!/usr/bin/env python
+
 # -*- coding: utf-8 -*-
 
 """
-    Implémentation de la proclamation de la bonne parole.
+    gff2rdf_lib allows to translate all gff file in rdf, ttl format
 
-    Usage:
 
-     from sm_lib import proclamer
-     proclamer()
+    how to use:
+
+     from gff2rdf_lib import gff_model2rdf
+
+
+     gff_model2rdf(path_input_file, path_output_file, text_to_annotate, adress_uri, alias_chromosome_file=1)
+
+     *path_input_file: the gff file to translate
+     *path_output_file: The path where the file should be saved
+     *text_to_annotate: the name of the specie e.a: Oryza sativa Indica Group
+     *adress_uri: the uri adresse for take prefix at datas e.a: http://www.southgreen.fr/agrold/whead_graph/
+     *alias_chromosome_file: some time into file in gff a alias are use for def the chromosome, but this param is optionnel
+
+     gffparser(path_file)
+
+     gffparser() can be to use for just parser a gff fil, it create a dictionary.
+
 """
 from __future__ import with_statement
 import re
@@ -16,17 +31,19 @@ import json
 import uuid
 import fileinput
 import time
-from datetime import datetime
 from collections import namedtuple
 import gzip
 import urllib
-import pprint
+
 
 __all__ = ['gff_parser', 'gff_model2rdf']
 
 __author__ = 'elhassouni'
 
-#prefixes
+
+'''
+The prefix file
+'''
 base = '@base'
 base_uri = 'http://www.southgreen.fr/agrold/'
 base_ns = 'agrold:'
@@ -49,8 +66,6 @@ chromosome_uri = 'http://www.southgreen.fr/agrold/chromosome/'
 chromosome_ns = 'chromosome:'
 resource = 'http://www.southgreen.fr/agrold/resource/'
 res_ns = 'agrold_schema:'
-
-
 #Initialized GeneInfo named tuple. Note: namedtuple is immutable
 gffInfoFields = ["seqid", "source", "type", "start", "end", "score", "strand", "phase", "attributes"]
 GFFRecord = namedtuple("GFFRecord", gffInfoFields)
@@ -71,7 +86,7 @@ def attributes_parser(attributeString):
     return ret
 
 
-def gff_parser(filename):
+def gff_parser(path_file):
     """
     A minimalistic GFF3 format parser.
     Yields objects that contain info about a single GFF3 feature.
@@ -81,8 +96,8 @@ def gff_parser(filename):
     :return: return a dictionary
     """
     map_ds = list()
-    openFunc = gzip.open if filename.endswith(".gz") else open
-    with openFunc(filename) as infile:
+    openFunc = gzip.open if path_file.endswith(".gz") else open
+    with openFunc(path_file) as infile:
         for line in infile:
             if line.startswith("#"): continue
             parts = line.strip().split("\t")
@@ -170,7 +185,7 @@ def annotation(text):
     :return: return tne NCBI annotation
     """
     REST_URL = "http://data.agroportal.lirmm.fr"
-    API_KEY = "45784a40-0248-46cb-aea8-c46014cde2d4"
+    API_KEY = "524be777-766b-44f7-b48c-1e8a402f3d05"
     def get_json(url):
         opener = urllib2.build_opener()
         opener.addheaders = [('Authorization', 'apikey token=' + API_KEY)]
@@ -184,7 +199,7 @@ def annotation(text):
     return taxon
 
 
-def gff_model2rdf(path_gff_file, path_output_file, text_to_annotate, adress_uri, alias_chromosome_file):
+def gff_model2rdf(path_gff_file, path_output_file, text_to_annotate, adress_uri, alias_chromosome_file=1):
     """
     The main fonction who translate the GFF file in RDF under ttl format
 
@@ -196,10 +211,9 @@ def gff_model2rdf(path_gff_file, path_output_file, text_to_annotate, adress_uri,
     :return: a message of execution or error
     """
     #pp = pprint.PrettyPrinter(indent=4)
-
+    print(alias_chromosome_file)
     start_time = time.time()
     dico_ds = gff_parser(path_gff_file)
-    alias_chromosome_dict = alias_chromosome(alias_chromosome_file)
     taxon_id = annotation(text_to_annotate)
     rdf_writer = open(path_output_file, "w")
     chromosome_list = list()
@@ -207,13 +221,21 @@ def gff_model2rdf(path_gff_file, path_output_file, text_to_annotate, adress_uri,
     for records in dico_ds:
         gff_buffer = ''
         if records['seqid'] not in chromosome_list:
-            for alias_f in alias_chromosome_dict:
-                if alias_f['alias'] == records['seqid']:
-                    chromosome_list.append(records['seqid'])
-                    gff_buffer += chromosome_ns + re.sub('Osi', '', alias_f['chromosome']) + "\n"
-                    gff_buffer += "\t" + base_vocab_ns + "taxon" + "\t\t" + taxon_id  + " ;\n"
-                    gff_buffer += "\t" + rdf_ns + "type" + "\t" + res_ns + "Chromosome" + " .\n"
-                    print(gff_buffer)
+            if alias_chromosome_file != 1:
+                alias_chromosome_dict = alias_chromosome(alias_chromosome_file)
+                for alias_f in alias_chromosome_dict:
+                    if alias_f['alias'] == records['seqid']:
+                        chromosome_list.append(records['seqid'])
+                        gff_buffer += chromosome_ns + re.sub('Osi', '', alias_f['chromosome']) + "\n"
+                        gff_buffer += "\t" + base_vocab_ns + "taxon" + "\t\t" + taxon_id  + " ;\n"
+                        gff_buffer += "\t" + rdf_ns + "type" + "\t" + res_ns + "Chromosome" + " .\n"
+                        #print(gff_buffer)
+            else:
+                chromosome_list.append(records['seqid'])
+                gff_buffer += chromosome_ns + re.sub('Osi', '', records['seqid']) + "\n"
+                gff_buffer += "\t" + base_vocab_ns + "taxon" + "\t\t" + taxon_id  + " ;\n"
+                gff_buffer += "\t" + rdf_ns + "type" + "\t" + res_ns + "Chromosome" + " .\n"
+                #print(gff_buffer)
         try:
             gff_buffer += records['type'] + ":" + records['attributes']['ID'] + "\n"
         except LookupError:
@@ -239,7 +261,10 @@ def gff_model2rdf(path_gff_file, path_output_file, text_to_annotate, adress_uri,
                 if 'Parent' in records['attributes']:
                     id = search_procedure(records['attributes']['Parent'], dico_ds)
                     gff_buffer += "\t" + base_vocab_ns + "part_of" + "\t\t" + str(id) + ":" + records['attributes']['Parent'] + " ; \n"
-        gff_buffer += "\t" + base_vocab_ns + "is_located_on" + "\t\t" + " " + chromosome_ns + re.sub('Osi', '', records['seqid']) + " .\n"
+        if alias_chromosome_file != 1:
+            gff_buffer += "\t" + base_vocab_ns + "is_located_on" + "\t\t" + " " + chromosome_ns + re.sub('Osi', '', alias_f['chromosome']) + " .\n"
+        else:
+            gff_buffer += "\t" + base_vocab_ns + "is_located_on" + "\t\t" + " " + chromosome_ns + re.sub('Osi', '', records['seqid']) + " .\n"
         print (gff_buffer)
         rdf_writer.write(gff_buffer)
     gff_prefix_buffer = ''
@@ -276,11 +301,12 @@ def line_pre_adder(filename, line_to_prepend):
             print xline,
 
 
-
+# Test avec argument
 gff_model2rdf('/media/elhassouni/donnees/Noeud-plante-projet/workspace/AgroLD/AgroLD_ETL/test_files/urgi/pseudomolecul_wheat.gff', '/media/elhassouni/donnees/Noeud-plante-projet/workspace/AgroLD/AgroLD_ETL/rdf_ttl/urgi_ttl/pseudomolecul_wheat.ttl', "Oryza sativa Indica Group", "http://www.southgreen.fr/agrold/whead_graph", '/media/elhassouni/donnees/Noeud-plante-projet/workspace/AgroLD/AgroLD_ETL/test_files/urgi/alias_file')
+# test avec argument optionnel
+#gff_model2rdf('/media/elhassouni/donnees/Noeud-plante-projet/workspace/AgroLD/AgroLD_ETL/test_files/urgi/pseudomolecul_wheat.gff', '/media/elhassouni/donnees/Noeud-plante-projet/workspace/AgroLD/AgroLD_ETL/rdf_ttl/urgi_ttl/pseudomolecul_wheat.ttl', "Oryza sativa Indica Group", "http://www.southgreen.fr/agrold/whead_graph")
 
 
-'''
+
 if __name__ == "__main__":
-    gff_parser()
-'''
+    print('run with success')
