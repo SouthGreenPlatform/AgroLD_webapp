@@ -111,14 +111,20 @@ Running
         'type': 'exon'},
      
      
-alias_filee.txt
+4 - alias_file.txt
 
-alias_file.txt: some time into file in gff a alias are use for def the chromosome, but this param is optionnel.
-if you usean alias for you chromosome we recommande to complete the file:
+    >>> What is it alias_file.txt
+    
+    alias_file.txt: some time into file in gff a alias are use for def the chromosome, but this param is optionnel.
+    if you usean alias for you chromosome we recommande to complete the file:
 
-e.a: make the prefix in left and the chromosome in right 
-alias_file.txt
-traes3bPseudomoleculeV1=3B
+    e.a: make the prefix in left and the chromosome in right
+ 
+    alias_file.txt
+    
+    traes3bPseudomoleculeV1=3B
+    
+    
    
 
 

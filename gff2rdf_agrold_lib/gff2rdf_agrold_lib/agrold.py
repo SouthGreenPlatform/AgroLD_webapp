@@ -185,7 +185,7 @@ def annotation(text):
     :return: return tne NCBI annotation
     """
     REST_URL = "http://data.agroportal.lirmm.fr"
-    API_KEY = "524be777-766b-44f7-b48c-1e8a402f3d05"
+    API_KEY = "1a582e4c-75f0-4b3b-ae15-c1bad2f41335"
     def get_json(url):
         opener = urllib2.build_opener()
         opener.addheaders = [('Authorization', 'apikey token=' + API_KEY)]
