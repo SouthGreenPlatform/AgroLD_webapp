@@ -277,8 +277,12 @@ def rapdbModeleRDF(rapdb_ds, output_file):
                 if 'Note' in records['attributes']:
                     os_japonica_buffer += "\t" + base_vocab_ns + "comment" + "\t" + '"%s"' % (records['attributes']['Note']) + " ;\n"
                 if 'GO' in records['attributes']:
-                    os_japonica_buffer += "\t" + base_vocab_ns + "comment" + "\t" + '"%s"' % (records['attributes']['GO']) + " ;\n"
+                        for go_term in re.findall(r'GO:[0-9]{7}',records['attributes']['GO']):
+                            os_japonica_buffer += "\t" + base_vocab_ns + "go_term" + "\t" + obo_ns + re.sub(':', '_', go_term) + " ;\n"
+                            #os_japonica_buffer += "\t" + base_vocab_ns + "comment" + "\t" + '"%s"' % (records['attributes']['GO']) + " ;\n"
                 if 'InterPro' in records['attributes']:
+                    for ipr_term in re.findall(r'IPR[0-9]{6}', records['attributes']['InterPro']):
+                        os_japonica_buffer += "\t" + base_vocab_ns + "has_dbxref" + "\t" + interpro_ns + ipr_term + " ;\n"
                     os_japonica_buffer += "\t" + base_vocab_ns + "comment" + "\t" + '"%s"' % (records['attributes']['InterPro']) + " ;\n"
                 if 'CGSNL Gene Name' in records['attributes']:
                     os_japonica_buffer += "\t" + base_vocab_ns + "has_synonym" + "\t" + '"%s"' % (records['attributes']['CGSNL Gene Name']) + " ;\n"
@@ -287,23 +291,30 @@ def rapdbModeleRDF(rapdb_ds, output_file):
                 if 'Literature_PMID' in records['attributes']:
                     os_japonica_buffer += "\t" + base_vocab_ns + "has_dbxref" + "\t\t" + pubmed_ns + records['attributes']['Literature_PMID'] + " ;\n"
                 if 'ORF_evidence' in records['attributes']:
-                    os_japonica_buffer += "\t" + base_vocab_ns + "evidence" + "\t" + '"%s"' % (records['attributes']['ORF_evidence']) + " ;\n"
+                    uni_term = records['attributes']['ORF_evidence'].split(" ")[0]
+                    os_japonica_buffer += "\t" + base_vocab_ns + "has_dbxref" + "\t\t" + uniprot_ns + uni_term + " ;\n"
                 if 'Oryzabase' in records['attributes']:
                     os_japonica_buffer += "\t" + base_vocab_ns + "has_dbxref" + "\t\t" + orygene_ns + records['attributes']['Oryzabase'] + " ;\n"
                 if 'Oryzabase Gene Name Synonym(s)' in records['attributes']:
-                    os_japonica_buffer += "\t" + base_vocab_ns + "has_synonym" + "\t" + '"%s"' % (records['attributes']['Oryzabase Gene Name Synonym(s)']) + " ;\n"
+                    for syn_term in records['attributes']['Oryzabase Gene Name Synonym(s)'].split(","):
+                        os_japonica_buffer += "\t" + base_vocab_ns + "has_synonym" + "\t" + '"%s"' % (syn_term) + " ;\n"
                 if 'Oryzabase Gene Symbol Synonym(s)' in records['attributes']:
-                    os_japonica_buffer += "\t" + base_vocab_ns + "has_symbol" + "\t" + '"%s"' % (records['attributes']['Oryzabase Gene Symbol Synonym(s)']) + " ;\n"
+                    for syn_term in records['attributes']['Oryzabase Gene Symbol Synonym(s)'].split(","):
+                        os_japonica_buffer += "\t" + base_vocab_ns + "has_symbol" + "\t" + '"%s"' % (syn_term) + " ;\n"
+                        #os_japonica_buffer += "\t" + base_vocab_ns + "has_symbol" + "\t" + '"%s"' % (records['attributes']['Oryzabase Gene Symbol Synonym(s)']) + " ;\n"
                 if 'RAP-DB Gene Name Synonym(s)' in records['attributes']:
-                    os_japonica_buffer += "\t" + base_vocab_ns + "has_synonym" + "\t" + '"%s"' % (records['attributes']['RAP-DB Gene Name Synonym(s)']) + " ;\n"
+                    for syn_term in records['attributes']['RAP-DB Gene Name Synonym(s)'].split(","):
+                        os_japonica_buffer += "\t" + base_vocab_ns + "has_synonym" + "\t" + '"%s"' % (syn_term) + " ;\n"
                 if 'RAP-DB Gene Symbol Synonym(s)' in records['attributes']:
-                    os_japonica_buffer += "\t" + base_vocab_ns + "has_symbol" + "\t" + '"%s"' % (records['attributes']['RAP-DB Gene Symbol Synonym(s)']) + " ;\n"
+                    for syn_term in records['attributes']['RAP-DB Gene Symbol Synonym(s)'].split(","):
+                        os_japonica_buffer += "\t" + base_vocab_ns + "has_symbol" + "\t" + '"%s"' % (syn_term) + " ;\n"
+                        #os_japonica_buffer += "\t" + base_vocab_ns + "has_symbol" + "\t" + '"%s"' % (records['attributes']['RAP-DB Gene Symbol Synonym(s)']) + " ;\n"
                 if 'Transcript_evidence' in records['attributes']:
-                    os_japonica_buffer += "\t" + base_vocab_ns + "evidence" + "\t" + '"%s"' % (records['attributes']['Transcript_evidence']) + " ;\n"
+                    os_japonica_buffer += "\t" + base_vocab_ns + "has_dbxref" + "\t\t" + ncbi_gene_ns + records['attributes']['Transcript_evidence'].split(" ")[0] + " ;\n"
                 if 'NIAS_FLcDNA' in records['attributes']:
                     os_japonica_buffer += "\t" + base_vocab_ns + "evidence" + "\t" + "NIAS_FLcDNA: " + '"%s"' % (records['attributes']['NIAS_FLcDNA']) + " ;\n"
                 if 'KEGG' in records['attributes']:
-                    os_japonica_buffer += "\t" + base_vocab_ns + "has_dbxref" + "\t\t" + kegg_ns + records['attributes']['KEGG'] + " ;\n"
+                    os_japonica_buffer += "\t" + base_vocab_ns + "" + "\t\t" + kegg_ns + records['attributes']['KEGG'] + " ;\n"
                 if 'TENOR' in records['attributes']:
                     os_japonica_buffer += "\t" + base_vocab_ns + "has_dbxref" + "\t" + "TENOR: " + '"%s"' % (records['attributes']['TENOR']) + " ;\n"
                 if 'Expression' in records['attributes']:
