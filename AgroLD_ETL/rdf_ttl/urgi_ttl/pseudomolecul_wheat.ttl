@@ -25,154 +25,154 @@ region:traes3bPseudomoleculeV1
 	agrold_vocabulary:taxon		http://purl.obolibrary.org/obo/NCBITaxon_39946 ;
 	agrold_vocabulary:has_start_position	 "1"^^xsd:integer ;
 	agrold_vocabulary:has_end_position	 "774434471"^^xsd:integer ;
-	agrold_vocabulary:is_located_on		 chromosome:traes3bPseudomoleculeV1 .
+	agrold_vocabulary:is_located_on		 chromosome:3B .
 scaffold:v443_0001
 	agrold_vocabulary:source_project	 "GDEC" ;
 	rdf:type	agrold_schema:scaffold ;
 	agrold_vocabulary:taxon		http://purl.obolibrary.org/obo/NCBITaxon_39946 ;
 	agrold_vocabulary:has_start_position	 "348386688"^^xsd:integer ;
 	agrold_vocabulary:has_end_position	 "349797793"^^xsd:integer ;
-	agrold_vocabulary:is_located_on		 chromosome:traes3bPseudomoleculeV1 .
+	agrold_vocabulary:is_located_on		 chromosome:3B .
 scaffold:v443_0002
 	agrold_vocabulary:source_project	 "GDEC" ;
 	rdf:type	agrold_schema:scaffold ;
 	agrold_vocabulary:taxon		http://purl.obolibrary.org/obo/NCBITaxon_39946 ;
 	agrold_vocabulary:has_start_position	 "518597965"^^xsd:integer ;
 	agrold_vocabulary:has_end_position	 "519187914"^^xsd:integer ;
-	agrold_vocabulary:is_located_on		 chromosome:traes3bPseudomoleculeV1 .
+	agrold_vocabulary:is_located_on		 chromosome:3B .
 rRNA:TRAES3BF133500010CFD_rrna
 	agrold_vocabulary:source_project	 "GDEC" ;
 	rdf:type	agrold_schema:rRNA ;
 	agrold_vocabulary:taxon		http://purl.obolibrary.org/obo/NCBITaxon_39946 ;
 	agrold_vocabulary:has_start_position	 "327899570"^^xsd:integer ;
 	agrold_vocabulary:has_end_position	 "327899695"^^xsd:integer ;
-	agrold_vocabulary:is_located_on		 chromosome:traes3bPseudomoleculeV1 .
+	agrold_vocabulary:is_located_on		 chromosome:3B .
 rRNA:TRAES3BF177500010CFD_rrna
 	agrold_vocabulary:source_project	 "GDEC" ;
 	rdf:type	agrold_schema:rRNA ;
 	agrold_vocabulary:taxon		http://purl.obolibrary.org/obo/NCBITaxon_39946 ;
 	agrold_vocabulary:has_start_position	 "380249172"^^xsd:integer ;
 	agrold_vocabulary:has_end_position	 "380249288"^^xsd:integer ;
-	agrold_vocabulary:is_located_on		 chromosome:traes3bPseudomoleculeV1 .
+	agrold_vocabulary:is_located_on		 chromosome:3B .
 rRNA:TRAES3BF178200010CFD_rrna
 	agrold_vocabulary:source_project	 "GDEC" ;
 	rdf:type	agrold_schema:rRNA ;
 	agrold_vocabulary:taxon		http://purl.obolibrary.org/obo/NCBITaxon_39946 ;
 	agrold_vocabulary:has_start_position	 "346489587"^^xsd:integer ;
 	agrold_vocabulary:has_end_position	 "346489703"^^xsd:integer ;
-	agrold_vocabulary:is_located_on		 chromosome:traes3bPseudomoleculeV1 .
+	agrold_vocabulary:is_located_on		 chromosome:3B .
 rRNA:TRAES3BF186500010CFD_rrna
 	agrold_vocabulary:source_project	 "GDEC" ;
 	rdf:type	agrold_schema:rRNA ;
 	agrold_vocabulary:taxon		http://purl.obolibrary.org/obo/NCBITaxon_39946 ;
 	agrold_vocabulary:has_start_position	 "712153644"^^xsd:integer ;
 	agrold_vocabulary:has_end_position	 "712153718"^^xsd:integer ;
-	agrold_vocabulary:is_located_on		 chromosome:traes3bPseudomoleculeV1 .
+	agrold_vocabulary:is_located_on		 chromosome:3B .
 rRNA:TRAES3BF186500020CFD_rrna
 	agrold_vocabulary:source_project	 "GDEC" ;
 	rdf:type	agrold_schema:rRNA ;
 	agrold_vocabulary:taxon		http://purl.obolibrary.org/obo/NCBITaxon_39946 ;
 	agrold_vocabulary:has_start_position	 "712153774"^^xsd:integer ;
 	agrold_vocabulary:has_end_position	 "712153848"^^xsd:integer ;
-	agrold_vocabulary:is_located_on		 chromosome:traes3bPseudomoleculeV1 .
+	agrold_vocabulary:is_located_on		 chromosome:3B .
 rRNA:TRAES3BF274200010CFD_rrna
 	agrold_vocabulary:source_project	 "GDEC" ;
 	rdf:type	agrold_schema:rRNA ;
 	agrold_vocabulary:taxon		http://purl.obolibrary.org/obo/NCBITaxon_39946 ;
 	agrold_vocabulary:has_start_position	 "83722210"^^xsd:integer ;
 	agrold_vocabulary:has_end_position	 "83722342"^^xsd:integer ;
-	agrold_vocabulary:is_located_on		 chromosome:traes3bPseudomoleculeV1 .
+	agrold_vocabulary:is_located_on		 chromosome:3B .
 rRNA:TRAES3BF274300010CFD_rrna
 	agrold_vocabulary:source_project	 "GDEC" ;
 	rdf:type	agrold_schema:rRNA ;
 	agrold_vocabulary:taxon		http://purl.obolibrary.org/obo/NCBITaxon_39946 ;
 	agrold_vocabulary:has_start_position	 "84584607"^^xsd:integer ;
 	agrold_vocabulary:has_end_position	 "84584739"^^xsd:integer ;
-	agrold_vocabulary:is_located_on		 chromosome:traes3bPseudomoleculeV1 .
+	agrold_vocabulary:is_located_on		 chromosome:3B .
 rRNA:TRAES3BF275600010CFD_rrna
 	agrold_vocabulary:source_project	 "GDEC" ;
 	rdf:type	agrold_schema:rRNA ;
 	agrold_vocabulary:taxon		http://purl.obolibrary.org/obo/NCBITaxon_39946 ;
 	agrold_vocabulary:has_start_position	 "305327918"^^xsd:integer ;
 	agrold_vocabulary:has_end_position	 "305328048"^^xsd:integer ;
-	agrold_vocabulary:is_located_on		 chromosome:traes3bPseudomoleculeV1 .
+	agrold_vocabulary:is_located_on		 chromosome:3B .
 ncRNA:TRAES3BF009700010CFD_ncrna
 	agrold_vocabulary:source_project	 "GDEC" ;
 	rdf:type	agrold_schema:ncRNA ;
 	agrold_vocabulary:taxon		http://purl.obolibrary.org/obo/NCBITaxon_39946 ;
 	agrold_vocabulary:has_start_position	 "80396151"^^xsd:integer ;
 	agrold_vocabulary:has_end_position	 "80396410"^^xsd:integer ;
-	agrold_vocabulary:is_located_on		 chromosome:traes3bPseudomoleculeV1 .
+	agrold_vocabulary:is_located_on		 chromosome:3B .
 ncRNA:TRAES3BF069100010CFD_ncrna
 	agrold_vocabulary:source_project	 "GDEC" ;
 	rdf:type	agrold_schema:ncRNA ;
 	agrold_vocabulary:taxon		http://purl.obolibrary.org/obo/NCBITaxon_39946 ;
 	agrold_vocabulary:has_start_position	 "610361620"^^xsd:integer ;
 	agrold_vocabulary:has_end_position	 "610361880"^^xsd:integer ;
-	agrold_vocabulary:is_located_on		 chromosome:traes3bPseudomoleculeV1 .
+	agrold_vocabulary:is_located_on		 chromosome:3B .
 ncRNA:TRAES3BF039300010CFD_ncrna
 	agrold_vocabulary:source_project	 "GDEC" ;
 	rdf:type	agrold_schema:ncRNA ;
 	agrold_vocabulary:taxon		http://purl.obolibrary.org/obo/NCBITaxon_39946 ;
 	agrold_vocabulary:has_start_position	 "731231635"^^xsd:integer ;
 	agrold_vocabulary:has_end_position	 "731231892"^^xsd:integer ;
-	agrold_vocabulary:is_located_on		 chromosome:traes3bPseudomoleculeV1 .
+	agrold_vocabulary:is_located_on		 chromosome:3B .
 tRNA:TRAES3BF001600010CFD_trna
 	agrold_vocabulary:source_project	 "GDEC" ;
 	rdf:type	agrold_schema:tRNA ;
 	agrold_vocabulary:taxon		http://purl.obolibrary.org/obo/NCBITaxon_39946 ;
 	agrold_vocabulary:has_start_position	 "135826251"^^xsd:integer ;
 	agrold_vocabulary:has_end_position	 "135826319"^^xsd:integer ;
-	agrold_vocabulary:is_located_on		 chromosome:traes3bPseudomoleculeV1 .
+	agrold_vocabulary:is_located_on		 chromosome:3B .
 tRNA:TRAES3BF001900010CFD_trna
 	agrold_vocabulary:source_project	 "GDEC" ;
 	rdf:type	agrold_schema:tRNA ;
 	agrold_vocabulary:taxon		http://purl.obolibrary.org/obo/NCBITaxon_39946 ;
 	agrold_vocabulary:has_start_position	 "570364498"^^xsd:integer ;
 	agrold_vocabulary:has_end_position	 "570364579"^^xsd:integer ;
-	agrold_vocabulary:is_located_on		 chromosome:traes3bPseudomoleculeV1 .
+	agrold_vocabulary:is_located_on		 chromosome:3B .
 tRNA:TRAES3BF002000020CFD_trna
 	agrold_vocabulary:source_project	 "GDEC" ;
 	rdf:type	agrold_schema:tRNA ;
 	agrold_vocabulary:taxon		http://purl.obolibrary.org/obo/NCBITaxon_39946 ;
 	agrold_vocabulary:has_start_position	 "137162921"^^xsd:integer ;
 	agrold_vocabulary:has_end_position	 "137162991"^^xsd:integer ;
-	agrold_vocabulary:is_located_on		 chromosome:traes3bPseudomoleculeV1 .
+	agrold_vocabulary:is_located_on		 chromosome:3B .
 tRNA:TRAES3BF002000010CFD_trna
 	agrold_vocabulary:source_project	 "GDEC" ;
 	rdf:type	agrold_schema:tRNA ;
 	agrold_vocabulary:taxon		http://purl.obolibrary.org/obo/NCBITaxon_39946 ;
 	agrold_vocabulary:has_start_position	 "137042737"^^xsd:integer ;
 	agrold_vocabulary:has_end_position	 "137042808"^^xsd:integer ;
-	agrold_vocabulary:is_located_on		 chromosome:traes3bPseudomoleculeV1 .
+	agrold_vocabulary:is_located_on		 chromosome:3B .
 BAC:TaaCsp3BFhA_0053D11
 	agrold_vocabulary:source_project	 "GDEC" ;
 	rdf:type	agrold_schema:BAC ;
 	agrold_vocabulary:taxon		http://purl.obolibrary.org/obo/NCBITaxon_39946 ;
 	agrold_vocabulary:has_start_position	 "658310425"^^xsd:integer ;
 	agrold_vocabulary:has_end_position	 "658487345"^^xsd:integer ;
-	agrold_vocabulary:is_located_on		 chromosome:traes3bPseudomoleculeV1 .
+	agrold_vocabulary:is_located_on		 chromosome:3B .
 BAC:TaaCsp3BFhA_0015C16
 	agrold_vocabulary:source_project	 "GDEC" ;
 	rdf:type	agrold_schema:BAC ;
 	agrold_vocabulary:taxon		http://purl.obolibrary.org/obo/NCBITaxon_39946 ;
 	agrold_vocabulary:has_start_position	 "658463740"^^xsd:integer ;
 	agrold_vocabulary:has_end_position	 "658537069"^^xsd:integer ;
-	agrold_vocabulary:is_located_on		 chromosome:traes3bPseudomoleculeV1 .
+	agrold_vocabulary:is_located_on		 chromosome:3B .
 BAC:TaaCsp3BFhA_0297O05
 	agrold_vocabulary:source_project	 "GDEC" ;
 	rdf:type	agrold_schema:BAC ;
 	agrold_vocabulary:taxon		http://purl.obolibrary.org/obo/NCBITaxon_39946 ;
 	agrold_vocabulary:has_start_position	 "658564860"^^xsd:integer ;
 	agrold_vocabulary:has_end_position	 "658695198"^^xsd:integer ;
-	agrold_vocabulary:is_located_on		 chromosome:traes3bPseudomoleculeV1 .
+	agrold_vocabulary:is_located_on		 chromosome:3B .
 BAC:TaaCsp3BFhA_0086N01
 	agrold_vocabulary:source_project	 "GDEC" ;
 	rdf:type	agrold_schema:BAC ;
 	agrold_vocabulary:taxon		http://purl.obolibrary.org/obo/NCBITaxon_39946 ;
 	agrold_vocabulary:has_start_position	 "76583477"^^xsd:integer ;
 	agrold_vocabulary:has_end_position	 "76666629"^^xsd:integer ;
-	agrold_vocabulary:is_located_on		 chromosome:traes3bPseudomoleculeV1 .
+	agrold_vocabulary:is_located_on		 chromosome:3B .
 mRNA:TRAES3BF007400020CFD_t1
 	agrold_vocabulary:source_project	 "GDEC" ;
 	rdf:type	agrold_schema:mRNA ;
@@ -181,7 +181,7 @@ mRNA:TRAES3BF007400020CFD_t1
 	agrold_vocabulary:has_end_position	 "211542844"^^xsd:integer ;
 	agrold_vocabulary:develops_from		gene:TRAES3BF007400020CFD_g ;
 	agrold_vocabulary:part_of		None:TRAES3BF007400020CFD_g ; 
-	agrold_vocabulary:is_located_on		 chromosome:traes3bPseudomoleculeV1 .
+	agrold_vocabulary:is_located_on		 chromosome:3B .
 CDS:TRAES3BF007400020CFD_c1_1
 	agrold_vocabulary:source_project	 "GDEC" ;
 	rdf:type	agrold_schema:CDS ;
@@ -189,7 +189,7 @@ CDS:TRAES3BF007400020CFD_c1_1
 	agrold_vocabulary:has_start_position	 "211536930"^^xsd:integer ;
 	agrold_vocabulary:has_end_position	 "211537203"^^xsd:integer ;
 	agrold_vocabulary:part_of		mRNA:TRAES3BF007400020CFD_t1 ; 
-	agrold_vocabulary:is_located_on		 chromosome:traes3bPseudomoleculeV1 .
+	agrold_vocabulary:is_located_on		 chromosome:3B .
 CDS:TRAES3BF007400020CFD_c1_2
 	agrold_vocabulary:source_project	 "GDEC" ;
 	rdf:type	agrold_schema:CDS ;
@@ -197,7 +197,7 @@ CDS:TRAES3BF007400020CFD_c1_2
 	agrold_vocabulary:has_start_position	 "211538415"^^xsd:integer ;
 	agrold_vocabulary:has_end_position	 "211538974"^^xsd:integer ;
 	agrold_vocabulary:part_of		mRNA:TRAES3BF007400020CFD_t1 ; 
-	agrold_vocabulary:is_located_on		 chromosome:traes3bPseudomoleculeV1 .
+	agrold_vocabulary:is_located_on		 chromosome:3B .
 CDS:TRAES3BF007400020CFD_c1_3
 	agrold_vocabulary:source_project	 "GDEC" ;
 	rdf:type	agrold_schema:CDS ;
@@ -205,7 +205,7 @@ CDS:TRAES3BF007400020CFD_c1_3
 	agrold_vocabulary:has_start_position	 "211539085"^^xsd:integer ;
 	agrold_vocabulary:has_end_position	 "211539132"^^xsd:integer ;
 	agrold_vocabulary:part_of		mRNA:TRAES3BF007400020CFD_t1 ; 
-	agrold_vocabulary:is_located_on		 chromosome:traes3bPseudomoleculeV1 .
+	agrold_vocabulary:is_located_on		 chromosome:3B .
 CDS:TRAES3BF007400020CFD_c1_4
 	agrold_vocabulary:source_project	 "GDEC" ;
 	rdf:type	agrold_schema:CDS ;
@@ -213,7 +213,7 @@ CDS:TRAES3BF007400020CFD_c1_4
 	agrold_vocabulary:has_start_position	 "211539217"^^xsd:integer ;
 	agrold_vocabulary:has_end_position	 "211540159"^^xsd:integer ;
 	agrold_vocabulary:part_of		mRNA:TRAES3BF007400020CFD_t1 ; 
-	agrold_vocabulary:is_located_on		 chromosome:traes3bPseudomoleculeV1 .
+	agrold_vocabulary:is_located_on		 chromosome:3B .
 CDS:TRAES3BF007400020CFD_c1_5
 	agrold_vocabulary:source_project	 "GDEC" ;
 	rdf:type	agrold_schema:CDS ;
@@ -221,14 +221,14 @@ CDS:TRAES3BF007400020CFD_c1_5
 	agrold_vocabulary:has_start_position	 "211541868"^^xsd:integer ;
 	agrold_vocabulary:has_end_position	 "211542844"^^xsd:integer ;
 	agrold_vocabulary:part_of		mRNA:TRAES3BF007400020CFD_t1 ; 
-	agrold_vocabulary:is_located_on		 chromosome:traes3bPseudomoleculeV1 .
+	agrold_vocabulary:is_located_on		 chromosome:3B .
 gene:TRAES3BF007400040CFD_g
 	agrold_vocabulary:source_project	 "GDEC" ;
 	rdf:type	agrold_schema:gene ;
 	agrold_vocabulary:taxon		http://purl.obolibrary.org/obo/NCBITaxon_39946 ;
 	agrold_vocabulary:has_start_position	 "212165529"^^xsd:integer ;
 	agrold_vocabulary:has_end_position	 "212166500"^^xsd:integer ;
-	agrold_vocabulary:is_located_on		 chromosome:traes3bPseudomoleculeV1 .
+	agrold_vocabulary:is_located_on		 chromosome:3B .
 mRNA:TRAES3BF007400040CFD_t1
 	agrold_vocabulary:source_project	 "GDEC" ;
 	rdf:type	agrold_schema:mRNA ;
@@ -237,7 +237,7 @@ mRNA:TRAES3BF007400040CFD_t1
 	agrold_vocabulary:has_end_position	 "212166500"^^xsd:integer ;
 	agrold_vocabulary:develops_from		gene:TRAES3BF007400040CFD_g ;
 	agrold_vocabulary:part_of		gene:TRAES3BF007400040CFD_g ; 
-	agrold_vocabulary:is_located_on		 chromosome:traes3bPseudomoleculeV1 .
+	agrold_vocabulary:is_located_on		 chromosome:3B .
 CDS:TRAES3BF007400040CFD_c1_1
 	agrold_vocabulary:source_project	 "GDEC" ;
 	rdf:type	agrold_schema:CDS ;
@@ -245,14 +245,14 @@ CDS:TRAES3BF007400040CFD_c1_1
 	agrold_vocabulary:has_start_position	 "212165529"^^xsd:integer ;
 	agrold_vocabulary:has_end_position	 "212166500"^^xsd:integer ;
 	agrold_vocabulary:part_of		mRNA:TRAES3BF007400040CFD_t1 ; 
-	agrold_vocabulary:is_located_on		 chromosome:traes3bPseudomoleculeV1 .
+	agrold_vocabulary:is_located_on		 chromosome:3B .
 gene:TRAES3BF007400030CFD_g
 	agrold_vocabulary:source_project	 "GDEC" ;
 	rdf:type	agrold_schema:gene ;
 	agrold_vocabulary:taxon		http://purl.obolibrary.org/obo/NCBITaxon_39946 ;
 	agrold_vocabulary:has_start_position	 "211957156"^^xsd:integer ;
 	agrold_vocabulary:has_end_position	 "211958136"^^xsd:integer ;
-	agrold_vocabulary:is_located_on		 chromosome:traes3bPseudomoleculeV1 .
+	agrold_vocabulary:is_located_on		 chromosome:3B .
 mRNA:TRAES3BF007400030CFD_t1
 	agrold_vocabulary:source_project	 "GDEC" ;
 	rdf:type	agrold_schema:mRNA ;
@@ -261,7 +261,7 @@ mRNA:TRAES3BF007400030CFD_t1
 	agrold_vocabulary:has_end_position	 "211958136"^^xsd:integer ;
 	agrold_vocabulary:develops_from		gene:TRAES3BF007400030CFD_g ;
 	agrold_vocabulary:part_of		gene:TRAES3BF007400030CFD_g ; 
-	agrold_vocabulary:is_located_on		 chromosome:traes3bPseudomoleculeV1 .
+	agrold_vocabulary:is_located_on		 chromosome:3B .
 CDS:TRAES3BF007400030CFD_c1_1
 	agrold_vocabulary:source_project	 "GDEC" ;
 	rdf:type	agrold_schema:CDS ;
@@ -269,14 +269,14 @@ CDS:TRAES3BF007400030CFD_c1_1
 	agrold_vocabulary:has_start_position	 "211957156"^^xsd:integer ;
 	agrold_vocabulary:has_end_position	 "211958136"^^xsd:integer ;
 	agrold_vocabulary:part_of		mRNA:TRAES3BF007400030CFD_t1 ; 
-	agrold_vocabulary:is_located_on		 chromosome:traes3bPseudomoleculeV1 .
+	agrold_vocabulary:is_located_on		 chromosome:3B .
 gene:TRAES3BF007400090CFD_g
 	agrold_vocabulary:source_project	 "GDEC" ;
 	rdf:type	agrold_schema:gene ;
 	agrold_vocabulary:taxon		http://purl.obolibrary.org/obo/NCBITaxon_39946 ;
 	agrold_vocabulary:has_start_position	 "212254653"^^xsd:integer ;
 	agrold_vocabulary:has_end_position	 "212263848"^^xsd:integer ;
-	agrold_vocabulary:is_located_on		 chromosome:traes3bPseudomoleculeV1 .
+	agrold_vocabulary:is_located_on		 chromosome:3B .
 mRNA:TRAES3BF007400090CFD_t1
 	agrold_vocabulary:source_project	 "GDEC" ;
 	rdf:type	agrold_schema:mRNA ;
@@ -285,7 +285,7 @@ mRNA:TRAES3BF007400090CFD_t1
 	agrold_vocabulary:has_end_position	 "212263848"^^xsd:integer ;
 	agrold_vocabulary:develops_from		gene:TRAES3BF007400090CFD_g ;
 	agrold_vocabulary:part_of		gene:TRAES3BF007400090CFD_g ; 
-	agrold_vocabulary:is_located_on		 chromosome:traes3bPseudomoleculeV1 .
+	agrold_vocabulary:is_located_on		 chromosome:3B .
 CDS:TRAES3BF007400090CFD_c1_1
 	agrold_vocabulary:source_project	 "GDEC" ;
 	rdf:type	agrold_schema:CDS ;
@@ -293,7 +293,7 @@ CDS:TRAES3BF007400090CFD_c1_1
 	agrold_vocabulary:has_start_position	 "212254653"^^xsd:integer ;
 	agrold_vocabulary:has_end_position	 "212254751"^^xsd:integer ;
 	agrold_vocabulary:part_of		mRNA:TRAES3BF007400090CFD_t1 ; 
-	agrold_vocabulary:is_located_on		 chromosome:traes3bPseudomoleculeV1 .
+	agrold_vocabulary:is_located_on		 chromosome:3B .
 CDS:TRAES3BF007400090CFD_c1_2
 	agrold_vocabulary:source_project	 "GDEC" ;
 	rdf:type	agrold_schema:CDS ;
@@ -301,7 +301,7 @@ CDS:TRAES3BF007400090CFD_c1_2
 	agrold_vocabulary:has_start_position	 "212255569"^^xsd:integer ;
 	agrold_vocabulary:has_end_position	 "212255729"^^xsd:integer ;
 	agrold_vocabulary:part_of		mRNA:TRAES3BF007400090CFD_t1 ; 
-	agrold_vocabulary:is_located_on		 chromosome:traes3bPseudomoleculeV1 .
+	agrold_vocabulary:is_located_on		 chromosome:3B .
 CDS:TRAES3BF007400090CFD_c1_3
 	agrold_vocabulary:source_project	 "GDEC" ;
 	rdf:type	agrold_schema:CDS ;
@@ -309,11 +309,26 @@ CDS:TRAES3BF007400090CFD_c1_3
 	agrold_vocabulary:has_start_position	 "212263719"^^xsd:integer ;
 	agrold_vocabulary:has_end_position	 "212263848"^^xsd:integer ;
 	agrold_vocabulary:part_of		mRNA:TRAES3BF007400090CFD_t1 ; 
-	agrold_vocabulary:is_located_on		 chromosome:traes3bPseudomoleculeV1 .
+	agrold_vocabulary:is_located_on		 chromosome:3B .
 gene:TRAES3BF007400010CFD_g
 	agrold_vocabulary:source_project	 "GDEC" ;
 	rdf:type	agrold_schema:gene ;
 	agrold_vocabulary:taxon		http://purl.obolibrary.org/obo/NCBITaxon_39946 ;
 	agrold_vocabulary:has_start_position	 "211515570"^^xsd:integer ;
 	agrold_vocabulary:has_end_position	 "211518382"^^xsd:integer ;
-	agrold_voc
+	agrold_vocabulary:is_located_on		 chromosome:3B .
+mRNA:TRAES3BF007400010CFD_t1
+	agrold_vocabulary:source_project	 "GDEC" ;
+	rdf:type	agrold_schema:mRNA ;
+	agrold_vocabulary:taxon		http://purl.obolibrary.org/obo/NCBITaxon_39946 ;
+	agrold_vocabulary:has_start_position	 "211515570"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "211518382"^^xsd:integer ;
+	agrold_vocabulary:develops_from		gene:TRAES3BF007400010CFD_g ;
+	agrold_vocabulary:part_of		gene:TRAES3BF007400010CFD_g ; 
+	agrold_vocabulary:is_located_on		 chromosome:3B .
+CDS:TRAES3BF007400010CFD_c1_1
+	agrold_vocabulary:source_project	 "GDEC" ;
+	rdf:type	agrold_schema:CDS ;
+	agrold_vocabulary:taxon		http://purl.obolibrary.org/obo/NCBITaxon_39946 ;
+	agrold_vocabulary:has_start_position	 "211515570"^^xsd:integer ;
+	agrold_vocabulary:has_end_position	 "211515662"^^x

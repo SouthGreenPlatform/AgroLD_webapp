@@ -15,6 +15,8 @@ def SaveHeader(tropGene_file):
     header = re.sub('"', '', header)
     header = re.sub(';;', ' ', header)
     headerListe = header.split()
+    print(type(headerListe))
+    print(headerListe)
     return headerListe
 
 
@@ -22,6 +24,7 @@ def SaveHeader(tropGene_file):
 def tropGeneParser(topGene_file):
 
     map_reader = open(topGene_file, "r")
+    print("---------> " + str(type(map_reader)))
     counter = 0;
     headers = list()
     headers = SaveHeader(map_reader)
@@ -46,7 +49,9 @@ def tropGeneParser(topGene_file):
 
 # test pour le parsing generique
 #pp = pprint.PrettyPrinter(indent=4)
-#path = '/media/elhassouni/donnees/Noeud-plante-projet/code-source/qtl.csv'
-#path_output = '/media/elhassouni/donnees/Noeud-plante-projet/code-source/tropGene-Sorti-Test-pasing-generique.ttl'
+path = '/media/elhassouni/donnees/Noeud-plante-projet/workspace/AgroLD/AgroLD_ETL/test_files/tropGene/rice.csv'
+path_output = '/media/elhassouni/donnees/Noeud-plante-projet/code-source/tropGene-Sorti-Test-pasing-generique.ttl'
 #ds = SaveHeader(path)
+tropGeneParser(path)
+
 #pp.pprint(ds)

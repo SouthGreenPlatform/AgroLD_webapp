@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/AgroLD.iml" filepath="$PROJECT_DIR$/.idea/AgroLD.iml" />
+      <module fileurl="file://$USER_HOME$/Bureau/virtual_env_test/brapi_tropgene/.idea/brapi_tropgene.iml" filepath="$USER_HOME$/Bureau/virtual_env_test/brapi_tropgene/.idea/brapi_tropgene.iml" />
+      <module fileurl="file://$USER_HOME$/Bureau/virtual_env_test/tropgene_brapi/.idea/tropgene_brapi.iml" filepath="$USER_HOME$/Bureau/virtual_env_test/tropgene_brapi/.idea/tropgene_brapi.iml" />
       <module fileurl="file://$PROJECT_DIR$/../.idea/workspace.iml" filepath="$PROJECT_DIR$/../.idea/workspace.iml" />
     </modules>
   </component>

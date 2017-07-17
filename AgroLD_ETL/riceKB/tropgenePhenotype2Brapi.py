@@ -17,6 +17,7 @@ def SaveHeader(tropGene_file):
     header = re.sub('"', '', header)
     header = re.sub(';', ' ', header)
     headerListe = header.split()
+
     return headerListe
 
 
@@ -127,6 +128,7 @@ def tropgene2brapi(map_ds):
 #test pour le parsing generique
 pp = pprint.PrettyPrinter(indent=4)
 path = '/media/elhassouni/donnees/Noeud-plante-projet/tropgene_model_data/study(2).csv'
+
 path_output = '/media/elhassouni/donnees/Noeud-plante-projet/tropgene_model_data/tropgenePhenotypeBrapi.json'
 #ds = SaveHeader(path)
 #pp.pprint(ds)
