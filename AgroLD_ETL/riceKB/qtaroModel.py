@@ -13,12 +13,11 @@ import json
 Created on May, 2017
 The QtaroParsers module is created as part of the Rice Knowledge Base project.
 
-This module contains Parsers, RDF converters and generic functions for handling rapdb data
+This module contains Parsers, RDF converters and generic functions for handling Qtaro data
 
 TODO:
     1) Add documentation
-    2) Fix Gramene record trailing space in the parser, now it is being handled in the RDF converter
-    3) better Error handling
+    2) better Error handling
 @author: larmande
 '''
 __author__  = "larmande"
@@ -83,7 +82,6 @@ def qtaroQTLRDF(infile, output_dir):
 
     #    print "Gramene QTL data has been parsed!\n"
     #    print "*************************************\n"
-    # id|qtl_gene_name|character_major|character_minor|marker_volume|chromosome|start|end|source|lod|crossed_a|crossed_b|direction|references|ref_number|marker|marker_physical|marker_fine_1|marker_fine_2|marker_fine_3|marker_interval_1|marker_interval_2|marker_interval_3|marker_single|analytic_group|group_size|trait_name|contribution_rate|synergy_effect|publication_year
 
     print "************* Qtaro QTL RDF conversion begins***********\n"
 
