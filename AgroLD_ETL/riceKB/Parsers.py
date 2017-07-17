@@ -113,7 +113,7 @@ class GrameneGenomeParser(object):
     def __str__(self):
         return "Gramene Genome Parser"
 
-class GrameneQTLPaerser(object):
+class GrameneQTLParser(object):
     '''
     classdocs
     '''

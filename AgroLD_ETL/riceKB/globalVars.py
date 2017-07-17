@@ -92,6 +92,9 @@ res_ns = 'agrold_schema:'
 gramene_qtl = 'http://www.identifiers.org/gramene.qtl/'
 gr_qtl_ns = 'gramene_qtl:' 
 
+qtaro_qtl = 'http://www.southgreen.fr/agrold/qtaro.qtl'
+qtaro_qtl_ns = 'qtaro_qtl:'
+
 ensembl_plant = 'http://identifiers.org/ensembl.plant/'
 ensembl_ns = 'ensembl:'
 
@@ -106,6 +109,12 @@ tigr_g_ns = 'tigr_gene:'
 
 rapdb_uri = 'http://www.southgreen.fr/agrold/rapdb/'
 rapdb_ns = 'rapdb:'
+
+interpro_uri = 'http://identifiers.org/interpro/'
+interpro_ns = 'interpro:'
+
+uniprot_uri = 'http://identifiers.org/uniprot/'
+uniprot_ns = 'uniprot:'
 
 orygene_uri = 'http://identifiers.org/oryzabase.gene/'
 orygene_ns = 'oryzabase:'
@@ -122,6 +131,10 @@ pathway_ns = 'pathway:'
 #BioCyc
 swo_uri = 'http://edamontology.org/'
 swo_ns = 'swo:'
+
+#Pubmed
+pubmed_uri = 'http://identifiers.org/pubmed/'
+pubmed_ns = 'pubmed:'
 
 # AraCyc
 #aracyc_uri = 'http://www.southgreen.fr/agrold/aracyc.pathway/'
@@ -175,7 +188,8 @@ embl_ns = 'ena.embl:'
 marker_uri = 'http://www.southgreen.fr/agrold/orygenesdb.marker/'
 marker_ns = 'marker:'
 
-
+kegg_uri='http://identifiers.org/kegg/'
+kegg_ns='kegg:'
 
 #TROPGENE
 
