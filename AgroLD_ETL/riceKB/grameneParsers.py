@@ -335,7 +335,7 @@ def grameneGeneRDF(files, output_dir):
     output_opener.write(pr + "\t" + tair_l_ns + "<" + tair_l_uri + "> .\n")                
     output_opener.write(pr + "\t" + up_ns + "<" + uniprot + "> .\n\n")
     '''
-    Ajout du prefix pour la realese des donnees
+    Ajout du prefix pour la release des donnees
     '''
     output_opener.write(pr + "\t" + res_ns + "<" + resource + "> .\n\n")
 

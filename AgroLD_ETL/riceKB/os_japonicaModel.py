@@ -231,7 +231,7 @@ def os_indicaModeleRDF(indica_ds, output_file):
 
 #RAPDB.gff3
 
-        if records['source'] == "IRGSP":
+        if records['source'] == "irgsp1_rep":
             if records['type'] == "gene":
                 os_japonica_buffer = ''
                 os_japonica_buffer += ensembl_ns + records['attributes']['ID'] + "\n"
@@ -257,8 +257,44 @@ def os_indicaModeleRDF(indica_ds, output_file):
                 os_japonica_buffer += "\t" + base_vocab_ns + "taxon" + "\t\t" + obo_ns + "NCBITaxon_" + "39947" + " ;\n"
                 os_japonica_buffer += "\t" + base_vocab_ns + "has_start_position" + "\t" + " \"" + str(records['start']) + "\"^^xsd:integer ;\n"
                 os_japonica_buffer += "\t" + base_vocab_ns + "has_end_position" + "\t" + " \"" + str(records['end']) + "\"^^xsd:integer ;\n"
-                os_japonica_buffer += "\t" + base_vocab_ns + "develops_from" + "\t\t" + ensembl_ns + records['attributes']['Parent'] + " ;\n"
+                os_japonica_buffer += "\t" + base_vocab_ns + "develops_from" + "\t\t" + ensembl_ns + records['attributes']['Locus_id'] + " ;\n"
                 os_japonica_buffer += "\t" + base_vocab_ns + "is_located_on" + "\t\t" + "" + chromosome_ns + re.sub('Os', '', records['seqid']) + " .\n"
+                if 'Note' in records['attributes']:
+                    os_japonica_buffer += "\t" + base_vocab_ns + "comment" + "\t" + '"%s"' % (records['attributes']['Note']) + " ;\n"
+                if 'GO' in records['attributes']:
+                    os_japonica_buffer += "\t" + base_vocab_ns + "comment" + "\t" + '"%s"' % (records['attributes']['GO']) + " ;\n"
+                if 'InterPro' in records['attributes']:
+                    os_japonica_buffer += "\t" + base_vocab_ns + "comment" + "\t" + '"%s"' % (records['attributes']['InterPro']) + " ;\n"
+                if 'CGSNL Gene Name' in records['attributes']:
+                    os_japonica_buffer += "\t" + base_vocab_ns + "has_synonym" + "\t" + '"%s"' % (records['attributes']['CGSNL Gene Name']) + " ;\n"
+                if 'CGSNL Gene Symbol' in records['attributes']:
+                    os_japonica_buffer += "\t" + base_vocab_ns + "has_symbol" + "\t" + '"%s"' % (records['attributes']['CGSNL Gene Symbol']) + " ;\n"
+                if 'Literature_PMID' in records['attributes']:
+                    os_japonica_buffer += "\t" + base_vocab_ns + "has_dbxref" + "\t\t" + pubmed_ns + records['attributes']['Literature_PMID'] + " ;\n"
+                if 'ORF_evidence' in records['attributes']:
+                    os_japonica_buffer += "\t" + base_vocab_ns + "evidence" + "\t" + '"%s"' % (records['attributes']['ORF_evidence']) + " ;\n"
+                if 'Oryzabase' in records['attributes']:
+                    os_japonica_buffer += "\t" + base_vocab_ns + "has_dbxref" + "\t\t" + orygene_ns + records['attributes']['Oryzabase'] + " ;\n"
+                if 'Oryzabase Gene Name Synonym(s)' in records['attributes']:
+                    os_japonica_buffer += "\t" + base_vocab_ns + "has_synonym" + "\t" + '"%s"' % (records['attributes']['Oryzabase Gene Name Synonym(s)']) + " ;\n"
+                if 'Oryzabase Gene Symbol Synonym(s)' in records['attributes']:
+                    os_japonica_buffer += "\t" + base_vocab_ns + "has_symbol" + "\t" + '"%s"' % (records['attributes']['Oryzabase Gene Symbol Synonym(s)']) + " ;\n"
+                if 'RAP-DB Gene Name Synonym(s)' in records['attributes']:
+                    os_japonica_buffer += "\t" + base_vocab_ns + "has_synonym" + "\t" + '"%s"' % (records['attributes']['RAP-DB Gene Name Synonym(s)']) + " ;\n"
+                if 'RAP-DB Gene Symbol Synonym(s)' in records['attributes']:
+                    os_japonica_buffer += "\t" + base_vocab_ns + "has_symbol" + "\t" + '"%s"' % (records['attributes']['RAP-DB Gene Symbol Synonym(s)']) + " ;\n"
+                if 'Transcript_evidence' in records['attributes']:
+                    os_japonica_buffer += "\t" + base_vocab_ns + "evidence" + "\t" + '"%s"' % (records['attributes']['Transcript_evidence']) + " ;\n"
+                if 'NIAS_FLcDNA' in records['attributes']:
+                    os_japonica_buffer += "\t" + base_vocab_ns + "evidence" + "\t" + "NIAS_FLcDNA: " + '"%s"' % (records['attributes']['NIAS_FLcDNA']) + " ;\n"
+                if 'KEGG' in records['attributes']:
+                    os_japonica_buffer += "\t" + base_vocab_ns + "has_dbxref" + "\t\t" + kegg_ns + records['attributes']['KEGG'] + " ;\n"
+                if 'TENOR' in records['attributes']:
+                    os_japonica_buffer += "\t" + base_vocab_ns + "has_dbxref" + "\t" + "TENOR: " + '"%s"' % (records['attributes']['TENOR']) + " ;\n"
+                if 'Expression' in records['attributes']:
+                    os_japonica_buffer += "\t" + base_vocab_ns + "has_dbxref" + "\t" + "Expression: " + '"%s"' % (records['attributes']['Expression']) + " ;\n"
+                if 'B5toI1' in records['attributes']:
+                    os_japonica_buffer += "\t" + base_vocab_ns + "has_dbxref" + "\t" + "B5toI1: " + '"%s"' % (records['attributes']['B5toI1']) + " ;\n"
                 print(os_japonica_buffer)
                 rdf_writer.write(os_japonica_buffer)
 
@@ -340,17 +376,16 @@ def os_indicaModeleRDF(indica_ds, output_file):
     print(line_number)
 
 
-'''
 pp = pprint.PrettyPrinter(indent=4)
 
 #TEST PARAM
-#path = '/opt/TOS_DI-20141207_1530-V5.6.1/workspace/gff_data_orygeneDB/os_japonica/japonica_test.gff3'
-#ath_output = '/opt/TOS_DI-20141207_1530-V5.6.1/workspace/gff_data_orygeneDB/os_japonica/japonica_test.ttl' # The output
-path = '/opt/TOS_DI-20141207_1530-V5.6.1/workspace/gff_data_orygeneDB/os_japonica/os_indicaCancat.gff3'    # The input
-path_output = '/home/elhassouni/Bureau/japonica.ttl' # The output
+path = '/Users/plarmande/Downloads/IRGSP-1.0_representative/transcripts_mRNA.gff'
+path_output = '/Users/plarmande/Downloads/IRGSP-1.0_representative/transcripts_mRNA.ttl' # The output
+#path = '/opt/TOS_DI-20141207_1530-V5.6.1/workspace/gff_data_orygeneDB/os_japonica/os_indicaCancat.gff3'    # The input
+#path_output = '/home/elhassouni/Bureau/japonica.ttl' # The output
 ds = parseGFF3(path)   # The parsing file withe tropGeneParser()
 pp.pprint(ds)    # For to see in teminal the parsing
 
-os_indicaModele(ds, path_output)  # The path_output)  # The tranformation fonction tropGeneToRdf(input, output)
+#os_indicaModele(ds, path_output)  # The path_output)  # The tranformation fonction tropGeneToRdf(input, output)
 
-'''
+os_indicaModeleRDF(ds, path_output)
