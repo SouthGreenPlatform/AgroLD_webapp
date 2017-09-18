@@ -63,7 +63,11 @@ xsd_ns = 'xsd:'
 owl_uri = 'http://www.w3.org/2002/07/owl#'
 owl_ns = 'owl:'
 
+dc_uri = 'http://purl.org/dc/elements/1.1/'
+dc_ns = 'dc:'
 
+doi_uri = 'http://dx.doi.org/'
+doi_ns = 'doi:'
 #Internal URI/namespaces
 #base_uri = 'http://www.southgreen.fr/agrold/'
 #base_ns = 'agrold:'
@@ -94,6 +98,9 @@ gr_qtl_ns = 'gramene_qtl:'
 
 qtaro_qtl = 'http://www.southgreen.fr/agrold/qtaro.qtl'
 qtaro_qtl_ns = 'qtaro_qtl:'
+
+qtaro_gene = 'http://www.southgreen.fr/agrold/qtaro.gene'
+qtaro_gene_ns = 'qtaro_gene:'
 
 ensembl_plant = 'http://identifiers.org/ensembl.plant/'
 ensembl_ns = 'ensembl:'
