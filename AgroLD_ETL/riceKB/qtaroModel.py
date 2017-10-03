@@ -113,7 +113,7 @@ def qtaroGeneRDF(infile, output_dir):
             gene_buffer += "\t" + base_vocab_ns + "has_end_position" + "\t" + '"%s"' % (records[7]) + " ;\n"
             gene_buffer += "\t" + base_vocab_ns + "has_trait" + "\t" + '"%s"' % (records[3]) + " ;\n"
             gene_buffer += "\t" + base_vocab_ns + "has_trait" + "\t" + '"%s"' % (records[4]) + " ;\n"
-            gene_buffer += "\t" + base_vocab_ns + "has_dbxref" + "\t" + ensembl_ns + '"%s"' % (records[8]) + " ;\n"
+            gene_buffer += "\t" + base_vocab_ns + "has_dbxref" + "\t" + ensembl_ns + records[8] + " ;\n"
             gene_buffer += "\t" + base_vocab_ns + "has_dbxref" + "\t" + qtaro_gene_ns + records[0] + " ;\n"
             gene_buffer += "\t" + base_vocab_ns + "description" + "\t" + '"%s"' % (records[11]) + " ;\n"
             if records[12] is not np.nan:
@@ -193,5 +193,5 @@ def qtaroQTLRDF(infile, output_dir):
 
 #geneParser('../test_files/qtaro/Qtaro-Gene-export.csv')
 
-qtaroGeneRDF('../test_files/qtaro/Qtaro-Gene-export.csv','.')
-#qtaroQTLRDF('../test_files/qtaro/qtaro.qtl.csv','.')
+#qtaroGeneRDF('../test_files/qtaro/Qtaro-Gene-export.csv','.')
+qtaroQTLRDF('../test_files/qtaro/qtaro.qtl.csv','.')
