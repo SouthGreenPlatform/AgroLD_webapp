@@ -92,6 +92,7 @@ def qtaroGeneRDF(infile, output_dir):
     outHandle.write(pr + "\t" + qtaro_gene_ns + "<" + qtaro_gene + "> .\n")
     outHandle.write(pr + "\t" + ensembl_ns + "<" + ensembl_plant + "> .\n")
     outHandle.write(pr + "\t" + dc_ns + "<" + dc_uri + "> .\n")
+    outHandle.write(pr + "\t" + doi_ns + "<" + doi_uri + "> .\n")
     '''
     Ajout du prefix pour la release des donnees
     '''
