@@ -96,10 +96,11 @@ res_ns = 'agrold_schema:'
 gramene_qtl = 'http://www.identifiers.org/gramene.qtl/'
 gr_qtl_ns = 'gramene_qtl:' 
 
-qtaro_qtl = 'http://www.southgreen.fr/agrold/qtaro.qtl'
+
+qtaro_qtl = 'http://www.southgreen.fr/agrold/qtaro.qtl/'
 qtaro_qtl_ns = 'qtaro_qtl:'
 
-qtaro_gene = 'http://www.southgreen.fr/agrold/qtaro.gene'
+qtaro_gene = 'http://www.southgreen.fr/agrold/qtaro.gene/'
 qtaro_gene_ns = 'qtaro_gene:'
 
 ensembl_plant = 'http://identifiers.org/ensembl.plant/'
@@ -117,14 +118,20 @@ tigr_g_ns = 'tigr_gene:'
 rapdb_uri = 'http://www.southgreen.fr/agrold/rapdb/'
 rapdb_ns = 'rapdb:'
 
+tenor_uri = 'http://tenor.dna.affrc.go.jp/EPV/'
+tenor_ns = 'tenor:'
+
 interpro_uri = 'http://identifiers.org/interpro/'
 interpro_ns = 'interpro:'
 
 uniprot_uri = 'http://identifiers.org/uniprot/'
 uniprot_ns = 'uniprot:'
 
-orygene_uri = 'http://identifiers.org/oryzabase.gene/'
-orygene_ns = 'oryzabase:'
+orygene_ns = 'http://identifiers.org/oryzabase.gene/'
+orygene_uri = 'oryzabase:'
+
+oryzabase_uri = 'http://identifiers.org/oryzabase.gene/'
+oryzabase_ns = 'oryzabase:'
 
 ec_code_uri = 'http://identifiers.org/ec-code/'
 ec_code_ns = 'ec:'
