@@ -111,7 +111,7 @@ def genomeParser(infile):
     fileReader.close()
     return geneHash
   '''
-
+# TODO modify the "has_start_position" and  "has_end_position"
 
 def geneParser(infile):
     
@@ -136,10 +136,10 @@ def geneParser(infile):
             gene_hash[gene_id] = {
                                   'Name': records[0],
                                   'Description': records[1],
-                                  'Chromosome': records[2],
-                                  'Start': records[3],
-                                  'End': records[4],
-                                  'Biotype': records[5],                                    
+                                  'Chromosome': records[3],
+                                  'Start': records[4],
+                                  'End': records[5],
+                                  'Biotype': records[2],
                                   'RapID': '',
                                   'TairLocus': '',
                                   'TIGRlocus': {},
@@ -152,6 +152,7 @@ def geneParser(infile):
             if len(records) == 11:
                 if records[6]:
                     gene_hash[gene_id]['TairLocus'] = records[6]
+                    #gene_hash[gene_id]['RapID'] = records[6]
                 if records[7]:
                     gene_hash[gene_id]['ProtID'][records[7]] = '-'
 #                    prot_list.append(records[7])
@@ -174,7 +175,7 @@ def geneParser(infile):
 #                    gene_hash[gene_id]['ProtID'].extend(prot_list)
                 if records[8]:
                     gene_hash[gene_id]['Ontology'][records[8]] = records[9]
-            # Records of sps: O.barthii, O.meridionalis, O.s.indica, O.s.japonica 
+            # Records of sps: O.barthii, O.meridionalis, O.s.indica, O.s.japonica
             if len(records) == 9:
                 if records[6]:
                     if tigr_pattern.match(records[6]):
@@ -203,12 +204,13 @@ def geneParser(infile):
 #                        gene_hash[gene_id]['ProtID'].extend(prot_list)
             # Records of sps: O.glaberrima, T.aestivum, T.urartu, Z.mays 
             if len(records) == 8:
-                if records[6]:
-                    gene_hash[gene_id]['ProtID'][records[6]] = '-'
+                if records[5]:
+                    gene_hash[gene_id]['ProtID'][records[5]] = '-'
 #                    prot_list.append(records[6])
 #                    gene_hash[gene_id]['ProtID'].extend(prot_list)
-                if records[7]:
-                    gene_hash[gene_id]['ProtID'][records[7]] = '-'
+                if records[6]:
+                    gene_hash[gene_id]['Ontology'][records[6]] = records[7]
+                    #gene_hash[gene_id]['ProtID'][records[7]] = '-'
 #                    prot_list.append(records[7])
 #                    gene_hash[gene_id]['ProtID'].extend(prot_list)
             #  Records of sps: O.brachyantha
@@ -310,7 +312,7 @@ def CycParser(in_files):
 ''' 
  RDF Converters 
 '''             
-def grameneGeneRDF(files, output_dir):
+def grameneGeneRDF(files, output_dir): #def grameneGeneRDF(files, output_dir):
     rdf_buffer = ''
 #    geneId_prefix = ''
 #    tigr_prefix = ''
@@ -341,6 +343,7 @@ def grameneGeneRDF(files, output_dir):
 
     
     for gene_file in files:
+
         rdf_buffer = ''
 #        tigr_prefix = ''
 #        rapdb_prefix = ''
@@ -368,8 +371,8 @@ def grameneGeneRDF(files, output_dir):
             gene_counter += 1
             rdf_buffer += ensembl_ns + gene_id + "\n"
             rdf_buffer += "\t" + rdf_ns + "type" + "\t" + res_ns + "Gene" + " ;\n"
-            #rdf_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
-            #rdf_buffer += "\t" + rdfs_ns + "subClassOf" + "\t" + obo_ns + gene_term + " ;\n"
+            # rdf_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
+            # rdf_buffer += "\t" + rdfs_ns + "subClassOf" + "\t" + obo_ns + gene_term + " ;\n"
             for tax_id in taxon_ids:
                 if output_file_name == taxon_ids[tax_id]:
                     rdf_buffer += "\t" + base_vocab_ns + "taxon" + "\t" + obo_ns + "NCBITaxon_" + tax_id + " ;\n"
@@ -659,3 +662,26 @@ def CycRDF(data_stuc, output_dir):
 def removeDuplicates(in_list):
     newlist = list(set(in_list))
     return newlist
+
+ROOT_DIR='/Users/plarmande/Downloads'
+
+# ROOT_DIR='/Volumes/LaCie/AGROLD/agroLD_data_update_mai_2017'
+gramene_genes_files = [ROOT_DIR + '/data/gramene_genes/Zea mays.txt']
+gramene_genes_out = ROOT_DIR + '/rdf/gramene_genes_ttl/'
+# gramene_qtl_out = ROOT_DIR + '/rdf/gramene_qtl_ttl/'
+
+
+pp = pprint.PrettyPrinter(indent=4)
+
+gramene_genomes = gramene_genes_files #gramene_genes_files
+# g_parse = grameneParsers#oryzaBaseParser
+print "***************** Gramene Genes data ********************\n"
+print gramene_genes_files
+# g_parse = geneParser(gramene_genomes)
+# input_f = '/Oryza brachyantha.txt' #Oryza_barthii.txt' Oryza_sativa_japonica
+# input_f = '/home/venkatesan/workspace/explore/test_files/gramene_genes/Oryza_brachyantha.txt' #Oryza_barthii.txt' Oryza_sativa_japonica
+#geneHash = geneParser(gramene_genomes)#grameneQTLRDF(gramene_qtl_dir, gramene_qtl_out) oryzaBaseRDF(oryzabase_file, oryzaBase_output) grameneGeneRDF(gramene_genomes, gramene_genes_out)
+#pp.pprint(geneHash)
+grameneGeneRDF(gramene_genomes, gramene_genes_out)
+print "********************************************************\n\n"
+
