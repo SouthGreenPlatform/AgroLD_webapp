@@ -73,7 +73,7 @@ def qtaroGeneRDF(infile, output_dir):
     gene_buffer = ''
     to_hash = dict()
     gene_counter = 0
-    turtle_file_name = "qtaro.gene.ttl"
+    turtle_file_name = "qtaro.genes.ttl"
     outfile = os.path.join(output_dir, turtle_file_name)
     outHandle = open(outfile, "w")
     rap_pattern = re.compile(r'^Os\d{2}g\d{7}$')
@@ -83,19 +83,21 @@ def qtaroGeneRDF(infile, output_dir):
 
     print "************* Qtaro Gene RDF conversion begins***********\n"
 
+    '''
+    Ajout du prefix pour la release des donnees
+    '''
     outHandle.write(base + "\t" + "<" + base_uri + "> .\n")
     outHandle.write(pr + "\t" + rdf_ns + "<" + rdf + "> .\n")
     outHandle.write(pr + "\t" + rdfs_ns + "<" + rdfs + "> .\n")
     outHandle.write(pr + "\t" + owl_ns + "<" + owl + "> .\n")
+    outHandle.write(pr + "\t" + xsd_ns + "<" + xsd + "> .\n")
     outHandle.write(pr + "\t" + base_vocab_ns + "<" + base_vocab_uri + "> .\n")
     outHandle.write(pr + "\t" + obo_ns + "<" + obo_uri + "> .\n")
+    outHandle.write(pr + "\t" + owl_ns + "<" + owl + "> .\n")
     outHandle.write(pr + "\t" + qtaro_gene_ns + "<" + qtaro_gene + "> .\n")
     outHandle.write(pr + "\t" + ensembl_ns + "<" + ensembl_plant + "> .\n")
     outHandle.write(pr + "\t" + dc_ns + "<" + dc_uri + "> .\n")
     outHandle.write(pr + "\t" + doi_ns + "<" + doi_uri + "> .\n")
-    '''
-    Ajout du prefix pour la release des donnees
-    '''
     outHandle.write(pr + "\t" + res_ns + "<" + resource + "> .\n\n")
 
     for records in gene_ds.as_matrix(columns=None):
@@ -117,8 +119,9 @@ def qtaroGeneRDF(infile, output_dir):
             gene_buffer += "\t" + base_vocab_ns + "has_dbxref" + "\t" + ensembl_ns + records[8] + " ;\n"
             gene_buffer += "\t" + base_vocab_ns + "has_dbxref" + "\t" + qtaro_gene_ns + records[0] + " ;\n"
             gene_buffer += "\t" + base_vocab_ns + "description" + "\t" + '"%s"' % (records[11]) + " ;\n"
+            #TODO find out way to represent DOI
             if records[12] is not np.nan:
-                gene_buffer += "\t" + dc_ns + "identifier" + "\t" +  doi_ns + records[12] + " ;\n"
+                gene_buffer += "\t" + dc_ns + "identifier" + "\t" +  '"http://dx.doi.org/%s"' %  (records[12]) + " ;\n"
             gene_buffer = re.sub(' ;$', ' .\n', gene_buffer)
             outHandle.write(gene_buffer)
     outHandle.close()
@@ -194,5 +197,5 @@ def qtaroQTLRDF(infile, output_dir):
 
 #geneParser('../test_files/qtaro/Qtaro-Gene-export.csv')
 
-#qtaroGeneRDF('../test_files/qtaro/Qtaro-Gene-export.csv','.')
-qtaroQTLRDF('../test_files/qtaro/qtaro.qtl.csv','.')
+qtaroGeneRDF('../test_files/qtaro/Qtaro-Gene-export.csv','.')
+#qtaroQTLRDF('../test_files/qtaro/qtaro.qtl.csv','.')
