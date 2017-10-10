@@ -49,7 +49,11 @@ def oryzaBaseParser(input_file):
         records = current_line.split('\t')
         oryGeneID = records.pop(0)
 #        pp.pprint(records)
-#        print oryGeneID + "\t" + records[6] + "\t" + records[7] + "\t" + records[8]         
+#        print oryGeneID + "\t" + records[6] + "\t" + records[7] + "\t" + records[8]
+        #TODO split name column with ',' first row -> name and other -> Alt_names
+        #TODO split trait_class with ','
+        # TODO split explanation column
+        # TODO check chromosome number wrong parsing
         oryGene_ds[oryGeneID] = {
                                   "Symbols": [],
                                   "Alt_names": [],
