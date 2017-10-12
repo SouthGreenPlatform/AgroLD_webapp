@@ -96,6 +96,8 @@ res_ns = 'agrold_schema:'
 gramene_qtl = 'http://www.identifiers.org/gramene.qtl/'
 gr_qtl_ns = 'gramene_qtl:' 
 
+msu_uri = 'http://www.southgreen.fr/agrold/msu.gene/'
+msu_ns = 'msu:'
 
 qtaro_qtl = 'http://www.southgreen.fr/agrold/qtaro.qtl/'
 qtaro_qtl_ns = 'qtaro_qtl:'
