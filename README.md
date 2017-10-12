@@ -167,6 +167,14 @@ ds = parseGFF3(path)   # The parsing file
 
 ```
 
+### Documentation
+
+- AgroLD includes data on the following species on :  [Species](http://volvestre.cirad.fr:8080/agrold/documentation.jsp#species)
+- Ontologies in AgroLD : [Ontologies](http://volvestre.cirad.fr:8080/agrold/documentation.jsp#ontologies)
+- Data sources in AgroLD : [Data](http://volvestre.cirad.fr:8080/agrold/documentation.jsp#sources)
+- Species specific break down of the data sources : [Link](http://volvestre.cirad.fr:8080/agrold/documentation.jsp#break-down)
+- Graph Names : [Link](http://volvestre.cirad.fr:8080/agrold/documentation.jsp#graphs)
+- URIs :  [Link](http://volvestre.cirad.fr:8080/agrold/documentation.jsp#uri)
 
 
 
