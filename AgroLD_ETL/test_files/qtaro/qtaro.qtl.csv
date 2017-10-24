@@ -1,0 +1,18 @@
+id|qtl_gene_name|character_major|character_minor|marker_volume|chromosome|start|end|source|lod|crossed_a|crossed_b|direction|references|ref_number|marker|marker_physical|marker_fine_1|marker_fine_2|marker_fine_3|marker_interval_1|marker_interval_2|marker_interval_3|marker_single|analytic_group|group_size|trait_name|contribution_rate|synergy_effect|publication_year
+364|qSD-1-2|Physiological trait|Germination/dormancy|2|1|23731232|23736697|d)Co-segregated|2.8|Asominori|IR24|A|pha|295|RFLP|-|-|-|-|-|-|-|R1928|CSSL|65|-|15.0|0.2|2003
+703|-|Physiological trait|Germination/dormancy|1|2|26758064|28502793|C)Interval|3.52|Lemont|Teqing|A|pha|15|SSR|-|-|-|-|RM263|RM221|-|-|RIL|264|germination rate(9days after incubation)|5.6|4.34|2004
+583|qSD-3|Physiological trait|Germination/dormancy|2|3|9880148|9880322|d)Co-segregated|3.6|IR50/Tatsumimochi|Miyukimochi|B|pha|165|SSR|-|-|-|-|-|-|-|RM7|&quot;F1(three-way cross),F2&quot;|166|seed dormancy(germination rate)|15.0|20.1|2005
+606|qSV-3-2|Physiological trait|Germination/dormancy|2|3|35783061|37199035|C)Interval|5.4|Lemont|Teqing|B|pha|177|SSR|-|-|-|-|RM227|RM85|-|-|RIL|282|germination rate|14.7|8.36|2005
+702|-|Physiological trait|Germination/dormancy|1|3|36693668|37199035|C)Interval|2.66|Lemont|Teqing|A|pha|15|SSR|-|-|-|-|RM148|RM85|-|-|RIL|264|germination rate(7days after incubation)|5.2|4.47|2004
+849|-|Physiological trait|Germination/dormancy|1|3|10238092|10240940|d)Co-segregated|5.1|Nipponbare|Kasalath|A|pha|724|RFLP|-|-|-|-|-|-|-|C1488|BC1F7|98|Seed dormancy|25.6|-|2001
+141|qLTG-4-1|Physiological trait|Germination/dormancy|2|4|4433646|4435752|C)Interval|2.79|Nipponbare|Kasalath|B|jsa|7|RFLP|-|-|-|-|-|-|C946|-|BIL|98|low temperature germinablity|14.9|10.7|2001
+126|qRGR-5|Physiological trait|Germination/dormancy|2|5|24086072|27457701|C)Interval|4.2|Zhenshan 97|IRAT109|B|pha|373|SSR|-|-|-|-|RM421|RM480|-|-|RIL|154|Relative germination rate(RGR)|13.25|6.83|2006
+324|qSdn-5|Physiological trait|Germination/dormancy|2|5|27457534|27457701|d)Co-segregated|7.19|N22|Nanjing 35|B|rgn|224|SSR|-|-|-|-|-|-|-|RM480|BC1F1|162|germination percentage|16.0|-33.5|2004
+475|qGR5-1|Physiological trait|Germination/dormancy|2|5|27056983|27486349|C)Interval|15.9|Zhenshan 97|Minghui 63|A|pha|202|Mixture|-|-|-|-|C246|RM26|-|-|RIL|241|Germination rate|17.4|7.8|2002
+504|qSD-5|Physiological trait|Germination/dormancy|2|5|3281266|3285751|C)Interval|3.1|Nipponbare|Kasalath|A|pha|213|RFLP|-|-|-|-|R3166|C249|R1838|-|BIL|98|Seed dormancy|13.6|13.6|2002
+89|qSD7-1|Physiological trait|Germination/dormancy|2|7|6413144|6413348|d)Co-segregated|-|EM93-1|Plant#14(CO39xSS18-2_F2)|-|pha|128|SSR|-|-|-|-|-|-|-|RM5672|BC4F4|176|percentage germination�@after1-45 days of incubationafter at25 C for 11days ripening|10.2|-|2005
+182|qLTG-7|Physiological trait|Germination/dormancy|2|7|17530626|22912990|C)Interval|3.62|Kinmaze|DV85|A|rgn|198|-|-|-|-|-|R1440|R1357|-|-|RIL|81|low temperature germinablity|8.7|9.3|2003
+700|qSDS-7-2|Physiological trait|Germination/dormancy|2|7|19354374|26133946|C)Interval|-|EM93-1|SS18-2|B|pha|12|SSR|-|-|-|-|RM320|RM234|-|-|BC1F1|156|Seed ��ormancy|9.3|0.08|2004
+125|qRGV-8|Physiological trait|Germination/dormancy|2|8|26582935|28166213|C)Interval|3.2|Zhenshan 97|IRAT109|B|pha|373|SSR|-|-|-|-|RM502|RM477|-|-|RIL|154|Relative germination vigor(RGV)|8.55|-3.3|2006
+505|qLG-9|Physiological trait|Germination/dormancy|2|9|11366789|15020655|C)Interval|13.883|Nipponbare|Kasalath|B|pha|213|RFLP|-|-|-|-|G103|R1751|R79|-|BIL|98|Seed longevity|59.5|25.5|2002
+137|qSD12|Physiological trait|Germination/dormancy|2|12|23698130|26368115|C)Interval|-|EM93-1|SS18-2|B|pha|387|SSR|-|-|-|-|RM3331|RM235|-|-|F2|-|Seed dormancy|-|-|2006

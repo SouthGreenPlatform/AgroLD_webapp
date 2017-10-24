@@ -4,6 +4,7 @@ import gzip
 import urllib
 import pprint
 
+
 __author__ = 'elhassouni'
 
 
@@ -55,8 +56,8 @@ def parseGFF3(filename):
         return map_ds
 
 
-pp = pprint.PrettyPrinter(indent=4)
-
+#pp = pprint.PrettyPrinter(indent=4)
+#path = '/Users/plarmande/Downloads/IRGSP-1.0_representative/transcripts_mRNA.gff'
 
 #path = '/opt/TOS_DI-20141207_1530-V5.6.1/workspace/gff_data_orygeneDB/File_test/indicaCantTest.gff3'
 #path = '/media/elhassouni/donnees/Noeud-plante-projet/workspace/AgroLD/AgroLD_ETL/test_files/urgi/pseudomolecul_wheat.gff'

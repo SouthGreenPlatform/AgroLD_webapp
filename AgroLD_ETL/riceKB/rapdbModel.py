@@ -7,9 +7,22 @@ import pprint
 import re
 import os
 
-__author__  = "el hassouni"
+'''
+Created on May, 2017
+The rapdbParsers module is created as part of the Rice Knowledge Base project.
 
-def os_indicaModeleRDF(indica_ds, output_file):
+This module contains Parsers, RDF converters and generic functions for handling rapdb data
+
+TODO:
+    1) Add documentation
+    2) Fix Gramene record trailing space in the parser, now it is being handled in the RDF converter
+    3) better Error handling
+@author: larmande
+'''
+__author__  = "larmande"
+
+
+def rapdbModeleRDF(rapdb_ds, output_file):
   # The differentes variable declaration
     os_japonica_buffer = ''    # initilised the buffer at zero
     number_match_part_sbgi = 0
@@ -23,9 +36,13 @@ def os_indicaModeleRDF(indica_ds, output_file):
     chromosome_list = list()
     otl_plante = list()
 
+    pubmed_pattern = re.compile(r'^\d+$')
+    ncbi_pattern = re.compile(r'^[A-Z]{2}\d{6}$')
+
 # The first wrinting in the file is the prefix
 
-    print ("*************TropGene RDF conversion begins***********\n")
+
+    print ("*************RapDB RDF conversion begins***********\n")
     rdf_writer.write(base + "\t" + "<" + base_uri + "> .\n")
     rdf_writer.write(pr + "\t" + rdf_ns + "<" + rdf + "> .\n")
     rdf_writer.write(pr + "\t" + rdfs_ns + "<" + rdfs + "> .\n")
@@ -43,13 +60,20 @@ def os_indicaModeleRDF(indica_ds, output_file):
     rdf_writer.write(pr + "\t" + otl_public_plante_ns + "<" + otl_public_plante_uri + "> .\n")
     rdf_writer.write(pr + "\t" + OrygenesDB_ns + "<" + OrygenesDB_uri + "> .\n")
     rdf_writer.write(pr + "\t" + chromosome_ns + "<" + chromosome_uri + "> .\n")
+    rdf_writer.write(pr + "\t" + interpro_ns + "<" + interpro_uri + "> .\n")
     rdf_writer.write(pr + "\t" + embl_ns + "<" + embl_uri + "> .\n")
-    #Ajout du prefix pour la realese des donnees
+    rdf_writer.write(pr + "\t" + uniprot_ns + "<" + uniprot_uri + "> .\n")
+    rdf_writer.write(pr + "\t" + ncbi_gene_ns + "<" + ncbi_gene_uri + "> .\n")
+    rdf_writer.write(pr + "\t" + pubmed_ns + "<" + pubmed_uri + "> .\n")
+    rdf_writer.write(pr + "\t" + tenor_ns + "<" + tenor_uri + "> .\n")
+    rdf_writer.write(pr + "\t" + oryzabase_ns + "<" + oryzabase_uri + "> .\n")
+
+    # Ajout du prefix pour la realese des donnees
     rdf_writer.write(pr + "\t" + res_ns + "<" + resource + "> .\n\n")
 
- # In here we buil the modele and writer in file with ttl format
+# In here we buil the modele and writer in file with ttl format
 
-    for records in indica_ds:
+    for records in rapdb_ds:
         line_number+=1
         # Chromosome triple
         if not records['seqid'] in chromosome_list:
@@ -57,10 +81,11 @@ def os_indicaModeleRDF(indica_ds, output_file):
             chromosome_list.append(records['seqid'])
             os_japonica_buffer += chromosome_ns + re.sub('Os', '', records['seqid']) + "\n"
             os_japonica_buffer += "\t" + base_vocab_ns + "taxon" + "\t\t" + obo_ns + "NCBITaxon_" + "39947" + " ;\n"
-            os_japonica_buffer += "\t" + rdf_ns + "type" + "\t" + res_ns + "Chromosome" + " .\n"
+            os_japonica_buffer += "\t" + rdf_ns + "type" + "\t" + res_ns + "Chromosome" + " .\n\n"
             #os_japonica_buffer += "\t" + rdf_ns + "type" + "\t" + owl_ns + "Class" + " ;\n"
             #os_japonica_buffer += "\t" + rdfs_ns + "subClassOf" + "\t\t" + obo_ns + "SO_0000430" + " .\n"
             print(os_japonica_buffer)
+            #os_japonica_buffer = re.sub(' ;$', ' .\n', os_japonica_buffer)
             rdf_writer.write(os_japonica_buffer)
 
 # SGBI.gff3 for EST_match and match_part type
@@ -258,44 +283,67 @@ def os_indicaModeleRDF(indica_ds, output_file):
                 os_japonica_buffer += "\t" + base_vocab_ns + "has_start_position" + "\t" + " \"" + str(records['start']) + "\"^^xsd:integer ;\n"
                 os_japonica_buffer += "\t" + base_vocab_ns + "has_end_position" + "\t" + " \"" + str(records['end']) + "\"^^xsd:integer ;\n"
                 os_japonica_buffer += "\t" + base_vocab_ns + "develops_from" + "\t\t" + ensembl_ns + records['attributes']['Locus_id'] + " ;\n"
-                os_japonica_buffer += "\t" + base_vocab_ns + "is_located_on" + "\t\t" + "" + chromosome_ns + re.sub('Os', '', records['seqid']) + " .\n"
+                os_japonica_buffer += "\t" + base_vocab_ns + "is_located_on" + "\t\t" + "" + chromosome_ns + re.sub('Os', '', records['seqid']) + " ;\n"
                 if 'Note' in records['attributes']:
                     os_japonica_buffer += "\t" + base_vocab_ns + "comment" + "\t" + '"%s"' % (records['attributes']['Note']) + " ;\n"
                 if 'GO' in records['attributes']:
-                    os_japonica_buffer += "\t" + base_vocab_ns + "comment" + "\t" + '"%s"' % (records['attributes']['GO']) + " ;\n"
+                        for go_term in re.findall(r'GO:[0-9]{7}',records['attributes']['GO']):
+                            os_japonica_buffer += "\t" + base_vocab_ns + "go_term" + "\t" + obo_ns + re.sub(':', '_', go_term) + " ;\n"
+                            #os_japonica_buffer += "\t" + base_vocab_ns + "comment" + "\t" + '"%s"' % (records['attributes']['GO']) + " ;\n"
                 if 'InterPro' in records['attributes']:
+                    for ipr_term in re.findall(r'IPR[0-9]{6}', records['attributes']['InterPro']):
+                        os_japonica_buffer += "\t" + base_vocab_ns + "has_dbxref" + "\t" + interpro_ns + ipr_term + " ;\n"
                     os_japonica_buffer += "\t" + base_vocab_ns + "comment" + "\t" + '"%s"' % (records['attributes']['InterPro']) + " ;\n"
                 if 'CGSNL Gene Name' in records['attributes']:
-                    os_japonica_buffer += "\t" + base_vocab_ns + "has_synonym" + "\t" + '"%s"' % (records['attributes']['CGSNL Gene Name']) + " ;\n"
+                    syn_term = re.sub('"', '', records['attributes']['CGSNL Gene Name'])
+                    os_japonica_buffer += "\t" + base_vocab_ns + "has_synonym" + "\t" + '"%s"' % (syn_term) + " ;\n"
                 if 'CGSNL Gene Symbol' in records['attributes']:
-                    os_japonica_buffer += "\t" + base_vocab_ns + "has_symbol" + "\t" + '"%s"' % (records['attributes']['CGSNL Gene Symbol']) + " ;\n"
+                    sym_term = re.sub('"', '', records['attributes']['CGSNL Gene Symbol'])
+                    os_japonica_buffer += "\t" + base_vocab_ns + "has_symbol" + "\t" + '"%s"' % (sym_term) + " ;\n"
                 if 'Literature_PMID' in records['attributes']:
-                    os_japonica_buffer += "\t" + base_vocab_ns + "has_dbxref" + "\t\t" + pubmed_ns + records['attributes']['Literature_PMID'] + " ;\n"
+                    if pubmed_pattern.match(records['attributes']['Literature_PMID']):
+                        os_japonica_buffer += "\t" + base_vocab_ns + "has_dbxref" + "\t\t" + pubmed_ns + records['attributes']['Literature_PMID'] + " ;\n"
                 if 'ORF_evidence' in records['attributes']:
-                    os_japonica_buffer += "\t" + base_vocab_ns + "evidence" + "\t" + '"%s"' % (records['attributes']['ORF_evidence']) + " ;\n"
+                    if '(UniProt)' in records['attributes']['ORF_evidence']:
+                        uni_term = records['attributes']['ORF_evidence'].split(' ')[0]
+                        os_japonica_buffer += "\t" + base_vocab_ns + "has_dbxref" + "\t\t" + uniprot_ns + uni_term + " ;\n"
                 if 'Oryzabase' in records['attributes']:
-                    os_japonica_buffer += "\t" + base_vocab_ns + "has_dbxref" + "\t\t" + orygene_ns + records['attributes']['Oryzabase'] + " ;\n"
+                    os_japonica_buffer += "\t" + base_vocab_ns + "has_dbxref" + "\t\t" + oryzabase_ns + records['attributes']['Oryzabase'] + " ;\n"
                 if 'Oryzabase Gene Name Synonym(s)' in records['attributes']:
-                    os_japonica_buffer += "\t" + base_vocab_ns + "has_synonym" + "\t" + '"%s"' % (records['attributes']['Oryzabase Gene Name Synonym(s)']) + " ;\n"
+                    for syn_term in records['attributes']['Oryzabase Gene Name Synonym(s)'].split(","):
+                        syn_term = re.sub('"', '', syn_term)
+                        os_japonica_buffer += "\t" + base_vocab_ns + "has_synonym" + "\t" + '"%s"' % (syn_term) + " ;\n"
                 if 'Oryzabase Gene Symbol Synonym(s)' in records['attributes']:
-                    os_japonica_buffer += "\t" + base_vocab_ns + "has_symbol" + "\t" + '"%s"' % (records['attributes']['Oryzabase Gene Symbol Synonym(s)']) + " ;\n"
+                    for syn_term in records['attributes']['Oryzabase Gene Symbol Synonym(s)'].split(","):
+                        syn_term = re.sub('"', '', syn_term)
+                        os_japonica_buffer += "\t" + base_vocab_ns + "has_symbol" + "\t" + '"%s"' % (syn_term) + " ;\n"
+                        #os_japonica_buffer += "\t" + base_vocab_ns + "has_symbol" + "\t" + '"%s"' % (records['attributes']['Oryzabase Gene Symbol Synonym(s)']) + " ;\n"
                 if 'RAP-DB Gene Name Synonym(s)' in records['attributes']:
-                    os_japonica_buffer += "\t" + base_vocab_ns + "has_synonym" + "\t" + '"%s"' % (records['attributes']['RAP-DB Gene Name Synonym(s)']) + " ;\n"
+                    for syn_term in records['attributes']['RAP-DB Gene Name Synonym(s)'].split(","):
+                        syn_term = re.sub('"', '', syn_term)
+                        os_japonica_buffer += "\t" + base_vocab_ns + "has_synonym" + "\t" + '"%s"' % (syn_term) + " ;\n"
                 if 'RAP-DB Gene Symbol Synonym(s)' in records['attributes']:
-                    os_japonica_buffer += "\t" + base_vocab_ns + "has_symbol" + "\t" + '"%s"' % (records['attributes']['RAP-DB Gene Symbol Synonym(s)']) + " ;\n"
+                    for syn_term in records['attributes']['RAP-DB Gene Symbol Synonym(s)'].split(","):
+                        syn_term = re.sub('"', '', syn_term)
+                        os_japonica_buffer += "\t" + base_vocab_ns + "has_symbol" + "\t" + '"%s"' % (syn_term) + " ;\n"
+                        #os_japonica_buffer += "\t" + base_vocab_ns + "has_symbol" + "\t" + '"%s"' % (records['attributes']['RAP-DB Gene Symbol Synonym(s)']) + " ;\n"
                 if 'Transcript_evidence' in records['attributes']:
-                    os_japonica_buffer += "\t" + base_vocab_ns + "evidence" + "\t" + '"%s"' % (records['attributes']['Transcript_evidence']) + " ;\n"
+                    for gene_id in records['attributes']['Transcript_evidence'].split(","):
+                        if not (gene_id == " "):
+                            if (gene_id[-1] == '.'):
+                                gene_id = re.sub('.$', '', gene_id)
+                            if ncbi_pattern.match(gene_id):
+                                os_japonica_buffer += "\t" + base_vocab_ns + "has_dbxref" + "\t\t" + ncbi_gene_ns + gene_id.split(" ")[0] + " ;\n"
                 if 'NIAS_FLcDNA' in records['attributes']:
-                    os_japonica_buffer += "\t" + base_vocab_ns + "evidence" + "\t" + "NIAS_FLcDNA: " + '"%s"' % (records['attributes']['NIAS_FLcDNA']) + " ;\n"
-                if 'KEGG' in records['attributes']:
-                    os_japonica_buffer += "\t" + base_vocab_ns + "has_dbxref" + "\t\t" + kegg_ns + records['attributes']['KEGG'] + " ;\n"
+                    os_japonica_buffer += "\t" + base_vocab_ns + "evidence" + "\t" + '"NIAS_FLcDNA: %s"' % (records['attributes']['NIAS_FLcDNA']) + " ;\n"
                 if 'TENOR' in records['attributes']:
-                    os_japonica_buffer += "\t" + base_vocab_ns + "has_dbxref" + "\t" + "TENOR: " + '"%s"' % (records['attributes']['TENOR']) + " ;\n"
+                    os_japonica_buffer += "\t" + base_vocab_ns + "has_dbxref" + "\t" + tenor_ns + records['attributes']['TENOR']  + " ;\n"
                 if 'Expression' in records['attributes']:
-                    os_japonica_buffer += "\t" + base_vocab_ns + "has_dbxref" + "\t" + "Expression: " + '"%s"' % (records['attributes']['Expression']) + " ;\n"
+                    os_japonica_buffer += "\t" + base_vocab_ns + "has_dbxref" + "\t" + '"Expression: %s"' % (records['attributes']['Expression']) + " ;\n"
                 if 'B5toI1' in records['attributes']:
-                    os_japonica_buffer += "\t" + base_vocab_ns + "has_dbxref" + "\t" + "B5toI1: " + '"%s"' % (records['attributes']['B5toI1']) + " ;\n"
+                    os_japonica_buffer += "\t" + base_vocab_ns + "has_dbxref" + "\t" + '"B5toI1: %s"' % (records['attributes']['B5toI1']) + " ;\n"
                 print(os_japonica_buffer)
+                os_japonica_buffer = re.sub(' ;$', ' .\n', os_japonica_buffer)
                 rdf_writer.write(os_japonica_buffer)
 
             if records['type'] == "polypeptide":
@@ -388,4 +436,4 @@ pp.pprint(ds)    # For to see in teminal the parsing
 
 #os_indicaModele(ds, path_output)  # The path_output)  # The tranformation fonction tropGeneToRdf(input, output)
 
-os_indicaModeleRDF(ds, path_output)
+rapdbModeleRDF(ds, path_output)

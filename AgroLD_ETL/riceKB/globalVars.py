@@ -63,7 +63,11 @@ xsd_ns = 'xsd:'
 owl_uri = 'http://www.w3.org/2002/07/owl#'
 owl_ns = 'owl:'
 
+dc_uri = 'http://purl.org/dc/elements/1.1/'
+dc_ns = 'dc:'
 
+doi_uri = 'http://dx.doi.org/'
+doi_ns = 'doi:'
 #Internal URI/namespaces
 #base_uri = 'http://www.southgreen.fr/agrold/'
 #base_ns = 'agrold:'
@@ -92,6 +96,15 @@ res_ns = 'agrold_schema:'
 gramene_qtl = 'http://www.identifiers.org/gramene.qtl/'
 gr_qtl_ns = 'gramene_qtl:' 
 
+msu_uri = 'http://www.southgreen.fr/agrold/msu.gene/'
+msu_ns = 'msu:'
+
+qtaro_qtl = 'http://www.southgreen.fr/agrold/qtaro.qtl/'
+qtaro_qtl_ns = 'qtaro_qtl:'
+
+qtaro_gene = 'http://www.southgreen.fr/agrold/qtaro.gene/'
+qtaro_gene_ns = 'qtaro_gene:'
+
 ensembl_plant = 'http://identifiers.org/ensembl.plant/'
 ensembl_ns = 'ensembl:'
 
@@ -107,8 +120,20 @@ tigr_g_ns = 'tigr_gene:'
 rapdb_uri = 'http://www.southgreen.fr/agrold/rapdb/'
 rapdb_ns = 'rapdb:'
 
-orygene_uri = 'http://identifiers.org/oryzabase.gene/'
-orygene_ns = 'oryzabase:'
+tenor_uri = 'http://tenor.dna.affrc.go.jp/EPV/'
+tenor_ns = 'tenor:'
+
+interpro_uri = 'http://identifiers.org/interpro/'
+interpro_ns = 'interpro:'
+
+uniprot_uri = 'http://identifiers.org/uniprot/'
+uniprot_ns = 'uniprot:'
+
+orygene_ns = 'http://identifiers.org/oryzabase.gene/'
+orygene_uri = 'oryzabase:'
+
+oryzabase_uri = 'http://identifiers.org/oryzabase.gene/'
+oryzabase_ns = 'oryzabase:'
 
 ec_code_uri = 'http://identifiers.org/ec-code/'
 ec_code_ns = 'ec:'
@@ -122,6 +147,10 @@ pathway_ns = 'pathway:'
 #BioCyc
 swo_uri = 'http://edamontology.org/'
 swo_ns = 'swo:'
+
+#Pubmed
+pubmed_uri = 'http://identifiers.org/pubmed/'
+pubmed_ns = 'pubmed:'
 
 # AraCyc
 #aracyc_uri = 'http://www.southgreen.fr/agrold/aracyc.pathway/'
@@ -175,7 +204,8 @@ embl_ns = 'ena.embl:'
 marker_uri = 'http://www.southgreen.fr/agrold/orygenesdb.marker/'
 marker_ns = 'marker:'
 
-
+kegg_uri='http://identifiers.org/kegg/'
+kegg_ns='kegg:'
 
 #TROPGENE
 
