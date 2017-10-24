@@ -1,0 +1,551 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "These are the documentations of the services the 1.0 version of the RESTful-like API of AgroLD reachable at http://volvestre.cirad.fr:8080/aldp/api/1.0",
+        "version": "1.0",
+        "title": "AgroLD API 1.0 Interactive Documentations",
+        "termsOfService": "http://helloreverb.com/terms/",
+        "contact": {
+            "email": "tagnyngompe@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "host": "volvestre.cirad.fr:8080",
+    "basePath": "/agrold/api/1.0",
+    "tags": [
+        {
+            "name": "ontologies",
+            "description": "Everything about ontologies used in AgroLD",
+            "externalDocs": {
+                "description": "Find out more",
+                "url": "http://www.agrold.org"
+            }
+        },
+        {
+            "name": "predicate",
+            "description": "Everything about AgroLD predicates",
+            "externalDocs": {
+                "description": "Find out more",
+                "url": "http://www.agrold.org"
+            }
+        },
+        {
+            "name": "graphs",
+            "description": "General description",
+            "externalDocs": {
+                "description": "Find out more",
+                "url": "http://www.agrold.org"
+            }
+        },
+        {
+            "name": "gene",
+            "description": "Everything about AgroLD genes",
+            "externalDocs": {
+                "description": "Find out more",
+                "url": "http://www.agrold.org"
+            }
+        },
+        {
+            "name": "protein",
+            "description": "Everything about AgroLD proteins",
+            "externalDocs": {
+                "description": "Find out more",
+                "url": "http://www.agrold.org"
+            }
+        },
+        {
+            "name": "qtl",
+            "description": "Everything about AgroLD QTLs",
+            "externalDocs": {
+                "description": "Find out more",
+                "url": "http://www.agrold.org"
+            }
+        }],
+    "schemes": ["http"],
+    "paths": {
+        "/id/byOntoTerm": {
+            "post": {
+                "tags": ["ontologies"],
+                "summary": "Returns all the IDs corresponding to an ontological term",
+                "description": "PREFIX rdfs:< http://www.w3.org/2000/01/rdf-schema# ><br>SELECT ?id <br>WHERE {<br>   ?subject rdfs:label \"homoaconitate hydratase activity\"^^xsd:string .<br>  BIND(REPLACE(str(?subject), '^.*(#|/)', \"\") AS ?localname)<br>  BIND(REPLACE(?localname, \"_\", \":\") as ?id).<br>} limit 1",
+                "operationId": "getIdByOntoTerm",
+                "produces": ["text/tsv"],
+                "parameters": [{
+                        "name": "ontoTerm",
+                        "in": "query",
+                        "description": "The ontological term (e.g. homoaconitate hydratase activity)",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/ontoTerm/byId": {
+            "post": {
+                "tags": ["ontologies"],
+                "summary": "Returns the name of an ontological element corresponding to its given ID",
+                "description": "PREFIX rdfs:< http://www.w3.org/2000/01/rdf-schema# ><br>SELECT ?id <br>WHERE {<br>   ?subject rdfs:label \"homoaconitate hydratase activity\"^^xsd:string .<br>  BIND(REPLACE(str(?subject), '^.*(#|/)', \"\") AS ?localname)<br>  BIND(REPLACE(?localname, \"_\", \":\") as ?id).<br>} limit 1",
+                "operationId": "getIdByOntoTerm",
+                "produces": ["text/tsv"],
+                "parameters": [{
+                        "name": "id",
+                        "in": "query",
+                        "description": "The id (e.g. GO:0003824)",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/ancestor/byId": {
+            "post": {
+                "tags": ["ontologies"],
+                "summary": "Returns all the IDs corresponding to an ontological term",
+                "description": "<br> SELECT ?ancestorId<br>WHERE<br>{<br>#level 4<br>{<br>SELECT ?ancestor1<br>WHERE<br>{<br>?subject rdfs:subClassOf ?ancestor1.<br>FILTER REGEX(STR(?subject), CONCAT(REPLACE(\"<b>id</b>\", \":\", \"_\"), \"$\"))<br>} limit 1}<br>?ancestor1 rdfs:subClassOf ?ancestor2.<br>?ancestor2 rdfs:subClassOf ?ancestor3.<br>?ancestor3 rdfs:subClassOf ?ancestor4.<br>BIND(REPLACE(str(?ancestor4), '^.*(#|/)', \"\") AS ?ancestorLocalname)<br>BIND(REPLACE(?ancestorLocalname, \"_\", \":\") as ?ancestorId)<br>}",
+                "operationId": "getAncestorById",
+                "produces": ["text/tsv"],
+                "parameters": [{
+                        "name": "id",
+                        "in": "query",
+                        "description": "The ID of an ontological resource (e.g. GO:0004409 or G0:0016836)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "level",
+                        "in": "query",
+                        "description": "The level of the ancestor (e.g. the level of the direct parent is 1)",
+                        "required": true,
+                        "type": "integer",
+                        "minimum":1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/parent/byId": {
+            "post": {
+                "tags": ["ontologies"],
+                "summary": "Returns the parents of an ontological element given its id",
+                "description": "<br> SELECT ?ancestorId<br>WHERE<br>{<br>{<br>SELECT ?ancestor1<br>WHERE<br>{<br>?subject rdfs:subClassOf ?ancestor1.<br>FILTER REGEX(STR(?subject), CONCAT(REPLACE(\"<b>id</b>\", \":\", \"_\"), \"$\"))<br>} limit 1}<br>?ancestor1 a owl:Class .<br>BIND(REPLACE(str(?ancestor1), '^.*(#|/)', \"\") AS ?ancestorLocalname)<br>BIND(REPLACE(?ancestorLocalname, \"_\", \":\") as ?ancestorId)<br>}",
+                "operationId": "getParentById",
+                "produces": ["text/tsv"],
+                "parameters": [{
+                        "name": "id",
+                        "in": "query",
+                        "description": "The ID of an ontological resource (e.g. GO:0004409)",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/descendent/byId": {
+            "post": {
+                "tags": ["ontologies"],
+                "summary": "Returns the descendents of an ontological element given its id",
+                "description": "<br> SELECT ?ancestorId<br>WHERE<br>{<br>{<br>SELECT ?ancestor1<br>WHERE<br>{<br>?subject rdfs:subClassOf ?ancestor1.<br>FILTER REGEX(STR(?subject), CONCAT(REPLACE(\"<b>id</b>\", \":\", \"_\"), \"$\"))<br>} limit 1}<br>?ancestor1 a owl:Class .<br>BIND(REPLACE(str(?ancestor1), '^.*(#|/)', \"\") AS ?ancestorLocalname)<br>BIND(REPLACE(?ancestorLocalname, \"_\", \":\") as ?ancestorId)<br>}",
+                "operationId": "getDescendentById",
+                "produces": ["text/tsv"],
+                "parameters": [{
+                        "name": "id",
+                        "in": "query",
+                        "description": "The ID of an ontological resource (e.g. GO:0003824)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "level",
+                        "in": "query",
+                        "description": "The level of the descendent (e.g. the level of the direct children is 1)",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/children/byId": {
+            "post": {
+                "tags": ["ontologies"],
+                "summary": "Returns the children of an ontological element given its id",
+                "description": "<br> SELECT ?ancestorId<br>WHERE<br>{<br>{<br>SELECT ?ancestor1<br>WHERE<br>{<br>?subject rdfs:subClassOf ?ancestor1.<br>FILTER REGEX(STR(?subject), CONCAT(REPLACE(\"<b>id</b>\", \":\", \"_\"), \"$\"))<br>} limit 1}<br>?ancestor1 a owl:Class .<br>BIND(REPLACE(str(?ancestor1), '^.*(#|/)', \"\") AS ?ancestorLocalname)<br>BIND(REPLACE(?ancestorLocalname, \"_\", \":\") as ?ancestorId)<br>}",
+                "operationId": "getChildrenById",
+                "produces": ["text/tsv"],
+                "parameters": [{
+                        "name": "id",
+                        "in": "query",
+                        "description": "The ID of an ontological resource (e.g. GO:0003824)",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/description.json": {
+            "post": {
+                "tags": ["graphs"],
+                "summary": "Retrieve complete description of a resource from AgroLD in JSON format",
+                "description": "",
+                "operationId": "getdescription",
+                "produces": ["application/json"],
+                "parameters": [{
+                        "name": "uri",
+                        "in": "query",
+                        "description": "URI of the resource",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/graphs.json": {
+            "post": {
+                "tags": ["graphs"],
+                "summary": "list all the graphs of AgroLD",
+                "description": "",
+                "operationId": "listgraphs",
+                "produces": ["application/json"],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "404": {
+                        "description": "Invalid HTTP method"
+                    }
+                }
+            }
+        },
+        "/qtls.json": {
+            "post": {
+                "tags": ["qtl"],
+                "summary": "Retrieve complete URI and description of all QTLs from AgroLD in JSON format",
+                "description": "",
+                "operationId": "getproteins",
+                "produces": ["application/json"],
+                "parameters": [],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/proteins.json": {
+            "post": {
+                "tags": ["protein"],
+                "summary": "Retrieve complete URI and description of all proteins from AgroLD in JSON format",
+                "description": "SELECT distinct ?protein ( CONCAT(?label, \": \", ?desc) AS ?description)<br>WHERE {<br>?protein agrold_vocab:description ?desc; <br>rdfs:label ?label ;<br>rdfs:subClassOf &lt;http://purl.obolibrary.org/obo/SO_0000104 &gt;.<br>}",
+                "operationId": "getproteins",
+                "produces": ["application/json"],
+                "parameters": [],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/proteins/id/associatedWithOntoId": {
+            "post": {
+                "tags": ["protein"],
+                "summary": "Get ids of proteins associated with an ontological Id",
+                "description": "SELECT DISTINCT ?proteinId<br>WHERE<br>{<br>{<br>   SELECT ?ontoElt<br>    WHERE<br>    {<br>    ?ontoElt rdfs:subClassOf ?ontoEltClass.<br> FILTER REGEX(STR(?ontoElt), CONCAT(REPLACE(\"<b>ontoId</b>\", \":\", \"_\"), \"$\"))<br>    } limit 1<br>  }<br> ?protein ?predicate ?ontoElt .<br>  ?protein rdfs:subClassOf < http://purl.obolibrary.org/obo/SO_0000104 > .<br>  BIND(REPLACE(str(?protein), '^.*(#|/)', \"\") AS ?proteinId) .<br>}<br>ORDER BY ?proteinId<br>LIMIT <b>_pageSize</b><br>OFFSET <b>_page</b>",
+                "operationId": "getProteinIdAssociatedWithOntoId",
+                "produces": ["text/tsv"],
+                "parameters": [{
+                        "name": "ontoId",
+                        "in": "query",
+                        "description": "The id of the ontological element (e.g. GO:0003824)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "_page",
+                        "in": "query",
+                        "description": "number of the page of the result set to display (from 1 and greater than 0 or else all results will be displayed)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_pageSize",
+                        "in": "query",
+                        "description": "size of a page of the result set (> 0 or else all results will be displayed)",
+                        "required": false,
+                        "type": "integer"
+                    }
+                 ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "default": {
+                        "description": "unexpected error"
+                    }
+                }
+            }
+        },
+        "/genes.json": {
+            "post": {
+                "tags": ["gene"],
+                "summary": "Retrieve complete URI and description of all genes from AgroLD in JSON format",
+                "description": "",
+                "operationId": "getgenes",
+                "produces": ["application/json"],
+                "parameters": [],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/predicates.xml": {
+            "post": {
+                "tags": ["predicate"],
+                "summary": "Retrieve complete URI of all predicates used in AgroLD in XML",
+                "description": "",
+                "operationId": "getpredicatesxml",
+                "produces": ["application/xml"],
+                "parameters": [],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/predicates.json": {
+            "post": {
+                "tags": ["predicate"],
+                "summary": "Retrieve complete URI of all predicates used in AgroLD in JSON",
+                "description": "",
+                "operationId": "getpredicatesjson",
+                "produces": ["application/json"],
+                "parameters": [],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        }
+
+    },
+    "securityDefinitions": {
+        "petstore_auth": {
+            "type": "oauth2",
+            "authorizationUrl": "http://petstore.swagger.io/api/oauth/dialog",
+            "flow": "implicit",
+            "scopes": {
+                "write:pets": "modify pets in your account",
+                "read:pets": "read your pets"
+            }
+        },
+        "api_key": {
+            "type": "apiKey",
+            "name": "api_key",
+            "in": "header"
+        }
+    },
+    "definitions": {
+        "Order": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "petId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "quantity": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "shipDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Order Status",
+                    "enum": ["placed", "approved", "delivered"]
+                },
+                "complete": {
+                    "type": "boolean",
+                    "default": false
+                }
+            },
+            "xml": {
+                "name": "Order"
+            }
+        },
+        "Category": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "xml": {
+                "name": "Category"
+            }
+        },
+        "User": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "username": {
+                    "type": "string"
+                },
+                "firstName": {
+                    "type": "string"
+                },
+                "lastName": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "userStatus": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "User Status"
+                }
+            },
+            "xml": {
+                "name": "User"
+            }
+        },
+        "Tag": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "xml": {
+                "name": "Tag"
+            }
+        },
+        "Pet": {
+            "type": "object",
+            "required": ["name", "photoUrls"],
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "category": {
+                    "$ref": "#/definitions/Category"
+                },
+                "name": {
+                    "type": "string",
+                    "example": "doggie"
+                },
+                "photoUrls": {
+                    "type": "array",
+                    "xml": {
+                        "name": "photoUrl",
+                        "wrapped": true
+                    },
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "tags": {
+                    "type": "array",
+                    "xml": {
+                        "name": "tag",
+                        "wrapped": true
+                    },
+                    "items": {
+                        "$ref": "#/definitions/Tag"
+                    }
+                },
+                "status": {
+                    "type": "string",
+                    "description": "pet status in the store",
+                    "enum": ["available", "pending", "sold"]
+                }
+            },
+            "xml": {
+                "name": "Pet"
+            }
+        },
+        "ApiResponse": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "externalDocs": {
+        "description": "Find out more about Swagger",
+        "url": "http://swagger.io"
+    }
+}

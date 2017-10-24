@@ -1,0 +1,1775 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This page provides information about the RESTful API (version 1.0) of AgroLD.",
+        "version": "1.0",
+        "title": "AgroLD API 1.0 Interactive Documentation",
+        "termsOfService": "http://www.agrold.org",
+        "contact": {
+            "email": "tagnyngompe@gmail.com"
+        },
+        "license": {
+            "name": "IBC Montpellier",
+            "url": "http://volvestre.cirad.fr:8080/agrold/about.jsp"
+        }
+    },
+    "host": "volvestre.cirad.fr:8080",
+    "basePath": "/agrold/api/1.0",
+    "tags": [
+        {
+            "name": "ontologies",
+            "description": "Services over ontologies used in AgroLD",
+            "externalDocs": {
+                "description": "Find out more",
+                "url": "http://www.agrold.org"
+            }
+        },
+        {
+            "name": "graphs",
+            "description": "General Services",
+            "externalDocs": {
+                "description": "Find out more",
+                "url": "http://www.agrold.org"
+            }
+        },
+        {
+            "name": "gene",
+            "description": "Services over genes",
+            "externalDocs": {
+                "description": "Find out more",
+                "url": "http://www.agrold.org"
+            }
+        },
+        {
+            "name": "protein",
+            "description": "Services over proteins",
+            "externalDocs": {
+                "description": "Find out more",
+                "url": "http://www.agrold.org"
+            }
+        },
+        {
+            "name": "qtl",
+            "description": "Services over QTLs",
+            "externalDocs": {
+                "description": "Find out more",
+                "url": "http://www.agrold.org"
+            }
+        },
+        {
+            "name": "pathway",
+            "description": "Services over pathways",
+            "externalDocs": {
+                "description": "Find out more",
+                "url": "http://www.agrold.org"
+            }
+        }
+    ],
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/ontologies/terms/byKeyword{_format}": {
+            "post": {
+                "tags": [
+                    "ontologies"
+                ],
+                "summary": "Returns all the IDs corresponding to an ontological term",
+                "description": "",
+                "operationId": "getOntologyTermsByKeyWord",
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "parameters": [
+                    {
+                        "name": "keyword",
+                        "in": "query",
+                        "description": "The keyword (e.g. homoaconitate)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "_page",
+                        "in": "query",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_pageSize",
+                        "in": "query",
+                        "description": "size of a page of the result set (> 0 or else all results will be displayed)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_format",
+                        "in": "path",
+                        "description": "format in which the results set will be return",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            ".json",
+                            ".sparql-json",
+                            ".xml",
+                            ".tsv",
+                            ".csv",
+                            ".rdf",
+                            ".html",
+                            ".ttl"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/ontologies/ids/byterm{_format}": {
+            "post": {
+                "tags": [
+                    "ontologies"
+                ],
+                "summary": "Returns all the IDs corresponding to an ontological term",
+                "description": "&lt;n&gt; PREFIX rdfs:< http://www.w3.org/2000/01/rdf-schema# ><br>SELECT ?id <br>WHERE {<br>   ?subject rdfs:label \"homoaconitate hydratase activity\"^^xsd:string .<br>  BIND(REPLACE(str(?subject), '^.*(#|/)', \"\") AS ?localname)<br>  BIND(REPLACE(?localname, \"_\", \":\") as ?id).<br>} limit 1",
+                "operationId": "getIdByOntoTerm",
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "parameters": [
+                    {
+                        "name": "ontoTerm",
+                        "in": "query",
+                        "description": "The ontological term (e.g. homoaconitate hydratase activity)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "_page",
+                        "in": "query",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_pageSize",
+                        "in": "query",
+                        "description": "size of a page of the result set (> 0 or else all results will be displayed)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_format",
+                        "in": "path",
+                        "description": "format in which the results set will be return",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            ".json",
+                            ".sparql-json",
+                            ".xml",
+                            ".tsv",
+                            ".csv",
+                            ".rdf",
+                            ".html",
+                            ".ttl"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/ontologies/terms/byId{_format}": {
+            "post": {
+                "tags": [
+                    "ontologies"
+                ],
+                "summary": "Returns the name of an ontological element corresponding to its given ID",
+                "description": "PREFIX rdfs:< http://www.w3.org/2000/01/rdf-schema# ><br>SELECT ?id <br>WHERE {<br>   ?subject rdfs:label \"homoaconitate hydratase activity\"^^xsd:string .<br>  BIND(REPLACE(str(?subject), '^.*(#|/)', \"\") AS ?localname)<br>  BIND(REPLACE(?localname, \"_\", \":\") as ?id).<br>} limit 1",
+                "operationId": "getOntoTermById",
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "The id (e.g. GO:0003824)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "_page",
+                        "in": "query",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_pageSize",
+                        "in": "query",
+                        "description": "size of a page of the result set (> 0 or else all results will be displayed)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_format",
+                        "in": "path",
+                        "description": "format in which the results set will be return",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            ".json",
+                            ".sparql-json",
+                            ".xml",
+                            ".tsv",
+                            ".csv",
+                            ".rdf",
+                            ".html",
+                            ".ttl"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/ontologies/terms/ancestors/byId{_format}": {
+            "post": {
+                "tags": [
+                    "ontologies"
+                ],
+                "summary": "Returns all the IDs corresponding to an ontological term",
+                "description": "<br> SELECT ?ancestorId<br>WHERE<br>{<br>#level 4<br>{<br>SELECT ?ancestor1<br>WHERE<br>{<br>?subject rdfs:subClassOf ?ancestor1.<br>FILTER REGEX(STR(?subject), CONCAT(REPLACE(\"<b>id</b>\", \":\", \"_\"), \"$\"))<br>} limit 1}<br>?ancestor1 rdfs:subClassOf ?ancestor2.<br>?ancestor2 rdfs:subClassOf ?ancestor3.<br>?ancestor3 rdfs:subClassOf ?ancestor4.<br>BIND(REPLACE(str(?ancestor4), '^.*(#|/)', \"\") AS ?ancestorLocalname)<br>BIND(REPLACE(?ancestorLocalname, \"_\", \":\") as ?ancestorId)<br>}",
+                "operationId": "getAncestorById",
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "The ID of an ontological resource (e.g. GO:0004409 or G0:0016836)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "level",
+                        "in": "query",
+                        "description": "The level of the ancestor (e.g. the level of the direct parent is 1)",
+                        "required": true,
+                        "type": "integer",
+                        "minimum": 1
+                    },
+                    {
+                        "name": "_page",
+                        "in": "query",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_pageSize",
+                        "in": "query",
+                        "description": "size of a page of the result set (> 0 or else all results will be displayed)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_format",
+                        "in": "path",
+                        "description": "format in which the results set will be return",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            ".json",
+                            ".sparql-json",
+                            ".xml",
+                            ".tsv",
+                            ".csv",
+                            ".rdf",
+                            ".html",
+                            ".ttl"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/ontologies/terms/parents/byId{_format}": {
+            "post": {
+                "tags": [
+                    "ontologies"
+                ],
+                "summary": "Returns the parents of an ontological element given its id",
+                "description": "<br> SELECT ?ancestorId<br>WHERE<br>{<br>{<br>SELECT ?ancestor1<br>WHERE<br>{<br>?subject rdfs:subClassOf ?ancestor1.<br>FILTER REGEX(STR(?subject), CONCAT(REPLACE(\"<b>id</b>\", \":\", \"_\"), \"$\"))<br>} limit 1}<br>?ancestor1 a owl:Class .<br>BIND(REPLACE(str(?ancestor1), '^.*(#|/)', \"\") AS ?ancestorLocalname)<br>BIND(REPLACE(?ancestorLocalname, \"_\", \":\") as ?ancestorId)<br>}",
+                "operationId": "getParentById",
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "The ID of an ontological resource (e.g. GO:0004409)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "_page",
+                        "in": "query",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_pageSize",
+                        "in": "query",
+                        "description": "size of a page of the result set (> 0 or else all results will be displayed)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_format",
+                        "in": "path",
+                        "description": "format in which the results set will be return",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            ".json",
+                            ".sparql-json",
+                            ".xml",
+                            ".tsv",
+                            ".csv",
+                            ".rdf",
+                            ".html",
+                            ".ttl"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/ontologies/terms/descendants/byId{_format}": {
+            "post": {
+                "tags": [
+                    "ontologies"
+                ],
+                "summary": "Returns the descendents of an ontological element given its id",
+                "description": "<br> SELECT ?ancestorId<br>WHERE<br>{<br>{<br>SELECT ?ancestor1<br>WHERE<br>{<br>?subject rdfs:subClassOf ?ancestor1.<br>FILTER REGEX(STR(?subject), CONCAT(REPLACE(\"<b>id</b>\", \":\", \"_\"), \"$\"))<br>} limit 1}<br>?ancestor1 a owl:Class .<br>BIND(REPLACE(str(?ancestor1), '^.*(#|/)', \"\") AS ?ancestorLocalname)<br>BIND(REPLACE(?ancestorLocalname, \"_\", \":\") as ?ancestorId)<br>}",
+                "operationId": "getDescendentById",
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "The ID of an ontological resource (e.g. GO:0003824)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "level",
+                        "in": "query",
+                        "description": "The level of the descendent (e.g. the level of the direct children is 1)",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_page",
+                        "in": "query",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_pageSize",
+                        "in": "query",
+                        "description": "size of a page of the result set (> 0 or else all results will be displayed)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_format",
+                        "in": "path",
+                        "description": "format in which the results set will be return",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            ".json",
+                            ".sparql-json",
+                            ".xml",
+                            ".tsv",
+                            ".csv",
+                            ".rdf",
+                            ".html",
+                            ".ttl"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/ontologies/terms/children/byId{_format}": {
+            "post": {
+                "tags": [
+                    "ontologies"
+                ],
+                "summary": "Returns the children of an ontological element given its id",
+                "description": "<br> SELECT ?ancestorId<br>WHERE<br>{<br>{<br>SELECT ?ancestor1<br>WHERE<br>{<br>?subject rdfs:subClassOf ?ancestor1.<br>FILTER REGEX(STR(?subject), CONCAT(REPLACE(\"<b>id</b>\", \":\", \"_\"), \"$\"))<br>} limit 1}<br>?ancestor1 a owl:Class .<br>BIND(REPLACE(str(?ancestor1), '^.*(#|/)', \"\") AS ?ancestorLocalname)<br>BIND(REPLACE(?ancestorLocalname, \"_\", \":\") as ?ancestorId)<br>}",
+                "operationId": "getChildrenById",
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "The ID of an ontological resource (e.g. GO:0003824)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "_page",
+                        "in": "query",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_pageSize",
+                        "in": "query",
+                        "description": "size of a page of the result set (> 0 or else all results will be displayed)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_format",
+                        "in": "path",
+                        "description": "format in which the results set will be return",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            ".json",
+                            ".sparql-json",
+                            ".xml",
+                            ".tsv",
+                            ".csv",
+                            ".rdf",
+                            ".html",
+                            ".ttl"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/ontologies/terms/associatedWithQtl{_format}": {
+            "post": {
+                "tags": [
+                    "ontologies"
+                ],
+                "summary": "Get the ontological terms associated with the QTL, and the association",
+                "description": "",
+                "operationId": "getOntoTermsAssociatedWithQtl",
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "parameters": [
+                    {
+                        "name": "qtlId",
+                        "in": "query",
+                        "description": "The id of the QTL (e.g. AQA001)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "_page",
+                        "in": "query",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_pageSize",
+                        "in": "query",
+                        "description": "size of a page of the result set (> 0 or else all results will be displayed)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_format",
+                        "in": "path",
+                        "description": "format in which the results set will be return",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            ".json",
+                            ".sparql-json",
+                            ".xml",
+                            ".tsv",
+                            ".csv",
+                            ".rdf",
+                            ".html",
+                            ".ttl"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "default": {
+                        "description": "unexpected error"
+                    }
+                }
+            }
+        },
+        "/ontologies/terms/associatedWithProtein{_format}": {
+            "post": {
+                "tags": [
+                    "ontologies"
+                ],
+                "summary": "Get the ontological terms associated with the Protein, and the association",
+                "description": "",
+                "operationId": "getOntoTermsAssociatedWithProtein",
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "parameters": [
+                    {
+                        "name": "proteinId",
+                        "in": "query",
+                        "description": "The id of the protein (e.g. A0A060D1L3)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "_page",
+                        "in": "query",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_pageSize",
+                        "in": "query",
+                        "description": "size of a page of the result set (> 0 or else all results will be displayed)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_format",
+                        "in": "path",
+                        "description": "format in which the results set will be return",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            ".json",
+                            ".sparql-json",
+                            ".xml",
+                            ".tsv",
+                            ".csv",
+                            ".rdf",
+                            ".html",
+                            ".ttl"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "default": {
+                        "description": "unexpected error"
+                    }
+                }
+            }
+        },
+        "/graphs/description{_format}": {
+            "post": {
+                "tags": [
+                    "graphs"
+                ],
+                "summary": "Retrieve complete description of a resource from AgroLD in JSON format",
+                "description": "",
+                "operationId": "getDescription",
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "parameters": [
+                    {
+                        "name": "uri",
+                        "in": "query",
+                        "description": "URI of the resource",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "_page",
+                        "in": "query",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_pageSize",
+                        "in": "query",
+                        "description": "size of a page of the result set (> 0 or else all results will be displayed)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_format",
+                        "in": "path",
+                        "description": "format in which the results set will be return",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            ".json",
+                            ".sparql-json",
+                            ".xml",
+                            ".tsv",
+                            ".csv",
+                            ".rdf",
+                            ".html",
+                            ".ttl"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/graphs{_format}": {
+            "post": {
+                "tags": [
+                    "graphs"
+                ],
+                "summary": "list all the graphs of AgroLD",
+                "description": "",
+                "operationId": "listgraphs",
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "parameters": [
+                    {
+                        "name": "_page",
+                        "in": "query",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_pageSize",
+                        "in": "query",
+                        "description": "size of a page of the result set (> 0 or else all results will be displayed)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_format",
+                        "in": "path",
+                        "description": "format in which the results set will be return",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            ".json",
+                            ".sparql-json",
+                            ".xml",
+                            ".tsv",
+                            ".csv",
+                            ".rdf",
+                            ".html",
+                            ".ttl"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "404": {
+                        "description": "Invalid HTTP method"
+                    }
+                }
+            }
+        },
+        "/graphs/predicates{_format}": {
+            "post": {
+                "tags": [
+                    "graphs"
+                ],
+                "summary": "Retrieve complete URI of all predicates used in AgroLD in JSON",
+                "description": "",
+                "operationId": "getGraphPredicates",
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "parameters": [
+                    {
+                        "name": "graphLocalName",
+                        "in": "query",
+                        "description": "The local name of the graph in the namespace http://www.southgreen.fr/agrold/ of AgroLD (e.g. gramene.genes)",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            "so",
+                            "go",
+                            "eco",
+                            "eo",
+                            "pato",
+                            "po",
+                            "to",
+                            "ncbitaxon",
+                            "gramene.genes",
+                            "uniprot.plants",
+                            "protein.annotations",
+                            "orygenesdb.o.s.indica",
+                            "orygenesdb.o.s.thaliana",
+                            "orygenesdb.o.s.japonica",
+                            "greenphyldb",
+                            "topgene",
+                            "qtl.annotations",
+                            "otl",
+                            "gramene.cyc",
+                            "gramene.qtl"
+                        ]
+                    },
+                    {
+                        "name": "_page",
+                        "in": "query",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_pageSize",
+                        "in": "query",
+                        "description": "size of a page of the result set (> 0 or else all results will be displayed)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_format",
+                        "in": "path",
+                        "description": "format in which the results set will be return",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            ".json",
+                            ".sparql-json",
+                            ".xml",
+                            ".tsv",
+                            ".csv",
+                            ".rdf",
+                            ".html",
+                            ".ttl"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/errorModel"
+                        }
+                    }
+                }
+            }
+        },
+        "/qtls{_format}": {
+            "post": {
+                "tags": [
+                    "qtl"
+                ],
+                "summary": "Retrieve complete URI and description of all QTLs from AgroLD",
+                "description": "",
+                "operationId": "getQtls",
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "parameters": [
+                    {
+                        "name": "_page",
+                        "in": "query",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_pageSize",
+                        "in": "query",
+                        "description": "size of a page of the result set (> 0 or else all results will be displayed)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_format",
+                        "in": "path",
+                        "description": "format in which the results set will be return",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            ".json",
+                            ".sparql-json",
+                            ".xml",
+                            ".tsv",
+                            ".csv",
+                            ".rdf",
+                            ".html",
+                            ".ttl"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/qtls/byKeyword{_format}": {
+            "post": {
+                "tags": [
+                    "qtl"
+                ],
+                "summary": "Retrieve QTLs with URI or name or description containing the given keyword",
+                "description": "",
+                "operationId": "getQtlsByKeyWord",
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "parameters": [
+                    {
+                        "name": "keyword",
+                        "in": "query",
+                        "description": "The keyword to find (e.g. rooting depth)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "_page",
+                        "in": "query",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_pageSize",
+                        "in": "query",
+                        "description": "size of a page of the result set (> 0 or else all results will be displayed)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_format",
+                        "in": "path",
+                        "description": "format in which the results set will be return",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            ".json",
+                            ".sparql-json",
+                            ".xml",
+                            ".tsv",
+                            ".csv",
+                            ".rdf",
+                            ".html",
+                            ".ttl"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/qtls/id/associatedWithOntoId{_format}": {
+            "post": {
+                "tags": [
+                    "qtl"
+                ],
+                "summary": "Get ids of QTLs associated with an ontological Id",
+                "description": "SELECT DISTINCT ?qtlI<br>WHERE<br>{<br>  { <br>    SELECT ?ontoElt<br>    WHERE<br>    {<br><br>    ?ontoElt rdfs:subClassOf ?ontoEltClass.<br> FILTER REGEX(STR(?ontoElt), CONCAT(REPLACE(\"<b>ontoId</b>\", \":\", \"_\"), \"$\"))<br>    } limit 1<br>  }<br>  GRAPH agrold:qtl.annotations{<br>    ?qtl ?predicate ?ontoElt .<br>    ?qtl rdfs:subClassOf < http://purl.obolibrary.org/obo/SO_0000771> .<br>    BIND(REPLACE(str(?qtl), '^.*(#|/)', \"\") AS ?qtlId) .<br>  }<br>}<br>ORDER BY ?qtl<br>LIMIT <b>_pageSize</b><br>OFFSET <b>_page</b>",
+                "operationId": "getQtlsIdAssociatedWithOntoId",
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "parameters": [
+                    {
+                        "name": "ontoId",
+                        "in": "query",
+                        "description": "The id of the ontological element (e.g. EO:0007403)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "_page",
+                        "in": "query",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_pageSize",
+                        "in": "query",
+                        "description": "size of a page of the result set (> 0 or else all results will be displayed)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_format",
+                        "in": "path",
+                        "description": "format in which the results set will be return",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            ".json",
+                            ".sparql-json",
+                            ".xml",
+                            ".tsv",
+                            ".csv",
+                            ".rdf",
+                            ".html",
+                            ".ttl"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "default": {
+                        "description": "unexpected error"
+                    }
+                }
+            }
+        },
+        "/qtls/associatedWithProteinId{_format}": {
+            "post": {
+                "tags": [
+                    "qtl"
+                ],
+                "summary": "Get the list of QTLs associated with an protein Id",
+                "description": "",
+                "operationId": "getQtlsAssociatedWithProteinId",
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "parameters": [
+                    {
+                        "name": "proteinId",
+                        "in": "query",
+                        "description": "The id of the protein (e.g. Q9LL45)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "_page",
+                        "in": "query",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_pageSize",
+                        "in": "query",
+                        "description": "size of a page of the result set (> 0 or else all results will be displayed)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_format",
+                        "in": "path",
+                        "description": "format in which the results set will be return",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            ".json",
+                            ".sparql-json",
+                            ".xml",
+                            ".tsv",
+                            ".csv",
+                            ".rdf",
+                            ".html",
+                            ".ttl"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "default": {
+                        "description": "unexpected error"
+                    }
+                }
+            }
+        },
+        "/proteins{_format}": {
+            "post": {
+                "tags": [
+                    "protein"
+                ],
+                "summary": "Retrieve complete URI and description of all proteins from AgroLD in JSON format",
+                "description": "SELECT distinct ?protein ( CONCAT(?label, \": \", ?desc) AS ?description)<br>WHERE {<br>?protein agrold_vocab:description ?desc; <br>rdfs:label ?label ;<br>rdfs:subClassOf &lt&;http://purl.obolibrary.org/obo/SO_0000104 &gt;.<br>}",
+                "operationId": "getProteins",
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "parameters": [
+                    {
+                        "name": "_page",
+                        "in": "query",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_pageSize",
+                        "in": "query",
+                        "description": "size of a page of the result set (> 0 or else all results will be displayed)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_format",
+                        "in": "path",
+                        "description": "format in which the results set will be return",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            ".json",
+                            ".sparql-json",
+                            ".xml",
+                            ".tsv",
+                            ".csv",
+                            ".rdf",
+                            ".html",
+                            ".ttl"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/proteins/publications/byId": {
+            "post": {
+                "tags": [
+                    "protein"
+                ],
+                "summary": "Get publications of a protein",
+                "description": "",
+                "operationId": "getPublicationsOfProteinById",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "proteinId",
+                        "in": "query",
+                        "description": "The ID of the protein (e.g. P0C127)",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/proteins/byKeyword{_format}": {
+            "post": {
+                "tags": [
+                    "protein"
+                ],
+                "summary": "Retrieve proteins with URI or name or description containing the given keyword",
+                "description": "",
+                "operationId": "getProteinsByKeyWord",
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "parameters": [
+                    {
+                        "name": "keyword",
+                        "in": "query",
+                        "description": "The keyword to find (e.g. Putative)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "_page",
+                        "in": "query",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_pageSize",
+                        "in": "query",
+                        "description": "size of a page of the result set (> 0 or else all results will be displayed)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_format",
+                        "in": "path",
+                        "description": "format in which the results set will be return",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            ".json",
+                            ".sparql-json",
+                            ".xml",
+                            ".tsv",
+                            ".csv",
+                            ".rdf",
+                            ".html",
+                            ".ttl"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/proteins/id/associatedWithOntoId{_format}": {
+            "post": {
+                "tags": [
+                    "protein"
+                ],
+                "summary": "Get ids of proteins associated with an ontological Id",
+                "description": "SELECT DISTINCT ?proteinId<br>WHERE<br>{<br>{<br>   SELECT ?ontoElt<br>    WHERE<br>    {<br>    ?ontoElt rdfs:subClassOf ?ontoEltClass.<br> FILTER REGEX(STR(?ontoElt), CONCAT(REPLACE(\"<b>ontoId</b>\", \":\", \"_\"), \"$\"))<br>    } limit 1<br>  }<br> ?protein ?predicate ?ontoElt .<br>  ?protein rdfs:subClassOf < http://purl.obolibrary.org/obo/SO_0000104 > .<br>  BIND(REPLACE(str(?protein), '^.*(#|/)', \"\") AS ?proteinId) .<br>}<br>ORDER BY ?proteinId<br>LIMIT <b>_pageSize</b><br>OFFSET <b>_page</b>",
+                "operationId": "getProteinIdAssociatedWithOntoId",
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "parameters": [
+                    {
+                        "name": "ontoId",
+                        "in": "query",
+                        "description": "The id of the ontological element (e.g. GO:0003824)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "_page",
+                        "in": "query",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_pageSize",
+                        "in": "query",
+                        "description": "size of a page of the result set (> 0 or else all results will be displayed)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_format",
+                        "in": "path",
+                        "description": "format in which the results set will be return",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            ".json",
+                            ".sparql-json",
+                            ".xml",
+                            ".tsv",
+                            ".csv",
+                            ".rdf",
+                            ".html",
+                            ".ttl"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "default": {
+                        "description": "unexpected error"
+                    }
+                }
+            }
+        },
+        "/proteins/associatedWithQTL{_format}": {
+            "post": {
+                "tags": [
+                    "protein"
+                ],
+                "summary": "Get URIs, ids, and name of proteins associated with a QTL",
+                "description": "",
+                "operationId": "getProteinsAssociatedWithQtl",
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "parameters": [
+                    {
+                        "name": "qtlId",
+                        "in": "query",
+                        "description": "The id of the QTL (e.g. AQAA003)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "_page",
+                        "in": "query",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_pageSize",
+                        "in": "query",
+                        "description": "size of a page of the result set (> 0 or else all results will be displayed)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_format",
+                        "in": "path",
+                        "description": "format in which the results set will be return",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            ".json",
+                            ".sparql-json",
+                            ".xml",
+                            ".tsv",
+                            ".csv",
+                            ".rdf",
+                            ".html",
+                            ".ttl"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "default": {
+                        "description": "unexpected error"
+                    }
+                }
+            }
+        },
+        "/proteins/EncodedByGene{_format}": {
+            "post": {
+                "tags": [
+                    "protein"
+                ],
+                "summary": "Get URIs, ids, and name of proteins encoded by a gene given its ID",
+                "description": "",
+                "operationId": "getProteinsEncodedByGene",
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "parameters": [
+                    {
+                        "name": "geneId",
+                        "in": "query",
+                        "description": "The id of the gene (e.g. BGIOSGA000339)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "_page",
+                        "in": "query",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_pageSize",
+                        "in": "query",
+                        "description": "size of a page of the result set (> 0 or else all results will be displayed)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_format",
+                        "in": "path",
+                        "description": "format in which the results set will be return",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            ".json",
+                            ".sparql-json",
+                            ".xml",
+                            ".tsv",
+                            ".csv",
+                            ".rdf",
+                            ".html",
+                            ".ttl"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "default": {
+                        "description": "unexpected error"
+                    }
+                }
+            }
+        },
+        "/genes{_format}": {
+            "post": {
+                "tags": [
+                    "gene"
+                ],
+                "summary": "Retrieve complete URI and description of all genes from AgroLD in JSON format",
+                "description": "",
+                "operationId": "getGenes",
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "parameters": [
+                    {
+                        "name": "_page",
+                        "in": "query",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_pageSize",
+                        "in": "query",
+                        "description": "size of a page of the result set (> 0 or else all results will be displayed)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_format",
+                        "in": "path",
+                        "description": "format in which the results set will be return",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            ".json",
+                            ".sparql-json",
+                            ".xml",
+                            ".tsv",
+                            ".csv",
+                            ".rdf",
+                            ".html",
+                            ".ttl"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/genes/publications/byId": {
+            "post": {
+                "tags": [
+                    "gene"
+                ],
+                "summary": "Get publications of a gene",
+                "description": "",
+                "operationId": "getPublicationsOfGeneById",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "geneId",
+                        "in": "query",
+                        "description": "The ID of the protein (e.g. BGIOSGA000339)",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/genes/byKeyword{_format}": {
+            "post": {
+                "tags": [
+                    "gene"
+                ],
+                "summary": "Retrieve genes with the URI or the name or the description containing the given keyword",
+                "description": "",
+                "operationId": "getGenesByKeyWord",
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "parameters": [
+                    {
+                        "name": "keyword",
+                        "in": "query",
+                        "description": "The keyword to find (e.g. FRK1)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "_page",
+                        "in": "query",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_pageSize",
+                        "in": "query",
+                        "description": "size of a page of the result set (> 0 or else all results will be displayed)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_format",
+                        "in": "path",
+                        "description": "format in which the results set will be return",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            ".json",
+                            ".sparql-json",
+                            ".xml",
+                            ".tsv",
+                            ".csv",
+                            ".rdf",
+                            ".html",
+                            ".ttl"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/genes/encodingProtein{_format}": {
+            "post": {
+                "tags": [
+                    "gene"
+                ],
+                "summary": "Get URIs, ids, and name of genes encoding a protein given its ID",
+                "description": "",
+                "operationId": "getGenesEncodingProteins",
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "parameters": [
+                    {
+                        "name": "proteinId",
+                        "in": "query",
+                        "description": "The id of the gene (e.g. B8A7T8)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "_page",
+                        "in": "query",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_pageSize",
+                        "in": "query",
+                        "description": "size of a page of the result set (> 0 or else all results will be displayed)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_format",
+                        "in": "path",
+                        "description": "format in which the results set will be return",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            ".json",
+                            ".sparql-json",
+                            ".xml",
+                            ".tsv",
+                            ".csv",
+                            ".rdf",
+                            ".html",
+                            ".ttl"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "default": {
+                        "description": "unexpected error"
+                    }
+                }
+            }
+        },
+        "/genes/participatingInPathway{_format}": {
+            "post": {
+                "tags": [
+                    "gene"
+                ],
+                "summary": "Get URIs, ids, and name of genes participating in a pathway given its ID",
+                "description": "",
+                "operationId": "getCDSGene",
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "parameters": [
+                    {
+                        "name": "pathwayId",
+                        "in": "query",
+                        "description": "The id (local name) of the pathway (e.g. CALVIN-PWY)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "_page",
+                        "in": "query",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_pageSize",
+                        "in": "query",
+                        "description": "size of a page of the result set (> 0 or else all results will be displayed)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_format",
+                        "in": "path",
+                        "description": "format in which the results set will be return",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            ".json",
+                            ".sparql-json",
+                            ".xml",
+                            ".tsv",
+                            ".csv",
+                            ".rdf",
+                            ".html",
+                            ".ttl"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "default": {
+                        "description": "unexpected error"
+                    }
+                }
+            }
+        },    
+        
+        
+        
+        
+        
+        
+        
+        "/genes/NumberOfCDS{_format}": {
+            "post": {
+                "tags": [
+                    "gene"
+                ],
+                "summary": "Retrieve complete URI and description of all genes from AgroLD in JSON format",
+                "description": "",
+                "operationId": "getCDSGene",
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "parameters": [
+                    {
+                        "name": "_page",
+                        "in": "query",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_pageSize",
+                        "in": "query",
+                        "description": "size of a page of the result set (> 0 or else all results will be displayed)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_format",
+                        "in": "path",
+                        "description": "format in which the results set will be return",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            ".json",
+                            ".sparql-json",
+                            ".xml",
+                            ".tsv",
+                            ".csv",
+                            ".rdf",
+                            ".html",
+                            ".ttl"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+            
+            
+            
+            
+            
+            
+        "/pathways/inWhichParticipatesGene/byId{_format}": {
+            "post": {
+                "tags": [
+                    "pathway"
+                ],
+                "summary": "Retrieve IRI and name of pathways in which an id-given gene participates",
+                "description": "",
+                "operationId": "getPathwaysInWhichParticipatesGene",
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "parameters": [
+                    {
+                        "name": "geneId",
+                        "in": "query",
+                        "description": "Id of the gene (e.g. AT5G03690)",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_page",
+                        "in": "query",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_pageSize",
+                        "in": "query",
+                        "description": "size of a page of the result set (> 0 or else all results will be displayed)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_format",
+                        "in": "path",
+                        "description": "format in which the results set will be return",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            ".json",
+                            ".sparql-json",
+                            ".xml",
+                            ".tsv",
+                            ".csv",
+                            ".rdf",
+                            ".html",
+                            ".ttl"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/errorModel"
+                        }
+                    }
+                }
+            }
+        },
+        "/pathways/byKeyword{_format}": {
+            "post": {
+                "tags": [
+                    "pathway"
+                ],
+                "summary": "Retrieve IRI and name of pathways given a keyword",
+                "description": "",
+                "operationId": "getPathwaysByKeyWord",
+                "produces": ["text/html", "application/sparql-results+json", "application/json", "application/sparql-results+xml", "text/tab-separated-values", "text/csv", "rdf/xml", "text/turtle"],
+                "parameters": [
+                    {
+                        "name": "keyword",
+                        "in": "query",
+                        "description": "Id of the gene (e.g. CALVIN)",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_page",
+                        "in": "query",
+                        "description": "number (>= 0) of the page of the result set to display (0 = the first page by default)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_pageSize",
+                        "in": "query",
+                        "description": "size of a page of the result set (> 0 or else all results will be displayed)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "_format",
+                        "in": "path",
+                        "description": "format in which the results set will be return",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            ".json",
+                            ".sparql-json",
+                            ".xml",
+                            ".tsv",
+                            ".csv",
+                            ".rdf",
+                            ".html",
+                            ".ttl"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/errorModel"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "ApiResponse": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "externalDocs": {
+        "description": "Find out more about Swagger",
+        "url": "http://swagger.io"
+    }
+}

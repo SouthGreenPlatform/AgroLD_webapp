@@ -1,0 +1,136 @@
+
+.part1 {
+	width:50%;
+	height: 50%;
+	float: left;
+	background: purple;
+}
+.part2 {
+	width:50%;
+	height: 50%;
+	float: left;
+	background: red;
+}
+.part3 {
+	width:50%;
+	height: 50%;
+	float: left;
+	background: green;
+}
+.part4 {
+	width:50%;
+	height: 50%;
+	float: left;
+	background: silver;
+}
+.content{
+	width: 100%;
+	position: relative;
+}
+.feature{
+	border: 1px solid transparent;                
+	border-color: #ccc;
+	border-width: 3px;                
+	border-radius: 6px;
+	padding: 6px 12px;
+	width: 300px;
+	vertical-align: top;
+}
+.feature h4{
+	text-align: center;
+}
+.feature p{
+	text-align: center;
+}
+/********/
+/* Style for our header texts
+* --------------------------------------- */
+h1{
+	font-size: 5em;
+	font-family: arial,helvetica;
+	color: #fff;
+	margin:0;
+	padding:0;
+}
+.intro p{
+	color: #fff;
+}
+
+/* Centered texts in each section
+* --------------------------------------- */
+#section0 {
+	padding : 0!important;
+	margin : 0 !important;
+}
+.section{
+	text-align:center;
+}
+#section1 {
+
+}
+
+/* Fixed header and footer.
+* --------------------------------------- */
+#header, #footer{
+	/*position:fixed;
+	height: 50px;
+	display:block;
+	width: 100%;
+	background: #333;
+	text-align:center;
+	color: #f2f2f2;
+	padding: 20px 0 0 0;*/
+	
+	z-index:999999 !important;
+	
+}
+
+
+/**
+SLICK
+**/
+.slider {
+	width: 100%;
+	height: 100%;
+
+	margin: 0 !important;
+	z-index: 999;
+}
+.jumbotron {
+	padding: 0 !important;
+}
+.slider img {
+	width: 100%;
+	height: 100vh;
+	background-repeat: no-repeat;
+	background-size: 100px auto;
+	background-position: center top;
+	background-attachment: fixed;
+	object-fit: contain;
+	object-position: none;
+	border-radius: 3px;
+}
+.slick-slide {
+	margin: 0px;
+}
+
+.slick-slide img {
+	width: 100%;
+}
+
+.slick-prev:before,
+.slick-next:before {
+	color: black;
+}
+.a-slide{ height: 100%; width: 100%; background-size: cover !important;}
+.slick-slider{ height: 100%;} 
+.slide1 {background:url(../img/slider01.png) no-repeat center;}
+.slide2 {background:url(../img/slider01.png) no-repeat center;}
+
+.jumbotron {
+	  margin-top : 55px !important;
+  padding: none !important;
+  margin-bottom: none !important;
+background-color: none !important;
+  border-radius: none !important;
+}

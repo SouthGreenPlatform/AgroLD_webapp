@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xsi:schemaLocation="http://research.sun.com/wadl/2006/10 https://wadl.dev.java.net/wadl20061109.xsd"
+             xmlns="http://research.sun.com/wadl/2006/10">
+    <grammars/>http://volvestre.cirad.fr:8080/
+    
+    <resources base="localhost:8080/agrold/api/">
+        <resource path="1.0">
+            <resource path="genes.tsv">
+                <!--param name="_format" style="template" type="xsd:string"/-->
+                <method href="#getGenes" name="POST" />
+            </resource>
+            <method id="getGenes" name="POST">
+                <request/>
+                <response/>
+            </method>
+        </resource>
+    </resources>
+</application>
