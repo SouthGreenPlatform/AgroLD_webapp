@@ -16,7 +16,7 @@ For bug tracking purpose you can use the GitHub or questions about AgroLG, you c
 
 # Valorization
 
-* [https://tel.archives-ouvertes.fr/IBC/hal-01176903v1](https://tel.archives-ouvertes.fr/IBC/hal-01176903v1) 
+* APIA: Applications Pratiques de l'Intelligence Artificielle , Jul 2015, Rennes, France. 1ère conférence sur les Application Pratiques de l'Intelligence Artificielle (APIA), 2015, 〈http://pfia2015.inria.fr/actes/index.php?procpage=apia〉, available at [https://tel.archives-ouvertes.fr/IBC/hal-01176903v1](https://tel.archives-ouvertes.fr/IBC/hal-01176903v1) 
 * [http://ceur-ws.org/Vol-1546/poster_55.pdf](http://ceur-ws.org/Vol-1546/poster_55.pdf)
 
 
