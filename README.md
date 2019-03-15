@@ -79,19 +79,19 @@ The front office (is any tools that has a direct relation to customers) of AgroL
 
 ![graphique](img/Screenshot_webApp.png "Agrold_application")
 
-####[Quick search](http://agrold.southgreen.fr/quicksearch.jsp)
+#### [Quick search](http://agrold.southgreen.fr/quicksearch.jsp)
 
 Quick search is based on keyword search and aids in
 understanding the underlying knowledge
 
-####[Explore Relationships]( http://agrold.southgreen.fr/relfinder.jsp)
+#### [Explore Relationships]( http://agrold.southgreen.fr/relfinder.jsp)
 The Explore Relationships tool aids in exploring relationships between existing entities.
 
-####[Advanced Search](http://agrold.southgreen.fr/advancedSearch.jsp)
+#### [Advanced Search](http://agrold.southgreen.fr/advancedSearch.jsp)
 The Advanced Search query form is based on the REST API suite, developed under the AgroLD project. The aim of this effort is to provide non-technical users with a tool to query the knowledge base.
 
 
-####[SPARQL Query](http://agrold.southgreen.fr/sparqleditor.jsp)
+#### [SPARQL Query](http://agrold.southgreen.fr/sparqleditor.jsp)
 The SPARQL Query Editor provides an interactive environment to formulate SPARQL queries.
 
 
