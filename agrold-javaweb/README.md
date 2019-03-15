@@ -38,15 +38,21 @@ delete from h_advanced_search where mail="tagny@ymail.com";
 
 
 ### Issues (ou *to fix*)
+*italic*: peut-être résolu
+**gras**: résolu
+
+#### En général
+* implémenter des test unitaires pour vérifier que les màj ne crèent pas d'erreur
 
 #### Advanced Search
-*  Les tables YASR apparaissent souvent aminçis dans les fenêtres de description d'entités
-*  La navigation entre page ne marche pas ("Next page")
-*  les requêtes sur les QTL retournent peu de résultats
+*  Laisser l'utilisateur spécifier les paramètres `page`et `pageSize`?
+*  *Les tables YASR apparaissent souvent aminçis dans les fenêtres de description d'entités*
+*  **x La navigation entre page ne marche pas ("Next page")**
+*  *les requêtes sur les QTL retournent peu de résultats*
 *  advancedsearch.jsp incompatible avec includes.html?
-*  gérer les erreur de l'API dans l'advancedSearch (màj de Swagger-client dans tous les appel aux web services)
+*  gérer les erreur HTTP (eg. 204, 404, 500, etc.) de l'API dans l'advancedSearch (màj de Swagger-client dans tous les appel aux web services)
 *  Recherche des QTL: la seul description fournie est le label et has_trait (très souvent une URI TO_... dans le graphe gramene.qtl, mais texte dans qtaro.qtl). Donc il est difficile de les retrouver par mot-clé
-*  Corriger la requête de recherche pour trouver plus de QTL y compris ceux de qtaro.qtl (voir sparql query du web service getQTLs i.e. `rdf:type|rdfs:subclassOf)
+*  **Corriger la requête de recherche pour trouver plus de QTL y compris ceux de qtaro.qtl (voir sparql query du web service getQTLs i.e. `rdf:type|rdfs:subclassOf)**
 
 #### Exemple
 *  Elliminer les exemples qui ne marchent pas
@@ -58,8 +64,8 @@ delete from h_advanced_search where mail="tagny@ymail.com";
 
 #### Web services
 *  problème d'encodage dans l'affichage des publications
-*  Certains services ne retourne que le format .json (il faut convertir la sortie pour d'autres format)
-*  L'implémentation des services n'est pas documenté sur Swagger (code SPARQL, sources externes des données, etc.)
+*  Certains services ne retournent que le format .json (il faut convertir la sortie pour d'autres formats)
+*  L'implémentation des services n'est pas documentée sur Swagger (code SPARQL, sources externes des données, etc.)
 *  Il n'y a pas de cache
 *  Il n'y a pas de gestion explicite des erreurs avec les codes HTTP
 *  Ajouter un web service `getPathways`
@@ -80,8 +86,8 @@ WHERE {
 ```
 
 #### sparql editor
-*  bouton pour ajouter les préfixes
-*  D3SPARQL dans YASR
+*  Ajouter un bouton pour ajouter les préfixes
+*  **D3SPARQL dans YASR**
 *  le plein écran de YASQE et YASR est caché par la barre de menu
 *  le graphe des résultats n'est pas téléchargeable
 ```sparql
@@ -102,14 +108,3 @@ WHERE {
   { uri: ?property ?hasValue }
 }
 ```
-
-### Types:
-
-*  agrold:resource/Chromosome	
-*  agrold:resource/Gene
-*  agrold:resource/QTL
-*  agrold:vocabulary/Gene
-*  agrold:vocabulary/Metabolic_Pathway
-*  agrold:vocabulary/Protein
-*  agrold:vocabulary/Reaction
-
