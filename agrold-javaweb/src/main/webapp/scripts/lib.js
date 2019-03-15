@@ -126,9 +126,7 @@ function processHtmlResult(entitiesType) {
             for(j = 0; j < trs.length; j++){
                if($(tds[j]).text().includes("<b>")){
                    $(tds[j]).html($(tds[j]).text());
-               } else {
-                   console.log($(tds[j]).text());
-               }
+               } 
             }            
         }
     }

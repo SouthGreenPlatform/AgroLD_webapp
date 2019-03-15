@@ -271,8 +271,8 @@ public class Utils {
                 + "     }\n"
                 + "    \n"
                 + "  }\n"
-                + " order by desc (?sc * 3e-1 + sql:rnk_scale (<LONG::IRI_RANK> (?s1)))  limit 20  offset 0 }}} ";
-        sparqlQuery = addLimitAndOffset(sparqlQuery, pageSize, page);
+                + " order by desc (?sc * 3e-1 + sql:rnk_scale (<LONG::IRI_RANK> (?s1)))\n";
+        sparqlQuery = addLimitAndOffset(sparqlQuery, pageSize, page) + "}}}";
 
         return executeSparqlQuery(sparqlQuery, sparqlEndpointURL, resultFormat);
     }
@@ -358,8 +358,8 @@ public class Utils {
     }
 
     public static void main(String[] args) throws IOException {
-        //System.out.println(getEntitiesByKeyWord("irgsp1_locus", new String[]{GeneDAO.GENE_TYPE_URI, GeneDAO.GENE_TYPE_URI2}, 0, 10, TSV));
-        System.out.println(getEntitiesByKeyWord("plant height", new String[]{"http://www.w3.org/2002/07/owl#Class"}, 0, 10, TSV));
+        System.out.println(getEntitiesByKeyWord("irgsp1_locus", new String[]{GeneDAO.GENE_TYPE_URI, GeneDAO.GENE_TYPE_URI2}, 0, 30, TSV));
+        //System.out.println(getEntitiesByKeyWord("plant height", new String[]{"http://www.w3.org/2002/07/owl#Class"}, 0, 10, TSV));
 //System.out.println(executeSparqlQuery("select distinct ?Concept where {[] a ?Concept} LIMIT 5", sparqlEndpointURL, "text/html"));
     }
 }

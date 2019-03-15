@@ -8,7 +8,7 @@ var currentPage = 0; // curent page
 var result = "";
 var sparqljson;
 
-function drawResultTable(entityType, data, page) {
+function drawResultTable(data, entityType, keyword, page) {
     var sparqljson = data.data;
     displayResult("result", sparqljson);
     var tableId = $("table.resultsTable").attr("id");
@@ -26,40 +26,39 @@ function drawResultTable(entityType, data, page) {
  * 
  */
 function search(entityType, keyword, page) {
-    currentPage = page;
     window.swagger = new SwaggerClient({
         url: AGROLDAPIJSONURL,
         success: function () {
             displayHoldMessage("#result");
             switch (entityType) {
                 case "gene":
-                    swagger.apis.gene.getGenesByKeyWord({format: DEFAULTAPIFORMAT, keyword: keyword, pageSize: pageSize, page: currentPage},
+                    swagger.apis.gene.getGenesByKeyWord({format: DEFAULTAPIFORMAT, keyword: keyword, pageSize: pageSize, page: page},
                     {responseContentType: 'application/json'}, function (data) {
-                        drawResultTable(entityType, data, page);
+                        drawResultTable(data, entityType, keyword, page);
                     });
                     break;
                 case "protein":
                     swagger.apis.protein.getProteinsByKeyWord({format: DEFAULTAPIFORMAT, keyword: keyword, pageSize: pageSize, page: page},
                         {responseContentType: 'text/html'}, function (data) {
-                            drawResultTable(entityType, data, page);
+                            drawResultTable(data, entityType, keyword, page);
                     });
                     break;
                 case "qtl":
                     swagger.apis.qtl.getQtlsByKeyWord({format: DEFAULTAPIFORMAT, keyword: keyword, pageSize: pageSize, page: page},
                         {responseContentType: 'text/html'}, function (data) {
-                            drawResultTable(entityType, data, page);
+                            drawResultTable(data, entityType, keyword, page);
                     });
                     break;
                 case "pathway":
                     swagger.apis.pathway.getPathwaysByKeyWord({format: DEFAULTAPIFORMAT, keyword: keyword, pageSize: pageSize, page: page},
                         {responseContentType: 'text/html'}, function (data) {
-                            drawResultTable(entityType, data, page);
+                            drawResultTable(data, entityType, keyword, page);
                     });
                     break;
                 case "ontology":
                     swagger.apis.ontologies.getOntologyTermsByKeyWord({format: DEFAULTAPIFORMAT, keyword: keyword, pageSize: pageSize, page: page},
                         {responseContentType: 'text/html'}, function (data) {
-                            drawResultTable(entityType, data, page);
+                           drawResultTable(data, entityType, keyword, page);
                     });
                     break;
                 default:
