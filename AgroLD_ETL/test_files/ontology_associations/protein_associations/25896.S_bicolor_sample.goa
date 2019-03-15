@@ -1,8 +1,0 @@
-!gaf-version: 2.0
-!GO-version: http://purl.obolibrary.org/obo/go/releases/2015-05-25/go.owl
-UniProtKB	A1E9Q2	rps12-A		GO:0003723	GO_REF:0000037	IEA	UniProtKB-KW:KW-0694	F	30S ribosomal protein S12, chloroplastic	RR12_SORBI|rps12-A|rps12-B	protein	taxon:4558	20150523	UniProt		
-UniProtKB	A1E9Q2	rps12-A		GO:0003735	GO_REF:0000002	IEA	InterPro:IPR005679|InterPro:IPR006032	F	30S ribosomal protein S12, chloroplastic	RR12_SORBI|rps12-A|rps12-B	protein	taxon:4558	20150523	InterPro		
-UniProtKB	A1E9Q6	rps16		GO:0009507	GO_REF:0000039	IEA	UniProtKB-SubCell:SL-0049	C	30S ribosomal protein S16, chloroplastic	RR16_SORBI|rps16	protein	taxon:4558	20150523	UniProt		
-UniProtKB	A1E9Q6	rps16		GO:0009536	GO_REF:0000002	IEA	InterPro:IPR026994	C	30S ribosomal protein S16, chloroplastic	RR16_SORBI|rps16	protein	taxon:4558	20150523	InterPro		
-UniProtKB	Q9XGG1	RLK1		GO:0000166	GO_REF:0000038	IEA	UniProtKB-KW:KW-0547	F	Putative uncharacterized protein Sb05g024090	Q9XGG1_SORBI|RLK1|Sb05g024090|SORBIDRAFT_05g024090	protein	taxon:4558	20150523	UniProt		
-UniProtKB	Q9XGG1	RLK1		GO:0004672	GO_REF:0000002	IEA	InterPro:IPR000719|InterPro:IPR008271	F	Putative uncharacterized protein Sb05g024090	Q9XGG1_SORBI|RLK1|Sb05g024090|SORBIDRAFT_05g024090	protein	taxon:4558	20150523	InterPro		

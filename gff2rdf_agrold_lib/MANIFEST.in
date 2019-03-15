@@ -1,4 +1,0 @@
-include *.md
-include README.md
-recursive-include gff2rdf_agrold_lib *.txt
-include gff2rdf_agrold_lib exempleGffFile.gff

@@ -1,5 +1,0 @@
-!DB	DB_Object_ID	DB_Object_Symbol	Qualifier	GOid	DB:Reference	Evidence	With(or)From	Aspect	DB_Object_Name	DB_Object_Synonym	DB_Object_Type	Taxon	Date	Assigned_by
-GR_gene	GR:0060141	CL		TO:0000089	GR_REF:1793	IMP		T	CLUSTERED SPIKELETS	Cl|Clustered spikelets	Gene	taxon:4530	20100422	GR
-GR_gene	GR:0060141	CL		TO:0000180	GR_REF:1793	IMP		T	CLUSTERED SPIKELETS	Cl|Clustered spikelets	Gene	taxon:4530	20100422	GR
-GR_gene	GR:0060154	[CMS-KALINGA-I]		TO:0000303	GR_REF:5870	IMP		T	CYTOPLASMIC MALE STERILITY KALINGA	[cms-Kalinga-I]|[cms-Kalinga-I]|Cytoplasmic controlled cold tolerance	Gene	taxon:4530	20100422	GR
-GR_gene	GR:0090001	SOC1		TO:0000137	GR_REF:0	IMP		T	SUPPRESSOR OF OVEREXPRESSION OF CO 1	OsSOC1	Gene	taxon:4530	20100422	GR

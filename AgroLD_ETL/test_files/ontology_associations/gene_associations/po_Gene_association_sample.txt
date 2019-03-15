@@ -1,8 +1,0 @@
-!DB	DB_Object_ID	DB_Object_Symbol	Qualifier	GOid	DB:Reference	Evidence	With(or)From	Aspect	DB_Object_Name	DB_Object_Synonym	DB_Object_Type	Taxon	Date	Assigned_by
-GR_gene	GR:0060141	CL		PO:0007010	GR_REF:1793	IMP		G	CLUSTERED SPIKELETS	Cl|Clustered spikelets	Gene	taxon:4530	20100422	GR
-GR_gene	GR:0060141	CL		PO:0007038	GR_REF:1793	IMP		G	CLUSTERED SPIKELETS	Cl|Clustered spikelets	Gene	taxon:4530	20100422	GR
-GR_gene	GR:0060141	CL		PO:0009049	GR_REF:1793	IMP		A	CLUSTERED SPIKELETS	Cl|Clustered spikelets	Gene	taxon:4530	20100422	GR
-GR_gene	GR:0060146	[CMS-BO]		PO:0006318	GR_REF:6006	IMP		A	CYTOPLASMIC MALE STERILITY BO	[cms-bo]|`Chinsurah boro 2' cytoplasm|[cms-bo]|'Chinsurah boro II' cytoplasm	Gene	taxon:4530	20100422	GR
-GR_gene	GR:0080063	SaM		PO:0020091	GR_REF:25509	IMP		A	SaM	SaM+|SaM-	Gene	taxon:4530	20100422	GR
-GR_gene	GR:0080064	SaF		PO:0001012	GR_REF:25509	IMP		G	SaF	SaF+|SaF-	Gene	taxon:4530	20100422	GR
-GR_gene	GR:0080064	SaF		PO:0020091	GR_REF:25509	IMP		A	SaF	SaF+|SaF-	Gene	taxon:4530	20100422	GR
