@@ -38,7 +38,9 @@ delete from h_advanced_search where mail="tagny@ymail.com";
 
 
 ### Issues (ou *to fix*)
+
 *italic*: peut-être résolu
+
 **gras**: résolu
 
 #### En général
