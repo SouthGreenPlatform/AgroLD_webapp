@@ -26,7 +26,7 @@ For bug tracking purpose you can use the GitHub or questions about AgroLG, you c
 
 * Intellectual property belongs to IRD, CIRAD, IBC, INRA, IFB, ELIXIR, and SouthGreen development platform.
 * Written by Aravind Venkatesan, Pierre Larmande, Gildas Tagny, Imene chentli, Nordine El Hassouni, Manuel Ruiz and Patrick Valduriez.
-* Copyright 2014-2016
+* Copyright 2014-2019
 
 
 # The Architecture of project
@@ -55,10 +55,10 @@ AgroLD project is composed of two component: [AgroLD_ETL](/AgroLD_ETL)  and  [ag
 
 ### AgroLD_ETL
 
-
+https://github.com/SouthGreenPlatform/AgroLD_ETL
 Contains parsers and model used to convert data considered for AgroLD to RDF.
 
-* [model](/AgroLD_ETL/model): All documents who describe how data are transformed
+* [model](../AgroLD_ETL/model): All documents who describe how data are transformed
 * [rdf_ttl](/AgroLD_ETL/rdf_ttl): All output of transformation sort by dataset
 * [riceKB](/AgroLD_ETL/riceKB): Contains scripts used for each data set
 * [test_files](/AgroLD_ETL/test_files): All test files in input ( heterogeneous format: csv, tabbed files, gff3 )
