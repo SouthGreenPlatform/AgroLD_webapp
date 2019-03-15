@@ -32,7 +32,7 @@ For bug tracking purpose you can use the GitHub or questions about AgroLG, you c
 # The Architecture of project
 
 
-AgroLD project is composed of two component: [AgroLD_ETL](/AgroLD_ETL)  and  [agrold_webapp](/agrold_webapp)
+AgroLD project is composed of two component: [AgroLD_ETL](https://github.com/SouthGreenPlatform/AgroLD_ETL)  and  [AgroLD_webapp](https://github.com/SouthGreenPlatform/AgroLD_webapp)
 
 
 * The first component is a set of Parser and wrapper for translate a dataset. Follow this link for to know what data have been translated in RDF: [Documentation](http://agrold.southgreen.fr/documentation.jsp)  
@@ -55,14 +55,13 @@ AgroLD project is composed of two component: [AgroLD_ETL](/AgroLD_ETL)  and  [ag
 
 ### AgroLD_ETL
 
-https://github.com/SouthGreenPlatform/AgroLD_ETL
 Contains parsers and model used to convert data considered for AgroLD to RDF.
 
-* [model](../AgroLD_ETL/model): All documents who describe how data are transformed
-* [rdf_ttl](/AgroLD_ETL/rdf_ttl): All output of transformation sort by dataset
-* [riceKB](/AgroLD_ETL/riceKB): Contains scripts used for each data set
-* [test_files](/AgroLD_ETL/test_files): All test files in input ( heterogeneous format: csv, tabbed files, gff3 )
-* [riceKBpipeline.py](/AgroLD_ETL/riceKBpipeline.py): Script file where we have centralised all execution
+* [model](https://github.com/SouthGreenPlatform/AgroLD_ETL/model): All documents who describe how data are transformed
+* [rdf_ttl](https://github.com/SouthGreenPlatform/AgroLD_ETL/rdf_ttl): All output of transformation sort by dataset
+* [riceKB](https://github.com/SouthGreenPlatform/AgroLD_ETL/riceKB): Contains scripts used for each data set
+* [test_files](https://github.com/SouthGreenPlatform/AgroLD_ETL/test_files): All test files in input ( heterogeneous format: csv, tabbed files, gff3 )
+* [riceKBpipeline.py](https://github.com/SouthGreenPlatform/AgroLD_ETL/riceKBpipeline.py): Script file where we have centralised all execution
 
 
 The type of each dataset is different, GFF, HapMap, CSV and VCF. In first time we have developed parser for build a dictonary, 
