@@ -34,7 +34,7 @@ For bug tracking purpose you can use the GitHub or questions about AgroLG, you c
 AgroLD project is composed of two component: [AgroLD_ETL](/AgroLD_ETL)  and  [agrold_webapp](/agrold_webapp)
 
 
-* The first component is a set of Parser and wrapper for translate a dataset. Follow this link for to know what data have been translated in RDF: [Documentation](http://volvestre.cirad.fr:8080/agrold/documentation.jsp)  
+* The first component is a set of Parser and wrapper for translate a dataset. Follow this link for to know what data have been translated in RDF: [Documentation](http://agrold.southgreen.fr/documentation.jsp)  
 
 * The second component is the web application who is connected at the triple store for to make queries.
  
@@ -79,19 +79,19 @@ The front office (is any tools that has a direct relation to customers) of AgroL
 
 ![graphique](img/Screenshot_webApp.png "Agrold_application")
 
-####[Quick search](http://volvestre.cirad.fr:8080/agrold/quicksearch.jsp)
+####[Quick search](http://agrold.southgreen.fr/quicksearch.jsp)
 
 Quick search is based on keyword search and aids in
 understanding the underlying knowledge
 
-####[Explore Relationships]( http://volvestre.cirad.fr:8080/agrold/relfinder.jsp)
+####[Explore Relationships]( http://agrold.southgreen.fr/relfinder.jsp)
 The Explore Relationships tool aids in exploring relationships between existing entities.
 
-####[Advanced Search](http://volvestre.cirad.fr:8080/agrold/advancedSearch.jsp)
+####[Advanced Search](http://agrold.southgreen.fr/advancedSearch.jsp)
 The Advanced Search query form is based on the REST API suite, developed under the AgroLD project. The aim of this effort is to provide non-technical users with a tool to query the knowledge base.
 
 
-####[SPARQL Query](http://volvestre.cirad.fr:8080/agrold/sparqleditor.jsp)
+####[SPARQL Query](http://agrold.southgreen.fr/sparqleditor.jsp)
 The SPARQL Query Editor provides an interactive environment to formulate SPARQL queries.
 
 
@@ -101,7 +101,7 @@ The SPARQL Query Editor provides an interactive environment to formulate SPARQL 
 
 ```
 For execute the projet in your local host:
-/agrold_webapp/dist/agrold.war
+/agrold_webapp/target/agrold.war
 load the war in your tomcat and go in localhost:8080/agrold
 ```
 
