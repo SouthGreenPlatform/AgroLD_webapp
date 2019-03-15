@@ -18,8 +18,7 @@ For bug tracking purpose you can use the GitHub or questions about AgroLG, you c
 
 * Aravind Venkatesan, Nordine El Hassouni, Florian Phillipe, Cyril Pommier, Hadi Quesneville, Manuel Ruiz, Pierre Larmande. Towards efficient data integration and knowledge management in the Agronomic domain. APIA: Applications Pratiques de l'Intelligence Artificielle , Jul 2015, Rennes, France. 1ère conférence sur les Application Pratiques de l'Intelligence Artificielle (APIA), 2015, http://pfia2015.inria.fr/actes/index.php?procpage=apia. [hal-01176903](https://tel.archives-ouvertes.fr/IBC/hal-01176903v1)
 * Venkatesan, Aravind, Nordine El Hassouni, Florian Phillipe, Cyril Pommier, Hadi Quesneville, Manuel Ruiz, and Pierre Larmande. "Exposing French agronomic resources as linked open data." In IN-OLIVE. 2016. [PDF](http://ceur-ws.org/Vol-1546/poster_55.pdf)
-*  Article Source: Agronomic Linked Data (AgroLD): A knowledge-based system to enable integrative biology in agronomy
-Venkatesan A, Tagny Ngompe G, Hassouni NE, Chentli I, Guignon V, et al. (2018) Agronomic Linked Data (AgroLD): A knowledge-based system to enable integrative biology in agronomy. PLOS ONE 13(11): e0198270. https://doi.org/10.1371/journal.pone.0198270 
+*  Venkatesan, Aravind, Gildas Tagny Ngompe, Nordine El Hassouni, Imene Chentli, Valentin Guignon, Clement Jonquet, Manuel Ruiz, and Pierre Larmande. "Agronomic Linked Data (AgroLD): A knowledge-based system to enable integrative biology in agronomy." PloS one 13, no. 11 (2018): e0198270. https://doi.org/10.1371/journal.pone.0198270 
 
 
 
