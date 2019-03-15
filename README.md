@@ -57,11 +57,11 @@ AgroLD project is composed of two component: [AgroLD_ETL](https://github.com/Sou
 
 Contains parsers and model used to convert data considered for AgroLD to RDF.
 
-* [model](https://github.com/SouthGreenPlatform/AgroLD_ETL/model): All documents who describe how data are transformed
-* [rdf_ttl](https://github.com/SouthGreenPlatform/AgroLD_ETL/rdf_ttl): All output of transformation sort by dataset
-* [riceKB](https://github.com/SouthGreenPlatform/AgroLD_ETL/riceKB): Contains scripts used for each data set
-* [test_files](https://github.com/SouthGreenPlatform/AgroLD_ETL/test_files): All test files in input ( heterogeneous format: csv, tabbed files, gff3 )
-* [riceKBpipeline.py](https://github.com/SouthGreenPlatform/AgroLD_ETL/riceKBpipeline.py): Script file where we have centralised all execution
+* [model](https://github.com/SouthGreenPlatform/AgroLD_ETL/tree/master/model): All documents who describe how data are transformed
+* [rdf_ttl](https://github.com/SouthGreenPlatform/AgroLD_ETL/tree/master/rdf_ttl): All output of transformation sort by dataset
+* [riceKB](https://github.com/SouthGreenPlatform/AgroLD_ETL/tree/master/riceKB): Contains scripts used for each data set
+* [test_files](https://github.com/SouthGreenPlatform/AgroLD_ETL/tree/master/test_files): All test files in input ( heterogeneous format: csv, tabbed files, gff3 )
+* [riceKBpipeline.py](https://github.com/SouthGreenPlatform/AgroLD_ETL/tree/master/riceKBpipeline.py): Script file where we have centralised all execution
 
 
 The type of each dataset is different, GFF, HapMap, CSV and VCF. In first time we have developed parser for build a dictonary, 
@@ -70,7 +70,7 @@ because is easy to browse a dictionary and create the RDF
 
 
 
-### agrold_webapp
+### AgroLD_webapp
 
 Scripts used for website UI, contains scripts for AgroLD API feature and all SPARQL query.
 The front office (is any tools that has a direct relation to customers) of AgroLD web application are written in JavaScript and the back office (interne fonctionnalities) is written in JAVA.
