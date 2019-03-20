@@ -129,7 +129,7 @@
             <!--endpointURI>http://volvestre.cirad.fr:8890/sparql</endpointURI>
             <endpointURI>http://localhost/agrold/api/sparql</endpointURI>
             <endpointURI>http://sparql.southgreen.fr</endpointURI-->
-            <endpointURI>http://agrold.southgreen.fr/api/sparql</endpointURI>
+            <endpointURI>http://agrold.southgreen.fr/agrold/api/sparql</endpointURI>
             <dontAppendSPARQL>true</dontAppendSPARQL>
             <defaultGraphURI/>
             <isVirtuoso>true</isVirtuoso>
