@@ -234,7 +234,7 @@
                                 </div>
                                 <div id="parameters">
                                 </div>
-                                <form action="http://sparql.southgreen.fr" method="get" data-step="2" data-intro="watch & edit its query here!">                                                      
+                                <form action="http://agrold.southgreen.fr/sparql" method="get" data-step="2" data-intro="watch & edit its query here!">                                                      
                                     <label for="query"><b style="font-size: 15px">Query Text</b></label><br />
                                     <textarea rows="15" cols="76" name="query" id="query" onchange="format_select(this)" onkeyup="format_select(this)">
                                     <%
@@ -300,7 +300,7 @@ LIMIT 10
                         <b style="font-size: 15px">Query Patterns</b>
                     </div>                 
                 </div>  
-                <div class="container">
+                <div class="container-rst" style="width: 100%">
                     <div id="yasr" data-step="4" data-intro="watch your results ... ">
                         <div class="info_title" style="font-size: 19px">Results</div>
                         <canvas id="hiddenCanvas"></canvas>
@@ -346,8 +346,8 @@ LIMIT 10
                     scrollTop: $(this).offset().top
                 }, 1000);
             });
-        };        
-        
+        };
+
         var yasqe = YASQE.fromTextArea(document.getElementById('query'),
                 {
                     sparql: {
@@ -373,7 +373,7 @@ LIMIT 10
                 });
         // add a plugin to draw response as graph with d3sparql
         YASR.registerOutput("graph", GraphInYASR);
-        
+
         var yasr = YASR(document.getElementById("yasr"), {
             // List of enabled output plugins. The order of these plugins specifies the order of the output buttons as well
             outputPlugins: ["error", "boolean", "table", "rawResponse", "pivot", "graph"],

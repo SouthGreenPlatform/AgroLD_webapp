@@ -12,9 +12,14 @@
                             <a class="flex-sm-fill text-sm-center nav-link active o-geneResult"  href="javascript:void(0)" id="gene">Participating genes</a>\
                         </span>\
                     </div>\
+                    <div id="graphViewContainer">\
+                       <span id="graphViewPageBtns"><a class="flex-sm-fill text-sm-center nav-link o-graphViewResult" href="javascript:void(0)" id="graphView"> View as graph </a></span>\
+                   </div>\
                 </nav>\
-                <div class="o-panel o-active" id="geneResult"></div>',
+                <div class="o-panel o-active" id="geneResult"></div>\
+                <div class="o-panel" id="graphViewResult"></div>',
         getDescription: function (uri) {
+            this.uri = uri;
             var sparql = 'PREFIX agrold:<http://www.southgreen.fr/agrold/vocabulary/> \
 PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> \
 PREFIX meaning:<http://purl.obolibrary.org/obo/IAO_0000115> \
@@ -43,6 +48,10 @@ BIND(REPLACE(str(?entity), \'^.*(#|/)\', \"\") AS ?Id)\
         },
         addEvents: function () {
             $("#gene").attr("onclick", "invoke('searchParticipatingGenes'," + this.currentGenePage + ")");
+            $("#graphView").attr("onclick", "invoke('callViewAsGraph')");
+        },
+        callViewAsGraph: function () {
+            viewAsGraph(this.uri, "graphViewResult");
         },
         searchParticipatingGenes: function (page) {
             this.currentGenePage = page;
@@ -50,7 +59,7 @@ BIND(REPLACE(str(?entity), \'^.*(#|/)\', \"\") AS ?Id)\
             var containerId = type + "Container";
             displayHoldMessage("#" + type + "Result");
             var tthis = this;
-            swagger.apis.gene.getGenesByPathways({format: DEFAULTAPIFORMAT, pathwayId: ModalContext.id, pageSize: pageSize, page: page},
+            swagger.apis.gene.getGenesByPathways({format: DEFAULTAPIFORMAT, pathwayId: ModalContext.id, pageSize: DEFAULT_PAGE_SIZE, page: page},
                     {responseContentType: 'application/json'}, function (data) {
                 var sparqljson = data.data;
                 var resultId = type + "Result";
@@ -62,7 +71,7 @@ BIND(REPLACE(str(?entity), \'^.*(#|/)\', \"\") AS ?Id)\
                 });
             });
         },
-        displayInformation: function (data, page, where, pageBtnsId, functionName) {
+        displayInformation: function (data, page, where, functionName) {
             var nbResults = data.obj["results"]["bindings"].length;
             var previousBtnId = "previousPage";
             var nextBtnId = "nextPage";

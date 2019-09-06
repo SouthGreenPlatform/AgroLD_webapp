@@ -5,6 +5,7 @@
  */
 package agrold.webservices;
 
+import agrold.webservices.dao.CustomizableServicesManager;
 import agrold.webservices.dao.Utils;
 import static agrold.webservices.dao.Utils.DEFAULT_PAGE;
 import static agrold.webservices.dao.Utils.DEFAULT_PAGE_SIZE;
@@ -14,10 +15,18 @@ import agrold.webservices.dao.OntologyDAO;
 import agrold.webservices.dao.PathwayDAO;
 import agrold.webservices.dao.ProteinDAO;
 import agrold.webservices.dao.QtlDAO;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.URISyntaxException;
+import java.util.List;
+import javax.annotation.security.RolesAllowed;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -26,8 +35,11 @@ import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriInfo;
 
 /**
  *
@@ -62,6 +74,83 @@ public class API {
                     .build();
         }
         return Response.ok(content, contentType).build();
+    }
+
+    String inputStream2String(InputStream incomingData){
+        StringBuilder bodyParamsBuilder = new StringBuilder();
+        try {
+            BufferedReader in = new BufferedReader(new InputStreamReader(incomingData));
+            String line = null;
+            while ((line = in.readLine()) != null) {
+                bodyParamsBuilder.append(line);
+            }
+        } catch (Exception e) {
+            System.out.println("Error Parsing: - ");
+        }
+        //System.out.println("Data Received: " + bodyParamsBuilder.toString());
+        return bodyParamsBuilder.toString();
+    }
+    
+    // generic web service for modifiables ones    
+    @GET
+    // @Consumes(MediaType.APPLICATION_JSON) // for "in body parameters"
+    @Path("/customizable/{serviceLocalName}")
+    public Response genericGet(@PathParam("serviceLocalName") String serviceLocalName, @Context UriInfo uriInfo, @Context  HttpHeaders headers) throws IOException {        
+        List<MediaType> mediaTypes = headers.getAcceptableMediaTypes();
+        MediaType reponseMediaType = mediaTypes.get(0);
+        if (reponseMediaType == null) {
+            return Response.serverError()
+                    .entity("[AgroLD Web Services] - Format Error: The requested resource is not available in the format \"" + mediaTypes.get(0) + "\"")
+                    .build();
+        }
+        String content = CustomizableServicesManager.queryCustomizableService(serviceLocalName, uriInfo.getQueryParameters(), "get", reponseMediaType);
+        return buildResponse(content, reponseMediaType.toString());
+    }
+
+    /*public Response genericGet(@PathParam("serviceLocalName") String serviceLocalName, @PathParam(formatVar) String format, @Context UriInfo uriInfo,
+            @DefaultValue(DEFAULT_PAGE) @QueryParam(pageNumVar) int page,
+            @DefaultValue(DEFAULT_PAGE_SIZE) @QueryParam(pageSizeVar) int pageSize) throws IOException {
+        String contentType = Utils.getFormatFullName(format);
+        if (contentType == null) {
+            return Response.serverError()
+                    .entity("[AgroLD Web Services] - Format Error: The requested resource is not available in the format \"" + format + "\"")
+                    .build();
+        }
+        String content = CustomizableServicesManager.queryCustomizableService(serviceLocalName, uriInfo.getQueryParameters(), page, pageSize, format);
+        return buildResponse(content, contentType);
+    }*/
+    // generic web service for modifiables ones    
+    @GET
+    @Path("/webservices")
+    public Response getAPISpecification() throws IOException {
+        String content = CustomizableServicesManager.readAPISpecification(Utils.AGROLDAPIJSONURL);
+        return buildResponse(content, Utils.JSON);
+    }
+
+    // generic web service for modifiables ones
+    @RolesAllowed("ADMIN")
+    @DELETE
+    @Produces(MediaType.TEXT_PLAIN)
+    @Path("/webservices")
+    public Response deleteService(@QueryParam("name") String name, @QueryParam("httpMethod") String httpMethod) throws IOException {        
+        String content = CustomizableServicesManager.deleteService(name, httpMethod); 
+        return buildResponse(content, MediaType.TEXT_PLAIN);
+    }
+
+    @RolesAllowed("ADMIN")
+    @PUT
+    @Path("/webservices")
+    public Response addService(@QueryParam("name") String name, @QueryParam("httpMethod") String httpMethod, InputStream specificationDataStream) throws IOException {       
+        String content = CustomizableServicesManager.addService(name, httpMethod, inputStream2String(specificationDataStream));
+        return buildResponse(content, MediaType.TEXT_PLAIN);
+    }
+
+    @RolesAllowed("ADMIN")
+    @POST
+    @Path("/webservices")
+    public Response updateService(@QueryParam("name") String name, @QueryParam("httpMethod") String httpMethod, InputStream specificationDataStream) throws IOException {
+        String content = CustomizableServicesManager.updateService(name, httpMethod, inputStream2String(specificationDataStream));
+        return buildResponse(content, MediaType.TEXT_PLAIN);
     }
 
     // Ontologies
@@ -219,6 +308,15 @@ public class API {
         String content = GeneralServicesDAO.getIRIDescription(resourceURI, page, pageSize, format);
         return buildResponse(content, contentType);
     }
+    
+    @GET
+    @Path("/describe4visualization.json")
+    public Response getDescriptionForVisualization(@QueryParam("uri") String resourceURI,
+            @DefaultValue(DEFAULT_PAGE) @QueryParam(pageNumVar) int page, @DefaultValue(DEFAULT_PAGE_SIZE) @QueryParam(pageSizeVar) int pageSize) throws IOException {        
+        String content = GeneralServicesDAO.getIRIDescription4visualization(resourceURI, page, pageSize);
+        return buildResponse(content, Utils.JSON);
+    }
+    
 
     @GET
     @Path("/predicates" + formatInPath)
@@ -451,7 +549,7 @@ public class API {
         return buildResponse(content, contentType);
     }
 
-    // External services : publications
+    // publications
     @GET
     @Path("/genes/publications/byId" + formatInPath)
     //@Produces({MediaType.APPLICATION_JSON})
@@ -464,6 +562,22 @@ public class API {
             return Response.serverError().entity("[AgroLD Web Services] - Format Error: The requested resource is not available in the format \"" + format + "\"").build();
         }
         String content = GeneDAO.getPublicationsOfGeneById(geneId, page, pageSize, format);
+        return buildResponse(content, contentType);
+    }
+
+    // seeAlso
+    @GET
+    @Path("/genes/seeAlso" + formatInPath)
+    //@Produces({MediaType.APPLICATION_JSON})
+    public Response getSeeAlso(@PathParam(formatVar) String format,
+            @DefaultValue(DEFAULT_PAGE) @QueryParam(pageNumVar) int page,
+            @DefaultValue(DEFAULT_PAGE_SIZE) @QueryParam(pageSizeVar) int pageSize,
+            @QueryParam("geneUri") String geneUri) throws IOException {
+        String contentType = Utils.getFormatFullName(format);
+        if (contentType == null) {
+            return Response.serverError().entity("[AgroLD Web Services] - Format Error: The requested resource is not available in the format \"" + format + "\"").build();
+        }
+        String content = GeneDAO.getSeeAlsoByURI(geneUri, page, pageSize, format);
         return buildResponse(content, contentType);
     }
 

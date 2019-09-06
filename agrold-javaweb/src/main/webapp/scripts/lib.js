@@ -3,9 +3,203 @@
  */
 var url = AGROLDAPIJSONURL;
 var maxAuthorsLength = 100;
-var pageSize = 30; // limit number of results per page
+var DEFAULT_PAGE_SIZE = 30; // limit number of results per page
 var sparqlEndpoint = SPARQLENDPOINTURL;
 var holdMessage = '<center id="holdMessage"><img src="images/wait_animated.gif" alt="Please Wait!"/></center>';
+
+function viewAsGraph(entityUri, divId) {
+    // visualize the description as a graph 
+    $("#" + divId).html("Explore AgroLD From here!");
+    KNETMAPS_ADAPTATOR = new KnetmapsAdaptator();
+    KNETMAPS_ADAPTATOR.fetchConceptDescription(entityUri).done(function () {
+       KNETMAPS_ADAPTATOR.updateNetwork("#" + divId);
+    });
+}
+
+// Returns if a value is a string
+function isString(value) {
+    return typeof value === 'string' || value instanceof String;
+}
+
+function isValidURI(uriStr) {
+    return isString(uriStr) && (uriStr !== "") && (uriStr.includes("/"));
+}
+
+function getPrefixedFormOfURI(uriStr) {
+    var prefixedUri = uriStr;
+    // if not uri, return the argument
+    if (isValidURI(uriStr)) {
+        // else
+        var registeredPrefixes = {
+            "http://www.w3.org/1999/02/22-rdf-syntax-ns": "rdf",
+            "http://www.w3.org/2000/01/rdf-schema": "rdfs",
+            "http://www.w3.org/2002/07/owl": "owl",
+            "http://www.southgreen.fr/agrold": "agrold",
+            // "http://www.southgreen.fr/agrold/vocabulary": "agrold_vocabulary",
+            // "http://www.southgreen.fr/agrold/resource": "agrold_resource",
+            "http://purl.org/dc/terms": "dc",
+            "http://purl.obolibrary.org/obo": "obo",
+            "http://purl.uniprot.org/uniprot": "uniprot",
+            "http://identifiers.org/ensembl.plant": "ensembl.plant"
+
+        };
+        //console.log("getPrefixedFormOfURI uri: " + uriStr);
+        var uri = new URI(uriStr);
+        var dirUriStr = "";
+        var localname = "";
+        if (uriStr.includes("#")) { // fragment
+            localname = uri.fragment().toString();
+            dirUriStr = uri.fragment("").toString();
+        } else { // filename
+            localname = uri.filename().toString();
+            dirUriStr = uri.filename("").toString();
+            dirUriStr = dirUriStr.slice(0, -1);
+        }
+        //console.log("getPrefixedFormOfURI dirUri: " + dirUriStr);
+        //console.log("getPrefixedFormOfURI localname: " + localname);
+        var prefix = "";
+        if (dirUriStr.includes("agrold") && !dirUriStr.endsWith("agrold")) {
+            var dirUri = new URI(dirUriStr);
+            prefix = "agrold:" + dirUri.filename().toString() + "/";
+        } else {
+            prefix = registeredPrefixes[dirUriStr];
+            if (prefix !== undefined) {
+                prefix += ":";
+            }
+        }
+        prefixedUri = (prefix !== undefined ? prefix + localname : uriStr);
+        //console.log("getPrefixedFormOfURI prefixedUri: " + prefixedUri);        
+    }
+    return String(prefixedUri);
+}
+
+function getIRIFullLocalname(iriAsString) {
+    if(iriAsString === undefined){
+        return iriAsString;
+    }
+    var uri = new URI(iriAsString);
+    if (iriAsString.includes("#")) { // fragment        
+        localname = uri.filename().toString() +"#"+ uri.fragment().toString();
+        //console.log("localname: " + localname)
+    } else { // filename
+        localname = uri.filename().toString();
+    }
+    return localname;
+}
+
+function getIRILocalname(iriAsString) {
+    if(iriAsString === undefined){
+        return iriAsString;
+    }
+    var uri = new URI(iriAsString);
+    if (iriAsString.includes("#")) { // fragment
+        localname = uri.fragment().toString();
+    } else { // filename
+        localname = uri.filename().toString();
+    }
+    return localname;
+}
+
+function descriptionAsGraph(entityIRI, data, divId) {
+    // each line give the value (hasValue, or isValueOf) of a relation (property) involving the entityIRI
+    // Here we use Cytoscape.js to display relations in data with the entityIRI
+
+    //document.addEventListener("DOMContentLoaded", function() {
+    entityIRI = getPrefixedFormOfURI(entityIRI);
+    //console.log("descriptionAsGraph entityIRI: " + entityIRI);
+    // 1. build the JSON of the elements of the graph (nodes and edges)
+    // color to use:    
+    var centerNodeColor = 'blue'; // entityIRI node (center of the graph)
+    var otherNodesColor = '#ddd'; // other nodes
+    var ingoingEdgesColor = '#61bffc'; // ingoing edges
+    var outgoingEdgesColor = '#ddd'; // outgoing edges
+    var graphElements = {nodes: [{data: {id: entityIRI, color: centerNodeColor}}], edges: []};
+    var property = "";
+    var hasValue = "";
+    var isValueOf = "";
+    var addedNodes = [];
+    var idBase = "!$#e"; // idBase to avoid confusion with some ids of nodes that has integer values
+    for (i = 0; i < data.length; i++) {
+        property = getPrefixedFormOfURI(data[i]["property"]);
+        hasValue = getPrefixedFormOfURI(data[i]["hasValue"]);
+        isValueOf = getPrefixedFormOfURI(data[i]["isValueOf"]);
+        var newNodeLabel;
+        var edgeSource;
+        var edgeTarget;
+        var edgeColor;
+
+        if (hasValue !== "") {
+            newNodeLabel = hasValue;
+            edgeSource = entityIRI;
+            edgeTarget = hasValue;
+            edgeColor = outgoingEdgesColor;
+        } else { // if (isValueOf !== "")
+            newNodeLabel = isValueOf;
+            edgeSource = isValueOf;
+            edgeTarget = entityIRI;
+            edgeColor = ingoingEdgesColor;
+        }
+        if (!(addedNodes.filter(value => value === newNodeLabel).length > 0)) {
+            graphElements["nodes"].push({data: {id: newNodeLabel, color: otherNodesColor}});
+            addedNodes.push(newNodeLabel);
+        }
+        graphElements["edges"].push({data: {id: idBase + i, relation: property, source: edgeSource, target: edgeTarget, color: edgeColor}});
+    }
+    //console.log("descriptionAsGraph: " + JSON.stringify(graphElements));
+    var cy = cytoscape({
+        container: document.getElementById(divId),
+        elements: graphElements,
+        style: [
+            {
+                selector: 'node',
+                style: {
+                    'label': 'data(id)',
+                    'color': 'blue',
+                    'background-color': 'data(color)',
+                    'font-size': '16px',
+                    'text-halign': 'center',
+                    'text-valign': 'bottom',
+                    'text-background-color': 'white'
+                }
+            }, {
+                selector: 'edge',
+                style: {
+                    'curve-style': 'bezier',
+                    'label': 'data(relation)',
+                    'line-color': 'data(color)',
+                    'target-arrow-color': 'data(color)',
+                    'text-background-color': 'yellow',
+                    'text-background-opacity': 0.4,
+                    'width': '5px',
+                    'target-arrow-shape': 'triangle',
+                    'control-point-step-size': '140px'
+                }
+            },
+            {
+                selector: ':selected',
+                style: {
+                    'line-color': 'blue',
+                    'target-arrow-color': 'blue',
+                    'border-width': 5,
+                    'border-style': 'solid',
+                    'border-color': 'black'
+                }
+            }
+        ],
+        layout: {
+            name: 'random',
+            fit: true,
+            avoidOverlap: true,
+            avoidOverlapPadding: 80,
+            /*position: function(ele) {
+             if (ele.data('molecule') === 'DHAP') {
+             return { row: ele.id() - 1, col: 1 };
+             }
+             return { row: ele.id(), col: 0 };
+             }*/
+        }
+    });
+}
 
 function displayHoldMessage(target) {
     $(target).html(holdMessage);
@@ -43,9 +237,10 @@ function displayPublications(json, targetId) {
             $("#" + targetId + " ol li#paper" + i).append('<br><span>Available at: <a href="' + urlv + '" target="_blank">' + urlv + '</a></span>');
         }
     } else {
-        $("#" + targetId).html("No publication found.")
+        $("#" + targetId).html("No publication found.");
     }
 }
+
 function dispalyHeader(eltType, json) {
     elt = typeof json["results"]["bindings"][0] !== 'undefined' ? json["results"]["bindings"][0] : "";
     if (elt === "") {
@@ -60,7 +255,7 @@ function dispalyHeader(eltType, json) {
     var description = typeof elt["Description"] !== 'undefined' ? elt["Description"]["value"] : "";
     //////////////////////////////////
     htmlTitle.html('<b style="text-transform: uppercase" id="id">' + eltType + ' > ' + elt["Id"]["value"] + '</b>');
-    htmlSubTitle.html('<b> ' + (name != null ? name.charAt(0).toUpperCase() + name.slice(1) : '') + '</b>');
+    htmlSubTitle.html('<b> ' + (name !== null ? name.charAt(0).toUpperCase() + name.slice(1) : '') + '</b>');
     if (description !== "") {
         htmlDescription.html('<br><big>' + description + '</big>');
     }
@@ -75,6 +270,7 @@ function dispalyHeader(eltType, json) {
  * @returns {undefined}
  */
 function simpleDataDisplay(data, tableId) {
+    //console.log("simpleDataDisplay:" + JSON.stringify(data));
     var keys = Object.keys(data[0]);
     var table = $('#' + tableId);
     $(table).append("<thead></thead>");//<></>
@@ -121,13 +317,15 @@ function processHtmlResult(entitiesType) {
             var a = $(tds[uriIdx]).find("a.uri");
             sparqlLink = 'sparqleditor.jsp?query=PREFIX uri:<' + $(a).text() + '>\nSELECT ?property ?hasValue ?isValueOf\nWHERE {\n  { uri: ?property ?hasValue }\n  UNION\n  { ?isValueOf ?property uri:}\n}';
             $(a).after('<a href="' + encodeURI(sparqlLink) + '" target="_blank" style="text-decoration: none; color:#00B5AD; font-weight:bold"> (in Sparql) </a>');
-            $(a).attr("target", "_blank");            
+            visualExplorerLink = 'agrold_explorer.jsp?iri=' + $(a).text();
+            $(a).after('<a href="' + encodeURI(visualExplorerLink) + '" target="_blank" style="text-decoration: none; color:#00B5AD; font-weight:bold"> (Visualize) </a>');
+            $(a).attr("target", "_blank");
             $(tds[1]).append('<a id="' + encodeURIComponent($(a).text()) + '" name="' + entitiesType + '" class="mdpre" href="#advancedSearch.jsp?type=' + entitiesType + '&uri=' + encodeURIComponent($(a).text()) + '" style="text-decoration: none; color:#00B5AD; font-weight:bold"> (display) </a>');
-            for(j = 0; j < trs.length; j++){
-               if($(tds[j]).text().includes("<b>")){
-                   $(tds[j]).html($(tds[j]).text());
-               } 
-            }            
+            for (j = 0; j < trs.length; j++) {
+                if ($(tds[j]).text().includes("<b>")) {
+                    $(tds[j]).html($(tds[j]).text());
+                }
+            }
         }
     }
     $(currentTable).addClass("complete");
@@ -136,18 +334,17 @@ function processHtmlResult(entitiesType) {
 /**
  * Gestion de la pagination au niveau de l'outil de recherche.
  * @param {type} nbResults
- * @param {type} currentPage
- * @param {type} divId
+ * @param {type} currentPageo
  * @param {type} previousBtnId
  * @param {type} nextBtnId
  * @returns {undefined}
  */
-function addNavButtonsADVS(nbResults, currentPage, divId, previousBtnId, nextBtnId) {
+function addNavButtonsADVS(nbResults, currentPageo, previousBtnId, nextBtnId) {
     var nav = "";
-    if (currentPage > 0) {
+    if (currentPageo > 0) {
         nav = '<button class="btn btn-secondary o-secondary" id="' + previousBtnId + '"><i class="fa fa-angle-left"></i>&nbsp;&nbsp; Previous page</button>';
     }
-    if (pageSize == nbResults) {
+    if (DEFAULT_PAGE_SIZE === nbResults) {
         nav += ('<button class="btn btn-secondary o-secondary" id="' + nextBtnId + '" style="position: relative;right: 0px;">Next page &nbsp;&nbsp;<i class="fa fa-angle-right"></i></button>');
     }
     $("body" + " .yasr_header").prepend(nav);
@@ -168,7 +365,7 @@ function addNavButtons(nbResults, currentPageo, divIdo, previousBtnId, nextBtnId
         pager.prepend('<button class="btn btn-secondary o-secondary" onclick="invoke(\'' + functionName + '\',' + (currentPageo - 1) + ')" id="' + previousBtnId + '-top"><i class="fa fa-angle-left"></i>&nbsp;&nbsp; Previous page</button>');
         pager.append('<button class="btn btn-secondary o-secondary" onclick="invoke(\'' + functionName + '\',' + (currentPageo - 1) + ')" id="' + previousBtnId + '-top' + '"><i class="fa fa-angle-left"></i>&nbsp;&nbsp; Previous page</button>');
     }
-    if (pageSize == nbResults) {
+    if (DEFAULT_PAGE_SIZE === nbResults) {
         pager.prepend('<button class="btn btn-secondary o-secondary" onclick="invoke(\'' + functionName + '\',' + (currentPageo + 1) + ')" id="' + nextBtnId + '-bottom' + '" style="position: relative;right: 0px;">Next page &nbsp;&nbsp;<i class="fa fa-angle-right"></i></button>');
         pager.append('<button class="btn btn-secondary o-secondary" onclick="invoke(\'' + functionName + '\',' + (currentPageo + 1) + ')" id="' + nextBtnId + '-bottom' + '" style="position: relative;right: 0px;">Next page &nbsp;&nbsp;<i class="fa fa-angle-right"></i></button>');
     }

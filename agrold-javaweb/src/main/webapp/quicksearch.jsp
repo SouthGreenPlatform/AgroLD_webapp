@@ -48,13 +48,13 @@
                                 </div>
                                 <div id="sform">
                                     <center>
-                                    <form id="search" action="http://volvestre.cirad.fr:8890/fct/" method="post" target="_blank">                   
-                                        <!--Enter the entire/part of the name/code of a gene, QTL, protein, ... -->
-                                        <!--input class="yasrbtn" type="submit" value="Search" data-step="2" data-intro="launch the search engine!"/-->
+                                    <form id="search" action="http://agrold.southgreen.fr/fct/facet.vsp?cmd=text&sid=231"" method="post" target="_blank">
+                                    <!--form id="search" action="http://volvestre.cirad.fr:8890/fct/facet.vsp?cmd=text&sid=231"" method="post" target="_blank"-->
                                         <div class="col-lg-6">
                                             <div class="input-group">
                                                 <!--input type="text" class="form-control" placeholder="Search for..."-->
-                                                <input class="keyword form-control" name="q" type="text" placeholder="Type here..." data-step="1" data-intro="Type your expression and then ..."/> 
+                                                <input class="keyword form-control" name="q" type="text" placeholder="Search examples: Gene names -
+                                            'GRP2' or 'TCP12' or Keywords 'plant height'" data-step="1" data-intro="Type your expression and then ..."/> 
                                                 <span class="input-group-btn">
                                                     <input class="btn btn-secondary" type="submit" value="Search" data-step="2" data-intro="launch the search engine!" required/>
                                                 </span>

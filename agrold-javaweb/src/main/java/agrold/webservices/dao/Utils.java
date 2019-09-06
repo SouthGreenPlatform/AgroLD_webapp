@@ -5,6 +5,9 @@
  */
 package agrold.webservices.dao;
 
+import static agrold.webservices.dao.PathwayDAO.METABOLIC_PATHWAY;
+import static agrold.webservices.dao.PathwayDAO.PATHWAY_IDENTIFIER;
+import static agrold.webservices.dao.PathwayDAO.PATHWAY_TYPE1;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringReader;
@@ -41,8 +44,11 @@ public class Utils {
 
     public final static String DEFAULT_PAGE_SIZE = "10";
     public final static String DEFAULT_PAGE = "0";
+    
+    public static final String AGROLDAPIJSONURL = "/home/virtuoso/agrold.conf/agrold-api.json"; // en ligne i.e. sur volvestre
 
     public static String sparqlEndpointURL = "http://sparql.southgreen.fr";
+    //public static String sparqlEndpointURL = "http://agrold.southgreen.fr/sparql";
 
     public final static String CSV = "text/csv"; //CSV, HTML, JSON, N3, RDF, JSON_LD, TSV, TTL, XML
     public final static String HTML = "text/html"; // "text/csv", "application/json", "text/plain","text/turtle", "application/sparql-results+xml", "application/rdf+xml","text/tab-separated-values", "application/sparql-results+json", 
@@ -52,10 +58,14 @@ public class Utils {
     public final static String JSON_LD = "application/sparql-results+json";
     public final static String TSV = "text/tab-separated-values";
     public final static String TTL = "text/turtle";
+    public final static String TXT = "text/plain";
     public final static String XML = "application/sparql-results+xml";
 
     // HTML, JSON, JSON_LD, XML, TSV, CSV, RDF, TTL, N3
     public static String getFormatFullName(String format) {
+        if (format == null) {
+            return JSON;
+        }
         switch (format.toLowerCase()) {
             case ".json":
                 return JSON;
@@ -95,9 +105,21 @@ public class Utils {
             case N3:
                 return N3;
             default:
-                return JSON;
+                return null;
         }
         // return "";
+    }
+
+    public static JSONArray concatJONArrays(JSONArray arr1, JSONArray arr2)
+            throws JSONException {
+        JSONArray result = new JSONArray();
+        for (int i = 0; i < arr1.length(); i++) {
+            result.put(arr1.get(i));
+        }
+        for (int i = 0; i < arr2.length(); i++) {
+            result.put(arr2.get(i));
+        }
+        return result;
     }
 
     public static String convertStreamToString(java.io.InputStream is) {
@@ -123,15 +145,15 @@ public class Utils {
                     URLEncoder.encode(defaultGraphURI, charset),
                     URLEncoder.encode(sparqlQuery, charset),
                     URLEncoder.encode(format, charset));
+            // System.out.println("httpQuerry: " + httpQuery);
             // Firing a HTTP GET request with (optionally) query parameters
             URLConnection connection = new URL(sparqlEndpoint + "?" + httpQuery).openConnection();
             connection.setRequestProperty("Accept-Charset", charset);
             response = connection.getInputStream();
             result = convertStreamToString(response);
-        } catch (UnsupportedEncodingException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(Utils.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(Utils.class.getName()).log(Level.SEVERE, null, ex);
+            return ex.getMessage();
         } finally {
             if (response != null) {
                 try {
@@ -198,6 +220,7 @@ public class Utils {
         json += "]";
         return json;
     }
+
     /*
      public static String csv2json(String csv) {
      String json = "[";
@@ -235,43 +258,45 @@ public class Utils {
         return sparqlQuery;
     }
 
-    public static String getEntitiesByKeyWord(String keyword, String[] typesUri, int page, int pageSize, String resultFormat) throws IOException {
+    public static String getTypesOptionsAsSparql(String subject, String[] typeUris) {
+        String typesStr = "";
+        for (int i = 0; i < typeUris.length; i++) {
+            typesStr += (i == 0 ? "" : "union\n")
+                    + "{" + subject + " a <" + typeUris[i] + ">}\n";
+        }
+        /*for (int i = 0; i < typeUris.length; i++) {
+            typesStr += "union\n{"+subject+" rdfs:subClassOf <" + typeUris[i] + ">}\n";
+        }*/
+        return typesStr;
+    }
+
+    public static String getEntitiesByKeyWord(String keyword, String[] typeUris, int page, int pageSize, String resultFormat) throws IOException {
         // format keyword
         String tokens[] = keyword.split("\\s+");
-        if (tokens.length > 1) {
-            keyword = String.join(" AND ", tokens).toUpperCase();
-        }
-
-        String typesStr = "";
-        for (String typeUri : typesUri) {
-            typesStr += "<" + typeUri + ">,";
-        }
-        typesStr = typesStr.substring(0, typesStr.length() - 1);
+        String keywordsQuery = "'(\"" + String.join("\" AND \"", tokens).toUpperCase() + "\")'";
+        String keywordsListStr = "('" + String.join("', '", tokens).toUpperCase() + "')";
 
         String sparqlQuery = "PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
                 + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
-                + "select distinct ?Id, (bif:search_excerpt (bif:vector ('" + keyword + "'), group_concat(distinct ?o1;separator=\" ; \"))) as ?keyword_reference,"
-                + "?s1 as ?URI, ?g as ?graph \n"
+                + "select distinct ?Id ,?s1 as ?URI, ?g as ?graph, "
+                + "(bif:search_excerpt (bif:vector " + keywordsListStr + ", group_concat(distinct ?o1;separator=\" ; \"))) as ?keyword_reference \n"
+                //+ "(bif:search_excerpt (bif:vector " + keywordsListStr + ", ?o1)) as ?keyword_reference \n"
                 + "where {{{ \n"
-                + "select ?Id, group_concat(distinct ?Name;separator=\"; \") as ?Names, ?s1, ?t, (?sc * 3e-1) as ?sc, ?o1, (sql:rnk_scale (<LONG::IRI_RANK> (?s1))) as ?rank, ?g \n"
+                + "select ?Id, ?s1, ?t, (?sc * 3e-1) as ?sc, ?o1, (sql:rnk_scale (<LONG::IRI_RANK> (?s1))) as ?rank, ?g \n"
                 + "where  \n"
                 + "  { \n"
                 + "    quad map virtrdf:DefaultQuadMap \n"
                 + "    { \n"
-                + "	?s1 a ?t.\n"
-                + "	FILTER(?t IN (" + typesStr + "))\n"
-                + "     BIND(REPLACE(str(?s1), '^.*(#|/)', \"\") AS ?Id)   \n"
-                + "     OPTIONAL {?s1 rdfs:label ?Name .}\n"
-                + "      graph ?g { \n"
+                + "      graph ?g \n"
+                + "      { \n"
                 + "         ?s1 ?s1textp ?o1 .\n"
-                + "        ?o1 bif:contains  '\"" + keyword + "\"'  option (score ?sc)  .\n"
-                + "        \n"
+                + "        ?o1 bif:contains  " + keywordsQuery + "  option (score ?sc)  .\n"
                 + "      }\n"
-                + "      filter(REGEX(?g, \"^http://www.southgreen.fr/agrold/\"))\n"
                 + "     }\n"
-                + "    \n"
+                + getTypesOptionsAsSparql("?s1", typeUris)
+                + "	BIND(REPLACE(str(?s1), '^.*(#|/)', \"\") AS ?Id)\n"
                 + "  }\n"
-                + " order by desc (?sc * 3e-1 + sql:rnk_scale (<LONG::IRI_RANK> (?s1)))\n";
+                + " order by desc (?sc * 3e-1 + sql:rnk_scale (<LONG::IRI_RANK> (?s1)))  ";
         sparqlQuery = addLimitAndOffset(sparqlQuery, pageSize, page) + "}}}";
 
         return executeSparqlQuery(sparqlQuery, sparqlEndpointURL, resultFormat);
@@ -358,7 +383,8 @@ public class Utils {
     }
 
     public static void main(String[] args) throws IOException {
-        System.out.println(getEntitiesByKeyWord("irgsp1_locus", new String[]{GeneDAO.GENE_TYPE_URI, GeneDAO.GENE_TYPE_URI2}, 0, 30, TSV));
+        //System.out.println(getEntitiesByKeyWord("coding", GeneDAO.TYPEURIs, 0, 30, TSV));
+        System.out.println(getEntitiesByKeyWord("ethanol degradation", new String[]{METABOLIC_PATHWAY, PATHWAY_IDENTIFIER, PATHWAY_TYPE1}, 0, 30, TSV));
         //System.out.println(getEntitiesByKeyWord("plant height", new String[]{"http://www.w3.org/2002/07/owl#Class"}, 0, 10, TSV));
 //System.out.println(executeSparqlQuery("select distinct ?Concept where {[] a ?Concept} LIMIT 5", sparqlEndpointURL, "text/html"));
     }

@@ -23,14 +23,19 @@
             <div id="qtlContainer">\
                 <span id="qtlPageBtns" class="pageNavBtns"><a class="flex-sm-fill text-sm-center nav-link o-qtlResult" href="javascript:void(0)" id="qtl"> QTL associated </a></span>\
             </div>\
+                    <div id="graphViewContainer">\
+                       <span id="graphViewPageBtns"><a class="flex-sm-fill text-sm-center nav-link o-graphViewResult" href="javascript:void(0)" id="graphView"> View as graph </a></span>\
+                   </div>\
         </nav>\
-        <div class="o-panel o-active" id="parentResult"><div id="zbtn"></div></div>            \
-        <div class="o-panel" id="childrenResult"></div>            \
-        <div class="o-panel" id="proteinResult"></div>            \
-        <div class="o-panel" id="qtlResult"></div>',
+        <div class="o-panel o-active" id="parentResult"><div id="zbtn"></div></div>\
+        <div class="o-panel" id="childrenResult"></div>\
+        <div class="o-panel" id="proteinResult"></div>\
+        <div class="o-panel" id="qtlResult"></div>\
+<div class="o-panel" id="graphViewResult"></div>',
         //-- var ontologyUri = <%-- out.println("'" + request.getParameter("uri") + "'"); --%>;
         //-- function getontologyDescription(uri) {
     getDescription : function(uri) {
+        this.uri = uri;
         var sparql = 'PREFIX agrold:<http://www.southgreen.fr/agrold/vocabulary/> \
 PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#> \
 PREFIX meaning:<http://purl.obolibrary.org/obo/IAO_0000115> \
@@ -68,16 +73,12 @@ BIND(REPLACE(?localname, \"_\", \":\") as ?Id).}';
         $("#parent").attr("onclick", "invoke('searchParentById'," + this.currentParentPage + ")");
         $("#children").attr("onclick", "invoke('searchChildrenById'," + this.currentChildrenPage+ ")");        
         $("#protein").attr("onclick", "invoke('searchProteinIdAssociatedWithOntoId'," + this.currentChildrenPage+ ")");        
-        $("#qtl").attr("onclick", "invoke('searchQtlsIdAssociatedWithOntoId'," + this.currentChildrenPage+ ")");         
+        $("#qtl").attr("onclick", "invoke('searchQtlsIdAssociatedWithOntoId'," + this.currentChildrenPage+ ")");  
+        $("#graphView").attr("onclick", "invoke('callViewAsGraph')");
     },
-    
-//    window.swagger = new SwaggerClient({
-//        url: url,
-//        success: function () {
-//            console.log("API definition well loaded");
-//        }
-//    });
-
+        callViewAsGraph: function () {
+            viewAsGraph(this.uri, "graphViewResult");
+        },
     searchParentById : function(page) {
         console.log('SEARCH PARENTT BY ID : ');
         this.currentParentPage = page;
@@ -86,14 +87,14 @@ BIND(REPLACE(?localname, \"_\", \":\") as ?Id).}';
         displayHoldMessage("#" + type + "Result");        
         var idt = ModalContext.uri;
         var tthis = this;
-        swagger.apis.ontologies.getParentById({format: DEFAULTAPIFORMAT, id:ModalContext.id , pageSize: pageSize, page: page},
+        swagger.apis.ontologies.getParentById({format: DEFAULTAPIFORMAT, id:ModalContext.id , pageSize: DEFAULT_PAGE_SIZE, page: page},
         {responseContentType: 'application/json'}, function (data) {
             var sparqljson = data.data;
             var resultId = type + "Result";
             displayResult(resultId, sparqljson);
             $("tr.odd").ready(function () {
                 pageBtnsId = "zbtn"/*type + "PageBtns"*/;
-                tthis.displayInformation(data, page, resultId, pageBtnsId, "searchParentById");
+                tthis.displayInformation(data, page, resultId, "searchParentById");
                 processHtmlResult("ontology");
             });
         });
@@ -104,14 +105,14 @@ BIND(REPLACE(?localname, \"_\", \":\") as ?Id).}';
         containerId = type+"Container";
         displayHoldMessage("#" + type + "Result");  
         var tthis = this;
-        swagger.apis.ontologies.getChildrenById({format: DEFAULTAPIFORMAT, id: ModalContext.id , pageSize: pageSize, page: page},
+        swagger.apis.ontologies.getChildrenById({format: DEFAULTAPIFORMAT, id: ModalContext.id , pageSize: DEFAULT_PAGE_SIZE, page: page},
         {responseContentType: 'application/json'}, function (data) {
             sparqljson = data.data;
             resultId = type + "Result";
             displayResult(resultId, sparqljson);
             $("tr.odd").ready(function () {
                 pageBtnsId = type + "PageBtns";
-                tthis.displayInformation(data, page, resultId, pageBtnsId, "searchChildrenById");
+                tthis.displayInformation(data, page, resultId, "searchChildrenById");
                 processHtmlResult("ontology");
             });
         });
@@ -122,14 +123,14 @@ BIND(REPLACE(?localname, \"_\", \":\") as ?Id).}';
         containerId = type+"Container";
         displayHoldMessage("#" + type + "Result");
         var tthis = this;
-        swagger.apis.qtl.getQtlsIdAssociatedWithOntoId({format: DEFAULTAPIFORMAT, ontoId: ModalContext.id , pageSize: pageSize, page: page},
+        swagger.apis.qtl.getQtlsIdAssociatedWithOntoId({format: DEFAULTAPIFORMAT, ontoId: ModalContext.id , pageSize: DEFAULT_PAGE_SIZE, page: page},
         {responseContentType: 'application/json'}, function (data) {
             sparqljson = data.data;
             resultId = type + "Result";
             displayResult(resultId, sparqljson);
             $("tr.odd").ready(function () {
                 pageBtnsId = type + "PageBtns";
-                tthis.displayInformation(data, page, resultId, pageBtnsId, "searchQtlsIdAssociatedWithOntoId");
+                tthis.displayInformation(data, page, resultId, "searchQtlsIdAssociatedWithOntoId");
                 processHtmlResult(type);
             });
         });
@@ -140,19 +141,19 @@ BIND(REPLACE(?localname, \"_\", \":\") as ?Id).}';
         containerId = type+"Container";
         displayHoldMessage("#" + type + "Result");  
         var tthis = this;
-        swagger.apis.protein.getProteinIdAssociatedWithOntoId({format: DEFAULTAPIFORMAT, ontoId: ModalContext.id , pageSize: pageSize, page: page},
+        swagger.apis.protein.getProteinIdAssociatedWithOntoId({format: DEFAULTAPIFORMAT, ontoId: ModalContext.id , pageSize: DEFAULT_PAGE_SIZE, page: page},
         {responseContentType: 'application/json'}, function (data) {
             sparqljson = data.data;
             resultId = type + "Result";
             displayResult(resultId, sparqljson);
             $("tr.odd").ready(function () {
                 pageBtnsId = type + "PageBtns";
-                tthis.displayInformation(data, page, resultId, pageBtnsId, "searchProteinIdAssociatedWithOntoId");
+                tthis.displayInformation(data, page, resultId, "searchProteinIdAssociatedWithOntoId");
                 processHtmlResult(type);
             });
         });
     }, 
-    displayInformation: function(data, page, where, pageBtnsId, functionName) {
+    displayInformation: function(data, page, where, functionName) {
         nbResults = data.obj["results"]["bindings"].length;
         previousBtnId = "previousPage";
         nextBtnId = "nextPage";

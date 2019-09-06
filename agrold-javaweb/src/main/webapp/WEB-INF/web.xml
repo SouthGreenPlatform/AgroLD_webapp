@@ -16,9 +16,22 @@
         <listener-class>agrold.ogust.config.InitDAOFactory</listener-class>
     </listener>
     <servlet>
-        <servlet-name>javax.ws.rs.core.Application</servlet-name>
+        <servlet-name>jersey-serlvet</servlet-name>
+        <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+        <init-param>
+            <param-name>javax.ws.rs.Application</param-name>
+            <param-value>agrold.webservices.AuthentificationFilterRegister</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet>
+        <servlet-name>javax.ws.rs.core.Application</servlet-name>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>javax.ws.rs.core.Application</servlet-name>
+        <url-pattern>/api/*</url-pattern>
+    </servlet-mapping>
+    <!--servlet>
         <servlet-name>Login</servlet-name>
         <servlet-class>agrold.ogust.servlet.Connection</servlet-class>
     </servlet>
@@ -39,10 +52,6 @@
         <servlet-class>agrold.ogust.servlet.ToolHistory</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>javax.ws.rs.core.Application</servlet-name>
-        <url-pattern>/api/*</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
     </servlet-mapping>
@@ -61,7 +70,7 @@
     <servlet-mapping>
         <servlet-name>ToolHistory</servlet-name>
         <url-pattern>/ToolHistory</url-pattern>
-    </servlet-mapping>
+    </servlet-mapping-->
     <session-config>
         <session-timeout>
             30
@@ -71,6 +80,11 @@
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
     <jsp-config>
+        <!--jsp-property-group>
+            <description>KnetMaps.js Graphe Visualisation tool</description>
+            <display-name>knetmaps</display-name>
+            <url-pattern>/knetmaps</url-pattern>
+        </jsp-property-group-->
         <jsp-property-group>
             <description>RelFinder Visualisation tool</description>
             <display-name>relfinder</display-name>

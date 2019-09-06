@@ -26,17 +26,24 @@
 
     </script>
     <head>
-        <title>AgroLD: Form-based search</title>
+        <title>AgroLD: Form-based search</title>        
+                
+        <!--Graphic Visualization-->
+        <!--script src="scripts/cytoscape.min.js"></script-->
+        <link href="knetmaps/css_demo/index-style.css" rel="stylesheet" /> <!-- demo page css -->
+        <link href="knetmaps/dist/css/knetmaps.css" rel="stylesheet" /> <!-- KnetMaps css -->		
+        <link href="https://fonts.googleapis.com/css?family=Kanit|Play" rel="stylesheet">
+        <link rel="shortcut icon" href="image/favicon.ico" > <!-- favicon added -->               
+        
         <link rel="icon" href="images/logo_min.png" />
         <link rel="icon" type="image/png" href="images/logo_min.png" />
-        <script type="text/javascript" src="config/config.js"></script>
         <!-- Les includes -->
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Tether -->
         <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
         <!-- Jquery baby -->
-        <script type="text/javascript" src="scripts/jquery-3.2.1.min.js"></script>
+        <!--script type="text/javascript" src="scripts/jquery-3.2.1.min.js"></script-->
         <!-- Bootstrap REBOOT -->
         <link rel="stylesheet" type="text/css" href="styles/bootstrap/css/bootstrap-reboot.min.css">
 
@@ -45,22 +52,39 @@
         <link href="styles/menu.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" type="text/css" href="styles/advSearch.css">
         <link rel="stylesheet" type="text/css" href="styles/css-loader.css">
-        <link href='//cdn.jsdelivr.net/yasr/2.10.8/yasr.min.css' rel='stylesheet' type='text/css'/>
-        <script src='//cdn.jsdelivr.net/yasr/2.10.8/yasr.bundled.min.js'></script>
-
-        <!--link href="styles/menu1.css" rel="stylesheet" type="text/css"/-->
+        <link href="sparqleditor/yasr.min.css" rel="stylesheet" type="text/css"/>
+        <script src='sparqleditor/yasr.bundled.min.js'></script>               
+        
+        <!-- Les autres -->
+        <script src="config/config.js" type="text/javascript"></script>
+        <script src="knetmaps/dist/js/knetmaps-lib.min.js"></script> <!-- KnetMaps libs (with jQuery) -->
+        <link href="styles/search.css" rel="stylesheet" type="text/css">        		
+        <script src="scripts/URI.js"></script>
+        <script src="scripts/lib.js" type="text/javascript"></script>
+        <script src="knetmaps/dist/js/knetmaps.js"></script> <!-- KnetMaps --> 
+        <script type="text/javascript" src="scripts/knetmaps_adaptator.js"></script>
+        <script src="swagger/lib/swagger-client.js" type="text/javascript"></script>
+        <!--script src="scripts/adv_search_ogust.js" type="text/javascript"></script-->
+        
+         <!--link href="styles/menu1.css" rel="stylesheet" type="text/css"/-->
         <link rel="stylesheet" type="text/css" href="styles/bootstrap/css/bootstrap-grid.min.css">
         <link rel="stylesheet" type="text/css" href="styles/bootstrap/css/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="styles/font-awesome/css/font-awesome.min.css">
         <script type="text/javascript" src="styles/bootstrap/js/bootstrap.min.js"></script>
-        <!-- Les autres -->
-        <link href="styles/search.css" rel="stylesheet" type="text/css">        
-        <script src="swagger/lib/swagger-client.js" type="text/javascript"></script>
-        <script src="scripts/lib.js" type="text/javascript"></script>
-        <!--script src="scripts/adv_search_ogust.js" type="text/javascript"></script-->
+        
         <!--include jQuery.DataTables plug-in-->
         <link href="https://cdn.datatables.net/1.10.18/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">        
         <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" type="text/javascript"></script>
+        
+        <style>
+            #graphViewResult {
+                width: inherit;
+                height: 800px;
+                position: relative;
+                top: 0px;
+                left: 0px;
+            }
+        </style>
     </head>
     <body>
         <div class="debug">
@@ -118,10 +142,10 @@
     </div>          
 <jsp:include page="footer.html"></jsp:include>
 <script>
-        size1 = Math.round(pageSize / 3);
-        size2 = Math.round(pageSize * 2 / 3);
-        YASR.plugins.table.defaults.datatable["pageLength"] = pageSize;
-        YASR.plugins.table.defaults.datatable["lengthMenu"] = [[size1, size2, pageSize, -1], [size1, size2, pageSize, "All"]];
+        size1 = Math.round(DEFAULT_PAGE_SIZE / 3);
+        size2 = Math.round(DEFAULT_PAGE_SIZE * 2 / 3);
+        YASR.plugins.table.defaults.datatable["pageLength"] = DEFAULT_PAGE_SIZE;
+        YASR.plugins.table.defaults.datatable["lengthMenu"] = [[size1, size2, DEFAULT_PAGE_SIZE, -1], [size1, size2, DEFAULT_PAGE_SIZE, "All"]];
         YASR.plugins.table.defaults.fetchTitlesFromPreflabel = false;
 </script>
 </body>
