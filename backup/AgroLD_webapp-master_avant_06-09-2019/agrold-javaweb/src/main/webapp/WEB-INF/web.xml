@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    <description>The application to query AgroLD KB on the web
+        - quick search, sparql editor with patterns, relationships discovery, visual query system, advanced form-based search 
+        - RESTful-like API (wrapping complexe biological questions)</description>
+    <display-name>AgroLD Web application (production instance)</display-name>
+    <filter>
+        <filter-name>RestrictionFilter</filter-name>
+        <filter-class>agrold.ogust.filters.RestrictionFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>RestrictionFilter</filter-name>
+        <url-pattern>/META-INF</url-pattern>
+    </filter-mapping>
+    <listener>
+        <listener-class>agrold.ogust.config.InitDAOFactory</listener-class>
+    </listener>
+    <servlet>
+        <servlet-name>javax.ws.rs.core.Application</servlet-name>
+    </servlet>
+    <servlet>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>agrold.ogust.servlet.Connection</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Register</servlet-name>
+        <servlet-class>agrold.ogust.servlet.Register</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>agrold.ogust.servlet.Logout</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Member</servlet-name>
+        <servlet-class>agrold.ogust.servlet.Restriction</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ToolHistory</servlet-name>
+        <servlet-class>agrold.ogust.servlet.ToolHistory</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>javax.ws.rs.core.Application</servlet-name>
+        <url-pattern>/api/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Register</servlet-name>
+        <url-pattern>/Register</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/Logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Member</servlet-name>
+        <url-pattern>/Member</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ToolHistory</servlet-name>
+        <url-pattern>/ToolHistory</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+    <jsp-config>
+        <jsp-property-group>
+            <description>RelFinder Visualisation tool</description>
+            <display-name>relfinder</display-name>
+            <url-pattern>/relfinder</url-pattern>
+        </jsp-property-group>
+        <jsp-property-group>
+            <description>AgroLD API documentation</description>
+            <display-name>agrold-docs</display-name>
+            <url-pattern>/agrold-docs</url-pattern>
+        </jsp-property-group>
+    </jsp-config>
+</web-app>

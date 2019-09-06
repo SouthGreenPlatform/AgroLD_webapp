@@ -1,0 +1,197 @@
+/*!
+ * Start Bootstrap - Simple Sidebar (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+ body {
+    overflow-x: hidden;
+ }
+
+/* Toggle Styles */
+
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+    padding-left: 250px;
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background: #e7e7e7;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    top: 0px;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 250px;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+   
+}
+
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -250px;
+}
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li {
+    text-indent: 20px;
+    line-height: 40px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #6e6e6e;
+}
+
+.sidebar-nav li a:hover { 
+    text-decoration: none;
+    color: #5c5c5c;
+    background: rgb(255, 255, 255);
+}
+.sidebar-nav li.fkfk {
+	text-decoration: none;
+	color: #606060;
+	background: rgb(255, 255, 255);
+}
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+    padding-top : 59px;
+    height: 180px; 
+    font-size: 18px;
+    line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+    color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+}
+/***************************
+*   Sidebar Documentation  *
+***************************/
+.sidebar-nav > .sidebar-brand {
+    text-align : center;
+    text-indent : 0px;
+}
+.sidebar-nav > .sidebar-brand img.docu {
+    text-align: center;
+    margin : 10px;
+    margin-top : 25px;
+    width : 100px;
+}
+h4.dib {
+    
+    margin-top : 20px;
+    border-left : solid 5px green;
+    text-indent : 15px;
+}
+/*****************************
+*   SideBar Level SubItem    *
+*****************************/
+ul.naavbar-nav,
+ul.naavbar-nav li,
+ul.naavbar-nav li a{
+    position: relative !important;
+}
+ul.sidebar-nav ul{
+    display: none;
+    position: relative;
+}
+ul.sidebar-nav li.fkfk ul{
+    
+    display: block;
+}
+ul.sidebar-nav ul {
+    background : rgba(0,0,0,.03);
+    padding : none !important;
+    padding-left : 0 !important;
+    margin : none !important;
+}
+ul.sidebar-nav ul li {
+    display: block !important;
+    position: relative !important;
+    margin : none !important;
+    text-indent: 20px !important;
+    list-style: none;
+}
+ul.sidebar-nav li span {
+    float: right;
+    width : 30px;
+    padding: 0;
+    text-indent: 0px;
+}
+.fkfk i.fa-caret-down {
+    color : rgba(0,0,0,.1);
+    transform: rotate(-90deg); 
+}
+
+/*****************
+*  Media Quey's  *
+*****************/
+
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 0;
+    }
+
+    #wrapper.toggled {
+        padding-left: 250px;
+    }
+
+    #sidebar-wrapper {
+        width: 0;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 250px;
+    }
+
+    #page-content-wrapper {
+        
+        position: relative;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+}

@@ -1,0 +1,133 @@
+/*
+
+.input-group-btn
+*/
+/************************
+*    Advanced Search    *
+************************/
+section #advanced-form {
+   padding-top : 150px;
+   transition : all 1s;
+}
+section #advanced-form.searched {
+    padding-top :10px;
+}
+#advanced-form input[type=text] {
+    width : calc( 100% - 300px );
+}
+.A-Search {
+    /*display: none !important; */
+}
+button#afft {
+  text-align: center;
+  width : 200px !important;
+  cursor: pointer;
+    background : #b0d168;
+    border : none ;
+    border-right : solid 1px #86b817 ;
+}
+body {
+    padding-top: 50px;
+}
+.input-group-btn .dropdown-menu {
+    margin-top: -1px;
+}
+.input-group-btn .btn-group {
+    display: flex !important;
+}
+.btn-group .btn {
+    border-radius: 0;
+    margin-left: -1px;
+}
+.btn-group .btn:last-child {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.btn-group .form-horizontal .btn[type="submit"] {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.form-horizontal .form-group {
+    margin-left: 0;
+    margin-right: 0;
+}
+.form-group .form-control:last-child {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.dropdown-item  {
+    width : 100%;
+    text-indent: 5px;
+}
+.dropdown-item:last-child {
+    margin-bottom: 10px;
+}
+.A-Search input[type=text].keyword {
+    width : 100%;
+    background : #b0d168;
+    border : rgba(255,255,255,0);
+    
+}
+.A-Search .delim {
+    padding: 35px;  
+    background: #86b817;
+}
+/********************
+*      MODAL        *
+********************/
+#result-modal .modal-header {
+    background : rgba(0,0,0,.7);
+    color : white;
+}
+#result-modal .close {
+    color : white;
+}
+#result-modal .desc {
+    margin-bottom : 35px;
+}
+.nfound {
+    text-align : center;
+}
+.modal-header {
+    border : none  !important;
+}
+.mban {
+    position: relative;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 15px 15px 0px 15px;
+}
+.mban .nav-link:hover {
+    border-color : rgba(0,0,0,0) !important;
+}
+.mban.adv {
+    background : rgb(109, 182, 5);
+    color : white;
+}
+.advs.nav {
+    border-bottom : none !important;
+}
+.advs .nav-link {
+    color : rgba(0,0,0,.5);
+}
+.advs .nav-link.active {
+    /*background : ;*/
+}
+/********************
+*   MEDIA QUERY     *
+********************/
+@media screen and (min-width: 768px) {
+    #adv-search {
+        width: 500px;
+        margin: 0 auto;
+    }
+    .input-group-btn {
+        position: static !important;
+    }
+    .input-group-btn .dropdown-menu {
+        min-width:200px;
+    }
+}

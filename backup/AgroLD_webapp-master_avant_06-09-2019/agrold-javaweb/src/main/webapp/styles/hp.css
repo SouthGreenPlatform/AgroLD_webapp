@@ -1,0 +1,364 @@
+/*
+  Creator : J-C i. 2017 for CIRAD AGAP
+  - Homepage ( Service Show case and presentation )
+*/
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:700');
+body {
+  font-family: "Lato";
+}
+/**********************************
+Responsive navbar-brand image CSS
+- Remove navbar-brand padding for firefox bug workaround
+- add 100% height and width auto ... similar to how bootstrap img-responsive class works
+***********************************/
+
+
+/*****************
+*   JUMBOTRON    *
+******************/
+.jumbotron {
+  height: calc( 100vh );
+}
+.jumbotron .col-lg-6.col-md-6 {
+  display: inline !important;
+  /*border : solid 1px;*/
+}
+.jumbotron.home {
+  background : url(../images/banner-img.png) 50% 0%;
+  background-size : cover;
+  margin-top : 59px !important;
+  
+  padding: none !important;
+  margin-bottom: none !important;
+background-color: none !important;
+  border-radius: none !important;
+}
+.jumbotron .left {
+  color : white;
+}
+.jumbotron .right .card {
+  background-color: rgba(255,255,255,.9);
+}
+.static-j {
+  position : absolute;
+  
+  width: 100%;
+  /*! height: calc( 35vh + 59px ); */
+  /*! top : calc( 100px ); */
+  /*! padding : 30px; */
+  z-index: 1029;
+}
+
+.minified {
+  position: relative;
+  margin-top : calc( 40vh + 59px ) !important;
+  display: block;
+  height: 49% !important;
+}
+.primary-a h3 {
+  color : white ;
+}
+.brise {
+  display: -webkit-box;
+display: -webkit-flex;
+display: -ms-flexbox;
+display: flex;
+-webkit-flex-flow: row wrap;
+-ms-flex-flow: row wrap;
+flex-flow: row wrap;
+  height: 100%;
+  width : 100%;
+}
+.brise .primary-a, .primary-b {
+  text-align: left ;
+}
+.primary-b {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.primary-b p {
+  background : rgba(255,255,255,.8);
+  border-radius : 7px;
+  padding : 35px;
+  font-size : 20px;
+}
+.primary-a h1 {
+  font-family: 'Ubuntu', Sans-serif;
+}
+.jj {
+  border : solid 1px white !important;
+  width : 100%;
+  height : 100px;
+}
+/**************
+*   SLIDES    *
+**************/
+.slide-1 {
+  
+  /*height: calc( 100vh - 59px -400px  );  */
+}
+.slide-1 img {
+  height: 40vh !important;
+  
+}
+/*****************************************
+*   Section présentation des services    *
+*****************************************/
+.titled-section {
+  background : #f3f3f3;
+  padding : 15px;
+  color: #5d5d5d;
+}
+#section1 {
+  background : #86b817; 
+}
+.centering-fix {
+  position: relative;
+  /*border : solid 1px white;*/
+ 
+}
+.framed-child {
+ 
+}
+.bug-rport-1 {
+  position : relative;
+  height: 100vh;
+  /*border : solid 1px black;*/
+  /*background : red;*/
+}
+/**********************
+*  Cartes de service  *
+**********************/
+#section1 .card {
+
+  min-height: 300px;
+}
+#section1 .card-blockquote {
+  min-height: 200px;
+  position : relative;
+}
+#section1 .card-blockquote footer {
+  position: absolute;
+  bottom: 25px;
+  width : 100%;
+}
+
+.card-outline-success:hover,
+.card-outline-success:hover .btn-outline-success 
+{
+  background : white !important;
+  color : #86b817 !important;
+  border-color : #86b817 !important;
+}
+#section1 .card-outline-success ,
+#section1 .card-outline-success .btn-outline-success {
+  border-color : white ;
+  color : white ;
+}
+#section1 .card-outline-success footer {
+  height: inherit;
+}
+/********************
+*    Footer Home    *
+********************/
+#section2 {
+  background : #86b817;
+}
+footer.home {
+  height: auto;
+}
+footer.home .resolve-grid { /* Solve the conflict between fulpage.JS(CSS) and Bootstrap */
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+}
+footer.home a{
+  display: inline-block;
+  position: relative;
+  margin : 3px auto;
+  text-align: center;
+  
+}
+footer.home img {
+  width : 100%;
+  margin : none ;
+  border : none ;
+}
+.hexagone {
+  position: relative;
+  width: 100px;
+  background-color: white;
+  margin: 0;
+  border-radius : 50%;
+}
+.hexagone:hover {
+  background : #fff;
+}
+.copyright {
+  margin-top : 10px;
+  color : white;
+}
+.h-centering {
+  display: block;
+  margin: 0 auto;
+}
+
+/********************
+*    Media Query    *
+*********************/
+@media (max-width : 400px){
+  .static-j {
+     padding-top: 50px;
+  }
+  .static-j h1{
+    font-size: 40px;
+  }
+  .static-j h3 {
+    font-size : 20px !important;
+  }
+  .static-j .container, .static-j .brise, .static-j .primary-a{
+    padding : 0 !important;
+    margin : 0 !important;
+  }
+  .primary-b {
+    display : none;
+  }
+  .centering-fix {
+    padding-top : 50px;
+  }
+}
+@media (min-width: 376px){
+  .centering-fix {
+    /*background : red !important;*/
+  }
+  .regular.slider {
+    display : none ;
+  }
+  .framed-child {
+    padding-top : 50px !important;
+  }
+}
+@media (min-width: 576px){
+  .centering-fix {
+    /*background : red !important;*/
+  }
+  .regular.slider {
+    display : none ;
+  }
+  .framed-child {
+    padding-top : 50px !important;
+  }
+}
+@media (min-width: 768px){
+  .centering-fix {
+    /*background : blueviolet !important;*/
+  }
+  .regular.slider {
+    display : block ;
+  }
+  .framed-child {
+    padding-top : 50px !important;
+  }
+  .card-blockquote p {
+    padding-top : 10px;
+  }
+  .card-outline-success {
+    height: 250px;
+  }
+  .delim-tc {
+    min-height: 60px;
+    
+  }
+}
+@media (min-width: 992px){
+  .centering-fix {
+    /*background : indianred !important;*/
+ height: calc( 100vh - 120px );
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  } 
+  .regular.slider {
+    display : block ;
+  }
+}
+@media (min-width: 1200px){
+  .centering-fix {
+    /*background : yellow !important;*/
+    height: calc( 100vh - 120px );
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+  }
+  .regular.slider {
+    display : block ;
+  }
+}
+/*------------------------------*/
+@media (min-height: 376px){
+  .regular.slider {
+    display : none ;
+  }
+}
+@media (min-height: 576px){
+  .regular.slider {
+    display : none ;
+  }
+}
+@media (min-height: 768px){
+  .regular.slider {
+    display : none ;
+  }
+}
+@media screen and (min-height: 900px), screen and (min-width: 799px){
+  .regular.slider {
+    display : block ;
+  }
+  .regular.slider img {
+    max-height: 80%;
+  }
+  .minified {
+    padding : 40px 0 ;
+  }
+    footer.home {
+    margin-top : 0;
+    
+  }  
+}
+@media screen and (min-height: 1000px), screen and (min-width: 800px){
+  .regular.slider {
+  }
+  .regular.slider img {
+  }
+  footer.home {
+    margin-top : 10vh;
+    
+  }  
+}
+@media (min-height: 1200px){
+  .regular.slider {
+
+  }
+  .regular.slider img {
+
+  }
+
+}
+/**********************
+*     MidleWare       *
+**********************/
+.hideMe {
+  display: none !important;
+}
+
+.twitter_img{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;     
+}
