@@ -24,9 +24,9 @@ qpatterns['PREFIX vocab:<vocabulary/>\n\n' +
         'WHERE { \n' +
         ' GRAPH ?graph { \n' +
         '  ?term_id rdfs:label ?term_name . \n' +
-        " FILTER regex(str(?term_name), 'plant growth') \n" +
+        " FILTER regex(str(?term_name), 'disease resistance') \n" +
         ' } \n' +
-        '}'] = ["plant growth"];
+        '}'] = ["disease resistance"];
 qpatterns['PREFIX graph:<uniprot.plants>\n\n' +
         'SELECT distinct ?relation\n' +
         'WHERE { \n' +
