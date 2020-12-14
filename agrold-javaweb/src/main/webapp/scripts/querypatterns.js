@@ -27,7 +27,7 @@ qpatterns['PREFIX vocab:<vocabulary/>\n\n' +
         " FILTER regex(str(?term_name), 'plant growth') \n" +
         ' } \n' +
         '}'] = ["plant growth"];
-qpatterns['PREFIX graph:<gramene.genes>\n\n' +
+qpatterns['PREFIX graph:<uniprot.plants>\n\n' +
         'SELECT distinct ?relation\n' +
         'WHERE { \n' +
         ' GRAPH graph: { \n' +
