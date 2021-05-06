@@ -165,7 +165,7 @@ ds = parseGFF3(path)   # The parsing file
 ### Documentation
 
 - AgroLD includes data on the following species on :  [Species](http://agrold.southgreen.fr/documentation.jsp#species)
-- ![graphique](img/agroLD-species.png "Species")
+![graphique](img/agroLD-species.png "Species")
 - Ontologies in AgroLD : [Ontologies](http://agrold.southgreen.fr/documentation.jsp#ontologies)
 - Data sources in AgroLD : [Data](http://agrold.southgreen.fr/documentation.jsp#sources)
 - Species specific break down of the data sources : [Link](http://agrold.southgreen.fr/documentation.jsp#break-down)
