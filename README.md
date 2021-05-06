@@ -42,12 +42,7 @@ AgroLD project is composed of two component: [AgroLD_ETL](https://github.com/Sou
 ***
 
 ```
- AgroLD_ETL
-	-> model
-	-> rdf_ttl
-	-> riceKB
-	-> test_files
-	-> riceKBpipeline.py
+ AgroLD_ETL moved to another repository 
  agrold_webapp
 ```
 ***
@@ -170,6 +165,7 @@ ds = parseGFF3(path)   # The parsing file
 ### Documentation
 
 - AgroLD includes data on the following species on :  [Species](http://agrold.southgreen.fr/documentation.jsp#species)
+- ![graphique](AgroLD_species.png "Spcies")
 - Ontologies in AgroLD : [Ontologies](http://agrold.southgreen.fr/documentation.jsp#ontologies)
 - Data sources in AgroLD : [Data](http://agrold.southgreen.fr/documentation.jsp#sources)
 - Species specific break down of the data sources : [Link](http://agrold.southgreen.fr/documentation.jsp#break-down)
