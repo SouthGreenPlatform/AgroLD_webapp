@@ -199,7 +199,7 @@ OFFSET 0 # page number >= 0'] = ["EO:0007403"];
 qpatterns['PREFIX uniprot:<http://purl.uniprot.org/uniprot/>\n\
 SELECT ?property ?hasValue ?isValueOf\n\
 WHERE {\n\
-values (?q){(uniprot:P0C127)}\n\
+values (?q){(uniprot:Q9M384)}\n\
   { ?q ?property ?hasValue }\n\
   UNION\n\
   { ?isValueOf ?property ?q }\n\
