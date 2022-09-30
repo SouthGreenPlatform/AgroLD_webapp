@@ -24,3 +24,6 @@ hs_err_pid*
 
 # build
 target/
+
+# specific folder
+DS_STORE/
