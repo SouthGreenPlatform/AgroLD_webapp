@@ -21,7 +21,7 @@ import java.util.logging.Logger;
  */
 public class MySQLProperties {
 
-    private static final String configFilePath = "/home/virtuoso/agrold.conf/agrold-mysql.conf"; // en ligne i.e. sur volvestre
+    private static final String configFilePath = "/ird/AgroLD_webapp/agrold-javaweb/mysql.conf"; // en ligne i.e. sur volvestre
     private static final List<String> conf = readLoginConfigurations();
     private static final String url = "jdbc:mysql://" + conf.get(0);
     private static final String driver = "com.mysql.jdbc.Driver";

@@ -1523,7 +1523,7 @@
             }
         }
     },
-    "host": "agrold.southgreen.fr/agrold",
+    "host": "127.0.0.1/aldp",
     "schemes": ["http"],
     "externalDocs": {
         "description": "Find out more about Swagger",
