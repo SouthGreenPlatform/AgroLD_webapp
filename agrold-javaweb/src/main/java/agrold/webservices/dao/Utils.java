@@ -8,6 +8,7 @@ package agrold.webservices.dao;
 import static agrold.webservices.dao.PathwayDAO.METABOLIC_PATHWAY;
 import static agrold.webservices.dao.PathwayDAO.PATHWAY_IDENTIFIER;
 import static agrold.webservices.dao.PathwayDAO.PATHWAY_TYPE1;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringReader;
@@ -22,9 +23,11 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -45,7 +48,7 @@ public class Utils {
     public final static String DEFAULT_PAGE_SIZE = "10";
     public final static String DEFAULT_PAGE = "0";
     
-    public static final String AGROLDAPIJSONURL = "/home/virtuoso/agrold.conf/agrold-api.json"; // en ligne i.e. sur volvestre
+    public static final String AGROLDAPIJSONURL = "/ird/AgroLD_webapp/agrold-javaweb/agrold-api.json"; // en ligne i.e. sur volvestre
 
     public static String sparqlEndpointURL = "http://sparql.southgreen.fr";
     //public static String sparqlEndpointURL = "http://agrold.southgreen.fr/sparql";

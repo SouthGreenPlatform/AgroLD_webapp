@@ -1,5 +1,5 @@
-WEBAPPURL="http://agrold.southgreen.fr/agrold";
-//WEBAPPURL="http://localhost:8080/agrold";
+//WEBAPPURL="http://agrold.southgreen.fr/agrold";
+WEBAPPURL="http://127.0.0.1:8080/alpd";
 
 // still constant in :
 // /Users/zadmin/agrold/git/AgroLD/agrold/src/main/webapp/bc_sparqleditor.jsp

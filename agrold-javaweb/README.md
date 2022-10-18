@@ -2,33 +2,34 @@
 *  `git clone --branch dev `
 *   
 
-
 ### Deployer l'appli web
-*  choose the <default profile> to build the maven project (to avoid errors with java-doc generation) 
-*  change the context name ("/aldp" for dev. version and "/agrold" for the prod.) in META-INF/context.xml
-*  rename the display name in WEB-INF/web.xml: AgroLD Web application (*development/production* instance)
-*  change the artefact id into "aldp" for dev. version and "/agrold" for the prod., to compile the war file with this name
-*  préferer Tomcat 7/8 à d'autres serveurs web
-*  remplacer l'url de l'apli web dans `config/config.js`
-*  remplacer l'url de base de l'api dans le fichier (agrold-javaweb/agrold-api.json qui doit être copié dans ) à l'emplacement `AGROLDAPIJSONURL` définis dans `config/config.js` (`config/agrold.json`): `"host": "localhost:8080/agrold"` ou `"host": "agrold.southgreen.fr/agrold"`
-*  remplacer l'url de base de l'api dans le fichier à l'emplacement `AGROLDAPIJSONURL` définis dans la classe agrold.webservices.DAO.Utils pour la gestion des webservices
-*  recupérer le fichier à l'emplacement `AGROLDAPIJSONURL` définis dans la classe agrold.webservices.DAO.Utils pour la gestion des webservices
-*  remplacer l'url de l'appli dans `agrold.ogust.servlet.Logout.java`
-*  remplacer le sparqlendpoint dans le fichier `agrold.webservices.dao.Utils`
-*  remplacer le chemin de configuration de la connexion au serveur MySQL pour la gestion de l'historique utilisateur dans le fichier `agrold.ogust.config.MySQLProperties`: (variable `configFilePath`)
 
-Le format du fichier de configuration pour mysql est (**sans ce fichier, l'application web ne peut pas démarrer**):
+#### Pré requis
+* Tomcat 7/8
+* mysql (sera bientôt agnostique ou retiré)
+
+#### Paramétrage
+
+Le déploiement de l'application se fait premièrement avec des variables d'environnement passées à tomcat.
+
+|Name|Description|valeur par défaut|
+|:--:|:--:|:--:|
+|``AGROLD_NAME``|Nom de l'archive et du contexte|'agrold'|
+|``AGROLD_DESCRIPTION``|Description affichée dans Tomcat|''|
+
+Pour injecter ces variables d'environnement dans tomcat il faut mettre ceci dans ``$CATALINA_BASE/bin/setenv.sh``
 
 ```bash
-[nom serveur]:[port mysql]/[nom base de données]?useSSL=false
-[admin username]
-[admin password]
+#Les variables d'environnement sont passés en tant que des options JDK
+export CATALINA_OPTS="-Dagrold.name=$AGROLD_NAME -Dagrold.description=$AGROLD_DESCRIPTION"
 ```
-* vérifier le chemin d'accueil derrière l'icône d'AgroLD dans header.jsp `<a class="navbar-brand" href="/agrold"><img src="images/v5.png"></a>`
-*  sauvegarder le fichier `agrold.war` déployé sur le serveur au cas où on voudrait la redéployer : `scp -r virtuoso@volvestre.cirad.fr:/opt/apache-tomcat-8.0.23/webapps/agrold.war /Users/zadmin/agrold/virtuoso-webapps-dir-save/`
-*  supprimer les dossier `agrold` des sous-repertoires `webapps` et `work/Catalina/localhost` (ou redémarrer tomcat) de Tomcat
-*  choisir le bon context path dans `META_INF/context.xml`
 
+
+#### Compilation
+```bash
+# Avec AGROLD_NAME définie précédemment 
+mvn clean install 
+```
 
 ### Sauvegarde des activités
 *  Le fichier agrold-javaweb/agrold-api.json est la version de base de la spécification Swagger qui décrit les webservices et qui est fourni en ligne par le webservice GET /api/webservice. 
