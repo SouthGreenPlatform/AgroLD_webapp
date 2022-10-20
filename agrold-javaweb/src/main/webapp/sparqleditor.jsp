@@ -43,7 +43,7 @@
         <!--link href="styles/menu1.css" rel="stylesheet" type="text/css"/-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>AgroLD: SPARQL Query Editor</title>
-        <jsp:include page="includes.html"></jsp:include>
+        <jsp:include page="includes.jsp"></jsp:include>
             <!-- YasQUE pour la coloration syntaxique -->
             <link href="sparqleditor/yasqe.min.css" rel="stylesheet" type="text/css"/>
             <link href="sparqleditor/yasr.min.css" rel="stylesheet" type="text/css"/>

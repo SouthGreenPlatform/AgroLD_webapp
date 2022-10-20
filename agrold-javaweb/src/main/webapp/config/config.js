@@ -1,5 +1,6 @@
 //WEBAPPURL="http://agrold.southgreen.fr/agrold";
-WEBAPPURL="http://127.0.0.1:8080/alpd";
+CONTEXT= system_context ?? "aldp";
+WEBAPPURL= ( system_baseurl ?? "http://127.0.0.1:8080/" ) + CONTEXT;
 
 // still constant in :
 // /Users/zadmin/agrold/git/AgroLD/agrold/src/main/webapp/bc_sparqleditor.jsp
@@ -7,7 +8,7 @@ WEBAPPURL="http://127.0.0.1:8080/alpd";
 // /src/main/webapp/sparqleditor.jsp
 //SPARQLENDPOINTURL="http://agrold.southgreen.fr/sparql"; 
 //SPARQLENDPOINTURL=WEBAPPURL + "/api/sparql"; 
-SPARQLENDPOINTURL="http://sparql.southgreen.fr"; 
+SPARQLENDPOINTURL= system_sparqlendpoint ?? "http://sparql.southgreen.fr"; 
 // 
 // still in HTML form in :
 // WEB-INF/Account/General/AJAX/Admin/_USER_FULL_DATA_LOADER.jsp
@@ -17,7 +18,7 @@ FACETEDURL="http://agrold.southgreen.fr/fct";
 
 //AGROLDAPIJSONURL=WEBAPPURL + "/config/agrold-api.json";
 //AGROLDAPIJSONURL=WEBAPPURL + "/api/agrold-api-specification.json";
-AGROLDAPIJSONURL=WEBAPPURL + "/api/webservices";
+AGROLDAPIJSONURL=WEBAPPURL + "api/webservices";
 
 
 // Advanced search default format to query the web services

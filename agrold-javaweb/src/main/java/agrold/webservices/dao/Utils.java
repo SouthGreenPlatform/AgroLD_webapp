@@ -48,10 +48,9 @@ public class Utils {
     public final static String DEFAULT_PAGE_SIZE = "10";
     public final static String DEFAULT_PAGE = "0";
     
-    public static final String AGROLDAPIJSONURL = "/ird/AgroLD_webapp/agrold-javaweb/agrold-api.json"; // en ligne i.e. sur volvestre
+    public static final String AGROLDAPIJSONURL = java.lang.Thread.currentThread().getContextClassLoader().getResource("/../../agrold-api.json").getPath(); // en ligne i.e. sur volvestre
 
-    public static String sparqlEndpointURL = "http://sparql.southgreen.fr";
-    //public static String sparqlEndpointURL = "http://agrold.southgreen.fr/sparql";
+    public static String sparqlEndpointURL = (System.getProperty("agrold.sparql_endpoint") != null) ? System.getProperty("agrold.sparql_endpoint") : "http://sparql.southgreen.fr";
 
     public final static String CSV = "text/csv"; //CSV, HTML, JSON, N3, RDF, JSON_LD, TSV, TTL, XML
     public final static String HTML = "text/html"; // "text/csv", "application/json", "text/plain","text/turtle", "application/sparql-results+xml", "application/rdf+xml","text/tab-separated-values", "application/sparql-results+json", 
