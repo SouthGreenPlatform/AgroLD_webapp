@@ -38,15 +38,13 @@ public class CustomizableServicesManager {
 
             // add a new tag
             JSONObject tagObj = new JSONObject();
-            /*tagObj.put("name", "customizable");
-            tagObj.put("description", "customizable web services");
-            tagObj.put("externalDocs", new JSONObject("{\n"
-                    + "                \"description\": \"Find out more\",\n"
-                    + "                \"url\": \"http://www.agrold.org\"\n"
-                    + "            }"));
-            ((JSONArray) jsonObj.get("tags")).put(0, tagObj);
 
-            System.out.println(jsonObj.get("tags"));*/
+            // here we will fill the host property defined by the system property agrold.baseurl and agrold.name
+            jsonObj.put("host", 
+                ((System.getProperty("agrold.baseurl") != null) ? System.getProperty("agrold.baseurl") : "http://localhost:8080/")
+                + ((System.getProperty("agrold.name") != null) ? System.getProperty("agrold.name") : "aldp")
+            );
+            
             reader.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();

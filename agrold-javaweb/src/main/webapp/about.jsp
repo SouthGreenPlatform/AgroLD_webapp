@@ -27,7 +27,7 @@
     </script>
     <head>
         <title> About AgroLD </title> 
-        <jsp:include page="includes.html"></jsp:include>
+        <jsp:include page="includes.jsp"></jsp:include>
         </head>
         <body>
         <jsp:include page="header.jsp"></jsp:include>
