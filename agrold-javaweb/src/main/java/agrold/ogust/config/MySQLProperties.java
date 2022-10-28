@@ -5,11 +5,9 @@
  */
 package agrold.ogust.config;
 
-import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
+import java.lang.NullPointerException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -21,7 +19,6 @@ import java.util.logging.Logger;
  */
 public class MySQLProperties {
 
-    private static final String configFilePath = "/ird/AgroLD_webapp/agrold-javaweb/mysql.conf"; // en ligne i.e. sur volvestre
     private static final List<String> conf = readLoginConfigurations();
     private static final String url = "jdbc:mysql://" + conf.get(0);
     private static final String driver = "com.mysql.jdbc.Driver";
@@ -42,17 +39,18 @@ public class MySQLProperties {
     public static List<String> readLoginConfigurations() {
         List<String> lines = new ArrayList<>();
         try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(new File(configFilePath)));
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                if (!line.equals("")) {
-                    lines.add(line.trim());
-                }
-            }
-            bufferedReader.close();
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(MySQLProperties.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
+            String URL = System.getProperty("agrold.db_connection_url");
+            String usr = System.getProperty("agrold.db_username");
+            String pwd = System.getProperty("agrold.db_password");
+
+            if (URL == null) throw new NullPointerException("Missing env Variable: AGROLD_DB_CONNECTION_URL");
+            if (usr == null) throw new NullPointerException("Missing env Variable: AGROLD_DB_USERNAME");
+            if (pwd == null) throw new NullPointerException("Missing env Variable: AGROLD_DB_PASSWORD");
+
+            lines.add(URL);
+            lines.add(usr);
+            lines.add(pwd);
+        } catch (NullPointerException ex) {
             Logger.getLogger(MySQLProperties.class.getName()).log(Level.SEVERE, null, ex);
         }
         return lines;

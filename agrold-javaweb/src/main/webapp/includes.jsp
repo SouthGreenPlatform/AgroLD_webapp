@@ -36,9 +36,9 @@
         return text === "null" ? null : text;
     }
 
-    const system_context = parseJsp('<%= System.getProperty("agrold.name") %>')
-    const system_baseurl = parseJsp('<%= System.getProperty("agrold.baseurl") %>')
-    const system_sparqlendpoint = parseJsp('<%= System.getProperty("agrold.sparql_endpoint") %>')
+    const system_context = parseJsp('<%= System.getProperty("agrold.name", "aldp") %>')
+    const system_baseurl = parseJsp('<%= System.getProperty("agrold.baseurl", "aldp") %>')
+    const system_sparqlendpoint = parseJsp('<%= System.getProperty("agrold.sparql_endpoint", "http://sparql.southgreen.fr") %>')
 </script>
 <script type="text/javascript" src="config/config.js"></script>
 
