@@ -41,8 +41,7 @@ public class CustomizableServicesManager {
 
             // here we will fill the host property defined by the system property agrold.baseurl and agrold.name
             jsonObj.put("host", 
-                ((System.getProperty("agrold.baseurl") != null) ? System.getProperty("agrold.baseurl") : "http://localhost:8080/")
-                + ((System.getProperty("agrold.name") != null) ? System.getProperty("agrold.name") : "aldp")
+                System.getProperty("agrold.baseurl", "http://localhost:8080/") + System.getProperty("agrold.name", "aldp")
             );
             
             reader.close();

@@ -14,12 +14,16 @@
 
 Le déploiement de l'application se fait premièrement avec des variables d'environnement passées à tomcat.
 
-|           Name           |                                             Description                                              |      Valeur par défaut     |
-| :----------------------: | :--------------------------------------------------------------------------------------------------: | :------------------------: |
-|      `AGROLD_NAME`       | Nom de l'archive et du contexte (the name after the base URL, for instance `https://someurl/agrold`) |           `aldp`           |
-|   `AGROLD_DESCRIPTION`   |                                   Description affichée dans Tomcat                                   |                            |
-|     `AGROLD_BASEURL`     |                                       L'URL de base de l'app                                         |  `http://localhost:8080`   |
-| `AGROLD_SPARQL_ENDPOINT` |                                      Url de l'endpoint SPARQL                                        | `http://sparql.southgreen` |
+|             Name             |                                             Description                                              |      Valeur par défaut     |
+| :--------------------------: | :--------------------------------------------------------------------------------------------------: | :------------------------: |
+|        `AGROLD_NAME`         | Nom de l'archive et du contexte (the name after the base URL, for instance `https://someurl/agrold`) |           `aldp`           |
+|     `AGROLD_DESCRIPTION`     |                                   Description affichée dans Tomcat                                   |             :x:            |
+|       `AGROLD_BASEURL`       |                                       L'URL de base de l'app                                         |  `http://localhost:8080/`   |
+|   `AGROLD_SPARQL_ENDPOINT`   |                                      Url de l'endpoint SPARQL                                        | `http://sparql.southgreen.fr` |
+|  `AGROLD_DB_CONNECTION_URL`  |                        Url de la base de données ex: `[host]:[port]/[db]?[opt]`                      |         :x: (requis)       |
+|     `AGROLD_DB_USERNAME`     |                                   Utilisateur de la base de données                                  |         :x: (requis)       |
+|     `AGROLD_DB_PASSWORD`     |                                  Mot de passe de la base de données                                  |         :x: (requis)       |
+
 
 Pour injecter ces variables d'environnement dans tomcat il faut mettre ceci dans `$CATALINA_BASE/bin/setenv.sh`
 
@@ -48,6 +52,22 @@ export CATALINA_OPTS="$OPT"
 ```bash
 # Avec AGROLD_NAME définie précédemment
 mvn clean install
+```
+
+Si vous lancez tomcat avec systemd le remplissage des variables d'environnement se fait ainsi
+
+```bash
+sudo systemctl edit tomcat8 #ou tomcat7
+
+# dans l'éditeur
+[Service]
+Environment="AGROLD_NAME=aldp"
+Environment="AGROLD_DESCRIPTION=Agrold (Development instance)"
+Environment="AGROLD_BASEURL=http://localhost:8080/"
+Environment="AGROLD_SPARQL_ENDPOINT=http://sparql.southgreen.fr"
+Environment="AGROLD_DB_CONNECTION_URL=172.17.0.1:3306/DB?useSSL=false"
+Environment="AGROLD_DB_PASSWORD=my-secret-pw"
+Environment="AGROLD_DB_USERNAME=my-user"
 ```
 
 ### Sauvegarde des activités

@@ -4,7 +4,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="container">
-            <%! String home = (System.getProperty("agrold.name") != null)? System.getProperty("agrold.name") : "aldp"; %>
+            <%! String home = System.getProperty("agrold.name", "aldp"); %>
             <a class="navbar-brand" href="/<%= home %>"><img src="images/v5.png"></a>
 
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
