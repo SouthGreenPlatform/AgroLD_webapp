@@ -112,7 +112,7 @@ _italic_: peut-être résolu
 - _Les tables YASR apparaissent souvent aminçis dans les fenêtres de description d'entités_
 - _La navigation entre page ne marche pas ("Next page")_: quand on fait un _display_ puis on revient aux résultats de la recherche
 - _les requêtes sur les QTL retournent peu de résultats_
-- advancedsearch.jsp incompatible avec includes.jsp?
+- **advancedsearch.jsp incompatible avec includes.jsp -> redondance dans les imports CSS**
 - gérer les erreur HTTP (eg. 204, 404, 500, etc.) de l'API dans l'advancedSearch (màj de Swagger-client dans tous les appel aux web services)
 - Recherche des QTL: la seul description fournie est le label et has*trait (très souvent une URI TO*... dans le graphe gramene.qtl, mais texte dans qtaro.qtl). Donc il est difficile de les retrouver par mot-clé
 - **Corriger la requête de recherche pour trouver plus de QTL y compris ceux de qtaro.qtl (voir sparql query du web service getQTLs i.e. `rdf:type|rdfs:subclassOf)**
@@ -123,8 +123,7 @@ _italic_: peut-être résolu
 - **knetmaps: ajout d'un nouveau type** (concept, e.g. mRNA) = ajout du style du type, ajout du style de ses relations avec les autres concept, et ajout de l'image de son symbole dans le css et le dossier img de knetmaps
 - Interaction AgroLD <> KnetMaps.JS: voir knetmaps.js ligne 309 (Pour accéder à un attribut de données d'un noeud : console.log("my.showLinks.selectedNode: " + this.data("iri"));)
 
-```
-sparql
+```sparql
 BASE <http://www.southgreen.fr/agrold/>
 PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>

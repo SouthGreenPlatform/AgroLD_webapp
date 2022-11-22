@@ -1,6 +1,18 @@
+
+//Fuses all parameters into a url
+function buildUrl(...url) {
+    return url.reduce((acc, val) => {
+        if (acc.endsWith('/') && val.startsWith('/'))
+            return acc + val.substring(1);
+        else if (acc.endsWith('/') || val.startsWith('/'))
+            return acc + val;
+        else return acc + '/' + val;
+    })
+}
+
 //WEBAPPURL="http://agrold.southgreen.fr/agrold";
 CONTEXT= system_context ?? "aldp";
-WEBAPPURL= ( system_baseurl ?? "http://127.0.0.1:8080/" ) + CONTEXT;
+WEBAPPURL= buildUrl(( system_baseurl ?? "http://127.0.0.1:8080/" ),  CONTEXT);
 
 // still constant in :
 // /Users/zadmin/agrold/git/AgroLD/agrold/src/main/webapp/bc_sparqleditor.jsp
@@ -18,7 +30,7 @@ FACETEDURL="http://agrold.southgreen.fr/fct";
 
 //AGROLDAPIJSONURL=WEBAPPURL + "/config/agrold-api.json";
 //AGROLDAPIJSONURL=WEBAPPURL + "/api/agrold-api-specification.json";
-AGROLDAPIJSONURL=WEBAPPURL + "api/webservices";
+AGROLDAPIJSONURL= buildUrl(WEBAPPURL, "api/webservices");
 
 
 // Advanced search default format to query the web services

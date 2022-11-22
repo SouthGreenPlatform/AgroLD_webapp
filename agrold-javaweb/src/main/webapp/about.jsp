@@ -67,6 +67,12 @@
                                 <em>tagnyngompe[at]gmail[dot]com</em>
                             </p>
                         </div>
+                        <div>
+                            <p><b>Yann POMIE,</b><br>
+                                <i>Engineer (Apprentice), IRD</i><br>
+                                <em>yann[dot]pomie[at]ird[dot]fr</em>
+                            </p>
+                        </div>
                         <h4>Former members:</h4>
                           <div>               
                             <p><b>Patrick Valduriez</b><br>

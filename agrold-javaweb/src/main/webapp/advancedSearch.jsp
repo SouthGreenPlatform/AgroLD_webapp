@@ -40,23 +40,16 @@
         <!-- Les includes -->
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Tether -->
-        <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
         <!-- Jquery baby -->
         <!--script type="text/javascript" src="scripts/jquery-3.2.1.min.js"></script-->
-        <!-- Bootstrap REBOOT -->
-        <link rel="stylesheet" type="text/css" href="styles/bootstrap/css/bootstrap-reboot.min.css">
 
-        <link href="styles/style1.css" rel="stylesheet" type="text/css"/>
-        <link href="styles/sp.css" rel="stylesheet" type="text/css"/>
-        <link href="styles/menu.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" type="text/css" href="styles/advSearch.css">
         <link rel="stylesheet" type="text/css" href="styles/css-loader.css">
         <link href="sparqleditor/yasr.min.css" rel="stylesheet" type="text/css"/>
         <script src='sparqleditor/yasr.bundled.min.js'></script>               
         
         <!-- Les autres -->
-        <script src="config/config.js" type="text/javascript"></script>
+        <jsp:include page="includes.jsp"></jsp:include>
         <script src="knetmaps/dist/js/knetmaps-lib.min.js"></script> <!-- KnetMaps libs (with jQuery) -->
         <link href="styles/search.css" rel="stylesheet" type="text/css">        		
         <script src="scripts/URI.js"></script>
@@ -65,12 +58,6 @@
         <script type="text/javascript" src="scripts/knetmaps_adaptator.js"></script>
         <script src="swagger/lib/swagger-client.js" type="text/javascript"></script>
         <!--script src="scripts/adv_search_ogust.js" type="text/javascript"></script-->
-        
-         <!--link href="styles/menu1.css" rel="stylesheet" type="text/css"/-->
-        <link rel="stylesheet" type="text/css" href="styles/bootstrap/css/bootstrap-grid.min.css">
-        <link rel="stylesheet" type="text/css" href="styles/bootstrap/css/bootstrap.css">
-        <link rel="stylesheet" type="text/css" href="styles/font-awesome/css/font-awesome.min.css">
-        <script type="text/javascript" src="styles/bootstrap/js/bootstrap.min.js"></script>
         
         <!--include jQuery.DataTables plug-in-->
         <link href="https://cdn.datatables.net/1.10.18/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">        
