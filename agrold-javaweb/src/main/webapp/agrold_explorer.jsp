@@ -13,7 +13,7 @@ and open the template in the editor.
         <link href="knetmaps/dist/css/knetmaps.css" rel="stylesheet" /> <!-- KnetMaps css -->		
         <link href="https://fonts.googleapis.com/css?family=Kanit|Play" rel="stylesheet">
         <link rel="shortcut icon" href="image/favicon.ico" > <!-- favicon added -->
-        <script src="config/config.js" type="text/javascript"></script>
+        <jsp:include page="includes.jsp"></jsp:include>
         <script src="knetmaps/dist/js/knetmaps-lib.min.js"></script> <!-- KnetMaps libs (with jQuery) -->		
         <script src="scripts/URI.js"></script>
         <script src="scripts/lib.js" type="text/javascript"></script>
