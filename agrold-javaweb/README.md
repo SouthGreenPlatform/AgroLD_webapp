@@ -47,6 +47,26 @@ echo "Launching Tomcat with options: $OPT" | systemd-cat
 export CATALINA_OPTS="$OPT"
 ```
 
+Grâce à ce script les variables d'environnement seront disponibles sous ces formes respectivement
+
+* ``agrold.name``
+* ``agrold.description``
+* ``agrold.baseurl``
+* ``agrold.sparql_endpoint``
+* ``agrold.db_connection_url``
+* ``agrold.db_username``
+* ``agrold.db_password``
+
+Vous pourrez donc utiliser vos variables de cette manière 
+
+```java
+...
+String URL = System.getProperty("agrold.db_connection_url");
+String usr = System.getProperty("agrold.db_username");
+String pwd = System.getProperty("agrold.db_password");
+...
+```
+
 #### Compilation
 
 ```bash
