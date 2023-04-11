@@ -10,54 +10,32 @@
 - Tomcat 7/8
 - mysql (sera bientôt agnostique ou retiré)
 
-#### Paramétrage
+#### Paramètres
 
-Le déploiement de l'application se fait premièrement avec des variables d'environnement passées à tomcat.
+Le déploiement de l'application se fait premièrement avec des propriétés Java passées à tomcat.
 
-|             Name             |                                             Description                                              |      Valeur par défaut     |
-| :--------------------------: | :--------------------------------------------------------------------------------------------------: | :------------------------: |
-|        `AGROLD_NAME`         | Nom de l'archive et du contexte (the name after the base URL, for instance `https://someurl/agrold`) |           `aldp`           |
-|     `AGROLD_DESCRIPTION`     |                                   Description affichée dans Tomcat                                   |             :x:            |
-|       `AGROLD_BASEURL`       |                                       L'URL de base de l'app                                         |  `http://localhost:8080/`   |
-|   `AGROLD_SPARQL_ENDPOINT`   |                                      Url de l'endpoint SPARQL                                        | `http://sparql.southgreen.fr` |
-|  `AGROLD_DB_CONNECTION_URL`  |                        Url de la base de données ex: `[host]:[port]/[db]?[opt]`                      |         :x: (requis)       |
-|     `AGROLD_DB_USERNAME`     |                                   Utilisateur de la base de données                                  |         :x: (requis)       |
-|     `AGROLD_DB_PASSWORD`     |                                  Mot de passe de la base de données                                  |         :x: (requis)       |
+|            Name            |                                             Description                                              |       Valeur par défaut       |
+|:--------------------------:|:----------------------------------------------------------------------------------------------------:|:-----------------------------:|
+|       `agrold.name`        | Nom de l'archive et du contexte (the name after the base URL, for instance `https://someurl/agrold`) |            `aldp`             |
+|    `agrold.description`    |                                   Description affichée dans Tomcat                                   |              :x:              |
+|      `agrold.baseurl`      |                                        L'URL de base de l'app                                        |   `http://localhost:8080/`    |
+|  `agrold.sparql_endpoint`  |                                       Url de l'endpoint SPARQL                                       | `http://sparql.southgreen.fr` |
+| `agrold.db_connection_url` |                       Url de la base de données ex: `[host]:[port]/[db]?[opt]`                       |         :x: (requis)          |
+|    `agrold.db_username`    |                                  Utilisateur de la base de données                                   |         :x: (requis)          |
+|    `agrold.db_password`    |                                  Mot de passe de la base de données                                  |         :x: (requis)          |
 
 
-Pour injecter ces variables d'environnement dans tomcat il faut mettre ceci dans `$CATALINA_BASE/bin/setenv.sh`
+Pour injecter ces variables dans tomcat, il faut déclarer les sous forme d'argument en ligne de commande sous cette forme `-Dnomdelapropriété=valeur` et les placer dans la variable d'environnement `CATALINA_OPTS` 
+
+> :warning: Non ce n'est pas une faute de frappe le `-D` est bien collé au nom de la propriété, c'est les arguments de java
+
+Par exemple: 
 
 ```bash
-#Tomcat can't read env variables but can read system properties
-OLDIFS=$IFS
-IFS='
-'
-#Catalina.sh uses sh, however it does not understands setting $'\n' as an IFS because he understands that it is litterally a n, not a newline
-# if someone finds a cleaner way fell free to make a PR
-
-var="$(env | grep '^AGROLD_')"
-
-for i in $var; do
-    OPT="$OPT -D$(echo "$i" | awk -F '=' '/^AGROLD/ { lwr=tolower($1); sub(/_/, ".", lwr); print lwr }')='$(echo "$i"| cut -d= -f2-)'"
-done
-
-IFS=$OLDIFS
-echo "Launching Tomcat with options: $OPT" | systemd-cat
-
-export CATALINA_OPTS="$OPT"
+# Directement sur l'hôte
+export CATALINA_OPTS="-Dagrold.db_connection_url=someurlhere -Dagrold.db_username=usr -Dagrold.db_password=pwd" 
+catalina.sh
 ```
-
-Grâce à ce script les variables d'environnement seront disponibles sous ces formes respectivement
-
-* ``agrold.name``
-* ``agrold.description``
-* ``agrold.baseurl``
-* ``agrold.sparql_endpoint``
-* ``agrold.db_connection_url``
-* ``agrold.db_username``
-* ``agrold.db_password``
-
-Vous pourrez donc utiliser vos variables de cette manière 
 
 ```java
 ...
@@ -67,12 +45,6 @@ String pwd = System.getProperty("agrold.db_password");
 ...
 ```
 
-#### Compilation
-
-```bash
-# Avec AGROLD_NAME définie précédemment
-mvn clean install
-```
 
 Si vous lancez tomcat avec systemd le remplissage des variables d'environnement se fait ainsi
 
@@ -81,22 +53,37 @@ sudo systemctl edit tomcat8 #ou tomcat7
 
 # dans l'éditeur
 [Service]
-Environment="AGROLD_NAME=aldp"
-Environment="AGROLD_DESCRIPTION=Agrold (Development instance)"
-Environment="AGROLD_BASEURL=http://localhost:8080/"
-Environment="AGROLD_SPARQL_ENDPOINT=http://sparql.southgreen.fr"
-Environment="AGROLD_DB_CONNECTION_URL=172.17.0.1:3306/DB?useSSL=false"
-Environment="AGROLD_DB_PASSWORD=my-secret-pw"
-Environment="AGROLD_DB_USERNAME=my-user"
+Environment="CATALINA_OPTS='-Dagrold.db_connection_url=someurlhere -Dagrold.db_username=usr -Dagrold.db_password=pwd'"
+```
+
+Pour compiler: la variable d'environnement `AGROLD_NAME`, égale à `agrold.name` doit être mise en place 
+
+```bash
+# Avec AGROLD_NAME définie précédemment
+mvn clean install
+```
+
+Si vous utilisez docker:
+```bash
+cd agrold-javaweb/
+
+# Vous pouvez utiliser le dockerfile
+#                          le mot de passe du manager 
+docker build . -t <tag> --build-arg TOMCAT_PASSWORD=a --build-arg AGROLD_NAME=agrolddev
+
+# Ou pull l'image stockée depuis le registre dans l'environnement de développement,
+docker login 10.9.2.21:8080 -u <user> -p <password>
+docker pull 10.9.2.21:8080
+
+# Lancer le conteneur
+docker run -p 8080:8080 -e CATALINA_OPTS="-Dagrold.db_connection_url=someurl -Dagrold.db_username=usr -Dagrold.db_password=pwd -Dagrold.baseurl=http://localhost:8080/ -Dagrold.sparql_endpoint=a" <tag>
 ```
 
 ### Sauvegarde des activités
 
-- Le fichier agrold-javaweb/agrold-api.json est la version de base de la spécification Swagger qui décrit les webservices et qui est fourni en ligne par le webservice GET /api/webservice.
+- Le fichier agrold-javaweb/ressources/agrold-api.json est la version de base de la spécification Swagger qui décrit les webservices et qui est fourni en ligne par le webservice GET /api/webservice.
   Ce fichier est placé hors de l'application pour éviter que les modifications de l'application ne supprime les nouveaux services créés à partir de l'interface HTTP
 - La sauvegarde de l'historique des activités est inaccessible pour l'instant car les boutons de login et d'enregistrement sont désactivés
-- les informations de connexion à MySql sont dans le fichier `/home/virtuoso/agrold-mysql.conf`
-  sur le serveur pour éviter de les partager avec le code sur github. Il s'agit de l'url de mysql, du nom et pwd de l'admin de la BD.
 - pour recréer un utilisateur: supprimer les lignes correspondant à son adresse email dans les tables `user`, `u_info`, `h_settings` de la BD `agrold`:
 
 ```sql

@@ -8,8 +8,8 @@ on:
     paths:
       - agrold-javaweb/src/**
       - agrold-javaweb/pom.xml
+      - agrold-javaweb/Dockerfile
       
-
 # This workflow will build a docker container, publish it to our private registry
 # tagged as latest and with latest commit hash (shortened)
 jobs:
@@ -59,12 +59,13 @@ jobs:
         password: ${{ secrets.DOCKER_REGISTRY_PASSWORD }}
 
     - name: Build and push Docker image
-      uses: docker/build-push-action@v2
+      uses: docker/build-push-action@v4
       with:
         build-args: |
-          AGROLD_NAME="agrolddev"
-          AGROLD_DESCPTION="agrold development instance generated from commit ${GIT_COMMIT}"
+          AGROLD_NAME=agrolddev
+          AGROLD_DESCRIPTION="agrold development instance generated from commit ${GIT_COMMIT}"
           GIT_COMMIT=${{ steps.variables.outputs.sha_short }}
+          TOMCAT_PASSWORD=${{ secrets.TOMCAT_PASSWORD }}
         allow: security.insecure # Activated because docker does not like self signed certificates
         push: true
         context: ./agrold-javaweb
