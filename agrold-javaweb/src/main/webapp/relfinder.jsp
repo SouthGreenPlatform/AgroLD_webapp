@@ -28,7 +28,7 @@
     <head>
         <title>AgroLD: Find Relationships</title>
         <!-- Les includes -->
-        <jsp:include page="includes.html"></jsp:include>
+        <jsp:include page="includes.jsp"></jsp:include>
         </head>
         <body>        
         <jsp:include page="header.jsp"></jsp:include>

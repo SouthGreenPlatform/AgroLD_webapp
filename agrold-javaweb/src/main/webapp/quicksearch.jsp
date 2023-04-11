@@ -23,7 +23,7 @@
         <script src="intro.js-1.0.0/intro.js" type="text/javascript"></script>
         <link href="styles/search.css" rel="stylesheet" type="text/css"/>
         <!-- Les includes -->
-        <jsp:include page="includes.html"></jsp:include>
+        <jsp:include page="includes.jsp"></jsp:include>
             <script type="text/javascript" src="scripts/dots.js"></script>
         </head>
         <body>

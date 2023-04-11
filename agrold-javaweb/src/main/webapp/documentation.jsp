@@ -27,7 +27,7 @@
     </script>
     <head>
         <title>AgroLD:Documentation</title>
-        <jsp:include page="includes.html"></jsp:include>
+        <jsp:include page="includes.jsp"></jsp:include>
             <link rel="stylesheet" type="text/css" href="styles/sidebar.css">
             <style type="text/css">
                 .tg  {border-collapse:collapse;border-spacing:0; border: 3px;}
