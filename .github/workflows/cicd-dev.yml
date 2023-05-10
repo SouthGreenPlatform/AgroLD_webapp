@@ -46,7 +46,7 @@ jobs:
       with:
         version: latest
         config-inline: |
-            [registry."10.9.2.21:8080"]
+            [registry."${{ vars.DOCKER_REGISTRY_HOST }}"]
               http = false
               insecure = true
               ca=["/etc/docker/certs.d/10.9.2.21/ca.crt"]
@@ -65,8 +65,7 @@ jobs:
           AGROLD_NAME=agrolddev
           AGROLD_DESCRIPTION="agrold development instance generated from commit ${GIT_COMMIT}"
           GIT_COMMIT=${{ steps.variables.outputs.sha_short }}
-          TOMCAT_PASSWORD=${{ secrets.TOMCAT_PASSWORD }}
-        allow: security.insecure # Activated because docker does not like self signed certificates
+        allow: security.insecure # Activated because docker does not like self-signed certificates
         push: true
         context: ./agrold-javaweb
         file: ./agrold-javaweb/Dockerfile
