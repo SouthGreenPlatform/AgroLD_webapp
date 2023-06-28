@@ -1,0 +1,72 @@
+name: Push to dev environment
+
+on:
+  push:
+    branches:
+      - dev
+
+    paths:
+      - agrold-javaweb/src/**
+      - agrold-javaweb/pom.xml
+      - agrold-javaweb/Dockerfile
+      
+# This workflow will build a docker container, publish it to our private registry
+# tagged as latest and with latest commit hash (shortened)
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+    - name: Clone project
+      uses: actions/checkout@v3
+
+    # =============================
+    # This will be activated later
+    # =============================
+
+    # - name : Set up JDK 11
+    #   uses: actions/setup-java@v2
+    #   with:
+    #     java-version: '11'
+    #     distribution: 'adopt'
+    #     cache: 'maven' 
+
+    # - name: install dependencies
+    #   run: mvn install -DskipTests
+
+    # - name: Run JUNIT tests
+    #   run: mvn test
+
+    - name: Get short commit hash
+      id: variables
+      run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
+      with:
+        version: latest
+        config-inline: |
+            [registry."${{ vars.DOCKER_REGISTRY_HOST }}"]
+              http = false
+              insecure = true
+              ca=["/etc/docker/certs.d/10.9.2.21/ca.crt"]
+
+    - name: "Login to private registry at: ${{ vars.DOCKER_REGISTRY_HOST }}"
+      uses: docker/login-action@v2.1.0
+      with:
+        registry: ${{ vars.DOCKER_REGISTRY_HOST }}
+        username: ${{ secrets.DOCKER_REGISTRY_USER }}
+        password: ${{ secrets.DOCKER_REGISTRY_PASSWORD }}
+
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v4
+      with:
+        build-args: |
+          AGROLD_NAME=agrolddev
+          AGROLD_DESCRIPTION="agrold development instance generated from commit ${GIT_COMMIT}"
+          GIT_COMMIT=${{ steps.variables.outputs.sha_short }}
+        allow: security.insecure # Activated because docker does not like self-signed certificates
+        push: true
+        context: ./agrold-javaweb
+        file: ./agrold-javaweb/Dockerfile
+        tags: ${{ vars.DOCKER_REGISTRY_HOST }}/agrold:${{ steps.variables.outputs.sha_short }},${{ vars.DOCKER_REGISTRY_HOST }}/agrold:latest

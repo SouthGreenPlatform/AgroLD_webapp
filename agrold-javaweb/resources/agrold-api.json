@@ -1523,7 +1523,6 @@
             }
         }
     },
-    "host": "agrold.southgreen.fr/agrold",
     "schemes": ["http"],
     "externalDocs": {
         "description": "Find out more about Swagger",
@@ -1570,7 +1569,7 @@
                     }
                 },
                 "sparql": {
-                    "desciption": "The Sparql query to run",
+                    "description": "The Sparql query to run",
                     "type": "string",
                     "example": "BASE <http://www.southgreen.fr/agrold/>\nPREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n\nSELECT distinct ?relation\nWHERE { \n GRAPH ?graph { \n  ?subject ?relation ?object . \n } \n} \nORDER BY ?relation \nOFFSET ?page \nLIMIT ?pageSize"
                 },

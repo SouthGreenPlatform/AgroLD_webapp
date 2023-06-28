@@ -27,3 +27,8 @@ target/
 
 # specific files
 .DS_STORE
+
+# IDE files
+.idea/
+*.iml
+*.vscode/

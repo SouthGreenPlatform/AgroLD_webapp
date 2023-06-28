@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>agrold</groupId>
-    <artifactId>agrold</artifactId>
+    <artifactId>${env.AGROLD_NAME}</artifactId>
     <version>1.0</version>
     <packaging>war</packaging>
 
-    <name>agrold-javaweb-prod</name>
+    <name>agrold-javaweb-${env.AGROLD_NAME}</name>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
@@ -138,8 +138,14 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>2.1.1</version>
+                <version>3.3.2</version>
                 <configuration>
+                    <webResources>
+                        <resource>
+                            <!-- this is relative to the pom.xml directory -->
+                            <directory>resources</directory>
+                        </resource>
+                    </webResources>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
             </plugin>
