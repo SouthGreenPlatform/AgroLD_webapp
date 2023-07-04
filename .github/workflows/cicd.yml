@@ -1,0 +1,69 @@
+name: Push to dev environment
+
+on:
+  push:
+    tags:
+      - v[0-9]+.[0-9]+.[0-9]+
+      
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Clone project
+      uses: actions/checkout@v3
+
+    # =============================
+    # This will be activated later
+    # =============================
+
+    # - name : Set up JDK 11
+    #   uses: actions/setup-java@v2
+    #   with:
+    #     java-version: '11'
+    #     distribution: 'adopt'
+    #     cache: 'maven' 
+
+    # - name: install dependencies
+    #   run: mvn install -DskipTests
+
+    # - name: Run JUNIT tests
+    #   run: mvn test
+
+    - name: Get short commit hash
+      id: variables
+      run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+
+    - name: Set Versions
+      uses: actions/github-script@v4
+      id: set_version
+      with:
+        script: |
+          const tag = context.ref.substring(10)
+          const no_v = tag.replace('v', '')
+          core.setOutput('no_v', no_v)
+
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
+      with:
+        version: latest
+        
+    - name: Login to ghcr.io
+      uses: docker/login-action@v2.1.0
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v4
+      with:
+        build-args: |
+          AGROLD_NAME=agrold
+          AGROLD_DESCRIPTION="agrold production instance"
+          GIT_COMMIT=${{ steps.variables.outputs.sha_short }}
+        push: true
+        context: ./agrold-javaweb
+        file: ./agrold-javaweb/Dockerfile
+        tags: ghcr.io/southgreenplatform/agrold:${{ steps.set_version.outputs.no_v }},ghcr.io/southgreenplatform/agrold:latest
