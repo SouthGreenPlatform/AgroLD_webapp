@@ -11,10 +11,6 @@ ENV AGROLD_NAME=${AGROLD_NAME}
 
 WORKDIR /build_dir
 
-LABEL "fr.ird.maintainer"="Yann POMIE <yann.pomie@ird.fr>" \
-      "version"=${GIT_COMMIT} \
-      "description"=${AGROLD_DESCRIPTION}
-
 COPY . /build_dir
 
 RUN AGROLD_NAME=${AGROLD_NAME} mvn clean install
@@ -27,7 +23,16 @@ ARG GIT_COMMIT
 ARG AGROLD_NAME
 ARG AGROLD_DESCRIPTION
 
-# COPY --from=build /build_dir/target/${AGROLD_NAME}.war /opt/bitnami/tomcat/webapps
+ARG BUILD_DATE=unknown
+
+LABEL "fr.ird.maintainer"="Yann POMIE <yann.pomie@ird.fr>" \
+      "version"=${GIT_COMMIT} \
+      "description"=${AGROLD_DESCRIPTION} \
+      "org.opencontainers.image.authors"="Yann POMIE <yann.pomie@ird.fr>" \
+      "org.opencontainers.image.created"=${BUILD_DATE} \
+      "org.opencontainers.image.source"="https://github.com/SouthGreenPlatform/AgroLD_webapp" \
+      "org.opencontainers.image.version"=${GIT_COMMIT}   
+
 COPY --from=build /build_dir/target/${AGROLD_NAME}.war /opt/bitnami/tomcat/webapps_default
 
 ENV GIT_COMMIT=${GIT_COMMIT}
