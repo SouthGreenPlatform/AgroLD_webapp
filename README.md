@@ -12,6 +12,7 @@ For bug tracking purpose you can use the GitHub or questions about AgroLG, you c
 
 * nordine.elhassouni_at_cirad.fr
 * pierre.larmande_at_ird.fr
+* yann.pomie_at_ird.fr
 
 
 # Valorization

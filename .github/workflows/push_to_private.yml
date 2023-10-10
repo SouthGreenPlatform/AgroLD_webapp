@@ -1,0 +1,85 @@
+name: Push container to private registry
+
+on:
+  workflow_call: 
+    inputs:
+      build-args:
+        type: string
+        default: ""
+        description: Build args to pass to docker build A=a B=b ...
+        required: false
+      image_name:
+        type: string
+        description: Image name to push to registry (w/o tag and host)
+        required: true
+      tag:
+        type: string
+        description: Tag to push to registry
+        required: true
+      context:
+        type: string
+        default: "."
+        description: Context to build from
+        required: true
+      dockerfile:
+        type: string
+        default: ${{ inputs.context }}/Dockerfile
+        description: Dockerfile to build
+      registry_host:
+        type: string
+        description: Docker registry host
+        required: false
+        default: "10.9.2.21:8080"
+    secrets:
+      DOCKER_REGISTRY_USER:
+        description: Docker username
+        required: true
+      DOCKER_REGISTRY_PASSWORD:
+        description: Docker password
+        required: true
+
+
+run-name: Push ${{ github.repository }} to private registry with tag ${{ inputs.tag}}
+
+jobs:
+  job:
+    runs-on: self-hosted
+    
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Normalize build args
+        id: normalize_build_args
+        # the input.build-args is a string line in the form A=a,B=b c,D=d,... we want to convert it to a list of strings
+        run: |
+          args="$(echo "${{ inputs.build-args }}" | tr ',' '\n'"
+          echo "args=$args" >> $GITHUB_OUTPUT
+          echo "host_wo_port=$(echo "${{ inputs.registry_host }}" | cut -d: -f1 )" >> $GITHUB_OUTPUT
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+        with:
+          version: latest
+          config-inline: |
+              [registry."${{ inputs.registry_host }}"]
+                http = false
+                insecure = true
+                ca=["/etc/docker/certs.d/${{ steps.normalize_build_args.outputs.host_wo_port }}/ca.crt"]
+
+      - name: "Login to private registry at: ${{ inputs.registry_host }}"
+        uses: docker/login-action@v2.1.0
+        with:
+          registry: ${{ inputs.registry_host }}
+          username: ${{ secrets.DOCKER_REGISTRY_USER }}
+          password: ${{ secrets.DOCKER_REGISTRY_PASSWORD }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v4
+        with:
+          build-args: |
+            ${{ steps.normalize_build_args.outputs.args }}
+          allow: security.insecure # Activated because docker does not like self-signed certificates
+          push: true
+          context: ${{ inputs.context }}
+          file: ${{ inputs.dockerfile }}
+          tags: ${{ inputs.registry_host }}/${{ inputs.image_name }}:${{ inputs.tag }},${{ inputs.registry_host }}/${{ inputs.image_name }}:latest

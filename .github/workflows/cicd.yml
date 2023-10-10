@@ -1,4 +1,4 @@
-name: Push to dev environment
+name: Push to production ☁️
 
 on:
   push:
@@ -8,6 +8,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    outputs:
+      sha_short:  ${{ steps.variables.outputs.sha_short }}
+      build_date: ${{ steps.variables.outputs.build_date }}
+      no_v:       ${{ steps.set_version.outputs.no_v }}
 
     steps:
     - name: Clone project
@@ -45,6 +50,13 @@ jobs:
           const no_v = tag.replace('v', '')
           core.setOutput('no_v', no_v)
     
+  build_n_push_prod:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
       with:
@@ -63,9 +75,23 @@ jobs:
         build-args: |
           AGROLD_NAME=agrold
           AGROLD_DESCRIPTION="agrold production instance"
-          GIT_COMMIT=${{ steps.set_version.outputs.no_v }}
-          BUILD_DATE=${{ steps.variables.outputs.build_date }}
+          GIT_COMMIT=${{ needs.build.outputs.sha_short }}
+          BUILD_DATE=${{ needs.build.outputs.build_date }}
         push: true
         context: ./agrold-javaweb
         file: ./agrold-javaweb/Dockerfile
-        tags: ghcr.io/southgreenplatform/agrold:${{ steps.set_version.outputs.no_v }},ghcr.io/southgreenplatform/agrold:latest
+        tags: ghcr.io/southgreenplatform/agrold:${{ needs.build.outputs.no_v }},ghcr.io/southgreenplatform/agrold:latest
+
+  build_n_push_private:
+    needs: build
+    uses: ./.github/workflows/push_to_private.yml
+    with:
+      build-args: AGROLD_NAME=agrold AGROLD_DESCRIPTION="Agrold from version ${{ needs.build.outputs.no_v }}, commit ${{ needs.build.outputs.sha_short }}" GIT_COMMIT=${{ needs.build.outputs.no_v }} BUILD_DATE="${{ needs.build.outputs.build_date }}"
+      context: ./agrold-javaweb
+      dockerfile: ./agrold-javaweb/Dockerfile
+      image_name: agrolddev
+      tag: ${{ needs.build.outputs.no_v }}
+      registry_host: "10.9.2.21:8080"
+    secrets: 
+      DOCKER_REGISTRY_USER:     ${{ secrets.DOCKER_REGISTRY_USER }}
+      DOCKER_REGISTRY_PASSWORD: ${{ secrets.DOCKER_REGISTRY_PASSWORD }}
