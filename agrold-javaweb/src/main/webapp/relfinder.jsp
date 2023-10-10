@@ -29,16 +29,28 @@
         <title>AgroLD: Find Relationships</title>
         <!-- Les includes -->
         <jsp:include page="includes.jsp"></jsp:include>
-        </head>
-        <body>        
+        <style>
+            iframe {
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                left: 0;
+                top: 0;
+                border-style: none;
+            }
+        </style>
+    </head>
+    <body>        
         <jsp:include page="header.jsp"></jsp:include>
+            <%! String rfLink = System.getProperty("agrold.rf_link", "http://rf.southgreen.fr/"); %>
             <div class="container-fluid arian-thread">
                 <div class="info_title">
-                    <div class="container pos-l">Search > <span class="active-p">Explore relationship</span></div>
+                    <div class="container pos-l">Search > <span class="active-p">Explore relationship</span> <a target="_blank" href="<%= rfLink %>"><em>(Open Relfinder Reformed in new tab)</em></a></div>
                 </div>
             </div>
+            
             <div class="foowrap">
-                <section>
+                <!-- <section>
                     <OBJECT CLASSID="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="100%" height="100%" 
                             CODEBASE="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,040,0" >
                         <PARAM name="movie" VALUE="RelFinder.swf">
@@ -48,7 +60,17 @@
                                PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer" width="100%" height="700px" >
                         </EMBED>            
                     </OBJECT>    
-                </section>
+                </section> -->
+                <iframe 
+                    src="<%= rfLink %>"
+                    sandbox="allow-downloads-without-user-activation allow-downloads allow-forms allow-same-origin allow-scripts" 
+                    allowfullscreen="true" 
+                    title="RelFinder Reformed"
+                    name="relfinderreformed"
+                >
+
+                </iframe>
+
             </div>
         <jsp:include page="footer.html"></jsp:include>
     </body>
