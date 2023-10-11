@@ -43,9 +43,9 @@ public class MySQLProperties {
             String usr = System.getProperty("agrold.db_username");
             String pwd = System.getProperty("agrold.db_password");
 
-            if (URL == null) throw new NullPointerException("Missing env Variable: AGROLD_DB_CONNECTION_URL");
-            if (usr == null) throw new NullPointerException("Missing env Variable: AGROLD_DB_USERNAME");
-            if (pwd == null) throw new NullPointerException("Missing env Variable: AGROLD_DB_PASSWORD");
+            if (URL == null) throw new NullPointerException("Missing system property: agrold.db_connection_url");
+            if (usr == null) throw new NullPointerException("Missing system property: agrold.db_username");
+            if (pwd == null) throw new NullPointerException("Missing system property: agrold.db_password");
 
             lines.add(URL);
             lines.add(usr);

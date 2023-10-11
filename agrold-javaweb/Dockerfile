@@ -4,7 +4,6 @@ FROM maven:3.9-amazoncorretto-8 as build
 ARG GIT_COMMIT=unknown
 
 ARG AGROLD_NAME=agrold
-ARG AGROLD_DESCRIPTION=agrold production instance generated from commit ${GIT_COMMIT}
 
 # This is here so we can change it depending of dev/prod
 ENV AGROLD_NAME=${AGROLD_NAME}
@@ -21,9 +20,9 @@ FROM bitnami/tomcat:7
 # We renew arguments
 ARG GIT_COMMIT
 ARG AGROLD_NAME
-ARG AGROLD_DESCRIPTION
 
 ARG BUILD_DATE=unknown
+ARG AGROLD_DESCRIPTION='"agrold production instance generated from commit ${GIT_COMMIT}"'
 
 LABEL "fr.ird.maintainer"="Yann POMIE <yann.pomie@ird.fr>" \
       "version"=${GIT_COMMIT} \

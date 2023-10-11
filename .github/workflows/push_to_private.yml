@@ -52,7 +52,7 @@ jobs:
         id: normalize_build_args
         # the input.build-args is a string line in the form A=a,B=b c,D=d,... we want to convert it to a list of strings
         run: |
-          args="$(echo "${{ inputs.build-args }}" | tr ',' '\n'"
+          args="$(echo '${{ inputs.build-args }}' | tr ',' '\n')"
           echo "args=$args" >> $GITHUB_OUTPUT
           echo "host_wo_port=$(echo "${{ inputs.registry_host }}" | cut -d: -f1 )" >> $GITHUB_OUTPUT
 
@@ -73,11 +73,10 @@ jobs:
           username: ${{ secrets.DOCKER_REGISTRY_USER }}
           password: ${{ secrets.DOCKER_REGISTRY_PASSWORD }}
 
-      - name: Build and push Docker image
+      - name: Build and push Docker image ${{ inputs.registry_host }}/${{ inputs.image_name }}:${{ inputs.tag }}
         uses: docker/build-push-action@v4
         with:
-          build-args: |
-            ${{ steps.normalize_build_args.outputs.args }}
+          build-args: ${{ steps.normalize_build_args.outputs.args }}
           allow: security.insecure # Activated because docker does not like self-signed certificates
           push: true
           context: ${{ inputs.context }}
