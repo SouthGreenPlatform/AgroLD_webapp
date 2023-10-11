@@ -86,7 +86,7 @@ jobs:
     needs: build
     uses: ./.github/workflows/push_to_private.yml
     with:
-      build-args: AGROLD_NAME=agrold AGROLD_DESCRIPTION="Agrold from version ${{ needs.build.outputs.no_v }}, commit ${{ needs.build.outputs.sha_short }}" GIT_COMMIT=${{ needs.build.outputs.no_v }} BUILD_DATE="${{ needs.build.outputs.build_date }}"
+      build-args: AGROLD_NAME=agrold,AGROLD_DESCRIPTION="Agrold from version ${{ needs.build.outputs.no_v }} commit ${{ needs.build.outputs.sha_short }}",GIT_COMMIT=${{ needs.build.outputs.no_v }},BUILD_DATE="${{ needs.build.outputs.build_date }}"
       context: ./agrold-javaweb
       dockerfile: ./agrold-javaweb/Dockerfile
       image_name: agrolddev
