@@ -3,7 +3,7 @@ FROM maven:3.9-amazoncorretto-8 as build
 # Shared arguments between build and run stages
 ARG GIT_COMMIT=unknown
 
-ARG AGROLD_NAME=agrold
+ARG AGROLD_NAME=aldp
 
 # This is here so we can change it depending of dev/prod
 ENV AGROLD_NAME=${AGROLD_NAME}
@@ -12,7 +12,7 @@ WORKDIR /build_dir
 
 COPY . /build_dir
 
-RUN AGROLD_NAME=${AGROLD_NAME} mvn clean install
+RUN mvn clean install -Dagrold.name=${AGROLD_NAME}
 
 # Run stage
 FROM bitnami/tomcat:7

@@ -14,26 +14,26 @@
 
 Le déploiement de l'application se fait premièrement avec des propriétés Java passées à tomcat.
 
-|            Name            |                                             Description                                              |       Valeur par défaut       |
-|:--------------------------:|:----------------------------------------------------------------------------------------------------:|:-----------------------------:|
-|       `agrold.name`        | Nom de l'archive et du contexte (the name after the base URL, for instance `https://someurl/agrold`) |            `aldp`             |
-|    `agrold.description`    |                                   Description affichée dans Tomcat                                   |              :x:              |
-|      `agrold.baseurl`      |                                        L'URL de base de l'app                                        |   `http://localhost:8080/`    |
-|  `agrold.sparql_endpoint`  |                                       Url de l'endpoint SPARQL                                       | `http://sparql.southgreen.fr` |
-| `agrold.db_connection_url` |                       Url de la base de données ex: `[host]:[port]/[db]?[opt]`                       |         :x: (requis)          |
-|    `agrold.db_username`    |                                  Utilisateur de la base de données                                   |         :x: (requis)          |
-|    `agrold.db_password`    |                                  Mot de passe de la base de données                                  |         :x: (requis)          |
+|            Name            |                                                                    Description                                                                    |       Valeur par défaut       |
+| :------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------: |
+|       `agrold.name`        | Nom de l'archive et du contexte (le nom apparait après `agrold.baseurl` , par exemple si on met la valeur à `aldp` on a `https://someurl/agrold`) |            `aldp`             |
+|    `agrold.description`    |                                                         Description affichée dans Tomcat                                                          |              :x:              |
+|      `agrold.baseurl`      |                                                              L'URL de base de l'app                                                               |   `http://localhost:8080/`    |
+|  `agrold.sparql_endpoint`  |                                                             Url de l'endpoint SPARQL                                                              | `http://sparql.southgreen.fr` |
+| `agrold.db_connection_url` |                                             Url de la base de données ex: `[host]:[port]/[db]?[opt]`                                              |         :x: (requis)          |
+|    `agrold.db_username`    |                                                         Utilisateur de la base de données                                                         |         :x: (requis)          |
+|    `agrold.db_password`    |                                                        Mot de passe de la base de données                                                         |         :x: (requis)          |
 
+Pour injecter ces variables dans tomcat, il faut déclarer les sous forme d'argument en ligne de commande sous cette forme `-Dnomdelapropriété=valeur` et les placer dans la variable d'environnement `CATALINA_OPTS`
 
-Pour injecter ces variables dans tomcat, il faut déclarer les sous forme d'argument en ligne de commande sous cette forme `-Dnomdelapropriété=valeur` et les placer dans la variable d'environnement `CATALINA_OPTS` 
+> [!IMPORTANT]
+> Non ce n'est pas une faute de frappe le `-D` est bien collé au nom de la propriété, c'est les arguments de java
 
-> :warning: Non ce n'est pas une faute de frappe le `-D` est bien collé au nom de la propriété, c'est les arguments de java
-
-Par exemple: 
+Par exemple:
 
 ```bash
 # Directement sur l'hôte
-export CATALINA_OPTS="-Dagrold.db_connection_url=someurlhere -Dagrold.db_username=usr -Dagrold.db_password=pwd" 
+export CATALINA_OPTS="-Dagrold.db_connection_url=someurlhere -Dagrold.db_username=usr -Dagrold.db_password=pwd"
 catalina.sh
 ```
 
@@ -45,7 +45,6 @@ String pwd = System.getProperty("agrold.db_password");
 ...
 ```
 
-
 Si vous lancez tomcat avec systemd le remplissage des variables d'environnement se fait ainsi
 
 ```bash
@@ -56,19 +55,24 @@ sudo systemctl edit tomcat8 #ou tomcat7
 Environment="CATALINA_OPTS='-Dagrold.db_connection_url=someurlhere -Dagrold.db_username=usr -Dagrold.db_password=pwd'"
 ```
 
-Pour compiler: la variable d'environnement `AGROLD_NAME`, égale à `agrold.name` doit être mise en place 
+Pour compiler lancez maven à la racine du projet, Il est possible de passer la propriété `agrold.name` en argument de maven
 
 ```bash
-# Avec AGROLD_NAME définie précédemment
 mvn clean install
+
+# ou
+
+mvn clean install -Dagrold.name=un_nom # vous accéderez à l'application via https://<votre url>/un_nom
+```
 ```
 
 Si vous utilisez docker:
+
 ```bash
 cd agrold-javaweb/
 
 # Vous pouvez utiliser le dockerfile
-#                          le mot de passe du manager 
+#                          le mot de passe du manager
 docker build . -t <tag> --build-arg TOMCAT_PASSWORD=a --build-arg AGROLD_NAME=agrolddev
 
 # Ou pull l'image stockée depuis le registre dans l'environnement de développement,
@@ -78,6 +82,9 @@ docker pull 10.9.2.21:8080
 # Lancer le conteneur
 docker run -p 8080:8080 -e CATALINA_OPTS="-Dagrold.db_connection_url=someurl -Dagrold.db_username=usr -Dagrold.db_password=pwd -Dagrold.baseurl=http://localhost:8080/ -Dagrold.sparql_endpoint=a" <tag>
 ```
+
+> [!NOTE]
+> À noter que l'image docker crée prend pour base l'image [bitnami/tomcat](https://hub.docker.com/r/bitnami/tomcat/). Cela veut dire que vous pouvez configurer l'image d'AgroLD comme celle de bitnami sur certain points nottament la configuration de l'utilisateur manager de tomcat.
 
 ### Sauvegarde des activités
 
