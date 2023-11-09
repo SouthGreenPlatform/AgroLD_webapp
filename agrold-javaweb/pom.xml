@@ -3,17 +3,19 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>agrold</groupId>
-    <artifactId>${env.AGROLD_NAME}</artifactId>
+    <artifactId>agrold</artifactId>
     <version>1.0</version>
     <packaging>war</packaging>
 
-    <name>agrold-javaweb-${env.AGROLD_NAME}</name>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <agrold.name>aldp</agrold.name>
     </properties>
-    
+
+    <name>agrold-javaweb-${agrold.name}</name>
+
     <repositories>
         <!--repository>
             <id>maven2-repository.java.net</id>
@@ -175,7 +177,7 @@
                 </executions>
             </plugin>
         </plugins>
-        <finalName>${project.artifactId}</finalName>
+        <finalName>${agrold.name}</finalName>
     </build>
 
 </project>
