@@ -12,6 +12,7 @@
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <agrold.name>aldp</agrold.name>
+        <CATALINA_OPTS></CATALINA_OPTS>
     </properties>
 
     <name>agrold-javaweb-${agrold.name}</name>
@@ -175,6 +176,34 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>io.fabric8</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.43.4</version>
+                <configuration>
+                    <keepContainer>false</keepContainer>
+                    <images>
+                        <image>
+                            <name>ghcr.io/southgreenplatform/agrold</name>
+                            <build>
+                                <contextDir>${project.basedir}</contextDir>
+                                <dockerFile>${project.basedir}/Dockerfile</dockerFile>
+                            </build>
+                            <run>
+                                <ports>
+                                    <port>8080:8080</port>
+                                </ports>
+                                <env>
+                                    <TOMCAT_ALLOW_REMOTE_MANAGEMENT>yes</TOMCAT_ALLOW_REMOTE_MANAGEMENT>
+                                    <TOMCAT_USERNAME>manager</TOMCAT_USERNAME>
+                                    <TOMCAT_PASSWORD>password</TOMCAT_PASSWORD>
+                                    <CATALINA_OPTS>${CATALINA_OPTS}</CATALINA_OPTS>
+                                </env>
+                            </run>
+                        </image>
+                    </images>
+                </configuration>
             </plugin>
         </plugins>
         <finalName>${agrold.name}</finalName>
