@@ -3,6 +3,8 @@
 - `git clone --branch dev `
 -
 
+Vous pourrez voir comment paramétrer votre IDE dans [la section appropriée sur le Notion](https://www.notion.so/Configurer-et-utiliser-son-IDE-pour-les-projets-cbf2dc48224f48009a9c0775a173a6d5)
+
 ### Deployer l'appli web
 
 #### Pré requis
