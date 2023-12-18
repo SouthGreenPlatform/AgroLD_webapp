@@ -1,9 +1,12 @@
+![Static Badge](https://img.shields.io/badge/Read_our_Wiki_on_Notion-_?style=for-the-badge&logo=notion&logoColor=white&color=86B817&link=https%3A%2F%2Fagrold-wiki.notion.site%2FWiki-AgroLD-2db695645df945e693b9d8ad3244e7bc)
+
+
 ### Cloner l'appli
 
 - `git clone --branch dev `
 -
 
-Vous pourrez voir comment paramétrer votre IDE dans [la section appropriée sur le Notion](https://www.notion.so/Configurer-et-utiliser-son-IDE-pour-les-projets-cbf2dc48224f48009a9c0775a173a6d5)
+Vous pourrez voir comment paramétrer votre IDE dans [la section appropriée sur le Notion](https://agrold-wiki.notion.site/Configurer-et-utiliser-son-IDE-pour-les-projets-cbf2dc48224f48009a9c0775a173a6d5)
 
 ### Deployer l'appli web
 
