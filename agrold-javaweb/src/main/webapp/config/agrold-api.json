@@ -1,5 +1,5 @@
 {
-    "basePath": "/api",
+    "basePath": "/aldp/api",
     "paths": {
         "/delete-service": {
             "delete": {
@@ -1461,7 +1461,7 @@
             }
         }
     },
-    "host": "http://agrold.southgreen.fr/aldp/", 
+    "host": "agrold.southgreen.fr", 
     "schemes": ["http"],
     "externalDocs": {
         "description": "Find out more about Swagger",

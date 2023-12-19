@@ -39,10 +39,13 @@ public class CustomizableServicesManager {
             // add a new tag
             JSONObject tagObj = new JSONObject();
 
+            // Host only has hostname and port, meaning no protocol
+            String strippedUrl = System.getProperty("agrold.baseurl", "localhost:8080").replaceAll("http://", "").replaceAll("https://", "");
+
             // here we will fill the host property defined by the system property agrold.baseurl and agrold.name
-            jsonObj.put("host", 
-                System.getProperty("agrold.baseurl", "http://localhost:8080/") + System.getProperty("agrold.name", "aldp")
-            );
+            jsonObj.put("host", strippedUrl);
+
+            jsonObj.put("basePath", "/" + System.getProperty("agrold.name", "aldp") + "/api");
             
             reader.close();
         } catch (FileNotFoundException e) {
