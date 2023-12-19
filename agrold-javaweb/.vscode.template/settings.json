@@ -1,0 +1,9 @@
+{
+  "maven.terminal.favorites": [
+    {
+      "command": "package docker:build docker:start docker:watch",
+      "debug": false,
+      "alias": "Run in container"
+    }
+  ]
+}
