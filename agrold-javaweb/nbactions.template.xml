@@ -9,6 +9,7 @@
             </packagings>
             <goals>
                 <goal>package</goal>
+                <goal>docker:build</goal>
                 <goal>docker:start</goal>
                 <goal>docker:watch</goal>
             </goals>
