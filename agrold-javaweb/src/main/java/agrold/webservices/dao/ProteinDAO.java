@@ -17,7 +17,7 @@ import org.json.JSONArray;
 public class ProteinDAO {
 
     static public final String PROTEIN_TYPE_URI = "http://purl.obolibrary.org/obo/SO_0000104";
-    static public final String PROTEIN_TYPE_URI3 = "http://www.southgreen.fr/agrold/resource/Protein";
+    static public final String PROTEIN_TYPE_URI3 = "http://www.southgreen.fr/agrold/vocabulary/Protein";
     static public final String PROTEIN_TYPE_URI2 = "http://purl.agrold.org/vocabulary/Protein";
     public static final String[] TYPEURIs = new String[]{PROTEIN_TYPE_URI, PROTEIN_TYPE_URI2, PROTEIN_TYPE_URI3};
 
