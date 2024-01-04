@@ -12,13 +12,14 @@ import java.io.IOException;
 public class TaxonDAO {
 
     public static final String TAXON_TYPE_URI2 = "http://purl.obolibrary.org/obo/NCBITaxon_species";
-    public static final String TAXON_TYPE_URI = "http://www.southgreen.fr/agrold/resource/Taxon";
+//    public static final String TAXON_TYPE_URI = "http://www.southgreen.fr/agrold/resource/Taxon";
+    public static final String TAXON_TYPE_URI = "http://purl.agrold.org/vocabulary/Taxon";
     public static final String[] TYPEURIs = new String[]{TAXON_TYPE_URI, TAXON_TYPE_URI2};
 
     // return URIs and agrold_vocabulary:description of all genes in Agrold
     public static String getTaxons(int page, int pageSize, String resultFormat) throws IOException {
 
-        String sparqlQuery = "PREFIX agrold:<http://www.southgreen.fr/agrold/vocabulary/> \n"
+        String sparqlQuery = "PREFIX agrold:<http://purl.agrold.org/vocabulary/> \n"
                 + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
                 + "SELECT distinct ?taxonId ?taxonName (group_concat(distinct ?d;separator=\"; \") as ?Description) (?taxon AS ?URI)\n"
@@ -62,7 +63,7 @@ public class TaxonDAO {
 //                + "    BIND(REPLACE(str(?taxon), '^.*(#|/)', \"\") AS ?taxonId) .\n"
 //                + "  }\n"
 //                + "}";
-        String sparqlQuery = "BASE <http://www.southgreen.fr/agrold/>\n"
+        String sparqlQuery = "BASE <http://purl.agrold.org/>\n"
                 + "PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
                 + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "SELECT DISTINCT ?taxonId (?taxon AS ?URI) ?taxonLabel (REPLACE(str(?predicate), '^.*(#|/)', \"\") AS ?Association) "
@@ -72,7 +73,8 @@ public class TaxonDAO {
                 + "  {\n"
                 + "    ?taxon ?predicate ?ontoElt .\n"
                 + "    ?ontoElt rdfs:subClassOf ?ontoEltClass.\n"
-                + "    {?taxon rdf:type <http://www.southgreen.fr/agrold/resource/Taxon>.}\n"
+//                + "    {?taxon rdf:type <http://www.southgreen.fr/agrold/resource/Taxon>.}\n" 
+                + "    {?taxon rdf:type <http://purl.agrold.org/vocabulary/Taxon>.}\n" 
                 + "    UNION\n"
                 + "    {?taxon rdfs:subClassOf <http://purl.obolibrary.org/obo/SO_0000771>.}\n"
                 + "    optional {?ontoElt rdfs:label ?ontoLabel}\n"
