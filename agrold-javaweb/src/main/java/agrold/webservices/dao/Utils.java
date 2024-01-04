@@ -284,7 +284,8 @@ public class Utils {
                 + "(bif:search_excerpt (bif:vector " + keywordsListStr + ", group_concat(distinct ?o1;separator=\" ; \"))) as ?keyword_reference \n"
                 //+ "(bif:search_excerpt (bif:vector " + keywordsListStr + ", ?o1)) as ?keyword_reference \n"
                 + "where {{{ \n"
-                + "select ?Id, ?s1, ?t, (?sc * 3e-1) as ?sc, ?o1, (sql:rnk_scale (<LONG::IRI_RANK> (?s1))) as ?rank, ?g \n"
+//                + "select ?Id, ?s1, ?t, (?sc * 3e-1) as ?sc, ?o1, (sql:rnk_scale (<LONG::IRI_RANK> (?s1))) as ?rank, ?g \n"  % version buggee dans le docker
+                + "select ?Id, ?s1, (?sc * 3e-1) as ?sc, ?o1, (sql:rnk_scale (<LONG::IRI_RANK> (?s1))) as ?rank, ?g \n"
                 + "where  \n"
                 + "  { \n"
                 + "    quad map virtrdf:DefaultQuadMap \n"
