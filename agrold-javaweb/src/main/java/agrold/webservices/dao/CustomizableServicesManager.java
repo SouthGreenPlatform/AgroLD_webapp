@@ -142,7 +142,7 @@ public class CustomizableServicesManager {
 
     public static void main(String[] args) {
         String name = "graph_relations";
-        String sparql = "BASE <http://www.southgreen.fr/agrold/>\n"
+        String sparql = "BASE <http://purl.agrold.org/>\n"
                 + "PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
                 + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "\n"
