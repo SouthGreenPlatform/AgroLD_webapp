@@ -12,8 +12,9 @@ import java.io.IOException;
 public class QtlDAO {
 
     public static final String QTL_TYPE_URI2 = "http://purl.obolibrary.org/obo/SO_0000771";
-    public static final String QTL_TYPE_URI = "http://www.southgreen.fr/agrold/resource/QTL";
-    public static final String[] TYPEURIs = new String[]{QTL_TYPE_URI, QTL_TYPE_URI2};
+    public static final String QTL_TYPE_URI = "http://www.southgreen.fr/agrold/vocabulary/QTL";
+    public static final String QTL_TYPE_URI3 = "http://purl.agrold.org/vocabulary/QTL";
+    public static final String[] TYPEURIs = new String[]{QTL_TYPE_URI, QTL_TYPE_URI2,QTL_TYPE_URI3};
 
     // return URIs and agrold_vocabulary:description of all genes in Agrold
     public static String getQtls(int page, int pageSize, String resultFormat) throws IOException {
@@ -26,7 +27,7 @@ public class QtlDAO {
                 + "    OPTIONAL {?qtl rdfs:label ?qtlName .}\n"
                 + "    OPTIONAL { ?qtl agrold:has_trait ?d} \n"
                 + "    ?qtl rdf:type|rdfs:subClassOf ?type.\n"
-                + "    FILTER(?type IN (<"+QTL_TYPE_URI+">,<"+QTL_TYPE_URI2+">))\n"
+                + "    FILTER(?type IN (<"+QTL_TYPE_URI+">,<"+QTL_TYPE_URI2+">,<"+QTL_TYPE_URI3+">))\n"
                 + "    BIND(REPLACE(str(?qtl), '^.*(#|/)', \"\") AS ?qtlId) .\n"
                 + "}\n"
                 + "ORDER BY DESC(?URI)";
