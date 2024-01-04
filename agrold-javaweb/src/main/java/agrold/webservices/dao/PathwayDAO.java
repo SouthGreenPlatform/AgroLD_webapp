@@ -21,7 +21,7 @@ public class PathwayDAO {
     public static final String PATHWAY_TYPE1 = "http://semanticscience.org/resource/SIO_010532";
     public static final String PATHWAY_IDENTIFIER = "http://www.southgreen.fr/agrold/resource/Pathway_Identifier";
     public static final String METABOLIC_PATHWAY = "http://purl.agrold.org/vocabulary/Metabolic_Pathway";
-    public static final String GRAMECYC_GRAPH = "http://www.southgreen.fr/agrold/gramene.cyc";
+    public static final String GRAMECYC_GRAPH = "http://purl.agrold.org/agrold/gramene.cyc";
     public static final String[] TYPEURIs = new String[] {METABOLIC_PATHWAY, PATHWAY_IDENTIFIER, PATHWAY_TYPE1};
 
     public static String getPathwaysByKeyWord(String keyword, int page, int pageSize, String resultFormat) throws IOException {
