@@ -17,7 +17,8 @@ public class GeneDAO {
 
     public static final String GENE_TYPE_URI = "http://www.southgreen.fr/agrold/resource/Gene";
     public static final String GENE_TYPE_URI2 = "http://www.southgreen.fr/agrold/vocabulary/Gene";
-    public static final String[] TYPEURIs = new String[]{GeneDAO.GENE_TYPE_URI, GeneDAO.GENE_TYPE_URI2};
+    public static final String GENE_TYPE_URI3 = "http://purl.agrold.org/vocabulary/Gene";
+    public static final String[] TYPEURIs = new String[]{GeneDAO.GENE_TYPE_URI, GeneDAO.GENE_TYPE_URI2,GeneDAO.GENE_TYPE_URI3};
     //public static final String[] TYPEURIs = new String[]{GeneDAO.GENE_TYPE_URI2};
     
 
