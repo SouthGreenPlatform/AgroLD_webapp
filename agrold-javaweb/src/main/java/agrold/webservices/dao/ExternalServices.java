@@ -24,13 +24,11 @@ import org.xml.sax.SAXException;
  * @author tagny
  */
 public class ExternalServices {
-
-    //public static String G_LINKS_SERVICE = "http://link.g-language.org/";
     //public static String EUROPEPMC_SERVICE = "http://www.ebi.ac.uk/europepmc/webservices/rest/search?";
     public static String EUROPEPMC_SERVICE = "https://www.ebi.ac.uk/europepmc/webservices/rest/search?";
 
     public static String getOntoTermsAssociatedWithGene(String geneId) {
-        String url = "http://data.gramene.org/v58/genes?q=" + geneId + "&bedFeature=gene&bedCombiner=canonical";
+        String url = "https://data.gramene.org/v67/genes?q=" + geneId + "&bedFeature=gene&bedCombiner=canonical";
         String grameneJsonStr = Utils.executeHttpQuery(url);
         System.out.println("grameneJsonStr: " + grameneJsonStr);
         if (grameneJsonStr != null) {
