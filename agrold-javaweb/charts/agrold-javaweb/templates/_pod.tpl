@@ -77,7 +77,10 @@ containers:
       - name: TOMCAT_ALLOW_REMOTE_MANAGEMENT
         value: {{ .Values.tomcatAllowRemoteManagement | quote }}
       - name: CATALINA_OPTS
-        value: {{ include "tomcat.catalinaOpts" . | quote }}
+        valueFrom:
+          secretKeyRef:
+            name: {{ template "common.names.fullname" . }}
+            key: catalinaOpts
       {{- if .Values.extraEnvVars }}
       {{- include "common.tplvalues.render" (dict "value" .Values.extraEnvVars "context" $) | nindent 6 }}
       {{- end }}
