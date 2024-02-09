@@ -1,0 +1,10 @@
+{{- if .Values.initdb.enabled }}
+apiVersion: v1
+kind: {{ .Values.initdb.kind }}
+metadata:
+  name: configmap-{{ .Values.initdb.name }}
+data:
+  {{- range $key, $val := .Values.initdb.data }}
+  {{ $key | quote }}: {{ $val  | quote }}
+  {{- end }}
+{{- end }}
