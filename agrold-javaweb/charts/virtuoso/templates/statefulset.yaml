@@ -1,0 +1,105 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ include "sparql.fullname" . }}
+  labels:
+    {{- include "sparql.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  serviceName: {{ include "sparql.fullname" . }}
+  selector:
+    matchLabels:
+      {{- include "sparql.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "sparql.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      volumes:
+        {{- if .Values.initdb.enabled }}
+        - name: configmap-{{ .Values.initdb.name }}
+          configMap:
+            name: configmap-{{ .Values.initdb.name }}
+        {{- end }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 8890
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: '/sparql?query=select+("pong"+as+%3Fpong)+{}'
+              port: http
+          volumeMounts:
+            {{- if .Values.initdb.enabled }}
+            - name: configmap-{{ .Values.initdb.name }}
+              mountPath: /initdb.d
+            {{- end }}
+            {{- if .Values.persistence.enabled }}
+            - name: {{ .Values.persistence.name }}-pvc
+              mountPath: /database
+            {{- end }}
+          env:
+            - name: "DAV_PASSWORD"
+              valueFrom:
+                secretKeyRef:
+                  name: secrets-{{ include "sparql.fullname" . }}
+                  key: DAVPassword
+            - name: "DBA_PASSWORD"
+              valueFrom:
+                secretKeyRef:
+                  name: secrets-{{ include "sparql.fullname" . }}
+                  key: DBAPassword
+            {{- range $key, $value := .Values.env }}
+            - name: {{ $key | quote }}
+              value: {{ $value | quote }}
+            {{- end }}
+          readinessProbe:
+            httpGet:
+              path: '/sparql?query=select+("pong"+as+%3Fpong)+{}'
+              port: http
+          startupProbe:
+            httpGet:
+              path: '/sparql?query=select+("pong"+as+%3Fpong)+{}'
+              port: http
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+  volumeClaimTemplates:
+    {{- if .Values.persistence.enabled }}
+    - metadata:
+        name: {{ .Values.persistence.name }}-pvc
+      spec:
+        accessModes: [ "ReadWriteOnce" ] # This might be changed when doing clusters
+        resources:
+          requests:
+            storage: {{ .Values.persistence.size | default "4Gi"  }}
+    {{- end }}

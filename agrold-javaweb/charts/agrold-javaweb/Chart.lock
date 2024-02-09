@@ -1,6 +1,9 @@
 dependencies:
 - name: common
   repository: https://charts.bitnami.com/bitnami
-  version: 2.0.3
-digest: sha256:7d4a98a9fabc3be62a3898cc530d0979b6a0a4d29c87ed2d128821f21c89ba40
-generated: "2022-09-19T14:23:55.173593332Z"
+  version: 2.14.1
+- name: virtuoso
+  repository: file://../virtuoso
+  version: 0.1.0
+digest: sha256:c582e2a872feb8c8cb2fe1c1587f0e46b2170284be489805c86fe8c42584600f
+generated: "2024-02-09T15:18:42.633332491+01:00"
