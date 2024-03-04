@@ -7,7 +7,7 @@ Apache Tomcat is an open-source web server designed to host and run Java-based w
 [Overview of Apache Tomcat](http://tomcat.apache.org/)
 
 Trademarks: This software listing is packaged by Bitnami. The respective trademarks mentioned in the offering are owned by the respective companies, and use of them does not imply any affiliation or endorsement.
-                           
+
 ## TL;DR
 
 ```console
@@ -55,6 +55,16 @@ The command removes all the Kubernetes components associated with the chart and 
 
 ## Parameters
 
+### Agrold parameters
+
+| Name                                 | Description                                  | Value       |
+| ------------------------------------ | -------------------------------------------- | ----------- |
+| `agroldProperties.db_connection_url` | Database connection URL for user management. | `"someurl"` |
+| `agroldProperties.db_username`       | Database username for user management.       | `"user"`    |
+| `agroldProperties.db_password`       | Database password for user management.       | `"user"`    |
+
+> ℹ️ You can also add other parameters as [mentionned in the readme](https://github.com/SouthGreenPlatform/AgroLD_webapp/tree/master/agrold-javaweb#param%C3%A8tres)
+
 ### Global parameters
 
 | Name                      | Description                                     | Value |
@@ -62,7 +72,6 @@ The command removes all the Kubernetes components associated with the chart and 
 | `global.imageRegistry`    | Global Docker image registry                    | `""`  |
 | `global.imagePullSecrets` | Global Docker registry secret names as an array | `[]`  |
 | `global.storageClass`     | Global StorageClass for Persistent Volume(s)    | `""`  |
-
 
 ### Common parameters
 
@@ -75,7 +84,6 @@ The command removes all the Kubernetes components associated with the chart and 
 | `commonAnnotations` | Add annotations to all the deployed resources                                                | `{}`            |
 | `clusterDomain`     | Kubernetes Cluster Domain                                                                    | `cluster.local` |
 | `extraDeploy`       | Array of extra objects to deploy with the release                                            | `[]`            |
-
 
 ### Tomcat parameters
 
@@ -98,7 +106,6 @@ The command removes all the Kubernetes components associated with the chart and 
 | `extraEnvVars`                | Extra environment variables to be set on Tomcat container                                              | `[]`                    |
 | `extraEnvVarsCM`              | Name of existing ConfigMap containing extra environment variables                                      | `""`                    |
 | `extraEnvVarsSecret`          | Name of existing Secret containing extra environment variables                                         | `""`                    |
-
 
 ### Tomcat deployment parameters
 
@@ -168,7 +175,6 @@ The command removes all the Kubernetes components associated with the chart and 
 | `networkPolicy.allowExternal`              | Don't require client label for connections                                                                               | `true`              |
 | `networkPolicy.explicitNamespacesSelector` | A Kubernetes LabelSelector to explicitly select namespaces from which traffic could be allowed                           | `{}`                |
 
-
 ### Traffic Exposure parameters
 
 | Name                               | Description                                                                                                                      | Value                    |
@@ -199,7 +205,6 @@ The command removes all the Kubernetes components associated with the chart and 
 | `ingress.path`                     | Ingress path                                                                                                                     | `/`                      |
 | `ingress.pathType`                 | Ingress path type                                                                                                                | `ImplementationSpecific` |
 
-
 ### Volume Permissions parameters
 
 | Name                                   | Description                                                                                                                       | Value                   |
@@ -211,9 +216,8 @@ The command removes all the Kubernetes components associated with the chart and 
 | `volumePermissions.image.digest`       | Init container volume-permissions image digest in the way sha256:aa.... Please note this parameter, if set, will override the tag | `""`                    |
 | `volumePermissions.image.pullPolicy`   | Init container volume-permissions image pull policy                                                                               | `IfNotPresent`          |
 | `volumePermissions.image.pullSecrets`  | Specify docker-registry secret names as an array                                                                                  | `[]`                    |
-| `volumePermissions.resources.limits`   | Init container volume-permissions resource  limits                                                                                | `{}`                    |
-| `volumePermissions.resources.requests` | Init container volume-permissions resource  requests                                                                              | `{}`                    |
-
+| `volumePermissions.resources.limits`   | Init container volume-permissions resource limits                                                                                 | `{}`                    |
+| `volumePermissions.resources.requests` | Init container volume-permissions resource requests                                                                               | `{}`                    |
 
 ### Metrics parameters
 
@@ -248,7 +252,6 @@ The command removes all the Kubernetes components associated with the chart and 
 | `metrics.prometheusRule.additionalLabels`           | Additional labels that can be used so prometheusRules will be discovered by Prometheus                       | `{}`                                                                                                                                                                                                                |
 | `metrics.prometheusRule.namespace`                  | namespace where prometheusRules resource should be created                                                   | `""`                                                                                                                                                                                                                |
 | `metrics.prometheusRule.rules`                      | Create specified [Rules](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/)         | `[]`                                                                                                                                                                                                                |
-
 
 The above parameters map to the env variables defined in [bitnami/tomcat](https://github.com/bitnami/containers/tree/main/bitnami/tomcat). For more information please refer to the [bitnami/tomcat](https://github.com/bitnami/containers/tree/main/bitnami/tomcat) image documentation.
 
