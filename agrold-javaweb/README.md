@@ -2,7 +2,6 @@
 
 [WIKI]: https://img.shields.io/badge/Read_our_Wiki_on_Notion-_?style=for-the-badge&logo=notion&logoColor=white&color=86B817
 
-
 ### Cloner l'appli
 
 - `git clone --branch dev `
@@ -30,6 +29,7 @@ Le déploiement de l'application se fait premièrement avec des propriétés Jav
 | `agrold.db_connection_url` |                                             Url de la base de données ex: `[host]:[port]/[db]?[opt]`                                              |         :x: (requis)          |
 |    `agrold.db_username`    |                                                         Utilisateur de la base de données                                                         |         :x: (requis)          |
 |    `agrold.db_password`    |                                                        Mot de passe de la base de données                                                         |         :x: (requis)          |
+|      `agrold.rf_link`      |                                                   Lien vers une instance de RelFinder[Reformed]                                                   |  `http://rf.southgreen.fr/`   |
 
 Pour injecter ces variables dans tomcat, il faut déclarer les sous forme d'argument en ligne de commande sous cette forme `-Dnomdelapropriété=valeur` et les placer dans la variable d'environnement `CATALINA_OPTS`
 
@@ -71,7 +71,8 @@ mvn clean install
 
 mvn clean install -Dagrold.name=un_nom # vous accéderez à l'application via https://<votre url>/un_nom
 ```
-```
+
+````
 
 Si vous utilisez docker:
 
@@ -88,7 +89,7 @@ docker pull 10.9.2.21:8080
 
 # Lancer le conteneur
 docker run -p 8080:8080 -e CATALINA_OPTS="-Dagrold.db_connection_url=someurl -Dagrold.db_username=usr -Dagrold.db_password=pwd -Dagrold.baseurl=http://localhost:8080/ -Dagrold.sparql_endpoint=a" <tag>
-```
+````
 
 > [!NOTE]
 > À noter que l'image docker crée prend pour base l'image [bitnami/tomcat](https://hub.docker.com/r/bitnami/tomcat/). Cela veut dire que vous pouvez configurer l'image d'AgroLD comme celle de bitnami sur certain points nottament la configuration de l'utilisateur manager de tomcat.
