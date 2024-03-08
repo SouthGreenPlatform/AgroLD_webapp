@@ -41,7 +41,7 @@ ingress:
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: sparql.127.0.0.1.sslip.io
+    - host: virtuoso.local
       paths:
         - path: /
           pathType: ImplementationSpecific
@@ -78,6 +78,7 @@ affinity: {}
 
 DAVPassword: "password"
 DBAPassword: "password"
+serveConductor: false
 
 env:
   # ENABLE_TRACE: "yes"
@@ -85,14 +86,13 @@ env:
 
 # Check this https://docs.openlinksw.com/virtuoso/rdfapi/#rdfapidataimportloadrdfuri
 initdb:
-  enabled: false
+  enabled: true
   name: sparql-initdb
   kind: ConfigMap
   data:
     init.sh: |
       #!/bin/bash
-      set -e
-      echo "Data loaded"
+      echo "Ready to go!"
 
 persistence:
   enabled: true

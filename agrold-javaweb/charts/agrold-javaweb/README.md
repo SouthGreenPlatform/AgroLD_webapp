@@ -57,11 +57,13 @@ The command removes all the Kubernetes components associated with the chart and 
 
 ### Agrold parameters
 
-| Name                                 | Description                                  | Value       |
-| ------------------------------------ | -------------------------------------------- | ----------- |
-| `agroldProperties.db_connection_url` | Database connection URL for user management. | `"someurl"` |
-| `agroldProperties.db_username`       | Database username for user management.       | `"user"`    |
-| `agroldProperties.db_password`       | Database password for user management.       | `"user"`    |
+| Name                                 | Description                                  | Value                     |
+| ------------------------------------ | -------------------------------------------- | ------------------------- |
+| `agroldProperties.db_connection_url` | Database connection URL for user management. | `"someurl"`               |
+| `agroldProperties.db_username`       | Database username for user management.       | `"user"`                  |
+| `agroldProperties.db_password`       | Database password for user management.       | `"password"`              |
+| `agroldProperties.rf_link`           | Link to RelFinder **ingress**.               | `"https://rf.someurl.fr"` |
+| `agroldProperties.description`       | Description showed in Tomcat.                | `""`                      |
 
 > ℹ️ You can also add other parameters as [mentionned in the readme](https://github.com/SouthGreenPlatform/AgroLD_webapp/tree/master/agrold-javaweb#param%C3%A8tres)
 

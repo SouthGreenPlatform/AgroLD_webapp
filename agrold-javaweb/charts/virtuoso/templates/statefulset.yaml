@@ -31,15 +31,49 @@ spec:
         {{- if .Values.initdb.enabled }}
         - name: configmap-{{ .Values.initdb.name }}
           configMap:
+            defaultMode: 0551
             name: configmap-{{ .Values.initdb.name }}
         {{- end }}
+        {{- if not .Values.serveConductor }}
+        - name: disableconductor
+          configMap:
+            defaultMode: 0551
+            name: {{ include "sparql.fullname" . }}-disableconductor
+        {{- end }}
       containers:
+        {{- if not .Values.serveConductor }}
+        # Turns out we cannot do this in the /initdb.d because 
+        # it blocks connections to the 1111 port
+        - name: disable-conductor
+          image: openlink/virtuoso-opensource-7
+          tag: 7.2.11
+          volumeMounts:
+            - name: disableconductor
+              mountPath: /mnt
+          command: 
+            - /bin/sh
+            - "-c"
+            - /mnt/..data/wait-for-it.sh localhost:1111 -t 0 -- /mnt/..data/disable_conductor.sh
+          env:
+            - name: "DBA_PASSWORD"
+              valueFrom:
+                secretKeyRef:
+                  name: secrets-{{ include "sparql.fullname" . }}
+                  key: DBAPassword
+          
+        {{- end }}
+
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
+          {{- if not .Values.serveConductor }}
+            - name: isql
+              containerPort: 1111
+              protocol: TCP
+          {{- end }}
             - name: http
               containerPort: 8890
               protocol: TCP
