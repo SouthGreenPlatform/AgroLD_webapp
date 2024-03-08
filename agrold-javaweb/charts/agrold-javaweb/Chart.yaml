@@ -1,19 +1,23 @@
 annotations:
   category: ApplicationServer
 apiVersion: v2
-appVersion: 10.0.23
+appVersion: 2.0.0
 dependencies:
   - name: common
     repository: https://charts.bitnami.com/bitnami
     tags:
       - bitnami-common
     version: 2.x.x
-description:
+description: |
+  This helm chart aims to deploy AgroLD with Tomcat. 
+  It is based on bitnami's helm chart for Tomcat, version 10.4.5
+
+  Original description:
   Apache Tomcat is an open-source web server designed to host and run Java-based
   web applications. It is a lightweight server with a good performance for applications
   running in production environments.
-home: https://github.com/bitnami/charts/tree/master/bitnami/tomcat
-icon: https://bitnami.com/assets/stacks/tomcat/img/tomcat-stack-220x234.png
+home: https://github.com/SouthGreenPlatform/AgroLD_webapp/tree/master
+icon: https://raw.githubusercontent.com/SouthGreenPlatform/AgroLD_webapp/0513e23f842864379a635998897eb98d2d3eec6b/agrold-javaweb/src/main/webapp/images/Sans%20titre-1.png
 keywords:
   - tomcat
   - java
@@ -29,8 +33,11 @@ maintainers:
     url: https://github.com/bitnami/charts
   - name: Yann POMIE
     url: https://yann-pomie.fr
+  - name: Pierre LARMANDE
+    url: https://sites.google.com/site/larmandepierre
 name: agrold-javaweb
 sources:
   - https://github.com/bitnami/containers/tree/main/bitnami/tomcat
   - http://tomcat.apache.org
-version: 10.4.5
+  - https://github.com/SouthGreenPlatform/AgroLD_webapp/tree/master
+version: 1.0.0
