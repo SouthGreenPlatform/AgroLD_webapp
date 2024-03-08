@@ -21,7 +21,7 @@ jobs:
         CR_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
       with:
         mark_as_latest: true
-        skip_existing: true
+        skip_existing: false
         charts_dir: ./agrold-javaweb/charts
 
   build:
