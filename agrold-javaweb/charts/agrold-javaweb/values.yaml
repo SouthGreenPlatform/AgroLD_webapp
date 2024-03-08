@@ -25,6 +25,8 @@ agroldProperties:
   db_connection_url: someurl
   db_username: user
   db_password: password
+  rf_link: https://rf.someurl.fr
+  description: ""
 
 ## @section Common parameters
 ##
