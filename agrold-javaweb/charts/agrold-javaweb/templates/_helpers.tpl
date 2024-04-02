@@ -1,3 +1,8 @@
+{{/*
+Copyright VMware, Inc.
+SPDX-License-Identifier: APACHE-2.0
+*/}}
+
 {{/* vim: set filetype=mustache: */}}
 
 {{/*
@@ -43,11 +48,29 @@ Return the proper Docker Image Registry Secret Names
 {{- end -}}
 
 {{/*
+Return the Tomcat credential secret name
+*/}}
+{{- define "tomcat.secretName" -}}
+{{- coalesce .Values.existingSecret (include "common.names.fullname" .) -}}
+{{- end -}}
+
+{{/*
 Check if there are rolling tags in the images
 */}}
 {{- define "tomcat.checkRollingTags" -}}
 {{- include "common.warnings.rollingTag" .Values.image }}
 {{- include "common.warnings.rollingTag" .Values.volumePermissions.image }}
+{{- end -}}
+
+{{/*
+ Create the name of the service account to use
+ */}}
+{{- define "tomcat.serviceAccountName" -}}
+{{- if .Values.serviceAccount.create -}}
+    {{ default (include "common.names.fullname" .) .Values.serviceAccount.name }}
+{{- else -}}
+    {{ default "default" .Values.serviceAccount.name }}
+{{- end -}}
 {{- end -}}
 
 {{/*
