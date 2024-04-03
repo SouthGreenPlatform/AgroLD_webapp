@@ -1,0 +1,54 @@
+apiVersion: v1
+entries:
+  agrold:
+  - annotations:
+      category: ApplicationServer
+      images: |
+        - name: jmx-exporter
+          image: docker.io/bitnami/jmx-exporter:0.20.0-debian-12-r12
+        - name: os-shell
+          image: docker.io/bitnami/os-shell:12-debian-12-r17
+        - name: tomcat
+          image: docker.io/bitnami/tomcat:10.1.20-debian-12-r0
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 2.1.0
+    created: "2024-04-03T10:16:54.010130878Z"
+    dependencies:
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: 'This helm chart aims to deploy AgroLD with Tomcat.  It is based
+      on bitnami''s helm chart for Tomcat, version 11.0.0  Original description: Apache
+      Tomcat is an open-source web server designed to host and run Java-based web
+      applications. It is a lightweight server with a good performance for applications '
+    digest: 36c6c4a97f7a95e5d6a69b050e4d342cb201d43cfd0a0baaf8ac15003e8b8ad0
+    home: https://github.com/SouthGreenPlatform/AgroLD_webapp/tree/master
+    icon: https://raw.githubusercontent.com/SouthGreenPlatform/AgroLD_webapp/0513e23f842864379a635998897eb98d2d3eec6b/agrold-javaweb/src/main/webapp/images/Sans%20titre-1.png
+    keywords:
+    - tomcat
+    - java
+    - http
+    - web
+    - application server
+    - jsp
+    - RDF
+    - SPARQL
+    - Semantic Web
+    maintainers:
+    - name: VMware, Inc.
+      url: https://github.com/bitnami/charts
+    - name: Yann POMIE
+      url: https://yann-pomie.fr
+    - name: Pierre LARMANDE
+      url: https://sites.google.com/site/larmandepierre
+    name: agrold
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/tomcat
+    - https://github.com/SouthGreenPlatform/AgroLD_webapp
+    urls:
+    - https://github.com/SouthGreenPlatform/AgroLD_webapp/releases/download/agrold-2.0.0/agrold-2.0.0.tgz
+    version: 2.0.0
+generated: "2024-04-03T10:16:54.010141548Z"
