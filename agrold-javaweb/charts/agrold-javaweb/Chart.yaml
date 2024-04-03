@@ -42,7 +42,7 @@ maintainers:
   url: https://yann-pomie.fr
 - name: Pierre LARMANDE
   url: https://sites.google.com/site/larmandepierre
-name: tomcat
+name: agrold
 sources:
 - https://github.com/bitnami/charts/tree/main/bitnami/tomcat
 - https://github.com/SouthGreenPlatform/AgroLD_webapp
