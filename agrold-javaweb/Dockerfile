@@ -11,7 +11,7 @@ COPY . /build_dir
 RUN mvn clean install -Dagrold.name=${AGROLD_NAME}
 
 # Run stage
-FROM bitnami/tomcat:7
+FROM bitnami/tomcat:8.5
 
 ARG GIT_COMMIT=unknown
 ARG AGROLD_NAME=aldp
