@@ -17,6 +17,9 @@ jobs:
 
       - name: Install Helm
         uses: azure/setup-helm@v3
+        with:
+          version: 'latest'
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Helm Check Action
         uses: hopisaurus/helm-check-action@v0.1.0
