@@ -1,5 +1,5 @@
 # Build stage
-FROM maven:3.9-amazoncorretto-8 as build
+FROM maven:3.9-amazoncorretto-17 as build
 # Shared arguments between build and run stages
 
 ARG AGROLD_NAME=aldp
@@ -11,7 +11,7 @@ COPY . /build_dir
 RUN mvn clean install -Dagrold.name=${AGROLD_NAME}
 
 # Run stage
-FROM bitnami/tomcat:8.5
+FROM bitnami/tomcat:9.0
 
 ARG GIT_COMMIT=unknown
 ARG AGROLD_NAME=aldp

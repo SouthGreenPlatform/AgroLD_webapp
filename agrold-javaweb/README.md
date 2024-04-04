@@ -4,8 +4,8 @@
 
 ### Cloner l'appli
 
-- `git clone --branch dev `
--
+- `git clone --branch dev`
+
 
 Vous pourrez voir comment paramétrer votre IDE dans [la section appropriée sur le Notion](https://agrold-wiki.notion.site/Configurer-et-utiliser-son-IDE-pour-les-projets-cbf2dc48224f48009a9c0775a173a6d5)
 
@@ -13,8 +13,11 @@ Vous pourrez voir comment paramétrer votre IDE dans [la section appropriée sur
 
 #### Pré requis
 
-- Tomcat 7/8
+- Tomcat 7/8/9
+- JDK 17
+- Maven
 - mysql (sera bientôt agnostique ou retiré)
+- Docker (optionnel)
 
 #### Paramètres
 
@@ -55,7 +58,7 @@ String pwd = System.getProperty("agrold.db_password");
 Si vous lancez tomcat avec systemd le remplissage des variables d'environnement se fait ainsi
 
 ```bash
-sudo systemctl edit tomcat8 #ou tomcat7
+sudo systemctl edit tomcat8 #ou tomcat7/9
 
 # dans l'éditeur
 [Service]
@@ -72,7 +75,6 @@ mvn clean install
 mvn clean install -Dagrold.name=un_nom # vous accéderez à l'application via https://<votre url>/un_nom
 ```
 
-````
 
 Si vous utilisez docker:
 
@@ -80,8 +82,8 @@ Si vous utilisez docker:
 cd agrold-javaweb/
 
 # Vous pouvez utiliser le dockerfile
-#                          le mot de passe du manager
-docker build . -t <tag> --build-arg TOMCAT_PASSWORD=a --build-arg AGROLD_NAME=agrolddev
+#                          la valeur de agrold.name
+docker build . -t <tag> --build-arg AGROLD_NAME=agrolddev
 
 # Ou pull l'image stockée depuis le registre dans l'environnement de développement,
 docker login 10.9.2.21:8080 -u <user> -p <password>
@@ -89,7 +91,7 @@ docker pull 10.9.2.21:8080
 
 # Lancer le conteneur
 docker run -p 8080:8080 -e CATALINA_OPTS="-Dagrold.db_connection_url=someurl -Dagrold.db_username=usr -Dagrold.db_password=pwd -Dagrold.baseurl=http://localhost:8080/ -Dagrold.sparql_endpoint=a" <tag>
-````
+```
 
 > [!NOTE]
 > À noter que l'image docker crée prend pour base l'image [bitnami/tomcat](https://hub.docker.com/r/bitnami/tomcat/). Cela veut dire que vous pouvez configurer l'image d'AgroLD comme celle de bitnami sur certain points nottament la configuration de l'utilisateur manager de tomcat.
