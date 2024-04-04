@@ -11,6 +11,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
+import java.util.Base64;
 
 import javax.annotation.security.DenyAll;
 import javax.annotation.security.PermitAll;
@@ -22,7 +23,7 @@ import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.Provider;
 
-import org.glassfish.jersey.internal.util.Base64;
+// import org.glassfish.jersey.internal.util.Base64;
 
 /**
  * This filter verify the access permissions for a user based on username and
@@ -67,7 +68,7 @@ public class BasicAuthenticationFilter implements javax.ws.rs.container.Containe
                 final String encodedUserPassword = authorization.get(0).replaceFirst(AUTHENTICATION_SCHEME + " ", "");
 
                 //Decode username and password
-                String usernameAndPassword = new String(Base64.decode(encodedUserPassword.getBytes()));;
+                String usernameAndPassword = new String(Base64.getDecoder().decode(encodedUserPassword.getBytes()));;
 
                 //Split username and password tokens
                 final StringTokenizer tokenizer = new StringTokenizer(usernameAndPassword, ":");
