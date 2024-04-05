@@ -6,7 +6,6 @@
 
 - `git clone --branch dev`
 
-
 Vous pourrez voir comment paramétrer votre IDE dans [la section appropriée sur le Notion](https://agrold-wiki.notion.site/Configurer-et-utiliser-son-IDE-pour-les-projets-cbf2dc48224f48009a9c0775a173a6d5)
 
 ### Deployer l'appli web
@@ -23,15 +22,15 @@ Vous pourrez voir comment paramétrer votre IDE dans [la section appropriée sur
 
 Le déploiement de l'application se fait premièrement avec des propriétés Java passées à tomcat.
 
-|            Name            |                                                                    Description                                                                    |       Valeur par défaut       |
-| :------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------: |
+|            Name            |                                Description                                 |       Valeur par défaut       |
+| :------------------------: | :------------------------------------------------------------------------: | :---------------------------: |
 |       `agrold.name`        | Nom de l'archive et du contexte `aldp` on a `https://<un domaine>/agrold`) |            `aldp`             |
-|    `agrold.description`    |                                                         Description affichée dans Tomcat                                                          |              :x:              |
-|  `agrold.sparql_endpoint`  |                                                             Url de l'endpoint SPARQL                                                              | `http://sparql.southgreen.fr` |
-| `agrold.db_connection_url` |                                             Url de la base de données ex: `[host]:[port]/[db]?[opt]`                                              |         :x: (requis)          |
-|    `agrold.db_username`    |                                                         Utilisateur de la base de données                                                         |         :x: (requis)          |
-|    `agrold.db_password`    |                                                        Mot de passe de la base de données                                                         |         :x: (requis)          |
-|      `agrold.rf_link`      |                                                   Lien vers une instance de RelFinder[Reformed]                                                   |  `http://rf.southgreen.fr/`   |
+|    `agrold.description`    |                      Description affichée dans Tomcat                      |              :x:              |
+|  `agrold.sparql_endpoint`  |                          Url de l'endpoint SPARQL                          | `http://sparql.southgreen.fr` |
+| `agrold.db_connection_url` |          Url de la base de données ex: `[host]:[port]/[db]?[opt]`          |              :x:              |
+|    `agrold.db_username`    |                     Utilisateur de la base de données                      |              :x:              |
+|    `agrold.db_password`    |                     Mot de passe de la base de données                     |              :x:              |
+|      `agrold.rf_link`      |               Lien vers une instance de RelFinder[Reformed]                |  `http://rf.southgreen.fr/`   |
 
 Pour injecter ces variables dans tomcat, il faut déclarer les sous forme d'argument en ligne de commande sous cette forme `-Dnomdelapropriété=valeur` et les placer dans la variable d'environnement `CATALINA_OPTS`
 
@@ -42,16 +41,8 @@ Par exemple:
 
 ```bash
 # Directement sur l'hôte
-export CATALINA_OPTS="-Dagrold.db_connection_url=someurlhere -Dagrold.db_username=usr -Dagrold.db_password=pwd"
+export CATALINA_OPTS="-Dagrold.blabla=valeur"
 catalina.sh
-```
-
-```java
-...
-String URL = System.getProperty("agrold.db_connection_url");
-String usr = System.getProperty("agrold.db_username");
-String pwd = System.getProperty("agrold.db_password");
-...
 ```
 
 Si vous lancez tomcat avec systemd le remplissage des variables d'environnement se fait ainsi
@@ -61,7 +52,7 @@ sudo systemctl edit tomcat8 #ou tomcat7/9
 
 # dans l'éditeur
 [Service]
-Environment="CATALINA_OPTS='-Dagrold.db_connection_url=someurlhere -Dagrold.db_username=usr -Dagrold.db_password=pwd'"
+Environment="CATALINA_OPTS='-Dagrold.blabla=valeur'"
 ```
 
 Pour compiler lancez maven à la racine du projet, Il est possible de passer la propriété `agrold.name` en argument de maven
@@ -73,7 +64,6 @@ mvn clean install
 
 mvn clean install -Dagrold.name=un_nom # vous accéderez à l'application via https://<votre url>/un_nom
 ```
-
 
 Si vous utilisez docker:
 
@@ -89,7 +79,7 @@ docker login 10.9.2.21:8080 -u <user> -p <password>
 docker pull 10.9.2.21:8080
 
 # Lancer le conteneur
-docker run -p 8080:8080 -e CATALINA_OPTS="-Dagrold.db_connection_url=someurl -Dagrold.db_username=usr -Dagrold.db_password=pwd -Dagrold.sparql_endpoint=a" <tag>
+docker run -p 8080:8080 <tag>
 ```
 
 > [!NOTE]
