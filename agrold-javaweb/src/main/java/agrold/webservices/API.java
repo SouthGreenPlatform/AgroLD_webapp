@@ -31,6 +31,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.HeaderParam;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -95,7 +96,7 @@ public class API {
     @GET
     // @Consumes(MediaType.APPLICATION_JSON) // for "in body parameters"
     @Path("/customizable/{serviceLocalName}")
-    public Response genericGet(@PathParam("serviceLocalName") String serviceLocalName, @Context UriInfo uriInfo, @Context  HttpHeaders headers) throws IOException {        
+    public Response genericGet(@PathParam("serviceLocalName") String serviceLocalName, @Context UriInfo uriInfo, @Context HttpHeaders headers) throws IOException {        
         List<MediaType> mediaTypes = headers.getAcceptableMediaTypes();
         MediaType reponseMediaType = mediaTypes.get(0);
         if (reponseMediaType == null) {
@@ -103,7 +104,7 @@ public class API {
                     .entity("[AgroLD Web Services] - Format Error: The requested resource is not available in the format \"" + mediaTypes.get(0) + "\"")
                     .build();
         }
-        String content = CustomizableServicesManager.queryCustomizableService(serviceLocalName, uriInfo.getQueryParameters(), "get", reponseMediaType);
+        String content = CustomizableServicesManager.queryCustomizableService(serviceLocalName, uriInfo.getQueryParameters(), "get", reponseMediaType, headers.HOST);
         return buildResponse(content, reponseMediaType.toString());
     }
 
@@ -122,8 +123,8 @@ public class API {
     // generic web service for modifiables ones    
     @GET
     @Path("/webservices")
-    public Response getAPISpecification() throws IOException {
-        String content = CustomizableServicesManager.readAPISpecification(Utils.AGROLDAPIJSONURL);
+    public Response getAPISpecification(@HeaderParam("Host") String host) throws IOException {
+        String content = CustomizableServicesManager.readAPISpecification(Utils.AGROLDAPIJSONURL, host);
         return buildResponse(content, Utils.JSON);
     }
 
@@ -132,24 +133,24 @@ public class API {
     @DELETE
     @Produces(MediaType.TEXT_PLAIN)
     @Path("/webservices")
-    public Response deleteService(@QueryParam("name") String name, @QueryParam("httpMethod") String httpMethod) throws IOException {        
-        String content = CustomizableServicesManager.deleteService(name, httpMethod); 
+    public Response deleteService(@QueryParam("name") String name, @QueryParam("httpMethod") String httpMethod, @HeaderParam("Host") String host) throws IOException {        
+        String content = CustomizableServicesManager.deleteService(name, httpMethod, host); 
         return buildResponse(content, MediaType.TEXT_PLAIN);
     }
 
     @RolesAllowed("ADMIN")
     @PUT
     @Path("/webservices")
-    public Response addService(@QueryParam("name") String name, @QueryParam("httpMethod") String httpMethod, InputStream specificationDataStream) throws IOException {       
-        String content = CustomizableServicesManager.addService(name, httpMethod, inputStream2String(specificationDataStream));
+    public Response addService(@QueryParam("name") String name, @QueryParam("httpMethod") String httpMethod, InputStream specificationDataStream, @HeaderParam("Host") String host) throws IOException {       
+        String content = CustomizableServicesManager.addService(name, httpMethod, inputStream2String(specificationDataStream), host);
         return buildResponse(content, MediaType.TEXT_PLAIN);
     }
 
     @RolesAllowed("ADMIN")
     @POST
     @Path("/webservices")
-    public Response updateService(@QueryParam("name") String name, @QueryParam("httpMethod") String httpMethod, InputStream specificationDataStream) throws IOException {
-        String content = CustomizableServicesManager.updateService(name, httpMethod, inputStream2String(specificationDataStream));
+    public Response updateService(@QueryParam("name") String name, @QueryParam("httpMethod") String httpMethod, InputStream specificationDataStream, @HeaderParam("Host") String host) throws IOException {
+        String content = CustomizableServicesManager.updateService(name, httpMethod, inputStream2String(specificationDataStream), host);
         return buildResponse(content, MediaType.TEXT_PLAIN);
     }
 
