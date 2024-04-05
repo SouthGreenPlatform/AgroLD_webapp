@@ -30,7 +30,7 @@ public class MySQLProperties {
         /* prevent usage of constructor bcause it's a static class */
     }
     
-    
+    // TODO: Change how it is handled, this will be replaced by cookies since it is just for history purposes
     /**
      *
      * @return an ArrayList of String with the lines of the text in the same
@@ -39,13 +39,9 @@ public class MySQLProperties {
     public static List<String> readLoginConfigurations() {
         List<String> lines = new ArrayList<>();
         try {
-            String URL = System.getProperty("agrold.db_connection_url");
-            String usr = System.getProperty("agrold.db_username");
-            String pwd = System.getProperty("agrold.db_password");
-
-            if (URL == null) throw new NullPointerException("Missing system property: agrold.db_connection_url");
-            if (usr == null) throw new NullPointerException("Missing system property: agrold.db_username");
-            if (pwd == null) throw new NullPointerException("Missing system property: agrold.db_password");
+            String URL = System.getProperty("agrold.db_connection_url", "");
+            String usr = System.getProperty("agrold.db_username", "");
+            String pwd = System.getProperty("agrold.db_password", "");
 
             lines.add(URL);
             lines.add(usr);
