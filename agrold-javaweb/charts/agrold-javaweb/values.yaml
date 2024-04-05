@@ -8,8 +8,6 @@
 ##
 
 agroldProperties:
-  # The property below is set to ingress.hostname, set this value to override it
-  # baseurl: "http://agrold.org"
   db_connection_url: someurl
   db_username: user
   db_password: password

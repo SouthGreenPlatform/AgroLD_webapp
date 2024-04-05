@@ -28,7 +28,7 @@ public class CustomizableServicesManager {
     /*public static String validateName(String name) {
         
     }*/
-    public static String readAPISpecification(String apiSpecificationPath) {
+    public static String readAPISpecification(String apiSpecificationPath, String host) {
         //JSON parser object to parse read file        
         JSONObject jsonObj = null;
         try (FileReader reader = new FileReader(apiSpecificationPath)) {
@@ -40,9 +40,9 @@ public class CustomizableServicesManager {
             JSONObject tagObj = new JSONObject();
 
             // Host only has hostname and port, meaning no protocol
-            String strippedUrl = System.getProperty("agrold.baseurl", "localhost:8080").replaceAll("http://", "").replaceAll("https://", "");
+            String strippedUrl = host.replaceAll("http://", "").replaceAll("https://", "");
 
-            // here we will fill the host property defined by the system property agrold.baseurl and agrold.name
+            // here we will fill the host property defined by the hosts from incoming requests & the system property agrold.name
             jsonObj.put("host", strippedUrl);
 
             jsonObj.put("basePath", "/" + System.getProperty("agrold.name", "aldp") + "/api");
@@ -77,8 +77,8 @@ public class CustomizableServicesManager {
      * @param webServiceSpecification : a JSON object with the method as key
      * @return the confirmation message
      */
-    public static String addService(String name, String httpMethod, String webServiceSpecification) {
-        JSONObject apiSpecification = new JSONObject(readAPISpecification(Utils.AGROLDAPIJSONURL));
+    public static String addService(String name, String httpMethod, String webServiceSpecification, String host) {
+        JSONObject apiSpecification = new JSONObject(readAPISpecification(Utils.AGROLDAPIJSONURL, host));
         JSONObject newServiceSpec = new JSONObject();
         String sparqlPattern = "get";
         newServiceSpec.put(httpMethod, new JSONObject(webServiceSpecification));
@@ -90,8 +90,8 @@ public class CustomizableServicesManager {
         return "The service /api/customizable/" + name + " has been created!";
     }
 
-    public static String deleteService(String name, String httpMethod) {
-        JSONObject apiSpecification = new JSONObject(readAPISpecification(Utils.AGROLDAPIJSONURL));
+    public static String deleteService(String name, String httpMethod, String host) {
+        JSONObject apiSpecification = new JSONObject(readAPISpecification(Utils.AGROLDAPIJSONURL, host));
         String servicePath = PATH_FIXED_PART + name.replaceAll("\\s+", "");
         if (apiSpecification.getJSONObject("paths").has(servicePath)) {
             apiSpecification.getJSONObject("paths").remove(servicePath);
@@ -101,8 +101,8 @@ public class CustomizableServicesManager {
         return "The service /api/customizable/" + name + " has been deleted!";
     }
 
-    public static String updateService(String name, String httpMethod, String webServiceSpecification) {
-        JSONObject apiSpecification = new JSONObject(readAPISpecification(Utils.AGROLDAPIJSONURL));
+    public static String updateService(String name, String httpMethod, String webServiceSpecification, String host) {
+        JSONObject apiSpecification = new JSONObject(readAPISpecification(Utils.AGROLDAPIJSONURL, host));
         JSONObject serviceNewSpec = new JSONObject(webServiceSpecification);
         //System.out.println(newServiceSpec.toString());
         String servicePath = PATH_FIXED_PART + name.replaceAll("\\s+", "");
@@ -120,8 +120,8 @@ public class CustomizableServicesManager {
         //System.out.println(apiSpecification.toString());
     }
 
-    public static String queryCustomizableService(String serviceLocalName, MultivaluedMap<String, String> queryParams, String httpMethod, MediaType reponseMediaType) throws IOException {
-        JSONObject apiSpecification = new JSONObject(readAPISpecification(Utils.AGROLDAPIJSONURL));
+    public static String queryCustomizableService(String serviceLocalName, MultivaluedMap<String, String> queryParams, String httpMethod, MediaType reponseMediaType, String host) throws IOException {
+        JSONObject apiSpecification = new JSONObject(readAPISpecification(Utils.AGROLDAPIJSONURL, host));
         String servicePath = PATH_FIXED_PART + serviceLocalName.replaceAll("\\s+", "");
         JSONObject serviceCurrentSpec = apiSpecification.getJSONObject("paths").getJSONObject(servicePath);
         if (serviceCurrentSpec != null) {            

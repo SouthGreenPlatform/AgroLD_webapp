@@ -25,9 +25,8 @@ Le déploiement de l'application se fait premièrement avec des propriétés Jav
 
 |            Name            |                                                                    Description                                                                    |       Valeur par défaut       |
 | :------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------: |
-|       `agrold.name`        | Nom de l'archive et du contexte (le nom apparait après `agrold.baseurl` , par exemple si on met la valeur à `aldp` on a `https://someurl/agrold`) |            `aldp`             |
+|       `agrold.name`        | Nom de l'archive et du contexte `aldp` on a `https://<un domaine>/agrold`) |            `aldp`             |
 |    `agrold.description`    |                                                         Description affichée dans Tomcat                                                          |              :x:              |
-|      `agrold.baseurl`      |                                                              L'URL de base de l'app                                                               |   `http://localhost:8080/`    |
 |  `agrold.sparql_endpoint`  |                                                             Url de l'endpoint SPARQL                                                              | `http://sparql.southgreen.fr` |
 | `agrold.db_connection_url` |                                             Url de la base de données ex: `[host]:[port]/[db]?[opt]`                                              |         :x: (requis)          |
 |    `agrold.db_username`    |                                                         Utilisateur de la base de données                                                         |         :x: (requis)          |
@@ -90,7 +89,7 @@ docker login 10.9.2.21:8080 -u <user> -p <password>
 docker pull 10.9.2.21:8080
 
 # Lancer le conteneur
-docker run -p 8080:8080 -e CATALINA_OPTS="-Dagrold.db_connection_url=someurl -Dagrold.db_username=usr -Dagrold.db_password=pwd -Dagrold.baseurl=http://localhost:8080/ -Dagrold.sparql_endpoint=a" <tag>
+docker run -p 8080:8080 -e CATALINA_OPTS="-Dagrold.db_connection_url=someurl -Dagrold.db_username=usr -Dagrold.db_password=pwd -Dagrold.sparql_endpoint=a" <tag>
 ```
 
 > [!NOTE]
