@@ -97,9 +97,9 @@ Return the proper CATALINA_OPTS value
 {{- define "tomcat.catalinaOpts" -}}
 {{- $agrold := include "tomcat.flattenIntoSysProperties" .Values.agroldProperties -}}
 {{- if .Values.metrics.jmx.enabled -}}
-{{- default "" (cat .Values.catalinaOpts .Values.metrics.jmx.catalinaOpts (printf "-Dagrold.baseurl=%q" (ternary (print "https://" .Values.ingress.hostname) (print "http://" .Values.ingress.hostname) .Values.ingress.tls)) $agrold) | trim  -}}
+{{- default "" (cat .Values.catalinaOpts .Values.metrics.jmx.catalinaOpts $agrold) | trim  -}}
 {{- else -}}
-{{- default "" (cat .Values.catalinaOpts (printf "-Dagrold.baseurl=%q" (ternary (print "https://" .Values.ingress.hostname) (print "http://" .Values.ingress.hostname) .Values.ingress.tls)) $agrold) | trim -}}
+{{- default "" (cat .Values.catalinaOpts $agrold) | trim -}}
 {{- end -}}
 {{- end -}}
 
