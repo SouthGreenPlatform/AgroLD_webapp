@@ -89,10 +89,8 @@ initdb:
   enabled: true
   name: sparql-initdb
   kind: ConfigMap
-  data:
-    init.sh: |
-      #!/bin/bash
-      echo "Ready to go!"
+  data: {}
+
 
 persistence:
   enabled: true
