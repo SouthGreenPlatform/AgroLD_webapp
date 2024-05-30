@@ -1,0 +1,44 @@
+<link rel="stylesheet" type="text/css" href="styles/localstorage.css">
+<div id="localStorage-ask" class="card text-center fixed-bottom mb-2 ml-2 w-25 slide-in" style="visibility: hidden;"> 
+    <div class="card-header">Cookies and tracers</div>
+    <div class="card-body mb-2">
+        <p class="card-text p-1">
+            We use the localStorage of your device to improve your experience on AgroLD, 
+            we treat your data with the utmost care and are transparent about how we handle it.
+            You can add accept the treatment of your data by clicking on the Accept button, reject it or learn more about it.
+        </p>
+        <button onclick="acceptAllData()"  type="button" class="btn btn-outline-success">Accept</button>
+        <button onclick="acceptLocalStorage(false)" type="button" class="btn btn-outline-danger">Reject</button>
+        <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#labelstoreModal">Learn more</button>
+    </div>
+</div>
+<div class="modal fade" id="labelstoreModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <form id="labelstore-form">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                <button id="close-storage-modal" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body text-center">
+                To improve your experience on our site, we would like to store certain data in your 
+                browser's localStorage, specifically recent SPARQL querying history and recent search terms in adanced search. 
+                The localStorage is a local storage space in your browser
+                <br/><br/>
+                No data is transferred or shared with third parties. We will only store this information with your explicit consent. 
+                <br/><br/>
+
+                <div id="consent-inputs" class="form-check form-switch">
+                    <!-- items will be inserted here by localStorage.js -->                  
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit"                       class="btn btn-outline-secondary">Accept Selected</button>
+                <button onclick="acceptAllData()"           data-dismiss="modal" type="button" class="btn btn-outline-success">Accept All</button>
+                <button onclick="acceptLocalStorage(false)" data-dismiss="modal" type="button" class="btn btn-outline-danger">Reject All</button>
+            </div>
+        </form>
+      </div>
+    </div>
+</div>
+<script type="text/javascript" src="scripts/localStorage.js"></script>

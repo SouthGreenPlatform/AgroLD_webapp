@@ -22,7 +22,7 @@
         <!--link rel="icon" type="image/png" href="swagger/images/favicon-32x32.png" sizes="32x32" />
         <link rel="icon" type="image/png" href="swagger/images/favicon-16x16.png" sizes="16x16" /-->
         <title>AgroLD: web services API</title>
-        <jsp:include page="includes.html"></jsp:include>
+        <jsp:include page="includes.jsp"></jsp:include>
         <!-- Other -->
         
         <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
