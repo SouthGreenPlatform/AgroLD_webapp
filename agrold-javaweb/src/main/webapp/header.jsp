@@ -1,4 +1,5 @@
 <%@ page language="java"%>
+<jsp:include page="localStoreConsent.html"></jsp:include>
 <div id="header">
     <nav class="navbar fixed-top navbar-toggleable-md navbar-light bg-faded">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
