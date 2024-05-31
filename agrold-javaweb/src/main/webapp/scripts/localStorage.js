@@ -1,4 +1,3 @@
-// https://stackoverflow.com/questions/16427636/check-if-localstorage-is-available
 const LocalStorageDataConsent = {
     "sparqlEditor.history.enabled": "Store your history of sparql requests",
     "advancedSearch.history.enabled": "Store your history of advanced searches"
@@ -13,7 +12,38 @@ const acceptLocalStorage = (accepted) => {
     document.getElementById("localStorage-ask")?.classList.replace("slide-in", "slide-out"); 
     console.log(accepted? "accepted": "refused");
 }
+
 const hasAcceptedLocalStorage = () => sessionStorage.getItem("acceptLocalStorage") === "true"
+
+const consentedToTreatment = (key) => {
+    if (hasAcceptedLocalStorage()) {
+        switch (key) {
+            //case "advancedSearch.xxx":
+            case "advancedSearch.history":
+                return sessionStorage.getItem("advancedSearch.history.enabled") === "true"
+
+            //case "sparqlEditor.xxx":
+            case "sparqlEditor.history":
+                return sessionStorage.getItem("sparqlEditor.history.enabled") === "true"
+
+            default:
+                return false
+        }
+    }
+    return false
+}
+
+const localStorageSet = (key, val) => isLocalStorageAvailable() && 
+    consentedToTreatment(key) && 
+    localStorage.setItem(key, val)
+
+const localStorageGet = (key) => {
+    if (isLocalStorageAvailable() && consentedToTreatment(key)) {
+        return localStorage.getItem(key)
+    } 
+    return null
+}
+
 
 const acceptData = (arrayOfAuthorizedData) => {
     if(isLocalStorageAvailable()){
@@ -43,14 +73,13 @@ const acceptFromSelection = (e) => {
     return false
 }
 
+/// popup setup 
 const popup = document.getElementById("localStorage-ask")
 document.getElementById("labelstore-form")?.addEventListener("submit", acceptFromSelection)
 
-console.log("localStorage available: " + isLocalStorageAvailable())
- 
+//                                  v question unanswered
 if(isLocalStorageAvailable() && sessionStorage.getItem("acceptLocalStorage") === null){
     if (popup) popup.style.visibility = "visible";
-
 
     const consentList = document.getElementById('consent-inputs')
 
