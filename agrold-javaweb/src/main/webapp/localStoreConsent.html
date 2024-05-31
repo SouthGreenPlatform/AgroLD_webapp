@@ -7,9 +7,9 @@
             we treat your data with the utmost care and are transparent about how we handle it.
             You can add accept the treatment of your data by clicking on the Accept button, reject it or learn more about it.
         </p>
-        <button onclick="acceptAllData()"  type="button" class="btn btn-outline-success">Accept</button>
-        <button onclick="acceptLocalStorage(false)" type="button" class="btn btn-outline-danger">Reject</button>
-        <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#labelstoreModal">Learn more</button>
+        <button onclick="acceptAllData()"  type="button" class="btn btn-success">Accept</button>
+        <button onclick="acceptLocalStorage(false)" type="button" class="btn btn-danger">Reject</button>
+        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#labelstoreModal">Learn more</button>
     </div>
 </div>
 <div class="modal fade" id="labelstoreModal" tabindex="-1" role="dialog">
@@ -17,8 +17,8 @@
       <div class="modal-content">
         <form id="labelstore-form">
             <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-                <button id="close-storage-modal" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Modal title</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body text-center">
                 To improve your experience on our site, we would like to store certain data in your 
@@ -33,12 +33,65 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="submit"                       class="btn btn-outline-secondary">Accept Selected</button>
-                <button onclick="acceptAllData()"           data-dismiss="modal" type="button" class="btn btn-outline-success">Accept All</button>
-                <button onclick="acceptLocalStorage(false)" data-dismiss="modal" type="button" class="btn btn-outline-danger">Reject All</button>
+                <button type="submit"                       class="btn btn-info">Accept Selected</button>
+                <button onclick="acceptAllData()"           data-dismiss="modal" type="button" class="btn btn-success">Accept All</button>
+                <button onclick="acceptLocalStorage(false)" data-dismiss="modal" type="button" class="btn btn-danger">Reject All</button>
             </div>
         </form>
       </div>
     </div>
 </div>
-<script type="text/javascript" src="scripts/localStorage.js"></script>
+<script type="text/javascript" src="scripts/localStorage.js">
+    const acceptFromSelection = (e) => {
+        e.preventDefault()
+
+        acceptData(
+            Object.entries(
+                Object.fromEntries(new FormData(e.target)) // retireve the form data 
+            ).filter(([_, value]) => value === "on").map(([key, _]) => key) // only keep ticked checkboxes
+        )
+
+        $("#labelstoreModal").modal('hide')
+        return false
+    }
+
+    /// popup setup 
+    const popup = document.getElementById("localStorage-ask")
+    document.getElementById("labelstore-form")?.addEventListener("submit", acceptFromSelection)
+
+    //                                  v question unanswered
+    if(isLocalStorageAvailable() && sessionStorage.getItem("acceptLocalStorage") === null){
+        if (popup) popup.style.visibility = "visible";
+
+        const consentList = document.getElementById('consent-inputs')
+
+        Object.entries(LocalStorageDataConsent).forEach(([key, value]) => {
+            consentList.appendChild(
+                document.createElement("hr")
+            )
+            const input = document.createElement("input");
+            Object.entries({
+                class: "form-check-input",
+                type: "checkbox",
+                role: "switch",
+                style: "margin: 5px;",
+                id: key,
+                name: key,
+                checked: "true",
+            }).forEach(([key, value]) => input.setAttribute(key, value))
+            
+            consentList.appendChild(input)
+
+            const label = document.createElement("label")
+            Object.entries({
+                class: "form-check-label",
+                for: key,
+            }).forEach(([key, value]) => input.setAttribute(key, value))
+
+            label.textContent = value
+            consentList.appendChild(label)
+        })
+    } else {
+        if (popup) popup.style.display = "none"; 
+    }
+</script>
