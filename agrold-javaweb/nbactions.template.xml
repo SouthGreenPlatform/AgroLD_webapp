@@ -8,8 +8,8 @@
                 <packaging>ejb</packaging>
             </packagings>
             <goals>
-                <goal>package</goal>
                 <goal>docker:start</goal>
+                <goal>fizzed-watcher:run</goal>
             </goals>
         </action>
     </actions>
