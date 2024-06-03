@@ -124,6 +124,8 @@
         </dependency>
     </dependencies>
 
+
+
     <build>
         <plugins>
             <plugin>
@@ -183,13 +185,10 @@
                 <version>0.43.4</version>
                 <configuration>
                     <keepContainer>false</keepContainer>
+                    <logDate>default</logDate>
                     <images>
                         <image>
-                            <name>ghcr.io/southgreenplatform/agrold</name>
-                            <build>
-                                <contextDir>${project.basedir}</contextDir>
-                                <dockerFile>${project.basedir}/Dockerfile</dockerFile>
-                            </build>
+                            <name>bitnami/tomcat:9.0</name>
                             <run>
                                 <ports>
                                     <port>8080:8080</port>
@@ -200,6 +199,17 @@
                                     <TOMCAT_PASSWORD>password</TOMCAT_PASSWORD>
                                     <CATALINA_OPTS>${CATALINA_OPTS}</CATALINA_OPTS>
                                 </env>
+                                <volumes>
+                                    <bind>
+                                        <volume>${project.basedir}/target/${agrold.name}:/opt/bitnami/tomcat/webapps_default/${agrold.name}</volume>
+                                    </bind>
+                                </volumes>
+                                <log>
+                                    <enabled>true</enabled>
+                                    <prefix>Agrold @ %a &gt;&#160;</prefix>
+                                    <date>NONE</date>
+                                    <color>CYAN</color>
+                                </log>
                             </run>
                         </image>
                     </images>
