@@ -18,15 +18,11 @@ jobs:
     uses: ./.github/workflows/test_helm_chart.yaml
 
   build:
-    runs-on: self-hosted
-    
-    env: 
-      IMAGENAME: agrolddev
+    runs-on: ubuntu-latest
 
     outputs:
       BUILD_DATE: ${{ steps.variables.outputs.build_date }}
-      GIT_COMMIT: ${{ steps.variables.outputs.sha_short }}
-      NAME: ${{ env.IMAGENAME }}
+      GIT_COMMIT: ${{ steps.variables.outputs.sha }}
 
     steps:
     - name: Clone project
@@ -52,19 +48,19 @@ jobs:
     - name: Get short commit hash
       id: variables
       run: |
-        echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+        echo "sha=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
         echo "build_date=$(date --rfc-3339=ns)" >> $GITHUB_OUTPUT
 
   build_n_push_private:
     needs: build
     uses: ./.github/workflows/push_to_private.yml
     with:
-      build-args: AGROLD_NAME=${{ needs.build.outputs.NAME }},AGROLD_DESCRIPTION="Agrold from commit ${{ needs.build.outputs.GIT_COMMIT }}",GIT_COMMIT=${{ needs.build.outputs.GIT_COMMIT}},BUILD_DATE="${{ needs.build.outputs.BUILD_DATE }}"
+      build-args: AGROLD_NAME=agrold,AGROLD_DESCRIPTION="Agrold from commit ${{ needs.build.outputs.GIT_COMMIT }}",GIT_COMMIT=${{ needs.build.outputs.GIT_COMMIT}},BUILD_DATE="${{ needs.build.outputs.BUILD_DATE }}"
       context: ./agrold-javaweb
       dockerfile: ./agrold-javaweb/Dockerfile
-      image_name: agrolddev
+      image_name: agrold/agrold
       tag: ${{ needs.build.outputs.GIT_COMMIT }}
-      registry_host: "10.9.2.21:8080"
+      registry_host: harbor.dev.agrold.org
     secrets: 
       DOCKER_REGISTRY_USER:     ${{ secrets.DOCKER_REGISTRY_USER }}
       DOCKER_REGISTRY_PASSWORD: ${{ secrets.DOCKER_REGISTRY_PASSWORD }}
