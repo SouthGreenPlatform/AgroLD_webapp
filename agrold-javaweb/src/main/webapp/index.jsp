@@ -254,13 +254,14 @@
                                             </div>
                                         </div>
                                         <div class="copyright">&COPY; AgroLD 2019</div>
-                                        
-                                        
-                                        
-                                   
-                                    
-                                            
-                                        
+                                        <button 
+                                            data-target="#labelstoreModal" 
+                                            data-toggle="modal" 
+                                            type="button" 
+                                            class="btn m-2 btn-sm btn-outline-light"
+                                        >
+                                            Change your consents
+                                        </button>
                                 </footer>
                                
                             </div>
