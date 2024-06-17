@@ -12,12 +12,13 @@
         <button type="button" class="btn btn-info" data-toggle="modal" data-target="#labelstoreModal">Learn more</button>
     </div>
 </div>
+
 <div class="modal fade" id="labelstoreModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <form id="labelstore-form">
             <div class="modal-header">
-                <h4 class="modal-title">Modal title</h4>
+                <h4 class="modal-title">LocalStorage consent</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body text-center">
@@ -28,8 +29,15 @@
                 No data is transferred or shared with third parties. We will only store this information with your explicit consent. 
                 <br/><br/>
 
+                <div id="consentAlert" class="alert alert-info show" role="alert">
+                    You might want to reload the page if you accept   
+                </div>
+                <div id="consentAlert" class="alert alert-info show" role="alert">
+                    You will be able to change your consent at any time at the bottom of the page
+                </div>
+
                 <div id="consent-inputs" class="form-check form-switch">
-                    <!-- items will be inserted here by localStorage.js -->                  
+                    <!-- items will be inserted here by the following script tags -->                  
                 </div>
             </div>
             <div class="modal-footer">
@@ -66,13 +74,19 @@
     //                                  v question unanswered
     if(isLocalStorageAvailable() && sessionStorage.getItem("acceptLocalStorage") === null){
         if (popup) popup.style.visibility = "visible";
+    } else {
+        if (popup) popup.style.display = "none"; 
+    }
 
+    $("#labelstoreModal").on("shown.bs.modal", function () {
         const consentList = document.getElementById('consent-inputs')
 
         Object.entries(LocalStorageDataConsent).forEach(([key, value]) => {
             consentList.appendChild(
                 document.createElement("hr")
             )
+            console.log(key, value)
+            console.log(consentedToTreatment(key.replace(".enabled", "")))
             const input = document.createElement("input");
             Object.entries({
                 class: "form-check-input",
@@ -81,7 +95,7 @@
                 style: "margin: 5px;",
                 id: key,
                 name: key,
-                checked: "true",
+                ...(consentedToTreatment(key.replace(".enabled", ""))? { checked: "true"}: null)
             }).forEach(([key, value]) => input.setAttribute(key, value))
             
             consentList.appendChild(input)
@@ -95,7 +109,9 @@
             label.textContent = value
             consentList.appendChild(label)
         })
-    } else {
-        if (popup) popup.style.display = "none"; 
-    }
+    });
+
+    $("#labelstoreModal").on("hide.bs.modal", function () {
+        document.getElementById('consent-inputs').replaceChildren([])
+    });
 </script>
