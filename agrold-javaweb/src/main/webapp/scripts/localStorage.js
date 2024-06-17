@@ -48,8 +48,8 @@ const localStorageGet = (key) => {
 const acceptData = (arrayOfAuthorizedData) => {
     if(isLocalStorageAvailable()){
         acceptLocalStorage(true)
-        arrayOfAuthorizedData.forEach(data => {
-            sessionStorage.setItem(data, "true")
+        Object.keys(LocalStorageDataConsent).forEach(data => {
+            sessionStorage.setItem(data, arrayOfAuthorizedData.includes(data)? true : false)
         })
     }
 }
