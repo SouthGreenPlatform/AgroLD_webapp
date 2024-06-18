@@ -3,7 +3,7 @@
         Created on : Sep 8, 2015, 2:21:47 PM
         Author     : tagny
 --%>
-<div style="text-align: center">
+<div class="text-center mb-5">
     <!--ul>
     <li>ontological concepts: 'plant height' or 'regulation of gene expression'</li>
     <li>Gene: keyword 'stachyose' or name 'TCP2'.</li>
@@ -56,13 +56,45 @@ ontological concepts: 'plant height' or 'regulation of gene expression'.<br/>
                     </div>
                     <input id="keyword" class="keyword" name="keyword" type="text" autofocus placeholder="Search term...">
                     <span class="input-group-btn">
-                        <button class="btn btn-primary" id="jcb" class="yasrbtn" value="Search">Search</button>
+                        <button class="btn btn-primary" id="jcb" class="yasrbtn" value="Search" style="border-radius: 0 5px 5px 0;">
+                            <svg color="white" xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 512 512">
+                                <!--Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
+                                <path fill="currentColor" d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/>
+                            </svg>
+                            Search terms
+                        </button>
+                        <button 
+                            class="btn btn-info d-none" data-toggle="collapse"
+                            id="historyAdvanced" class="yasrbtn" aria-expanded="false"
+                            data-target="#historyAdvancedList" aria-controls="#historyAdvancedList"
+                            style="border-radius: 0 0 5px;"
+                        >
+                            History
+                        </button>
                     </span>
                 </div>
             </div>
         </div>
+        <div class="col">
+            <div class="collapse" id="historyAdvancedList">
+                <hr/>
+                <div id="historyAdvancedListPush" class="grid-3-rows">
+                    
+                </div>
+            </div>   
+        </div>
     </div>
 </div>
+
+<script>
+if (consentedToTreatment("advancedSearch.history")) {
+    document.getElementById("historyAdvanced")?.classList.remove("d-none");
+
+    const elt = document.getElementById("jcb");
+    if (elt) elt.style.borderRadius = "0 5px 0 0";    
+}
+</script>
+
 <script>
 
     var ht = '${param.ht}' ; // Set ht Value from GET request
@@ -115,10 +147,13 @@ ontological concepts: 'plant height' or 'regulation of gene expression'.<br/>
                 saveRequest();
             else
                 HISTORY=false;
+
+            saveRequestInLocalStorage(SearchContext.type, SearchContext.keyword)
+
             search(SearchContext.type, SearchContext.keyword, 0);
         }
     });
-    /* Switch pour émuler un select:option */
+    /* Switch pour ï¿½muler un select:option */
     $(document).ready(function (e) {
         $('.cht a').click(function (e) {
             e.preventDefault();
@@ -127,7 +162,7 @@ ontological concepts: 'plant height' or 'regulation of gene expression'.<br/>
             $('#afft').text(concept);
             $('#afft').val(param);
         });
-        // On va regarder si l'uilisateur consulte son historique de recherche avancée
+        // On va regarder si l'uilisateur consulte son historique de recherche avancï¿½e
         if(hk !== '' && ht!==''){
             HISTORY = true;
             $('#keyword').attr('value',hk);
@@ -136,7 +171,52 @@ ontological concepts: 'plant height' or 'regulation of gene expression'.<br/>
             $('#jcb').click();
         }
     });
-    /* Récupération des éléments du formulaire de recherche */
+    //rÃ©cupÃ©ration de l'historique des recherches quand il est affichÃ©
+    document.getElementById("historyAdvanced").onclick = () => {
+        const elt = document.getElementById("historyAdvancedListPush")
+        
+        if (elt?.children.length > 0) {
+            elt.replaceChildren([])
+            return
+        }
+
+        JSON.parse(
+            localStorageGet("advancedSearch.history") ?? "[]"
+        ).forEach(({ type, keyword }) => {
+            const card = document.createElement("div")
+            card.classList.add("card", "card-body", "mb-3")
+
+            const header = document.createElement("div")
+            header.classList.add("card-header")
+            header.textContent = type
+
+            const select = document.createElement("button")
+            select.classList.add("btn", "btn-outline-light", "btn-sm", "float-right")
+            select.textContent = "Select"
+            select.onclick = () => {
+                $('#afft').text(type);
+                $('#afft').val(type);
+                $('#keyword').val(keyword);
+                $('#historyAdvanced').click();
+            }
+
+            const body = document.createElement("div")
+            body.classList.add("card-body", "p-2")
+
+            const text = document.createElement("p")
+            text.classList.add("card-text", "text-center")
+            text.textContent = keyword
+
+            body.appendChild(text)
+            card.appendChild(header)
+            card.appendChild(body)  
+            header.appendChild(select)    
+            elt.appendChild(card)
+        })
+        
+    }
+
+    /* Rï¿½cupï¿½ration des ï¿½lï¿½ments du formulaire de recherche */
     function checkForm() {
         SearchContext.type = $('#afft').attr('value');
         SearchContext.keyword = $('#keyword').val();
@@ -150,6 +230,23 @@ ontological concepts: 'plant height' or 'regulation of gene expression'.<br/>
                 $('.success').html(data);
             }                                                
         });
+    }
+    function saveRequestInLocalStorage(type, keyword) {
+        const history = JSON.parse(
+            localStorageGet("advancedSearch.history") ?? "[]"
+        );
+
+        entry = { type, keyword: keyword.trim() }
+
+        if (!history.find(e => e.type === entry.type && e.keyword === entry.keyword)) {
+            history.unshift(entry)
+
+            localStorageSet(
+                "advancedSearch.history",
+                JSON.stringify(history)
+            );            
+        }
+
     }
 
 </script>
