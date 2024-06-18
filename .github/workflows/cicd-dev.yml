@@ -6,11 +6,6 @@ on:
     branches:
       - dev
 
-    paths:
-      - agrold-javaweb/src/**
-      - agrold-javaweb/pom.xml
-      - agrold-javaweb/Dockerfile
-
 # This workflow will build a docker container, publish it to our private registry
 # tagged as latest and with latest commit hash (shortened)
 jobs:
