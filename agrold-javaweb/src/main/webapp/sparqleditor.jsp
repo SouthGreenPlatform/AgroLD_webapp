@@ -333,7 +333,7 @@ LIMIT 10
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Modal title</h4>
+                        <h4 class="modal-title">Pick a query</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     </div>
                     <div class="modal-body text-left" id="history"></div>
@@ -535,7 +535,7 @@ LIMIT 10
                     fileReader.readAsText(fileToLoad, "UTF-8");
                 }
                 $('.yasqe_queryButton.query_valid').click(function () {
-                    const request = yasqe.getValue();
+                    const request = yasqe.getValue().trim();
                     console.log(request);
                     const history = JSON.parse(
                         localStorageGet("sparqlEditor.history") ?? "[]"
