@@ -8,11 +8,12 @@ on:
 jobs:
   variables:
     runs-on: ubuntu-latest
-
+    
     outputs:
       sha_short: ${{ steps.variables.outputs.sha_short }}
       build_date: ${{ steps.variables.outputs.build_date }}
       no_v: ${{ steps.set_version.outputs.no_v }}
+
 
     steps:
       - name: Clone project
