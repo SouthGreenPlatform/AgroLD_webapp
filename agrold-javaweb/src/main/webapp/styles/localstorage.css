@@ -54,3 +54,10 @@
         opacity: 0;
     }
 }
+
+.grid-3-rows {
+    display: grid;
+    column-gap: 2%;
+    row-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+}
