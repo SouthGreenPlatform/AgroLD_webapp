@@ -67,10 +67,18 @@ jobs:
           password: ${{ secrets.DOCKER_REGISTRY_PASSWORD }}
 
       - name: Build and push Docker image ${{ inputs.registry_host }}/${{ inputs.image_name }}:${{ inputs.tag }}
-        uses: docker/build-push-action@v6.3.0
-        with:
-          build-args: ${{ steps.normalize_build_args.outputs.args }}
-          push: true
-          context: ${{ inputs.context }}
-          file: ${{ inputs.dockerfile }}
-          tags: ${{ inputs.registry_host }}/${{ inputs.image_name }}:${{ inputs.tag }},${{ inputs.registry_host }}/${{ inputs.image_name }}:latest
+        run: |
+          cd ${{ inputs.context }}
+          docker build . --build-arg ${{ steps.normalize_build_args.outputs.args }} -t ${{ inputs.registry_host }}/${{ inputs.image_name }}:${{ inputs.tag }} -t ${{ inputs.registry_host }}/${{ inputs.image_name }}:latest
+
+          docker push ${{ inputs.registry_host }}/${{ inputs.image_name }}:${{ inputs.tag }}
+          docker push ${{ inputs.registry_host }}/${{ inputs.image_name }}:latest
+
+
+      # uses: docker/build-push-action@v6.3.0
+      #   with:
+      #     build-args: ${{ steps.normalize_build_args.outputs.args }}
+      #     push: true
+      #     context: ${{ inputs.context }}
+      #     file: ${{ inputs.dockerfile }}
+      #     tags: ${{ inputs.registry_host }}/${{ inputs.image_name }}:${{ inputs.tag }},${{ inputs.registry_host }}/${{ inputs.image_name }}:latest
