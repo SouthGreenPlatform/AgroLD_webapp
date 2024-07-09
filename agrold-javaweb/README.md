@@ -31,6 +31,7 @@ Le déploiement de l'application se fait premièrement avec des propriétés Jav
 |    `agrold.db_username`    |                     Utilisateur de la base de données                      |              :x:              |
 |    `agrold.db_password`    |                     Mot de passe de la base de données                     |              :x:              |
 |      `agrold.rf_link`      |               Lien vers une instance de RelFinder[Reformed]                |  `http://rf.southgreen.fr/`   |
+|     `agrold.instance`      |      Specifies the type of the instance, can either be empty or `dev`      |              :x:              |
 
 Pour injecter ces variables dans tomcat, il faut déclarer les sous forme d'argument en ligne de commande sous cette forme `-Dnomdelapropriété=valeur` et les placer dans la variable d'environnement `CATALINA_OPTS`
 

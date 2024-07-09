@@ -7,7 +7,18 @@
         </button>
         <div class="container">
             <%! String home = System.getProperty("agrold.name", "aldp"); %>
-            <a class="navbar-brand" href="/<%= home %>"><img src="images/v5.png"></a>
+            <a class="navbar-brand" href="/<%= home %>">
+                <%
+                    String type = System.getProperty("agrold.instance", "");
+                    if (type == "dev") {
+                %>
+                <span class="ribbon bg-info">DEV</span>
+                <%
+                    }
+                %>
+
+                <img src="images/v5.png">
+            </a>
 
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav mr-auto mt-2 mt-md-0">
