@@ -98,3 +98,16 @@ div.yasr {
   overflow: scroll;
 }
 
+.ribbon {
+  width: 60px;
+  font-size: 14px;
+  padding: 4px;
+  position: absolute;
+  left: -1%;
+  top: -20%;
+  text-align: center;
+  border-radius: 25px;
+  transform: rotate(-20deg);
+  /* background-color: #ff9800; */
+  color: white;
+}
