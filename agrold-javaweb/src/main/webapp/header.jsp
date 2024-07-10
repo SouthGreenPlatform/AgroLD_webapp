@@ -6,17 +6,8 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="container">
-            <%! String home = System.getProperty("agrold.name", "aldp"); %>
-            <a class="navbar-brand" href="/<%= home %>">
-                <%
-                    String type = System.getProperty("agrold.instance", "");
-                    if (type == "dev") {
-                %>
-                <span class="ribbon bg-info">DEV</span>
-                <%
-                    }
-                %>
-
+            <a class="navbar-brand" href="/${System.getProperty('agrold.name', 'aldp')}">
+                <span class="ribbon ${System.getProperty('agrold.instance').toLowerCase() == 'dev' ? 'bg-info' : 'd-none'}">DEV</span>
                 <img src="images/v5.png">
             </a>
 

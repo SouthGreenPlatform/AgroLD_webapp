@@ -1,7 +1,7 @@
 {
   "maven.terminal.favorites": [
     {
-      "command": "package docker:start fizzed-watcher:run",
+      "command": "package docker:start fizzed-watcher:run -DCATALINA_OPTS='-Dagrold.description=Local -Dagrold.instance=dev'",
       "debug": false,
       "alias": "Run in container"
     }
