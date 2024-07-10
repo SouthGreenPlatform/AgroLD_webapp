@@ -2,23 +2,17 @@
 FROM maven:3.9-amazoncorretto-17 as build
 # Shared arguments between build and run stages
 
-ARG AGROLD_NAME=aldp
-
 WORKDIR /build_dir
 
 COPY . /build_dir
 
-RUN mvn clean install -Dagrold.name=${AGROLD_NAME}
+RUN mvn clean install
 
 # Run stage
 FROM bitnami/tomcat:9.0
 
-ARG GIT_COMMIT=unknown
-ARG AGROLD_NAME=aldp
-
 # This is here so we can change it depending of dev/prod
-ENV NAME=${AGROLD_NAME}
-
+ARG GIT_COMMIT=unknown
 ARG BUILD_DATE=unknown
 ARG AGROLD_DESCRIPTION='"agrold production instance"'
 
@@ -33,4 +27,4 @@ LABEL "fr.ird.maintainer"="Yann POMIE <yann.pomie@ird.fr>" \
 COPY --from=build /build_dir/target/*.war /opt/bitnami/tomcat/webapps_default
 
 ENV GIT_COMMIT=${GIT_COMMIT}
-ENV JAVA_OPTS="-Dagrold.name=${NAME} -Dagrold.description=${AGROLD_DESCRIPTION}" 
+ENV CATALINA_OPTS="-Dagrold.description=${AGROLD_DESCRIPTION}" 

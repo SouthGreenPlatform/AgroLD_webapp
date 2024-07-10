@@ -6,8 +6,8 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="container">
-            <a class="navbar-brand" href="/${System.getProperty('agrold.name', 'aldp')}">
-                <span class="ribbon ${System.getProperty('agrold.instance').toLowerCase() == 'dev' ? 'bg-info' : 'd-none'}">DEV</span>
+            <a class="navbar-brand" href="/agrold">
+                <span class="ribbon ${System.getProperty('agrold.instance', 'a').toLowerCase() == 'dev' ? 'bg-info' : 'd-none'}">DEV</span>
                 <img src="images/v5.png">
             </a>
 

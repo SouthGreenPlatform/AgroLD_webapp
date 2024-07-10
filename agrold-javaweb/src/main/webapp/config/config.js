@@ -1,4 +1,4 @@
-WEBAPPURL= "/" + (system_context ?? "aldp")
+WEBAPPURL= "/agrold"
 
 // still constant in :
 // /Users/zadmin/agrold/git/AgroLD/agrold/src/main/webapp/bc_sparqleditor.jsp

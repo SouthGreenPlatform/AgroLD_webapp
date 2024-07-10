@@ -69,7 +69,6 @@ jobs:
         uses: docker/build-push-action@v6.3.0
         with:
           build-args: |
-            AGROLD_NAME=agrold
             AGROLD_DESCRIPTION="agrold production instance"
             GIT_COMMIT=${{ needs.variables.outputs.sha_short }}
             BUILD_DATE=${{ needs.variables.outputs.build_date }}
