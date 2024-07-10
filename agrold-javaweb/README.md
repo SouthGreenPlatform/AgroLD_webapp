@@ -24,7 +24,6 @@ Le déploiement de l'application se fait premièrement avec des propriétés Jav
 
 |            Name            |                                Description                                 |       Valeur par défaut       |
 | :------------------------: | :------------------------------------------------------------------------: | :---------------------------: |
-|       `agrold.name`        | Nom de l'archive et du contexte `aldp` on a `https://<un domaine>/agrold`) |            `aldp`             |
 |    `agrold.description`    |                      Description affichée dans Tomcat                      |              :x:              |
 |  `agrold.sparql_endpoint`  |                          Url de l'endpoint SPARQL                          | `http://sparql.southgreen.fr` |
 | `agrold.db_connection_url` |          Url de la base de données ex: `[host]:[port]/[db]?[opt]`          |              :x:              |
@@ -56,31 +55,19 @@ sudo systemctl edit tomcat8 #ou tomcat7/9
 Environment="CATALINA_OPTS='-Dagrold.blabla=valeur'"
 ```
 
-Pour compiler lancez maven à la racine du projet, Il est possible de passer la propriété `agrold.name` en argument de maven
-
-```bash
-mvn clean install
-
-# ou
-
-mvn clean install -Dagrold.name=un_nom # vous accéderez à l'application via https://<votre url>/un_nom
-```
-
 Si vous utilisez docker:
 
 ```bash
 cd agrold-javaweb/
 
-# Vous pouvez utiliser le dockerfile
-#                          la valeur de agrold.name
-docker build . -t <tag> --build-arg AGROLD_NAME=agrolddev
+docker build . -t <tag>
 
 # Ou pull l'image stockée depuis le registre dans l'environnement de développement,
-docker login 10.9.2.21:8080 -u <user> -p <password>
-docker pull 10.9.2.21:8080
+docker login harbor.dev.agrold.fr -u <user> -p <password>
+docker pull harbor.dev.agrold.fr
 
 # Lancer le conteneur
-docker run -p 8080:8080 <tag>
+docker run -p 8080:8080 -e CATALINA_OPTS="-Dagrold.blabla=valeur" <tag>
 ```
 
 > [!NOTE]

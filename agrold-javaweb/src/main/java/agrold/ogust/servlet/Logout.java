@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class Logout extends HttpServlet {
-    public static final String URL_REDIRECTION = "/" + System.getProperty("agrold.name", "aldp");
+    public static final String URL_REDIRECTION = "/agrold";
 
     public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
         /* Récupération et destruction de la session en cours */

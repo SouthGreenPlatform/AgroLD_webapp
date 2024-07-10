@@ -42,10 +42,10 @@ public class CustomizableServicesManager {
             // Host only has hostname and port, meaning no protocol
             String strippedUrl = host.replaceAll("http://", "").replaceAll("https://", "");
 
-            // here we will fill the host property defined by the hosts from incoming requests & the system property agrold.name
+            // here we will fill the host property defined by the hosts from incoming requests
             jsonObj.put("host", strippedUrl);
 
-            jsonObj.put("basePath", "/" + System.getProperty("agrold.name", "aldp") + "/api");
+            jsonObj.put("basePath", "/agrold/api");
             
             reader.close();
         } catch (FileNotFoundException e) {

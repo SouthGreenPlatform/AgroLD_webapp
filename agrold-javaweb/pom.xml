@@ -11,11 +11,10 @@
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <agrold.name>aldp</agrold.name>
         <CATALINA_OPTS></CATALINA_OPTS>
     </properties>
 
-    <name>agrold-javaweb-${agrold.name}</name>
+    <name>agrold-javaweb</name>
 
     <repositories>
         <!--repository>
@@ -199,7 +198,7 @@
                                 </env>
                                 <volumes>
                                     <bind>
-                                        <volume>${project.basedir}/target/${agrold.name}:/app/${agrold.name}</volume>
+                                        <volume>${project.basedir}/target/agrold:/app/agrold</volume>
                                     </bind>
                                 </volumes>
                                 <log>
@@ -229,7 +228,7 @@
                 </configuration>
             </plugin>
         </plugins>
-        <finalName>${agrold.name}</finalName>
+        <finalName>agrold</finalName>
     </build>
 
 </project>
