@@ -8,7 +8,9 @@
         </button>
         <div class="container">
             <a class="navbar-brand" href="/agrold">
-                <span class="ribbon ${System.getProperty('agrold.instance', 'a').toLowerCase() == 'dev' ? 'bg-info' : 'd-none'}">DEV</span>
+                <span class="ribbon ${System.getProperty('agrold.instance', 'a').toLowerCase() == 'dev'? 'bg-info': (System.getProperty('agrold.instance', 'a').toLowerCase() == 'local'? 'bg-warning': 'd-none')}">
+                    ${System.getProperty('agrold.instance', 'a').toLowerCase() == 'local'? 'LOCAL': 'DEV'}
+                </span>
                 <img src="images/v5.png">
             </a>
 
