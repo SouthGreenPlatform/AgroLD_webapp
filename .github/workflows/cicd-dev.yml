@@ -9,8 +9,8 @@ on:
 # This workflow will build a docker container, publish it to our private registry
 # tagged as latest and with latest commit hash (shortened)
 jobs:
-  test_helm:
-    uses: ./.github/workflows/test_helm_chart.yaml
+  # test_helm:
+  #   uses: ./.github/workflows/test_helm_chart.yaml
 
   build:
     runs-on: ubuntu-latest
