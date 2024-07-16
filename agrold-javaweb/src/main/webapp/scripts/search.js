@@ -28,14 +28,22 @@ function drawResultTable(data, entityType, keyword, page) {
  * 
  */
 function search(entityType, keyword, page) {
+    console.log("AGROLDAPIJSONURL-_search.js :" + AGROLDAPIJSONURL);
+    console.log("entityType-_search.js :" + entityType);
+    console.log("keyword-_search.js : " + keyword);
     window.swagger = new SwaggerClient({
-        url: AGROLDAPIJSONURL,
+        //url: "http://localhost:8080/aldp/api/webservices",
+        url: window.location.origin+AGROLDAPIJSONURL,
+        // print AGROLDAPIJSONURL value in console
         success: function () {
             displayHoldMessage("#result");
             switch (entityType) {
                 case "gene":
                     swagger.apis.gene.getGenesByKeyWord({format: DEFAULTAPIFORMAT, keyword: keyword, pageSize: DEFAULT_PAGE_SIZE, page: page},
                     {responseContentType: 'application/json'}, function (data) {
+                        console.log("AGROLDAPIJSONURL-_search_case_Gene.js :" + AGROLDAPIJSONURL);
+                        console.log("entityType-_search.js_case_gene :" + entityType);
+                        console.log("keyword-_search.js_case_gene : " + keyword);
                         drawResultTable(data, entityType, keyword, page);
                     });
                     break;
