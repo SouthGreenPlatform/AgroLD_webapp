@@ -48,7 +48,8 @@ public class Utils {
     public final static String DEFAULT_PAGE_SIZE = "10";
     public final static String DEFAULT_PAGE = "0";
     
-    public static final String AGROLDAPIJSONURL = java.lang.Thread.currentThread().getContextClassLoader().getResource("/../../agrold-api.json").getPath(); // en ligne i.e. sur volvestre
+    // define the path to the agrold-api.json file within the project folder
+    public static final String AGROLDAPIJSONURL = java.lang.Thread.currentThread().getContextClassLoader().getResource("../../agrold-api.json").getPath(); // en ligne i.e. sur volvestre
 
     public static String sparqlEndpointURL = System.getProperty("agrold.sparql_endpoint", "http://sparql.southgreen.fr");
 
@@ -131,7 +132,9 @@ public class Utils {
 
     public static String executeSparqlQuery(String sparqlQuery, String sparqlEndpoint, String responseContentType) throws MalformedURLException, IOException {
         //System.out.println("BEGINNING...");
-        System.out.println(sparqlQuery);
+        System.out.println("AGROLDAPIJSONURL-from Utils.java: " + AGROLDAPIJSONURL);
+        System.out.println("sparqlEndpoint: " + sparqlEndpoint);
+        System.out.println("sparqlQuery: " + sparqlQuery);
         String result = "";
 
         String defaultGraphURI = "";
@@ -386,9 +389,10 @@ public class Utils {
     }
 
     public static void main(String[] args) throws IOException {
+        System.out.println(getEntitiesByKeyWord("TCP2", GeneDAO.TYPEURIs, 0, 10, TSV));
         //System.out.println(getEntitiesByKeyWord("coding", GeneDAO.TYPEURIs, 0, 30, TSV));
-        System.out.println(getEntitiesByKeyWord("ethanol degradation", new String[]{METABOLIC_PATHWAY, PATHWAY_IDENTIFIER, PATHWAY_TYPE1}, 0, 30, TSV));
+        // System.out.println(getEntitiesByKeyWord("ethanol degradation", new String[]{METABOLIC_PATHWAY, PATHWAY_IDENTIFIER, PATHWAY_TYPE1}, 0, 30, TSV));
         //System.out.println(getEntitiesByKeyWord("plant height", new String[]{"http://www.w3.org/2002/07/owl#Class"}, 0, 10, TSV));
-//System.out.println(executeSparqlQuery("select distinct ?Concept where {[] a ?Concept} LIMIT 5", sparqlEndpointURL, "text/html"));
+        //System.out.println(executeSparqlQuery("select distinct ?Concept where {[] a ?Concept} LIMIT 5", sparqlEndpointURL, "text/html"));
     }
 }
