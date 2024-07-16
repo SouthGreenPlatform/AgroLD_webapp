@@ -29,7 +29,7 @@ function drawResultTable(data, entityType, keyword, page) {
  */
 function search(entityType, keyword, page) {
     window.swagger = new SwaggerClient({
-        url: AGROLDAPIJSONURL,
+        url:  window.location.origin+AGROLDAPIJSONURL,
         success: function () {
             displayHoldMessage("#result");
             switch (entityType) {
