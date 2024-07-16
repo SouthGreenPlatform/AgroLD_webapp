@@ -13,6 +13,7 @@ jobs:
       sha_short: ${{ steps.variables.outputs.sha_short }}
       build_date: ${{ steps.variables.outputs.build_date }}
       no_v: ${{ steps.set_version.outputs.no_v }}
+      docker_hub_user: ${{ steps.set_version.outputs.docker_hub_user }}
 
 
     steps:
@@ -34,6 +35,11 @@ jobs:
             const no_v = tag.replace('v', '')
             core.setOutput('no_v', no_v)
 
+            core.setSecret('myPassword'); //hides the username
+
+            const docker_hub_user = '${{ secrets.DOCKER_HUB_USER }}'
+            core.setOutput('docker_hub_user', docker_hub_user)
+
   publish_helm:
     needs: variables
     runs-on: ubuntu-latest
@@ -50,6 +56,20 @@ jobs:
     needs: variables
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        target: [ghcr, docker]
+        include:
+          - target: ghcr
+            repo: ghcr.io/southgreenplatform
+            registry: ghcr.io
+            username: ${{ github.actor }}
+            password: GITHUB_TOKEN
+          - target: docker
+            repo: agroldapp
+            username: ${{ needs.variables.outputs.docker_hub_user }}
+            password: DOCKER_HUB_PASSWORD
+
     steps:
       - uses: actions/checkout@v4
 
@@ -61,21 +81,21 @@ jobs:
       - name: Login to ghcr.io
         uses: docker/login-action@v3.2.0
         with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: ${{ matrix.registry }}
+          username: ${{ matrix.username}}
+          password: ${{ secrets[matrix.password] }}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v6.3.0
         with:
           build-args: |
-            AGROLD_DESCRIPTION="agrold production instance"
+            AGROLD_DESCRIPTION="Edit this description with the `agrold.description` property!"
             GIT_COMMIT=${{ needs.variables.outputs.sha_short }}
             BUILD_DATE=${{ needs.variables.outputs.build_date }}
           push: true
           context: ./agrold-javaweb
           file: ./agrold-javaweb/Dockerfile
-          tags: ghcr.io/southgreenplatform/agrold:${{ needs.variables.outputs.no_v }},ghcr.io/southgreenplatform/agrold:latest
+          tags: ${{ matrix.repo }}/agrold:${{ needs.variables.outputs.no_v }},${{ matrix.repo }}/agrold:latest
 
   release:
     needs: [publish_helm, build_n_push_prod]
