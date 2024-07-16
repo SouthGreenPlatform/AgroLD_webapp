@@ -46,7 +46,7 @@ public class GeneralServicesDAO {
 //    }
 
     public static String getIRIDescription4visualization(String IRI, int page, int pageSize) throws IOException {
-        String sparqlQueryHasValue = "BASE <http://www.southgreen.fr/agrold/>\n"
+        String sparqlQueryHasValue = "BASE <http://purl.agrold.org/>\n"
                 + "PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
                 + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "SELECT ?graph ?property ?hasValue ?isValueOf (group_concat(distinct concat(?hasValueType) ;separator=\"; \") as ?type)\n"
@@ -60,7 +60,7 @@ public class GeneralServicesDAO {
                 + "}";
         sparqlQueryHasValue  = Utils.addLimitAndOffset(sparqlQueryHasValue, pageSize, page);
         JSONArray resultsHasValue = new JSONArray(Utils.executeSparqlQuery(sparqlQueryHasValue, Utils.sparqlEndpointURL, Utils.JSON)); 
-        String sparqlQueryIsValueOf = "BASE <http://www.southgreen.fr/agrold/>\n"
+        String sparqlQueryIsValueOf = "BASE <http://purl.agrold.org/>\n"
                 + "PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
                 + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "SELECT ?graph ?property ?hasValue ?isValueOf (group_concat(distinct concat(?isValueOfType) ;separator=\"; \") as ?type)\n"
@@ -83,7 +83,7 @@ public class GeneralServicesDAO {
     }
 
     public static String getIRIDescription(String IRI, int page, int pageSize, String resultFormat) throws IOException {
-        String sparqlQuery = "BASE <http://www.southgreen.fr/agrold/>\n"
+        String sparqlQuery = "BASE <http://purl.agrold.org/>\n"
                 + "PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
                 + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "SELECT ?graph ?property ?hasValue ?isValueOf (group_concat(distinct concat(?hasValueType, ?isValueOfType) ;separator=\"; \") as ?type)\n"
@@ -106,7 +106,7 @@ public class GeneralServicesDAO {
                 + " GRAPH ?graph {\n"
                 + "   ?subject ?predicate ?object.\n"
                 + " }\n"
-                + " filter(REGEX(?graph, \"http://www.southgreen.fr/agrold/*\"))\n"
+                + " filter(REGEX(?graph, \"http://purl.agrold.org\"))\n"
                 + "}"
                 + "ORDER BY str(?graph)";
         //+ "GROUP BY ?property";
@@ -126,7 +126,7 @@ public class GeneralServicesDAO {
      * @throws java.io.IOException
      */
     public static String getPredicates(String graphLocalName, int page, int pageSize, String resultFormat) throws IOException {
-        String sparqlQuery = "BASE <http://www.southgreen.fr/agrold/>\n"
+        String sparqlQuery = "BASE <http://purl.agrold.org/>\n"
                 + "PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
                 + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
                 + (graphLocalName == null || graphLocalName.isEmpty() ? "" : "PREFIX graph:<" + graphLocalName + ">\n")
@@ -145,7 +145,7 @@ public class GeneralServicesDAO {
 
     public static void main(String[] args) throws IOException {
         System.out.println(getIRIDescription4visualization
-        ("http://www.southgreen.fr/agrold/chromosome/4536:Oryza_nivara_v1.0:10:1-21549876:1", 0, 2000));
+        ("http://purl.agrold.org/resource/chromosome/4536:Oryza_nivara_v1.0:10:1-21549876:1", 0, 2000));
         String API_JSON_SPEC_PATH = "";
         //queryCustomizableService("sala", null, 0, 10, ".json");
         //readAPISpecification(Utils.AGROLDAPIJSONURL);
