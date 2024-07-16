@@ -12,6 +12,56 @@ entries:
           image: docker.io/bitnami/tomcat:10.1.20-debian-12-r0
       licenses: Apache-2.0
     apiVersion: v2
+    appVersion: 2.2.0
+    created: "2024-07-16T08:36:31.574739872Z"
+    dependencies:
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: 'This helm chart aims to deploy AgroLD with Tomcat.  It is based
+      on bitnami''s helm chart for Tomcat, version 11.0.0  Original description: Apache
+      Tomcat is an open-source web server designed to host and run Java-based web
+      applications. It is a lightweight server with a good performance for applications '
+    digest: 32b7d0076a3c86535f61615038035434d7435b1904f07caf703adfe03780e151
+    home: https://github.com/SouthGreenPlatform/AgroLD_webapp/tree/master
+    icon: https://raw.githubusercontent.com/SouthGreenPlatform/AgroLD_webapp/0513e23f842864379a635998897eb98d2d3eec6b/agrold-javaweb/src/main/webapp/images/Sans%20titre-1.png
+    keywords:
+    - tomcat
+    - java
+    - http
+    - web
+    - application server
+    - jsp
+    - RDF
+    - SPARQL
+    - Semantic Web
+    maintainers:
+    - name: VMware, Inc.
+      url: https://github.com/bitnami/charts
+    - name: Yann POMIE
+      url: https://yann-pomie.fr
+    - name: Pierre LARMANDE
+      url: https://sites.google.com/site/larmandepierre
+    name: agrold
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/tomcat
+    - https://github.com/SouthGreenPlatform/AgroLD_webapp
+    urls:
+    - https://SouthGreenPlatform.github.io/AgroLD_webapp/agrold-2.0.2.tgz
+    version: 2.0.2
+  - annotations:
+      category: ApplicationServer
+      images: |
+        - name: jmx-exporter
+          image: docker.io/bitnami/jmx-exporter:0.20.0-debian-12-r12
+        - name: os-shell
+          image: docker.io/bitnami/os-shell:12-debian-12-r17
+        - name: tomcat
+          image: docker.io/bitnami/tomcat:10.1.20-debian-12-r0
+      licenses: Apache-2.0
+    apiVersion: v2
     appVersion: 2.1.1
     created: "2024-04-29T10:06:01.058508452Z"
     dependencies:
@@ -103,10 +153,10 @@ entries:
     version: 2.0.0
   virtuoso:
   - apiVersion: v2
-    appVersion: 7.2.11
-    created: "2024-04-29T10:06:01.165779349Z"
+    appVersion: 2.2.0
+    created: "2024-07-16T08:36:31.5752391Z"
     description: 'A Helm chart to deploy a Virtuoso instance with a SPARQL endpoint '
-    digest: 5a2eacd4bdf8ee3b769202b471119a910661260f0397e37364596ede46ca63a9
+    digest: ca4809b6c7403ffadd410ccdfaf74ae587f654fa2c9c9b28f8a770585d71a5e6
     icon: https://store-images.s-microsoft.com/image/apps.27150.557b4e93-c573-4bac-97ec-a7edc7a03135.f218a1cc-095b-4626-b120-86e757fd27c2.84200834-db12-40c5-b2b6-fd52ac58201a
     maintainers:
     - name: Yann POMIE
@@ -114,6 +164,6 @@ entries:
     name: virtuoso
     type: application
     urls:
-    - https://github.com/SouthGreenPlatform/AgroLD_webapp/releases/download/virtuoso-1.0.1/virtuoso-1.0.1.tgz
+    - https://SouthGreenPlatform.github.io/AgroLD_webapp/virtuoso-1.0.1.tgz
     version: 1.0.1
-generated: "2024-04-29T10:06:01.165793305Z"
+generated: "2024-07-16T08:36:31.571681669Z"
