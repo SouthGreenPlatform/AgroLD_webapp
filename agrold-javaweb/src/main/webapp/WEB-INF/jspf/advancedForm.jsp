@@ -9,7 +9,7 @@
     <li>Gene: keyword 'stachyose' or name 'TCP2'.</li>
     <li>Pathway:  keywords 'fermentation' or 'acetate' or 'cytokinins'</li>
     <li>protein:  name 'TBP1', keyword 'qtl'</li>
-    <li>QTL: name 'BNL6.32' or keyword 'trait'</li>
+    <li>QTL: name 'BNL6.32' or keyword 'trait'</li><li>Blablabla</li>
     </ul-->
 Some examples:<br/>
 ontological concepts: 'plant height' or 'regulation of gene expression'.<br/>
@@ -17,6 +17,7 @@ ontological concepts: 'plant height' or 'regulation of gene expression'.<br/>
     Pathway:  keywords 'fermentation' or 'acetate' or 'cytokinins'.<br/>
     protein:  name 'TBP1', keyword 'qtl'.<br/>
     QTL: name 'BNL6.32' or keyword 'trait'.<br/>
+    BLABLALBA - CHI CHI CHI '.<br/>
 </div>
 
 <!--<center>
@@ -104,6 +105,7 @@ ontological concepts: 'plant height' or 'regulation of gene expression'.<br/>
         e.stopPropagation();
         e.preventDefault();
         /* Keyword ok ? */
+        console.log($('#keyword').val());
         if ($('#afft').attr('value') === "") {
             $("#message").html('Select a type please');
         } else {
@@ -116,9 +118,11 @@ ontological concepts: 'plant height' or 'regulation of gene expression'.<br/>
             else
                 HISTORY=false;
             search(SearchContext.type, SearchContext.keyword, 0);
+            console.log(SearchContext.type,SearchContext.keyword,SearchContext.uri, );
+            console.log("AGROLDAPIJSONURL_from_advancedForm: " + AGROLDAPIJSONURL);
         }
     });
-    /* Switch pour émuler un select:option */
+    /* Switch pour ï¿½muler un select:option */
     $(document).ready(function (e) {
         $('.cht a').click(function (e) {
             e.preventDefault();
@@ -127,7 +131,7 @@ ontological concepts: 'plant height' or 'regulation of gene expression'.<br/>
             $('#afft').text(concept);
             $('#afft').val(param);
         });
-        // On va regarder si l'uilisateur consulte son historique de recherche avancée
+        // On va regarder si l'uilisateur consulte son historique de recherche avancï¿½e
         if(hk !== '' && ht!==''){
             HISTORY = true;
             $('#keyword').attr('value',hk);
@@ -136,7 +140,7 @@ ontological concepts: 'plant height' or 'regulation of gene expression'.<br/>
             $('#jcb').click();
         }
     });
-    /* Récupération des éléments du formulaire de recherche */
+    /* Rï¿½cupï¿½ration des ï¿½lï¿½ments du formulaire de recherche */
     function checkForm() {
         SearchContext.type = $('#afft').attr('value');
         SearchContext.keyword = $('#keyword').val();
