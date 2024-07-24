@@ -31,42 +31,11 @@
         <servlet-name>javax.ws.rs.core.Application</servlet-name>
         <url-pattern>/api/*</url-pattern>
     </servlet-mapping>
-    <!--servlet>
-        <servlet-name>Login</servlet-name>
-        <servlet-class>agrold.ogust.servlet.Connection</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>Register</servlet-name>
-        <servlet-class>agrold.ogust.servlet.Register</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>Logout</servlet-name>
-        <servlet-class>agrold.ogust.servlet.Logout</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>Member</servlet-name>
-        <servlet-class>agrold.ogust.servlet.Restriction</servlet-class>
-    </servlet>
+    <!--
     <servlet>
         <servlet-name>ToolHistory</servlet-name>
         <servlet-class>agrold.ogust.servlet.ToolHistory</servlet-class>
     </servlet>
-    <servlet-mapping>
-        <servlet-name>Login</servlet-name>
-        <url-pattern>/Login</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>Register</servlet-name>
-        <url-pattern>/Register</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>Logout</servlet-name>
-        <url-pattern>/Logout</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>Member</servlet-name>
-        <url-pattern>/Member</url-pattern>
-    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ToolHistory</servlet-name>
         <url-pattern>/ToolHistory</url-pattern>

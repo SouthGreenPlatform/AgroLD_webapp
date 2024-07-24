@@ -5,30 +5,26 @@
  */
 package agrold.ogust.beans;
 import java.sql.Date;
+
+import lombok.AllArgsConstructor;
 /**
  *
  * @author Jc
  */
-public class visitedPage {
+@AllArgsConstructor
+public class VisitedPage {
 
     private String page;
     private String visitor;
-    private Date date;
+    private Date date;  
 
-    public visitedPage(String page, String visitor) {
+    public VisitedPage(String page, String visitor) {
         this.page = page;
         this.visitor = visitor;
     }
 
-    public visitedPage(String page, String visitor, Date date) {
-        this.page = page;
-        this.visitor = visitor;
-        this.date = date;
-    }
-
-    public visitedPage(String page) {
+    public VisitedPage(String page) {
         this.page = page;
     }
-    
     
 }
