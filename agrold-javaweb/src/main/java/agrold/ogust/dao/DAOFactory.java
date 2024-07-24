@@ -21,16 +21,11 @@ public class DAOFactory {
     private static final String PROPERTY_DRIVER          = MySQLProperties.getDriver(); // "driver" ;// 
     private static final String PROPERTY_NOM_UTILISATEUR = MySQLProperties.getUtilisateur(); // "nomutilisateur" ;//  
     private static final String PROPERTY_MOT_DE_PASSE    = MySQLProperties.getMotDePasse(); // "motdepasse" ;//  
+    private static final boolean ENABLED                 = PROPERTY_DRIVER != null && 
+                                                           PROPERTY_URL != null && 
+                                                           PROPERTY_NOM_UTILISATEUR != null && 
+                                                           PROPERTY_MOT_DE_PASSE != null;
     ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-//    private String url;
-//    private String username;
-//    private String password;
-//
-//    DAOFactory( String url, String username, String password ) {
-//        this.url = url;
-//        this.username = username;
-//        this.password = password;
-//    }
 
     /*
      * Méthode chargée de récupérer les informations de connexion à la base de
@@ -50,31 +45,13 @@ public class DAOFactory {
     /* Méthode chargée de fournir une connexion à la base de données */
     /* package */
     Connection getConnection() throws SQLException {
-//        System.out.println("PROPERTY_URL: " + PROPERTY_URL);
-//        System.out.println("PROPERTY_NOM_UTILISATEUR: " + PROPERTY_NOM_UTILISATEUR);
-//        System.out.println("PROPERTY_MOT_DE_PASSE: " + PROPERTY_MOT_DE_PASSE);
         return DriverManager.getConnection( PROPERTY_URL, PROPERTY_NOM_UTILISATEUR, PROPERTY_MOT_DE_PASSE );
     }
      
     /*
      * Méthodes de récupération de l'implémentation des différents DAO
      */
-    public UserDAOImpl getUserDAO() {
-        return new UserDAOImpl( this );
-    }
-    public AdminDAOImpl getAdminDAO() {
-        return new AdminDAOImpl( this );
-    }
     public Tracking getTracking() {
         return new Tracking( this );
-    }
-    public HistoryDAOImpl getHistoryDAO(){
-        return new HistoryDAOImpl( this );
-    }
-    public UserInfoDAO getUserInfoDAO(){
-        return new UserInfoDAO( this );
-    }
-    public HistorySettingsDAO getHistorySettingsDAO(){
-        return new HistorySettingsDAO( this );
     }
 }
