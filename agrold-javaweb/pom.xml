@@ -110,18 +110,6 @@
             <artifactId>json</artifactId>
             <version>20240303</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
-        <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>42.7.3</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/io.swagger.core.v3/swagger-models -->
-        <dependency>
-            <groupId>io.swagger.core.v3</groupId>
-            <artifactId>swagger-models</artifactId>
-            <version>2.2.22</version>
-        </dependency>
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
