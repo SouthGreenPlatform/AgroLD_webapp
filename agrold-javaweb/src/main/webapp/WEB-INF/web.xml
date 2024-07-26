@@ -4,23 +4,12 @@
         - quick search, sparql editor with patterns, relationships discovery, visual query system, advanced form-based search 
         - RESTful-like API (wrapping complexe biological questions)</description>
     <display-name>${agrold.description}</display-name>
-    <filter>
-        <filter-name>RestrictionFilter</filter-name>
-        <filter-class>agrold.ogust.filters.RestrictionFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>RestrictionFilter</filter-name>
-        <url-pattern>/META-INF</url-pattern>
-    </filter-mapping>
-    <listener>
-        <listener-class>agrold.ogust.config.InitDAOFactory</listener-class>
-    </listener>
     <servlet>
         <servlet-name>jersey-serlvet</servlet-name>
         <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
         <init-param>
             <param-name>javax.ws.rs.Application</param-name>
-            <param-value>agrold.webservices.AuthentificationFilterRegister</param-value>
+            <param-value></param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
@@ -31,15 +20,6 @@
         <servlet-name>javax.ws.rs.core.Application</servlet-name>
         <url-pattern>/api/*</url-pattern>
     </servlet-mapping>
-    <!--
-    <servlet>
-        <servlet-name>ToolHistory</servlet-name>
-        <servlet-class>agrold.ogust.servlet.ToolHistory</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ToolHistory</servlet-name>
-        <url-pattern>/ToolHistory</url-pattern>
-    </servlet-mapping-->
     <session-config>
         <session-timeout>
             30
@@ -49,11 +29,6 @@
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
     <jsp-config>
-        <!--jsp-property-group>
-            <description>KnetMaps.js Graphe Visualisation tool</description>
-            <display-name>knetmaps</display-name>
-            <url-pattern>/knetmaps</url-pattern>
-        </jsp-property-group-->
         <jsp-property-group>
             <description>RelFinder Visualisation tool</description>
             <display-name>relfinder</display-name>
