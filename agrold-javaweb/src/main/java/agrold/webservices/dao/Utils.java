@@ -39,6 +39,8 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
+import agrold.config.PropertiesBean;
+
 /**
  *
  * @author zadmin
@@ -50,7 +52,7 @@ public class Utils {
     
     public static final String AGROLDAPIJSONURL = java.lang.Thread.currentThread().getContextClassLoader().getResource("/../../agrold-api.json").getPath(); // en ligne i.e. sur volvestre
 
-    public static String sparqlEndpointURL = System.getProperty("agrold.sparql_endpoint", "http://sparql.southgreen.fr");
+    public static String sparqlEndpointURL = PropertiesBean.getSparqlEndpoint();
 
     public final static String CSV = "text/csv"; //CSV, HTML, JSON, N3, RDF, JSON_LD, TSV, TTL, XML
     public final static String HTML = "text/html"; // "text/csv", "application/json", "text/plain","text/turtle", "application/sparql-results+xml", "application/rdf+xml","text/tab-separated-values", "application/sparql-results+json", 

@@ -5,8 +5,8 @@
  */
 package agrold.webservices;
 
-import agrold.webservices.dao.CustomizableServicesManager;
 import agrold.webservices.dao.Utils;
+
 import static agrold.webservices.dao.Utils.DEFAULT_PAGE;
 import static agrold.webservices.dao.Utils.DEFAULT_PAGE_SIZE;
 import agrold.webservices.dao.GeneDAO;
@@ -15,39 +15,25 @@ import agrold.webservices.dao.OntologyDAO;
 import agrold.webservices.dao.PathwayDAO;
 import agrold.webservices.dao.ProteinDAO;
 import agrold.webservices.dao.QtlDAO;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.net.URISyntaxException;
-import java.util.List;
-import javax.annotation.security.RolesAllowed;
-import javax.ws.rs.DELETE;
 import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
-import javax.ws.rs.HeaderParam;
 import javax.ws.rs.WebApplicationException;
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.UriInfo;
+import javax.ws.rs.core.Application;
 
 /**
  *
  * @author zadmin
  */
 @Path("/")
-public class API {
+public class API extends Application {
 
     static final String formatVar = "format";
     static final String formatInPath = "{" + formatVar + ":([.].+?)?}"; // optional path
@@ -75,83 +61,6 @@ public class API {
                     .build();
         }
         return Response.ok(content, contentType).build();
-    }
-
-    String inputStream2String(InputStream incomingData){
-        StringBuilder bodyParamsBuilder = new StringBuilder();
-        try {
-            BufferedReader in = new BufferedReader(new InputStreamReader(incomingData));
-            String line = null;
-            while ((line = in.readLine()) != null) {
-                bodyParamsBuilder.append(line);
-            }
-        } catch (Exception e) {
-            System.out.println("Error Parsing: - ");
-        }
-        //System.out.println("Data Received: " + bodyParamsBuilder.toString());
-        return bodyParamsBuilder.toString();
-    }
-    
-    // generic web service for modifiables ones    
-    @GET
-    // @Consumes(MediaType.APPLICATION_JSON) // for "in body parameters"
-    @Path("/customizable/{serviceLocalName}")
-    public Response genericGet(@PathParam("serviceLocalName") String serviceLocalName, @Context UriInfo uriInfo, @Context HttpHeaders headers) throws IOException {        
-        List<MediaType> mediaTypes = headers.getAcceptableMediaTypes();
-        MediaType reponseMediaType = mediaTypes.get(0);
-        if (reponseMediaType == null) {
-            return Response.serverError()
-                    .entity("[AgroLD Web Services] - Format Error: The requested resource is not available in the format \"" + mediaTypes.get(0) + "\"")
-                    .build();
-        }
-        String content = CustomizableServicesManager.queryCustomizableService(serviceLocalName, uriInfo.getQueryParameters(), "get", reponseMediaType, headers.HOST);
-        return buildResponse(content, reponseMediaType.toString());
-    }
-
-    /*public Response genericGet(@PathParam("serviceLocalName") String serviceLocalName, @PathParam(formatVar) String format, @Context UriInfo uriInfo,
-            @DefaultValue(DEFAULT_PAGE) @QueryParam(pageNumVar) int page,
-            @DefaultValue(DEFAULT_PAGE_SIZE) @QueryParam(pageSizeVar) int pageSize) throws IOException {
-        String contentType = Utils.getFormatFullName(format);
-        if (contentType == null) {
-            return Response.serverError()
-                    .entity("[AgroLD Web Services] - Format Error: The requested resource is not available in the format \"" + format + "\"")
-                    .build();
-        }
-        String content = CustomizableServicesManager.queryCustomizableService(serviceLocalName, uriInfo.getQueryParameters(), page, pageSize, format);
-        return buildResponse(content, contentType);
-    }*/
-    // generic web service for modifiables ones    
-    @GET
-    @Path("/webservices")
-    public Response getAPISpecification(@HeaderParam("Host") String host) throws IOException {
-        String content = CustomizableServicesManager.readAPISpecification(Utils.AGROLDAPIJSONURL, host);
-        return buildResponse(content, Utils.JSON);
-    }
-
-    // generic web service for modifiables ones
-    @RolesAllowed("ADMIN")
-    @DELETE
-    @Produces(MediaType.TEXT_PLAIN)
-    @Path("/webservices")
-    public Response deleteService(@QueryParam("name") String name, @QueryParam("httpMethod") String httpMethod, @HeaderParam("Host") String host) throws IOException {        
-        String content = CustomizableServicesManager.deleteService(name, httpMethod, host); 
-        return buildResponse(content, MediaType.TEXT_PLAIN);
-    }
-
-    @RolesAllowed("ADMIN")
-    @PUT
-    @Path("/webservices")
-    public Response addService(@QueryParam("name") String name, @QueryParam("httpMethod") String httpMethod, InputStream specificationDataStream, @HeaderParam("Host") String host) throws IOException {       
-        String content = CustomizableServicesManager.addService(name, httpMethod, inputStream2String(specificationDataStream), host);
-        return buildResponse(content, MediaType.TEXT_PLAIN);
-    }
-
-    @RolesAllowed("ADMIN")
-    @POST
-    @Path("/webservices")
-    public Response updateService(@QueryParam("name") String name, @QueryParam("httpMethod") String httpMethod, InputStream specificationDataStream, @HeaderParam("Host") String host) throws IOException {
-        String content = CustomizableServicesManager.updateService(name, httpMethod, inputStream2String(specificationDataStream), host);
-        return buildResponse(content, MediaType.TEXT_PLAIN);
     }
 
     // Ontologies
@@ -617,38 +526,5 @@ public class API {
         }
         String content = OntologyDAO.getCountInstancesAssociatedWithOntologyId(keyword, page, pageSize, format);
         return buildResponse(content, contentType);
-    }
-
-    /**
-     * TEST
-     *
-     */
-    /**
-     *
-     * @param format
-     */
-    @GET
-    //@Path("/test/test1{format:([.].+?)?}")
-    @Path("/test/test1" + formatInPath)
-    public String testPathParam(@DefaultValue(".html")
-            @PathParam("format") String format) {
-        return "format value= " + format;
-    }
-
-    public static WebTarget createRequest(String uri) {
-        Client client = ClientBuilder.newClient();
-        return client.target("http://localhost:8080/agrold/api" + uri);
-        //return client.target("http://agrold.southgreen.fr/api" + uri);
-        //[{"gene":"http://identifiers.org/ensembl.plant/AIG90431","geneId":"AIG90431","geneName":"ndhJ","geneDescription":"NADH-plastoquinone oxidoreductase subunit J"},{"gene":"http://identifiers.org/ensembl.plant/AIG90432","geneId":"AIG90432","geneName":"ndhK","geneDescription":"NADH-plastoquinone oxidoreductase subunit K"},{"gene":"http://identifiers.org/ensembl.plant/AIG90433","geneId":"AIG90433","geneName":"ndhC","geneDescription":"NADH-plastoquinone oxidoreductase subunit 3"},{"gene":"http://identifiers.org/ensembl.plant/AIG90434","geneId":"AIG90434","geneName":"atpE","geneDescription":"ATP synthase CF1 epsilon subunit"},{"gene":"http://identifiers.org/ensembl.plant/AIG90435","geneId":"AIG90435","geneName":"atpB","geneDescription":"ATP synthase CF1 beta subunit"},{"gene":"http://identifiers.org/ensembl.plant/AIG90436","geneId":"AIG90436","geneName":"rbcL","geneDescription":"ribulose-1,5-bisphosphate carboxylase/oxygenase large subunit"},{"gene":"http://identifiers.org/ensembl.plant/AIG90437","geneId":"AIG90437","geneName":"psaI","geneDescription":"photosystem I subunit VIII"},{"gene":"http://identifiers.org/ensembl.plant/AIG90438","geneId":"AIG90438","geneName":"ycf4","geneDescription":"photosystem I assembly protein Ycf4"},{"gene":"http://identifiers.org/ensembl.plant/AIG90439","geneId":"AIG90439","geneName":"cemA","geneDescription":"chloroplast envelope membrane protein"},{"gene":"http://identifiers.org/ensembl.plant/BAE47665","geneId":"BAE47665","geneName":"rps1","geneDescription":"Ribosomal protein [Source:UniProtKB/TrEMBL;Acc:Q35985]"}]
-        //[{"gene":"http://identifiers.org/ensembl.plant/AIG90431","geneId":"AIG90431","geneName":"ndhJ","geneDescription":"NADH-plastoquinone oxidoreductase subunit J"},{"gene":"http://identifiers.org/ensembl.plant/AIG90432","geneId":"AIG90432","geneName":"ndhK","geneDescription":"NADH-plastoquinone oxidoreductase subunit K"},{"gene":"http://identifiers.org/ensembl.plant/AIG90433","geneId":"AIG90433","geneName":"ndhC","geneDescription":"NADH-plastoquinone oxidoreductase subunit 3"},{"gene":"http://identifiers.org/ensembl.plant/AIG90434","geneId":"AIG90434","geneName":"atpE","geneDescription":"ATP synthase CF1 epsilon subunit"},{"gene":"http://identifiers.org/ensembl.plant/AIG90435","geneId":"AIG90435","geneName":"atpB","geneDescription":"ATP synthase CF1 beta subunit"},{"gene":"http://identifiers.org/ensembl.plant/AIG90436","geneId":"AIG90436","geneName":"rbcL","geneDescription":"ribulose-1},{"gene":"http://identifiers.org/ensembl.plant/AIG90437","geneId":"AIG90437","geneName":"psaI","geneDescription":"photosystem I subunit VIII"},{"gene":"http://identifiers.org/ensembl.plant/AIG90438","geneId":"AIG90438","geneName":"ycf4","geneDescription":"photosystem I assembly protein Ycf4"},{"gene":"http://identifiers.org/ensembl.plant/AIG90439","geneId":"AIG90439","geneName":"cemA","geneDescription":"chloroplast envelope membrane protein"},{"gene":"http://identifiers.org/ensembl.plant/BAE47665","geneId":"BAE47665","geneName":"rps1","geneDescription":"Ribosomal protein [Source:UniProtKB/TrEMBL;Acc:Q35985]"}]
-        //[{"gene":"http://identifiers.org/ensembl.plant/AIG90431","geneId":"AIG90431","geneName":"ndhJ","geneDescription":"NADH-plastoquinone oxidoreductase subunit J"},{"gene":"http://identifiers.org/ensembl.plant/AIG90432","geneId":"AIG90432","geneName":"ndhK","geneDescription":"NADH-plastoquinone oxidoreductase subunit K"},{"gene":"http://identifiers.org/ensembl.plant/AIG90433","geneId":"AIG90433","geneName":"ndhC","geneDescription":"NADH-plastoquinone oxidoreductase subunit 3"},{"gene":"http://identifiers.org/ensembl.plant/AIG90434","geneId":"AIG90434","geneName":"atpE","geneDescription":"ATP synthase CF1 epsilon subunit"},{"gene":"http://identifiers.org/ensembl.plant/AIG90435","geneId":"AIG90435","geneName":"atpB","geneDescription":"ATP synthase CF1 beta subunit"},{"gene":"http://identifiers.org/ensembl.plant/AIG90436","geneId":"AIG90436","geneName":"rbcL","geneDescription":"ribulose-1,5-bisphosphate carboxylase/oxygenase large subunit"},{"gene":"http://identifiers.org/ensembl.plant/AIG90437","geneId":"AIG90437","geneName":"psaI","geneDescription":"photosystem I subunit VIII"},{"gene":"http://identifiers.org/ensembl.plant/AIG90438","geneId":"AIG90438","geneName":"ycf4","geneDescription":"photosystem I assembly protein Ycf4"},{"gene":"http://identifiers.org/ensembl.plant/AIG90439","geneId":"AIG90439","geneName":"cemA","geneDescription":"chloroplast envelope membrane protein"},{"gene":"http://identifiers.org/ensembl.plant/BAE47665","geneId":"BAE47665","geneName":"rps1","geneDescription":"Ribosomal protein [Source:UniProtKB/TrEMBL;Acc:Q35985]"}]
-    }
-
-    public static void main(String[] args) {
-        WebTarget target = createRequest("/describe?uri=http://www.southgreen.fr/agrold/ricecyc.pathway/FERMENTATION-PWY");
-        //WebTarget target = createRequest("/test/test1");
-        //WebTarget target = createRequest("/genes.json");
-        String response = target.request().get(String.class);
-        System.out.println(response);
     }
 }
