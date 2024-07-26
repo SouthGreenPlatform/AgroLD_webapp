@@ -9,7 +9,17 @@
         <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
         <init-param>
             <param-name>javax.ws.rs.Application</param-name>
-            <param-value></param-value>
+            <param-value>
+                io.swagger.v3.jaxrs2.integration.resources,
+                agrold.webservices
+            </param-value>
+        </init-param>
+        <init-param>
+            <param-name>jersey.config.server.provider.classnames</param-name>
+            <param-value>
+                io.swagger.v3.jaxrs2.integration.resources.OpenApiResource,
+                io.swagger.v3.jaxrs2.integration.resources.AcceptHeaderOpenApiResource
+            </param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
