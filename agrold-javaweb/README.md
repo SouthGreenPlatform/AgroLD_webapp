@@ -15,7 +15,6 @@ Vous pourrez voir comment paramétrer votre IDE dans [la section appropriée sur
 - Tomcat 7/8/9
 - JDK 17
 - Maven
-- mysql (sera bientôt agnostique ou retiré)
 - Docker (optionnel)
 
 #### Paramètres
@@ -73,23 +72,6 @@ docker run -p 8080:8080 -e CATALINA_OPTS="-Dagrold.blabla=valeur" <tag>
 > [!NOTE]
 > À noter que l'image docker crée prend pour base l'image [bitnami/tomcat](https://hub.docker.com/r/bitnami/tomcat/). Cela veut dire que vous pouvez configurer l'image d'AgroLD comme celle de bitnami sur certain points nottament la configuration de l'utilisateur manager de tomcat.
 
-### Sauvegarde des activités
-
-- Le fichier agrold-javaweb/ressources/agrold-api.json est la version de base de la spécification Swagger qui décrit les webservices et qui est fourni en ligne par le webservice GET /api/webservice.
-  Ce fichier est placé hors de l'application pour éviter que les modifications de l'application ne supprime les nouveaux services créés à partir de l'interface HTTP
-- La sauvegarde de l'historique des activités est inaccessible pour l'instant car les boutons de login et d'enregistrement sont désactivés
-- pour recréer un utilisateur: supprimer les lignes correspondant à son adresse email dans les tables `user`, `u_info`, `h_settings` de la BD `agrold`:
-
-```sql
-delete from u_info where mail="tagny@ymail.com";
-delete from user where mail="tagny@ymail.com";
-delete from h_settings where mail="tagny@ymail.com";
-delete from h_visited_page where visitor="tagny@ymail.com";
-delete from h_sparql_editor where mail="tagny@ymail.com";
-delete from h_quick_search where mail="tagny@ymail.com";
-delete from h_advanced_search where mail="tagny@ymail.com";
-```
-
 ### Services externes potentiels
 
 - https://www.ebi.ac.uk/proteins/api/doc
@@ -107,7 +89,6 @@ _italic_: peut-être résolu
 
 #### Advanced Search
 
-- le fichier `agrold-api.json` est téléchargé plusieurs fois ???
 - _corriger la requête sparql du service describe et celle des genesByPathwayIds_
 - Laisser l'utilisateur spécifier les paramètres `page`et `pageSize`?
 - _Les tables YASR apparaissent souvent aminçis dans les fenêtres de description d'entités_
@@ -143,15 +124,8 @@ ORDER BY ?p
 - Elliminer les exemples qui ne marchent pas
 - rendre les exemples cliquables pour éviter l'effort des copier-coller
 
-#### Historique utilisateur
-
-- Problème de connexion admin à la BD
-- Détection d'une duplication de clé à la création d'un nouvel utilisateur
-
 #### Web services
 
-- gestion de web services: ajouter les nouveaux tags, ajouter automatiquement le tag customizable
-- GUI de gestion des création,modif, suppr de services web: indexer les sparql, url, et paramètres de services dans un xml. une seule implémentation en java. L'url d'un service particulier est un paramètre dans l'adresse comme le format. la description dans le json pour swagger se fait en fixant les paramètres in URL
 - problème d'encodage dans l'affichage des publications
 - Certains services ne retournent que le format .json (il faut convertir la sortie pour d'autres formats)
 - L'implémentation des services n'est pas documentée sur Swagger (code SPARQL, sources externes des données, etc.)
