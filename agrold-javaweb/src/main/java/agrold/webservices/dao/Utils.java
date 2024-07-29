@@ -50,8 +50,6 @@ public class Utils {
     public final static String DEFAULT_PAGE_SIZE = "10";
     public final static String DEFAULT_PAGE = "0";
     
-    public static final String AGROLDAPIJSONURL = java.lang.Thread.currentThread().getContextClassLoader().getResource("/../../agrold-api.json").getPath(); // en ligne i.e. sur volvestre
-
     public static String sparqlEndpointURL = PropertiesBean.getSparqlEndpoint();
 
     public final static String CSV = "text/csv"; //CSV, HTML, JSON, N3, RDF, JSON_LD, TSV, TTL, XML
