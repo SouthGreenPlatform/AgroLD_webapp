@@ -73,8 +73,8 @@ extraDeploy: []
 ## @param image.debug Specify if debug logs should be enabled
 ##
 image:
-  registry: ghcr.io
-  repository: southgreenplatform/agrold
+  registry: docker.io
+  repository: agroldapp/agrold
   tag: 2.1.1
   digest: ""
   ## Specify a imagePullPolicy
@@ -390,7 +390,7 @@ sidecars: []
 persistence:
   ## @param persistence.enabled Enable persistence
   ##
-  enabled: true
+  enabled: false
   ## @param persistence.storageClass PVC Storage Class for Tomcat volume
   ## If defined, storageClassName: <storageClass>
   ## If set to "-", storageClassName: "", which disables dynamic provisioning
