@@ -37,3 +37,4 @@
 | `persistence.enabled`                        | Enable persistence storage                                                                  | true                                              |
 | `persistence.name`                           | Name of the persistence storage                                                             | triplestore                                       |
 | `persistence.size`                           | Size of the persistence storage                                                             | 4Gi                                               |
+| `persistence.resourcePolicy`                 | Set this to `keep` to avoid pvc's deletion                                                  | ""                                                |

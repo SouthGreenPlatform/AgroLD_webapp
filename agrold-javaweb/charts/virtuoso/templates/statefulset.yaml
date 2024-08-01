@@ -9,6 +9,10 @@ spec:
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   serviceName: {{ include "sparql.fullname" . }}
+  {{- if eq .Values.persistence.resourcePolicy "keep" }}
+  persistentVolumeClaimRetentionPolicy:
+    whenDeleted: Retain
+  {{- end }}
   selector:
     matchLabels:
       {{- include "sparql.selectorLabels" . | nindent 6 }}
@@ -131,6 +135,10 @@ spec:
     {{- if .Values.persistence.enabled }}
     - metadata:
         name: {{ .Values.persistence.name }}-pvc
+        {{- if eq .Values.persistence.resourcePolicy "keep" }}
+        annotations:
+          helm.sh/resource-policy: keep
+        {{- end }}
       spec:
         accessModes: [ "ReadWriteOnce" ] # This might be changed when doing clusters
         resources:
