@@ -95,4 +95,5 @@ initdb:
 persistence:
   enabled: true
   name: triplestore
-  size: 4Gi
+  resourcePolicy: "" # set this to keep if needed
+  size: 10Gi
