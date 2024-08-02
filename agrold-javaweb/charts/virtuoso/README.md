@@ -30,7 +30,7 @@
 | `DBAPassword`                                | Password for DBA (Database Admin) access                                                    | "password"                                        |
 | `serveConductor`                             | Flag to enable serving the conductor                                                        | false                                             |
 | `env`                                        | Environment variables                                                                       | `IMPORT_THREAD: 2`                                |
-| `initdb.enabled`                             | Enable initialization job                                                                   | true                                              |
+| `initdb.enabled`                             | Enable initialization job                                                                   | false                                              |
 | `initdb.name`                                | Name of the initialization job                                                              | sparql-initdb                                     |
 | `initdb.kind`                                | Kind of Kubernetes resource used for initialization job                                     | ConfigMap                                         |
 | `initdb.data`                                | Files inside of /initdb.d. Sonsists of map with filenames as a key and its content as a key | `"init.sh": "#!/bin/bash\necho \"Ready to go!\""` |
@@ -38,3 +38,5 @@
 | `persistence.name`                           | Name of the persistence storage                                                             | triplestore                                       |
 | `persistence.size`                           | Size of the persistence storage                                                             | 4Gi                                               |
 | `persistence.resourcePolicy`                 | Set this to `keep` to avoid pvc's deletion                                                  | ""                                                |
+| `iniFileValues.enabled` | Set the values in virtuoso.ini with the provided entries | false |
+| `iniFileValues.values` | Values that can be set in the [virtuoso.ini file](https://docs.openlinksw.com/virtuoso/dbadm/) (see values.yaml for examples) | {} |

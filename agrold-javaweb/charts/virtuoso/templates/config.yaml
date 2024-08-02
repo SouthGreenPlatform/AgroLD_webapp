@@ -1,0 +1,12 @@
+{{- if .Values.iniFileValues.enabled -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "sparql.fullname" . }}-config
+data:
+  {{- range $section, $entry := .Values.iniFileValues.values }}
+    {{- range $key, $value := $entry }}
+    {{ join "." (list $section $key) | quote }}: {{ $value | quote }}
+    {{- end }}
+  {{- end }}
+{{- end }}
