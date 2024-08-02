@@ -80,13 +80,9 @@ DAVPassword: "password"
 DBAPassword: "password"
 serveConductor: false
 
-env:
-  # ENABLE_TRACE: "yes"
-  IMPORT_THREAD: 2
-
 # Check this https://docs.openlinksw.com/virtuoso/rdfapi/#rdfapidataimportloadrdfuri
 initdb:
-  enabled: true
+  enabled: false
   name: sparql-initdb
   kind: ConfigMap
   data: {}
@@ -97,3 +93,28 @@ persistence:
   name: triplestore
   resourcePolicy: "" # set this to keep if needed
   size: 10Gi
+
+# https://docs.openlinksw.com/virtuoso/dbadm/
+# https://hub.docker.com/r/openlink/virtuoso-opensource-7
+iniFileValues:
+  enabled: false
+  values: {}
+    # <section>: 
+    #   <key>: <value @ [section].key in virtuoso.ini, it can be '-' to remove the value>
+    # database:
+    #   ErrorLogLevel: 7
+    # tempDatabase:
+    #   MaxCheckpointRemap: 200
+    # parameters:
+    #   NumberOfBuffers: 10000
+    #   MaxDirtyBuffers: 6000
+    # httpServer:
+    #   Charset: UTF-8
+    # "Zero Config":
+    #   serverName: Virtuoso
+    # sparql:
+    #   DefaultQuery: select distinct ?Concept where {[] a ?Concept} LIMIT 100
+
+env:
+  # ENABLE_TRACE: "yes"
+  IMPORT_THREAD: 2

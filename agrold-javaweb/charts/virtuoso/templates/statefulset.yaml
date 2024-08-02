@@ -96,6 +96,10 @@ spec:
               mountPath: /database
             {{- end }}
           env:
+            {{- range $key, $value := .Values.env }}
+            - name: {{ $key | quote }}
+              value: {{ $value | quote }}
+            {{- end }}
             - name: "DAV_PASSWORD"
               valueFrom:
                 secretKeyRef:
@@ -106,9 +110,16 @@ spec:
                 secretKeyRef:
                   name: secrets-{{ include "sparql.fullname" . }}
                   key: DBAPassword
-            {{- range $key, $value := .Values.env }}
-            - name: {{ $key | quote }}
-              value: {{ $value | quote }}
+            {{- if .Values.iniFileValues.enabled -}}
+            {{- range $section, $entry := .Values.iniFileValues.values }}
+              {{- range $key, $_ := $entry }}
+            - name: {{ join "_" (list "VIRT" $section $key ) | upper | quote }}
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ include "sparql.fullname" $ }}-config
+                  key: {{ join "." (list $section $key) | quote }}
+              {{- end }}
+            {{- end }}
             {{- end }}
           readinessProbe:
             httpGet:
