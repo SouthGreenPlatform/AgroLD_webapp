@@ -54,6 +54,7 @@ spec:
           volumeMounts:
             - name: disableconductor
               mountPath: /mnt
+          restartPolicy: OnFailure
           command: 
             - /bin/sh
             - "-c"
