@@ -101,18 +101,18 @@ iniFileValues:
   values: {}
     # <section>: 
     #   <key>: <value @ [section].key in virtuoso.ini, it can be '-' to remove the value>
-    # database:
+    # Database:
     #   ErrorLogLevel: 7
-    # tempDatabase:
+    # TempDatabase:
     #   MaxCheckpointRemap: 200
-    # parameters:
+    # Parameters:
     #   NumberOfBuffers: 10000
     #   MaxDirtyBuffers: 6000
-    # httpServer:
+    # HTTPServer:
     #   Charset: UTF-8
     # "Zero Config":
     #   serverName: Virtuoso
-    # sparql:
+    # SPARQL:
     #   DefaultQuery: select distinct ?Concept where {[] a ?Concept} LIMIT 100
 
 env:
