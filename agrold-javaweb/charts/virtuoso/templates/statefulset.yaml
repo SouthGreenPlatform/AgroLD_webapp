@@ -113,7 +113,7 @@ spec:
             {{- if .Values.iniFileValues.enabled -}}
             {{- range $section, $entry := .Values.iniFileValues.values }}
               {{- range $key, $_ := $entry }}
-            - name: {{ join "_" (list "VIRT" $section $key ) | upper | quote }}
+            - name: {{ join "_" (list "VIRT" $section $key ) | quote }}
               valueFrom:
                 configMapKeyRef:
                   name: {{ include "sparql.fullname" $ }}-config
