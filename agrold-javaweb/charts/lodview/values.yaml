@@ -1,12 +1,159 @@
 # Copyright Broadcom, Inc. All Rights Reserved.
 # SPDX-License-Identifier: APACHE-2.0
 
+
+## @section lodview Parameters
+## Parameters that you could set in the [config.ttl](https://github.com/lodview/LodView/blob/master/src/main/webapp/WEB-INF/conf-linked.ttl) file
+##
+## @param lodview.enabled Create a configmap to overwrite the contents of config.ttl
+## 
+## @param lodview.existingConfigMap Mount a configmap instead of creating one
+## 
+## @param lodview.additionalConfigPrefixes Dictionnary having prefixes as keys and URI as value, this appends prefixes to the config.ttl file
+##
+## @param lodview.config.IRInamespace URI of Namespace to serve
+## @param lodview.config.endpoint Endpoint to query
+## @param lodview.config.endpointType Just "virtuoso" is handled right now, this will add some "rawdata"
+## @param lodview.config.contentEncoding Endpoint's encoding of queries & response
+## @param lodview.config.defaultQueries Default query used to get direct properties, you can add a "FROM" clause here, ${IRI} will be replaced, it's always recommended to specify a limit for the query
+## @param lodview.config.defaultRawDataQueries Default query used to get resource to be included in serializations different from HTML, it's always recommended to specify a limit for the query.${IRI} will be replaced
+## @param lodview.config.skipDomains Skip domains that are probably offline
+## @param lodview.config.defaultInversesQueries default query used to extract inverse relations
+## @param lodview.config.defaultInverseBehaviour define if inverse relations have to be automatically opened (open|close)
+## 
+## @param lodview.config.typeProperties Properties to express the type of target entity
+## @param lodview.config.titleProperties Properties that acts as a title of target entity
+## @param lodview.config.descriptionProperties Properties to describe target entity
+## @param lodview.config.imageProperties Properties to illustrate target entity
+## @param lodview.config.longitudeProperties Properties to longitude of target entity
+## @param lodview.config.latitudeProperties Properties to latitudelongitude of target entity
+## @param lodview.config.linkingProperties Properties to express the relations of target entity
+## @param lodview.config.preferredLanguage Preferred language for title and description ("auto" for delegate to the client)
+## @param lodview.config.license license information (will be added at the very end of the page)
+## @param lodview.config.colorPair interface colors, choose a pair or a list for random colors or set it to conf:byClass to bind classes and colors
+## @param lodview.config.last just a marker to insert a point on the last row
+## @param lodview.config.publicUrlPrefix define how clients access your app, typically you have to specify your public domain if you are using a proxy, set it at <auto> for testing, an installation on dbpedia domain should use <http://dbpedia.org/resource/>
+## @param lodview.config.forceIriEncoding solve IRI issues in particular environments (proxypass, etc.), can be either "auto", "decode" or "encode"
+## @param lodview.config.staticResourceURL static resources publishing point, "staticResources/" is needed if you are going to serve static content within the web application, probably  on a production environment you have to change "http://localhost:8080/lodview/" to something like "http://data.yourdomain.com/staticResources/", on a test environment you can set it at <auto>
+##
+lodview:
+  enabled: false
+  existingConfigMap: ""
+  additionalConfigPrefixes: {}
+    # examplePrefix: http://some.uri/youwish
+  config:
+    # Endpoint
+    IRInamespace: <http://dbpedia.org/resource/>
+    endpoint: <http://dbpedia.org/sparql>
+    endpointType: virtuoso
+    contentEncoding: "UTF-8"
+    defaultQueries: |-
+      select distinct ?s ?p ?o { 
+        { <${IRI}> ?p ?o } 
+        UNION 
+        { <${IRI}> ?p1 ?s . FILTER(isBlank(?s)) . ?s ?p ?o } 
+        UNION 
+        { <${IRI}> ?p1 ?s1 .  FILTER(isBlank(?s1)) . ?s1 ?p2 ?s . FILTER(isBlank(?s)) . ?s ?p ?o }
+        UNION 
+        { <${IRI}> ?p1 ?s1 .  FILTER(isBlank(?s1)) . ?s1 ?p2 ?s2 . FILTER(isBlank(?s2)) . ?s2 ?p3 ?s . FILTER(isBlank(?s)) . ?s ?p ?o }
+      } LIMIT 10000
+    defaultRawDataQueries: |-
+      select distinct ?s ?p ?o { 
+        { <${IRI}> ?p ?o } 
+        UNION 
+        { <${IRI}> ?p1 ?s  . FILTER(isBlank(?s))  . ?s ?p ?o } 
+        UNION 
+        { <${IRI}> ?p1 ?s1 . FILTER(isBlank(?s1)) . ?s1 ?p2 ?s . FILTER(isBlank(?s)) . ?s ?p ?o }
+        UNION 
+        { <${IRI}> ?p1 ?s1 . FILTER(isBlank(?s1)) . ?s1 ?p2 ?s2 . FILTER(isBlank(?s2)) . ?s2 ?p3 ?s . FILTER(isBlank(?s)) . ?s ?p ?o }
+      } LIMIT 10000
+    defaultInversesQueries: select distinct ?p {?p <${PROPERTY}> <${IRI}>.}  OFFSET ${STARTFROM} LIMIT 10
+    defaultInversesCountQueries: select (count(distinct ?s) AS ?o) ?p {?s ?p <${IRI}>. FILTER(!isBlank(?s))} GROUP BY ?p LIMIT 100
+    defaultInversesTest: ASK {?s ?p <${IRI}>}
+    defaultInverseBehaviour: close
+    skipDomains: [ 
+      "ace.dbpedia.org", "af.dbpedia.org", "als.dbpedia.org", "am.dbpedia.org", "an.dbpedia.org", "ang.dbpedia.org", 
+      "ay.dbpedia.org", "az.dbpedia.org", "ba.dbpedia.org", "bar.dbpedia.org", "bat_smg.dbpedia.org", "bat-smg.dbpedia.org",
+      "ar.dbpedia.org", "arc.dbpedia.org", "arz.dbpedia.org", "ast.dbpedia.org","be-x-old.dbpedia.org", "tpi.dbpedia.org",
+      "bcl.dbpedia.org", "be.dbpedia.org", "be_x_old.dbpedia.org", "bg.dbpedia.org", "bi.dbpedia.org", "zh-min-nan.dbpedia.org", 
+      "bn.dbpedia.org", "bo.dbpedia.org", "br.dbpedia.org", "bs.dbpedia.org", "bxr.dbpedia.org", "zh-yue.dbpedia.org",
+      "ca.dbpedia.org", "cbk_zam.dbpedia.org", "ce.dbpedia.org", "ceb.dbpedia.org", "chy.dbpedia.org", "pfl.dbpedia.org", 
+      "ckb.dbpedia.org", "co.dbpedia.org", "crh.dbpedia.org", "csb.dbpedia.org", "cu.dbpedia.org", "ksh.dbpedia.org",
+      "cv.dbpedia.org", "cy.dbpedia.org", "da.dbpedia.org", "diq.dbpedia.org", "dsb.dbpedia.org", "eml.dbpedia.org",
+      "ee.dbpedia.org", "eo.dbpedia.org", "et.dbpedia.org", "ext.dbpedia.org", "fa.dbpedia.org", "zh_yue.dbpedia.org", 
+      "fi.dbpedia.org", "fiu_vro.dbpedia.org", "fo.dbpedia.org", "frp.dbpedia.org", "frr.dbpedia.org", "zh_min_nan.dbpedia.org",
+      "fur.dbpedia.org", "fy.dbpedia.org", "ga.dbpedia.org", "gag.dbpedia.org", "gan.dbpedia.org", "zh_classical.dbpedia.org",
+      "gd.dbpedia.org", "gl.dbpedia.org", "gn.dbpedia.org", "got.dbpedia.org", "gv.dbpedia.org",  "zh.dbpedia.org",
+      "he.dbpedia.org", "hi.dbpedia.org", "hif.dbpedia.org", "hr.dbpedia.org", "hsb.dbpedia.org", "zea.dbpedia.org", 
+      "ht.dbpedia.org", "hu.dbpedia.org", "hy.dbpedia.org", "ia.dbpedia.org", "ie.dbpedia.org",  "yo.dbpedia.org",   
+      "ilo.dbpedia.org", "io.dbpedia.org", "is.dbpedia.org", "jbo.dbpedia.org", "jv.dbpedia.org", "yi.dbpedia.org", 
+      "ka.dbpedia.org", "kaa.dbpedia.org", "kg.dbpedia.org", "kk.dbpedia.org", "kl.dbpedia.org", "xmf.dbpedia.org",
+      "km.dbpedia.org", "kn.dbpedia.org", "krc.dbpedia.org", "ku.dbpedia.org", "kv.dbpedia.org", "wuu.dbpedia.org", 
+      "kw.dbpedia.org", "la.dbpedia.org", "lad.dbpedia.org", "lb.dbpedia.org", "lez.dbpedia.org", "wo.dbpedia.org",
+      "li.dbpedia.org", "lij.dbpedia.org", "lmo.dbpedia.org", "ln.dbpedia.org", "lt.dbpedia.org", "war.dbpedia.org",
+      "lv.dbpedia.org", "mdf.dbpedia.org", "mg.dbpedia.org", "mhr.dbpedia.org", "mi.dbpedia.org", "vo.dbpedia.org", 
+      "mk.dbpedia.org", "ml.dbpedia.org", "mn.dbpedia.org", "mr.dbpedia.org", "ms.dbpedia.org", "vls.dbpedia.org", 
+      "mt.dbpedia.org", "mwl.dbpedia.org", "my.dbpedia.org", "na.dbpedia.org", "nah.dbpedia.org", "vi.dbpedia.org", 
+      "nap.dbpedia.org", "nds.dbpedia.org", "nds_nl.dbpedia.org", "ne.dbpedia.org", "new.dbpedia.org", "vep.dbpedia.org", 
+      "nn.dbpedia.org", "no.dbpedia.org", "nov.dbpedia.org", "nrm.dbpedia.org", "oc.dbpedia.org",  "vec.dbpedia.org", 
+      "or.dbpedia.org", "os.dbpedia.org", "pa.dbpedia.org", "pap.dbpedia.org", "pcd.dbpedia.org", "ve.dbpedia.org", 
+      "pdc.dbpedia.org", "pms.dbpedia.org", "pnb.dbpedia.org", "pnt.dbpedia.org", "qu.dbpedia.org", "uz.dbpedia.org", 
+      "rm.dbpedia.org", "rn.dbpedia.org", "ro.dbpedia.org", "roa_rup.dbpedia.org", "roa_tara.dbpedia.org",  "ur.dbpedia.org", 
+      "ru.dbpedia.org", "rue.dbpedia.org", "rw.dbpedia.org", "sa.dbpedia.org", "sah.dbpedia.org",  "uk.dbpedia.org",
+      "sc.dbpedia.org", "scn.dbpedia.org", "sco.dbpedia.org", "se.dbpedia.org", "sg.dbpedia.org", "ug.dbpedia.org",
+      "sh.dbpedia.org", "si.dbpedia.org", "simple.dbpedia.org", "sk.dbpedia.org", "sl.dbpedia.org", "udm.dbpedia.org", 
+      "so.dbpedia.org", "sq.dbpedia.org", "sr.dbpedia.org", "srn.dbpedia.org", "stq.dbpedia.org",  "ty.dbpedia.org", 
+      "su.dbpedia.org", "sv.dbpedia.org", "sw.dbpedia.org", "szl.dbpedia.org", "ta.dbpedia.org",  "tt.dbpedia.org",
+      "te.dbpedia.org", "tg.dbpedia.org", "th.dbpedia.org", "tk.dbpedia.org", "tl.dbpedia.org", "tr.dbpedia.org"
+    ]
+    # Webapp
+    publicUrlPrefix: auto
+    forceIriEncoding: auto
+    staticResourceURL: <auto>
+    typeProperties: [rdf:type]
+    titleProperties: 
+      - dc:title
+      - dcterms:title
+      - rdfs:label
+      - <http://www.w3.org/2004/02/skos/core#prefLabel>
+      - <http://www.w3.org/2008/05/skos-xl#prefLabel>
+      - <http://www.w3.org/2009/08/skos-reference/skos.html#prefLabel>
+      - gn:officialName
+      - gn:name
+      - rdf:value
+      - foaf:surname
+      - <http://purl.org/collections/nl/am/title>
+      - <http://purl.uniprot.org/core/scientificName>
+      - schema-org:name
+      - <http://xmlns.com/foaf/0.1/name>
+    descriptionProperties: [rdfs:comment, skos:definition, dc:description, dcterms:description, dbpedia-owl:abstract]
+    imageProperties: [foaf:depiction]
+    longitudeProperties: [geo:long]
+    latitudeProperties: [geo:lat]
+    linkingProperties: [owl:sameAs, skos:exactMatch, dbpedia-owl:wikiPageRedirects]
+    preferredLanguage: auto
+    colorPair: 
+      - "#c3a116-#ac8c13"
+      - "#914848-#7d3e3e"
+      - "#8a4e6a-#77435c"
+      - "#ac8cb0-#967999"
+      - "#715287-#624775"
+      - "#606592-#53577e"
+      - "#7eb9be-#6da2a7"
+      - "#5b8a97-#4f7783"
+      - "#86b692-#749f7e"
+      - "#528775-#477565"
+      - "#6d8058-#5e6f4c"
+      - "#c77e20-#ad6e1c"
+      - "#a1a72e-#8c9128"
+    license: ""
+    last: "."
+
 ## @section Global parameters
 ## Global Docker image parameters
 ## Please, note that this will override the image parameters, including dependencies, configured to use the global value
 ## Current available global Docker image parameters: imageRegistry, imagePullSecrets and storageClass
 ##
-
 ## @param global.imageRegistry Global Docker image registry
 ## @param global.imagePullSecrets Global Docker registry secret names as an array
 ## @param global.defaultStorageClass Global default StorageClass for Persistent Volume(s)
@@ -69,8 +216,8 @@ extraDeploy: []
 ##
 image:
   registry: docker.io
-  repository: bitnami/tomcat
-  tag: 10.1.26-debian-12-r5
+  repository: agroldapp/lodview
+  tag: 2.0.0
   digest: ""
   ## Specify a imagePullPolicy
   ## Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent'
@@ -394,7 +541,7 @@ sidecars: []
 persistence:
   ## @param persistence.enabled Enable persistence
   ##
-  enabled: true
+  enabled: false
   ## @param persistence.storageClass PVC Storage Class for Tomcat volume
   ## If defined, storageClassName: <storageClass>
   ## If set to "-", storageClassName: "", which disables dynamic provisioning

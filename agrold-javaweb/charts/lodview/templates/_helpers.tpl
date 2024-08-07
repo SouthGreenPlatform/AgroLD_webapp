@@ -134,3 +134,93 @@ tomcat: metrics.jmx.enabled
     provide an existing ConfigMap.
   {{- end -}}
 {{- end -}}
+
+{{/*
+Returns the homepage
+*/}}
+{{- define "lodview.homepage" -}}
+{{- $host := .Values.ingress.enabled | ternary .Values.ingress.hostname (include "common.names.fullname" .) -}}
+{{- $tls := .Values.ingress.tls | ternary  "s" "" -}}
+{{- printf "http%s://%s:%d%s" $tls $host (.Values.containerPorts.http | int) .Values.ingress.path -}}
+{{- end -}}
+
+{{/*
+Return the LodView's secret
+*/}}
+{{- define "lodview.configMapName" -}}
+{{- coalesce .Values.existingConfigMap (printf "%s-config" (include "common.names.fullname" .)) -}}
+{{- end -}}
+
+{{/*
+Default prefixes for the config.ttl file
+*/}}
+{{- define "lodview.mergedPrefixes" -}}
+{{- 
+  $defaultPrefixes := dict 
+    "conf"          (printf "<http://localhost:%d/#>" (.Values.containerPorts.http | int))
+    "bbc"           "<http://www.bbc.co.uk/ontologies/coreconcepts/>"
+    "meta"          "<http://example.org/metadata#>"
+    "rdf"           "<http://www.w3.org/1999/02/22-rdf-syntax-ns#>"
+    "rdfs"          "<http://www.w3.org/2000/01/rdf-schema#>"
+    "xsd"           "<http://www.w3.org/2001/XMLSchema#>"
+    "owl"           "<http://www.w3.org/2002/07/owl#>"
+    "dc"            "<http://purl.org/dc/elements/1.1/>"
+    "dcterms"       "<http://purl.org/dc/terms/>"
+    "foaf"          "<http://xmlns.com/foaf/0.1/>"
+    "skos"          "<http://www.w3.org/2004/02/skos/core#>"
+    "geo"           "<http://www.w3.org/2003/01/geo/wgs84_pos#>"
+    "ocd"           "<http://dati.camera.it/ocd/>"
+    "units"         "<http://dbpedia.org/units/>"
+    "geonames"      "<http://www.geonames.org/ontology#>"
+    "void"          "<http://rdfs.org/ns/void#>"
+    "dbpedia-owl"   "<http://dbpedia.org/ontology/>"
+    "yago"          "<http://dbpedia.org/class/yago/>"
+    "gml"           "<http://www.opengis.net/gml/>"
+    "dbpedia"       "<http://dbpedia.org/resource/>"
+    "dbpprop"       "<http://dbpedia.org/property/>"
+    "metalex"       "<http://www.metalex.eu/metalex/2008-05-02#>"
+    "frbr"          "<http://purl.org/vocab/frbr/core#>"
+    "gn"            "<http://www.geonames.org/ontology#>"
+    "schema-org"    "<http://schema.org/>"
+    "dwc"           "<http://rs.tdwg.org/dwc/terms/>"
+    "ibc"           "<http://dati.ibc.it/ibc/>"
+    "bio"           "<http://purl.org/vocab/bio/0.1/>"
+    "ods"           "<http://lod.xdams.org/ontologies/ods/>"
+    "shoah"         "<http://cdec.opendams.org/lod/shoah/>"
+    "bibo"          "<http://purl.org/ontology/bibo/>"
+    "org"           "<http://www.w3.org/ns/org#>"
+-}}
+{{- $merged := mergeOverwrite $defaultPrefixes .Values.lodview.additionalConfigPrefixes -}}
+{{- toYaml $merged | nindent 2 -}}
+{{- end -}}
+
+{{/*
+Format prefix with ttl format 
+*/}}
+{{- define "lodview.prefixes" -}}
+{{- $prefixes := include "lodview.mergedPrefixes" . | fromYaml -}}
+{{- range $prefix, $uri := $prefixes }}
+{{ printf "@prefix %s: %s ." $prefix $uri }}
+{{- end -}}
+{{- end -}}
+
+{{/*
+Render an RDF object, quotes it if it is a litteral  
+*/}}
+{{- define "lodview.renderRDFObject" -}}
+{{- $l := list -}}
+{{- $p := list -}}
+{{- $object := kindIs "slice" .obj | ternary .obj (list .obj) -}}
+{{- $prefixes := include "lodview.mergedPrefixes" .context | fromYaml -}}
+{{- range $v, $_ := $prefixes -}}
+{{- $p = append $p $v -}}
+{{- end -}}
+{{- range $object -}}
+  {{- if or (regexMatch "^<.*>$" .) (has (regexSplit ":" . -1 | first) $p)  -}}
+      {{- $l = append $l . -}}
+  {{- else -}}
+      {{- $l = append $l (. | quote) -}}
+  {{- end -}}
+{{- end -}}
+{{- join ", " $l -}};
+{{- end -}}
