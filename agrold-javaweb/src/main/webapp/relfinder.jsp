@@ -45,7 +45,7 @@
             <%! String rfLink = System.getProperty("agrold.rf_link", "http://rf.southgreen.fr/"); %>
             <div class="container-fluid arian-thread">
                 <div class="info_title">
-                    <div class="container pos-l">Search > <span class="active-p">Explore relationship</span> <a target="_blank" href="<%= rfLink %>"><em>(Open Relfinder Reformed in new tab)</em></a></div>
+                    <div class="container pos-l">Search > <span class="active-p">Explore relationship</span></div>
                 </div>
             </div>
             
@@ -61,16 +61,17 @@
                         </EMBED>            
                     </OBJECT>    
                 </section> -->
-                <iframe 
-                    src="<%= rfLink %>"
-                    sandbox="allow-downloads-without-user-activation allow-downloads allow-forms allow-same-origin allow-scripts" 
-                    allowfullscreen="true" 
-                    title="RelFinder Reformed"
-                    name="relfinderreformed"
-                >
 
-                </iframe>
+                <h3>Quick guide to RelFinder Reformed</h3>
 
+                <button class="btn btn-primary" onclick="window.open('<%= rfLink %>','_blank')">Open RelFinder Reformed</button>
+                
+                <h4>What is it?</h4>
+                <p>
+                    Relfinder reformed is a reimplementation of the now deprecated <a href="https://github.com/VisualDataWeb/RelFinder">RelFinder</a>.
+                    It is a tool for the interactive exploration and visualization of relationships between entities in RDF data. This tool will help 
+                    you visualize the relationships between entities in the AgroLD knowledge base.
+                </p>
             </div>
         <jsp:include page="footer.html"></jsp:include>
     </body>
