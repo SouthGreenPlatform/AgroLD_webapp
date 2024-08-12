@@ -5,7 +5,7 @@ kind: ConfigMap
 metadata:
   name: {{ include "lodview.configMapName" . }}
 data:
-  "config.ttl": |-
+  "conf.ttl": |-
     {{- include "lodview.prefixes" . | nindent 4 }}
 
     <> a conf:Configuration;

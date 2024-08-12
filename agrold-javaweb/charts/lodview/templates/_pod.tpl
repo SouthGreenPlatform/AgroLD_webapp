@@ -164,6 +164,11 @@ containers:
       - name: empty-dir
         mountPath: /tmp
         subPath: tmp-dir
+      {{- if .Values.lodview.enabled }}
+      - name: lodview-config
+        mountPath: /opt/bitnami/tomcat/webapps_default/ROOT/WEB-INF/conf.ttl
+        subPath: conf.ttl
+      {{- end }}
       {{- if .Values.extraVolumeMounts }}
       {{- include "common.tplvalues.render" (dict "value" .Values.extraVolumeMounts "context" $) | nindent 6 }}
       {{- end }}
@@ -206,6 +211,11 @@ containers:
 volumes:
   - name: empty-dir
     emptyDir: {}
+  {{- if .Values.lodview.enabled }}
+  - name: lodview-config
+    configMap:
+      name: {{ coalesce .Values.lodview.existingConfigMap (include "lodview.configMapName" .) }}
+  {{- end }}
   {{- if (eq .Values.deployment.type "deployment") }}
   {{- if and .Values.persistence.enabled }}
   - name: data
