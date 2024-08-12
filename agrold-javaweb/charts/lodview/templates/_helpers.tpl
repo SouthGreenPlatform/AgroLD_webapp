@@ -136,25 +136,32 @@ tomcat: metrics.jmx.enabled
 {{- end -}}
 
 {{/*
+Returns the configmap containing the resources
+*/}}
+{{- define "lodview.resources.configMapName" -}}
+{{- coalesce .Values.lodview.resources.existingConfigMap (printf "%s-resources" (include "common.names.fullname" .)) -}}
+{{- end -}}
+
+{{/*
 Returns the homepage
 */}}
-{{- define "lodview.homepage" -}}
+{{- define "lodview.configFile.homepage" -}}
 {{- $host := .Values.ingress.enabled | ternary .Values.ingress.hostname (include "common.names.fullname" .) -}}
 {{- $tls := .Values.ingress.tls | ternary  "s" "" -}}
 {{- printf "http%s://%s:%d%s" $tls $host (.Values.containerPorts.http | int) .Values.ingress.path -}}
 {{- end -}}
 
 {{/*
-Return the LodView's secret
+Return the name of the configmap containing the config.ttl file
 */}}
-{{- define "lodview.configMapName" -}}
-{{- coalesce .Values.existingConfigMap (printf "%s-config" (include "common.names.fullname" .)) -}}
+{{- define "lodview.configFile.configMapName" -}}
+{{- coalesce .Values.lodview.configFile.existingConfigMap (printf "%s-config" (include "common.names.fullname" .)) -}}
 {{- end -}}
 
 {{/*
 Default prefixes for the config.ttl file
 */}}
-{{- define "lodview.mergedPrefixes" -}}
+{{- define "lodview.configFile.mergedPrefixes" -}}
 {{- 
   $defaultPrefixes := dict 
     "conf"          (printf "<http://localhost:%d/#>" (.Values.containerPorts.http | int))
@@ -190,15 +197,15 @@ Default prefixes for the config.ttl file
     "bibo"          "<http://purl.org/ontology/bibo/>"
     "org"           "<http://www.w3.org/ns/org#>"
 -}}
-{{- $merged := mergeOverwrite $defaultPrefixes .Values.lodview.additionalConfigPrefixes -}}
+{{- $merged := mergeOverwrite $defaultPrefixes .Values.lodview.configFile.additionalConfigPrefixes -}}
 {{- toYaml $merged | nindent 2 -}}
 {{- end -}}
 
 {{/*
 Format prefix with ttl format 
 */}}
-{{- define "lodview.prefixes" -}}
-{{- $prefixes := include "lodview.mergedPrefixes" . | fromYaml -}}
+{{- define "lodview.configFile.prefixes" -}}
+{{- $prefixes := include "lodview.configFile.mergedPrefixes" . | fromYaml -}}
 {{- range $prefix, $uri := $prefixes }}
 {{ printf "@prefix %s: %s ." $prefix $uri }}
 {{- end -}}
@@ -207,11 +214,11 @@ Format prefix with ttl format
 {{/*
 Render an RDF object, quotes it if it is a litteral  
 */}}
-{{- define "lodview.renderRDFObject" -}}
+{{- define "lodview.configFile.renderRDFObject" -}}
 {{- $l := list -}}
 {{- $p := list -}}
 {{- $object := kindIs "slice" .obj | ternary .obj (list .obj) -}}
-{{- $prefixes := include "lodview.mergedPrefixes" .context | fromYaml -}}
+{{- $prefixes := include "lodview.configFile.mergedPrefixes" .context | fromYaml -}}
 {{- range $v, $_ := $prefixes -}}
 {{- $p = append $p $v -}}
 {{- end -}}

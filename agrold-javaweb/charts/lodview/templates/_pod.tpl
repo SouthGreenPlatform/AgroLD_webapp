@@ -164,10 +164,25 @@ containers:
       - name: empty-dir
         mountPath: /tmp
         subPath: tmp-dir
-      {{- if .Values.lodview.enabled }}
+      {{- if .Values.lodview.configFile.enabled }}
       - name: lodview-config
         mountPath: /opt/bitnami/tomcat/webapps_default/ROOT/WEB-INF/conf.ttl
         subPath: conf.ttl
+      {{- end }}
+      {{- if and .Values.lodview.resources.enabled .Values.lodview.resources.contents.customCss }}
+      - name: lodview-resources
+        mountPath: /opt/bitnami/tomcat/webapps_default/ROOT/resources/css/custom.css
+        subPath: custom.css
+      {{- end }}
+      {{- if and .Values.lodview.resources.enabled .Values.lodview.resources.contents.footer }}
+      - name: lodview-resources
+        mountPath: /opt/bitnami/tomcat/webapps_default/ROOT/WEB-INF/views/inc/footer.jsp
+        subPath: footer.jsp
+      {{- end }}
+      {{- if and .Values.lodview.resources.enabled .Values.lodview.resources.contents.home }}
+      - name: lodview-resources
+        mountPath: /opt/bitnami/tomcat/webapps_default/ROOT/WEB-INF/views/home.jsp
+        subPath: home.jsp
       {{- end }}
       {{- if .Values.extraVolumeMounts }}
       {{- include "common.tplvalues.render" (dict "value" .Values.extraVolumeMounts "context" $) | nindent 6 }}
@@ -211,10 +226,15 @@ containers:
 volumes:
   - name: empty-dir
     emptyDir: {}
-  {{- if .Values.lodview.enabled }}
+  {{- if .Values.lodview.configFile.enabled }}
   - name: lodview-config
     configMap:
-      name: {{ coalesce .Values.lodview.existingConfigMap (include "lodview.configMapName" .) }}
+      name: {{ coalesce .Values.lodview.configFile.existingConfigMap (include "lodview.configFile.configMapName" .) }}
+  {{- end }}
+  {{- if .Values.lodview.resources.enabled }}
+  - name: lodview-resources
+    configMap:
+      name: {{ coalesce .Values.lodview.resources.existingConfigMap (include "lodview.resources.configMapName" .) }}
   {{- end }}
   {{- if (eq .Values.deployment.type "deployment") }}
   {{- if and .Values.persistence.enabled }}

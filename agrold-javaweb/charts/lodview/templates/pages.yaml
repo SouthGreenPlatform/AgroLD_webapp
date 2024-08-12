@@ -1,0 +1,21 @@
+{{- if .Values.lodview.resources.enabled }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "lodview.resources.configMapName" . }}
+data:
+    {{- if .Values.lodview.resources.contents.customCss }}
+    "custom.css": |-
+      {{- .Values.lodview.resources.contents.customCss | nindent 6 }}
+    {{- end }}
+
+    {{- if .Values.lodview.resources.contents.footer}}
+    "footer.jsp": |- 
+      {{- .Values.lodview.resources.contents.footer | nindent 6 }}
+    {{- end }}
+
+    {{- if .Values.lodview.resources.contents.home }}
+    "home.jsp": |-
+      {{- .Values.lodview.resources.contents.home | nindent 6}}
+    {{- end }}
+{{- end }}
