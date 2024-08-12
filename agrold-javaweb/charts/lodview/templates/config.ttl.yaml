@@ -1,18 +1,18 @@
-{{ $config := .Values.lodview }}
+{{ $config := .Values.lodview.configFile }}
 {{- if and $config.enabled (not $config.existingConfigMap) }}
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ include "lodview.configMapName" . }}
+  name: {{ include "lodview.configFile.configMapName" . }}
 data:
   "conf.ttl": |-
-    {{- include "lodview.prefixes" . | nindent 4 }}
+    {{- include "lodview.configFile.prefixes" . | nindent 4 }}
 
     <> a conf:Configuration;
 
-    conf:homeUrl <{{- include "lodview.homepage" . -}}>;
+    conf:homeUrl <{{- include "lodview.configFile.homepage" . -}}>;
 
-    {{ range $predicate, $value := .Values.lodview.config -}}
-      conf:{{ $predicate -}} {{- include "lodview.renderRDFObject" (dict "obj" $value "context" $) | nindent 6 }}
+    {{ range $predicate, $value := .Values.lodview.configFile.config -}}
+      conf:{{ $predicate -}} {{- include "lodview.configFile.renderRDFObject" (dict "obj" $value "context" $) | nindent 6 }}
     {{ end -}}.
 {{- end }}
