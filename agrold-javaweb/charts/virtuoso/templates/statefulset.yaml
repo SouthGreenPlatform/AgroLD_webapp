@@ -45,7 +45,7 @@ spec:
             name: {{ include "sparql.fullname" . }}-disableconductor
         {{- end }}
       containers:
-        {{- if not .Values.serveConductor }}
+        {{- if or (not .Values.serveConductor) .Values.facetedSearch.enabled }}
         # Turns out we cannot do this in the /initdb.d because 
         # it blocks connections to the 1111 port
         - name: disable-conductor
@@ -58,7 +58,7 @@ spec:
           command: 
             - /bin/sh
             - "-c"
-            - /mnt/..data/wait-for-it.sh localhost:1111 -t 0 -- /mnt/..data/disable_conductor.sh
+            - /mnt/..data/wait-for-it.sh localhost:1111 -t 0 -- /mnt/..data/run_scripts.sh
           env:
             - name: "DBA_PASSWORD"
               valueFrom:

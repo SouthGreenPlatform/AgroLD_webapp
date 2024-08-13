@@ -80,6 +80,10 @@ DAVPassword: "password"
 DBAPassword: "password"
 serveConductor: false
 
+facetedSearch:
+  enabled: false
+  enableLabels: true
+
 # Check this https://docs.openlinksw.com/virtuoso/rdfapi/#rdfapidataimportloadrdfuri
 initdb:
   enabled: false
