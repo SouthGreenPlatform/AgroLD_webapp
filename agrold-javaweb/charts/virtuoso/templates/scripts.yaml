@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: {{ .Values.initdb.kind }}
 metadata:
-  name: {{ include "sparql.fullname" . }}-disableconductor
+  name: {{ include "sparql.scripts.configMapName" . }}
 data:
   "run_scripts.sh": |
     #!/bin/bash

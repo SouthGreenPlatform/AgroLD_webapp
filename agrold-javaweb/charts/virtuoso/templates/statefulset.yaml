@@ -33,16 +33,16 @@ spec:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       volumes:
         {{- if .Values.initdb.enabled }}
-        - name: configmap-{{ .Values.initdb.name }}
+        - name: {{ include "sparql.initdb.configMapName" . }}
           configMap:
             defaultMode: 0551
-            name: configmap-{{ .Values.initdb.name }}
+            name: {{ include "sparql.initdb.configMapName" . }}
         {{- end }}
         {{- if not .Values.serveConductor }}
         - name: disableconductor
           configMap:
             defaultMode: 0551
-            name: {{ include "sparql.fullname" . }}-disableconductor
+            name: {{ include "sparql.scripts.configMapName" . }}
         {{- end }}
       containers:
         {{- if or (not .Values.serveConductor) .Values.facetedSearch.enabled }}
@@ -63,7 +63,7 @@ spec:
             - name: "DBA_PASSWORD"
               valueFrom:
                 secretKeyRef:
-                  name: secrets-{{ include "sparql.fullname" . }}
+                  name: {{ include "sparql.secretName" . }}
                   key: DBAPassword
           
         {{- end }}
@@ -88,7 +88,7 @@ spec:
               port: http
           volumeMounts:
             {{- if .Values.initdb.enabled }}
-            - name: configmap-{{ .Values.initdb.name }}
+            - name: {{ include "sparql.initdb.configMapName" . }}
               mountPath: /initdb.d
             {{- end }}
             {{- if .Values.persistence.enabled }}
@@ -103,12 +103,12 @@ spec:
             - name: "DAV_PASSWORD"
               valueFrom:
                 secretKeyRef:
-                  name: secrets-{{ include "sparql.fullname" . }}
+                  name: {{ include "sparql.secretName" . }}
                   key: DAVPassword
             - name: "DBA_PASSWORD"
               valueFrom:
                 secretKeyRef:
-                  name: secrets-{{ include "sparql.fullname" . }}
+                  name: {{ include "sparql.secretName" . }}
                   key: DBAPassword
             {{- if .Values.iniFileValues.enabled -}}
             {{- range $section, $entry := .Values.iniFileValues.values }}
@@ -116,7 +116,7 @@ spec:
             - name: {{ join "_" (list "VIRT" $section $key ) | quote }}
               valueFrom:
                 configMapKeyRef:
-                  name: {{ include "sparql.fullname" $ }}-config
+                  name: {{ include "sparql.configMapName" $ }}
                   key: {{ join "." (list $section $key) | quote }}
               {{- end }}
             {{- end }}

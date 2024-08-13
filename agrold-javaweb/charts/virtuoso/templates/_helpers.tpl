@@ -24,6 +24,34 @@ If release name contains chart name it will be used as a full name.
 {{- end }}
 
 {{/*
+Returns the configmap name
+*/}}
+{{- define "sparql.configMapName" -}}
+{{- printf "%s-config" (include "sparql.fullname" .) -}}
+{{- end -}}
+
+{{/*
+Returns the scripts configmap name
+*/}}
+{{- define "sparql.scripts.configMapName" -}}
+{{- printf "%s-scripts" (include "sparql.fullname" .) -}}
+{{- end -}}
+
+{{/*
+Returns the initdb configmap name
+*/}}
+{{- define "sparql.initdb.configMapName" -}}
+{{- printf "%s-%s" (include "sparql.fullname" .) (coalesce .Values.initdb.name "initdb") -}}
+{{- end -}}
+
+{{/*
+Returns the secret's name
+*/}}
+{{- define "sparql.secretName" -}}
+{{- printf "%s-secret" (include "sparql.fullname" .) -}}
+{{- end -}}
+
+{{/*
 Create chart name and version as used by the chart label.
 */}}
 {{- define "sparql.chart" -}}

@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: {{ .Values.initdb.kind }}
 metadata:
-  name: configmap-{{ .Values.initdb.name }}
+  name: {{ include "sparql.initdb.configMapName" . }}
 data:
   {{- range $key, $val := .Values.initdb.data }}
   {{ $key | quote }}: {{ $val  | quote }}
