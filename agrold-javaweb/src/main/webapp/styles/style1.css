@@ -121,7 +121,7 @@ select.arrow
 }
 
 input[type="text"].keyword {
-    //display: block;
+    display: block;
     margin: 0;
     /*! width: calc( 100% - 200px ); */
     font-family: sans-serif;
@@ -138,7 +138,7 @@ input[type="text"]:focus {
 }
 
 #overlay {
-    //background-color: rgba(0, 0, 0, 0.8);  
+    background-color: rgba(0, 0, 0, 0.8);  
     z-index: 999;
     position: absolute;
     left: 0;
