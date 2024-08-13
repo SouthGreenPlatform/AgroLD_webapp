@@ -163,7 +163,7 @@ color: #b3b3b3;
 .foowrap {
   position:relative;
   /*min-height : calc( 100vh - 250px ); /* PROVISOIR */ 
-  margin : 0px;
+  margin : 20px;
   min-height: 100%;
 }
 .delim {
