@@ -1,9 +1,21 @@
-{{- if not .Values.serveConductor }}
+{{- if or (not .Values.serveConductor) .Values.facetedSearch.enabled }}
 apiVersion: v1
 kind: {{ .Values.initdb.kind }}
 metadata:
   name: {{ include "sparql.fullname" . }}-disableconductor
 data:
+  "run_scripts.sh": |
+    #!/bin/bash
+    
+    set -e
+
+    {{- if not .Values.serveConductor }} 
+    ./disable_conductor.sh 
+    {{- end }}
+    {{- if .Values.facetedSearch.enabled }}
+    ./enable_fct.sh
+    {{- end }}
+
   "disable_conductor.sh": |
     #!/bin/bash
     
@@ -13,10 +25,17 @@ data:
     isql -U dba -P ${DBA_PASSWORD} "EXEC=vad_uninstall('conductor/$version');"
 
     echo -e "\e[32mSucessfully disabled conductor!\e[0m"
-    tail -f /dev/null
 
+  "enable_fct.sh": |
+    #!/bin/bash
 
+    isql -U dba -P ${DBA_PASSWORD} "EXEC=vad_install('/opt/virtuoso-opensource/vad/fct_dav.vad', 0);"
+    
+    {{- if .Values.facetedSearch.enableLabels }}
+    isql -U dba -P ${DBA_PASSWORD} "EXEC=registry_set('fct_desc_value_labels', '1');"
+    {{- end }}
 
+    echo -e "\e[32mSucessfully installed faceted search!\e[0m"
 
   "wait-for-it.sh": |
     #!/usr/bin/env bash
