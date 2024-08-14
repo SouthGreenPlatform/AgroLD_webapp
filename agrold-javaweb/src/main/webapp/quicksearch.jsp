@@ -48,11 +48,9 @@
                                 </div>
                                 <div id="sform">
                                     <center>
-                                    <form id="search" action="http://agrold.southgreen.fr/fct/facet.vsp?cmd=text&sid=231"" method="post" target="_blank">
-                                    <!--form id="search" action="http://volvestre.cirad.fr:8890/fct/facet.vsp?cmd=text&sid=231"" method="post" target="_blank"-->
+                                    <form id="search" action="" method="post" target="_blank">
                                         <div class="col-lg-6">
                                             <div class="input-group">
-                                                <!--input type="text" class="form-control" placeholder="Search for..."-->
                                                 <input class="keyword form-control" name="q" type="text" placeholder="Search examples: Gene names -
                                             'GRP2' or 'TCP12' or Keywords 'plant height'" data-step="1" data-intro="Type your expression and then ..."/> 
                                                 <span class="input-group-btn">
@@ -101,14 +99,7 @@
 </body>
     <script>
         $(document).ready(function () {
-            $.ajax({
-                type: 'post',
-                data: 'p={m:"setPageConsult",page:"quickSearch"}',
-                url: 'ToolHistory',
-                success: function (data) {
-                    $('.success').html(data);
-                }
-            });
+            $("#search").attr("action", FACETEDPAGE);
         });
     </script>
 </html>

@@ -57,23 +57,22 @@ The command removes all the Kubernetes components associated with the chart and 
 
 ### Agrold parameters
 
-| Name                                 | Description                                  | Value                     |
-| ------------------------------------ | -------------------------------------------- | ------------------------- |
-| `agroldProperties.db_connection_url` | Database connection URL for user management. | `"someurl"`               |
-| `agroldProperties.db_username`       | Database username for user management.       | `"user"`                  |
-| `agroldProperties.db_password`       | Database password for user management.       | `"password"`              |
-| `agroldProperties.rf_link`           | Link to RelFinder **ingress**.               | `"https://rf.someurl.fr"` |
-| `agroldProperties.description`       | Description showed in Tomcat.                | `""`                      |
+| Name                                  | Description                         | Value                        |
+| ------------------------------------- | ----------------------------------- | ---------------------------- |
+| `agroldProperties.rf_link`            | Link to RelFinder **ingress**.      | `"https://rf.someurl.fr"`    |
+| `agroldProperties.description`        | Description showed in Tomcat.       | `""`                         |
+| `agroldProperties.faceted_search_url` | Link to faceted search **ingress**. | `"http://someurl.fr/fct"`    |
+| `agroldProperties.sparql_endpoint`    | Link to SPARQL endpoint.            | `"http://someurl.fr/sparql"` |
 
 > ℹ️ You can also add other parameters as [mentionned in the readme](https://github.com/SouthGreenPlatform/AgroLD_webapp/tree/master/agrold-javaweb#param%C3%A8tres)
 
 ### Global parameters
 
-| Name                      | Description                                     | Value |
-| ------------------------- | ----------------------------------------------- | ----- |
-| `global.imageRegistry`    | Global Docker image registry                    | `""`  |
-| `global.imagePullSecrets` | Global Docker registry secret names as an array | `[]`  |
-| `global.storageClass`     | Global StorageClass for Persistent Volume(s)    | `""`  |
+| Name                                                  | Description                                                                                                                                                                                                                                                                                                                                                         | Value      |
+| ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| `global.imageRegistry`                                | Global Docker image registry                                                                                                                                                                                                                                                                                                                                        | `""`       |
+| `global.imagePullSecrets`                             | Global Docker registry secret names as an array                                                                                                                                                                                                                                                                                                                     | `[]`       |
+| `global.storageClass`                                 | Global StorageClass for Persistent Volume(s)                                                                                                                                                                                                                                                                                                                        | `""`       |
 | `global.compatibility.openshift.adaptSecurityContext` | Adapt the securityContext sections of the deployment to make them compatible with Openshift restricted-v2 SCC: remove runAsUser, runAsGroup and fsGroup and let the platform use their allowed default IDs. Possible values: auto (apply if the detected running cluster is Openshift), force (perform the adaptation always), disabled (do not perform adaptation) | `disabled` |
 
 ### Common parameters
