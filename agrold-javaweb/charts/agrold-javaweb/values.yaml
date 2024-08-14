@@ -8,10 +8,9 @@
 ##
 
 agroldProperties:
-  db_connection_url: someurl
-  db_username: user
-  db_password: password
   rf_link: https://rf.someurl.fr
+  faceted_search_url: http://someurl.fr/fct
+  sparql_endpoint: "http://someurl.fr/sparql"
   description: ""
 
 ## @param global.imageRegistry Global Docker image registry

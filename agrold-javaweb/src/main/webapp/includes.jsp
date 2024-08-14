@@ -37,6 +37,7 @@
     }
 
     const system_sparqlendpoint = parseJsp('<%= System.getProperty("agrold.sparql_endpoint", "http://sparql.southgreen.fr") %>')
+    const system_faceted_search_url = parseJsp('<%= System.getProperty("agrold.faceted_search_url", "http://sparql.southgreen.fr/faceted") %>')
 </script>
 <script type="text/javascript" src="config/config.js"></script>
 

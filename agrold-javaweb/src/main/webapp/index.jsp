@@ -70,14 +70,6 @@
                 <div class="jumbotron home">
                     <div class="static-j">
                         <div class="container">
-                            <% if(session.getAttribute("sessionUtilisateur")== null){%>
-                            <!--div class="alert alert-success alert-dismissible fade show" role="alert">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                <strong>Welcome on AgroLD</strong>. It's your first time on the portal ? <strong><a href="Login" style="color:inherit">Login</a></strong> or <strong><a href="Register" style="color:inherit">create an account</a></strong> to save and share your requests on the <strong><a href="#section1" style="color:inherit">tools</a></strong>.
-                            </div-->
-                            <% }%>
                             <div class="bug-rport-2">
                                 
                                 <div class="primary-a col-md-12 col-lg-12 brise">
@@ -91,8 +83,7 @@
                                     </div>
                                 <div id="sform">
                                     <center>
-                                    <form id="search" action="http://agrold.southgreen.fr/fct/facet.vsp?cmd=text&sid=231" method="post" target="_blank">
-                                    <!--form id="search" action="http://volvestre.cirad.fr:8890/fct/facet.vsp?cmd=text&sid=231"" method="post" target="_blank"-->
+                                    <form id="search" method="post" target="_blank">
                                         <div class="col-lg-6">
                                             <div class="input-group">
                                                 <!--input type="text" class="form-control" placeholder="Search for..."-->
@@ -106,67 +97,13 @@
                                     <div class="error"></div>
                                     <div class="success"></div>
                                     <span style="margin-top:30px;color:red;display:none" class="message">Please enter a keword</span>
-<!--                                    <script>
-                                        $('form#search').click(function(e){
-                                            var request=$(".keyword").val();
-                                            console.log('request'+request);
-                                             if(request==""){
-                                                $('.message').show();
-                                                e.stopPropagation();
-                                                e.preventDefault();
-                                            }else{
-                                                $('.message').hide();
-                                                saveRequest(request);
-                                            }
-                                        });
-                                       
-                                        function saveRequest(keyword){
-                                            $.ajax({
-                                                type:'post',
-                                                data:'p={m:"setQuickSearch",keyword:'+keyword+'}',
-                                                url:'ToolHistory',
-                                                success:function(data){
-                                                    $('.success').html(data);
-                                                }                                                
-                                            });
-                                        }
-                                    </script>-->
                                 </center>
                             </div>
-<!--                                    <div class="primary-b col-sm-12 col-lg-6">
-                                        <div class="pre primary-b">
-                                            <p><b>Agronomic Linked Data (AgroLD)</b></br>This project was created to provide a portal for bioinformatics and domain experts to exploit the homogenized data models towards efficiently generating research hypotheses.
-                                            </p>
-                                        </div>
-                                    </div>-->
                                 </div>
                             </div>
                         </div>
 
                     </div>
-<!--                    <section class="regular slider">
-                        <div class="minified">
-                            <div class="container">
-                                <div class="slide-1">
-                                    <a href="advancedSearch.jsp"><img src="images/slide1.png"></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="minified">
-                            <div class="container">
-                                <div class="slide-1">
-                                    <a href="relfinder.jsp"><img src="images/slide2.png"></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="minified">
-                            <div class="container">
-                                <div class="slide-1">
-                                    <a href="sparqleditor.jsp"><img src="images/slide3.png"></a>
-                                </div>
-                            </div>
-                        </div>
-                    </section>-->
                 </div>
             </div>
             <div id="section1" class="fp-normal-scroll section sumaryService">
@@ -263,38 +200,18 @@
                                             Change your consents
                                         </button>
                                 </footer>
-                               
-                            </div>
-                                     
-                        </div>
-                           
+                            </div>      
+                        </div> 
                     </div>
-                        
                 </div>
-                   <!-- <img class="twitter_img_icon"src="images/twitter-icon-1.png" alt="southgreen"> -->
             </div>
-            
-           
-                            
-<!--            <div id="section3" class="section introIndex">
-                 <div class="titled-section t-s-1 container-fluid">
-                    <img class="twitter_img" src="images/twitter_PNGsmal.png" alt="southgreen">       
-                    <img class="twitter_img"src="images/twitter-icon-1.png" alt="southgreen">  
-                </div>
-                <div class="container">
-                    <div class="tweeter">
-                       <a class="twitter-timeline" href="https://twitter.com/agro_ld?ref_src=twsrc%5Etfw">Tweets by agro_ld</a> 
-                       <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-                    </div>
-                </div>
-            </div>-->
         </div>
    
 
     <script type="text/javascript">
         var nos = 0;
         $(document).ready(function () {
-
+            $("#search").attr("action", FACETEDPAGE);
             $(".regular").slick({
                 /*scrollOverflow: true,
                  slidesNavigation: true,

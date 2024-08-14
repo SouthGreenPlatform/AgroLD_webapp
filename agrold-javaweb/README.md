@@ -21,15 +21,13 @@ Vous pourrez voir comment paramétrer votre IDE dans [la section appropriée sur
 
 Le déploiement de l'application se fait premièrement avec des propriétés Java passées à tomcat.
 
-|            Name            |                                Description                                 |       Valeur par défaut       |
-| :------------------------: | :------------------------------------------------------------------------: | :---------------------------: |
-|    `agrold.description`    |                      Description affichée dans Tomcat                      |              :x:              |
-|  `agrold.sparql_endpoint`  |                          Url de l'endpoint SPARQL                          | `http://sparql.southgreen.fr` |
-| `agrold.db_connection_url` |          Url de la base de données ex: `[host]:[port]/[db]?[opt]`          |              :x:              |
-|    `agrold.db_username`    |                     Utilisateur de la base de données                      |              :x:              |
-|    `agrold.db_password`    |                     Mot de passe de la base de données                     |              :x:              |
-|      `agrold.rf_link`      |               Lien vers une instance de RelFinder[Reformed]                |  `http://rf.southgreen.fr/`   |
-|     `agrold.instance`      |      Specifies the type of the instance, can either be empty or `dev`      |              :x:              |
+|            Name             |                           Description                            |         Valeur par défaut         |
+| :-------------------------: | :--------------------------------------------------------------: | :-------------------------------: |
+|    `agrold.description`     |                 Description affichée dans Tomcat                 |                :x:                |
+|  `agrold.sparql_endpoint`   |                     Url de l'endpoint SPARQL                     |   `http://sparql.southgreen.fr`   |
+|      `agrold.rf_link`       |          Lien vers une instance de RelFinder[Reformed]           |    `http://rf.southgreen.fr/`     |
+| `agrold.faceted_search_url` |                Lien vers la recherche à facettes                 | `http://agrold.southgreen.fr/fct` |
+|      `agrold.instance`      | Specifies the type of the instance, can either be empty or `dev` |                :x:                |
 
 Pour injecter ces variables dans tomcat, il faut déclarer les sous forme d'argument en ligne de commande sous cette forme `-Dnomdelapropriété=valeur` et les placer dans la variable d'environnement `CATALINA_OPTS`
 
