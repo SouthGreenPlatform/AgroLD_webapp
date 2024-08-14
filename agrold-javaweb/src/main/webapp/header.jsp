@@ -1,4 +1,5 @@
 <%@ page language="java"%>
+${pageContext.ELContext.importHandler.importClass('agrold.config.PropertiesBean')}
 <jsp:include page="localStoreConsent.html"></jsp:include>
 
 <div id="header">
@@ -8,8 +9,8 @@
         </button>
         <div class="container">
             <a class="navbar-brand" href="/agrold">
-                <span class="ribbon ${System.getProperty('agrold.instance', 'a').toLowerCase() == 'dev'? 'bg-info': (System.getProperty('agrold.instance', 'a').toLowerCase() == 'local'? 'bg-warning': 'd-none')}">
-                    ${System.getProperty('agrold.instance', 'a').toLowerCase() == 'local'? 'LOCAL': 'DEV'}
+                <span class="ribbon ${PropertiesBean.getInstance().toLowerCase() == 'dev'? 'bg-info': (PropertiesBean.getInstance().toLowerCase() == 'local'? 'bg-warning': 'd-none')}">
+                    ${PropertiesBean.getInstance().toLowerCase() == 'local'? 'LOCAL': 'DEV'}
                 </span>
                 <img src="images/v5.png">
             </a>

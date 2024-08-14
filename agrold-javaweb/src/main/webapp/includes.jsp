@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+${pageContext.ELContext.importHandler.importClass('agrold.config.PropertiesBean')}
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,8 +37,8 @@
         return text === "null" ? null : text;
     }
 
-    const system_sparqlendpoint = parseJsp('<%= System.getProperty("agrold.sparql_endpoint", "http://sparql.southgreen.fr") %>')
-    const system_faceted_search_url = parseJsp('<%= System.getProperty("agrold.faceted_search_url", "http://sparql.southgreen.fr/faceted") %>')
+    const system_sparqlendpoint = parseJsp('${PropertiesBean.getSparqlEndpoint()}')
+    const system_faceted_search_url = parseJsp('${PropertiesBean.getFacetedSearchURL()}')
 </script>
 <script type="text/javascript" src="config/config.js"></script>
 

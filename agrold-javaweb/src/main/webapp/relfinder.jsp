@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+${pageContext.ELContext.importHandler.importClass('agrold.config.PropertiesBean')}
 <!DOCTYPE html>
 <html>
     <!-- Script for google analytic -->
@@ -42,7 +43,6 @@
     </head>
     <body>        
         <jsp:include page="header.jsp"></jsp:include>
-            <%! String rfLink = System.getProperty("agrold.rf_link", "http://rf.southgreen.fr/"); %>
             <div class="container-fluid arian-thread">
                 <div class="info_title">
                     <div class="container pos-l">Search > <span class="active-p">Explore relationship</span></div>
@@ -53,7 +53,7 @@
                 <div class="d-flex flex-row justify-content-start" >
                     <h3>Quick guide to RelFinder Reformed</h3>
                     <h3 class="mr-3 ml-3">|</h3>
-                    <button class="btn btn-primary" onclick="window.open('<%= rfLink %>','_blank')">
+                    <button class="btn btn-primary" onclick="window.open('${PropertiesBean.getRFLink()}','_blank')">
                         Open RelFinder Reformed
                     </button>
                 </div>
@@ -92,6 +92,7 @@
 
                         <h4>Links</h4>
                         <ul>
+                            <li><a href="${PropertiesBean.getRFLink()}">Link to our instance</a></li>
                             <li><a href="https://github.com/WoodenMaiden/RelfinderReformedFront">Frontend Code</a></li>
                             <li><a href="https://github.com/WoodenMaiden/RelfinderReformedAPI"  >Backend Code</a></li>
                         </ul>
