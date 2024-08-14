@@ -60,7 +60,7 @@
 
                 <hr/>
 
-                <div class="d-flex flex-row">
+                <div class="d-flex align-items-center flex-xl-row flex-column">
                     <div>
                         <h4>What is it?</h4>
                         <p>
@@ -97,7 +97,7 @@
                         </ul>
                     </div>
 
-                    <img class="ml-2" src="images/rfr_annotated.png" alt="Annotated screenshot of RelFinderReformed"/>
+                    <img class="m-2" width="100%" src="images/rfr_annotated.png" alt="Annotated screenshot of RelFinderReformed"/>
                 </div>
             </div>
         <jsp:include page="footer.html"></jsp:include>
