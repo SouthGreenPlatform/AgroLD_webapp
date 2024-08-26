@@ -27,45 +27,55 @@ function drawResultTable(data, entityType, keyword, page) {
 /*
  * 
  */
-function search(entityType, keyword, page) {
+async function search(entityType, keyword, page) {
     window.swagger = new SwaggerClient({
-        url:  window.location.origin+AGROLDAPIJSONURL,
-        success: function () {
+        url:  window.location.origin+AGROLDAPIJSONURL
+    }).then(
+        client => {
             displayHoldMessage("#result");
             switch (entityType) {
                 case "gene":
-                    swagger.apis.gene.getGenesByKeyWord({format: DEFAULTAPIFORMAT, keyword: keyword, pageSize: DEFAULT_PAGE_SIZE, page: page},
-                    {responseContentType: 'application/json'}, function (data) {
-                        drawResultTable(data, entityType, keyword, page);
-                    });
+                    client.execute({ 
+                        operationId: 'getGenesByKeyWord', 
+                        parameters: { format: DEFAULTAPIFORMAT, keyword: keyword, pageSize: DEFAULT_PAGE_SIZE, page },
+                    }).then(
+                        data => drawResultTable(data, entityType, keyword, page)
+                    )
                     break;
                 case "protein":
-                    swagger.apis.protein.getProteinsByKeyWord({format: DEFAULTAPIFORMAT, keyword: keyword, pageSize: DEFAULT_PAGE_SIZE, page: page},
-                    {responseContentType: 'text/html'}, function (data) {
-                        drawResultTable(data, entityType, keyword, page);
-                    });
+                    client.execute({ 
+                        operationId: 'getProteinsByKeyWord', 
+                        parameters: { format: DEFAULTAPIFORMAT, keyword: keyword, pageSize: DEFAULT_PAGE_SIZE, page },
+                    }).then(
+                        data => drawResultTable(data, entityType, keyword, page)
+                    )
                     break;
                 case "qtl":
-                    swagger.apis.qtl.getQtlsByKeyWord({format: DEFAULTAPIFORMAT, keyword: keyword, pageSize: DEFAULT_PAGE_SIZE, page: page},
-                    {responseContentType: 'text/html'}, function (data) {
-                        drawResultTable(data, entityType, keyword, page);
-                    });
+                    client.execute({ 
+                        operationId: 'getQtlsByKeyWord', 
+                        parameters: { format: DEFAULTAPIFORMAT, keyword: keyword, pageSize: DEFAULT_PAGE_SIZE, page },
+                    }).then(
+                        data => drawResultTable(data, entityType, keyword, page)
+                    )
                     break;
                 case "pathway":
-                    swagger.apis.pathway.getPathwaysByKeyWord({format: DEFAULTAPIFORMAT, keyword: keyword, pageSize: DEFAULT_PAGE_SIZE, page: page},
-                    {responseContentType: 'text/html'}, function (data) {
-                        drawResultTable(data, entityType, keyword, page);
-                    });
+                    client.execute({ 
+                        operationId: 'getPathwaysByKeyWord', 
+                        parameters: { format: DEFAULTAPIFORMAT, keyword: keyword, pageSize: DEFAULT_PAGE_SIZE, page },
+                    }).then(
+                        data => drawResultTable(data, entityType, keyword, page)
+                    )
                     break;
                 case "ontology":
-                    swagger.apis.ontologies.getOntologyTermsByKeyWord({format: DEFAULTAPIFORMAT, keyword: keyword, pageSize: DEFAULT_PAGE_SIZE, page: page},
-                    {responseContentType: 'text/html'}, function (data) {
-                        drawResultTable(data, entityType, keyword, page);
-                    });
+                    client.execute({ 
+                        operationId: 'getOntologyTermsByKeyWord', 
+                        parameters: { format: DEFAULTAPIFORMAT, keyword: keyword, pageSize: DEFAULT_PAGE_SIZE, page },
+                    }).then(
+                        data => drawResultTable(data, entityType, keyword, page)
+                    )
                     break;
                 default:
                     $("#result").html("nothing found");
             }
-        }
-    });
+        });
 }
