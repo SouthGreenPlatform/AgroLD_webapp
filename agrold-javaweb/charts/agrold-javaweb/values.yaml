@@ -561,9 +561,12 @@ ingress:
   ## certManager: false
   ##
 
+  ## @param ingress.serveManager wether or not we should access the managers
+  serveManager: false
+
   ## @param ingress.hostname Default host for the ingress resource
   ##
-  hostname: vmagrold-proto
+  hostname: agrold.local
   ## @param ingress.annotations Additional annotations for the Ingress resource. To enable certificate autogeneration, place here your cert-manager annotations.
   ## For a full list of possible ingress annotations, please see
   ## ref: https://github.com/kubernetes/ingress-nginx/blob/main/docs/user-guide/nginx-configuration/annotations.md

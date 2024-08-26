@@ -24,7 +24,11 @@ LABEL "fr.ird.maintainer"="Yann POMIE <yann.pomie@ird.fr>" \
       "org.opencontainers.image.source"="https://github.com/SouthGreenPlatform/AgroLD_webapp" \
       "org.opencontainers.image.version"=${GIT_COMMIT}   
 
-COPY --from=build /build_dir/target/*.war /opt/bitnami/tomcat/webapps_default
+RUN rm -rf /opt/bitnami/tomcat/webapps_default/docs
+RUN rm -rf /opt/bitnami/tomcat/webapps_default/examples
+RUN rm -rf /opt/bitnami/tomcat/webapps_default/ROOT
+
+COPY --from=build /build_dir/target/*.war /opt/bitnami/tomcat/webapps_default/ROOT.war
 
 ENV GIT_COMMIT=${GIT_COMMIT}
 ENV CATALINA_OPTS="-Dagrold.description=${AGROLD_DESCRIPTION}" 
