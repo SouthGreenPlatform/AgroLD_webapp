@@ -13,7 +13,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 2.3.0
-    created: "2024-08-26T13:30:17.78619271Z"
+    created: "2024-08-26T13:51:07.932372244Z"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -24,7 +24,7 @@ entries:
       on bitnami''s helm chart for Tomcat, version 11.0.0  Original description: Apache
       Tomcat is an open-source web server designed to host and run Java-based web
       applications. It is a lightweight server with a good performance for applications '
-    digest: b70cff438366f4e5c6398d27d928aaac35f49095e9a1eb412ab79843993f20b1
+    digest: f743ab49405718808b70a352c20ad33933d6c9c47c4d747dc5548e18ee8d790b
     home: https://github.com/SouthGreenPlatform/AgroLD_webapp/tree/master
     icon: https://raw.githubusercontent.com/SouthGreenPlatform/AgroLD_webapp/0513e23f842864379a635998897eb98d2d3eec6b/agrold-javaweb/src/main/webapp/images/Sans%20titre-1.png
     keywords:
@@ -214,7 +214,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 2.3.0
-    created: "2024-08-26T13:30:17.790615463Z"
+    created: "2024-08-26T13:51:07.936593811Z"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -222,7 +222,7 @@ entries:
       - bitnami-common
       version: 2.x.x
     description: IRI dereferencer, RDF to HTML
-    digest: 968b43b6e744d32f7ef2498fa180123af712b970dfcec176be1838a4891ef700
+    digest: 8220d2579ebe7b3c59833835c2b77721e1dc18d2a41f9463cad84926896ecb79
     home: https://bitnami.com
     icon: https://avatars.githubusercontent.com/u/55362589?s=200&v=4
     keywords:
@@ -250,9 +250,9 @@ entries:
   virtuoso:
   - apiVersion: v2
     appVersion: 2.3.0
-    created: "2024-08-26T13:30:17.791244827Z"
+    created: "2024-08-26T13:51:07.937913846Z"
     description: 'A Helm chart to deploy a Virtuoso instance with a SPARQL endpoint '
-    digest: 92ac079a909003e2f0037b327b03553a569cb9c8728db7561db75b5901f51091
+    digest: fb93a5c516d3b148e6225d114c06dcc39e876370a2144be8713b45b4a0ca24f2
     icon: https://store-images.s-microsoft.com/image/apps.27150.557b4e93-c573-4bac-97ec-a7edc7a03135.f218a1cc-095b-4626-b120-86e757fd27c2.84200834-db12-40c5-b2b6-fd52ac58201a
     maintainers:
     - name: Yann POMIE
@@ -276,4 +276,4 @@ entries:
     urls:
     - https://SouthGreenPlatform.github.io/AgroLD_webapp/virtuoso-1.0.1.tgz
     version: 1.0.1
-generated: "2024-08-26T13:30:17.783123792Z"
+generated: "2024-08-26T13:51:07.928973041Z"
