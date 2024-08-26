@@ -33,13 +33,8 @@ import io.swagger.v3.oas.annotations.servers.*;
     ),
     servers = {
         @Server(
-            url = "https://v2.agrold.org",
-            description = "Production server"
-        ),
-        @Server(
-            url = "https://dev.agrold.org",
-            description = "Development version"
-        )        
+            url = "/agrold/api"
+        )
     },
     tags = {
         @Tag(name = Swagger.GENERAL_TAG, description = "General information about AgroLD"),
