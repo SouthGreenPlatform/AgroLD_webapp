@@ -60,6 +60,8 @@
         <link rel="stylesheet" type="text/css" href="styles/bordelo.css">
         <link rel="icon" href="images/logo_min.png" />
         <link rel="icon" type="image/png" href="images/logo_min.png" />
+
+        <jsp:include page="injectProperties.jsp"></jsp:include>
     </head>
     <body>
 

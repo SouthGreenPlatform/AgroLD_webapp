@@ -5,7 +5,6 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-${pageContext.ELContext.importHandler.importClass('agrold.config.PropertiesBean')}
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,19 +27,7 @@ ${pageContext.ELContext.importHandler.importClass('agrold.config.PropertiesBean'
 <script type="text/javascript" src="styles/bootstrap/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="styles/bootstrap/css/bootstrap.css">
 
-<!--Inject system parameters inside js-->
-<script type="text/javascript">
-    // this functions is used parse system parameters inside javascript
-    // indeed we can't use jsp tags inside javascript, the result comes as raw text
-    // so we need to parse it if it is equals to null
-    function parseJsp(text) {
-        return text === "null" ? null : text;
-    }
-
-    const system_sparqlendpoint = parseJsp('${PropertiesBean.getSparqlEndpoint()}')
-    const system_faceted_search_url = parseJsp('${PropertiesBean.getFacetedSearchURL()}')
-</script>
-<script type="text/javascript" src="config/config.js"></script>
+<jsp:include page="injectProperties.jsp"></jsp:include>
 
 <link rel="icon" href="images/logo_min.png" />
 <link rel="icon" type="image/png" href="images/logo_min.png" />
