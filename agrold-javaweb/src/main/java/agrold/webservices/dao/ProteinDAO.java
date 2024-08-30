@@ -18,12 +18,12 @@ public class ProteinDAO {
 
     static public final String PROTEIN_TYPE_URI = "http://purl.obolibrary.org/obo/SO_0000104";
     //static public final String PROTEIN_TYPE_URI = "http://www.southgreen.fr/agrold/resource/Protein";
-    static public final String PROTEIN_TYPE_URI2 = "http://www.southgreen.fr/agrold/vocabulary/Protein";
+    static public final String PROTEIN_TYPE_URI2 = "http://purl.agrold.org/vocabulary/Protein";
     public static final String[] TYPEURIs = new String[]{PROTEIN_TYPE_URI, PROTEIN_TYPE_URI2};
 
     // return URIs and agrold_vocabulary:description of all genes in Agrold
     public static String getProteins(int page, int pageSize, String resultFormat) throws IOException {
-        String sparqlQuery = "prefix	agrold:<http://www.southgreen.fr/agrold/vocabulary/> \n"
+        String sparqlQuery = "prefix	agrold:<http://purl.agrold.org/vocabulary/> \n"
                 + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
                 + "SELECT distinct ?id as ?proteinId ?n as ?proteinName group_concat(distinct ?d;separator=\"; \") as ?Description (?s AS ?URI)\n"
@@ -44,7 +44,7 @@ public class ProteinDAO {
     }
 
     public static String getProteinsIdAssociatedWithOntoId(String ontoId, int page, int pageSize, String resultFormat) throws IOException {
-        String sparqlQuery = " BASE <http://www.southgreen.fr/agrold/> \n"
+        String sparqlQuery = " BASE <http://purl.agrold.org/> \n"
                 + "PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
                 + " PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "SELECT DISTINCT ?proteinId (REPLACE(str(?predicate), '^.*(#|/)', \"\") AS ?Association) (?protein AS ?URI) \n"
@@ -59,7 +59,7 @@ public class ProteinDAO {
                 + "   } limit 1 \n"
                 + " }  \n"
                 + " ?protein ?predicate ?ontoElt . \n"
-                + " ?protein rdf:type <http://www.southgreen.fr/agrold/resource/Protein> . \n"
+                + " ?protein rdf:type <"+PROTEIN_TYPE_URI2+">. \n"
                 + " BIND(REPLACE(str(?protein), '^.*(#|/)', \"\") AS ?proteinId) . \n"
                 + " }";
 
@@ -69,7 +69,7 @@ public class ProteinDAO {
     }
 
     public static String getProteinsAssociatedWithQTL(String qtlId, int page, int pageSize, String resultFormat) throws IOException {
-        String sparqlQuery = "BASE <http://www.southgreen.fr/agrold/>\n"
+        String sparqlQuery = "BASE <http://purl.agrold.org/>\n"
                 + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "PREFIX vocab:<vocabulary/>\n"
                 + "PREFIX graph1:<protein.annotations>\n"
@@ -95,9 +95,9 @@ public class ProteinDAO {
     }
 
     public static String getProteinsEncodedByGene(String geneId, int page, int pageSize, String resultFormat) throws IOException {
-        String sparqlQuery = "BASE <http://www.southgreen.fr/agrold/>\n"
+        String sparqlQuery = "BASE <http://purl.agrold.org/>\n"
                 + "PREFIX vocab: <vocabulary/>\n"
-                + "PREFIX gene: <http://identifiers.org/ensembl.plant/" + geneId + ">\n"
+                + "PREFIX gene: <<http://purl.agrold.org/resource/" + geneId + ">\n"
                 + "SELECT DISTINCT ?Id ?Name group_concat(distinct ?d;separator=\"; \") as ?Description (?protein AS ?URI)\n"
                 + "WHERE{\n"
                 + "  gene: vocab:encodes ?protein.\n"
@@ -112,13 +112,14 @@ public class ProteinDAO {
     }
 
     public static Set<String> getProteinLabels(String id) throws IOException {
-        String sparqlQuery = "prefix	agrold:<http://www.southgreen.fr/agrold/vocabulary/> \n"
+        String sparqlQuery = "prefix	agrold:<http://purl.agrold.org/vocabulary/> \n"
                 + "PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
                 + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "SELECT distinct ?label\n"
                 + "WHERE {\n"
-                + "    ?protein rdfs:label ?label.\n"
-                + "    ?protein rdfs:subClassOf <" + PROTEIN_TYPE_URI + "> .\n"
+                + "  ?protein rdf:type|rdfs:subClassOf ?type.\n"                
+                + "  ?protein rdfs:label ?label . \n"
+                + "  FILTER(?type IN (<"+PROTEIN_TYPE_URI+">,<"+PROTEIN_TYPE_URI2+">))\n"
                 + "    BIND(REPLACE(str(?protein), '^.*(#|/)', \"\") AS ?id) .\n"
                 + "    FILTER REGEX(STR(?id), CONCAT(\"" + id + "\"))\n"
                 + "}";
