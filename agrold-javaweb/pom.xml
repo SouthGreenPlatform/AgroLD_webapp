@@ -220,6 +220,7 @@
                                 </volumes>
                                 <log>
                                     <enabled>true</enabled>
+                                    <prefix>%z</prefix>
                                     <date>NONE</date>
                                     <color>CYAN</color>
                                 </log>
