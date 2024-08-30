@@ -32,42 +32,14 @@ spec:
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       volumes:
-        {{- if .Values.initdb.enabled }}
+        {{- $mount_initdb := or .Values.initdb.enabled .Values.facetedSearch.enabled (not .Values.serveConductor) -}}
+        {{- if $mount_initdb }}
         - name: {{ include "sparql.initdb.configMapName" . }}
           configMap:
             defaultMode: 0551
             name: {{ include "sparql.initdb.configMapName" . }}
         {{- end }}
-        {{- if not .Values.serveConductor }}
-        - name: disableconductor
-          configMap:
-            defaultMode: 0551
-            name: {{ include "sparql.scripts.configMapName" . }}
-        {{- end }}
       containers:
-        {{- if or (not .Values.serveConductor) .Values.facetedSearch.enabled }}
-        # Turns out we cannot do this in the /initdb.d because 
-        # it blocks connections to the 1111 port
-        - name: disable-conductor
-          image: openlink/virtuoso-opensource-7
-          tag: 7.2.11
-          volumeMounts:
-            - name: disableconductor
-              mountPath: /mnt
-          restartPolicy: OnFailure
-          command: 
-            - /bin/sh
-            - "-c"
-            - /mnt/..data/wait-for-it.sh localhost:1111 -t 0 -- /mnt/..data/run_scripts.sh
-          env:
-            - name: "DBA_PASSWORD"
-              valueFrom:
-                secretKeyRef:
-                  name: {{ include "sparql.secretName" . }}
-                  key: DBAPassword
-          
-        {{- end }}
-
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
@@ -87,7 +59,7 @@ spec:
               path: '/sparql?query=select+("pong"+as+%3Fpong)+{}'
               port: http
           volumeMounts:
-            {{- if .Values.initdb.enabled }}
+            {{- if $mount_initdb }}
             - name: {{ include "sparql.initdb.configMapName" . }}
               mountPath: /initdb.d
             {{- end }}

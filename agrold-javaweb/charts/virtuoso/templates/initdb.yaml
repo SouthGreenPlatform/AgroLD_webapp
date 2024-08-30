@@ -1,4 +1,4 @@
-{{- if .Values.initdb.enabled }}
+{{- if or .Values.initdb.enabled .Values.facetedSearch.enabled (not .Values.serveConductor) }}
 apiVersion: v1
 kind: {{ .Values.initdb.kind }}
 metadata:
@@ -6,5 +6,19 @@ metadata:
 data:
   {{- range $key, $val := .Values.initdb.data }}
   {{ $key | quote }}: {{ $val  | quote }}
+  {{- end }}
+
+
+  {{- if not .Values.serveConductor }}
+  "99999999999999999_disable_conductor.sql": |-
+    vad_uninstall('conductor/1.00.8852');
+  {{- end }}
+
+  {{- if .Values.facetedSearch.enabled }}
+  "99999999999999999_enable_faceted.sql": |-
+    vad_install('/opt/virtuoso-opensource/vad/fct_dav.vad', 0);
+    {{- if .Values.facetedSearch.enableLabels }}
+    registry_set('fct_desc_value_labels', '1');
+    {{- end }}
   {{- end }}
 {{- end }}
