@@ -1,3 +1,4 @@
+{{- $mount_initdb := or .Values.initdb.enabled .Values.facetedSearch.enabled (not .Values.serveConductor) -}}
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -32,13 +33,15 @@ spec:
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       volumes:
-        {{- $mount_initdb := or .Values.initdb.enabled .Values.facetedSearch.enabled (not .Values.serveConductor) -}}
         {{- if $mount_initdb }}
         - name: {{ include "sparql.initdb.configMapName" . }}
           configMap:
             defaultMode: 0551
             name: {{ include "sparql.initdb.configMapName" . }}
         {{- end }}
+        - name: {{ include "sparql.secretName" . }}
+          secret:
+            secretName: {{ include "sparql.secretName" . }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
@@ -67,21 +70,18 @@ spec:
             - name: {{ .Values.persistence.name }}-pvc
               mountPath: /database
             {{- end }}
+            - name: {{ include "sparql.secretName" . }}
+              mountPath: /settings
+              readOnly: true
           env:
+            - name: DBA_PASSWORD_FILE
+              value: /settings/dba_password
+            - name: DAV_PASSWORD_FILE
+              value: /settings/dav_password
             {{- range $key, $value := .Values.env }}
             - name: {{ $key | quote }}
               value: {{ $value | quote }}
             {{- end }}
-            - name: "DAV_PASSWORD"
-              valueFrom:
-                secretKeyRef:
-                  name: {{ include "sparql.secretName" . }}
-                  key: DAVPassword
-            - name: "DBA_PASSWORD"
-              valueFrom:
-                secretKeyRef:
-                  name: {{ include "sparql.secretName" . }}
-                  key: DBAPassword
             {{- if .Values.iniFileValues.enabled -}}
             {{- range $section, $entry := .Values.iniFileValues.values }}
               {{- range $key, $_ := $entry }}
