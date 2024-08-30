@@ -64,7 +64,7 @@ public class GeneDAO {
                 + "    ?taxon rdfs:label ?taxon_name.\n"
                 + "  }\n"
                 + "}";*/
-        String sparqlQuery = "BASE <http://www.southgreen.fr/agrold/>\n"
+        String sparqlQuery = "BASE <http://purl.agrold.org/>\n"
                 + "PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
                 + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "PREFIX vocab:<vocabulary/>\n"
@@ -88,7 +88,7 @@ public class GeneDAO {
 
     // TO DO Methode ne marche pas "probleme"
     public static String getGenesEncodingProtein(String proteinId, int page, int pageSize, String resultFormat) throws IOException {
-        String sparqlQuery = "BASE <http://www.southgreen.fr/agrold/>\n"
+        String sparqlQuery = "BASE <http://purl.agrold.org/>\n"
                 + "PREFIX vocab: <vocabulary/>\n"
                 + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "PREFIX protein: <http://purl.uniprot.org/uniprot/" + proteinId + ">\n"
@@ -109,7 +109,7 @@ public class GeneDAO {
     public static String getCDSGene(int page, int pageSize, String resultFormat) throws IOException {
         //return "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>" + "<genes> Hello Jersey" + "</genes>";
 
-        String sparqlQuery = "BASE <http://www.southgreen.fr/agrold/>\n"
+        String sparqlQuery = "BASE <http://purl.agrold.org/>\n"
                 + "PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
                 + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "PREFIX obo:<http://purl.obolibrary.org/obo/>\n"
@@ -142,7 +142,7 @@ public class GeneDAO {
     public static String getGenesByLocus(String chromosomeNum, String chromosomeStart, String chromosomeEnd, int page, int pageSize, String resultFormat) throws IOException {
         //return "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>" + "<genes> Hello Jersey" + "</genes>";
 
-        String sparqlQuery = "BASE <http://www.southgreen.fr/agrold/>\n"
+        String sparqlQuery = "BASE <http://purl.agrold.org/>\n"
                 + "PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
                 + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "PREFIX vocab: <vocabulary/>\n"
@@ -150,7 +150,7 @@ public class GeneDAO {
                 + "PREFIX chrom: <chromosome/>\n"
                 + "SELECT DISTINCT ?genes ?start ?taxon_name \n"
                 + "WHERE{\n"
-                + "?genes rdf:type <http://www.southgreen.fr/agrold/resource/Gene>.\n"
+                + "?genes rdf:type <http://purl.agrold.org/vocabulary/Gene>.\n"
                 + "?genes vocab:is_located_on chrom:" + chromosomeNum + " .\n"
                 + "?genes vocab:taxon ?taxon_name .\n"
                 + "?genes vocab:has_start_position ?start_position .\n"
@@ -165,7 +165,7 @@ public class GeneDAO {
     }
 
     public static Set<String> getGeneLabels(String geneId) throws IOException {
-        String sparqlQuery = "prefix	agrold:<http://www.southgreen.fr/agrold/vocabulary/> \n"
+        String sparqlQuery = "prefix	agrold:<http://purl.agrold.org/vocabulary/> \n"
                 + "PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
                 + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "SELECT distinct ?label\n"
@@ -200,7 +200,7 @@ public class GeneDAO {
 //        return Utils.sortJSONArray(resultJsonArray, "pubYear", false).toString();
 //    }
     public static String getPublicationsOfGeneById(String geneId, int page, int pageSize, String resultFormat) throws IOException {
-        String query = "BASE <http://www.southgreen.fr/agrold/>\n"
+        String query = "BASE <http://purl.agrold.org/>\n"
                 + "PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
                 + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "PREFIX graph:<rapdb>\n"
@@ -221,7 +221,7 @@ public class GeneDAO {
     }
 
     public static String getSeeAlsoByURI(String geneUri, int page, int pageSize, String resultFormat) throws IOException {
-        String query = "BASE <http://www.southgreen.fr/agrold/>\n"
+        String query = "BASE <http://purl.agrold.org/>\n"
                 + "PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
                 + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "SELECT distinct ?link\n"
