@@ -15,8 +15,8 @@ import java.util.Set;
  */
 public class GeneDAO {
 
-    public static final String GENE_TYPE_URI = "http://www.southgreen.fr/agrold/resource/Gene";
-    public static final String GENE_TYPE_URI2 = "http://www.southgreen.fr/agrold/vocabulary/Gene";
+    public static final String GENE_TYPE_URI = "http://purl.agrold.org/resource/Gene";
+    public static final String GENE_TYPE_URI2 = "http://purl.agrold.org/vocabulary/Gene";
     public static final String[] TYPEURIs = new String[]{GeneDAO.GENE_TYPE_URI, GeneDAO.GENE_TYPE_URI2};
     //public static final String[] TYPEURIs = new String[]{GeneDAO.GENE_TYPE_URI2};
     
@@ -25,7 +25,7 @@ public class GeneDAO {
     public static String getGenes(int page, int pageSize, String resultFormat) throws IOException {
         //return "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>" + "<genes> Hello Jersey" + "</genes>";
         String genes = "";
-        String sparqlQuery = "prefix	agrold:<http://www.southgreen.fr/agrold/vocabulary/> \n"
+        String sparqlQuery = "prefix	agrold:<http://purl.agrold.org/vocabulary/> \n"
                 + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "SELECT distinct ?gene ?geneId ?geneName ?geneDescription\n"
                 + "WHERE {\n"
