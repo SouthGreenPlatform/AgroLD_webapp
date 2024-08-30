@@ -220,7 +220,6 @@
                                 </volumes>
                                 <log>
                                     <enabled>true</enabled>
-                                    <prefix>Agrold @ %c &gt;&#160;</prefix>
                                     <date>NONE</date>
                                     <color>CYAN</color>
                                 </log>
