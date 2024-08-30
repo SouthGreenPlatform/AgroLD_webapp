@@ -12,13 +12,13 @@ import java.io.IOException;
 public class QtlDAO {
 
     public static final String QTL_TYPE_URI2 = "http://purl.obolibrary.org/obo/SO_0000771";
-    public static final String QTL_TYPE_URI = "http://www.southgreen.fr/agrold/resource/QTL";
+    public static final String QTL_TYPE_URI = "http://purl.agrold.org/vocabulary/QTL";
     public static final String[] TYPEURIs = new String[]{QTL_TYPE_URI, QTL_TYPE_URI2};
 
     // return URIs and agrold_vocabulary:description of all genes in Agrold
     public static String getQtls(int page, int pageSize, String resultFormat) throws IOException {
 
-        String sparqlQuery = "PREFIX agrold:<http://www.southgreen.fr/agrold/vocabulary/> \n"
+        String sparqlQuery = "PREFIX agrold:<http://purl.agrold.org/vocabulary/> \n"
                 + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
                 + "SELECT distinct ?qtlId ?qtlName (group_concat(distinct ?d;separator=\"; \") as ?Description) (?qtl AS ?URI)\n"
@@ -62,7 +62,7 @@ public class QtlDAO {
 //                + "    BIND(REPLACE(str(?qtl), '^.*(#|/)', \"\") AS ?qtlId) .\n"
 //                + "  }\n"
 //                + "}";
-        String sparqlQuery = "BASE <http://www.southgreen.fr/agrold/>\n"
+        String sparqlQuery = "BASE <http://purl.agrold.org/>>\n"
                 + "PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
                 + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "SELECT DISTINCT ?qtlId (?qtl AS ?URI) ?qtlLabel (REPLACE(str(?predicate), '^.*(#|/)', \"\") AS ?Association) "
@@ -72,9 +72,9 @@ public class QtlDAO {
                 + "  {\n"
                 + "    ?qtl ?predicate ?ontoElt .\n"
                 + "    ?ontoElt rdfs:subClassOf ?ontoEltClass.\n"
-                + "    {?qtl rdf:type <http://www.southgreen.fr/agrold/resource/QTL>.}\n"
+                + "    {?qtl rdf:type <"+QTL_TYPE_URI+">.}\n"
                 + "    UNION\n"
-                + "    {?qtl rdfs:subClassOf <http://purl.obolibrary.org/obo/SO_0000771>.}\n"
+                + "    {?qtl rdfs:subClassOf <"+QTL_TYPE_URI2+">.}\n"
                 + "    optional {?ontoElt rdfs:label ?ontoLabel}\n"
                 + "    optional {?qtl rdfs:label ?qtlLabel}\n"
                 + "    BIND(REPLACE(str(?qtl), '^.*(#|/)', \"\") AS ?qtlId) .\n"
@@ -88,7 +88,7 @@ public class QtlDAO {
     }
 
     public static String getQtlsAssociatedWithProteinId(String proteinId, int page, int pageSize, String resultFormat) throws IOException {
-        String sparqlQuery = "BASE <http://www.southgreen.fr/agrold/>\n"
+        String sparqlQuery = "BASE <http://purl.agrold.org/>\n"
                 + "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n"
                 + "PREFIX vocab:<vocabulary/>\n"
                 + "PREFIX graph1:<protein.annotations>\n"
