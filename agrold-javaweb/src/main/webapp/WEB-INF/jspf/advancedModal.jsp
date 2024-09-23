@@ -33,6 +33,8 @@
     </div>
 </div>
 <script>
+    $.noConflict(); // TODO: JQuery is used twice or more, leading to conflicts
+                    // Remove this line when the issue is fixed
     /***************************************************************/
     /*********************  Specific modal code ********************/
     /***************************************************************/
@@ -79,13 +81,12 @@
         $('.modal-result').html(ModalContext.ACTIVE.html);
         //graphicalInitialisation();
         window.swagger = new SwaggerClient({
-            url: url,
-            success: function () {
-                console.log("# -- Call swagger for MODAL");
-                ModalContext.ACTIVE.getDescription(ModalContext.uri);
-            }
+            url
+        }).then(client => {
+            console.log("# -- Call swagger for MODAL");
+            ModalContext.ACTIVE.getDescription(ModalContext.uri);
+            console.log('#### --- ## --- ####')
         });
-        console.log('#### --- ## --- ####')
     }
     function JSON_DEBUG(json) {
         for (var i in json) {

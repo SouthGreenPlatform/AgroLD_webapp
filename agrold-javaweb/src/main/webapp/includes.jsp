@@ -24,7 +24,7 @@
 <!--link href="styles/menu1.css" rel="stylesheet" type="text/css"/-->
 <link rel="stylesheet" type="text/css" href="styles/bootstrap/css/bootstrap-grid.min.css">
 <link rel="stylesheet" type="text/css" href="styles/font-awesome/css/font-awesome.min.css">
-<script type="text/javascript" src="styles/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="styles/bootstrap/js/bootstrap.js"></script>
 <link rel="stylesheet" type="text/css" href="styles/bootstrap/css/bootstrap.css">
 
 <jsp:include page="injectProperties.jsp"></jsp:include>
