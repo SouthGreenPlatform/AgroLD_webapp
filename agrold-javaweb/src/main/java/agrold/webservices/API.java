@@ -6,20 +6,12 @@
 package agrold.webservices;
 
 import agrold.webservices.dao.Utils;
+import agrold.webservices.dao.Utils.Formats;
 import io.swagger.v3.oas.annotations.Hidden;
 import io.swagger.v3.oas.annotations.Operation;
-
-
-import static agrold.webservices.dao.Utils.CSV;
-import static agrold.webservices.dao.Utils.HTML;
-import static agrold.webservices.dao.Utils.JSON;
-import static agrold.webservices.dao.Utils.JSON_LD;
-import static agrold.webservices.dao.Utils.N3;
-import static agrold.webservices.dao.Utils.RDF;
-import static agrold.webservices.dao.Utils.TSV;
-import static agrold.webservices.dao.Utils.TTL;
-import static agrold.webservices.dao.Utils.TXT;
-import static agrold.webservices.dao.Utils.XML;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.enums.ParameterIn;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import static agrold.webservices.dao.Utils.DEFAULT_PAGE;
 import static agrold.webservices.dao.Utils.DEFAULT_PAGE_SIZE;
@@ -48,7 +40,6 @@ import javax.ws.rs.core.Application;
  * @author zadmin
  */
 @Path("/")
-@Produces({JSON, HTML, RDF, JSON_LD, XML, TSV, CSV, TTL, N3, TXT})
 public class API extends Application {
 
     static final Logger logger = Logger.getLogger(API.class.getName());
@@ -91,7 +82,7 @@ public class API extends Application {
         summary = "list all the graphs of AgroLD",
         tags = { Swagger.GENERAL_TAG }
     )
-    public Response listGraphs(@PathParam(formatVar) String format,
+    public Response listGraphs(@Parameter(name = "format", in = ParameterIn.PATH,required = true, schema = @Schema(implementation = Formats.class)) @PathParam(formatVar) String format,
             @DefaultValue(DEFAULT_PAGE) @QueryParam(pageNumVar) int page, @DefaultValue(DEFAULT_PAGE_SIZE) @QueryParam(pageSizeVar) int pageSize) throws IOException {
         String contentType = Utils.getFormatFullName(format);
         if (contentType == null) {
@@ -107,7 +98,7 @@ public class API extends Application {
         summary = "Retrieve complete URI of all predicates used in AgroLD",
         tags = { Swagger.GENERAL_TAG }
     )
-    public Response getDescription(@DefaultValue("") @PathParam(formatVar) String format, @QueryParam("uri") String resourceURI,
+    public Response getDescription(@DefaultValue("") @Parameter(name = "format", in = ParameterIn.PATH,required = true, schema = @Schema(implementation = Formats.class)) @PathParam(formatVar) String format, @QueryParam("uri") String resourceURI,
             @DefaultValue(DEFAULT_PAGE) @QueryParam(pageNumVar) int page, @DefaultValue(DEFAULT_PAGE_SIZE) @QueryParam(pageSizeVar) int pageSize) throws IOException {
         String contentType = Utils.getFormatFullName(format);
         if (contentType == null) {
@@ -132,7 +123,7 @@ public class API extends Application {
         summary = "Retrieve complete URI of all predicates used in AgroLD in JSON",
         tags = { Swagger.GENERAL_TAG }
     )
-    public Response getGraphPredicates(@PathParam(formatVar) String format, @QueryParam("graphLocalName") String graphLocalName,
+    public Response getGraphPredicates(@Parameter(name = "format", in = ParameterIn.PATH,required = true, schema = @Schema(implementation = Formats.class)) @PathParam(formatVar) String format, @QueryParam("graphLocalName") String graphLocalName,
             @DefaultValue(DEFAULT_PAGE) @QueryParam(pageNumVar) int page, @DefaultValue(DEFAULT_PAGE_SIZE) @QueryParam(pageSizeVar) int pageSize) throws IOException {
         System.out.println("GRAPH:" + graphLocalName);
         String contentType = Utils.getFormatFullName(format);
@@ -156,7 +147,6 @@ public class API extends Application {
         summary = "Run a sparql query against the rdf store",
         tags = { Swagger.GENERAL_TAG }
     )
-    @Produces({JSON_LD, JSON, XML, RDF, TSV, CSV, TTL, N3, TXT})
     public Response sparql(@QueryParam("query") String query, @QueryParam(formatVar) String format) throws IOException {
         String contentType = Utils.getFormatFullName(format);
         if (contentType == null) {
@@ -173,8 +163,7 @@ public class API extends Application {
         summary = "Retrieve complete URI and description of all QTLs from AgroLD",
         tags = { Swagger.QTL_TAG }
     )
-    @Produces({JSON_LD, JSON, XML, RDF, TSV, CSV, TTL, N3, TXT})
-    public Response getQtls(@PathParam(formatVar) String format,
+    public Response getQtls(@Parameter(name = "format", in = ParameterIn.PATH,required = true, schema = @Schema(implementation = Formats.class)) @PathParam(formatVar) String format,
             @DefaultValue(DEFAULT_PAGE) @QueryParam(pageNumVar) int page, @DefaultValue(DEFAULT_PAGE_SIZE) @QueryParam(pageSizeVar) int pageSize) throws IOException {
         String contentType = Utils.getFormatFullName(format);
         if (contentType == null) {
@@ -190,8 +179,7 @@ public class API extends Application {
         summary = "Get ids of QTLs associated with an ontological Id",
         tags = { Swagger.QTL_TAG }
     )
-    @Produces({JSON_LD, JSON, XML, RDF, TSV, CSV, TTL, N3, TXT})
-    public Response getQtlsIdAssociatedWithOntoId(@PathParam(formatVar) String format, @QueryParam("ontoId") String ontoId,
+    public Response getQtlsIdAssociatedWithOntoId(@Parameter(name = "format", in = ParameterIn.PATH,required = true, schema = @Schema(implementation = Formats.class)) @PathParam(formatVar) String format, @QueryParam("ontoId") String ontoId,
             @DefaultValue(DEFAULT_PAGE) @QueryParam(pageNumVar) int page, @DefaultValue(DEFAULT_PAGE_SIZE) @QueryParam(pageSizeVar) int pageSize) throws IOException {
         String contentType = Utils.getFormatFullName(format);
         if (contentType == null) {
@@ -207,8 +195,7 @@ public class API extends Application {
         summary = "Retrieve QTLs with URI or name or description containing the given keyword",
         tags = { Swagger.QTL_TAG }
     )
-    @Produces({JSON_LD, JSON, XML, RDF, TSV, CSV, TTL, N3, TXT})
-    public Response getQtlsByKeyWord(@PathParam(formatVar) String format, @QueryParam("keyword") String keyword,
+    public Response getQtlsByKeyWord(@Parameter(name = "format", in = ParameterIn.PATH,required = true, schema = @Schema(implementation = Formats.class)) @PathParam(formatVar) String format, @QueryParam("keyword") String keyword,
             @DefaultValue(DEFAULT_PAGE) @QueryParam(pageNumVar) int page, @DefaultValue(DEFAULT_PAGE_SIZE) @QueryParam(pageSizeVar) int pageSize) throws IOException {
         String contentType = Utils.getFormatFullName(format);
         if (contentType == null) {
@@ -224,8 +211,7 @@ public class API extends Application {
         summary = "Get the list of QTLs associated with an protein Id",
         tags = { Swagger.QTL_TAG }
     )
-    @Produces({JSON_LD, JSON, XML, RDF, TSV, CSV, TTL, N3, TXT})
-    public Response getQtlsAssociatedWithProteinId(@PathParam(formatVar) String format, @QueryParam("proteinId") String proteinId,
+    public Response getQtlsAssociatedWithProteinId(@Parameter(name = "format", in = ParameterIn.PATH,required = true, schema = @Schema(implementation = Formats.class)) @PathParam(formatVar) String format, @QueryParam("proteinId") String proteinId,
             @DefaultValue(DEFAULT_PAGE) @QueryParam(pageNumVar) int page, @DefaultValue(DEFAULT_PAGE_SIZE) @QueryParam(pageSizeVar) int pageSize) throws IOException {
         String contentType = Utils.getFormatFullName(format);
         if (contentType == null) {
@@ -242,7 +228,7 @@ public class API extends Application {
         summary = "Retrieve complete URI and description of all proteins from AgroLD in JSON format",
         tags = { Swagger.PROTEIN_TAG }
     )
-    public Response getProteins(@PathParam(formatVar) String format,
+    public Response getProteins(@Parameter(name = "format", in = ParameterIn.PATH,required = true, schema = @Schema(implementation = Formats.class)) @PathParam(formatVar) String format,
             @DefaultValue(DEFAULT_PAGE) @QueryParam(pageNumVar) int page, @DefaultValue(DEFAULT_PAGE_SIZE) @QueryParam(pageSizeVar) int pageSize) throws IOException {
         String contentType = Utils.getFormatFullName(format);
         if (contentType == null) {
@@ -258,7 +244,7 @@ public class API extends Application {
         summary = "Retrieve proteins with URI or name or description containing the given keyword",
         tags = { Swagger.PROTEIN_TAG }
     )
-    public Response getProteinsByKeyWord(@PathParam(formatVar) String format, @QueryParam("keyword") String keyword,
+    public Response getProteinsByKeyWord(@Parameter(name = "format", in = ParameterIn.PATH,required = true, schema = @Schema(implementation = Formats.class)) @PathParam(formatVar) String format, @QueryParam("keyword") String keyword,
             @DefaultValue(DEFAULT_PAGE) @QueryParam(pageNumVar) int page, @DefaultValue(DEFAULT_PAGE_SIZE) @QueryParam(pageSizeVar) int pageSize) throws IOException {
         String contentType = Utils.getFormatFullName(format);
         if (contentType == null) {
@@ -274,7 +260,7 @@ public class API extends Application {
         summary = "Get ids of proteins associated with an ontological Id",
         tags = { Swagger.PROTEIN_TAG }
     )
-    public Response getProteinsIdAssociatedWithOntoId(@PathParam(formatVar) String format, @QueryParam("ontoId") String ontoId,
+    public Response getProteinsIdAssociatedWithOntoId(@Parameter(name = "format", in = ParameterIn.PATH,required = true, schema = @Schema(implementation = Formats.class)) @PathParam(formatVar) String format, @QueryParam("ontoId") String ontoId,
             @DefaultValue(DEFAULT_PAGE) @QueryParam(pageNumVar) int page, @DefaultValue(DEFAULT_PAGE_SIZE) @QueryParam(pageSizeVar) int pageSize) throws IOException {
         String contentType = Utils.getFormatFullName(format);
         if (contentType == null) {
@@ -290,7 +276,7 @@ public class API extends Application {
         summary = "Get URIs, ids, and name of proteins associated with a QTL",
         tags = { Swagger.PROTEIN_TAG }
     )
-    public Response getProteinsAssociatedWithQtl(@PathParam(formatVar) String format, @QueryParam("qtlId") String qtlId,
+    public Response getProteinsAssociatedWithQtl(@Parameter(name = "format", in = ParameterIn.PATH,required = true, schema = @Schema(implementation = Formats.class)) @PathParam(formatVar) String format, @QueryParam("qtlId") String qtlId,
             @DefaultValue(DEFAULT_PAGE) @QueryParam(pageNumVar) int page, @DefaultValue(DEFAULT_PAGE_SIZE) @QueryParam(pageSizeVar) int pageSize) throws IOException {
         String contentType = Utils.getFormatFullName(format);
         if (contentType == null) {
@@ -306,7 +292,7 @@ public class API extends Application {
         summary = "Get URIs, ids, and name of proteins encoded by a gene given its ID",
         tags = { Swagger.PROTEIN_TAG }
     )
-    public Response getProteinsEncodedByGene(@PathParam(formatVar) String format, @QueryParam("geneId") String geneId,
+    public Response getProteinsEncodedByGene(@Parameter(name = "format", in = ParameterIn.PATH,required = true, schema = @Schema(implementation = Formats.class)) @PathParam(formatVar) String format, @QueryParam("geneId") String geneId,
             @DefaultValue(DEFAULT_PAGE) @QueryParam(pageNumVar) int page, @DefaultValue(DEFAULT_PAGE_SIZE) @QueryParam(pageSizeVar) int pageSize) throws IOException {
         String contentType = Utils.getFormatFullName(format);
         if (contentType == null) {
@@ -323,7 +309,7 @@ public class API extends Application {
         summary = "Get publications about a gene given its ID",
         tags = { Swagger.PROTEIN_TAG }
     )
-    public Response getPublicationsOfProteinById(@PathParam(formatVar) String format, @QueryParam("proteinId") String proteinId) throws IOException {
+    public Response getPublicationsOfProteinById(@Parameter(name = "format", in = ParameterIn.PATH,required = true, schema = @Schema(implementation = Formats.class)) @PathParam(formatVar) String format, @QueryParam("proteinId") String proteinId) throws IOException {
         String contentType = Utils.getFormatFullName(format);
         if (contentType == null) {
             return Response.serverError().entity("[AgroLD Web Services] - Format Error: The requested resource is not available in the format \"" + format + "\"").build();
@@ -339,7 +325,7 @@ public class API extends Application {
         summary = "Retrieve complete URI and description of all genes from AgroLD in JSON format",
         tags = { Swagger.GENE_TAG }
     )
-    public Response getGenes(@PathParam(formatVar) String format,
+    public Response getGenes(@Parameter(name = "format", in = ParameterIn.PATH,required = true, schema = @Schema(implementation = Formats.class)) @PathParam(formatVar) String format,
             @DefaultValue(DEFAULT_PAGE) @QueryParam(pageNumVar) int page, @DefaultValue(DEFAULT_PAGE_SIZE) @QueryParam(pageSizeVar) int pageSize) throws IOException {
         String contentType = Utils.getFormatFullName(format);
         if (contentType == null) {
@@ -355,7 +341,7 @@ public class API extends Application {
         summary = "Retrieve genes with the URI or the name or the description containing the given keyword",
         tags = { Swagger.GENE_TAG }
     )
-    public Response getGenesByKeyWord(@PathParam(formatVar) String format, @QueryParam("keyword") String keyword,
+    public Response getGenesByKeyWord(@Parameter(name = "format", in = ParameterIn.PATH,required = true, schema = @Schema(implementation = Formats.class)) @PathParam(formatVar) String format, @QueryParam("keyword") String keyword,
             @DefaultValue(DEFAULT_PAGE) @QueryParam(pageNumVar) int page, @DefaultValue(DEFAULT_PAGE_SIZE) @QueryParam(pageSizeVar) int pageSize) throws IOException {
         String contentType = Utils.getFormatFullName(format);
         if (contentType == null) {
@@ -371,7 +357,7 @@ public class API extends Application {
         summary = "Complete URI of gene's description by pathway",
         tags = { Swagger.GENE_TAG }
     )
-    public Response getGenesEncodingProteins(@PathParam(formatVar) String format, @QueryParam("proteinId") String proteinId,
+    public Response getGenesEncodingProteins(@Parameter(name = "format", in = ParameterIn.PATH,required = true, schema = @Schema(implementation = Formats.class)) @PathParam(formatVar) String format, @QueryParam("proteinId") String proteinId,
             @DefaultValue(DEFAULT_PAGE) @QueryParam(pageNumVar) int page, @DefaultValue(DEFAULT_PAGE_SIZE) @QueryParam(pageSizeVar) int pageSize) throws IOException {
         String contentType = Utils.getFormatFullName(format);
         if (contentType == null) {
@@ -387,7 +373,7 @@ public class API extends Application {
         summary = "Returns the genes on chromosome chromosomeNum whose start position is between chromosomeStart and chromosomeEnd",
         tags = { Swagger.GENE_TAG }
     )
-    public Response getGenesByLocus(@PathParam(formatVar) String format,
+    public Response getGenesByLocus(@Parameter(name = "format", in = ParameterIn.PATH,required = true, schema = @Schema(implementation = Formats.class)) @PathParam(formatVar) String format,
             @QueryParam("chromosomeNum") String chromosomeNum,
             @QueryParam("chromosomeStart") String chromosomeStart,
             @QueryParam("chromosomeEnd") String chromosomeEnd,
@@ -406,7 +392,7 @@ public class API extends Application {
         summary = "Complete URI of gene's description by pathway",
         tags = { Swagger.GENE_TAG }
     )
-    public Response getGenesByPathways(@PathParam(formatVar) String format, @QueryParam("pathwayId") String pathwayId,
+    public Response getGenesByPathways(@Parameter(name = "format", in = ParameterIn.PATH,required = true, schema = @Schema(implementation = Formats.class)) @PathParam(formatVar) String format, @QueryParam("pathwayId") String pathwayId,
             @DefaultValue(DEFAULT_PAGE) @QueryParam(pageNumVar) int page, @DefaultValue(DEFAULT_PAGE_SIZE) @QueryParam(pageSizeVar) int pageSize) throws IOException {
         String contentType = Utils.getFormatFullName(format);
         if (contentType == null) {
@@ -422,7 +408,7 @@ public class API extends Application {
         summary = "Retrieve complete URI and description of all genes from AgroLD in JSON format",
         tags = { Swagger.GENE_TAG }
     )
-    public Response getCDSGene(@PathParam(formatVar) String format,
+    public Response getCDSGene(@Parameter(name = "format", in = ParameterIn.PATH,required = true, schema = @Schema(implementation = Formats.class)) @PathParam(formatVar) String format,
             @DefaultValue(DEFAULT_PAGE) @QueryParam(pageNumVar) int page, @DefaultValue(DEFAULT_PAGE_SIZE) @QueryParam(pageSizeVar) int pageSize) throws IOException {
         String contentType = Utils.getFormatFullName(format);
         if (contentType == null) {
@@ -439,7 +425,7 @@ public class API extends Application {
         summary = "Get publications of a gene",
         tags = { Swagger.GENE_TAG }
     )
-    public Response getPublicationsOfGeneById(@PathParam(formatVar) String format,
+    public Response getPublicationsOfGeneById(@Parameter(name = "format", in = ParameterIn.PATH,required = true, schema = @Schema(implementation = Formats.class)) @PathParam(formatVar) String format,
             @DefaultValue(DEFAULT_PAGE) @QueryParam(pageNumVar) int page,
             @DefaultValue(DEFAULT_PAGE_SIZE) @QueryParam(pageSizeVar) int pageSize,
             @QueryParam("geneId") String geneId) throws IOException {
@@ -458,7 +444,7 @@ public class API extends Application {
         summary = "Retrieve the other links refering to this gene",
         tags = { Swagger.GENE_TAG }
     )
-    public Response getSeeAlso(@PathParam(formatVar) String format,
+    public Response getSeeAlso(@Parameter(name = "format", in = ParameterIn.PATH,required = true, schema = @Schema(implementation = Formats.class)) @PathParam(formatVar) String format,
             @DefaultValue(DEFAULT_PAGE) @QueryParam(pageNumVar) int page,
             @DefaultValue(DEFAULT_PAGE_SIZE) @QueryParam(pageSizeVar) int pageSize,
             @QueryParam("geneUri") String geneUri) throws IOException {
@@ -477,7 +463,7 @@ public class API extends Application {
         summary = "Retrieve IRI and name of pathways in which an id-given gene participates",
         tags = { Swagger.PATHWAY_TAG }
     )
-    public Response getPathwaysOfGeneId(@PathParam(formatVar) String format, @QueryParam("geneId") String geneId,
+    public Response getPathwaysOfGeneId(@Parameter(name = "format", in = ParameterIn.PATH,required = true, schema = @Schema(implementation = Formats.class)) @PathParam(formatVar) String format, @QueryParam("geneId") String geneId,
             @DefaultValue(DEFAULT_PAGE) @QueryParam(pageNumVar) int page, @DefaultValue(DEFAULT_PAGE_SIZE) @QueryParam(pageSizeVar) int pageSize) throws IOException {
         String contentType = Utils.getFormatFullName(format);
         if (contentType == null) {
@@ -493,7 +479,7 @@ public class API extends Application {
         summary = "Retrieve IRI and name of pathways given a keyword",
         tags = { Swagger.PATHWAY_TAG }
     )
-    public Response getPathwaysByKeyWord(@PathParam(formatVar) String format, @QueryParam("keyword") String keyword,
+    public Response getPathwaysByKeyWord(@Parameter(name = "format", in = ParameterIn.PATH,required = true, schema = @Schema(implementation = Formats.class)) @PathParam(formatVar) String format, @QueryParam("keyword") String keyword,
             @DefaultValue(DEFAULT_PAGE) @QueryParam(pageNumVar) int page, @DefaultValue(DEFAULT_PAGE_SIZE) @QueryParam(pageSizeVar) int pageSize) throws IOException {
         String contentType = Utils.getFormatFullName(format);
         if (contentType == null) {
@@ -510,8 +496,7 @@ public class API extends Application {
         summary = "Returns all the IDs corresponding to an ontological term",
         tags = { Swagger.ONTOLOGIES_TAG }
     )
-    @Produces({JSON_LD, JSON, XML, RDF, TSV, CSV, TTL, N3, TXT})
-    public Response getOntologyTermsByKeyWord(@PathParam(formatVar) String format, @QueryParam("keyword") String keyword,
+    public Response getOntologyTermsByKeyWord(@Parameter(name = "format", in = ParameterIn.PATH,required = true, schema = @Schema(implementation = Formats.class)) @PathParam(formatVar) String format, @QueryParam("keyword") String keyword,
             @DefaultValue(DEFAULT_PAGE) @QueryParam(pageNumVar) int page,
             @DefaultValue(DEFAULT_PAGE_SIZE) @QueryParam(pageSizeVar) int pageSize) throws IOException {
         String contentType = Utils.getFormatFullName(format);
@@ -530,8 +515,7 @@ public class API extends Application {
         summary = "Returns all the IDs corresponding to an ontological term",
         tags = { Swagger.ONTOLOGIES_TAG }
     )
-    @Produces({JSON_LD, JSON, XML, RDF, TSV, CSV, TTL, N3, TXT})
-    public Response getAncestorById(@PathParam(formatVar) String format, @QueryParam("id") String id, @QueryParam("level") int level,
+    public Response getAncestorById(@Parameter(name = "format", in = ParameterIn.PATH,required = true, schema = @Schema(implementation = Formats.class)) @PathParam(formatVar) String format, @QueryParam("id") String id, @QueryParam("level") int level,
             @DefaultValue(DEFAULT_PAGE) @QueryParam(pageNumVar) int page,
             @DefaultValue(DEFAULT_PAGE_SIZE) @QueryParam(pageSizeVar) int pageSize) throws IOException {
         String contentType = Utils.getFormatFullName(format);
@@ -550,8 +534,7 @@ public class API extends Application {
         summary = "Returns the parents of an ontological element given its id",
         tags = { Swagger.ONTOLOGIES_TAG }
     )
-    @Produces({JSON_LD, JSON, XML, RDF, TSV, CSV, TTL, N3, TXT})
-    public Response getParentById(@PathParam(formatVar) String format, @QueryParam("id") String id,
+    public Response getParentById(@Parameter(name = "format", in = ParameterIn.PATH,required = true, schema = @Schema(implementation = Formats.class)) @PathParam(formatVar) String format, @QueryParam("id") String id,
             @DefaultValue(DEFAULT_PAGE) @QueryParam(pageNumVar) int page, @DefaultValue(DEFAULT_PAGE_SIZE) @QueryParam(pageSizeVar) int pageSize) throws IOException {
         // The parent is the ancestor at level 1
         String contentType = Utils.getFormatFullName(format);
@@ -570,8 +553,7 @@ public class API extends Application {
         summary = "Returns the descendents of an ontological element given its id",
         tags = { Swagger.ONTOLOGIES_TAG }
     )
-    @Produces({JSON_LD, JSON, XML, RDF, TSV, CSV, TTL, N3, TXT})
-    public Response getDescendantsById(@PathParam(formatVar) String format, @QueryParam("id") String id, @QueryParam("level") int level,
+    public Response getDescendantsById(@Parameter(name = "format", in = ParameterIn.PATH,required = true, schema = @Schema(implementation = Formats.class)) @PathParam(formatVar) String format, @QueryParam("id") String id, @QueryParam("level") int level,
             @DefaultValue(DEFAULT_PAGE) @QueryParam(pageNumVar) int page, @DefaultValue(DEFAULT_PAGE_SIZE) @QueryParam(pageSizeVar) int pageSize) throws IOException {
         String contentType = Utils.getFormatFullName(format);
         if (contentType == null) {
@@ -587,8 +569,7 @@ public class API extends Application {
         summary = "Returns the children of an ontological element given its id",
         tags = { Swagger.ONTOLOGIES_TAG }
     )
-    @Produces({JSON_LD, JSON, XML, RDF, TSV, CSV, TTL, N3, TXT})
-    public Response getChildrenById(@PathParam(formatVar) String format, @QueryParam("id") String id,
+    public Response getChildrenById(@Parameter(name = "format", in = ParameterIn.PATH,required = true, schema = @Schema(implementation = Formats.class)) @PathParam(formatVar) String format, @QueryParam("id") String id,
             @DefaultValue(DEFAULT_PAGE) @QueryParam(pageNumVar) int page, @DefaultValue(DEFAULT_PAGE_SIZE) @QueryParam(pageSizeVar) int pageSize) throws IOException {
         // The parent is the ancestor at level 1
         String contentType = Utils.getFormatFullName(format);
@@ -605,8 +586,7 @@ public class API extends Application {
         summary = "Returns all the IDs corresponding to an ontological term",
         tags = { Swagger.ONTOLOGIES_TAG }
     )
-    @Produces({JSON_LD, JSON, XML, RDF, TSV, CSV, TTL, N3, TXT})
-    public Response getIdByOntoTerm(@PathParam(formatVar) String format, @QueryParam("ontoTerm") String ontoTerm,
+    public Response getIdByOntoTerm(@Parameter(name = "format", in = ParameterIn.PATH,required = true, schema = @Schema(implementation = Formats.class)) @PathParam(formatVar) String format, @QueryParam("ontoTerm") String ontoTerm,
             @DefaultValue(DEFAULT_PAGE) @QueryParam(pageNumVar) int page, @DefaultValue(DEFAULT_PAGE_SIZE) @QueryParam(pageSizeVar) int pageSize) throws IOException {
         String contentType = Utils.getFormatFullName(format);
         if (contentType == null) {
@@ -622,8 +602,7 @@ public class API extends Application {
         summary = "Returns the name of an ontological element corresponding to its given ID",
         tags = { Swagger.ONTOLOGIES_TAG }
     )
-    @Produces({JSON_LD, JSON, XML, RDF, TSV, CSV, TTL, N3, TXT})
-    public Response getOntoTermById(@PathParam(formatVar) String format, @QueryParam("id") String id,
+    public Response getOntoTermById(@Parameter(name = "format", in = ParameterIn.PATH,required = true, schema = @Schema(implementation = Formats.class)) @PathParam(formatVar) String format, @QueryParam("id") String id,
             @DefaultValue(DEFAULT_PAGE) @QueryParam(pageNumVar) int page, @DefaultValue(DEFAULT_PAGE_SIZE) @QueryParam(pageSizeVar) int pageSize) throws IOException {
         String contentType = Utils.getFormatFullName(format);
         if (contentType == null) {
@@ -639,8 +618,7 @@ public class API extends Application {
         summary = "Get the ontological terms associated with the QTL, and the association",
         tags = { Swagger.ONTOLOGIES_TAG }
     )
-    @Produces({JSON_LD, JSON, XML, RDF, TSV, CSV, TTL, N3, TXT})
-    public Response getOntoTermsAssociatedWithQtl(@PathParam(formatVar) String format, @QueryParam("qtlId") String qtlId,
+    public Response getOntoTermsAssociatedWithQtl(@Parameter(name = "format", in = ParameterIn.PATH,required = true, schema = @Schema(implementation = Formats.class)) @PathParam(formatVar) String format, @QueryParam("qtlId") String qtlId,
             @DefaultValue(DEFAULT_PAGE) @QueryParam(pageNumVar) int page, @DefaultValue(DEFAULT_PAGE_SIZE) @QueryParam(pageSizeVar) int pageSize) throws IOException {
         String contentType = Utils.getFormatFullName(format);
         if (contentType == null) {
@@ -656,8 +634,7 @@ public class API extends Application {
         summary = "Get the ontological terms associated with the Protein, and the association",
         tags = { Swagger.ONTOLOGIES_TAG }
     )
-    @Produces({JSON_LD, JSON, XML, RDF, TSV, CSV, TTL, N3, TXT})
-    public Response getOntoTermsAssociatedWithProtein(@PathParam(formatVar) String format, @QueryParam("proteinId") String proteinId,
+    public Response getOntoTermsAssociatedWithProtein(@Parameter(name = "format", in = ParameterIn.PATH,required = true, schema = @Schema(implementation = Formats.class)) @PathParam(formatVar) String format, @QueryParam("proteinId") String proteinId,
             @DefaultValue(DEFAULT_PAGE) @QueryParam(pageNumVar) int page, @DefaultValue(DEFAULT_PAGE_SIZE) @QueryParam(pageSizeVar) int pageSize) throws IOException {
         String contentType = Utils.getFormatFullName(format);
         if (contentType == null) {
@@ -669,12 +646,11 @@ public class API extends Application {
 
     @GET
     @Path("/ontologies/terms/associatedWithGene" + formatInPath)
-    @Produces({MediaType.APPLICATION_JSON})
     @Operation(
         summary = "Get the ontological annotation associated with the Gene",
         tags = { Swagger.ONTOLOGIES_TAG }
     )
-    public Response getOntoTermsAssociatedWithGene(@PathParam(formatVar) String format, @QueryParam("geneId") String geneId) throws IOException {
+    public Response getOntoTermsAssociatedWithGene(@Parameter(name = "format", in = ParameterIn.PATH,required = true, schema = @Schema(implementation = Formats.class)) @PathParam(formatVar) String format, @QueryParam("geneId") String geneId) throws IOException {
         String contentType = Utils.getFormatFullName(format);
         if (contentType == null) {
             return Response.serverError().entity("[AgroLD Web Services] - Format Error: The requested resource is not available in the format \"" + format + "\"").build();
@@ -682,16 +658,4 @@ public class API extends Application {
         String content = OntologyDAO.getOntoTermsAssociatedWithGene(geneId);
         return buildResponse(content, contentType);
     }
-
-    // @GET
-    // @Path("/ontologies/terms/byKeywordTEST" + formatInPath)
-    // public Response getCountInstancesAssociatedWithOntologyId(@PathParam(formatVar) String format, @QueryParam("keyword") String keyword,
-    //         @DefaultValue(DEFAULT_PAGE) @QueryParam(pageNumVar) int page, @DefaultValue(DEFAULT_PAGE_SIZE) @QueryParam(pageSizeVar) int pageSize) throws IOException {
-    //     String contentType = Utils.getFormatFullName(format);
-    //     if (contentType == null) {
-    //         return Response.serverError().entity("[AgroLD Web Services] - Format Error: The requested resource is not available in the format \"" + format + "\"").build();
-    //     }
-    //     String content = OntologyDAO.getCountInstancesAssociatedWithOntologyId(keyword, page, pageSize, format);
-    //     return buildResponse(content, contentType);
-    // }
 }

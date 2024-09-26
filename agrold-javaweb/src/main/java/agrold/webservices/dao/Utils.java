@@ -40,6 +40,8 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 import agrold.config.PropertiesBean;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 /**
  *
@@ -63,53 +65,42 @@ public class Utils {
     public final static String TXT = "text/plain";
     public final static String XML = "application/sparql-results+xml";
 
+    @Getter
+    @AllArgsConstructor
+    public enum Formats {
+        JSON(".json", Utils.JSON),
+        JSON_LD(".jsonld", Utils.JSON_LD),
+        HTML(".html", Utils.HTML),
+        TSV(".tsv", Utils.TSV),
+        CSV(".csv", Utils.CSV),
+        RDF(".rdf", Utils.RDF),
+        XML(".xml", Utils.XML),
+        TTL(".ttl", Utils.TTL),
+        N3(".n3", Utils.N3);
+
+        private final String value;
+        private final String contentType;
+
+        @Override
+        public String toString() {
+            return value;
+        }
+    }
+
     // HTML, JSON, JSON_LD, XML, TSV, CSV, RDF, TTL, N3
     public static String getFormatFullName(String format) {
         if (format == null) {
             return JSON;
         }
-        switch (format.toLowerCase()) {
-            case ".json":
-                return JSON;
-            case ".jsonld":
-                return JSON_LD;
-            case ".html":
-                return HTML;
-            case ".tsv":
-                return TSV;
-            case ".csv":
-                return CSV;
-            case ".rdf":
-                return RDF;
-            case ".xml":
-            case "xml":
-                return XML;
-            case ".ttl":
-                return TTL;
-            case ".n3":
-                return N3;
-            case HTML:
-                return HTML;
-            case JSON:
-                return JSON;
-            case JSON_LD:
-                return JSON_LD;
-            case TSV:
-                return TSV;
-            case CSV:
-                return CSV;
-            case RDF:
-                return RDF;
-            case XML:
-                return XML;
-            case TTL:
-                return TTL;
-            case N3:
-                return N3;
-            default:
-                return null;
+        format = format.toLowerCase();
+        
+        for (Formats f: Formats.values()) {
+            if (f.getValue().equals(format) || f.getContentType().equals(format)) {
+                return f.getContentType();
+            }
         }
-        // return "";
+        
+        return null;
     }
 
     public static JSONArray concatJONArrays(JSONArray arr1, JSONArray arr2)
