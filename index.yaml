@@ -12,8 +12,8 @@ entries:
           image: docker.io/bitnami/tomcat:10.1.20-debian-12-r0
       licenses: Apache-2.0
     apiVersion: v2
-    appVersion: 2.3.0
-    created: "2024-08-26T13:57:02.232204119Z"
+    appVersion: 2.3.1
+    created: "2024-09-27T15:21:05.481377877Z"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -24,7 +24,7 @@ entries:
       on bitnami''s helm chart for Tomcat, version 11.0.0  Original description: Apache
       Tomcat is an open-source web server designed to host and run Java-based web
       applications. It is a lightweight server with a good performance for applications '
-    digest: 2667ebfac0028332c05c45df20966be68302ca1f83289be9bc1bfbb0d1966380
+    digest: 622154e26bef700a770656b5e09a2828790833fe0ad25aa9588d11f8e3572bd3
     home: https://github.com/SouthGreenPlatform/AgroLD_webapp/tree/master
     icon: https://raw.githubusercontent.com/SouthGreenPlatform/AgroLD_webapp/0513e23f842864379a635998897eb98d2d3eec6b/agrold-javaweb/src/main/webapp/images/Sans%20titre-1.png
     keywords:
@@ -213,8 +213,8 @@ entries:
           image: docker.io/agroldapp/lodview:2.0.0
       licenses: Apache-2.0
     apiVersion: v2
-    appVersion: 2.3.0
-    created: "2024-08-26T13:57:02.236114833Z"
+    appVersion: 2.3.1
+    created: "2024-09-27T15:21:05.485005357Z"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -222,7 +222,7 @@ entries:
       - bitnami-common
       version: 2.x.x
     description: IRI dereferencer, RDF to HTML
-    digest: 763908f07e693c0156b6acc81933e40b825563e6a3759a897e3d51654dce5eff
+    digest: f45c2d278bbf1f284937935dc832b98d370f8393090fe7fa83b6b2e49db337d7
     home: https://bitnami.com
     icon: https://avatars.githubusercontent.com/u/55362589?s=200&v=4
     keywords:
@@ -248,6 +248,20 @@ entries:
     - https://SouthGreenPlatform.github.io/AgroLD_webapp/lodview-1.0.0.tgz
     version: 1.0.0
   virtuoso:
+  - apiVersion: v2
+    appVersion: 2.3.1
+    created: "2024-09-27T15:21:05.485486675Z"
+    description: 'A Helm chart to deploy a Virtuoso instance with a SPARQL endpoint '
+    digest: d9b82aaee193c8b30e658aa33c42763af02275f2719f4c7f5bcd37d82356c53d
+    icon: https://store-images.s-microsoft.com/image/apps.27150.557b4e93-c573-4bac-97ec-a7edc7a03135.f218a1cc-095b-4626-b120-86e757fd27c2.84200834-db12-40c5-b2b6-fd52ac58201a
+    maintainers:
+    - name: Yann POMIE
+      url: https://yann-pomie.fr
+    name: virtuoso
+    type: application
+    urls:
+    - https://SouthGreenPlatform.github.io/AgroLD_webapp/virtuoso-1.2.1.tgz
+    version: 1.2.1
   - apiVersion: v2
     appVersion: 2.3.0
     created: "2024-08-26T13:57:02.237040043Z"
@@ -276,4 +290,4 @@ entries:
     urls:
     - https://SouthGreenPlatform.github.io/AgroLD_webapp/virtuoso-1.0.1.tgz
     version: 1.0.1
-generated: "2024-08-26T13:57:02.229028005Z"
+generated: "2024-09-27T15:21:05.47635698Z"
