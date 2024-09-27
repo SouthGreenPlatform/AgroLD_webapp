@@ -9,7 +9,7 @@ annotations:
       image: docker.io/bitnami/tomcat:10.1.20-debian-12-r0
   licenses: Apache-2.0
 apiVersion: v2
-appVersion: 2.3.0
+appVersion: 2.3.1
 dependencies:
 - name: common
   repository: oci://registry-1.docker.io/bitnamicharts
