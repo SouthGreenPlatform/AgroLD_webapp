@@ -1,0 +1,239 @@
+/*!
+ * Start Bootstrap - Simple Sidebar (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+ body {
+    overflow-x: hidden;
+ }
+
+/* Toggle Styles */
+
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+    padding-left: 250px;
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background: #fff;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    top: 0px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+.all-t-05 {
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 250px;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+   
+}
+
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -250px;
+}
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li {
+    text-indent: 20px;
+    line-height: 40px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #6e6e6e;
+}
+
+.sidebar-nav li a:hover { 
+    text-decoration: none;
+    color: #5c5c5c;
+    background: rgba(231, 231, 231,.2);
+}
+.sidebar-nav li.fkfk {
+	text-decoration: none;
+	color: #606060;
+	/*background: rgb(231, 231, 231);*/
+    border-left:solid cadetblue 3px;
+}
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+    /*! background : red; */
+    background-size:cover;
+    /*! padding-top : 59px; */
+    /*! height: 220px; */ 
+    font-size: 18px;
+    padding-bottom: 15px;
+    /*! color : white; */
+    border-bottom: solid 1px rgba(0,0,0,0.1);
+}
+
+.sidebar-nav > .sidebar-brand a {
+    color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+}
+/***************************
+*   Sidebar Documentation  *
+***************************/
+.sidebar-nav > .sidebar-brand {
+    padding-top : 75px;
+    text-indent : 0px;
+}
+.sidebar-nav > .sidebar-brand {
+}
+.sidebar-brand .inner {
+    position : relative;
+    display : flex;
+}
+.sidebar-brand .inner .col-sm-8 {
+    margin-left : 0 !important;
+    padding-left : 0 !important;
+}
+.o-u-name, .o-u-fname, .o-u-mail {
+    display: block;
+    color: grey;
+}
+ul.o-u-info  {
+    background : none !important;
+    
+    margin: 0 !important;
+    display: block !important;
+    
+}
+
+.inner .circle {
+    display: grid;
+    
+    
+    height: 40px;
+    width: 40px;
+    background : rgba(0,0,0,.45);
+    border-radius: 50%;
+    
+}
+.inner .circle i {
+    position: relative;
+    margin : auto;
+}
+h4.dib {
+    
+    margin-top : 20px;
+    border-left : solid 5px green;
+    text-indent : 15px;
+}
+/*****************************
+*   SideBar Level SubItem    *
+*****************************/
+ul.naavbar-nav,
+ul.naavbar-nav li,
+ul.naavbar-nav li a{
+    position: relative !important;
+}
+ul.sidebar-nav ul{
+    display: none;
+    position: relative;
+}
+ul.sidebar-nav li.fkfk ul{
+    
+    display: block;
+}
+ul.sidebar-nav ul {
+    background : rgba(0,0,0,.03);
+    padding : none !important;
+    padding-left : 0 !important;
+    margin : none !important;
+}
+ul.sidebar-nav ul li {
+    display: block !important;
+    position: relative !important;
+    margin : none !important;
+    text-indent: 20px !important;
+    list-style: none;
+}
+ul.sidebar-nav li span {
+    float: right;
+    width : 30px;
+    padding: 0;
+    text-indent: 0px;
+}
+.fkfk i.fa-caret-down {
+    color : rgba(0,0,0,.1);
+    transform: rotate(-90deg); 
+}
+
+/*****************
+*  Media Quey's  *
+*****************/
+
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 0;
+    }
+
+    #wrapper.toggled {
+        padding-left: 250px;
+    }
+
+    #sidebar-wrapper {
+        width: 0;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 250px;
+    }
+
+    #page-content-wrapper {
+        
+        position: relative;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+}

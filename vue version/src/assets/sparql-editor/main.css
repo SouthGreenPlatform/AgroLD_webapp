@@ -1,0 +1,75 @@
+.arian-thread {
+    height: 60px;
+    padding: 10px;
+    background: #f3f3f3;
+    font-weight: bold;
+    font-size: 25px;
+    color: #b3b3b3;
+  }
+  
+  .info_title {
+    font-weight: bold;
+    font-size: 25px;
+    color: #b3b3b3;
+  }
+  
+  .active-p {
+    color: #858d85;
+  }
+  
+  .foowrap {
+    position: relative;
+    min-height: 100%;
+  }
+  
+  #sparql {
+    width: 62%;
+    float: left;
+    border-radius: 5px;
+    /*ackground: #DDD;*/
+    padding-top: 15px;
+    position: relative;
+    border: 2px solid #3cb0fd !important;
+  }
+  
+  #patternslist {
+    overflow-y: auto;
+    width: 34%;
+    float: right;
+    min-height: 420px;
+    border-radius: 5px;
+    /*ackground: #ECDCCE;*/
+    padding: 5px;
+    border: 2px solid #00B5AD !important;
+  }
+  
+  h4 {
+    font-weight: bolder;
+  }
+  
+  form {
+    /*ackground-color: #f4f4f4;*/
+    font-size: 95%;
+    width: 98%;
+    padding: 5px
+  }
+  
+  input.aparameter {
+    color: #085;
+    /*ont-family:monospace;*/
+    width: 50%;
+  }
+  
+  #cmd-container {
+    background: #3cb0fd !important;
+    color: white;
+    top: 0;
+    right: 0;
+    position: absolute;
+    width: 22%;
+    padding: 5px 5px 5px 5px;
+    z-index: 10;
+    font-size: .875rem;
+    border-radius: 5px;
+    border: 2px solid #3cb0fd !important;
+  }

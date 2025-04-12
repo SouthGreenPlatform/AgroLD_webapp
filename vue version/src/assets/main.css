@@ -1,0 +1,86 @@
+@import './base.css';
+
+/* html { scroll-behavior: smooth; } */
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-weight: normal;
+  padding-top: 5% !important;
+}
+
+a,
+.green {
+  text-decoration: none;
+  /* color: hsla(160, 100%, 37%, 1); */
+  transition: 0.4s;
+  padding: 3px;
+}
+
+@media (hover: hover) {
+  /* a:hover {
+    background-color: hsla(160, 100%, 37%, 0.2);
+  } */
+}
+
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    place-items: center;
+  }
+
+  #app {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 4rem; /* 2rem; */
+    color: black !important;
+    /* padding-top: 5% !important; */
+  }
+}
+
+
+@media (min-width: 376px) {
+  .foowrap {
+    /*border : solid 1px red; */
+    position: relative;
+    min-height: calc(100vh - 400px);
+  }
+}
+
+@media (min-width: 576px) {
+  .foowrap {
+    /*border : solid 1px blue ; */
+    position: relative;
+    min-height: calc(100vh - 400px);
+  }
+}
+
+@media (min-width: 768px) {
+  .foowrap {
+    /*border : solid 1px brown; */
+    position: relative;
+    min-height: calc(100vh - 224px);
+    height: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  .foowrap {
+    /*border : solid 1px green; */
+    position: relative;
+    min-height: calc(100vh - 224px);
+
+  }
+}
+
+@media (min-width: 1200px) {}
+
+/********/
+@media (max-width: 576px) {
+  .foowrap {
+    /*border : solid 1px purple; */
+    position: relative;
+    min-height: calc(100vh - 450px);
+  }
+}

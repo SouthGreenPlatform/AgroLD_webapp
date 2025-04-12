@@ -1,0 +1,113 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Feb 19, 2019, 10:45:23 AM
+    Author     : tagnyngompé <gildas.tagny_ngompe at cirad.fr>
+*/
+    
+/* horizontal panel*/
+
+.panel-container {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid silver;
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 50%;
+    //overflow-y: scroll;
+    /* avoid browser level touch actions */
+    xtouch-action: none;
+}
+
+.panel-left {
+    flex: 0 0 auto;
+    /* only manually resize */
+    //padding: 10px;
+    width: 50%;
+    min-height: 200px;
+    min-width: 250px;
+    //  background: #838383;
+    //    color: white;
+}
+
+.splitter {
+    flex: 0 0 auto;
+    width: 18px; 
+    background-color: #eaf3ff;
+    background-image: url("vsplitter.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    min-height: 200px;
+    cursor: col-resize;  
+}
+
+.panel-right {
+    //flex: 1 1 auto;
+    /* resizable */
+    //padding: 10px;
+    //max-height: 50%;
+    overflow: hidden;
+    overflow-y: scroll;
+    //    background: #eee;
+}
+
+
+/* vertical panel */
+
+.panel-container-vertical {
+    display: flex;
+    flex-direction: column;
+    //height: 100%; //500px;
+    border: 1px solid silver;
+    overflow: hidden;
+}
+
+.panel-top {
+    flex: 0 0 auto;
+    /* only manually resize */
+    //    padding: 10px;
+    height: 40%;
+    width: 100%;
+    //white-space: nowrap;
+    //    background: #838383;
+    //    color: white;
+}
+
+.splitter-horizontal {
+    flex: 0 0 auto;
+    height: 18px;
+    background-color: #eaf3ff;
+    background-image: url("hsplitter.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    cursor: row-resize;
+}
+
+.panel-bottom {
+    //flex: 1 1 auto;
+    /* resizable */
+    padding: 10px;
+    //min-height: 100%;
+    height: auto;
+    //overflow-y: scroll;
+    //    background: #eee;
+}
+
+label {
+    font-size: 1.2em;
+    display: block;
+    font-weight: bold;
+    margin: 30px 0 10px;
+}
+
+pre {
+    margin: 20px;
+    padding: 10px;
+    background: #eee;
+    border: 1px solid silver;
+    border-radius: 4px;
+    overflow: auto;
+}
